@@ -1,0 +1,5 @@
+node_modules
+.nuxt
+.yarn
+package.json
+package-lock.json
