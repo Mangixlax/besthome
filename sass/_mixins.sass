@@ -1,0 +1,115 @@
+/* Mixin for comfortable media queries
+$mobile-width: 599px
+$tablet-portrait-width: 600px
+$tablet-landscape-width: 900px
+$desktop-width: 1200px
+$desktop-lg-width: 1800px
+
+=mobile
+  @media (max-width: #{$mobile-width})
+    @content
+
+=tablet
+  @media (min-width: #{$tablet-portrait-width}) and (max-width: #{$tablet-landscape-width})
+    @content
+
+=mobileWithTablet
+  @media (max-width: #{$tablet-landscape-width})
+    @content
+
+=desktop
+  @media (min-width: #{$desktop-width})
+    @content
+
+=desktop-lg
+  @media (min-width: #{$desktop-width + 1}) and (max-width: #{$desktop-lg-width})
+    @content
+
+/* Mixins for typography
+=style-0
+  font-family: Didot, serif
+  font-style: normal
+  font-weight: normal
+  font-size: 188px
+  line-height: 240px
+  letter-spacing: 0.04em
+
+=style-1
+  font-family: Didot, serif
+  font-style: normal
+  font-weight: bold
+  font-size: 80px
+  line-height: 108px
+  letter-spacing: 0.002em
+
+=style-2
+  font-family: Didot, serif
+  font-style: normal
+  font-weight: bold
+  font-size: 56px
+  line-height: 72px
+  letter-spacing: 0.002em
+
+=style-3
+  font-family: Didot, serif
+  font-style: normal
+  font-weight: bold
+  font-size: 40px
+  line-height: 56px
+  letter-spacing: 0.002em
+
+=style-4
+  font-family: Didot, serif
+  font-style: normal
+  font-weight: bold
+  font-size: 32px
+  line-height: 48px
+  letter-spacing: 0.002em
+
+=style-5
+  font-family: Inter, serif
+  font-style: normal
+  font-weight: 300
+  font-size: 17px
+  line-height: 32px
+  letter-spacing: 0.003em
+
+=style-6
+  font-family: Inter, serif
+  font-style: normal
+  font-weight: normal
+  font-size: 15px
+  line-height: 28px
+  letter-spacing: 0.003em
+
+=style-7
+  font-family: Inter, serif
+  font-style: normal
+  font-weight: normal
+  font-size: 14px
+  line-height: 28px
+  letter-spacing: 0.003em
+
+=style-8
+  font-family: Inter, serif
+  font-style: normal
+  font-weight: normal
+  font-size: 13px
+  line-height: 26px
+  letter-spacing: 0.003em
+
+=style-9
+  font-family: Inter, serif
+  font-style: normal
+  font-weight: normal
+  font-size: 12px
+  line-height: 15px
+  letter-spacing: 0.003em
+
+=style-10
+  font-family: Inter, serif
+  font-style: normal
+  font-weight: normal
+  font-size: 11px
+  line-height: 14px
+  letter-spacing: 0.24em

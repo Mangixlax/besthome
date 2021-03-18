@@ -11,14 +11,8 @@ module.exports = {
     ecmaVersion: 2018,
     requireConfigFile: false,
   },
-  extends: [
-    '@nuxtjs',
-    'plugin:vue/strongly-recommended'
-  ],
-  plugins: ['vue', '@babel'],
-  globals: {
-    API_URL: true,
-  },
+  extends: ['@nuxtjs', 'plugin:vue/strongly-recommended'],
+  plugins: ['vue', '@babel', 'prettier'],
   rules: {
     'vue/no-unused-components': 'warn',
     'vue/no-v-html': 'off',
