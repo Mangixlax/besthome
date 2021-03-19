@@ -21,7 +21,8 @@
       "@nuxt/types",
       "@nuxtjs/axios",
       "@nuxtjs/device",
-      "cookie-universal-nuxt"
+      "cookie-universal-nuxt",
+      "@types/jquery"
     ]
   },
   "exclude": ["node_modules", ".nuxt", "dist"]
