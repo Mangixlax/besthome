@@ -35,22 +35,22 @@ export default class TopLine extends Vue {
   /**
    * Animation Duration
    */
-  @Prop({ default: 40, type: Number }) duration!: Number
+  @Prop({ default: 40, type: Number }) duration!: number
 
   /**
    * Number of repeat the Slot (It's important for to short content)
    */
-  @Prop({ default: 2, type: Number }) repeat!: Number
+  @Prop({ default: 2, type: Number }) repeat!: number
 
   /**
    * The property specifies whether the animation is running or paused
    */
-  @Prop({ default: false, type: Boolean }) paused!: Boolean
+  @Prop({ default: false, type: Boolean }) paused!: boolean
 
   /**
    * The animation plays backwards each cycle
    */
-  @Prop({ default: false, type: Boolean }) reverse!: Boolean
+  @Prop({ default: false, type: Boolean }) reverse!: boolean
 }
 </script>
 

@@ -15,7 +15,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component, Getter } from 'nuxt-property-decorator'
-import TypoText from '~/components/Base/TypoText'
+import TypoText from '~/components/Base/TypoText.vue'
 import type { RootState } from '~/store'
 
 @Component({

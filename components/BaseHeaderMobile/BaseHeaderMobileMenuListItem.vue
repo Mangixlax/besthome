@@ -42,11 +42,11 @@ import TypoText from '~/components/Base/TypoText.vue'
 })
 export default class BaseHeaderMobileMenuListItem extends Vue {
   @Prop({ type: Object, default: null }) route!: Object
-  @Prop({ type: String, default: '' }) title!: String
-  @Prop({ type: String, default: '' }) name!: String
-  @Prop({ type: [String, Number], default: '' }) indicator!: String | Number
-  @Prop({ type: Boolean, default: false }) hasChildren!: Boolean
-  @Prop({ type: Boolean, default: false }) isParent!: Boolean
+  @Prop({ type: String, default: '' }) title!: string
+  @Prop({ type: String, default: '' }) name!: string
+  @Prop({ type: [String, Number], default: '' }) indicator!: string | number
+  @Prop({ type: Boolean, default: false }) hasChildren!: boolean
+  @Prop({ type: Boolean, default: false }) isParent!: boolean
 
   onClick() {
     if (this.hasChildren) {

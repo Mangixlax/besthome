@@ -56,9 +56,9 @@ import BaseHeaderMobileMenuListItem from '~/components/BaseHeaderMobile/BaseHead
 const NavigationStore = namespace('Navigation')
 
 interface secondNavigationListItem {
-  pageIndex: Number
-  parentListItem: NavigationListItem
-  children: NavigationListItem[]
+  pageIndex?: number
+  parentListItem?: NavigationListItem
+  children?: NavigationListItem[]
 }
 
 @Component({
@@ -67,10 +67,10 @@ interface secondNavigationListItem {
 export default class BaseHeaderMobileMenuPages extends Vue {
   @NavigationStore.Getter('getHeaderNavigationList') headerNavigationList!: NavigationListItem[]
 
-  public activeMenuPageIndex: Number = -1
+  public activeMenuPageIndex: number = -1
 
   get mainNavigationList(): NavigationListItem[] {
-    return (this.headerNavigationList || []).map((list: NavigationListItem) => {
+    return (this.headerNavigationList || []).map((list) => {
       return {
         name: list.name || '',
         title: list.title || '',
@@ -81,19 +81,19 @@ export default class BaseHeaderMobileMenuPages extends Vue {
     })
   }
 
-  get secondNavigationLists(): secondNavigationListItem {
+  get secondNavigationLists(): secondNavigationListItem[] {
     return (this.headerNavigationList || [])
-      .map((listItem: NavigationListItem, index: Number) => {
+      .map((listItem, index) => {
         return {
           pageIndex: index,
           parentListItem: listItem,
           children: listItem.children,
         }
       })
-      .filter((list: NavigationListItem) => (list.children || []).length)
+      .filter((list) => (list.children || []).length)
   }
 
-  activateMenuPage(pageIndex) {
+  activateMenuPage(pageIndex: number) {
     this.activeMenuPageIndex = pageIndex
   }
 

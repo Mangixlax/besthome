@@ -24,8 +24,8 @@ import TypoText from '~/components/Base/TypoText.vue'
   components: { TypoText },
 })
 export default class BaseHeaderInfo extends Vue {
-  @Prop({ type: Boolean, default: false }) hideOnMobile!: Boolean
-  @Prop({ type: Boolean, default: false }) alignRight!: Boolean
+  @Prop({ type: Boolean, default: false }) hideOnMobile!: boolean
+  @Prop({ type: Boolean, default: false }) alignRight!: boolean
 }
 </script>
 
