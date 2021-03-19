@@ -30,6 +30,7 @@ export default class BaseHeader extends Vue {}
   height: 92px
   position: sticky
   top: 0
+  background-color: $color-white
 
   @media (max-width: 1054px)
     position: static
