@@ -3,7 +3,9 @@ import { GetterTree, ActionTree, MutationTree, ActionContext } from 'vuex'
 /**
  * States
  */
-export const state = () => ({})
+export const state = () => ({
+  logoSubTitle: 'Construction' as string,
+})
 
 export type RootState = ReturnType<typeof state>
 
@@ -15,12 +17,20 @@ interface RootActionContext extends ActionContext<RootState, RootState> {}
 /**
  * Getters
  */
-export const getters: GetterTree<RootState, RootState> = {}
+export const getters: GetterTree<RootState, RootState> = {
+  getLogoSubTitle(state: RootState) {
+    return state.logoSubTitle
+  },
+}
 
 /**
  * Mutations
  */
-export const mutations: MutationTree<RootState> = {}
+export const mutations: MutationTree<RootState> = {
+  setLogoSubTitle(state: RootState, value: string) {
+    state.logoSubTitle = value
+  },
+}
 
 /**
  * Actions
@@ -28,5 +38,6 @@ export const mutations: MutationTree<RootState> = {}
 export const actions: ActionTree<RootState, RootState> = {
   async nuxtServerInit({ dispatch }: RootActionContext) {
     await dispatch('SettingsTopLine/init')
+    await dispatch('Navigation/init')
   },
 }

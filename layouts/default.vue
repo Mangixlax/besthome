@@ -4,6 +4,7 @@
     base-header
     nuxt
     div(style="height: 2000px")
+    base-header-mobile
 </template>
 
 <script lang="ts">
@@ -13,11 +14,12 @@ import TopLine from '~/components/TopLine/TopLine.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import { SettingsTopLineState } from '~/store/SettingsTopLine'
 import BaseHeader from '~/components/BaseHeader/BaseHeader.vue'
+import BaseHeaderMobile from '~/components/BaseHeaderMobile/BaseHeaderMobile.vue'
 
 const SettingsTopLineStore = namespace('SettingsTopLine')
 
 @Component({
-  components: { BaseHeader, TypoText, TopLine },
+  components: { BaseHeaderMobile, BaseHeader, TypoText, TopLine },
 })
 export default class DefaultLayout extends Vue {
   @SettingsTopLineStore.Getter('isHidden') topLineIsHidden!: SettingsTopLineState['hidden']

@@ -68,6 +68,9 @@ export default class TopLine extends Vue {
   align-items: center
   justify-content: center
 
+  @media (max-width: 1054px)
+    height: 48px
+
   &__inner
     max-width: 1248px
     height: 100%
