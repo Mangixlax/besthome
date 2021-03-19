@@ -28,10 +28,10 @@ import TypoText from '~/components/Base/TypoText.vue'
   components: { TypoText },
 })
 export default class CursorMover extends Vue {
-  public visibleCursor: boolean = true
-  public activeCursor: boolean = true
-  public pointerCursor: boolean = true
-  public textCursor: boolean = true
+  public visibleCursor: boolean = false
+  public activeCursor: boolean = false
+  public pointerCursor: boolean = false
+  public textCursor: boolean = false
   public vel: { x: number; y: number } = { x: 0, y: 0 }
   public pos: { x: number; y: number } = { x: 0, y: 0 }
   public speed: number = 0.55
