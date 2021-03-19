@@ -99,7 +99,9 @@ export default <NuxtConfig>{
     'cookie-universal-nuxt',
   ],
 
-  svgSprite: {},
+  svgSprite: {
+    publicPath: '/_nuxt/',
+  },
 
   /*
    ** Axios module configuration
@@ -130,6 +132,13 @@ export default <NuxtConfig>{
       },
     },
   },
+
+  router: {
+    prefetchLinks: false,
+    trailingSlash: true,
+  },
+
+  redirect: [{ from: '^(\\/[^\\?]*[^\\/])(\\?.*)?$', to: '$1/$2' }],
 
   /*
    ** Build configuration
