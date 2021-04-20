@@ -7,12 +7,12 @@
       [$style['cursor--active']]: activeCursor,\
       [$style['cursor--pointer']]: pointerCursor,\
       [$style['cursor--text']]: textCursor,\
+      [$style['cursor--off-exclusion']]: offExclusion,\
     }"
   )
     div(ref="revert" :class="$style['cursor__revert']")
       div(:class="$style['cursor__text']")
-        div Click
-        div and drag
+        div(v-html="text")
       div(:class="$style['cursor__media']")
         div(:class="$style['cursor__media-box']")
 </template>
@@ -32,10 +32,12 @@ export default class CursorMover extends Vue {
   public activeCursor: boolean = false
   public pointerCursor: boolean = false
   public textCursor: boolean = false
+  public text: string = ''
+  public offExclusion: boolean = false
   public vel: { x: number; y: number } = { x: 0, y: 0 }
   public pos: { x: number; y: number } = { x: 0, y: 0 }
   public speed: number = 0.55
-  public body: JQuery | undefined = undefined
+  public body: JQuery | null = null
 
   mounted() {
     this.body = $('body')
@@ -64,6 +66,14 @@ export default class CursorMover extends Vue {
     this.activeCursor = false
   }
 
+  disableExclusion(): void {
+    this.offExclusion = true
+  }
+
+  enableExclusion(): void {
+    this.offExclusion = false
+  }
+
   onMouseMove(e: JQuery.Event): any {
     if (!this.$refs.cursor) return false
 
@@ -73,6 +83,7 @@ export default class CursorMover extends Vue {
       overwrite: true,
       ease: 'expo.out',
       duration: this.visibleCursor ? this.speed : 0,
+      // @ts-ignore
       onUpdate: () => {
         return (this.vel = { x: e.clientX || 0 - this.pos.x, y: e.clientY || 0 - this.pos.y })
       },
@@ -103,12 +114,22 @@ export default class CursorMover extends Vue {
     this.pointerCursor = false
   }
 
-  onMouseEnterText(): void {
+  onMouseEnterText(e: MouseEvent): void {
+    const currentTarget = e.currentTarget as Element
+
     this.textCursor = true
+    this.text = (e.currentTarget as Element).getAttribute('data-cursor-text')
+
+    if (currentTarget.hasAttribute('data-cursor-off-exclusion')) {
+      this.disableExclusion()
+    }
   }
 
   onMouseLeaveText(): void {
     this.textCursor = false
+    this.text = ''
+
+    this.enableExclusion()
   }
 
   bindEvents(): void {
@@ -121,8 +142,8 @@ export default class CursorMover extends Vue {
         .on('mouseup', this.deactivateCursor)
         .on('mouseenter', 'a,input,textarea,button', this.onMouseEnterPointer)
         .on('mouseleave', 'a,input,textarea,button', this.onMouseLeavePointer)
-        .on('mouseenter', 'h1', this.onMouseEnterText)
-        .on('mouseleave', 'h1', this.onMouseLeaveText)
+        .on('mouseenter', 'h1,[data-cursor-text]', this.onMouseEnterText)
+        .on('mouseleave', 'h1,[data-cursor-text]', this.onMouseLeaveText)
   }
 
   unbindEvents(): void {
@@ -135,8 +156,8 @@ export default class CursorMover extends Vue {
         .off('mouseup', this.deactivateCursor)
         .off('mouseenter', 'a,input,textarea,button', this.onMouseEnterPointer)
         .off('mouseleave', 'a,input,textarea,button', this.onMouseLeavePointer)
-        .off('mouseenter', 'h1', this.onMouseEnterText)
-        .off('mouseleave', 'h1', this.onMouseLeaveText)
+        .off('mouseenter', 'h1,[data-cursor-text]', this.onMouseEnterText)
+        .off('mouseleave', 'h1,[data-cursor-text]', this.onMouseLeaveText)
   }
 }
 </script>
@@ -158,9 +179,9 @@ export default class CursorMover extends Vue {
     position: absolute
     display: block
     transform: scale(0)
-    background: $color-white
+    background-color: $color-white
     border-radius: 50%
-    transition: opacity 0.1s, transform 0.25s ease-in-out
+    transition: opacity 0.1s, transform 0.25s ease-in-out, background-color 0.25s ease
     top: -40px
     left: -40px
     width: 80px
@@ -231,6 +252,7 @@ export default class CursorMover extends Vue {
       padding: 1px
       opacity: 0
       border-radius: 50%
+      //noinspection CssInvalidPropertyValue
       -webkit-mask-image: -webkit-radial-gradient(circle, #fff 100%, #000 100%)
       transition: opacity 0.2s 0.2s, transform 0.35s
 </style>
