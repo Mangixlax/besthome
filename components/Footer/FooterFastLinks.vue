@@ -172,20 +172,7 @@ export default class FooterFastLinks extends Vue {
         }
       ]
     },
-    
   ]
-
-  mounted() {
-
-  }
-
-  test() {
-
-  }
-
-  get test2() {
-    return 123
-  }
 }
 </script>
 
