@@ -36,7 +36,7 @@ export default class DefaultLayout extends Vue {
     RootState
   >
 
-  @Mutation('detectTouchDevice') detectTouchDevice!: MutationTree<RootState, RootState>
+  @Mutation('detectTouchDevice') detectTouchDevice!: MutationTree<RootState> | any
 
   get isTouchDevice() {
     return this.$store.state.isTouchDevice

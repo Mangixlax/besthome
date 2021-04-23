@@ -32,7 +32,7 @@ export default class CursorMover extends Vue {
   public activeCursor: boolean = false
   public pointerCursor: boolean = false
   public textCursor: boolean = false
-  public text: string = ''
+  public text: string | null = ''
   public offExclusion: boolean = false
   public vel: { x: number; y: number } = { x: 0, y: 0 }
   public pos: { x: number; y: number } = { x: 0, y: 0 }
@@ -114,7 +114,7 @@ export default class CursorMover extends Vue {
     this.pointerCursor = false
   }
 
-  onMouseEnterText(e: MouseEvent): void {
+  onMouseEnterText(e: MouseEvent | any): void {
     const currentTarget = e.currentTarget as Element
 
     this.textCursor = true
