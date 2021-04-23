@@ -19,9 +19,9 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Component } from 'nuxt-property-decorator'
 import gsap from 'gsap'
 import $ from 'jquery'
+import { Component } from 'nuxt-property-decorator'
 import TypoText from '~/components/Base/TypoText.vue'
 
 @Component({

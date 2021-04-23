@@ -86,23 +86,24 @@ body[menu-open]
     align-items: center
     justify-content: center
     border-radius: 50%
-    box-shadow: inset 0 0 0 1px rgba($color-black, 0.04)
+    box-shadow: inset 0 0 0 1px rgba($color-black-100, 0.04)
     transition: background-color 0.25s ease
+    background-color: $color-white-100
 
     svg
       width: 17px
       height: 13px
-      fill: $color-black
+      fill: $color-black-100
       transition: fill 0.25s ease 0.10s
 
     .open &
-      background-color: $color-black
+      background-color: $color-black-100
       box-shadow: none
 
       svg
         width: 24px
         height: 24px
-        fill: $color-white
+        fill: $color-white-100
 
     .has-top-line &
       top: 72px
@@ -115,7 +116,7 @@ body[menu-open]
     height: 100vh
     overflow-y: hidden
     z-index: 998
-    background: #fff
+    background: $color-white-100
     top: 0
     left: 0
     display: flex

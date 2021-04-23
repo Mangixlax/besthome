@@ -4,6 +4,7 @@ import { GetterTree, ActionTree, MutationTree, ActionContext } from 'vuex'
  * States
  */
 export const state = () => ({
+  isTouchDevice: false as boolean,
   logoSubTitle: 'Construction' as string,
 })
 
@@ -29,6 +30,10 @@ export const getters: GetterTree<RootState, RootState> = {
 export const mutations: MutationTree<RootState> = {
   setLogoSubTitle(state: RootState, value: string) {
     state.logoSubTitle = value
+  },
+  detectTouchDevice(state: RootState) {
+    state.isTouchDevice =
+      'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0
   },
 }
 
