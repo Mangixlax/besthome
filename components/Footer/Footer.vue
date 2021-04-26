@@ -1,18 +1,20 @@
 <template lang="pug">
   footer(:class="$style['footer']")
-    footer-fast-links
     footer-company-description
     base-bread-crumbs
+    footer-site-map
+    footer-copyright
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import BaseBreadCrumbs from '~/components/Base/BaseBreadCrumbs.vue'
-import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue' 
 import FooterCompanyDescription from '~/components/Footer/FooterCompanyDescription.vue' 
+import FooterSiteMap from '~/components/Footer/FooterSiteMap.vue'
+import FooterCopyright from '~/components/Footer/FooterCopyright.vue'  
 
 @Component({
-  components: { BaseBreadCrumbs, FooterFastLinks, FooterCompanyDescription }
+  components: { BaseBreadCrumbs, FooterCompanyDescription, FooterSiteMap, FooterCopyright }
 })
 export default class Footer extends Vue {} 
 </script>
@@ -21,5 +23,5 @@ export default class Footer extends Vue {}
 .footer
   width: 100%
   magin: 0 auto
-  background: rgba(17, 17, 17, 0.08)
+  background: $color-black-8
 </style>
