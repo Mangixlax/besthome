@@ -65,11 +65,15 @@ export default class BaseBreadCrumbs extends Vue {
 <style lang="sass" module>
 .breadcrumbs
   display: flex
+  flex-wrap: wrap
   list-style: none
   max-width: 1184px
   padding: 0 32px
   margin: 0 auto
   margin-top: 32px
+
+  @media (max-width: 800px)
+    padding: 0 24px
 
   &__item
     display: flex
