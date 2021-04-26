@@ -3,6 +3,8 @@
     top-line(v-if="!topLineIsHidden" @close="onToggleHiddenMode")
     base-header
     nuxt
+    footer-fast-links
+    Footer
     div(style="height: 2000px")
     base-header-mobile
     cursor-mover(v-if="!isTouchDevice")
@@ -18,6 +20,8 @@ import TopLine from '~/components/TopLine/TopLine.vue'
 import BaseHeader from '~/components/BaseHeader/BaseHeader.vue'
 import BaseHeaderMobile from '~/components/BaseHeaderMobile/BaseHeaderMobile.vue'
 import CursorMover from '~/components/CursorMover.vue'
+import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue' 
+import Footer from '~/components/Footer/Footer.vue'
 
 const SettingsTopLineStore = namespace('SettingsTopLine')
 
@@ -27,6 +31,8 @@ const SettingsTopLineStore = namespace('SettingsTopLine')
     BaseHeader,
     BaseHeaderMobile,
     CursorMover,
+    FooterFastLinks,
+    Footer,
   },
 })
 export default class DefaultLayout extends Vue {
