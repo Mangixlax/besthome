@@ -63,7 +63,9 @@ export default <NuxtConfig>{
   css: ['normalize.css/normalize.css', '~/sass/theme.sass'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    '~plugins/v-click-outside.js'
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: false,
