@@ -3,6 +3,8 @@
     top-line(v-if="!topLineIsHidden" @close="onToggleHiddenMode")
     base-header
     nuxt
+    base-accordeons
+    base-subscribe
     footer-fast-links
     Footer
     div(style="height: 2000px")
@@ -20,6 +22,8 @@ import TopLine from '~/components/TopLine/TopLine.vue'
 import BaseHeader from '~/components/BaseHeader/BaseHeader.vue'
 import BaseHeaderMobile from '~/components/BaseHeaderMobile/BaseHeaderMobile.vue'
 import CursorMover from '~/components/CursorMover.vue'
+import BaseAccordeons from '~/components/Base/BaseAccordeons.vue'
+import BaseSubscribe from '~/components/Base/BaseSubscribe.vue'
 import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue' 
 import Footer from '~/components/Footer/Footer.vue'
 
@@ -31,6 +35,8 @@ const SettingsTopLineStore = namespace('SettingsTopLine')
     BaseHeader,
     BaseHeaderMobile,
     CursorMover,
+    BaseAccordeons,
+    BaseSubscribe,
     FooterFastLinks,
     Footer,
   },
