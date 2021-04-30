@@ -121,7 +121,7 @@ export const actions: ActionTree<NavigationState, RootState> = {
       },
       {
         name: 'Contact us',
-        route: { name: 'index' },
+        route: { name: 'contacts' },
         title: 'Contact us',
       },
     ])
