@@ -12,53 +12,45 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
-
-interface IBreadCrumbsItem {
-  name: string
-  to: {
-    name: string
-    query: Object
-    params: Object
-  }
-}
-
-@Component
-export default class BaseBreadCrumbs extends Vue {
-  public breadCrumbs: Array<IBreadCrumbsItem> = [
-    {
-      name: '%level%',
-      to: {
-        name: '',
-        query: {},
-        params: {},
-      },
-    },
-    {
-      name: '%level%',
-      to: {
-        name: '',
-        query: {},
-        params: {},
-      },
-    },
-    {
-      name: '%level%',
-      to: {
-        name: '',
-        query: {},
-        params: {},
-      },
-    },
-    {
-      name: '%level%',
-      to: {
-        name: '',
-        query: {},
-        params: {},
-      },
-    },
-  ]
+export default {
+  data() {
+    return {
+      breadCrumbs: [
+        {
+          name: '%level%',
+          to: {
+            name: '',
+            query: {},
+            params: {},
+          },
+        },
+        {
+          name: '%level%',
+          to: {
+            name: '',
+            query: {},
+            params: {},
+          },
+        },
+        {
+          name: '%level%',
+          to: {
+            name: '',
+            query: {},
+            params: {},
+          },
+        },
+        {
+          name: '%level%',
+          to: {
+            name: '',
+            query: {},
+            params: {},
+          },
+        },
+      ],
+    }
+  },
 }
 </script>
 
