@@ -73,7 +73,13 @@ export default {
 
   &__cards
     display: grid
-    grid-template-columns: repeat(auto-fit, minmax(248px, 1fr))
+    grid-template-columns: 1fr 1fr 1fr 1fr
+
+    @media (max-width: 900px)
+      grid-template-columns: 1fr 1fr
+
+    @media (max-width: 600px)
+      grid-template-columns: 1fr
 
     &-card
       padding: 32px
