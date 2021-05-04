@@ -45,7 +45,8 @@ export default {
     return {
       investorsPage: {
         title: 'Turkey - Real estate investment in Alanya',
-        text: 'Over the past 10 years, the Republic of Turkey has replenished its treasury with foreign investment of $ 100 billion. What attracts investors from Russia, the United States and Europe? Economic stability, political liberality to foreign investors, high quality of construction, relatively low taxes on the purchase of apartments and houses. And in recent years, the possibility of obtaining Turkish citizenship under a simplified scheme has also been added.',
+        text:
+          'Over the past 10 years, the Republic of Turkey has replenished its treasury with foreign investment of $ 100 billion. What attracts investors from Russia, the United States and Europe? Economic stability, political liberality to foreign investors, high quality of construction, relatively low taxes on the purchase of apartments and houses. And in recent years, the possibility of obtaining Turkish citizenship under a simplified scheme has also been added.',
         linkToProjects: {
           text: 'To date, the company has',
           link: '30 completed projects',
@@ -68,6 +69,12 @@ export default {
     padding: 80px 24px
     margin: 0 auto
 
+    @media (max-width: 1200px)
+      padding: 40px 24px
+
+    @media (max-width: 900px)
+      padding: 32px 24px
+
     &-title
       margin: 0
       margin-bottom: 40px
@@ -79,16 +86,22 @@ export default {
 .content__link
   display: flex
   align-items: center
+  flex-wrap: wrap
 
   &-text
     margin: 0
+    white-space: nowrap
 
     &--underline
+      white-space: nowrap
       text-decoration: underline
       text-decoration-color: $color-blue-16
       text-underline-offset: 7px
       color: $color-blue-100
       margin-left: 0.5em
+
+      @media (max-width: 450px)
+        margin-left: initial
 
   &-arrow
     height: 26px
