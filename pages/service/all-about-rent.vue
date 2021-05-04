@@ -7,6 +7,7 @@
 import PageServiceRent from '~/components/Page/Service/PageServiceRent.vue'
 
 export default {
+  name: 'all-about-rent',
   components: { PageServiceRent },
 }
 </script>
