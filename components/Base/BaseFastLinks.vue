@@ -29,7 +29,7 @@ export default class BaseFastLinks extends Vue {
   private active!: boolean
 
   public show: boolean = this.active
-  public contentHeight: string = "0px"
+  public contentHeight: string = '0px'
 
   onClick() {
     if (this.show) {
@@ -37,12 +37,14 @@ export default class BaseFastLinks extends Vue {
     } else {
       this.showAccordion()
     }
-    
+
     if (this.$parent.$children.length) {
       for (const $child of this.$parent.$children) {
-        console.log($child)
-        if (($child as any)._name.includes('BaseFastLinks') && (this as any)._uid !== ($child as any)._uid) {
-          ($child as this).hideAccordion()
+        if (
+          ($child as any)._name.includes('BaseFastLinks') &&
+          (this as any)._uid !== ($child as any)._uid
+        ) {
+          ;($child as this).hideAccordion()
         }
       }
     }
@@ -54,7 +56,7 @@ export default class BaseFastLinks extends Vue {
   }
 
   showAccordion() {
-    this.contentHeight = (this.$refs.linkContainer as Element).clientHeight + "px"
+    this.contentHeight = (this.$refs.linkContainer as Element).clientHeight + 'px'
     this.show = true
   }
 
@@ -125,7 +127,7 @@ export default class BaseFastLinks extends Vue {
       +style-8($with-media: false)
 
       &--underline
-        white-space: nowrap 
+        white-space: nowrap
         text-decoration: underline
         text-underline-offset: 7px
         text-decoration-color: rgba(17, 17, 17, 0.16)

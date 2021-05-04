@@ -8,7 +8,7 @@
           typo-text(
             tag="p"
             version="style-4"
-            :class="[$style['subscribe__textbox-text'], isWhiteTheme && $style['white']]"
+            :class="$style['subscribe__textbox-text']"
           ) Like what we do? Sign up to our newsletter.
         form(:class="$style['subscribe__formbox']")
           div(:class="$style['subscribe__mailing']")
@@ -17,13 +17,13 @@
               name="email"
               id="email"
               :placeholder="getPlaceholderValue()"
-              :class="[$style['subscribe__mailing-email'], isWhiteTheme && $style['white']]"
+              :class="$style['subscribe__mailing-email']"
               required
             )
             button(
               type="submit"
               id="submit"
-              :class="[$style['subscribe__mailing-submit'], isWhiteTheme && $style['white']]"
+              :class="$style['subscribe__mailing-submit']"
             ) Accept
           div(:class="$style['subscribe__agreement']")
             label(:class="$style['subscribe__agreement-label']")
@@ -36,7 +36,7 @@
               typo-text(
                 tag="p"
                 version="style-8"
-                :class="[$style['subscribe__agreement-text'], isWhiteTheme && $style['white']]"
+                :class="$style['subscribe__agreement-text']"
               ) I agree to allow BestHome to collect and
               span
                 nuxt-link(
@@ -48,7 +48,7 @@
                 :to="{ name: 'projects' }"
                 :class="$style['subscribe__agreement-link']"
               )  
-                svg-icon(name="white-link-arrow" v-if="!isWhiteTheme")   
+                svg-icon(name="link-arrow-white" v-if="!isWhiteTheme")   
                 svg-icon(name="link-arrow-blue" v-if="isWhiteTheme")   
 </template>
 

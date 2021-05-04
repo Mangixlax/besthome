@@ -16,57 +16,11 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
 import CommonAccordeonItem from '~/components/Common/CommonAccordeonItem.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 
-interface IBreadCrumbsItem {
-  name: string
-  to: {
-    name: string
-    query: Object
-    params: Object
-  }
-}
-
-@Component({
+export default {
   components: { CommonAccordeonItem, TypoText },
-})
-export default class BaseBreadCrumbs extends Vue {
-  public breadCrumbs: Array<IBreadCrumbsItem> = [
-    {
-      name: '%level%',
-      to: {
-        name: '',
-        query: {},
-        params: {},
-      },
-    },
-    {
-      name: '%level%',
-      to: {
-        name: '',
-        query: {},
-        params: {},
-      },
-    },
-    {
-      name: '%level%',
-      to: {
-        name: '',
-        query: {},
-        params: {},
-      },
-    },
-    {
-      name: '%level%',
-      to: {
-        name: '',
-        query: {},
-        params: {},
-      },
-    },
-  ]
 }
 </script>
 
@@ -75,11 +29,12 @@ export default class BaseBreadCrumbs extends Vue {
   background: $color-black-100
 
   &__container
-    max-width: 864px
+    max-width: 928px
     margin: 0 auto
+    padding: 120px 32px 64px 32px
 
     @media (max-width: 900px)
-      padding: 32px
+      padding: 64px 32px 32px 32px
 
     &-text
       color: $color-white-88

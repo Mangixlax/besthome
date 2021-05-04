@@ -10,9 +10,7 @@ import PageContactsMap from '~/components/Page/Contacts/PageContactsMap.vue'
 @Component({
   components: { PageContactsMap },
 })
-export default class IndexPage extends Vue {
-
-}
+export default class IndexPage extends Vue {}
 </script>
 
 <style lang="sass" module></style>

@@ -49,7 +49,7 @@ interface IFastLink {
 @Component({
   components: { BaseFastLinks, TypoText },
 })
-export default class FooterFastLinks extends Vue {
+export default class FooterSiteMap extends Vue {
   public siteMapColumns: Array<IFastLinksColumns> = [
     {
       title: 'Choose and buy',
@@ -209,7 +209,7 @@ export default class FooterFastLinks extends Vue {
   column-gap: 48px
   grid-auto-flow: row
   align-items: start
-  justify-items: start  
+  justify-items: start
   padding-bottom: 32px
 
   &-column-0
@@ -245,7 +245,7 @@ export default class FooterFastLinks extends Vue {
       grid-row: auto
       margin-top: 0
 
-  @media (max-width: 409px)  
+  @media (max-width: 409px)
     grid-template-columns: 1fr
 
     &-column-0
@@ -259,7 +259,7 @@ export default class FooterFastLinks extends Vue {
     &-column-4
       grid-column: auto
       grid-row: auto
-      margin-top: 0  
+      margin-top: 0
 
 .map__phone
 
@@ -267,7 +267,7 @@ export default class FooterFastLinks extends Vue {
     display: flex
     align-items: center
     flex-wrap: wrap
-  
+
   span
     white-space: nowrap
 
@@ -283,7 +283,7 @@ export default class FooterFastLinks extends Vue {
     color: $color-blue
     cursor: pointer
     margin: 0px
-  
+
     &--underline
       @extend .map__phone-link
       border-bottom: 1px solid rgba($color-blue, 0.16)

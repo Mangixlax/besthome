@@ -1,7 +1,9 @@
 <template lang="pug">
   main
     page-investors-title
-    base-post
+    base-post(
+      :filename="require(`~/assets/images/test.jpg`)"
+    )
       typo-text(
         tag="h3"
         version="style-3"
@@ -20,7 +22,11 @@
         ) 30 completed projects
         | .
     page-investors-advice
-    base-post(flip text-flip)
+    base-post(
+      :filename="require(`~/assets/images/test.jpg`)" 
+      flip 
+      text-flip
+    )
       typo-text(
         tag="h3"
         version="style-3"
@@ -40,7 +46,9 @@
           version="style-5"
         ) about Cleopatra Select 
         | .
-    base-post
+    base-post(
+      :filename="require(`~/assets/images/test.jpg`)"
+    )
       typo-text(
         tag="h3"
         version="style-3"
@@ -63,16 +71,35 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
 import PageInvestorsTitle from '~/components/Page/Investors/PageInvestorsTitle.vue'
 import PageInvestorsAdvice from '~/components/Page/Investors/PageInvestorsAdvice.vue'
 import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 
-@Component({
+export default {
+  name: 'investors',
   components: { PageInvestorsTitle, PageInvestorsAdvice, BasePost, TypoText },
-})
-export default class IndexPage extends Vue {}
+  data() {
+    return {
+      myData: [
+        {
+          type: 'header',
+          data: {
+            text: 'asdfasdfasf',
+            level: 2,
+          },
+        },
+        {
+          type: 'list',
+          data: {
+            style: 'ordered',
+            items: ['adsfasdf', 'asdf', 'asdf', 'asdf'],
+          },
+        },
+      ],
+    }
+  },
+}
 </script>
 
 <style lang="sass" module></style>

@@ -38,33 +38,33 @@ interface ICopyrightItems {
 }
 
 @Component({
-  components: { BaseFastLinks, BaseSelectLanguage, TypoText }
+  components: { BaseFastLinks, BaseSelectLanguage, TypoText },
 })
-export default class FooterFastLinks extends Vue {
+export default class FooterCopyright extends Vue {
   public copyrightItems: Array<ICopyrightItems> = [
     {
-      name: "Privacy Policy",
-      to: "/"
+      name: 'Privacy Policy',
+      to: '/',
     },
     {
-      name: "Use of cookies",
-      to: "/"
+      name: 'Use of cookies',
+      to: '/',
     },
     {
-      name: "Terms of Use",
-      to: "/"
+      name: 'Terms of Use',
+      to: '/',
     },
     {
-      name: "Sale & refund",
-      to: "/"
+      name: 'Sale & refund',
+      to: '/',
     },
     {
-      name: "Legal information",
-      to: "/"
+      name: 'Legal information',
+      to: '/',
     },
     {
-      name: "Site Map",
-      to: "/"
+      name: 'Site Map',
+      to: '/',
     },
   ]
 }
@@ -112,7 +112,7 @@ export default class FooterFastLinks extends Vue {
 
     @media (max-width: 2000px) and (min-width: 800px)
       width: 785px
-    
+
     @media (max-width: 800px) and (min-width: 411px)
       width: 338px
       justify-content: start
@@ -120,12 +120,12 @@ export default class FooterFastLinks extends Vue {
     @media (max-width: 411px)
       width: 310px
       justify-content: start
-      
+
   &__item
 
     &-link
       text-decoration: underline
-      white-space: nowrap 
+      white-space: nowrap
       color: $color-black-88
       text-decoration-color: $color-black-16
       text-underline-offset: 7px
