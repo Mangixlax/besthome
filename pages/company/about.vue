@@ -1,5 +1,6 @@
 <template lang="pug">
   main
+    page-company-about-title
     base-post(
       :filename="require(`~/assets/images/test.jpg`)" 
       flip 
@@ -166,12 +167,13 @@
 </template>
 
 <script lang="ts">
+import PageCompanyAboutTitle from '~/components/Page/Company/PageCompanyAboutTitle.vue'
 import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 
 export default {
   name: 'introductory-tour',
-  components: { BasePost, TypoText },
+  components: { PageCompanyAboutTitle, BasePost, TypoText },
 }
 </script>
 

@@ -1,5 +1,6 @@
 <template lang="pug">
   main
+    page-company-history-title
     base-post(
       :filename="require(`~/assets/images/test.jpg`)"
     )
@@ -21,12 +22,13 @@
 </template>
 
 <script lang="ts">
+import PageCompanyHistoryTitle from '~/components/Page/Company/PageCompanyHistoryTitle.vue'
 import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 
 export default {
   name: 'legal-support',
-  components: { BasePost, TypoText },
+  components: { PageCompanyHistoryTitle, BasePost, TypoText },
 }
 </script>
 
