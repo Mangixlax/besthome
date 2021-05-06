@@ -98,11 +98,6 @@ export const actions: ActionTree<NavigationState, RootState> = {
         titleInChildren: 'Introductory tour',
         children: [
           {
-            name: 'Introductory tour',
-            route: { name: 'service-introductory-tour' },
-            title: 'Introductory tour',
-          },
-          {
             name: 'Online purchase',
             indicator: 'new',
             route: { name: 'service-online-purchase' },
@@ -140,6 +135,11 @@ export const actions: ActionTree<NavigationState, RootState> = {
             name: 'About company',
             route: { name: 'company-about' },
             title: 'About company',
+          },
+          {
+            name: 'Our team',
+            route: { name: 'company-our-team' },
+            title: 'Our team',
           },
           {
             name: 'History',

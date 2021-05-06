@@ -1,5 +1,10 @@
 <template lang="pug">
   main
+    base-image-title(:imageTitleData="legalSupportImageTitle")
+      typo-text(
+        tag="p"
+        version="style-5"
+      ) After signing the purchase and sale agreement, we will receive for you the taxpayer's number, which is necessary for registration of the Certificate of ownership, and also, if desired, we will open an account in your name in a Turkish bank.
     base-post(
       :filename="require(`~/assets/images/test.jpg`)"
     )
@@ -24,6 +29,8 @@
       text-flip
     )
       typo-text(
+        tag="p"
+        version="style-5"
       ) If you are unable to come to Turkey to issue a Certificate of ownership, as well as to issue water and electricity meters in your name, you can issue a power of attorney to our employees, so that they can issue a full package of documents without your personal presence.
     base-post(
       :filename="require(`~/assets/images/test.jpg`)"
@@ -48,10 +55,22 @@
 <script lang="ts">
 import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
+import BaseImageTitle from '~/components/Base/BaseImageTitle.vue'
 
 export default {
   name: 'legal-support',
-  components: { BasePost, TypoText },
+  components: { BasePost, TypoText, BaseImageTitle },
+  data() {
+    return {
+      legalSupportImageTitle: {
+        header: 'Legal support',
+        text: [
+          'Our specialists will not only prepare all the necessary documents for the transfer of ownership in your name, but also check the legal purity of all documents for the purchase of secondary real estate.',
+        ],
+        filename: 'service-legal-support-bg.jpg',
+      },
+    }
+  },
 }
 </script>
 

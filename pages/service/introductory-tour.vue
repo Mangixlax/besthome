@@ -1,5 +1,10 @@
 <template lang="pug">
   main
+    base-image-title(:imageTitleData="introductoryTourImageTitle")
+      typo-text(
+        tag="h2"
+        version="style-4"
+      ) If you have decided to purchase a property in Alanya, but are not ready for an online purchase, we will be happy to offer you the service of an individual study tour.
     base-post(
       :filename="require(`~/assets/images/test.jpg`)"
     )
@@ -114,10 +119,22 @@
 <script lang="ts">
 import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
+import BaseImageTitle from '~/components/Base/BaseImageTitle.vue'
 
 export default {
   name: 'introductory-tour',
-  components: { BasePost, TypoText },
+  components: { BasePost, TypoText, BaseImageTitle },
+  data() {
+    return {
+      introductoryTourImageTitle: {
+        header: 'Introductory tour',
+        text: [
+          "After talking with the manager of our company, you can tell him about the dates that are most suitable for you to come to Turkey. Thanks to the high professionalism of the company's employees, as well as the excellent organization, the study tour usually takes no more than 3-4 days. This time is enough to get acquainted with the districts of the city of Alanya, get answers to all your questions and explore the properties that interest you.",
+        ],
+        filename: 'service-introductory-tour.jpg',
+      },
+    }
+  },
 }
 </script>
 

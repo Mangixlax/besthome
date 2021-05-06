@@ -1,5 +1,10 @@
 <template lang="pug">
   main
+    base-image-title(:imageTitleData="turkishCitizenshipImageTitle")
+      typo-text(
+        tag="p"
+        version="style-5"
+      ) Turkey is a great place for seasonal recreation and for living. Many foreigners dream of moving to the Republic of Turkey for permanent residence. Go into business. Buy your own home. And move to the land of the hot sun with your family.
     page-service-list-card(:listCardData="TurkishCitizenshipListCard")
     base-post(
       :filename="require(`~/assets/images/test.jpg`)"
@@ -57,13 +62,21 @@
 <script lang="ts">
 import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
+import BaseImageTitle from '~/components/Base/BaseImageTitle.vue'
 import PageServiceListCard from '~/components/Page/Service/PageServiceListCard.vue'
 
 export default {
   name: 'turkish-citizenship',
-  components: { BasePost, TypoText, PageServiceListCard },
+  components: { BasePost, TypoText, BaseImageTitle, PageServiceListCard },
   data() {
     return {
+      turkishCitizenshipImageTitle: {
+        header: 'Turkish citizenship',
+        text: [
+          'Since 2019, foreign investors have had a real opportunity to make their dreams come true. Now, when buying a property worth $ 250,000 or more, you can get Turkish citizenship under a simplified scheme. Moreover, the owners of a house or apartment, their spouses and children under 18 can become full citizens directly.',
+        ],
+        filename: 'turkish-citizenship-bg.jpg',
+      },
       TurkishCitizenshipListCard: {
         header: {
           title: 'Real benefits for foreigners',
