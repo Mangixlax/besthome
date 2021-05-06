@@ -31,7 +31,7 @@ export default class BaseHeader extends Vue {}
   position: sticky
   top: 0
   background-color: $color-white
-  z-index: 1
+  z-index: 2
 
   @media (max-width: 1054px)
     position: static

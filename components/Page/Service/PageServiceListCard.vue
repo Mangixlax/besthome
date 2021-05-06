@@ -67,6 +67,9 @@ export default {
     padding-right: 40px
     margin-bottom: 24px
 
+    @media (max-width: 900px)
+      padding-right: initial
+      
     &-title
       margin: 0
       max-width: 300px

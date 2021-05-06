@@ -1,7 +1,7 @@
 <template lang="pug">
   section(:class="$style['accordeons']")
     div(:class="$style['accordeons__container']")
-      common-accordeon-item(title="Our main adventage")
+      common-accordeon-item(title="Our main adventage" active)
         typo-text(
           tag="p"
           version="style-6"

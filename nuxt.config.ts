@@ -17,7 +17,7 @@ export default <NuxtConfig>{
    * See https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-server
    */
   server: {
-    host: process.env.HOST,
+    host: '0.0.0.0',
     port: process.env.PORT,
   },
 
@@ -64,7 +64,8 @@ export default <NuxtConfig>{
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~plugins/v-click-outside.js'
+    '~plugins/v-click-outside.js',
+    '~plugins/vue-scrollmagic.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -257,6 +258,7 @@ export default <NuxtConfig>{
           'postcss-reduce-idents': {},
           'postcss-url': false,
           'postcss-nested': {},
+          'postcss-nested-ancestors': {},
           'postcss-responsive-type': {},
           'postcss-hexrgba': {},
         }),

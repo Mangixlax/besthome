@@ -61,10 +61,12 @@ export default {
 
     @media (max-width: 1200px)
       justify-content: center
-      display: flex
+      display: grid
+      grid-template-columns: 1fr 1fr
       padding: 40px 24px
 
     @media (max-width: 900px)
+      display: flex
       flex-direction: column
       align-items: center
       padding: 32px 24px
@@ -125,8 +127,8 @@ export default {
 
       @media (max-width: 1200px)
         max-width: 600px
-        padding-left: 120px
-        padding-right: 120px
+        padding-left: 50px
+        padding-right: 100px
 
       @media (max-width: 900px)
         padding: 0
