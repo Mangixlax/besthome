@@ -11,17 +11,20 @@
       typo-text(
         tag="nuxt-link"
         version="style-5"
-        :to="`/company/our-team/${card.id}/`"
+         :to="{\
+          name: 'company-our-team-id',\
+          params: {\
+            id: card.id\
+          }\
+        }"
         :class="$style['personal-card__name-link']"
-      ) 
-        | {{ card.name }}
+      ) {{ card.name }}
       svg-icon(name="link-arrow-blue") 
     typo-text(
       tag="p"
       version="style-7"
       :class="$style['personal-card-position']"
-    ) 
-      | {{ card.position }}  
+    ) {{ card.position }}  
 </template>
 
 <script lang="ts">
