@@ -1,6 +1,8 @@
 <template lang="pug">
   main
     page-company-about-title
+    page-company-advantages-slider
+    base-scroll-line
     base-post(
       :filename="require(`~/assets/images/test.jpg`)" 
       flip 
@@ -168,12 +170,20 @@
 
 <script lang="ts">
 import PageCompanyAboutTitle from '~/components/Page/Company/PageCompanyAboutTitle.vue'
+import PageCompanyAdvantagesSlider from '~/components/Page/Company/PageCompanyAdvantagesSlider.vue'
+import BaseScrollLine from '~/components/Base/BaseScrollLine.vue'
 import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 
 export default {
   name: 'introductory-tour',
-  components: { PageCompanyAboutTitle, BasePost, TypoText },
+  components: {
+    PageCompanyAboutTitle,
+    PageCompanyAdvantagesSlider,
+    BaseScrollLine,
+    BasePost,
+    TypoText,
+  },
 }
 </script>
 

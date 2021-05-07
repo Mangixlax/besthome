@@ -25,23 +25,26 @@
           version="style-5"
           :class="$style['personal-page__photo-name']"
         ) {{ paragraph }}
+    section(:class="$style['personal-page']")
+      page-company-our-team-slider
 </template>
 
 <script>
 import TypoText from '~/components/Base/TypoText.vue'
+import PageCompanyOurTeamSlider from '~/components/Page/Company/PageCompanyOurTeamSlider.vue'
 
 export default {
   name: 'PersonalPage',
-  components: { TypoText },
+  components: { TypoText, PageCompanyOurTeamSlider },
   data() {
     return {
-      routeParam: 1
+      routeParam: 1,
     }
   },
   computed: {
     person() {
       return this.$store.getters.getPersonById(this.$route.params.id)
-    }
+    },
   },
 }
 </script>
@@ -70,7 +73,7 @@ export default {
 
     &-name
       margin: 0
-    
+
     &-position
       margin: 0
 
@@ -79,7 +82,7 @@ export default {
     margin: 0 auto
     display: flex
     flex-direction: column
-  
+
   &__biography
     max-width: 910px
     padding: 80px 24px
@@ -89,7 +92,7 @@ export default {
 
     @media (max-width: 900px)
       padding: 24px
-  
+
 .content__link
   display: flex
   align-items: center
