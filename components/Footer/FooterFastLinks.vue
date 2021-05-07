@@ -25,7 +25,7 @@ interface IFastLink {
 }
 
 @Component({
-  components: { BaseFastLinks }
+  components: { BaseFastLinks },
 })
 export default class FooterFastLinks extends Vue {
   public fastLinksColumns: Array<IFastLinksColumns> = [
@@ -33,146 +33,149 @@ export default class FooterFastLinks extends Vue {
       title: '%LinksTitle1%',
       list: [
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
-        }
-      ]
-    },{
+          name: '%FastLink%',
+          to: '/',
+        },
+      ],
+    },
+    {
       title: '%LinksTitle2%',
       list: [
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
-        }
-      ]
-    },{
+          name: '%FastLink%',
+          to: '/',
+        },
+      ],
+    },
+    {
       title: '%LinksTitle3%',
       list: [
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
-        }
-      ]
-    },{
+          name: '%FastLink%',
+          to: '/',
+        },
+      ],
+    },
+    {
       title: '%LinksTitle4%',
       list: [
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
+          name: '%FastLink%',
+          to: '/',
         },
         {
-          name: "%FastLink%",
-          to: "/"
-        }
-      ]
+          name: '%FastLink%',
+          to: '/',
+        },
+      ],
     },
   ]
 }
@@ -181,9 +184,8 @@ export default class FooterFastLinks extends Vue {
 <style lang="sass" module>
 .fastlinks
   width: 100%
-  magin: 0 auto
   background: $color-black-8
-  
+
   &__container
     display: flex
     justify-content: space-between
@@ -196,11 +198,11 @@ export default class FooterFastLinks extends Vue {
       display: grid
       grid-template-columns: 1fr 1fr
       align-items: start
-      justify-items: center 
+      justify-items: center
       grid-row-gap: 30px
       grid-column-gap: 30px
       padding: 34px 24px
 
     @media (max-width: 410px)
-      padding: 34px 24px   
+      padding: 34px 24px
 </style>

@@ -26,7 +26,6 @@ export default class FooterCompanyDescription extends Vue {
 <style lang="sass" module>
 .company
   width: 100%
-  magin: 0 auto
 
   &__container
     padding: 32px

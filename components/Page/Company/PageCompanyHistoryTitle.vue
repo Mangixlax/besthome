@@ -76,6 +76,9 @@ export default {
     padding: 80px 24px
     margin: 0 auto
 
+    @media (max-width: 900px)
+      padding: 32px 24px
+
     &-title
       margin: 0
       margin-bottom: 40px

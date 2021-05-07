@@ -9,19 +9,18 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import BaseBreadCrumbs from '~/components/Base/BaseBreadCrumbs.vue'
-import FooterCompanyDescription from '~/components/Footer/FooterCompanyDescription.vue' 
+import FooterCompanyDescription from '~/components/Footer/FooterCompanyDescription.vue'
 import FooterSiteMap from '~/components/Footer/FooterSiteMap.vue'
-import FooterCopyright from '~/components/Footer/FooterCopyright.vue'  
+import FooterCopyright from '~/components/Footer/FooterCopyright.vue'
 
 @Component({
-  components: { BaseBreadCrumbs, FooterCompanyDescription, FooterSiteMap, FooterCopyright }
+  components: { BaseBreadCrumbs, FooterCompanyDescription, FooterSiteMap, FooterCopyright },
 })
-export default class Footer extends Vue {} 
+export default class Footer extends Vue {}
 </script>
 
 <style lang="sass" module>
 .footer
   width: 100%
-  magin: 0 auto
   background: $color-black-8
 </style>
