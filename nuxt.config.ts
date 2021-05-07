@@ -64,8 +64,9 @@ export default <NuxtConfig>{
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    "~plugins/slider-swiper.js",
     '~plugins/v-click-outside.js',
-    '~plugins/vue-scrollmagic.js'
+    { src: '~plugins/vue-scrollmagic.js', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -138,7 +139,6 @@ export default <NuxtConfig>{
 
   router: {
     prefetchLinks: false,
-    trailingSlash: true,
   },
 
   redirect: [{ from: '^(\\/[^\\?]*[^\\/])(\\?.*)?$', to: '$1/$2' }],
