@@ -42,7 +42,7 @@ export default class PageWelcome extends Vue {
 
   @Watch('isTouchDevice')
   onChangeTouchDevice(isTouchDevice: boolean) {
-    if (process.client && !isTouchDevice) {
+    if (process.client && isTouchDevice) {
       gsap.to([this.$refs.header1, this.$refs.header2, this.$refs.header3], {
         rotationX: '0deg',
         rotationY: '0deg',

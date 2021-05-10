@@ -4,7 +4,7 @@
       div(
         :class="$style['personal-page__photo']"
         :style="{ backgroundImage: `url(${require('~/assets/images/our-team/' + person.image)})` }"
-      ) 
+      )
         div(:class="$style['personal-page__info']")
           typo-text(
             tag="h2"

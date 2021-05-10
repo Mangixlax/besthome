@@ -1,18 +1,25 @@
 <template lang="pug">
   section(
-
-    :class="[$style['slider'], isSlidePressed && $style['pressed']]"
-    data-cursor-text="Click<br>and drag"
-    data-cursor-off-exclusion
+    :class="[\
+      $style['slider'],\
+      isSliderPressed && $style['pressed'],\
+      isSliderDisabled && $style['disabled']\
+    ]"
   )
     div(:class="$style['slider__image-wrapper']")
-      img(:class="$style['slider__image']" src="~assets/images/img.16e05b0.jpg")
-    button(@click.prevent="changeCaptionsBackward" style="position: relative; z-index: 999") TEST
+      img(:class="$style['slider__image']" src="~assets/images/hero-slide-1.jpg")
+    div(:class="$style['slider__nav']")
+      div(:class="$style['slider__nav-prev']" @click="sliderTurnForward")
+        svg-icon(name="hero-slider-arrow")
+      div(:class="$style['slider__nav-next']" @click="sliderTurnBackward")
+        svg-icon(name="hero-slider-arrow")
     div(
       ref="slider"
       :class="{\
         [$style['slide']]: true,\
       }"
+      data-cursor-text="Click<br>and drag"
+      data-cursor-off-exclusion
     )
       div(:class="$style['slide__counter']")
         | Projects {{ currentSlideIndex + 1 }} of {{ slides.length }}
@@ -25,14 +32,29 @@
         ref="captionNext"
         :class="[$style['slide__caption'], $style['slide__caption--next']]"
       ) {{ slides[nextSlideIndex].title }}
+      div(:class="$style['slide__info']")
+        div(:class="$style['slide__info-line']")
+          span(:class="$style['slide__info-text']") {{ slides[currentSlideIndex].location.city }}
+          span(:class="$style['slide__info-text']") /
+          span(:class="$style['slide__info-text']") {{ slides[currentSlideIndex].location.region }}
+        div(:class="$style['slide__info-line']")
+          span(:class="$style['slide__info-text']") From
+          span(:class="$style['slide__info-text']") {{ slides[currentSlideIndex].price }}
+          span(:class="$style['slide__info-text']") €
+        div(:class="$style['slide__info-line']")
+          svg-icon(name="swim")
+          span(:class="$style['slide__info-text']") {{ slides[currentSlideIndex].sea }} m
+      div(:class="$style['slide__description']")
+        | {{ slides[currentSlideIndex].description }}
 </template>
 
 <script lang="ts">
 import $ from 'jquery'
 import { gsap, Power2, Power3 } from 'gsap'
 import Draggable from 'gsap/dist/Draggable'
-import { Component, Vue } from 'nuxt-property-decorator'
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
 import HeroSliderSlide from '~/components/HeroSlider/HeroSliderSlide.vue'
+import { IHeroSlide } from '~/types/HeroSlider'
 
 if (process.client) {
   gsap.registerPlugin(Draggable)
@@ -40,29 +62,13 @@ if (process.client) {
 
 @Component({ components: { HeroSliderSlide } })
 export default class HeroSlider extends Vue {
-  public slides: Array<Object> = [
-    {
-      title: 'Cleopatra Select',
-      description: 'Alanya / Saray Mahalle  From 19600 €',
-    },
-    {
-      title: 'Select Cleopatra',
-      description: 'Alanya / Saray Mahalle  From 19600 €',
-    },
-    {
-      title: 'Cleopatra Select',
-      description: 'Alanya / Saray Mahalle  From 19600 €',
-    },
-    {
-      title: 'Select Cleopatra',
-      description: 'Alanya / Saray Mahalle  From 19600 €',
-    },
-  ]
+  @Prop({ type: Array, default: () => [], required: true }) slides!: IHeroSlide[]
 
   public currentSlideIndex: number = 0
   public nextSlideIndex: number = 1
 
-  public isSlidePressed: boolean = false
+  public isSliderPressed: boolean = false
+  public isSliderDisabled: boolean = false
 
   createDraggableTween(): void {
     let lastPosCaption = { x: 0, y: 0 }
@@ -77,7 +83,7 @@ export default class HeroSlider extends Vue {
         lastPosCaption.x = event.x
         lastPosCaption.y = event.y
 
-        this.isSlidePressed = true
+        this.isSliderPressed = true
 
         // Downscale caption on pressed
         gsap.to(this.$refs.caption, {
@@ -87,7 +93,7 @@ export default class HeroSlider extends Vue {
         })
 
         // Downscale next caption on pressed
-        if (($(window).width() as number) > 1200) {
+        if (($(window).width() as number) > 1224) {
           gsap.to(this.$refs.captionNext, {
             scale: 0.9,
             x: 0,
@@ -102,63 +108,36 @@ export default class HeroSlider extends Vue {
           })
         }
       },
-      onDrag: function () {
+      onDrag: () => {
         // Moves next caption when drag main caption
         gsap.to($captionNext, {
-          x: this.endX,
+          x: Draggable.get(this.$refs.caption as Element).endX,
           duration: 0.1,
         })
       },
       onRelease: (event: PointerEvent) => {
-        if (lastPosCaption.x - event.x > document.body.offsetWidth / 10) {
+        // if (Math.floor(lastPosCaption.x))
+        // this.isSliderDisabled = true
+        // Draggable.get(this.$refs.caption as Element).disable();
+
+        const eventsX = [Math.floor(lastPosCaption.x), Math.floor(event.x)]
+        const minX = Math.min(...eventsX)
+        const maxX = Math.max(...eventsX)
+
+        if (lastPosCaption.x - event.x > document.body.offsetWidth / 10 && maxX - minX > 50) {
           // Next slide
           // Move caption to left side from center
-          gsap.to(this.$refs.caption, {
-            opacity: '0',
-            scale: 1,
-            x: '-100vw',
-            ease: Power2.easeInOut,
-            duration: 0.5,
-          })
-
-          // Move next caption from over right side to default right point
-          gsap.to(this.$refs.captionNext, {
-            opacity: '1',
-            x: ($(window).width() as number) > 1200 ? 0 : ($(window).width() as number) <= 600 ? '25px' : '50px',
-            scale: 1,
-            y: 0,
-            // fontSize: ($(window).width() as number) > 600 ? '80px' : '48px',
-            // lineHeight: ($(window).width() as number) > 600 ? '108px' : '72px',
-            left: 0,
-            ease: Power2.easeInOut,
-            duration: 0.5,
-            onComplete: this.changeCaptionsForward,
-          })
-        } else if (lastPosCaption.x - event.x < -(document.body.offsetWidth / 10)) {
+          this.sliderTurnForward()
+        } else if (
+          lastPosCaption.x - event.x < -(document.body.offsetWidth / 10) &&
+          maxX - minX > 50
+        ) {
           // Prev slide
           // Move caption to right side from center
-          gsap.to(this.$refs.caption, {
-            opacity: '0.5',
-            x: ($(window).width() as number) > 1200 ? '+1000%' : '105vw',
-            scale: 1,
-            // fontSize: ($(window).width() as number) > 601 ? '80px' : '48px',
-            ease: Power3.easeInOut,
-            duration: 0.5,
-          })
-
-          // Move next caption to right side
-          gsap.to(this.$refs.captionNext, {
-            opacity: '0',
-            y: 0,
-            x: '+100%',
-            scale: 1,
-            ease: Power3.easeInOut,
-            duration: 0.5,
-            onComplete: this.changeCaptionsBackward,
-          })
+          this.sliderTurnBackward()
         } else {
           // If not changed slide
-          this.isSlidePressed = false
+          this.isSliderPressed = false
 
           // Set to default position caption
           gsap.to(this.$refs.caption, {
@@ -176,9 +155,36 @@ export default class HeroSlider extends Vue {
             y: 0,
             ease: Power3.easeInOut,
             duration: 0.3,
+            onComplete: () => {
+              this.isSliderDisabled = false
+              Draggable.get(this.$refs.caption as Element).enable()
+            },
           })
         }
       },
+    })
+  }
+
+  sliderTurnBackward() {
+    this.isSliderPressed = true
+
+    gsap.to(this.$refs.caption, {
+      opacity: '0.5',
+      x: ($(window).width() as number) > 1224 ? '+1000%' : '+105vw',
+      scale: 1,
+      ease: Power3.easeInOut,
+      duration: 0.5,
+    })
+
+    // Move next caption to right side
+    gsap.to(this.$refs.captionNext, {
+      opacity: '0',
+      y: 0,
+      x: '+100%',
+      scale: 1,
+      ease: Power3.easeInOut,
+      duration: 0.5,
+      onComplete: this.changeCaptionsBackward,
     })
   }
 
@@ -194,7 +200,7 @@ export default class HeroSlider extends Vue {
           duration: 0.01,
           onComplete: () => {
             $(this.$refs.captionNext).css({
-              opacity: ($(window).width() as number) > 1200 ? 0.5 : 0,
+              opacity: ($(window).width() as number) > 1224 ? 0.5 : 0,
             })
 
             $(this.$refs.caption).css({
@@ -206,7 +212,6 @@ export default class HeroSlider extends Vue {
             gsap.to(this.$refs.caption, {
               x: '-100%',
               scale: 1,
-              // fontSize: ($(window).width() as number) > 600 ? '80px' : '48px',
               ease: Power3.easeInOut,
               duration: 0.01,
               onComplete: () => {
@@ -216,7 +221,9 @@ export default class HeroSlider extends Vue {
                   ease: Power3.easeInOut,
                   duration: 0.5,
                   onComplete: () => {
-                    this.isSlidePressed = false
+                    this.isSliderPressed = false
+                    this.isSliderDisabled = false
+                    Draggable.get(this.$refs.caption as Element).enable()
                   },
                 })
               },
@@ -227,13 +234,35 @@ export default class HeroSlider extends Vue {
     })
   }
 
+  sliderTurnForward() {
+    this.isSliderPressed = true
+
+    gsap.to(this.$refs.caption, {
+      opacity: '0',
+      scale: 1,
+      x: '-100vw',
+      ease: Power2.easeInOut,
+      duration: 0.5,
+    })
+
+    // Move next caption from over right side to default right point
+    gsap.to(this.$refs.captionNext, {
+      opacity: '1',
+      x: ($(window).width() as number) > 1100 ? 0 : '24px',
+      scale: 1,
+      y: 0,
+      // y: ($(window).width() as number) > 1100 ? 0 : (($(window).width() as number) <= 600 ? 0 : 24),
+      left: 0,
+      ease: Power2.easeInOut,
+      duration: 0.5,
+      onComplete: this.changeCaptionsForward,
+    })
+  }
+
   changeCaptionsForward() {
-    console.log('FORWARD')
     gsap.to(this.$refs.caption, {
       x: '0%',
       scale: 1,
-      // fontSize: ($(window).width() as number) > 600 ? '80px' : '48px',
-      // lineHeight: ($(window).width() as number) > 600 ? '108px' : '72px',
       ease: Power2.easeInOut,
       duration: 0.05,
       onComplete: () => {
@@ -244,20 +273,22 @@ export default class HeroSlider extends Vue {
         })
 
         $(this.$refs.captionNext).css({
-          opacity: ($(window).width() as number) > 1200 ? '0.5' : '0',
-          // fontSize: ($(window).width() as number) > 601 ? '80px' : '48px',
-          // lineHeight: ($(window).width() as number) > 601 ? '108px' : '72px',
+          opacity: ($(window).width() as number) > 1224 ? '0.5' : '0',
           left: '140%',
           x: 0,
           scale: 1,
         })
 
-        this.isSlidePressed = false
+        this.isSliderPressed = false
 
         gsap.to(this.$refs.captionNext, {
           left: '100%',
           ease: Power2.easeInOut,
           duration: 0.5,
+          onComplete: () => {
+            this.isSliderDisabled = false
+            Draggable.get(this.$refs.caption as Element).enable()
+          },
         })
       },
     })
@@ -308,7 +339,7 @@ export default class HeroSlider extends Vue {
 
 <style lang="sass" module>
 .slider
-  margin: 0 64px
+  margin: 0 64px 80px
   width: calc(100% - 128px)
   touch-action: pan-y
   user-select: none
@@ -317,9 +348,40 @@ export default class HeroSlider extends Vue {
   height: 43.2%
   min-height: 520px
 
-  @media (max-width: 1024px)
-    margin: 0 24px
+  @media (max-width: 1224px)
+    margin: 0 24px 24px
     width: calc(100% - 48px)
+
+  &.disabled
+    pointer-events: none
+
+  &__nav
+    display: flex
+    align-items: center
+    grid-gap: 16px
+    position: absolute
+    left: calc((100% - 1440px)/ 2 + 14.7rem)
+    top: 128px
+    opacity: 1
+    transition: opacity 0.25s ease
+
+    @media (max-width: 1100px)
+      left: 24px
+      top: auto
+      bottom: 89px
+
+    .pressed &
+      opacity: 0
+
+    &-prev, &-next
+      cursor: pointer
+
+      &, svg
+        height: 32px
+        width: 32px
+
+    &-next
+      transform: rotate(180deg)
 
   &__image
     height: auto
@@ -355,15 +417,61 @@ export default class HeroSlider extends Vue {
 .slide
   position: absolute
   top: 64px
-  left: calc((100% - 1440px)/ 2 + 22rem)
-  width: 65%
+  left: calc((100% - 1440px)/ 2 + 25rem)
+  width: 67%
+  bottom: 64px
 
-  @media (max-width: 1024px)
+  @media (max-width: 1100px)
     left: 0
     padding: 24px
     top: 0
     z-index: unset
     width: 100%
+
+  &__info
+    display: flex
+    align-items: center
+    margin-top: 40px
+    color: $color-white-100
+    opacity: 1
+    transition: opacity 0.25s ease
+
+    @media (max-width: 1100px)
+      display: none
+
+    .pressed &
+      opacity: 0
+
+    &-text
+      +style-5
+
+    &-line
+      display: flex
+      align-items: center
+      grid-gap: 6px
+
+      & + &
+        margin-left: 24px
+
+      & svg
+        fill: $color-white-100
+        height: 20px
+        width: 20px
+        margin-right: 6px
+
+  &__description
+    margin-top: 40px
+    +style-6
+    color: $color-white-100
+    opacity: 1
+    transition: opacity 0.25s ease
+    max-width: 900px
+
+    @media (max-width: 1100px)
+      display: none
+
+    .pressed &
+      opacity: 0
 
   &__counter
     +style-8
@@ -378,7 +486,7 @@ export default class HeroSlider extends Vue {
     +style-1($with-media: false)
     margin-bottom: 2rem
     width: 10%
-    height: 100%
+    height: 108px
     display: block
     padding-top: 0!important
     padding-bottom: 0!important
@@ -386,7 +494,7 @@ export default class HeroSlider extends Vue {
     text-decoration: none
     color: $color-white-100
 
-    @media (max-width: 1024px)
+    @media (max-width: 1100px)
       font-size: 48px
       line-height: 72px
       font-weight: 700
@@ -399,6 +507,6 @@ export default class HeroSlider extends Vue {
       opacity: .5
       width: 10%
 
-      @media (max-width: 1024px)
+      @media (max-width: 1100px)
         top: 44px
 </style>
