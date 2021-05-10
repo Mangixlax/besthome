@@ -17,7 +17,6 @@
         text="For investors"
         text-align="center"
       )
-    hero-slider
     page-home-consultant-slider
     base-accordeons
     base-subscribe

@@ -1,6 +1,6 @@
-import { NuxtOptionsBuild, PostcssConfiguration } from '~/node_modules/@nuxt/types/config/build'
+import { NuxtOptionsBuild, PostcssConfiguration } from '@nuxt/types/config/build'
 import { Configuration, NuxtConfig } from '@nuxt/types'
-import { NuxtOptionsRender } from '~/node_modules/@nuxt/types/config/render'
+import { NuxtOptionsRender } from '@nuxt/types/config/render'
 
 const isDev = process.env.NODE_ENV === 'development'
 const time = new Date().valueOf()
@@ -17,7 +17,7 @@ export default <NuxtConfig>{
    * See https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-server
    */
   server: {
-    host: '0.0.0.0',
+    host: process.env.HOST,
     port: process.env.PORT,
   },
 
@@ -64,9 +64,9 @@ export default <NuxtConfig>{
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    "~plugins/slider-swiper.js",
+    '~plugins/slider-swiper.js',
     '~plugins/v-click-outside.js',
-    { src: '~plugins/vue-scrollmagic.js', ssr: false }
+    { src: '~plugins/vue-scrollmagic.js', ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
