@@ -180,7 +180,7 @@ export default {
   border: none
 
   svg
-    width: 32px
+    width: 32px 
     height: 32px
 
 .swiper-button-next
@@ -192,8 +192,8 @@ export default {
   border: none
 
   svg
-    width: 26px
-    height: 26px
+    width: 32px
+    height: 32px
 
 .buttons
   margin-left: 24px
