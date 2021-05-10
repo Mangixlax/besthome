@@ -166,7 +166,6 @@ export default class HeroSlider extends Vue {
   }
 
   sliderTurnBackward() {
-    console.log('backward')
     this.isSliderPressed = true
 
     gsap.to(this.$refs.caption, {
@@ -236,7 +235,6 @@ export default class HeroSlider extends Vue {
   }
 
   sliderTurnForward() {
-    console.log('forward')
     this.isSliderPressed = true
 
     gsap.to(this.$refs.caption, {
@@ -341,7 +339,7 @@ export default class HeroSlider extends Vue {
 
 <style lang="sass" module>
 .slider
-  margin: 0 64px
+  margin: 0 64px 80px
   width: calc(100% - 128px)
   touch-action: pan-y
   user-select: none
@@ -351,7 +349,7 @@ export default class HeroSlider extends Vue {
   min-height: 520px
 
   @media (max-width: 1224px)
-    margin: 0 24px
+    margin: 0 24px 24px
     width: calc(100% - 48px)
 
   &.disabled
