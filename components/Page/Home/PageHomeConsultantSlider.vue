@@ -196,7 +196,7 @@ export default {
     position: relative
 
 .slider
-  padding-bottom: 32px
+  padding-bottom: 32px !important
 
   @media (max-width: 600px)
     padding-bottom: 0
@@ -208,7 +208,7 @@ export default {
   @media (max-width: 900px)
     display: grid
     grid-template-columns: 1fr 1fr
-    max-width: 100%   !important
+    max-width: 100%  !important
     max-height: 100%  !important
 
   @media (max-width: 700px)
