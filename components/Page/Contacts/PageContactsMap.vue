@@ -48,7 +48,7 @@
             :title="contactMap.linkToMap.link"
             :class="$style['content__link-arrow']"
           )
-            svg-icon(name="link-arrow-white")      
+            svg-icon(name="link-arrow-white")
 </template>
 
 <script lang="ts">
@@ -88,7 +88,7 @@ export default {
     background-image: url(~/assets/images/contacts-map-bg.jpg)
     background-repeat: no-repeat
     background-position-x: center
-    -webkit-mask: linear-gradient(to left, transparent 1%, black 5%), linear-gradient(to right, transparent 1%, black 5%) 
+    -webkit-mask: linear-gradient(to left, transparent 1%, black 5%), linear-gradient(to right, transparent 1%, black 5%)
     -webkit-mask-position: center
     -webkit-mask-repeat: no-repeat
     -webkit-mask-composite: add
@@ -108,7 +108,7 @@ export default {
     flex-direction: column
 
     @media (max-width: 1054px)
-       padding: 30px 24px 60px 24px
+     padding: 30px 24px 60px 24px
 
     &-title
       margin: 0
@@ -122,7 +122,7 @@ export default {
       margin: 0
       color: $color-white-100
 
-    &-email 
+    &-email
       margin: 0
       margin-bottom: 32px
       color: $color-white-100
@@ -156,5 +156,5 @@ export default {
 
     svg
       height: 26px
-      width: 26px    
+      width: 26px
 </style>
