@@ -77,6 +77,11 @@ export const actions: ActionTree<NavigationState, RootState> = {
             route: { name: 'index' },
             title: '%Pre-penultimate project%',
           },
+          {
+            name: 'Experiences',
+            route: { name: 'projects-experiences' },
+            title: 'Experiences',
+          },
         ],
       },
       {
