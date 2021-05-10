@@ -1,7 +1,7 @@
 <template lang="pug">
   main
     page-welcome
-    hero-slider
+    hero-slider(:slides="heroProjectsSlides")
     base-accordeons
     base-subscribe
     footer-fast-links
@@ -15,11 +15,32 @@ import PageWelcome from '~/components/Page/PageWelcome.vue'
 import BaseAccordeons from '~/components/Base/BaseAccordeons.vue'
 import BaseSubscribe from '~/components/Base/BaseSubscribe.vue'
 import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
+import { IHeroSlide } from '~/types/HeroSlider'
+
+const testDescription: string =
+  'The project which is being constructed on a hill surrounded with green space, accompanied with unique landscapes of Alanya castle merging with sea and mountains, we are bringing you to calm and peaceful environment.'
 
 @Component({
   components: { PageWelcome, HeroSlider, TypoText, BaseAccordeons, BaseSubscribe, FooterFastLinks },
 })
 export default class IndexPage extends Vue {
+  public heroProjectsSlides: IHeroSlide[] = [
+    {
+      title: 'Cleopatra Select',
+      location: { city: 'Alanya', region: 'Saray Mahalle' },
+      price: 19600,
+      sea: 700,
+      description: testDescription,
+    },
+    {
+      title: 'Select Cleopatra',
+      location: { city: 'Alanya', region: 'Saray Mahalle' },
+      price: 27100,
+      sea: 400,
+      description: testDescription,
+    },
+  ]
+
   created() {
     this.$store.commit('setLogoSubTitle', 'Construction')
   }
