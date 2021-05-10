@@ -465,6 +465,7 @@ export default class HeroSlider extends Vue {
     color: $color-white-100
     opacity: 1
     transition: opacity 0.25s ease
+    max-width: 900px
 
     @media (max-width: 1100px)
       display: none
