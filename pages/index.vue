@@ -2,6 +2,21 @@
   main
     page-welcome
     hero-slider(:slides="heroProjectsSlides")
+    link-banner-wrapper
+      link-banner(
+        :image-src="require('~/assets/images/link-banner-1.jpg')"
+        :to="{ name: 'index' }"
+        title="Secondary housing"
+        text="Secondary<br>housing"
+        text-align="right"
+      )
+      link-banner(
+        :image-src="require('~/assets/images/link-banner-2.jpg')"
+        :to="{ name: 'investors' }"
+        title="For investors"
+        text="For investors"
+        text-align="center"
+      )
     base-accordeons
     base-subscribe
     footer-fast-links
@@ -16,12 +31,23 @@ import BaseAccordeons from '~/components/Base/BaseAccordeons.vue'
 import BaseSubscribe from '~/components/Base/BaseSubscribe.vue'
 import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
 import { IHeroSlide } from '~/types/HeroSlider'
+import LinkBannerWrapper from '~/components/LinkBanner/LinkBannerWrapper.vue'
+import LinkBanner from '~/components/LinkBanner/LinkBanner.vue'
 
 const testDescription: string =
   'The project which is being constructed on a hill surrounded with green space, accompanied with unique landscapes of Alanya castle merging with sea and mountains, we are bringing you to calm and peaceful environment.'
 
 @Component({
-  components: { PageWelcome, HeroSlider, TypoText, BaseAccordeons, BaseSubscribe, FooterFastLinks },
+  components: {
+    LinkBanner,
+    LinkBannerWrapper,
+    PageWelcome,
+    HeroSlider,
+    TypoText,
+    BaseAccordeons,
+    BaseSubscribe,
+    FooterFastLinks,
+  },
 })
 export default class IndexPage extends Vue {
   public heroProjectsSlides: IHeroSlide[] = [
