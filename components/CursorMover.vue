@@ -179,13 +179,22 @@ export default class CursorMover extends Vue {
     position: absolute
     display: block
     transform: scale(0)
-    background-color: $color-white
+    background-color: $color-white-100
     border-radius: 50%
     transition: opacity 0.1s, transform 0.25s ease-in-out, background-color 0.25s ease
     top: -40px
     left: -40px
     width: 80px
     height: 80px
+
+  &--off-exclusion
+    mix-blend-mode: normal
+
+    &:before
+      background-color: $color-black-100
+
+  &--off-exclusion &__text
+    color: $color-white-100
 
   &--visible:before
     transform: scale(0.12)
