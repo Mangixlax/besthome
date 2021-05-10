@@ -2,6 +2,7 @@
   main
     page-welcome
     hero-slider
+    page-home-consultant-slider
     base-accordeons
     base-subscribe
     footer-fast-links
@@ -12,12 +13,21 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import TypoText from '~/components/Base/TypoText.vue'
 import HeroSlider from '~/components/HeroSlider/HeroSlider.vue'
 import PageWelcome from '~/components/Page/PageWelcome.vue'
+import PageHomeConsultantSlider from '~/components/Page/Home/PageHomeConsultantSlider.vue'
 import BaseAccordeons from '~/components/Base/BaseAccordeons.vue'
 import BaseSubscribe from '~/components/Base/BaseSubscribe.vue'
 import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
 
 @Component({
-  components: { PageWelcome, HeroSlider, TypoText, BaseAccordeons, BaseSubscribe, FooterFastLinks },
+  components: {
+    PageWelcome,
+    PageHomeConsultantSlider,
+    HeroSlider,
+    TypoText,
+    BaseAccordeons,
+    BaseSubscribe,
+    FooterFastLinks,
+  },
 })
 export default class IndexPage extends Vue {
   created() {
