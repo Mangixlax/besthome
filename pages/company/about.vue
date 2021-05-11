@@ -2,7 +2,7 @@
   main
     page-company-about-title
     page-company-advantages-slider
-    base-scroll-line
+    base-scroll-line(:scrollLineInfo="aboutPageScrollLineInfo")
     base-post(
       :filename="require(`~/assets/images/test.jpg`)" 
       flip 
@@ -184,6 +184,28 @@ export default {
     BasePost,
     TypoText,
   },
+  data() {
+    return {
+      aboutPageScrollLineInfo: [
+        {
+          title: '239',
+          text: 'Apartments',
+        },
+        {
+          title: '470',
+          text: 'Parking spots for bikes',
+        },
+        {
+          title: '3800m²',
+          text: 'Of common green areas',
+        },
+        {
+          title: '1 to 4-room',
+          text: 'Separate rooms',
+        },
+      ]
+    }
+  }
 }
 </script>
 

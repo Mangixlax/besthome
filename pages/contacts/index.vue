@@ -1,14 +1,19 @@
 <template lang="pug">
   main
     page-contacts-map
+    common-consultant-slider
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import PageContactsMap from '~/components/Page/Contacts/PageContactsMap.vue'
+import CommonConsultantSlider from '~/components/Common/CommonConsultantSlider.vue'
 
 @Component({
-  components: { PageContactsMap },
+  components: {
+    PageContactsMap,
+    CommonConsultantSlider,
+  },
 })
 export default class IndexPage extends Vue {}
 </script>

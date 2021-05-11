@@ -114,16 +114,34 @@
         tag="p"
         version="style-5"
       ) If you have a desire to buy furniture for your new apartments or to study the pricing policy of furniture stores, the manager of the company will accompany you to the best furniture salons in the city.
+    base-post-two-image(
+       :portraitImage="require(`~/assets/images/investors/portrait-1.jpg`)"
+       :landscapeImage="require(`~/assets/images/investors/landscape-1.jpg`)"
+    )
+      typo-text(
+        tag="h3"
+        version="style-3"
+      ) Transfer from Alanya to the airport
+      typo-text(
+        tag="p"
+        version="style-5"
+      ) At the appointed time, the driver will pick you up and take you to Antalya or Gazipasa Airport.
 </template>
 
 <script lang="ts">
 import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import BaseImageTitle from '~/components/Base/BaseImageTitle.vue'
+import BasePostTwoImage from '~/components/Base/BasePostTwoImage.vue'
 
 export default {
   name: 'introductory-tour',
-  components: { BasePost, TypoText, BaseImageTitle },
+  components: {
+    BasePost,
+    TypoText,
+    BaseImageTitle,
+    BasePostTwoImage,
+  },
   data() {
     return {
       introductoryTourImageTitle: {

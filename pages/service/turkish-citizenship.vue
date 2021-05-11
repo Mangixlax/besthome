@@ -32,11 +32,12 @@
       typo-text(
         tag="p"
         version="style-5"
-      ) We cooperate with trusted law firms that specialize in obtaining Turkish citizenship for foreign investors. With our help, more than XXXX clients have successfully purchased high-quality housing in developed areas and become legal citizens of the Republic of Turkey.
-    base-post(
-      :filename="require(`~/assets/images/test.jpg`)" 
-      flip 
-      text-flip
+      ) We cooperate with trusted law firms that specialize in obtaining Turkish citizenship for foreign investors. With our help, more than XXXX clients have successfully purchased high-quality housing in developed areas and become legal citizens of the Republic of Turkey. 
+    base-post-two-image(
+       :portraitImage="require(`~/assets/images/investors/portrait-1.jpg`)"
+       :landscapeImage="require(`~/assets/images/investors/landscape-1.jpg`)"
+       flip
+       text-flip
     )
       typo-text(
         tag="h3"
@@ -64,10 +65,17 @@ import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import BaseImageTitle from '~/components/Base/BaseImageTitle.vue'
 import PageServiceListCard from '~/components/Page/Service/PageServiceListCard.vue'
+import BasePostTwoImage from '~/components/Base/BasePostTwoImage.vue'
 
 export default {
   name: 'turkish-citizenship',
-  components: { BasePost, TypoText, BaseImageTitle, PageServiceListCard },
+  components: { 
+    BasePost,
+    TypoText,
+    BaseImageTitle,
+    PageServiceListCard,
+    BasePostTwoImage,
+  },
   data() {
     return {
       turkishCitizenshipImageTitle: {

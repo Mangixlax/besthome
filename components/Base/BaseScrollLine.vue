@@ -1,42 +1,19 @@
 <template lang="pug">
   section(:class="$style['container']" id="vertical")
     div(ref="items" :class="[$style['items'], 'items']")
-      div(:class="$style['items__item']")
+      div(
+        v-for="(scrollLineItem, i) in scrollLineInfo"
+        :key="i"
+        :class="$style['items__item']"
+      )
         typo-text(
           tag="h3"
           version="style-1"
-        ) 239
+        ) {{ scrollLineItem.title }}
         typo-text(
           tag="p"
           version="style-7"
-        ) Apartments
-      div(:class="$style['items__item']")
-        typo-text(
-          tag="h3"
-          version="style-1"
-        ) 470
-        typo-text(
-          tag="p"
-          version="style-7"
-        ) Parking spots for bikes
-      div(:class="$style['items__item']")
-        typo-text(
-          tag="h3"
-          version="style-1"
-        ) 3800m²
-        typo-text(
-          tag="p"
-          version="style-7"
-        ) Of common green areas
-      div(:class="$style['items__item']")
-        typo-text(
-          tag="h3"
-          version="style-1"
-        ) 1 to 4-room
-        typo-text(
-          tag="p"
-          version="style-7"
-        ) Separate rooms
+        ) {{ scrollLineItem.text }}   
 </template>
 
 <script>
@@ -44,7 +21,13 @@ import { gsap, Power1, TweenMax } from 'gsap'
 import TypoText from '~/components/Base/TypoText.vue'
 
 export default {
-  name: 'PagesIndexAdvantagesCounts',
+  name: 'BaseScrollLine',
+  props: {
+    scrollLineInfo: {
+      type: Array,
+      default: () => []
+    }
+  },
   components: {
     TypoText,
   },
@@ -99,6 +82,7 @@ export default {
 
   @media (max-width: 900px)
     margin: 32px 0
+  
 
 .items
   display: flex
@@ -110,6 +94,12 @@ export default {
     display: flex
     flex-direction: column
     margin: 0 122px
+
+    @media (max-width: 900px)
+      margin: 0 61px
+
+    @media (max-width: 500px)
+      margin: 0 32px
 
     h3
       margin: 0

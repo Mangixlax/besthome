@@ -52,7 +52,7 @@
           version="style-5"
         ) about Cleopatra Select 
         | .
-    base-scroll-line
+    base-scroll-line(:scrollLineInfo="experiencesPageScrollLineInfo")
     page-projects-panorama
     base-subscribe(whiteTheme)
     base-accordeons
@@ -82,6 +82,28 @@ export default {
     BaseSubscribe,
     BaseAccordeons,
     FooterFastLinks,
+  },
+  data() {
+    return {
+      experiencesPageScrollLineInfo: [
+        {
+          title: '239',
+          text: 'Apartments',
+        },
+        {
+          title: '470',
+          text: 'Parking spots for bikes',
+        },
+        {
+          title: '3800m²',
+          text: 'Of common green areas',
+        },
+        {
+          title: '1 to 4-room',
+          text: 'Separate rooms',
+        },
+      ]
+    }
   },
 }
 </script>
