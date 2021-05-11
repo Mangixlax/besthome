@@ -17,6 +17,7 @@
         text="For investors"
         text-align="center"
       )
+    tree-columns
     page-home-consultant-slider
     base-accordeons
     base-subscribe
@@ -35,12 +36,14 @@ import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
 import { IHeroSlide } from '~/types/HeroSlider'
 import LinkBannerWrapper from '~/components/LinkBanner/LinkBannerWrapper.vue'
 import LinkBanner from '~/components/LinkBanner/LinkBanner.vue'
+import TreeColumns from "~/components/TreeColumns/TreeColumns.vue"
 
 const testDescription: string =
   'The project which is being constructed on a hill surrounded with green space, accompanied with unique landscapes of Alanya castle merging with sea and mountains, we are bringing you to calm and peaceful environment.'
 
 @Component({
   components: {
+    TreeColumns,
     LinkBanner,
     LinkBannerWrapper,
     PageWelcome,
