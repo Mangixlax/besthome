@@ -62,6 +62,11 @@ export const actions: ActionTree<NavigationState, RootState> = {
         titleInChildren: 'All projects',
         children: [
           {
+            name: 'Our projects',
+            route: { name: 'projects-our-projects' },
+            title: 'Our projects',
+          },
+          {
             name: '%Latest project%',
             indicator: 'new',
             route: { name: 'index' },
