@@ -11,7 +11,7 @@
       svg-icon(name="dropdown-left")
     component(
       :is="route ? 'nuxt-link' : 'span'"
-      :to="route"
+      :to="localePath(route)"
       :title="route ? title : null"
       :class="$style['list-item__link']"
     )

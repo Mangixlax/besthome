@@ -18,12 +18,12 @@
         | Сall the support service via the phone +90 530 547-44-15 or locate 
         span
           nuxt-link(
-          :to="{ name: 'projects' }"
+          :to="localePath({ name: 'projects' })"
           :class="$style['map__phone-link--underline']"
         ) sales office
           | .
         nuxt-link(
-          :to="{ name: 'projects' }"
+          :to="localePath({ name: 'projects' })"
           :class="$style['map__phone-link']"
         )  
           svg-icon(name="link-arrow") 

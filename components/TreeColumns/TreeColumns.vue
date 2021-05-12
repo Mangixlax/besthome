@@ -26,7 +26,7 @@
             svg-icon(:name="column.icon")
           h3
             nuxt-link(
-              :to="column.to"
+              :to="localePath(column.to)"
               v-html="column.title"
               data-cursor-text="Click<br>to watch"
               data-cursor-off-exclusion
@@ -47,21 +47,24 @@ export default class TreeColumns extends Vue {
     {
       icon: 'online-purchase',
       title: 'Online<br>purchase',
-      text: "The company's specialists fully support all transactions, demonstrating flexibility and professionalism, as well as solving all issues. What is important, the company's customers can always count on professional assistance and after-sales service even after the transaction is completed.",
+      text:
+        "The company's specialists fully support all transactions, demonstrating flexibility and professionalism, as well as solving all issues. What is important, the company's customers can always count on professional assistance and after-sales service even after the transaction is completed.",
       to: { name: 'service-online-purchase' },
       hovered: false,
     },
     {
       icon: 'introductory-tour',
       title: 'Introductory<br>tour',
-      text: "The company's specialists fully support all transactions, demonstrating flexibility and professionalism, as well as solving all issues. What is important, the company's customers can always count on professional assistance and after-sales service even after the transaction is completed.",
+      text:
+        "The company's specialists fully support all transactions, demonstrating flexibility and professionalism, as well as solving all issues. What is important, the company's customers can always count on professional assistance and after-sales service even after the transaction is completed.",
       to: { name: 'service-introductory-tour' },
       hovered: false,
     },
     {
       icon: 'obtaining-citizenship',
       title: 'Obtaining<br>citizenship',
-      text: "The company's specialists fully support all transactions, demonstrating flexibility and professionalism, as well as solving all issues. What is important, the company's customers can always count on professional assistance and after-sales service even after the transaction is completed.",
+      text:
+        "The company's specialists fully support all transactions, demonstrating flexibility and professionalism, as well as solving all issues. What is important, the company's customers can always count on professional assistance and after-sales service even after the transaction is completed.",
       to: { name: 'service-online-purchase' },
       hovered: false,
     },
@@ -71,15 +74,15 @@ export default class TreeColumns extends Vue {
 
   public onHoverItem(index: number) {
     this.isHovered = true
-    this.columns[index].hovered = true
-    this.$refs.text[index].style.height =
-      this.$refs.text[index].querySelector('p').clientHeight + 'px'
+    ;(this.columns[index] as any).hovered = true
+    ;((this.$refs.text as any)[index] as any).style.height =
+      (this.$refs.text as any)[index].querySelector('p').clientHeight + 'px'
   }
 
   public onLeaveItem(index: number) {
     this.isHovered = false
-    this.columns[index].hovered = false
-    this.$refs.text[index].style.height = 0
+    ;(this.columns[index] as any).hovered = false
+    ;(this.$refs.text as any)[index].style.height = 0
   }
 }
 </script>

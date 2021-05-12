@@ -81,6 +81,7 @@ export default {
           el: '.swiper-pagination-progressbar',
           type: 'progressbar',
         },
+        speed: 500,
         loop: true,
       },
     }
@@ -107,7 +108,6 @@ export default {
       margin: 0
 
   &__body
-    max-width: 1440px
     padding-top: 48px
     // padding: 80px 24px
     margin: 0 auto
@@ -117,6 +117,7 @@ export default {
   display: flex
   max-width: 992px   !important
   max-height: 480px !important
+  position: relative
 
   @media (max-width: 900px)
     display: grid
@@ -137,6 +138,7 @@ export default {
     margin-bottom: -104px
     bottom: 50%
     padding: 48px
+    box-shadow: 0 40px 60px $color-black-16
 
     @media (max-width: 900px)
       position: static
@@ -153,6 +155,18 @@ export default {
 
     @media (max-width: 900px)
       max-width: 100%
+
+  &:not(:global(.swiper-slide-active))
+    // transition: all 5s ease
+    &:after
+      position: absolute
+      content: ""
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      background: $color-black-72
+      opacity: 1
 
 .footer
   max-width: 952px
@@ -180,7 +194,7 @@ export default {
   border: none
 
   svg
-    width: 32px 
+    width: 32px
     height: 32px
 
 .swiper-button-next

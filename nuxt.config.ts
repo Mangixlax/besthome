@@ -101,7 +101,14 @@ export default <NuxtConfig>{
     '@nuxtjs/svg-sprite',
     '@nuxtjs/component-cache',
     'cookie-universal-nuxt',
+    'nuxt-i18n',
   ],
+
+  i18n: {
+    locales: ['ru', 'en'],
+    defaultLocale: 'en',
+    vueI18n: '~/config/i18n.js',
+  },
 
   svgSprite: {
     publicPath: '/_nuxt/',

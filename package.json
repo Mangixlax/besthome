@@ -29,7 +29,7 @@
     "jquery": "^3.6.0",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.15.3",
-    "nuxt-i18n": "^6.21.1",
+    "nuxt-i18n": "^6.27.0",
     "nuxt-jsonld": "^1.5.0",
     "nuxt-property-decorator": "^2.9.1",
     "swiper": "^6.5.9",

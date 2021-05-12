@@ -23,7 +23,8 @@
       "@nuxtjs/device",
       "cookie-universal-nuxt",
       "@types/jquery",
-      "gsap/types"
+      "gsap/types",
+      "nuxt-i18n"
     ]
   },
   "exclude": ["node_modules", ".nuxt", "dist"]

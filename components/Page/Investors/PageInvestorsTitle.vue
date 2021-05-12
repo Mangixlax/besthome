@@ -20,7 +20,7 @@
           typo-text(
             tag="nuxt-link"
             version="style-5"
-            :to="investorsPage.linkToProjects.route"
+            :to="localePath(investorsPage.linkToProjects.route)"
             :title="investorsPage.linkToProjects.link"
             :class="$style['content__link-text--underline']"
           ) {{ investorsPage.linkToProjects.link }}
@@ -28,7 +28,7 @@
           typo-text(
             tag="nuxt-link"
             version="none"
-            :to="investorsPage.linkToProjects.route"
+            :to="localePath(investorsPage.linkToProjects.route)"
             :title="investorsPage.linkToProjects.link"
             :class="$style['content__link-arrow']"
           )

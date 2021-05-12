@@ -11,12 +11,12 @@
       typo-text(
         tag="nuxt-link"
         version="style-5"
-         :to="{\
+         :to="localePath({\
           name: 'company-our-team-id',\
           params: {\
             id: card.id\
           }\
-        }"
+        })"
         :class="$style['personal-card__name-link']"
       ) {{ card.name }}
       svg-icon(name="link-arrow-blue") 

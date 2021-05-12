@@ -1,6 +1,6 @@
 <template lang="pug">
   nuxt-link(
-    :to="{ name: 'index' }"
+    :to="localePath({ name: 'index' })"
     :class="$style['link']"
     title="BestHome Construction"
   )

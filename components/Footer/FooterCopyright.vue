@@ -12,7 +12,7 @@
           version="style-8(with-media: false)"
           :class="$style['copyright__changelang-text']"
         ) Change language:
-        base-select-language(:list="['Ru','En','Tr']" default-value="Ru")
+        base-select-language(:list="['Ru','En','Tr']" default-value="Ru" @change="onChangeLanguage")
     div(:class="$style['copyright__information']")
       ul(:class="$style['copyright__list']")
         li(
@@ -67,6 +67,11 @@ export default class FooterCopyright extends Vue {
       to: '/',
     },
   ]
+
+  onChangeLanguage(lang: string) {
+    console.log(lang)
+    this.$i18n.setLocale(lang.toLowerCase())
+  }
 }
 </script>
 

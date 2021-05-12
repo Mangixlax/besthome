@@ -40,12 +40,12 @@
               ) I agree to allow BestHome to collect and
               span
                 nuxt-link(
-                :to="{ name: 'projects' }"
+                :to="localePath({ name: 'projects' })"
                 :class="$style['subscribe__agreement-text--underline']"
               ) process my personal data
                 | .
               nuxt-link(
-                :to="{ name: 'projects' }"
+                :to="localePath({ name: 'projects' })"
                 :class="$style['subscribe__agreement-link']"
               )  
                 svg-icon(name="link-arrow-white" v-if="!isWhiteTheme")   

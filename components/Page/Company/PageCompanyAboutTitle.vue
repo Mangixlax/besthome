@@ -22,7 +22,7 @@
         typo-text(
           tag="nuxt-link"
           version="style-5"
-          :to="companyAboutPage.linkToProjects.route"
+          :to="localePath(companyAboutPage.linkToProjects.route)"
           :title="companyAboutPage.linkToProjects.link"
           :class="$style['content__link-text--underline']"
         ) {{ companyAboutPage.linkToProjects.link }}
@@ -30,7 +30,7 @@
         typo-text(
           tag="nuxt-link"
           version="none"
-          :to="companyAboutPage.linkToProjects.route"
+          :to="localePath(companyAboutPage.linkToProjects.route)"
           :title="companyAboutPage.linkToProjects.link"
           :class="$style['content__link-arrow']"
         )

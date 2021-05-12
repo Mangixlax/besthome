@@ -13,7 +13,7 @@
     )
     nuxt-link(
       :class="$style['link-banner__text']"
-      :to="to"
+      :to="localePath(to)"
       :title="title"
       v-html="text"
     )

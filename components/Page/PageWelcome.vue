@@ -21,7 +21,7 @@
       | To date, the company has
       span
         nuxt-link(
-          :to="{ name: 'projects' }"
+          :to="localePath({ name: 'projects' })"
           :class="$style['hero__text-link']"
         ) 30 completed projects
         | .

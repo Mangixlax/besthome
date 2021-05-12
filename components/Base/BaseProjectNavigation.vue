@@ -16,7 +16,7 @@
           )
             typo-text(
               tag="nuxt-link"
-              :to="`/`"
+              :to="localePath({ name: 'index' })"
               version="style-7"
               :class="$style['project-navigation__navbar-link']"
             ) Review
@@ -26,14 +26,14 @@
             typo-text(
               tag="nuxt-link"
               version="style-7"
-              :to="`/`"
+              :to="localePath({ name: 'index' })"
               :class="$style['project-navigation__navbar-link']"
             ) About
           li(:class="$style['project-navigation__navbar-item']"
           )
             typo-text(
               tag="nuxt-link"
-              :to="`/`"
+              :to="localePath({ name: 'index' })"
               version="style-7"
               :class="$style['project-navigation__navbar-link--active']"
             ) Experiences
@@ -42,7 +42,7 @@
           )
             typo-text(
               tag="nuxt-link"
-              :to="`/`"
+              :to="localePath({ name: 'index' })"
               version="style-7"
               :class="$style['project-navigation__navbar-link']"
             ) Choose apartment

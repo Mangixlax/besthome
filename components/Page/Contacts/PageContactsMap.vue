@@ -36,7 +36,7 @@
           typo-text(
             tag="nuxt-link"
             version="style-5"
-            :to="contactMap.linkToMap.route"
+            :to="localePath(contactMap.linkToMap.route)"
             :title="contactMap.linkToMap.link"
             :class="$style['content__link-text--underline']"
           ) {{  contactMap.linkToMap.link }}
@@ -44,7 +44,7 @@
           typo-text(
             tag="nuxt-link"
             version="none"
-            :to="contactMap.linkToMap.route"
+            :to="localePath(contactMap.linkToMap.route)"
             :title="contactMap.linkToMap.link"
             :class="$style['content__link-arrow']"
           )
@@ -59,19 +59,20 @@ export default {
   data() {
     return {
       contactMap: {
-        title: "Office",
-        phone: "+90 530 547-44-15",
-        email: "office@besthome.com.tr",
-        address: "Cikcilli mahallesi, Saraybeleni caddesi, Tugayoğlu sokak, №18/1, Alanya 07400, Antalya, Türkiye",
-        workTime: "Monday-Saturday, from 9:00 to 18:00",
+        title: 'Office',
+        phone: '+90 530 547-44-15',
+        email: 'office@besthome.com.tr',
+        address:
+          'Cikcilli mahallesi, Saraybeleni caddesi, Tugayoğlu sokak, №18/1, Alanya 07400, Antalya, Türkiye',
+        workTime: 'Monday-Saturday, from 9:00 to 18:00',
         linkToMap: {
-          text: "More",
-          link: "view map",
-          route: "/"
-        }
-      }
+          text: 'More',
+          link: 'view map',
+          route: '/',
+        },
+      },
     }
-  }
+  },
 }
 </script>
 

@@ -8,7 +8,7 @@
       typo-text(
         tag="nuxt-link"
         version="style-7"
-        :to="item.route"
+        :to="localePath(item.route)"
         :title="item.title"
         :class="$style['nav__item-link']"
       ) {{ item.name }}
@@ -35,7 +35,7 @@
           typo-text(
             tag="nuxt-link"
             version="style-7"
-            :to="childItem.route"
+            :to="localePath(childItem.route)"
             :title="childItem.title"
             :class="$style['dropdown__item-link']"
           ) {{ childItem.name }}
@@ -49,7 +49,7 @@
           typo-text(
             tag="nuxt-link"
             version="style-7"
-            :to="item.route"
+            :to="localePath(item.route)"
             :title="item.nameInChildren"
             :class="$style['dropdown__item-link']"
           ) {{ item.nameInChildren }}
@@ -71,7 +71,8 @@ const NavigationStore = namespace('Navigation')
 
 @Component({ components: { TypoText } })
 export default class BaseHeaderNavigation extends Vue {
-  @NavigationStore.Getter('getHeaderNavigationList') private headerNavigationList!: NavigationListItem[]
+  @NavigationStore.Getter('getHeaderNavigationList')
+  private headerNavigationList!: NavigationListItem[]
 
   public itemHasChildren(item: NavigationListItem) {
     return item.children && (item.children || []).length
