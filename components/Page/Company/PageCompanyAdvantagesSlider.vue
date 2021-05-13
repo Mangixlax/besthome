@@ -4,7 +4,7 @@
       typo-text(
         tag="h2"
         version="style-4"
-      ) Advantages
+      ) {{ sliderData.title }}
       div(:class="$style['buttons']")
         button(:class="[$style['swiper-button-prev']]" @click.prevent="$refs.swiper.swiperInstance.slidePrev()")
           svg-icon(name="slider-prev-arrow-blue")
@@ -12,42 +12,19 @@
           svg-icon(name="slider-next-arrow-blue")
     div(:class="$style['container__body']")
       swiper(ref="swiper" :class="$style['slider']" class="swiper" :options="swiperOption")
-        swiper-slide(:class="$style['slide']")
+        swiper-slide(
+          v-for="(slide, i) in sliderData.slider"
+          :key="i"
+          :class="$style['slide']" 
+        )
           div
-            img(src="~assets/images/our-team-slider/our-team-slider-1.jpg", alt="alt")
+            img(:src="require(`@/assets/images/company-advantages-slider/${slide.image || 'person-1.png'}`)")
           div(:class="$style['slide__textbox']")
             typo-text(
               tag="p"
               version="style-6"
               :class="$style['slide__textbox-text']"
-            ) We draw up a contract for the purchase and sale of real estate in the language of the buyer – all documentation complies with international standards.
-        swiper-slide(:class="$style['slide']")
-          div
-            img(src="~assets/images/our-team-slider/our-team-slider-2.jpg", alt="alt")
-          div(:class="$style['slide__textbox']")
-            typo-text(
-              tag="p"
-              version="style-6"
-              :class="$style['slide__textbox-text']"
-            ) We draw up a contract for the purchase and sale of real estate in the language of the buyer – all documentation complies with international standards.
-        swiper-slide(:class="$style['slide']")
-          div
-            img(src="~assets/images/our-team-slider/our-team-slider-1.jpg", alt="alt")
-          div(:class="$style['slide__textbox']")
-            typo-text(
-              tag="p"
-              version="style-6"
-              :class="$style['slide__textbox-text']"
-            ) We draw up a contract for the purchase and sale of real estate in the language of the buyer – all documentation complies with international standards.
-        swiper-slide(:class="$style['slide']")
-          div
-            img(src="~assets/images/our-team-slider/our-team-slider-2.jpg", alt="alt")
-          div(:class="$style['slide__textbox']")
-            typo-text(
-              tag="p"
-              version="style-6"
-              :class="$style['slide__textbox-text']"
-            ) We draw up a contract for the purchase and sale of real estate in the language of the buyer – all documentation complies with international standards.
+            ) {{ slide.text }}
 </template>
 
 <script>
@@ -55,11 +32,17 @@ import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import TypoText from '~/components/Base/TypoText.vue'
 
 export default {
-  name: 'PagesMestaBlisko',
+  name: 'BaseConpanyAdvantagesSlider',
   components: {
     Swiper,
     SwiperSlide,
     TypoText,
+  },
+  props: {
+    sliderData: {
+      type: Object,
+      default: () => {},
+    },
   },
   data() {
     return {
@@ -157,16 +140,7 @@ export default {
       max-width: 100%
 
   &:not(:global(.swiper-slide-active))
-    // transition: all 5s ease
-    &:after
-      position: absolute
-      content: ""
-      top: 0
-      right: 0
-      bottom: 0
-      left: 0
-      background: $color-black-72
-      opacity: 1
+    opacity: 0.2
 
 .footer
   max-width: 952px
