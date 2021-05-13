@@ -9,6 +9,7 @@
 </template>
 
 <script lang="ts">
+import $ from 'jquery'
 import Vue from 'vue'
 import { Component, Mutation, namespace } from 'nuxt-property-decorator'
 import { SettingsTopLineState } from '~/store/SettingsTopLine'
@@ -44,13 +45,30 @@ export default class DefaultLayout extends Vue {
     return this.$store.state.isTouchDevice
   }
 
+  /**
+   * @TODO Script for testing text size of EM type
+   * Don't delete this
+   */
+  fontResizer() {
+    const body_size = $('body')
+    const frame_w = body_size.width()
+    const frame_h = body_size.height()
+
+    const font_size = 5 + 5 * ((frame_w * frame_h) / (1920 * 1080))
+
+    $('html').css({ 'font-size': font_size })
+  }
+
   registerHandlers(): void {
     this.detectTouchDevice()
+    // this.fontResizer()
     window.addEventListener('resize', this.detectTouchDevice)
+    // window.addEventListener('resize', this.fontResizer)
   }
 
   unregisterHandlers(): void {
     window.removeEventListener('resize', this.detectTouchDevice)
+    // window.removeEventListener('resize', this.fontResizer)
   }
 
   mounted(): void {
