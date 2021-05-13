@@ -18,7 +18,6 @@
           :class="$style['image-title__title-text']"
         ) {{ paragraph }}
     div(:class="$style['image-title__undertext']")
-      slot
 </template>
 
 <script lang="ts" scoped>
@@ -47,15 +46,19 @@ export default {
   &__container
     display: flex
     align-items: center
-    max-width: 1360px
-    min-height: 640px
+    // max-width: 1360px
+    min-height: 760px
+    height: 70vh
     padding: 80px 24px
-    margin: 0 auto
-    margin-bottom: 160px
+    margin: 0 64px
     background-size: cover
     background-repeat: no-repeat
     background-position-x: center
     position: relative
+
+    @media (max-width: 900px)
+      margin: 0 24px
+      min-height: auto
 
     .large &
       max-width: 1440px
