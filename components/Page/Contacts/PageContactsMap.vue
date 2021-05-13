@@ -56,22 +56,11 @@ import TypoText from '~/components/Base/TypoText.vue'
 
 export default {
   components: { TypoText },
-  data() {
-    return {
-      contactMap: {
-        title: 'Office',
-        phone: '+90 530 547-44-15',
-        email: 'office@besthome.com.tr',
-        address:
-          'Cikcilli mahallesi, Saraybeleni caddesi, Tugayoğlu sokak, №18/1, Alanya 07400, Antalya, Türkiye',
-        workTime: 'Monday-Saturday, from 9:00 to 18:00',
-        linkToMap: {
-          text: 'More',
-          link: 'view map',
-          route: '/',
-        },
-      },
-    }
+  props: {
+    contactMap: {
+      type: Object,
+      default: () => {},
+    },
   },
 }
 </script>

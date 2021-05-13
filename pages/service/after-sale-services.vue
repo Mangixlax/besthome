@@ -1,15 +1,15 @@
 <template lang="pug">
   main
-    base-image-title(:imageTitleData="afrteSalesServiceImageTitle")
+    base-image-title(:imageTitleData="$t('pages.service_after_sale_services.image_title')")
       typo-text(
         tag="p"
         version="style-5"
-      ) We understand that many of our clients do not speak foreign languages and are not familiar with Alanya. At the same time, we also know that they have a lot of questions when arranging their life and they need a range of services to make their stay in Turkey more comfortable.
+      ) {{ $t('pages.service_after_sale_services.slot_text_1') }}
       typo-text(
         tag="p"
         version="style-5"
-      ) That is why our team has an after-sales service manager who speaks many foreign languages, including Russian.
-    page-service-list-card(:listCardData="TurkishCitizenshipListCard")
+      ) {{ $t('pages.service_after_sale_services.slot_text_2') }}
+    page-service-list-card(:listCardData="$t('pages.service_after_sale_services.list_card')")
 </template>
 
 <script lang="ts">
@@ -20,30 +20,6 @@ import PageServiceListCard from '~/components/Page/Service/PageServiceListCard.v
 export default {
   name: 'after-sale-services',
   components: { TypoText, BaseImageTitle, PageServiceListCard },
-  data() {
-    return {
-      afrteSalesServiceImageTitle: {
-        header: 'After-sale services',
-        text: [
-          'Buying a property in Alanya, Turkey is only the first step on the way to a comfortable holiday or a profitable investment.',
-        ],
-        filename: 'service-after-sale-services-bg.jpg',
-      },
-      TurkishCitizenshipListCard: {
-        header: {
-          title: 'Some of the services provided by our company:',
-        },
-        list: [
-          'Shuttle service from/to Antalya airport and Gazipasa;',
-          'Rent a car;',
-          'Help in buying furniture and interior design;',
-          'Renting out your apartments;',
-          'Apartment cleaning service;',
-          'Assistance in obtaining a residence permit and citizenship.',
-        ],
-      },
-    }
-  },
 }
 </script>
 

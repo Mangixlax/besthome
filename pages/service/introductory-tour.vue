@@ -1,29 +1,31 @@
 <template lang="pug">
   main
-    base-image-title(:imageTitleData="introductoryTourImageTitle")
+    base-image-title(:imageTitleData="$t('pages.service_introductory_tour.image_title')")
       typo-text(
         tag="h2"
         version="style-4"
-      ) If you have decided to purchase a property in Alanya, but are not ready for an online purchase, we will be happy to offer you the service of an individual study tour.
+      ) {{ $t('pages.service_introductory_tour.slot_text_1')}}
     base-post(
       :filename="require(`~/assets/images/test.jpg`)"
     )
       typo-text(
         tag="h3"
         version="style-3"
-      ) Meeting at the airport
+      ) {{ $t('pages.service_introductory_tour.post_1.title') }}
       typo-text(
-      ) After you purchase a plane ticket, you need to send it to the manager of the company so that he can arrange a meeting at the airport. The driver of the company, holding a sign with your name, will meet you at the exit from the airport of Antalya or Gazipasa. The road from Antalya airport to Alanya takes about 1 hour 45 minutes, from Gazipasa Airport to the center of Alanya-about 40 minutes.
+        tag="p"
+        version="style-5"
+      ) {{ $t('pages.service_introductory_tour.post_1.paragraph_1') }}
       typo-text(
         tag="p"
         version="style-5"
       )
-        | To date, the company has
+        | {{ $t('pages.service_introductory_tour.post_1.paragraph_with_link') }}
         typo-text(
           tag="a"
           href="#"
           version="style-5"
-        ) 30 completed projects
+        ) {{ $t('pages.service_introductory_tour.post_1.link') }}
         | .
     base-post(
       :filename="require(`~/assets/images/test.jpg`)" 
@@ -33,40 +35,40 @@
       typo-text(
         tag="h3"
         version="style-3"
-      ) Getting to know the city's districts
+      ) {{ $t('pages.service_introductory_tour.post_2.title') }}
       typo-text(
         tag="p"
         version="style-5"
-      ) The next morning we offer to start with the famous Turkish breakfast, which is famous not only for the variety of organic products, but also for the magnificent views of the mountains and the sea.
+      ) {{ $t('pages.service_introductory_tour.post_2.paragraph_1') }}
       typo-text(
         tag="p"
         version="style-5"
-      ) The manager of the company will show you Alanya from the observation deck, located at an altitude of 300 meters, and explain how the city works. You will also see the promenade of Alanya with numerous cafes, restaurants, yachts and walk along the famous Cleopatra beach.
+      ) {{ $t('pages.service_introductory_tour.post_2.paragraph_2') }}
       typo-text(
         tag="p"
         version="style-5"
-      )  You will have the opportunity to explore all the areas where BestHome Construction is building its complexes.
+      )  {{ $t('pages.service_introductory_tour.post_2.paragraph_3') }}
     base-post(
       :filename="require(`~/assets/images/test.jpg`)"
     )
       typo-text(
         tag="h3"
         version="style-3"
-      ) Presentation at the company's office
+      ) {{ $t('pages.service_introductory_tour.post_3.title') }}
       typo-text(
         tag="p"
         version="style-5"
-      ) We look forward to welcoming you to our office. The company's employee will present the objects, answer all your questions and tell you about the procedure for purchasing real estate in Turkey, as well as all legal aspects.
+      ) {{ $t('pages.service_introductory_tour.post_3.paragraph_1') }}
       typo-text(
         tag="p"
         version="style-5"
       )
-        | To date, the company has
+        | {{ $t('pages.service_introductory_tour.post_3.paragraph_with_link') }}
         typo-text(
           tag="a"
           href="#"
           version="style-5"
-        ) 30 completed projects
+        ) {{ $t('pages.service_introductory_tour.post_3.link') }}
         | .
     base-post(
       :filename="require(`~/assets/images/test.jpg`)" 
@@ -76,30 +78,30 @@
       typo-text(
         tag="h3"
         version="style-3"
-      ) Conclusion of the purchase and sale agreement
+      ) {{ $t('pages.service_introductory_tour.post_4.title') }}
       typo-text(
         tag="p"
         version="style-5"
-      ) After you have decided on the choice of the property you want to purchase, a contract will be drawn up and signed in the office of our company in Russian and Turkish. In the same place, the company's employees will issue a taxpayer number for you, which is necessary for the transfer of property rights in Turkey. At your request, the company's employees will also help you open an account in a Turkish bank.
+      ) {{ $t('pages.service_introductory_tour.post_4.paragraph_1') }}
     base-post(
       :filename="require(`~/assets/images/test.jpg`)"
     )
       typo-text(
         tag="h3"
         version="style-3"
-      ) Execution of a power of attorney
+      ) {{ $t('pages.service_introductory_tour.post_5.title') }}
       typo-text(
-      ) If you can not come to Turkey to issue a Certificate of ownership, as well as to issue a water and electricity meter in your name, you can issue a power of attorney to an employee of our company, so that they can issue a full package of documents without your personal presence.
+      ) {{ $t('pages.service_introductory_tour.post_5.paragraph_1') }}
       typo-text(
         tag="p"
         version="style-5"
       )
-        | To date, the company has
+        | {{ $t('pages.service_introductory_tour.post_5.paragraph_with_link') }}
         typo-text(
           tag="a"
           href="#"
           version="style-5"
-        ) 30 completed projects
+        ) {{ $t('pages.service_introductory_tour.post_5.link') }}
         | .
     base-post(
       :filename="require(`~/assets/images/test.jpg`)" 
@@ -109,11 +111,11 @@
       typo-text(
         tag="h3"
         version="style-3"
-      ) Visiting furniture stores
+      ) {{ $t('pages.service_introductory_tour.post_6.title') }}
       typo-text(
         tag="p"
         version="style-5"
-      ) If you have a desire to buy furniture for your new apartments or to study the pricing policy of furniture stores, the manager of the company will accompany you to the best furniture salons in the city.
+      ) {{ $t('pages.service_introductory_tour.post_6.paragraph_1') }}
     base-post-two-image(
        :portraitImage="require(`~/assets/images/investors/portrait-1.jpg`)"
        :landscapeImage="require(`~/assets/images/investors/landscape-1.jpg`)"
@@ -121,11 +123,15 @@
       typo-text(
         tag="h3"
         version="style-3"
-      ) Transfer from Alanya to the airport
+      ) {{ $t('pages.service_introductory_tour.post_7.title') }}
       typo-text(
         tag="p"
         version="style-5"
-      ) At the appointed time, the driver will pick you up and take you to Antalya or Gazipasa Airport.
+      ) {{ $t('pages.service_introductory_tour.post_7.paragraph_1') }}
+      typo-text(
+        tag="p"
+        version="style-5"
+      ) {{ $t('pages.service_introductory_tour.post_7.paragraph_2') }}
 </template>
 
 <script lang="ts">
@@ -141,17 +147,6 @@ export default {
     TypoText,
     BaseImageTitle,
     BasePostTwoImage,
-  },
-  data() {
-    return {
-      introductoryTourImageTitle: {
-        header: 'Introductory tour',
-        text: [
-          "After talking with the manager of our company, you can tell him about the dates that are most suitable for you to come to Turkey. Thanks to the high professionalism of the company's employees, as well as the excellent organization, the study tour usually takes no more than 3-4 days. This time is enough to get acquainted with the districts of the city of Alanya, get answers to all your questions and explore the properties that interest you.",
-        ],
-        filename: 'service-introductory-tour.jpg',
-      },
-    }
   },
 }
 </script>

@@ -72,7 +72,6 @@ export default {
     margin: 0 auto
     margin-top: 198px
 
-    &-text
 .card
   padding: 32px
 

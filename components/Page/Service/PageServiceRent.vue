@@ -31,24 +31,13 @@
 import TypoText from '~/components/Base/TypoText.vue'
 
 export default {
+  name: 'pageServiceRent',
   components: { TypoText },
-  data() {
-    return {
-      allAboutRent: {
-        title: 'All about rent',
-        text: [
-          'Renting apartments and apartments in Alanya is an opportunity to provide a stable income in foreign currency.',
-          'The complexes of BestHome Construction company are located only in the central areas of the city of Alanya, near the sea, have a developed infrastructure and innovative design. Thanks to these features, the properties from BestHome Construction are ideal for both long-term and short-term rentals.',
-          'Regardless of whether you have purchased an apartment for a rental business or for a holiday, and want to rent your apartment only during the period when it is free, our partner company will be happy to provide all services related to the rental of your property:',
-        ],
-        cards: [
-          'Professional photo and video shooting of your apartments',
-          'Search for customers & accommodation of tenants in apartments, signing of the lease agreement',
-          'Reception of apartments at the departure of tenants',
-          'Ordering apartment cleaning',
-        ],
-      },
-    }
+  props: {
+    allAboutRent: {
+      type: Object,
+      default: () => Object,
+    },
   },
 }
 </script>

@@ -41,19 +41,11 @@ import TypoText from '~/components/Base/TypoText.vue'
 export default {
   name: 'PageInvestorsTitle',
   components: { TypoText },
-  data() {
-    return {
-      investorsPage: {
-        title: 'Turkey - Real estate investment in Alanya',
-        text:
-          'Over the past 10 years, the Republic of Turkey has replenished its treasury with foreign investment of $ 100 billion. What attracts investors from Russia, the United States and Europe? Economic stability, political liberality to foreign investors, high quality of construction, relatively low taxes on the purchase of apartments and houses. And in recent years, the possibility of obtaining Turkish citizenship under a simplified scheme has also been added.',
-        linkToProjects: {
-          text: 'To date, the company has',
-          link: '30 completed projects',
-          route: '/projects',
-        },
-      },
-    }
+  props: {
+    investorsPage: {
+      type: Object,
+      default: () => {},
+    },
   },
 }
 </script>

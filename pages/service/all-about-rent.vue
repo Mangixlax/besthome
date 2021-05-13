@@ -1,6 +1,6 @@
 <template lang="pug">
   main
-    page-service-rent
+    page-service-rent(:allAboutRent="$t('pages.all_about_rent')")
 </template>
 
 <script lang="ts">
