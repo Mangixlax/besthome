@@ -1,6 +1,6 @@
 <template lang="pug">
   footer(:class="$style['footer']")
-    footer-company-description
+    footer-company-description(:paragraphs="$t('footer.footer_company_description')")
     base-bread-crumbs
     footer-site-map
     footer-copyright
