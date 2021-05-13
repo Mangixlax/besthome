@@ -6,9 +6,9 @@
         version="style-1"
         :class="$style['article__container-title']"
       ) 
-        | {{ companyAboutHistoryPage.title }}
+        | {{ historyPageTitle.title }}
       typo-text(
-        v-for="(paragraph, i) in companyAboutHistoryPage.text"
+        v-for="(paragraph, i) in historyPageTitle.text"
         :key="i"
         tag="p"
         version="style-5"
@@ -21,20 +21,20 @@
           version="style-5"
           :class="$style['content__link-text']"
         ) 
-          | {{ companyAboutHistoryPage.linkToProjects.text}}
+          | {{ historyPageTitle.linkToProjects.text}}
         typo-text(
           tag="nuxt-link"
           version="style-5"
-          :to="localePath(companyAboutHistoryPage.linkToProjects.route)"
-          :title="companyAboutHistoryPage.linkToProjects.link"
+          :to="localePath(historyPageTitle.linkToProjects.route)"
+          :title="historyPageTitle.linkToProjects.link"
           :class="$style['content__link-text--underline']"
-        ) {{ companyAboutHistoryPage.linkToProjects.link }}
+        ) {{ historyPageTitle.linkToProjects.link }}
         | .
         typo-text(
           tag="nuxt-link"
           version="none"
-          :to="localePath(companyAboutHistoryPage.linkToProjects.route)"
-          :title="companyAboutHistoryPage.linkToProjects.link"
+          :to="localePath(historyPageTitle.linkToProjects.route)"
+          :title="historyPageTitle.linkToProjects.link"
           :class="$style['content__link-arrow']"
         )
           svg-icon(name="link-arrow-blue")      
@@ -46,21 +46,11 @@ import TypoText from '~/components/Base/TypoText.vue'
 export default {
   name: 'PageCompanyHistoryTitle',
   components: { TypoText },
-  data() {
-    return {
-      companyAboutHistoryPage: {
-        title: 'This is history',
-        text: [
-          'The history of the company "BestHome Construction" began in 2004 in Alanya, when two young people decided to start their own business in Turkey, based on long-term partnerships, a European understanding of service and respect for customers. They wanted to create a company with Turkish traditions and a European face. The new fast-growing real estate market could not have been better suited for this purpose, although even then there was already competition. But the founders of the company believed that their brainchild would be able to reach a leading position and, as later life showed, they were not mistaken in their forecasts.',
-          'Based on their experience working in a leading real estate agency in Alanya, they understood that there is no product on the market that they would like to offer to demanding European customers, as well as high-quality after-sales service. Then decisions were made that determined the path of further development of the company. The first building houses the European level of quality meeting the expectations and desires of customers, the second – biting promises, create trust with clients, third – to be innovators and legislators on the real estate market of Alanya, the fourth – introducing more customers around the world the magnificent town of Alanya and great Turkish culture, to increase the value of the region.',
-        ],
-        linkToProjects: {
-          text: 'To date, the company has',
-          link: '30 completed projects',
-          route: '/projects',
-        },
-      },
-    }
+  props: {
+    historyPageTitle: {
+      type: Object,
+      default: () => {},
+    },
   },
 }
 </script>

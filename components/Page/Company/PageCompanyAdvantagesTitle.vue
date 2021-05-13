@@ -6,9 +6,15 @@
         version="style-1"
         :class="$style['article__container-title']"
       ) 
-        | {{ aboutPageTitle.title }}
+        | {{ advantagesPageTitle.title }}
       typo-text(
-        v-for="(paragraph, i) in aboutPageTitle.text"
+        tag="h3"
+        version="style-3"
+        :class="$style['article__container-title']"
+      ) 
+        | {{ advantagesPageTitle.sub_title }}
+      typo-text(
+        v-for="(paragraph, i) in advantagesPageTitle.text"
         :key="i"
         tag="p"
         version="style-5"
@@ -21,10 +27,10 @@
 import TypoText from '~/components/Base/TypoText.vue'
 
 export default {
-  name: 'PageCompanyTitle',
+  name: 'PageCompanyAdvantagesTitle',
   components: { TypoText },
   props: {
-    aboutPageTitle: {
+    advantagesPageTitle: {
       type: Object,
       default: () => {},
     },

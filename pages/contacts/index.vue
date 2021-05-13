@@ -1,6 +1,6 @@
 <template lang="pug">
   main
-    page-contacts-map
+    page-contacts-map(:contactMap="$t('pages.contacts.contact_map')")
     common-consultant-slider
 </template>
 

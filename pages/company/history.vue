@@ -1,23 +1,23 @@
 <template lang="pug">
   main
-    page-company-history-title
+    page-company-history-title(:historyPageTitle="$t('pages.company_history.header')")
     base-post(
       :filename="require(`~/assets/images/test.jpg`)"
     )
       typo-text(
         tag="h3"
         version="style-3"
-      ) “We strive to elevate and transform neglected areas into living and breathing parts of cities with a valuable contribution to society”
+      ) {{ $t('pages.company_history.post_1.title') }}
       typo-text(
         tag="p"
         version="style-5"
       )
-        | Country manager
+        | {{ $t('pages.company_history.post_1.paragraph_with_link') }}
         typo-text(
           tag="a"
           href="#"
           version="style-5"
-        ) Maconi Michal
+        ) {{ $t('pages.company_history.post_1.link') }}
         | .
 </template>
 

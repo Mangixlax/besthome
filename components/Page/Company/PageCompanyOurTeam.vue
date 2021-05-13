@@ -6,7 +6,7 @@
         version="style-1"
         :class="$style['our-team__container-title']"
       ) 
-        | {{ ourCompanyPage.title }}
+        | {{ $t('pages.our_team.title') }}
       div(:class="$style['our-team__display']")
         page-company-personal-card(
           v-for="(card,i) in getOurCompanyCardInfo"
@@ -22,13 +22,6 @@ import PageCompanyPersonalCard from '~/components/Page/Company/PageCompanyPerson
 export default {
   name: 'PageCompanyOurTeam',
   components: { TypoText, PageCompanyPersonalCard },
-  data() {
-    return {
-      ourCompanyPage: {
-        title: 'Our team',
-      },
-    }
-  },
   computed: {
     getOurCompanyCardInfo() {
       return this.$store.state.ourCompanyCardInfo

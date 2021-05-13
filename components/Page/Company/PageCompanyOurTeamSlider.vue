@@ -4,7 +4,7 @@
       typo-text(
         tag="h2"
         version="style-4"
-      ) Other employees
+      ) {{ $t('pages.our_team.slider_title') }}
     div(:class="$style['container__body']")
       swiper(ref="swiper" :class="$style['slider']" class="swiper" :options="swiperOption")
         swiper-slide(
