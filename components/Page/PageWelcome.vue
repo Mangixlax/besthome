@@ -5,37 +5,40 @@
       tag="h1"
       version="style-2"
       :class="$style['hero__title']"
-    ) We are leaders in quality construction & infrastructure
+    ) {{ homeTitleData.title }}
     typo-text(
       ref="header2"
       tag="p"
       version="style-5"
       :class="$style['hero__text']"
-    ) BestHome Construction is the leading construction company in Alanya, operating in the real estate market since 2004. Having started its activity as a real estate agency, since 2008. Our company specializes in the construction and implementation of turnkey residential residences in the best areas of the city of Alanya.
+    ) {{ homeTitleData.text }}
     typo-text(
       ref="header3"
       tag="p"
       version="style-5"
       :class="$style['hero__text']"
     )
-      | To date, the company has
+      | {{ homeTitleData.linkToProjects.text }}
       span
         nuxt-link(
-          :to="localePath({ name: 'projects' })"
+          :to="localePath(homeTitleData.linkToProjects.route)"
           :class="$style['hero__text-link']"
-        ) 30 completed projects
+        ) {{ homeTitleData.linkToProjects.link }}
         | .
 </template>
 
 <script lang="ts">
 import gsap from 'gsap'
-import { Component, Vue, Watch } from 'nuxt-property-decorator'
+import { Component, Vue, Watch, Prop } from 'nuxt-property-decorator'
 import TypoText from '~/components/Base/TypoText.vue'
 
 @Component({
   components: { TypoText },
 })
 export default class PageWelcome extends Vue {
+
+  @Prop({ type: Object, default: () => {}, required: true }) homeTitleData!: Object
+  
   get isTouchDevice() {
     return this.$store.state.isTouchDevice
   }

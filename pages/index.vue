@@ -1,6 +1,6 @@
 <template lang="pug">
   main
-    page-welcome
+    page-welcome(:home-title-data="$t('pages.home.header')")
     hero-slider(:slides="heroProjectsSlides")
     link-banner-wrapper
       link-banner(

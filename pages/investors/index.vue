@@ -1,27 +1,27 @@
 <template lang="pug">
   main
-    page-investors-title
+    page-investors-title(:investorsPage="$t('pages.investors.header')")
     base-post(
       :filename="require(`~/assets/images/test.jpg`)"
     )
       typo-text(
         tag="h3"
         version="style-3"
-      ) Bet on long-term cooperation
+      ) {{ $t('pages.investors.post_1.title') }}
       typo-text(
-      ) We know that the success of cooperation with us primarily depends on the stability of our clients ' income. We rely on a long-term mutually beneficial partnership. The more our investors earn, the more promising our business is.
+      ) {{ $t('pages.investors.post_1.paragraph_1') }}
       typo-text(
         tag="p"
         version="style-5"
       )
-        | To date, the company has
+        | {{ $t('pages.investors.post_1.paragraph_with_link') }}
         typo-text(
           tag="a"
           href="#"
           version="style-5"
-        ) 30 completed projects
+        ) {{ $t('pages.investors.post_1.link') }}
         | .
-    page-investors-advice
+    page-investors-advice(:investorsPageAdvice="$t('pages.investors.advice_data')")
     base-post(
       :filename="require(`~/assets/images/test.jpg`)" 
       flip 
@@ -30,21 +30,21 @@
       typo-text(
         tag="h3"
         version="style-3"
-      ) Responsible approach to work
+      ) {{ $t('pages.investors.post_2.title') }}
       typo-text(
         tag="p"
         version="style-5"
-      ) We have strict requirements for each of our employees. We constantly monitor new trends in the real estate market. Our employees regularly replenish their knowledge reserves in order to successfully implement them in their clients ' business projects.
+      ) {{ $t('pages.investors.post_2.paragraph_1') }}
       typo-text(
         tag="p"
         version="style-5"
       )
-        | More
+        | {{ $t('pages.investors.post_2.paragraph_with_link') }}
         typo-text(
           tag="a"
           href="#"
           version="style-5"
-        ) about Cleopatra Select 
+        ) {{ $t('pages.investors.post_2.link') }} 
         | .
     base-post(
       :filename="require(`~/assets/images/test.jpg`)"
@@ -52,45 +52,41 @@
       typo-text(
         tag="h3"
         version="style-3"
-      ) Bet on long-term cooperation
+      ) {{ $t('pages.investors.post_3.title') }}
       typo-text(
         tag="p"
         version="style-5"
-      ) We know that the success of cooperation with us primarily depends on the stability of our clients ' income. We rely on a long-term mutually beneficial partnership. The more our investors earn, the more promising our business is.
+      ) {{ $t('pages.investors.post_3.paragraph_1') }}
       typo-text(
         tag="p"
         version="style-5"
       )
-        | To date, the company has
+        | {{ $t('pages.investors.post_3.paragraph_with_link') }}
         typo-text(
           tag="a"
           href="#"
           version="style-5"
-        ) 30 completed projects
+        ) {{ $t('pages.investors.post_3.link') }}
         | .
-    base-scroll-line(:scrollLineInfo="investorsPageScrollLineInfo")
+    base-scroll-line(:scrollLineInfo="$t('pages.investors.scroll_line_data')")
     base-post-two-image(
        :portraitImage="require(`~/assets/images/investors/portrait-1.jpg`)"
        :landscapeImage="require(`~/assets/images/investors/landscape-1.jpg`)"
     )
       typo-text(
-        tag="h3"
-        version="style-3"
-      ) Bet on long-term cooperation
-      typo-text(
         tag="p"
         version="style-5"
-      ) We know that the success of cooperation with us primarily depends on the stability of our clients ' income. We rely on a long-term mutually beneficial partnership. The more our investors earn, the more promising our business is.
+      ) {{ $t('pages.investors.post_4.paragraph_1') }}
       typo-text(
         tag="p"
         version="style-5"
       )
-        | To date, the company has
+        | {{ $t('pages.investors.post_4.paragraph_with_link') }}
         typo-text(
           tag="a"
           href="#"
           version="style-5"
-        ) 30 completed projects
+        ) {{ $t('pages.investors.post_4.link') }}
         | .
       
 </template>
@@ -111,7 +107,7 @@ export default {
     BasePost,
     BasePostTwoImage,
     BaseScrollLine,
-    TypoText
+    TypoText,
   },
   data() {
     return {
