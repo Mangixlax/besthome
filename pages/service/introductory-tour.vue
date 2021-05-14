@@ -27,6 +27,15 @@
           version="style-5"
         ) {{ $t('pages.service_introductory_tour.post_1.link') }}
         | .
+    base-text-container
+      typo-text(
+        tag="h2"
+        version="style-2"
+      ) {{ $t('pages.service_introductory_tour.post_2.title') }}
+      typo-text(
+        tag="p"
+        version="style-5"
+      ) {{ $t('pages.service_introductory_tour.post_2.paragraph_1') }}
     base-post(
       :filename="require(`~/assets/images/test.jpg`)" 
       flip 
@@ -139,6 +148,7 @@ import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import BaseImageTitle from '~/components/Base/BaseImageTitle.vue'
 import BasePostTwoImage from '~/components/Base/BasePostTwoImage.vue'
+import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
 
 export default {
   name: 'introductory-tour',
@@ -147,6 +157,7 @@ export default {
     TypoText,
     BaseImageTitle,
     BasePostTwoImage,
+    BaseTextContainer
   },
 }
 </script>
