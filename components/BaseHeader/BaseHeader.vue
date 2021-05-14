@@ -1,28 +1,10 @@
 <template lang="pug">
   header(:class="$style['header']")
     div(:class="$style['header__inner']")
-      nuxt-link(
-        :to="{ name: 'index' }"
-        :class="$style['header__logo']"
-        title="BestHome Construction"
-      )
-        svg-icon(name="logo")
+      logo(:class="$style['header__logo']")
       nav(:class="$style['header__nav']")
         base-header-navigation
-      div(:class="$style['header__info']")
-        typo-text(
-          tag="a"
-          version="style-6"
-          href="tel:+905305474415"
-          title="Call +90 530 547-44-15"
-        )
-          span(v-html="'+90 530 547<span>-</span>44<span>-</span>15'")
-        typo-text(
-          tag="div"
-          version="style-9"
-          :class="$style['header__info-callback']"
-        )
-          | Go get a call back
+      base-header-info(align-right hide-on-mobile)
 </template>
 
 <script lang="ts">
@@ -30,8 +12,11 @@ import Vue from 'vue'
 import { Component } from 'nuxt-property-decorator'
 import BaseHeaderNavigation from '~/components/BaseHeader/BaseHeaderNavigation.vue'
 import TypoText from '~/components/Base/TypoText.vue'
+import BaseHeaderInfo from '~/components/BaseHeader/BaseHeaderInfo.vue'
+import Logo from '~/components/Logo.vue'
+
 @Component({
-  components: { TypoText, BaseHeaderNavigation },
+  components: { Logo, BaseHeaderInfo, TypoText, BaseHeaderNavigation },
 })
 export default class BaseHeader extends Vue {}
 </script>
@@ -45,6 +30,12 @@ export default class BaseHeader extends Vue {}
   height: 92px
   position: sticky
   top: 0
+  background-color: $color-white
+  z-index: 10
+
+  @media (max-width: 1054px)
+    position: static
+    height: 97px
 
   &__inner
     display: flex
@@ -53,38 +44,17 @@ export default class BaseHeader extends Vue {}
     width: 100%
     height: 100%
 
-  &__logo
-    display: flex
-    margin-right: 30px
+    @media (max-width: 1248px + 32px)
+      margin: 0 24px
 
-    svg
-      width: 162px
-      height: 69px
-      fill: $color-black
+  &__logo
+    margin-right: 30px
 
   &__nav
     display: flex
     height: 100%
     flex-grow: 1
 
-  &__info
-    display: flex
-    flex-direction: column
-    align-items: flex-end
-
-    a
-      text-decoration: none
-      color: rgba($color-black, 0.88)
-
-      span span
-        color: rgba($color-black, 0.2)
-
-    &-callback
-      display: flex
-      align-items: center
-      margin-top: 4px
-      padding: 0 2px 5px
-      color: $color-blue
-      border-bottom: 1px solid rgba($color-blue, 0.16)
-      cursor: pointer
+    @media (max-width: 1054px)
+      display: none
 </style>

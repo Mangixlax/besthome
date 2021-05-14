@@ -1,14 +1,14 @@
 <template lang="pug">
   ul(:class="$style['nav']")
     li(
-      v-for="(item, key) in menuList"
+      v-for="(item, key) in headerNavigationList"
       :key="key"
       :class="$style['nav__item']"
     )
       typo-text(
         tag="nuxt-link"
         version="style-7"
-        :to="{ name: 'index' }"
+        :to="localePath(item.route)"
         :title="item.title"
         :class="$style['nav__item-link']"
       ) {{ item.name }}
@@ -28,17 +28,31 @@
         :class="$style['dropdown']"
       )
         li(
-          v-for="(item, key) in item.children"
-          :key="key"
+          v-for="(childItem, childItemKey) in item.children"
+          :key="`child-item-${childItemKey}`"
           :class="$style['dropdown__item']"
         )
           typo-text(
             tag="nuxt-link"
             version="style-7"
-            :to="{ name: 'index' }"
-            :title="item.title"
+            :to="localePath(childItem.route)"
+            :title="childItem.title"
             :class="$style['dropdown__item-link']"
-          ) {{ item.name }}
+          ) {{ childItem.name }}
+          typo-text(
+            v-if="childItem.indicator"
+            version="style-9"
+            tag="span"
+            :class="$style['dropdown__item-indicator']"
+          ) {{ childItem.indicator }}
+        li(:class="$style['dropdown__item']")
+          typo-text(
+            tag="nuxt-link"
+            version="style-7"
+            :to="localePath(item.route)"
+            :title="item.nameInChildren"
+            :class="$style['dropdown__item-link']"
+          ) {{ item.nameInChildren }}
           typo-text(
             v-if="item.indicator"
             version="style-9"
@@ -49,99 +63,16 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Component } from 'nuxt-property-decorator'
+import { Component, namespace } from 'nuxt-property-decorator'
 import TypoText from '~/components/Base/TypoText.vue'
+import { NavigationListItem } from '~/store/Navigation'
 
-interface NavigationListItem {
-  name: string
-  title?: string
-  alt?: string
-  indicator?: number | string
-  route: object
-  children?: Array<NavigationListItem>
-}
+const NavigationStore = namespace('Navigation')
 
 @Component({ components: { TypoText } })
 export default class BaseHeaderNavigation extends Vue {
-  public menuList: Array<NavigationListItem> = [
-    {
-      name: 'Our projects',
-      indicator: '30',
-      route: {},
-      title: 'Our projects',
-      children: [
-        {
-          name: '%New_category% %New_category% %New_category%',
-          indicator: 'new',
-          route: {},
-          title: '%New_category%',
-        },
-        {
-          name: '%New_category% %New_category%',
-          indicator: 'new',
-          route: {},
-          title: '%New_category%',
-        },
-        {
-          name: '%New_category%',
-          indicator: 'new',
-          route: {},
-          title: '%New_category%',
-        },
-        {
-          name: '%New_category%',
-          indicator: 'new',
-          route: {},
-          title: '%New_category%',
-        },
-        {
-          name: '%New_category% %New_category% %New_category% %New_category%',
-          indicator: 'new',
-          route: {},
-          title: '%New_category%',
-        },
-      ],
-    },
-    {
-      name: 'Secondary housing',
-      route: {},
-      title: 'Secondary housing',
-    },
-    {
-      name: 'Investors',
-      route: {},
-      title: 'Investors',
-    },
-    {
-      name: 'How we work',
-      indicator: '6',
-      route: {},
-      title: 'How we work',
-    },
-    {
-      name: 'Company',
-      route: {},
-      title: 'Company',
-      children: [
-        {
-          name: '%New_category%',
-          indicator: 'new',
-          route: {},
-          title: '%New_category%',
-        },
-      ],
-    },
-    {
-      name: 'Media',
-      route: {},
-      title: 'Media',
-    },
-    {
-      name: 'Contact us',
-      route: {},
-      title: 'Contact us',
-    },
-  ]
+  @NavigationStore.Getter('getHeaderNavigationList')
+  private headerNavigationList!: NavigationListItem[]
 
   public itemHasChildren(item: NavigationListItem) {
     return item.children && (item.children || []).length

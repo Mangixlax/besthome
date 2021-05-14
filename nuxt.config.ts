@@ -1,6 +1,6 @@
-import { NuxtOptionsBuild, PostcssConfiguration } from '~/node_modules/@nuxt/types/config/build'
+import { NuxtOptionsBuild, PostcssConfiguration } from '@nuxt/types/config/build'
 import { Configuration, NuxtConfig } from '@nuxt/types'
-import { NuxtOptionsRender } from '~/node_modules/@nuxt/types/config/render'
+import { NuxtOptionsRender } from '@nuxt/types/config/render'
 
 const isDev = process.env.NODE_ENV === 'development'
 const time = new Date().valueOf()
@@ -63,7 +63,11 @@ export default <NuxtConfig>{
   css: ['normalize.css/normalize.css', '~/sass/theme.sass'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    '~plugins/slider-swiper.js',
+    '~plugins/v-click-outside.js',
+    { src: '~plugins/vue-scrollmagic.js', ssr: false },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: false,
@@ -97,9 +101,18 @@ export default <NuxtConfig>{
     '@nuxtjs/svg-sprite',
     '@nuxtjs/component-cache',
     'cookie-universal-nuxt',
+    'nuxt-i18n',
   ],
 
-  svgSprite: {},
+  i18n: {
+    locales: ['ru', 'en'],
+    defaultLocale: 'en',
+    vueI18n: '~/config/i18n.js',
+  },
+
+  svgSprite: {
+    publicPath: '/_nuxt/',
+  },
 
   /*
    ** Axios module configuration
@@ -130,6 +143,12 @@ export default <NuxtConfig>{
       },
     },
   },
+
+  router: {
+    prefetchLinks: false,
+  },
+
+  redirect: [{ from: '^(\\/[^\\?]*[^\\/])(\\?.*)?$', to: '$1/$2' }],
 
   /*
    ** Build configuration
@@ -246,6 +265,7 @@ export default <NuxtConfig>{
           'postcss-reduce-idents': {},
           'postcss-url': false,
           'postcss-nested': {},
+          'postcss-nested-ancestors': {},
           'postcss-responsive-type': {},
           'postcss-hexrgba': {},
         }),

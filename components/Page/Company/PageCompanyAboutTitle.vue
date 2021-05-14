@@ -1,0 +1,74 @@
+<template lang="pug">
+  section(:class="$style['article']")
+    div(:class="$style['article__container']")
+      typo-text(
+        tag="h1"
+        version="style-1"
+        :class="$style['article__container-title']"
+      ) {{ aboutPageTitle.title }}
+      typo-text(
+        v-for="(paragraph, i) in aboutPageTitle.text"
+        :key="i"
+        tag="p"
+        version="style-5"
+        :class="$style['article__container-text']"
+      ) {{ paragraph }}
+</template>
+
+<script lang="ts">
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
+import TypoText from '~/components/Base/TypoText.vue'
+
+@Component({
+  components: { TypoText },
+})
+export default class PageCompanyAboutTitle extends Vue {
+  @Prop({ type: Object, default: () => {} }) aboutPageTitle!: object
+}
+</script>
+
+<style lang="sass" module>
+.article
+  width: 100%
+
+  &__container
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    max-width: 912px
+    padding: 80px 24px
+    margin: 0 auto
+
+    @media (max-width: 900px)
+      padding: 32px 24px
+
+    &-title
+      margin: 0 0 40px
+
+    &-text
+      margin: 0 0 16px
+
+.content__link
+  display: flex
+  align-items: center
+  flex-wrap: wrap
+
+  &-text
+    margin: 0
+    white-space: nowrap
+
+    &--underline
+      text-decoration: underline
+      text-decoration-color: $color-blue-16
+      text-underline-offset: 7px
+      color: $color-blue-100
+      margin-left: 0.5em
+      white-space: nowrap
+
+  &-arrow
+    height: 26px
+
+    svg
+      height: 26px
+      width: 26px
+</style>
