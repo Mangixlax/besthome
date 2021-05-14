@@ -50,11 +50,11 @@ export default class DefaultLayout extends Vue {
    * Don't delete this
    */
   fontResizer() {
-    const body_size = $('body')
-    const frame_w = body_size.width()
-    const frame_h = body_size.height()
+    const body_size: JQuery = $('body')
+    const frame_w: number = body_size.width() as number
+    const frame_h: number = body_size.height() as number
 
-    const font_size = 5 + 5 * ((frame_w * frame_h) / (1920 * 1080))
+    const font_size: number = 5 + 5 * ((frame_w * frame_h) / (1920 * 1080))
 
     $('html').css({ 'font-size': font_size })
   }
