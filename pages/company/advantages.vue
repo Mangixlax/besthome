@@ -33,8 +33,8 @@
       )
         | {{ $t('pages.company_advantages.post_2.paragraph_with_link') }}
         typo-text(
-          tag="a"
-          href="#"
+          tag="nuxt-link"
+          :to="localePath({ name: 'contacts' })"
           version="style-5"
         ) {{ $t('pages.company_advantages.post_2.link') }}
         | .
@@ -80,8 +80,8 @@
       )
         | {{ $t('pages.company_advantages.post_4.paragraph_with_link') }}
         typo-text(
-          tag="a"
-          href="#"
+          tag="nuxt-link"
+          :to="localePath({ name: 'company-our-team' })"
           version="style-5"
         ) {{ $t('pages.company_advantages.post_4.link') }}
         | .
@@ -95,6 +95,8 @@
         version="style-3"
       ) {{ $t('pages.company_advantages.post_5.title') }}
       typo-text(
+        tag="p"
+        version="style-5"
       ) {{ $t('pages.company_advantages.post_5.paragraph_1') }}
     base-text-container
       typo-text(
