@@ -21,7 +21,7 @@
 import Vue from 'vue'
 import gsap from 'gsap'
 import $ from 'jquery'
-import { Component } from 'nuxt-property-decorator'
+import { Component, Watch } from 'nuxt-property-decorator'
 import TypoText from '~/components/Base/TypoText.vue'
 
 @Component({
@@ -36,8 +36,16 @@ export default class CursorMover extends Vue {
   public offExclusion: boolean = false
   public vel: { x: number; y: number } = { x: 0, y: 0 }
   public pos: { x: number; y: number } = { x: 0, y: 0 }
-  public speed: number = 0.55
+  public speed: number = 0.1
   public body: JQuery | null = null
+
+  @Watch('$route')
+  onRouteChanged(route: any) {
+    this.hideCursor()
+    this.deactivateCursor()
+    this.onMouseLeavePointer()
+    this.onMouseLeaveText()
+  }
 
   mounted() {
     this.body = $('body')
@@ -163,6 +171,9 @@ export default class CursorMover extends Vue {
 </script>
 
 <style lang="sass" module>
+*
+  cursor: none !important
+
 .cursor
   position: fixed
   top: 0
