@@ -49,6 +49,16 @@ export default class LinkBanner extends Vue {
   padding-bottom: 30.5%
   width: 100%
 
+  &:before
+    content: ''
+    position: absolute
+    left: 0
+    top: 0
+    right: 0
+    bottom: 0
+    background: rgba(17, 17, 17, 0.16)
+    z-index: 2
+
   &__image
     position: absolute
     left: 0
@@ -58,6 +68,7 @@ export default class LinkBanner extends Vue {
     width: 100%
     height: 100%
     object-fit: cover
+    z-index: 1
 
     @media (max-width: 900px)
       height: 272px
@@ -65,6 +76,7 @@ export default class LinkBanner extends Vue {
   &__text
     +style-3
     position: absolute
+    z-index: 3
     padding: 0 32px
     left: 0
     right: 0
