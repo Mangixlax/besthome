@@ -9,6 +9,8 @@
         title="Secondary housing"
         text="Secondary<br>housing"
         text-align="right"
+        data-cursor-text="Click<br>and watch"
+        data-cursor-off-exclusion
       )
       link-banner(
         :image-src="require('~/assets/images/link-banner-2.jpg')"
@@ -16,6 +18,8 @@
         title="For investors"
         text="For investors"
         text-align="center"
+        data-cursor-text="Click<br>and watch"
+        data-cursor-off-exclusion
       )
     tree-columns
     common-consultant-slider
