@@ -12,7 +12,7 @@
       tag="div"
       version="style-9"
       :class="$style['header__info-callback']"
-    ) Go get a call back
+    ) {{ $t('header.call_back')}}
 </template>
 
 <script lang="ts">

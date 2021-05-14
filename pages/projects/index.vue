@@ -1,5 +1,5 @@
 <template lang="pug">
-  div PROJECTS
+  div
 </template>
 
 <script lang="ts">

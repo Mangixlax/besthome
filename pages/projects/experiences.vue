@@ -1,32 +1,32 @@
 <template lang="pug">
   main
     base-project-navigation
-    page-projects-experiences-title
+    page-projects-experiences-title(:title="$t('pages.projects_experiences.header')")
     base-post(
       :filename="require(`~/assets/images/test.jpg`)"
     )
       typo-text(
         tag="h3"
         version="style-3"
-      ) Fitness Centre
+      ) {{ $t('pages.projects_experiences.post_1.title') }}
       typo-text(
         tag="p"
         version="style-5"
-      ) Cleopatra Select is conceived for people who want their home to extend beyond apartment walls. The quintessential urban life is complemented by closeness to nature. Apartments are energy-efficient and buildings are surrounded by greenery and covered with green roofs.
+      ) {{ $t('pages.projects_experiences.post_1.paragraph_1') }}
       typo-text(
         tag="p"
         version="style-5"
-      ) The largest fitness in the country. For indoor sports activities enthusiasts (and for rainy days too).
+      ) {{ $t('pages.projects_experiences.post_1.paragraph_2') }}
       typo-text(
         tag="p"
         version="style-5"
       )
-        | More
+        | {{ $t('pages.projects_experiences.post_1.paragraph_with_link') }}
         typo-text(
           tag="a"
           href="#"
           version="style-5"
-        ) about Cleopatra Select 
+        ) {{ $t('pages.projects_experiences.post_1.link') }}
         | .
     base-post(
       :filename="require(`~/assets/images/test.jpg`)"
@@ -36,26 +36,26 @@
       typo-text(
         tag="h3"
         version="style-3"
-      ) Library 
+      ) {{ $t('pages.projects_experiences.post_2.title') }} 
       typo-text(
         tag="p"
         version="style-5"
-      ) A modern, spacious and bright public library for all bibliophiles.
+      ) {{ $t('pages.projects_experiences.post_1.paragraph_1') }}
       typo-text(
         tag="p"
         version="style-5"
       )
-        | More
+        | {{ $t('pages.projects_experiences.post_2.paragraph_with_link') }}
         typo-text(
           tag="a"
           href="#"
           version="style-5"
-        ) about Cleopatra Select 
+        ) {{ $t('pages.projects_experiences.post_1.link') }} 
         | .
-    base-scroll-line(:scrollLineInfo="experiencesPageScrollLineInfo")
+    base-scroll-line(:scroll-line-info="$t('pages.projects_experiences.scroll_line_data')")
     page-projects-panorama
-    base-subscribe(whiteTheme)
-    base-accordeons
+    base-subscribe(:subscribe-data="$t('footer.subscribe')" whiteTheme)
+    base-accordions(:accordions-data="$t('footer.accordions')")
     footer-fast-links
 </template>
 
@@ -67,7 +67,7 @@ import TypoText from '~/components/Base/TypoText.vue'
 import BaseScrollLine from '~/components/Base/BaseScrollLine.vue'
 import PageProjectsPanorama from '~/components/Page/Projects/PageProjectsPanorama.vue'
 import BaseSubscribe from '~/components/Base/BaseSubscribe.vue'
-import BaseAccordeons from '~/components/Base/BaseAccordeons.vue'
+import BaseAccordions from '~/components/Base/BaseAccordions.vue'
 import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
 
 export default {
@@ -80,7 +80,7 @@ export default {
     BaseScrollLine,
     PageProjectsPanorama,
     BaseSubscribe,
-    BaseAccordeons,
+    BaseAccordions,
     FooterFastLinks,
   },
   data() {
@@ -102,7 +102,7 @@ export default {
           title: '1 to 4-room',
           text: 'Separate rooms',
         },
-      ]
+      ],
     }
   },
 }

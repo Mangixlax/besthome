@@ -69,7 +69,9 @@ export default class FooterCopyright extends Vue {
   ]
 
   onChangeLanguage(lang: string) {
-    ;(this as any).$i18n.setLocale(lang.toLowerCase())
+    if (this.$i18n.locale.toLowerCase() !== lang.toLowerCase()) {
+      this.$i18n.setLocale(lang.toLowerCase())
+    }
     this.$store.commit('setOurCompanyCardInfo', this.$i18n.t('pages.company_our_team'))
     this.$store.dispatch('Navigation/init')
   }

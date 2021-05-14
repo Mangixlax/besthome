@@ -1,5 +1,5 @@
 <template lang="pug">
-  section(:class="[$style['subscribe'], isWhiteTheme && $style['white']]" @click="changeTheme")
+  section(:class="[$style['subscribe'], isWhiteTheme && $style['white']]")
     div(:class="$style['subscribe__container']")
       div(:class="$style['subscribe__background-1']")
       div(:class="$style['subscribe__background-2']")
@@ -9,7 +9,7 @@
             tag="p"
             version="style-4"
             :class="$style['subscribe__textbox-text']"
-          ) Like what we do? Sign up to our newsletter.
+          ) {{ subscribeData.title }}
         form(:class="$style['subscribe__formbox']")
           div(:class="$style['subscribe__mailing']")
             input(
@@ -24,7 +24,7 @@
               type="submit"
               id="submit"
               :class="$style['subscribe__mailing-submit']"
-            ) Accept
+            ) {{ subscribeData.submit }}
           div(:class="$style['subscribe__agreement']")
             label(:class="$style['subscribe__agreement-label']")
               input(
@@ -37,12 +37,12 @@
                 tag="p"
                 version="style-8"
                 :class="$style['subscribe__agreement-text']"
-              ) I agree to allow BestHome to collect and
+              ) {{ subscribeData.agreement }}
               span
                 nuxt-link(
                 :to="localePath({ name: 'projects' })"
                 :class="$style['subscribe__agreement-text--underline']"
-              ) process my personal data
+              ) {{ subscribeData.link }}
                 | .
               nuxt-link(
                 :to="localePath({ name: 'projects' })"
@@ -63,18 +63,16 @@ export default class BaseBreadCrumbs extends Vue {
   @Prop({ type: Boolean, default: false })
   private whiteTheme!: boolean
 
-  public isWhiteTheme: boolean = this.whiteTheme
+  @Prop({ type: Object, default: () => {} })
+  private subscribeData!: Object
 
-  public changeTheme() {
-    console.log(this.isWhiteTheme)
-    this.isWhiteTheme = !this.isWhiteTheme
-  }
+  public isWhiteTheme: boolean = this.whiteTheme
 
   public getPlaceholderValue() {
     if (this.windowWidth < 900) {
-      return 'Phone or email address'
+      return (this as any).subscribeData.mobile_place_holder
     } else {
-      return 'Your phone number or email address'
+      return (this as any).subscribeData.place_holder
     }
   }
   public getWindowWidth() {
@@ -233,7 +231,6 @@ export default class BaseBreadCrumbs extends Vue {
         width: 160px
 
     &-submit
-      width: 96px
       height: 38px
       padding: 5px 24px
       border-radius: 0

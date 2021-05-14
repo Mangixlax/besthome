@@ -1,169 +1,173 @@
 {
-  "navigation": [
-    {
-      "name": "Our projects",
-      "nameInChildren": "All projects",
-      "indicator": "30",
-      "route": {
-        "name": "projects"
+  "header": {
+    "top_line": "",
+    "call_back": "Go get a call back",
+    "navigation": [
+      {
+        "name": "Our projects",
+        "nameInChildren": "All projects",
+        "indicator": "30",
+        "route": {
+          "name": "projects"
+        },
+        "title": "Our projects",
+        "titleInChildren": "All projects",
+        "children": [
+          {
+            "name": "Our projects",
+            "route": {
+              "name": "projects-our-projects"
+            },
+            "title": "Our projects"
+          },
+          {
+            "name": "The latest project",
+            "indicator": "new",
+            "route": {
+              "name": "index"
+            },
+            "title": "Latest project"
+          },
+          {
+            "name": "Penultimate project",
+            "route": {
+              "name": "index"
+            },
+            "title": "The penultimate project"
+          },
+          {
+            "name": "Pre-penultimate project",
+            "route": {
+              "name": "index"
+            },
+            "title": "Penultimate project"
+          },
+          {
+            "name": "Our Experience",
+            "route": {
+              "name": "projects-experiences"
+            },
+            "title": "Our Experience"
+          }
+        ]
       },
-      "title": "Our projects",
-      "titleInChildren": "All projects",
-      "children": [
-        {
-          "name": "Our projects",
-          "route": {
-            "name": "projects-our-projects"
-          },
-          "title": "Our projects"
+      {
+        "name": "Secondary housing",
+        "route": {
+          "name": "index"
         },
-        {
-          "name": "The latest project",
-          "indicator": "new",
-          "route": {
-            "name": "index"
-          },
-          "title": "Latest project"
-        },
-        {
-          "name": "Penultimate project",
-          "route": {
-            "name": "index"
-          },
-          "title": "The penultimate project"
-        },
-        {
-          "name": "Pre-penultimate project",
-          "route": {
-            "name": "index"
-          },
-          "title": "Penultimate project"
-        },
-        {
-          "name": "Our Experience",
-          "route": {
-            "name": "projects-experiences"
-          },
-          "title": "Our Experience"
-        }
-      ]
-    },
-    {
-      "name": "Secondary housing",
-      "route": {
-        "name": "index"
+        "title": "Secondary housing"
       },
-      "title": "Secondary housing"
-    },
-    {
-      "name": "Investors",
-      "route": {
-        "name": "investors"
+      {
+        "name": "Investors",
+        "route": {
+          "name": "investors"
+        },
+        "title": "Investors"
       },
-      "title": "Investors"
-    },
-    {
-      "name": "Services",
-      "nameInChildren": "Study tour",
-      "indicator": "6",
-      "route": {
-        "name": "service-introductory-tour"
+      {
+        "name": "Services",
+        "nameInChildren": "Study tour",
+        "indicator": "6",
+        "route": {
+          "name": "service-introductory-tour"
+        },
+        "title": "Services",
+        "titleInChildren": "Study tour",
+        "children": [
+          {
+            "name": "Online shopping",
+            "indicator": "new",
+            "route": {
+              "name": "service-online-purchase"
+            },
+            "title": "Online shopping"
+          },
+          {
+            "name": "Legal support",
+            "route": {
+              "name": "service-legal-support"
+            },
+            "title": "Legal support"
+          },
+          {
+            "name": "Turkish citizenship",
+            "route": {
+              "name": "service-turkish-citizenship"
+            },
+            "title": "Turkish citizenship"
+          },
+          {
+            "name": "After Sales Service",
+            "route": {
+              "name": "service-after-sale-services"
+            },
+            "title": "After Sales Service"
+          },
+          {
+            "name": "Rentals",
+            "route": {
+              "name": "service-all-about-rent"
+            },
+            "title": "Rentals"
+          }
+        ]
       },
-      "title": "Services",
-      "titleInChildren": "Study tour",
-      "children": [
-        {
-          "name": "Online shopping",
-          "indicator": "new",
-          "route": {
-            "name": "service-online-purchase"
-          },
-          "title": "Online shopping"
+      {
+        "name": "Company",
+        "route": {
+          "name": "company-about"
         },
-        {
-          "name": "Legal support",
-          "route": {
-            "name": "service-legal-support"
+        "title": "Company",
+        "titleInChildren": "About company",
+        "children": [
+          {
+            "name": "About company",
+            "route": {
+              "name": "company-about"
+            },
+            "title": "About company"
           },
-          "title": "Legal support"
-        },
-        {
-          "name": "Turkish citizenship",
-          "route": {
-            "name": "service-turkish-citizenship"
+          {
+            "name": "Advantages",
+            "route": {
+              "name": "company-advantages"
+            },
+            "title": "Advantages"
           },
-          "title": "Turkish citizenship"
-        },
-        {
-          "name": "After Sales Service",
-          "route": {
-            "name": "service-after-sale-services"
+          {
+            "name": "Our team",
+            "route": {
+              "name": "company-our-team"
+            },
+            "title": "Our team"
           },
-          "title": "After Sales Service"
-        },
-        {
-          "name": "Rentals",
-          "route": {
-            "name": "service-all-about-rent"
-          },
-          "title": "Rentals"
-        }
-      ]
-    },
-    {
-      "name": "Company",
-      "route": {
-        "name": "company-about"
+          {
+            "name": "History",
+            "indicator": "new",
+            "route": {
+              "name": "company-history"
+            },
+            "title": "History"
+          }
+        ]
       },
-      "title": "Company",
-      "titleInChildren": "About company",
-      "children": [
-        {
-          "name": "About company",
-          "route": {
-            "name": "company-about"
-          },
-          "title": "About company"
+      {
+        "name": "Media",
+        "route": {
+          "name": "index"
         },
-        {
-          "name": "Advantages",
-          "route": {
-            "name": "company-advantages"
-          },
-          "title": "Advantages"
-        },
-        {
-          "name": "Our team",
-          "route": {
-            "name": "company-our-team"
-          },
-          "title": "Our team"
-        },
-        {
-          "name": "History",
-          "indicator": "new",
-          "route": {
-            "name": "company-history"
-          },
-          "title": "History"
-        }
-      ]
-    },
-    {
-      "name": "Media",
-      "route": {
-        "name": "index"
+        "title": "Media"
       },
-      "title": "Media"
-    },
-    {
-      "name": "Contacts",
-      "route": {
-        "name": "contacts"
-      },
-      "title": "Contacts"
-    }
-  ],
+      {
+        "name": "Contacts",
+        "route": {
+          "name": "contacts"
+        },
+        "title": "Contacts"
+      }
+    ]
+  },
   "pages": {
     "home": {
       "header": {
@@ -174,6 +178,187 @@
           "link": "30 completed projects",
           "route": "/projects"
         }
+      },
+      "hero_slider": [
+        {
+          "title": "Cleopatra Select",
+          "location": {
+            "city": "Alanya",
+            "region": "Saray Mahalle"
+          },
+          "price": 19600,
+          "sea": 700,
+          "description": "The project which is being constructed on a hill surrounded with green space, accompanied with unique landscapes of Alanya castle merging with sea and mountains, we are bringing you to calm and peaceful environment."
+        },
+        {
+          "title": "Select Cleopatra",
+          "location": {
+            "city": "Alanya",
+            "region": "Saray Mahalle"
+          },
+          "price": 27100,
+          "sea": 400,
+          "description": "The project which is being constructed on a hill surrounded with green space, accompanied with unique landscapes of Alanya castle merging with sea and mountains, we are bringing you to calm and peaceful environment."
+        }
+      ],
+      "link_baner": {
+        "baner_1": {
+          "title": "Secondary housing",
+          "text": "Secondary<br>housing",
+          "data-cursor-text": "Click<br>and watch"
+        },
+        "baner_2": {
+          "title": "Secondary housing",
+          "text": "Secondary<br>housing",
+          "data-cursor-text": "Click<br>and watch"
+        }
+      },
+      "tree_columns": {
+        "title": "How we work",
+        "description": "The company's specialists fully support all transactions, demonstrating flexibility and professionalism, as well as solving all issues. What is important, the company's customers can always count on professional assistance and after-sales service even after the transaction is completed.",
+        "columns": [
+          {
+            "icon": "online-purchase",
+            "title": "Online<br>purchase",
+            "text": "The company's specialists fully support all transactions, demonstrating flexibility and professionalism, as well as solving all issues. What is important, the company's customers can always count on professional assistance and after-sales service even after the transaction is completed.",
+            "to": {
+              "name": "service-online-purchase"
+            },
+            "hovered": false
+          },
+          {
+            "icon": "introductory-tour",
+            "title": "Introductory<br>tour",
+            "text": "The company's specialists fully support all transactions, demonstrating flexibility and professionalism, as well as solving all issues. What is important, the company's customers can always count on professional assistance and after-sales service even after the transaction is completed.",
+            "to": {
+              "name": "service-introductory-tour"
+            },
+            "hovered": false
+          },
+          {
+            "icon": "obtaining-citizenship",
+            "title": "Obtaining<br>citizenship",
+            "text": "The company's specialists fully support all transactions, demonstrating flexibility and professionalism, as well as solving all issues. What is important, the company's customers can always count on professional assistance and after-sales service even after the transaction is completed.",
+            "to": {
+              "name": "service-online-purchase"
+            },
+            "hovered": false
+          }
+        ]
+      }
+    },
+    "projects_our_pojects": {
+      "smart_block": [
+        {
+          "to": {
+            "name": "index"
+          },
+          "imageSrc": "smart-block-1.jpg",
+          "title": "Secondary housing",
+          "header": "Greenday Park BestHome 48",
+          "text": "Sold out",
+          "textPosition": "bottom",
+          "textAlign": "right",
+          "col": "1"
+        },
+        {
+          "to": {
+            "name": "index"
+          },
+          "imageSrc": "smart-block-2.jpg",
+          "title": "Secondary housing",
+          "header": "Greenday Park BestHome 48",
+          "text": "Sold out",
+          "textPosition": "bottom",
+          "textAlign": "right",
+          "col": "1"
+        },
+        {
+          "to": {
+            "name": "index"
+          },
+          "imageSrc": "smart-block-3.jpg",
+          "title": "Secondary housing",
+          "header": "Greenday Park BestHome 48",
+          "text": "Sold out",
+          "textPosition": "bottom",
+          "textAlign": "right",
+          "col": "1"
+        },
+        {
+          "to": {
+            "name": "index"
+          },
+          "imageSrc": "smart-block-4.jpg",
+          "title": "Secondary housing",
+          "header": "Greenday Park<br>BestHome 48",
+          "text": "Sold out",
+          "textPosition": "top",
+          "textAlign": "center",
+          "col": "2"
+        },
+        {
+          "to": {
+            "name": "index"
+          },
+          "imageSrc": "smart-block-4.jpg",
+          "title": "Secondary housing",
+          "header": "Greenday Park BestHome 48",
+          "text": "Sold out",
+          "textPosition": "center",
+          "textAlign": "right",
+          "col": "2"
+        },
+        {
+          "to": {
+            "name": "index"
+          },
+          "imageSrc": "smart-block-4.jpg",
+          "title": "Secondary housing",
+          "header": "Greenday Park BestHome 48",
+          "text": "Sold out",
+          "textPosition": "center",
+          "textAlign": "right",
+          "col": "3"
+        }
+      ]
+    },
+    "projects_experiences": {
+      "header": "City living with a touch of nature",
+      "post_1": {
+        "title": "Fitness Centre",
+        "paragraph_1": "Cleopatra Select is conceived for people who want their home to extend beyond apartment walls. The quintessential urban life is complemented by closeness to nature. Apartments are energy-efficient and buildings are surrounded by greenery and covered with green roofs.",
+        "paragraph_2": "The largest fitness in the country. For indoor sports activities enthusiasts (and for rainy days too).",
+        "paragraph_with_link": "More",
+        "link": "about Cleopatra Select"
+      },
+      "post_2": {
+        "title": "Library",
+        "paragraph_1": "A modern, spacious and bright public library for all bibliophiles.",
+        "paragraph_with_link": "More",
+        "link": "about Cleopatra Select"
+      },
+      "scroll_line_data": [
+        {
+          "title": "239",
+          "text": "Apartments"
+        },
+        {
+          "title": "470",
+          "text": "Parking spots for bikes"
+        },
+        {
+          "title": "3800m²",
+          "text": "Of common green areas"
+        },
+        {
+          "title": "1 to 4-room",
+          "text": "Separate rooms"
+        }
+      ],
+      "panorama": {
+        "text_1": "Hold",
+        "text_2": "& use mouse to navigate panorama"
       }
     },
     "investors": {
@@ -796,9 +981,59 @@
     }
   },
   "footer": {
+    "consultant_slider": {
+      "title": "Your personal consultant",
+      "navigation": "Next consultant",
+      "slides": [
+        {
+          "greeting": "Hello, I am Svetlana, I will answer any of your questions! We try to build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.",
+          "languages": "English, Turkish, Latvian, French, Russian",
+          "phone": "+90 530 547-44-15",
+          "email": "svetlana@besthome.com.tr",
+          "image": "consultant-slider-1.jpg"
+        },
+        {
+          "greeting": "Hello, I am Svetlana, I will answer any of your questions! We try to build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.",
+          "languages": "English, Turkish, Latvian, French, Russian",
+          "phone": "+90 530 547-44-15",
+          "email": "svetlana@besthome.com.tr",
+          "image": "consultant-slider-1.jpg"
+        },
+        {
+          "greeting": "Hello, I am Svetlana, I will answer any of your questions! We try to build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.",
+          "languages": "English, Turkish, Latvian, French, Russian",
+          "phone": "+90 530 547-44-15",
+          "email": "svetlana@besthome.com.tr",
+          "image": "consultant-slider-1.jpg"
+        }
+      ]
+    },
+    "accordions": [
+      {
+        "title": "Our main advantage",
+        "text": "EXPERIENCE: More than 1,000 foreigners from the CIS, Europe, America and the Middle East have become clients of the company. BestHome Construction has offices and representatives in such countries as Norway, Denmark, Sweden, Finland, Germany, USA, Iran, Ukraine, Kazakhstan.OFFICE: A three-storey office is located in the heart of Alanya, includes sales Department, Department of property management, after sales services, offices of architect and interior designer.QUALITY: BestHome Construction strictly adheres to the principle of 'Best advertising - first-class quality'.PROFITABLE INVESTMENT: The unique location of the BestHome Construction complexes in the central areas of the city, allows you to provide a stable income from renting out apartments and capital gains.RELIABILITY: BestHome Construction fully finances their projects and guarantees the legal purity of each transaction. In order to secure your deposits, BestHome Construction offers bank guarantees.DEADLINES: BestHome Construction strictly observes the deadlines for the delivery of objects.GUARANTEES: BestHome Construction prides itself on its quality, providing 5-year guarantees for the interior and exterior of buildings.SERVICES: Russian-speaking employees of the company accompany each client from the moment of conclusion of the contract until the client receives the right of ownership of the property. The purchase and sale agreement is also drawn up in Russian.PROPERTY MANAGEMENT: A subsidiary of Leader Management provides management of the complexes built by BestHome Construction, as well as provides a full range of property management services, ensuring that your administrative, financial and legal obligations related to the ownership of real estate in Turkey are fulfilled.INDIVIDUAL DESIGN: If necessary, the architect of the company will make a redevelopment, and the interior designer will develop a personal project that meets all your wishes.",
+        "is_active": true
+      },
+      {
+        "title": "A little about our servieses",
+        "text": "EXPERIENCE: More than 1,000 foreigners from the CIS, Europe, America and the Middle East have become clients of the company. BestHome Construction has offices and representatives in such countries as Norway, Denmark, Sweden, Finland, Germany, USA, Iran, Ukraine, Kazakhstan.OFFICE: A three-storey office is located in the heart of Alanya, includes sales Department, Department of property management, after sales services, offices of architect and interior designer.QUALITY: BestHome Construction strictly adheres to the principle of 'Best advertising - first-class quality'.PROFITABLE INVESTMENT: The unique location of the BestHome Construction complexes in the central areas of the city, allows you to provide a stable income from renting out apartments and capital gains.RELIABILITY: BestHome Construction fully finances their projects and guarantees the legal purity of each transaction. In order to secure your deposits, BestHome Construction offers bank guarantees.DEADLINES: BestHome Construction strictly observes the deadlines for the delivery of objects.GUARANTEES: BestHome Construction prides itself on its quality, providing 5-year guarantees for the interior and exterior of buildings.SERVICES: Russian-speaking employees of the company accompany each client from the moment of conclusion of the contract until the client receives the right of ownership of the property. The purchase and sale agreement is also drawn up in Russian.PROPERTY MANAGEMENT: A subsidiary of Leader Management provides management of the complexes built by BestHome Construction, as well as provides a full range of property management services, ensuring that your administrative, financial and legal obligations related to the ownership of real estate in Turkey are fulfilled.INDIVIDUAL DESIGN: If necessary, the architect of the company will make a redevelopment, and the interior designer will develop a personal project that meets all your wishes."
+      },
+      {
+        "title": "Company office",
+        "text": "EXPERIENCE: More than 1,000 foreigners from the CIS, Europe, America and the Middle East have become clients of the company. BestHome Construction has offices and representatives in such countries as Norway, Denmark, Sweden, Finland, Germany, USA, Iran, Ukraine, Kazakhstan.OFFICE: A three-storey office is located in the heart of Alanya, includes sales Department, Department of property management, after sales services, offices of architect and interior designer.QUALITY: BestHome Construction strictly adheres to the principle of 'Best advertising - first-class quality'.PROFITABLE INVESTMENT: The unique location of the BestHome Construction complexes in the central areas of the city, allows you to provide a stable income from renting out apartments and capital gains.RELIABILITY: BestHome Construction fully finances their projects and guarantees the legal purity of each transaction. In order to secure your deposits, BestHome Construction offers bank guarantees.DEADLINES: BestHome Construction strictly observes the deadlines for the delivery of objects.GUARANTEES: BestHome Construction prides itself on its quality, providing 5-year guarantees for the interior and exterior of buildings.SERVICES: Russian-speaking employees of the company accompany each client from the moment of conclusion of the contract until the client receives the right of ownership of the property. The purchase and sale agreement is also drawn up in Russian.PROPERTY MANAGEMENT: A subsidiary of Leader Management provides management of the complexes built by BestHome Construction, as well as provides a full range of property management services, ensuring that your administrative, financial and legal obligations related to the ownership of real estate in Turkey are fulfilled.INDIVIDUAL DESIGN: If necessary, the architect of the company will make a redevelopment, and the interior designer will develop a personal project that meets all your wishes."
+      }
+    ],
+    "subscribe": {
+      "title": "Like what we do? Sign up to our newsletter.",
+      "place_holder": "Your phone number or email address",
+      "mobile_place_holder": "Phone or email address",
+      "submit": "Accept",
+      "agreement": "I agree to allow BestHome to collect and",
+      "link": "process my personal data"
+    },
     "footer_company_description": [
       "BestHome Construction is the leading construction company in Alanya, operating in the real estate market since 2004. Having started its activity as a real estate agency, since 2008 the company specializes in the construction and sale of residential residences 'turnkey' in the best areas of the city of Alanya. To date, the company has 30 completed projects in its assets.",
-      "Our competitive advantages: provision of bank guarantees; drafting of a purchase and sale agreement in Russian that meets international standards; high quality construction with the use of modern technologies and materials certified by the Institute of Standardization of Turkey; multi-level quality control system; strict compliance with the deadlines for the delivery of objects; provision of guarantees for electricity and water supply networks, interior decoration; guarantee of legal 'purity' of transactions; support of each client from the moment of conclusion of the contract until the client receives the right of ownership of the real estate object; providing a full range of services for the maintenance and management of your property.f"
+      "Our competitive advantages: provision of bank guarantees; drafting of a purchase and sale agreement in Russian that meets international standards; high quality construction with the use of modern technologies and materials certified by the Institute of Standardization of Turkey; multi-level quality control system; strict compliance with the deadlines for the delivery of objects; provision of guarantees for electricity and water supply networks, interior decoration; guarantee of legal 'purity' of transactions; support of each client from the moment of conclusion of the contract until the client receives the right of ownership of the real estate object; providing a full range of services for the maintenance and management of your property."
     ]
   }
 }

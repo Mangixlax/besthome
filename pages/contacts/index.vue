@@ -1,7 +1,7 @@
 <template lang="pug">
   main
     page-contacts-map(:contactMap="$t('pages.contacts.contact_map')")
-    common-consultant-slider
+    common-consultant-slider(:slider-data="$t('footer.consultant_slider')")
 </template>
 
 <script lang="ts">

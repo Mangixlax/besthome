@@ -6,7 +6,7 @@
         version="style-1"
         :class="$style['article__container-title']"
       ) 
-        | {{ projectsExperiencesPage.title }}
+        | {{ title }}
 </template>
 
 <script lang="ts">
@@ -15,12 +15,11 @@ import TypoText from '~/components/Base/TypoText.vue'
 export default {
   name: 'PageCompanyTitle',
   components: { TypoText },
-  data() {
-    return {
-      projectsExperiencesPage: {
-        title: 'City living with a touch of nature'
-      },
-    }
+  props: {
+    title: {
+      type: String,
+      default: '',
+    },
   },
 }
 </script>

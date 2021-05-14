@@ -4,26 +4,30 @@
       typo-text(
         tag="h2"
         version="style-4"
-      ) Your personal <br> consultant
+      ) {{ sliderData.title }}
     div(:class="$style['container__body']")
       swiper(ref="swiper" :class="$style['slider']" class="swiper" :options="swiperOption")
-        swiper-slide(:class="$style['slide']")
+        swiper-slide(
+          v-for="(slide, i) in sliderData.slides"
+          :key="i"
+          :class="$style['slide']"
+        )
           div(:class="$style['slide__textbox']")
             typo-text(
               tag="p"
               version="style-5"
               :class="$style['slide__textbox-title']"
-            ) Hello, I am Svetlana, I will answer any of your questions! We try to build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.
+            ) {{ slide.greeting }}
             typo-text(
               tag="p"
               version="style-7"
               :class="$style['slide__textbox-lang']"
-            ) English, Turkish, Latvian, French, Russian
+            ) {{ slide.languages }}
             div(:class="$style['slide__contact']")
               a(
                 href="tel: +90 530 547-44-15"
                 :class="$style['slide__contact-phone']"
-              ) +90 530 547-44-15
+              ) {{ slide.phone }}
               svg-icon(name="icon-whatsup")
               svg-icon(name="icon-viber")
               svg-icon(name="icon-telegram")  
@@ -31,90 +35,9 @@
               a(
                 href="mailto: svetlana@besthome.com.tr"
                 :class="$style['slide__link-email']"
-              ) svetlana@besthome.com.tr
+              ) {{ slide.email }}
                 svg-icon(name="link-arrow-white")
-          img(src="~assets/images/consultant-slider/consultant-slider-1.jpg", alt="alt")
-        swiper-slide(:class="$style['slide']")
-          div(:class="$style['slide__textbox']")
-            typo-text(
-              tag="p"
-              version="style-5"
-              :class="$style['slide__textbox-title']"
-            ) Hello, I am Svetlana, I will answer any of your questions! We try to build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.
-            typo-text(
-              tag="p"
-              version="style-7"
-              :class="$style['slide__textbox-lang']"
-            ) English, Turkish, Latvian, French, Russian
-            div(:class="$style['slide__contact']")
-              a(
-                href="tel: +90 530 547-44-15"
-                :class="$style['slide__contact-phone']"
-              ) +90 530 547-44-15
-              svg-icon(name="icon-whatsup")
-              svg-icon(name="icon-viber")
-              svg-icon(name="icon-telegram")  
-            div(:class="$style['slide__link']")
-              a(
-                href="mailto: svetlana@besthome.com.tr"
-                :class="$style['slide__link-email']"
-              ) svetlana@besthome.com.tr
-                svg-icon(name="link-arrow-white")
-          img(src="~assets/images/consultant-slider/consultant-slider-1.jpg", alt="alt")
-        swiper-slide(:class="$style['slide']")
-          div(:class="$style['slide__textbox']")
-            typo-text(
-              tag="p"
-              version="style-5"
-              :class="$style['slide__textbox-title']"
-            ) Hello, I am Svetlana, I will answer any of your questions! We try to build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.
-            typo-text(
-              tag="p"
-              version="style-7"
-              :class="$style['slide__textbox-lang']"
-            ) English, Turkish, Latvian, French, Russian
-            div(:class="$style['slide__contact']")
-              a(
-                href="tel: +90 530 547-44-15"
-                :class="$style['slide__contact-phone']"
-              ) +90 530 547-44-15
-              svg-icon(name="icon-whatsup")
-              svg-icon(name="icon-viber")
-              svg-icon(name="icon-telegram")  
-            div(:class="$style['slide__link']")
-              a(
-                href="mailto: svetlana@besthome.com.tr"
-                :class="$style['slide__link-email']"
-              ) svetlana@besthome.com.tr
-                svg-icon(name="link-arrow-white")
-          img(src="~assets/images/consultant-slider/consultant-slider-1.jpg", alt="alt")
-        swiper-slide(:class="$style['slide']")
-          div(:class="$style['slide__textbox']")
-            typo-text(
-              tag="p"
-              version="style-5"
-              :class="$style['slide__textbox-title']"
-            ) Hello, I am Svetlana, I will answer any of your questions! We try to build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.
-            typo-text(
-              tag="p"
-              version="style-7"
-              :class="$style['slide__textbox-lang']"
-            ) English, Turkish, Latvian, French, Russian
-            div(:class="$style['slide__contact']")
-              a(
-                href="tel: +90 530 547-44-15"
-                :class="$style['slide__contact-phone']"
-              ) +90 530 547-44-15
-              svg-icon(name="icon-whatsup")
-              svg-icon(name="icon-viber")
-              svg-icon(name="icon-telegram")  
-            div(:class="$style['slide__link']")
-              a(
-                href="mailto: svetlana@besthome.com.tr"
-                :class="$style['slide__link-email']"
-              ) svetlana@besthome.com.tr
-                svg-icon(name="link-arrow-white")
-          img(src="~assets/images/consultant-slider/consultant-slider-1.jpg", alt="alt")
+          img(:src="require(`~/assets/images/consultant-slider/${slide.image}`)", alt="alt")
     div(:class="$style['footer']")
       div(:class="$style['footer__navigation']")
         div(:class="$style['buttons']")
@@ -126,7 +49,7 @@
           tag="p"
           version="style-7"
           :class="$style['footer__navigation-text']"
-        ) Next consultant
+        ) {{ sliderData.navigation }}
       div(:class="['swiper-pagination-progressbar', $style['swiper-pagination-progressbar']]")
         div(class="status-bar")
 </template>
@@ -136,11 +59,17 @@ import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import TypoText from '~/components/Base/TypoText.vue'
 
 export default {
-  name: 'PagesMestaBlisko',
+  name: 'CommonConsultantSlider',
   components: {
     Swiper,
     SwiperSlide,
     TypoText,
+  },
+  props: {
+    sliderData: {
+      type: Object,
+      default: () => {},
+    },
   },
   data() {
     return {
@@ -187,6 +116,7 @@ export default {
     h2
       margin: 0
       color: $color-white-100
+      max-width: 400px
       +style-3($with-media: false)
 
   &__body

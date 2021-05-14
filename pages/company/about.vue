@@ -13,7 +13,7 @@
         tag="p"
         version="style-5"
       )  {{ paragraph }}
-    base-scroll-line(:scrollLineInfo="$t('pages.company_about_company.scroll_line_data')")
+    base-scroll-line(:scroll-line-info="$t('pages.company_about_company.scroll_line_data')")
     base-text-container
       typo-text(
         v-for="(paragraph, i) in $t('pages.company_about_company.article_2.text')"

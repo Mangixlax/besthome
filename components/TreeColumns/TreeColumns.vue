@@ -4,9 +4,9 @@
     [$style['hovered']]: isHovered,\
   }")
     div(:class="$style['tree__header']")
-      h2(:class="$style['tree__header-title']") How we work
+      h2(:class="$style['tree__header-title']") {{ title }}
       p(:class="$style['tree__header-description']")
-        | The company's specialists fully support all transactions, demonstrating flexibility and professionalism, as well as solving all issues. What is important, the company's customers can always count on professional assistance and after-sales service even after the transaction is completed.
+        | {{ description }}
     section(:class="$style['tree__columns']")
       article(
         v-for="(column, key) in columns"
@@ -42,33 +42,7 @@ import { Component, Prop, Vue } from 'nuxt-property-decorator'
 export default class TreeColumns extends Vue {
   @Prop({ type: String, default: '' }) title!: string
   @Prop({ type: String, default: '' }) description!: string
-  // @Prop({ type: Array, default: () => [] }) columns!: Array<Object>
-  public columns: Array<Object> = [
-    {
-      icon: 'online-purchase',
-      title: 'Online<br>purchase',
-      text:
-        "The company's specialists fully support all transactions, demonstrating flexibility and professionalism, as well as solving all issues. What is important, the company's customers can always count on professional assistance and after-sales service even after the transaction is completed.",
-      to: { name: 'service-online-purchase' },
-      hovered: false,
-    },
-    {
-      icon: 'introductory-tour',
-      title: 'Introductory<br>tour',
-      text:
-        "The company's specialists fully support all transactions, demonstrating flexibility and professionalism, as well as solving all issues. What is important, the company's customers can always count on professional assistance and after-sales service even after the transaction is completed.",
-      to: { name: 'service-introductory-tour' },
-      hovered: false,
-    },
-    {
-      icon: 'obtaining-citizenship',
-      title: 'Obtaining<br>citizenship',
-      text:
-        "The company's specialists fully support all transactions, demonstrating flexibility and professionalism, as well as solving all issues. What is important, the company's customers can always count on professional assistance and after-sales service even after the transaction is completed.",
-      to: { name: 'service-online-purchase' },
-      hovered: false,
-    },
-  ]
+  @Prop({ type: Array, default: () => [] }) columns!: Array<Object>
 
   public isHovered: boolean = false
 

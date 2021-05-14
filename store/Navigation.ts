@@ -52,6 +52,6 @@ export const actions: ActionTree<NavigationState, RootState> = {
    * @param commit
    */
   init({ commit }: NavigationActionContext) {
-    commit('setHeaderNavigationList',  this.$i18n.t('navigation'))
+    commit('setHeaderNavigationList',  this.$i18n.t('header.navigation'))
   },
 }

@@ -1,27 +1,30 @@
 <template lang="pug">
   main
-    smart-block-wrapper
-    base-accordeons
-    base-subscribe
+    smart-block-wrapper(:smart-block-data="$t('pages.projects_our_pojects.smart_block')")
+    common-consultant-slider(:slider-data="$t('footer.consultant_slider')")
+    base-subscribe(:subscribe-data="$t('footer.subscribe')")
+    base-accordions(:accordions-data="$t('footer.accordions')")
     footer-fast-links
 </template>
 
 <script lang="ts">
 import TypoText from '~/components/Base/TypoText.vue'
 import SmartBlockWrapper from '~/components/SmartBlock/SmartBlockWrapper.vue'
+import CommonConsultantSlider from '~/components/Common/CommonConsultantSlider.vue'
 import SmartBlockCard from '~/components/SmartBlock/SmartBlockCard.vue'
 import BaseSubscribe from '~/components/Base/BaseSubscribe.vue'
-import BaseAccordeons from '~/components/Base/BaseAccordeons.vue'
+import BaseAccordions from '~/components/Base/BaseAccordions.vue'
 import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
 
 export default {
   name: 'our-projects',
   components: {
     SmartBlockWrapper,
+    CommonConsultantSlider,
     SmartBlockCard,
     TypoText,
     BaseSubscribe,
-    BaseAccordeons,
+    BaseAccordions,
     FooterFastLinks,
   },
   data() {

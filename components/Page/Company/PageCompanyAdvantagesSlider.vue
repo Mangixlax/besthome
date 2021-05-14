@@ -75,7 +75,7 @@ export default {
 <style lang="sass" module>
 .container
   width: 100%
-  padding: 80px 24px
+  padding: 80px 0
 
   @media (max-width: 900px)
     padding: 32px 24px
@@ -92,7 +92,6 @@ export default {
 
   &__body
     padding-top: 48px
-    // padding: 80px 24px
     margin: 0 auto
     position: relative
 
