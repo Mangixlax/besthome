@@ -38,14 +38,12 @@
 
 <script lang="ts">
 import TypoText from '~/components/Base/TypoText.vue'
+import { Component, Vue } from 'nuxt-property-decorator'
 
-export default {
-  name: 'PageServicePurchase',
+@Component({
   components: { TypoText },
-  data() {
-    return {}
-  },
-}
+})
+export default class PageServicePurchase extends Vue {}
 </script>
 
 <style lang="sass" module>
@@ -55,30 +53,27 @@ export default {
   &__container
     display: flex
     flex-direction: column
+    align-items: flex-start
     max-width: 1040px
     padding: 80px 24px
     margin: 0 auto
 
     &-title
-      margin: 0
-      margin-bottom: 32px
+      margin: 0 0 32px
 
     &-text
-      margin:0
-      margin-bottom: 80px
+      margin: 0 0 80px
 
   &__conclusion
     max-width: 864px
-    margin: 0 auto
-    margin-top: 198px
+    margin: 198px auto 0
 
 .card
   padding: 32px
 
   &-title
     color: $color-blue-100
-    margin: 0
-    margin-bottom: 33px
+    margin: 0 0 33px
     position: relative
 
     &::after
@@ -94,7 +89,7 @@ export default {
     margin: 0
 
   &.card-0
-    border: 1px solid  $color-blue-16
+    border: 1px solid $color-blue-16
 
   &.card-1
     background: $color-blue-4

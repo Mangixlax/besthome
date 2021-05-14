@@ -5,30 +5,25 @@
         tag="h1"
         version="style-1"
         :class="$style['article__container-title']"
-      ) 
-        | {{ aboutPageTitle.title }}
+      ) {{ aboutPageTitle.title }}
       typo-text(
         v-for="(paragraph, i) in aboutPageTitle.text"
         :key="i"
         tag="p"
         version="style-5"
         :class="$style['article__container-text']"
-      ) 
-        | {{ paragraph }}    
+      ) {{ paragraph }}
 </template>
 
 <script lang="ts">
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
 import TypoText from '~/components/Base/TypoText.vue'
 
-export default {
-  name: 'PageCompanyTitle',
+@Component({
   components: { TypoText },
-  props: {
-    aboutPageTitle: {
-      type: Object,
-      default: () => {},
-    },
-  },
+})
+export default class PageCompanyAboutTitle extends Vue {
+  @Prop({ type: Object, default: () => {} }) aboutPageTitle!: object
 }
 </script>
 
@@ -39,6 +34,7 @@ export default {
   &__container
     display: flex
     flex-direction: column
+    align-items: flex-start
     max-width: 912px
     padding: 80px 24px
     margin: 0 auto
@@ -47,12 +43,10 @@ export default {
       padding: 32px 24px
 
     &-title
-      margin: 0
-      margin-bottom: 40px
+      margin: 0 0 40px
 
     &-text
-      margin:0
-      margin-bottom: 16px
+      margin: 0 0 16px
 
 .content__link
   display: flex
