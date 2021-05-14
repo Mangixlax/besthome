@@ -2,13 +2,13 @@
   "navigation": [
     {
       "name": "Our projects",
-      "nameInChildren": "all projects",
+      "nameInChildren": "All projects",
       "indicator": "30",
       "route": {
         "name": "projects"
       },
       "title": "Our projects",
-      "titleInChildren": "all projects",
+      "titleInChildren": "All projects",
       "children": [
         {
           "name": "Our projects",
@@ -133,11 +133,11 @@
           "title": "Advantages"
         },
         {
-          "name": "our team",
+          "name": "Our team",
           "route": {
             "name": "company-our-team"
           },
-          "title": "our team"
+          "title": "Our team"
         },
         {
           "name": "History",
