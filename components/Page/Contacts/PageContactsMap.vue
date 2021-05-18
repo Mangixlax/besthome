@@ -98,7 +98,7 @@ export default {
     flex-direction: column
 
     @media (max-width: 1054px)
-     padding: 30px 24px 60px 24px
+     padding: 60px 24px 60px 24px
 
     &-title
       margin: 0

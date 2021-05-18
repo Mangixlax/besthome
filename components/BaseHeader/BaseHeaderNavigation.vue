@@ -136,7 +136,7 @@ export default class BaseHeaderNavigation extends Vue {
 .dropdown
   display: flex
   flex-direction: column
-  padding: 0 0 30px 0
+  padding: 0 0 16px 0
   margin: 0
   list-style: none
   position: absolute
