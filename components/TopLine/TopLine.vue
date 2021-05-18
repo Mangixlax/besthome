@@ -68,6 +68,9 @@ export default class TopLine extends Vue {
   align-items: center
   justify-content: center
 
+  &:hover
+    animation-play-state: paused
+
   @media (max-width: 1054px)
     height: 48px
 
@@ -78,6 +81,7 @@ export default class TopLine extends Vue {
     align-items: center
     justify-content: center
     grid-template-columns: 1fr 36px
+    animation-play-state: inherit
 
     @media (max-width: 1248px + 32px)
       margin: 0 16px
@@ -99,14 +103,17 @@ export default class TopLine extends Vue {
   overflow: hidden
   max-width: 1212px
   width: 100%
+  animation-play-state: inherit
 
   &__content
     width: 100000px
+    animation-play-state: inherit
 
     &-text
       animation-name: animation
       animation-timing-function: linear
       animation-iteration-count: infinite
+      animation-play-state: inherit
       float: left
       color: $color-white
       padding: 0 20px

@@ -18,7 +18,7 @@
       :class="{\
         [$style['slide']]: true,\
       }"
-      data-cursor-text="Click<br>and drag"
+      :data-cursor-text="$t('pages.home.hero_slider_data.coursor_data')"
       data-cursor-off-exclusion
     )
       div(:class="$style['slide__counter']")

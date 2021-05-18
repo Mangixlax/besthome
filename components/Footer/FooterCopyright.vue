@@ -12,7 +12,7 @@
           version="style-8(with-media: false)"
           :class="$style['copyright__changelang-text']"
         ) Change language:
-        base-select-language(:list="['Ru','En']" default-value="En" @change="onChangeLanguage")
+        base-select-language(:list="['RU','EN']" default-value="EN" @change="onChangeLanguage")
     div(:class="$style['copyright__information']")
       ul(:class="$style['copyright__list']")
         li(
@@ -101,6 +101,7 @@ export default class FooterCopyright extends Vue {
     &-text
       margin: 0
       color: $color-black-64
+      padding-right: 4px
       white-space: nowrap
       line-height: 36px
 
@@ -146,6 +147,7 @@ export default class FooterCopyright extends Vue {
         width: 3px
         height: 3px
         margin-right: 12px
+        margin-bottom: 1.5px
         border-radius: 3px
         display: inline-block
         background-color: $color-black-16
@@ -156,6 +158,7 @@ export default class FooterCopyright extends Vue {
         width: 3px
         height: 3px
         margin-right: 12px
+        margin-bottom: 1.5px
         border-radius: 3px
         display: inline-block
         background-color: $color-black-16
@@ -165,6 +168,7 @@ export default class FooterCopyright extends Vue {
         width: 3px
         height: 3px
         margin-right: 12px
+        margin-bottom: 1.5px
         border-radius: 3px
         display: inline-block
         background-color: $color-black-16
@@ -175,6 +179,7 @@ export default class FooterCopyright extends Vue {
         width: 3px
         height: 3px
         margin-right: 12px
+        margin-bottom: 1.5px
         border-radius: 3px
         display: inline-block
         background-color: $color-black-16

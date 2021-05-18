@@ -1,5 +1,11 @@
 <template lang="pug">
-  section(:class="$style['text']")
+  section(
+    :class="{\
+      [$style['text']]: true,\
+      [$style['text--right']]: textAlign === 'right',\
+      [$style['text--center']]: textAlign === 'center',\
+    }"
+  )
     slot
 </template>
 
@@ -9,6 +15,12 @@ import TypoText from '~/components/Base/TypoText.vue'
 export default {
   name: 'BaseTextContainer',
   components: { TypoText },
+  props: {
+    textAlign: {
+      type: String,
+      default: '',
+    },
+  },
 }
 </script>
 
@@ -17,6 +29,12 @@ export default {
   max-width: 912px
   padding: 80px 24px
   margin: 0 auto
+
+  &--center
+    text-align: center
+
+  &--right
+    text-align: right
 
   & > *:first-child
     margin-top: 0

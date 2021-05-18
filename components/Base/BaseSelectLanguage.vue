@@ -9,39 +9,14 @@
       'select-menu--disable-animation': disableAnimation,
     }"
   >
-    <div
-      v-click-outside="closeOutside"
-      class="select-menu__button"
-      @click="openSelector"
-    >
-      <svg
-        viewBox="0 0 60 60"
-        width="13"
-        height="13"
-        class="select-menu__arrows"
-      >
-        <g
-          stroke="none"
-          stroke-width="1"
-          fill="none"
-          fill-rule="evenodd"
-        >
-          <path
-            d="M30,6 C29.4885,6 28.9769372,6.19493721 28.5859395,6.58593837 L12.5859384,22.5859395 C12.0139395,23.1579384 11.842343,24.0176267 12.1523442,24.7656244 C12.460343,25.5136256 13.1920012,26 13.9999988,26 L45.9999977,26 C46.8079988,26 47.5396535,25.5136256 47.8476523,24.7656244 C48.1576535,24.0176233 47.986057,23.1579384 47.4140581,22.5859395 L31.414057,6.58593837 C31.0230558,6.19493721 30.5114965,6 29.9999965,6 L30,6 Z M13.9999988,34.0000012 C13.1919977,34.0000012 12.460343,34.4863744 12.1523442,35.2343756 C11.842343,35.9823733 12.0139395,36.8420616 12.5859384,37.4140605 L28.5859395,53.4140616 C28.9759395,53.8040616 29.4880012,54.0000012 30,54.0000012 C30.5119988,54.0000012 31.0240605,53.8040616 31.4140605,53.4140616 L47.4140616,37.4140605 C47.9860605,36.8420616 48.157657,35.9823733 47.8476558,35.2343756 C47.539657,34.4863744 46.8079988,34.0000012 46.0000012,34.0000012 L13.9999988,34.0000012 Z"
-            fill-rule="nonzero"
-          />
-        </g>
-      </svg>
+    <div v-click-outside="closeOutside" class="select-menu__button" @click="openSelector">
+      <svg-icon name="select-language-arrows"></svg-icon>
       <ul
         :style="{
           transform: `translateY(-${selectorPosition}px)`,
         }"
       >
-        <li
-          v-for="item in selectorList"
-          :key="item"
-          v-html="item"
-        ></li>
+        <li v-for="item in selectorList" :key="item" v-html="item"></li>
       </ul>
     </div>
     <ul
@@ -156,7 +131,7 @@ export default {
 .select-menu {
   position: relative;
   z-index: 1;
-  width: 66px;
+  width: 60px;
   height: 100%;
   transition: box-shadow 0.3s ease;
   // box-shadow: 0 0 0 0 rgba(#ff3366, 0);
@@ -172,16 +147,13 @@ export default {
     transition: none !important;
   }
 
-  &__arrows {
+  svg {
     position: absolute;
-    top: 12px;
-    right: 10px;
-    opacity: 0.5;
-
-    & path {
-      fill: rgba(17, 17, 17, 0.88);;
-    }
-
+    top: 9px;
+    right: 9px;
+    height: 18px;
+    width: 18px;
+    z-index: 10;
     // @media (max-width: 768px) {
     //   & {
     //     top: 5px;
@@ -221,7 +193,7 @@ export default {
     right: 0;
     transform: translateY(0);
     transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-    width: 66px;
+    width: 60px;
     color: rgba(17, 17, 17, 0.88);
 
     // @media (max-width: 768px) {
@@ -268,9 +240,9 @@ export default {
     z-index: 1;
     display: block;
     overflow: hidden;
-    border-radius: 6px;
+    border-radius: 26px;
     color: rgba(17, 17, 17, 0.88);
-    width: 66px;
+    width: 60px;
     height: 38px;
 
     // @media (max-width: 768px) {
@@ -282,7 +254,7 @@ export default {
   }
 
   &.open ul {
-    color: rgba(17, 17, 17, 0.88);
+    background: white;
   }
 
   &.open &__arrows {
@@ -299,8 +271,6 @@ export default {
   }
 
   &.open {
-    // box-shadow: 0 10px 60px -10px #ff3366;
-
     &.tilt-up {
       animation: tilt-up 0.4s linear forwards;
     }
