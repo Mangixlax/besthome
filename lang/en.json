@@ -115,19 +115,13 @@
       },
       {
         "name": "Company",
+        "nameInChildren": "About company",
         "route": {
           "name": "company-about"
         },
         "title": "Company",
         "titleInChildren": "About company",
         "children": [
-          {
-            "name": "About company",
-            "route": {
-              "name": "company-about"
-            },
-            "title": "About company"
-          },
           {
             "name": "Advantages",
             "route": {
@@ -179,28 +173,31 @@
           "route": "/projects"
         }
       },
-      "hero_slider": [
-        {
-          "title": "Cleopatra Select",
-          "location": {
-            "city": "Alanya",
-            "region": "Saray Mahalle"
+      "hero_slider_data": {
+        "coursor_data": "Click<br>and drag",
+        "hero_slider": [
+          {
+            "title": "Cleopatra Select",
+            "location": {
+              "city": "Alanya",
+              "region": "Saray Mahalle"
+            },
+            "price": 19600,
+            "sea": 700,
+            "description": "The project which is being constructed on a hill surrounded with green space, accompanied with unique landscapes of Alanya castle merging with sea and mountains, we are bringing you to calm and peaceful environment."
           },
-          "price": 19600,
-          "sea": 700,
-          "description": "The project which is being constructed on a hill surrounded with green space, accompanied with unique landscapes of Alanya castle merging with sea and mountains, we are bringing you to calm and peaceful environment."
-        },
-        {
-          "title": "Select Cleopatra",
-          "location": {
-            "city": "Alanya",
-            "region": "Saray Mahalle"
-          },
-          "price": 27100,
-          "sea": 400,
-          "description": "The project which is being constructed on a hill surrounded with green space, accompanied with unique landscapes of Alanya castle merging with sea and mountains, we are bringing you to calm and peaceful environment."
-        }
-      ],
+          {
+            "title": "Select Cleopatra",
+            "location": {
+              "city": "Alanya",
+              "region": "Saray Mahalle"
+            },
+            "price": 27100,
+            "sea": 400,
+            "description": "The project which is being constructed on a hill surrounded with green space, accompanied with unique landscapes of Alanya castle merging with sea and mountains, we are bringing you to calm and peaceful environment."
+          }
+        ]
+      },
       "link_baner": {
         "baner_1": {
           "title": "Secondary housing",
@@ -431,33 +428,33 @@
       }
     },
     "service_online_purchase": {
-      "title": "Онлайн покупка",
-      "text": "Купить и оформить недвижимость в Алании, не приезжая в Турцию – это просто. Услуга удалённой покупки и оформления недвижимости, придоставляемая компанией BestHome Construction ставновится всё более популярной.",
+      "title": "Online purchase",
+      "text": "Buying and registering real estate in Alanya without coming to Turkey is easy. The remote real estate purchase and registration service provided by BestHome Construction is becoming more and more popular.",
       "cards": [
         {
-          "title": "1. Выбор жилого комплекса",
-          "text": "Вы можете связаться с нашими менеджерами удобным для вас способом – через WhatsApp, Telegram, Skype или e-mail, а также вы можете заказать обратный звонок. После того как вы обозначите свои предпочтения, менеджеры компании составят индивидуальное портфолио, соответствующее Вашим пожеланиям, предоставят полную информацию по квартирам и ответят на все ваши вопросы."
+          "title": "1. Choosing a residential complex",
+          "text": "You can contact our managers in a convenient way for you - via WhatsApp, Telegram, Skype or e-mail, and you can also order a call back. After you indicate your preferences, the company's managers will compile an individual portfolio that meets your wishes, provide complete information on apartments and answer all your questions."
         },
         {
-          "title": "2. Осмотр недвижимости по видео звонку",
-          "text": "Менеджер компании проведёт онлайн-трансляцию на месте, показав район, в котором находится комплекс, места по близости, дорогу до моря. В случае, если комплекс готов, инфраструктуру комплекса и квартиры, которые вас заинтересовали, а также вид с балкона и окон."
+          "title": "2. Inspection of real estate by video call",
+          "text": "The manager of the company will conduct an online broadcast on the spot, showing the area in which the complex is located, places nearby, the road to the sea. If the complex is ready, the infrastructure of the complex and the apartment that interests you, as well as the view from the balcony and windows."
         },
         {
-          "title": "3. Составление договора купли-продажи",
-          "text": "Соглосовав план оплаты на приобретаемую квартиру, вам будет необходимо сообщить менеджеру Ваши контактные данные, а также выслать копию загранпаспорта. На основе этой информации на двух языках (русский и турецкий) будет составлен договор-купли продажи, который для согласования будет отправлен вам на электронную почту или WhatsApp, Telegram. После полученного от вас подтвержения, договор будет подписан со стороны нашей строительной компании, отсканирован и направлен вам. Поставив подписи, вы также направите договор менеджеру компании."
+          "title": "3. Drawing up a sales contract",
+          "text": "Having agreed on the payment plan for the purchased apartment, you will need to inform the manager of your contact information, as well as send a copy of your passport. Based on this information in two languages ​​(Russian and Turkish), a purchase-and-sale agreement will be drawn up, which will be sent to you by e-mail or WhatsApp, Telegram for approval. After the confirmation received from you, the contract will be signed by our construction company, scanned and sent to you. After putting your signatures, you will also send the contract to the company manager."
         },
         {
-          "title": "4. Оформление доверенности ",
-          "text": "Если вы не сможете приехать в Турцию для вступления в права собственика, вы оформляете доверенность в посольстве Турции (по шаблону, который вышлет менеджер нашей компании) для того, чтобы Свидетельство о праве собстенности было оформлено на ваше имя без личного присутствия. Благодаря новой системе, нет необходимости отправлять почтой выданную вам доверенность. Прислав её копию, сотрудник компании может получить оригинал в любой нотариальной конторе города."
+          "title": "4. Execution of a power of attorney",
+          "text": "If you cannot come to Turkey to become a proprietor, you issue a power of attorney at the Turkish Embassy (according to the template sent by the manager of our company) in order for the Certificate of Title to be issued in your name without personal presence. Thanks to the new system, there is no need to mail the power of attorney issued to you. By sending a copy of it, an employee of the company can receive the original at any notary office in the city."
         },
         {
-          "title": "5. Заказ мебели",
-          "text": "Если вы захотите приехать в уже меблированную квартиру, менеджер компании вышлет варианты мебельных пакетов, соответствующие вашим предпочтениям и бюджету. Сотрудники компании проследят, чтобы мебель была доставлена вовремя, смонтирована и расставлена в квартире именно так, как вы запланировали. Также стоит отметить, что существует возможность воспользоваться услугами нашего дизайнера интерьера, он подберет аксессуары, которые украсят ваш новый дом."
+          "title": "5. Ordering furniture",
+          "text": "If you want to come to an already furnished apartment, the company manager will send options for furniture packages that match your preferences and budget. The company's employees will make sure that the furniture is delivered on time, assembled and placed in the apartment exactly as you planned. It is also worth noting that there is an opportunity to use the services of our interior designer, he will select accessories that will decorate your new home."
         }
       ],
       "conclusion": [
-        "Таким образом, вы можете быть уверены, что по приезду в Турцию вас будет ждать готовая к проживанию, уютная квартира, которая превзойдёт все ваши ожидания.",
-        "Если Вы приняли решение о приобретении недвижимости в Алании, но не готовы на онлайн-покупку, мы будем рады предложить Вам услугу индивидуального ознакомительного тура."
+        "Thus, you can be sure that upon arrival in Turkey you will have a ready-to-move, cozy apartment that will surpass all your expectations.",
+        "If you have decided to purchase real estate in Alanya, but are not ready for an online purchase, we will be happy to offer you the service of an individual study tour."
       ]
     },
     "service_after_sale_services": {
@@ -517,12 +514,8 @@
       "article_1": {
         "title": "Accommodation in apartments in one of our complexes",
         "text": [
-          "Why Alanya? Because it is possible to implement projects of any complexity here, without overstating the prices for apartments and villas.",
-          "The infrastructure of the objects amazes with its diversity and chic. And all thanks to competent planning and skillful implementation of the bold ideas of designers and architects.",
-          "Alanya and Oba are the most prestigious areas, suitable for living and seasonal recreation, as well as for profitable investment of money. In the future, the company plans to expand the boundaries of construction.",
-          "The developer offers to buy quality apartments on the Mediterranean coast. The buildings are built and finished in the best European traditions. The housing meets high international standards. Spacious rooms with high ceilings, fine finishing using ECO materials. Partial or full furnishings, built-in household appliances. Variety of decorative solutions will be appreciated even by very demanding clients. ",
-          "To choose housing, taking into account your wishes, requirements and financial capabilities, you can go on an introductory tour or trust the professionalism of the company's employees, who will agree on all important organizational issues for the client.",
-          "Thanks to the competent planning, in new buildings you can buy apartments from different price segments. Small apartments and or luxury penthouses on the upper floors."
+          "In order for you to feel what it is like to be the owner of apartments in our complexes, we will place you in one of the apartments built by our company. Thus, you will be able to evaluate not only the unique design of the infrastructure, which our company is proud of, but also directly verify the quality of the materials used.",
+          "The manager of the company will meet you in the complex, place you in the apartment and connect your phone to WI-FI. You will have time to relax after the flight, swim in the sea or in the indoor pool, depending on the time of year."
         ]
       },
       "post_2": {
@@ -610,6 +603,9 @@
           "Possibility of registration of legal entities;",
           "VISA-free travel to over 110 countries."
         ]
+      },
+      "article_1": {
+        "title": "What do you need to know?"
       },
       "post_1": {
         "paragraph_1": "It is important to remember that a foreigner who has acquired property in order to obtain Turkish citizenship does not have the right to sell it for 3 years. But a house or apartment can be rented out for a long-term or short-term lease, which will allow you not only to invest money profitably,but also to increase your capital.",

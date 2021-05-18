@@ -1,7 +1,7 @@
 <template lang="pug">
   main
     page-welcome(:home-title-data="$t('pages.home.header')")
-    hero-slider(:slides="$t('pages.home.hero_slider')")
+    hero-slider(:slides="$t('pages.home.hero_slider_data.hero_slider')")
     link-banner-wrapper
       link-banner(
         :image-src="require('~/assets/images/link-banner-1.jpg')"

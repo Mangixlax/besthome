@@ -1,11 +1,17 @@
 <template lang="pug">
   main
     base-image-title(:imageTitleData="$t('pages.service_turkish_citizenship.image_title')")
+    base-text-container
       typo-text(
         tag="p"
         version="style-5"
-      ) {{ $t('pages.service_after_sale_services.slot_text_1') }}
+      ) {{ $t('pages.service_turkish_citizenship.slot_text_1') }}
     page-service-list-card(:listCardData="$t('pages.service_turkish_citizenship.list_card')")
+    base-text-container(textAlign="center")
+      typo-text(
+        tag="p"
+        version="style-4"
+      ) {{ $t('pages.service_turkish_citizenship.article_1.title') }}
     base-post(
       :filename="require(`~/assets/images/test.jpg`)"
     )
@@ -72,6 +78,7 @@ import TypoText from '~/components/Base/TypoText.vue'
 import BaseImageTitle from '~/components/Base/BaseImageTitle.vue'
 import PageServiceListCard from '~/components/Page/Service/PageServiceListCard.vue'
 import BasePostTwoImage from '~/components/Base/BasePostTwoImage.vue'
+import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
 
 export default {
   name: 'turkish-citizenship',
@@ -81,6 +88,7 @@ export default {
     BaseImageTitle,
     PageServiceListCard,
     BasePostTwoImage,
+    BaseTextContainer,
   },
 }
 </script>

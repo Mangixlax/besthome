@@ -179,28 +179,31 @@
           "route": "/projects"
         }
       },
-      "hero_slider": [
-        {
-          "title": "Cleopatra Select",
-          "location": {
-            "city": "Аланья",
-            "region": "Сарай Махалле"
+      "hero_slider_data": {
+        "coursor_data": "Перетащи<br>или нажми",
+        "hero_slider": [
+          {
+            "title": "Cleopatra Select",
+            "location": {
+              "city": "Аланья",
+              "region": "Сарай Махалле"
+            },
+            "price": 19600,
+            "sea": 700,
+            "description": "Проект, который строится на холме, окруженном зеленью, в сочетании с уникальными пейзажами замка Алании, сливающимся с морем и горами, мы переносим вас в спокойную и умиротворенную среду."
           },
-          "price": 19600,
-          "sea": 700,
-          "description": "Проект, который строится на холме, окруженном зеленью, в сочетании с уникальными пейзажами замка Алании, сливающимся с морем и горами, мы переносим вас в спокойную и умиротворенную среду."
-        },
-        {
-          "title": "Select Cleopatra",
-          "location": {
-            "city": "Аланья",
-            "region": "Сарай Махалле"
-          },
-          "price": 27100,
-          "sea": 400,
-          "description": "Проект, который строится на холме, окруженном зеленью, в сочетании с уникальными пейзажами замка Алании, сливающимся с морем и горами, мы переносим вас в спокойную и умиротворенную среду."
-        }
-      ],
+          {
+            "title": "Select Cleopatra",
+            "location": {
+              "city": "Аланья",
+              "region": "Сарай Махалле"
+            },
+            "price": 27100,
+            "sea": 400,
+            "description": "Проект, который строится на холме, окруженном зеленью, в сочетании с уникальными пейзажами замка Алании, сливающимся с морем и горами, мы переносим вас в спокойную и умиротворенную среду."
+          }
+        ]
+      },
       "link_baner": {
         "baner_1": {
           "title": "Вторичное жилье",
@@ -515,14 +518,10 @@
         "link": "30 завершенных проектов"
       },
       "article_1": {
-        "title": "Property in Alanya",
+        "title": "Размещение в апартаментах в одном из наших комплексов",
         "text": [
-          "Why Alanya? Because it is possible to implement projects of any complexity here, without overstating the prices for apartments and villas.",
-          "The infrastructure of the objects amazes with its diversity and chic. And all thanks to competent planning and skillful implementation of the bold ideas of designers and architects.",
-          "Alanya and Oba are the most prestigious areas, suitable for living and seasonal recreation, as well as for profitable investment of money. In the future, the company plans to expand the boundaries of construction.",
-          "The developer offers to buy quality apartments on the Mediterranean coast. The buildings are built and finished in the best European traditions. The housing meets high international standards. Spacious rooms with high ceilings, fine finishing using ECO materials. Partial or full furnishings, built-in household appliances. Variety of decorative solutions will be appreciated even by very demanding clients. ",
-          "To choose housing, taking into account your wishes, requirements and financial capabilities, you can go on an introductory tour or trust the professionalism of the company's employees, who will agree on all important organizational issues for the client.",
-          "Thanks to the competent planning, in new buildings you can buy apartments from different price segments. Small apartments and or luxury penthouses on the upper floors."
+          "Чтобы вы почувствовали себя владельцем квартир в наших комплексах, мы разместим вас в одной из квартир, построенных нашей компанией. Таким образом, вы сможете оценить не только уникальный дизайн инфраструктуры, которым гордится наша компания, но и напрямую убедиться в качестве используемых материалов.",
+          "Менеджер компании встретит вас в комплексе, разместит в квартире и подключит ваш телефон к WI-FI. У вас будет время расслабиться после полета, искупаться в море или в крытом бассейне, в зависимости от времени года."
         ]
       },
       "post_2": {
@@ -610,6 +609,9 @@
           "Возможность регистрации юридических лиц;",
           "Безвизовое посещение 110 стран"
         ]
+      },
+      "article_1": {
+        "title": "Что Вам нужно знать"
       },
       "post_1": {
         "paragraph_1": "Важно помнить, что иностранец, который приобрел в собственность недвижимость с целью получить гражданство Турции, не имеет право ее продавать в течение 3-х лет. Но дом или апартаменты можно сдать в долгосрочную или краткосрочную аренду, что позволит не только выгодно вложить деньги, но и частично вернуть вложенные средства.",

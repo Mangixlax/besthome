@@ -1,6 +1,7 @@
 <template lang="pug">
   main
     base-image-title(:imageTitleData="$t('pages.service_introductory_tour.image_title')")
+    base-text-container
       typo-text(
         tag="h2"
         version="style-4"
@@ -31,11 +32,13 @@
       typo-text(
         tag="h2"
         version="style-2"
-      ) {{ $t('pages.service_introductory_tour.post_2.title') }}
+      ) {{ $t('pages.service_introductory_tour.article_1.title') }}
       typo-text(
+        v-for="(paragraph, i) in $t('pages.service_introductory_tour.article_1.text')"
+        :key="i"
         tag="p"
-        version="style-5"
-      ) {{ $t('pages.service_introductory_tour.post_2.paragraph_1') }}
+        version="style-6"
+      ) {{ paragraph }}
     base-post(
       :filename="require(`~/assets/images/test.jpg`)" 
       flip 
@@ -157,7 +160,7 @@ export default {
     TypoText,
     BaseImageTitle,
     BasePostTwoImage,
-    BaseTextContainer
+    BaseTextContainer,
   },
 }
 </script>

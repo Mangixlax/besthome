@@ -4,33 +4,34 @@
       div(:class="$style['hero__video-link']" data-cursor-text)
         svg-icon(:class="$style['hero__video-icon-text']" name="hero-link-circle-text")
         svg-icon(:class="$style['hero__video-icon-circle']" name="hero-link-circle")
-    typo-text(
-      ref="header1"
-      tag="h1"
-      version="style-2"
-      :class="$style['hero__title']"
-    ) {{ homeTitleData.title }}
-    typo-text(
-      ref="header2"
-      tag="p"
-      version="style-5"
-      :class="$style['hero__text']"
-    ) {{ homeTitleData.text }}
-    typo-text(
-      ref="header3"
-      tag="p"
-      version="style-5"
-      :class="$style['hero__text']"
-    )
-      | {{ homeTitleData.linkToProjects.text }}
-      span
-        nuxt-link(
-          :to="localePath(homeTitleData.linkToProjects.route)"
-          :class="$style['hero__text-link']"
-        ) {{ homeTitleData.linkToProjects.link }}
-        | .
-    div(:class="$style['hero__fake-container']")
-      div(:class="$style['hero__double-circle']")
+    div(:class="$style['hero__container']")
+      typo-text(
+        ref="header1"
+        tag="h1"
+        version="style-2"
+        :class="$style['hero__container-title']"
+      ) {{ homeTitleData.title }}
+      typo-text(
+        ref="header2"
+        tag="p"
+        version="style-5"
+        :class="$style['hero__container-text']"
+      ) {{ homeTitleData.text }}
+      typo-text(
+        ref="header3"
+        tag="p"
+        version="style-5"
+        :class="$style['hero__container-text']"
+      )
+        | {{ homeTitleData.linkToProjects.text }}
+        span
+          nuxt-link(
+            :to="localePath(homeTitleData.linkToProjects.route)"
+            :class="$style['hero__container-link']"
+          ) {{ homeTitleData.linkToProjects.link }}
+          | .
+      div(:class="$style['hero__fake-container']")
+        div(:class="$style['hero__double-circle']")
 </template>
 
 <script lang="ts">
@@ -89,8 +90,7 @@ export default class PageWelcome extends Vue {
     padding-top: 24px
     padding-bottom: 264px
 
-  &__title,
-  &__text
+  &__container
     max-width: 912px
     width: 100%
     margin: 0 auto
@@ -103,15 +103,17 @@ export default class PageWelcome extends Vue {
     @media (max-width: 1060px)
       padding: 0 24px
 
-  &__title
-    margin-bottom: 40px
+    &-title
+      max-width: 780px
+      margin-top: 0
+      margin-bottom: 40px
 
-    @media (max-width: 1060px)
-      margin-top: 32px
+      @media (max-width: 1060px)
+        margin-top: 32px
 
-  &__text
-    & + &
-      margin-top: 16px
+    &-text
+      & + &
+        margin-top: 16px
 
     &-link
       display: inline-flex
@@ -153,6 +155,9 @@ export default class PageWelcome extends Vue {
       justify-content: center
       cursor: pointer
 
+      &:hover
+        animation-play-state: paused
+
       @media (max-width: 1060px)
         margin: 0
         top: 20px
@@ -167,7 +172,8 @@ export default class PageWelcome extends Vue {
       left: 0
       top: 0
       animation: circle 12s linear infinite
-
+      animation-play-state: inherit
+      
       @media (max-width: 1060px)
         width: 112px
         height: 112px
