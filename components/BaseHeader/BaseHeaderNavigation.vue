@@ -136,7 +136,7 @@ export default class BaseHeaderNavigation extends Vue {
 .dropdown
   display: flex
   flex-direction: column
-  padding: 0 0 30.5px 0
+  padding: 0 0 30px 0
   margin: 0
   list-style: none
   position: absolute
@@ -155,7 +155,7 @@ export default class BaseHeaderNavigation extends Vue {
     height: 100%
     display: flex
     align-items: center
-    padding: 4px 30.5px 4px 30.5px
+    padding: 4px 30px 4px 30px
     
     &-link
       color: $color-black
