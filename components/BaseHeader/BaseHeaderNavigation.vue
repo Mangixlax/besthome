@@ -1,8 +1,10 @@
 <template lang="pug">
   ul(:class="$style['nav']")
     li(
-      v-for="(item, key) in headerNavigationList"
-      :key="key"
+      v-for="(item, index) in headerNavigationList"
+      :key="index"
+      @mouseover="dropdownIndex = index"
+      @mouseout="dropdownIndex = null" 
       :class="$style['nav__item']"
     )
       typo-text(
@@ -22,7 +24,8 @@
         v-if="itemHasChildren(item)"
         :class="$style['nav__item-dropdown']"
       )
-        svg-icon(name="dropdown")
+        svg-icon(
+          :name="dropdownIndex == index ? 'dropdown-flip' : 'dropdown'")
       ul(
         v-if="itemHasChildren(item)"
         :class="$style['dropdown']"
@@ -77,6 +80,8 @@ export default class BaseHeaderNavigation extends Vue {
   public itemHasChildren(item: NavigationListItem) {
     return item.children && (item.children || []).length
   }
+
+  public dropdownIndex: any = null
 }
 </script>
 
@@ -96,7 +101,7 @@ export default class BaseHeaderNavigation extends Vue {
     justify-content: center
     padding-left: 8px
     padding-right: 16px
-
+    
     &:hover .dropdown
       pointer-events: all
       opacity: 1
@@ -131,11 +136,11 @@ export default class BaseHeaderNavigation extends Vue {
 .dropdown
   display: flex
   flex-direction: column
-  padding: 0
+  padding: 0 0 30.5px 0
   margin: 0
   list-style: none
   position: absolute
-  left: 0
+  left: -32px
   top: 92px
   background-color: $color-white
   box-shadow: 0 20px 40px -16px rgba(17, 17, 17, 0.16)
@@ -143,14 +148,15 @@ export default class BaseHeaderNavigation extends Vue {
   opacity: 0
   transition: opacity 0.25s ease
   width: max-content
+  margin-top: -17px
 
   &__item
     position: relative
     height: 100%
     display: flex
     align-items: center
-    padding: 4px 12px 4px 12px
-
+    padding: 4px 30.5px 4px 30.5px
+    
     &-link
       color: $color-black
       text-decoration: none
