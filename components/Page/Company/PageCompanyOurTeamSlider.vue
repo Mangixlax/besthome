@@ -96,8 +96,6 @@ export default {
 
 .slide
   display: flex
-  width: 360px
-  height: 440px
   position: relative
   justify-content: center
 
@@ -105,7 +103,6 @@ export default {
     object-fit: cover
 
 .slider
-  padding-left: calc((100vw - 1040px)/2)
   padding-bottom: 70px
 
 .footer
