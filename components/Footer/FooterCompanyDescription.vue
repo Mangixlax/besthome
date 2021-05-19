@@ -5,7 +5,6 @@
         v-for="(paragraph, i) in paragraphs"
         :key="i"
         tag="p"
-        version="style-8"
         :class="$style['company__container-text']"
       ) {{ paragraph }}
 </template>
@@ -41,4 +40,5 @@ export default {
 
     &-text
       margin: 0px
+      +style-8($with-media: false)
 </style>

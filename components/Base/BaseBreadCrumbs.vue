@@ -75,7 +75,6 @@ export default {
       content: "/"
       display: inline-block
       margin-right: 12px
-      margin-left: 12px
       color: rgba(17, 17, 17, 0.16)
       +style-5
 
@@ -85,6 +84,7 @@ export default {
       text-underline-offset: 7px
       text-decoration-color: rgba(17, 17, 17, 0.16)
       color: rgba(17, 17, 17, 0.88)
+      margin-right: 12px
       +style-8($with-media: false)
 
       svg

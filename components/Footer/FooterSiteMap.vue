@@ -208,7 +208,7 @@ export default class FooterSiteMap extends Vue {
   grid-auto-flow: row
   align-items: start
   justify-items: start
-  margin-bottom: 32px
+  margin-bottom: 16px
 
   &-column-0
     grid-column: 1
@@ -268,7 +268,7 @@ export default class FooterSiteMap extends Vue {
     +style-8($with-media: false)
 
     @media (max-width: 450px)
-      max-width: 205px
+      max-width: 190px
 
   span
     white-space: nowrap
