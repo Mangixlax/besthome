@@ -58,15 +58,24 @@ export default class PageServicePurchase extends Vue {}
     padding: 80px 24px
     margin: 0 auto
 
+    @media (max-width: 800px)
+      padding: 40px 24px
+
     &-title
       margin: 0 0 32px
 
     &-text
       margin: 0 0 80px
 
+      @media (max-width: 800px)
+        margin: 0 0 40px
+
   &__conclusion
     max-width: 864px
     margin: 198px auto 0
+
+    @media (max-width: 800px)
+      margin: 40px auto 0
 
 .card
   padding: 32px

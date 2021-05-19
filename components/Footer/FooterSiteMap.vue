@@ -12,7 +12,7 @@
     div(:class="$style['map__phone']")
       typo-text(
         tag="p"
-        version="style-8(with-media: false)"
+        version="style-8"
         :class="$style['map__phone-text']"
       ) 
         | Сall the support service via the phone +90 530 547-44-15 or locate 
@@ -208,7 +208,7 @@ export default class FooterSiteMap extends Vue {
   grid-auto-flow: row
   align-items: start
   justify-items: start
-  padding-bottom: 32px
+  margin-bottom: 32px
 
   &-column-0
     grid-column: 1
@@ -265,6 +265,10 @@ export default class FooterSiteMap extends Vue {
     display: flex
     align-items: center
     flex-wrap: wrap
+    +style-8($with-media: false)
+
+    @media (max-width: 450px)
+      max-width: 205px
 
   span
     white-space: nowrap

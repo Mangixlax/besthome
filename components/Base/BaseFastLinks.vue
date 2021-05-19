@@ -72,6 +72,18 @@ export default class BaseFastLinks extends Vue {
 .fastlinks
   display: flex
   flex-direction: column
+  position: relative
+
+  @media (max-width: 411px)
+    & + &:before
+      content: ""
+      position: absolute
+      top: 0
+      left: -24px
+      width: 100vw
+      height: 1px
+      display: inline-block
+      background-color: $color-black-4
 
   @media (max-width: 411px)
     width: 100%
@@ -88,22 +100,26 @@ export default class BaseFastLinks extends Vue {
     color: rgba(17, 17, 17, 1)
     white-space: nowrap
     margin: 0px
-    margin-bottom: 8px
+    margin-bottom: 10px
     position: relative
     justify-content: space-between
+    align-items: center
+
     +style-6($with-media: false)
 
     @media (max-width: 409px)
       cursor: pointer
+      margin-top: 16px
+      margin-bottom: 16px
 
       &::after
         content: ""
-        width: 30px
-        height: 30px
-        background-image: url(@/assets/sprite/svg/accordion-plus.svg)
+        width: 24px
+        height: 24px
+        background-image: url(@/assets/sprite/svg/fastlinks-accordion-plus.svg)
 
         .show &
-          background-image: url(@/assets/sprite/svg/accordion-minus.svg)
+          background-image: url(@/assets/sprite/svg/fastlinks-accordion-minus.svg)
 
   &__list
     display: flex
@@ -112,6 +128,10 @@ export default class BaseFastLinks extends Vue {
     padding: 0
     margin: 0
     justify-content: center
+    margin-bottom: 17px
+
+    &:last-child
+      padding-bottom: 17px
 
   &__item
     display: flex

@@ -80,16 +80,20 @@ export default {
 .content__link
   display: flex
   align-items: center
+  flex-wrap: wrap
 
   &-text
     margin: 0
+    white-space: nowrap
+    margin-right: 0.5em
 
     &--underline
       text-decoration: underline
       text-decoration-color: $color-blue-16
       text-underline-offset: 7px
       color: $color-blue-100
-      margin-left: 0.5em
+
+      white-space: nowrap
 
   &-arrow
     height: 26px
