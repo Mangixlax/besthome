@@ -25,7 +25,9 @@
         :class="$style['nav__item-dropdown']"
       )
         svg-icon(
-          :name="dropdownIndex == index ? 'dropdown-flip' : 'dropdown'")
+          name="dropdown"
+          :class="[$style['nav__item-icon'], dropdownIndex == index && $style['flip']]"
+        )
       ul(
         v-if="itemHasChildren(item)"
         :class="$style['dropdown']"
@@ -101,7 +103,7 @@ export default class BaseHeaderNavigation extends Vue {
     justify-content: center
     padding-left: 8px
     padding-right: 16px
-    
+
     &:hover .dropdown
       pointer-events: all
       opacity: 1
@@ -128,10 +130,13 @@ export default class BaseHeaderNavigation extends Vue {
     &-dropdown
       margin-left: 3px
 
-      svg
-        width: 18px
-        height: 18px
-        fill: $color-black
+    &-icon
+      width: 18px
+      height: 18px
+      fill: $color-black
+
+      &.flip
+        transform: rotate(180deg)
 
 .dropdown
   display: flex
@@ -156,7 +161,7 @@ export default class BaseHeaderNavigation extends Vue {
     display: flex
     align-items: center
     padding: 4px 30px 4px 30px
-    
+
     &-link
       color: $color-black
       text-decoration: none
