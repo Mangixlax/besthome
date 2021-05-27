@@ -17,7 +17,7 @@
       )
         div(
           :class="$style['tree__columns-image']"
-          :style="{ backgroundImage: `url(${require('~/assets/images/how-we-work-1.jpg')})` }"
+          :style="{ backgroundImage: `url(${require('~/assets/images/three-columns/' + column.filename)})` }"
         )
           div(:class="$style['tree__columns-image-overlay']")
         div(:class="$style['tree__columns-content']")
@@ -187,11 +187,20 @@ export default class TreeColumns extends Vue {
       height: 100%
       width: 100%
       background-size: cover
+      position: relative
       z-index: 1
 
       @media (max-width: 1224px)
         display: none
 
+      &::before
+        content: ''
+        position: absolute
+        top: 0
+        bottom: 0
+        right: 0
+        left: 0
+        background: rgba(17, 17, 17, 0.45)
       &-overlay
         position: absolute
         top: 0

@@ -64,7 +64,7 @@ export default {
     background-size: contain
     background-color: $color-blue-4
     background-repeat: no-repeat
-    background-position-x: right
+    background-position-x: 80%
 
     @media (max-width: 500px)
       align-items: flex-end

@@ -171,9 +171,6 @@ export default class CursorMover extends Vue {
 </script>
 
 <style lang="sass" module>
-*
-  cursor: none !important
-
 .cursor
   position: fixed
   top: 0

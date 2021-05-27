@@ -8,16 +8,12 @@
         "nameInChildren": "All projects",
         "indicator": "30",
         "route": {
-          "name": "projects"
+          "name": "projects-our-projects"
         },
         "title": "Our projects",
         "titleInChildren": "All projects",
         "children": [
           {
-            "name": "Our projects",
-            "route": {
-              "name": "projects-our-projects"
-            },
             "title": "Our projects"
           },
           {
@@ -43,20 +39,13 @@
             "title": "Penultimate project"
           },
           {
-            "name": "Our Experience",
+            "name": "Secondary housing",
             "route": {
-              "name": "projects-experiences"
+              "name": "index"
             },
-            "title": "Our Experience"
+            "title": "Secondary housing"
           }
         ]
-      },
-      {
-        "name": "Secondary housing",
-        "route": {
-          "name": "index"
-        },
-        "title": "Secondary housing"
       },
       {
         "name": "Investors",
@@ -154,11 +143,11 @@
         "title": "Media"
       },
       {
-        "name": "Contacts",
+        "name": "Contact us",
         "route": {
           "name": "contacts"
         },
-        "title": "Contacts"
+        "title": "Contact us"
       }
     ]
   },
@@ -218,6 +207,7 @@
             "icon": "online-purchase",
             "title": "Online<br>purchase",
             "text": "The company's specialists fully support all transactions, demonstrating flexibility and professionalism, as well as solving all issues. What is important, the company's customers can always count on professional assistance and after-sales service even after the transaction is completed.",
+            "filename": "three-columns-1.jpg",
             "to": {
               "name": "service-online-purchase"
             },
@@ -227,6 +217,7 @@
             "icon": "introductory-tour",
             "title": "Introductory<br>tour",
             "text": "The company's specialists fully support all transactions, demonstrating flexibility and professionalism, as well as solving all issues. What is important, the company's customers can always count on professional assistance and after-sales service even after the transaction is completed.",
+            "filename": "three-columns-2.jpg",
             "to": {
               "name": "service-introductory-tour"
             },
@@ -236,6 +227,7 @@
             "icon": "obtaining-citizenship",
             "title": "Obtaining<br>citizenship",
             "text": "The company's specialists fully support all transactions, demonstrating flexibility and professionalism, as well as solving all issues. What is important, the company's customers can always count on professional assistance and after-sales service even after the transaction is completed.",
+            "filename": "three-columns-3.jpg",
             "to": {
               "name": "service-online-purchase"
             },
@@ -248,7 +240,7 @@
       "smart_block": [
         {
           "to": {
-            "name": "index"
+            "name": "greenday-park-best-home-48"
           },
           "imageSrc": "smart-block-1.jpg",
           "title": "Secondary housing",
@@ -260,11 +252,11 @@
         },
         {
           "to": {
-            "name": "index"
+            "name": "besthome-47"
           },
           "imageSrc": "smart-block-2.jpg",
           "title": "Secondary housing",
-          "header": "Greenday Park BestHome 48",
+          "header": "BestHome 47",
           "text": "Sold out",
           "textPosition": "bottom",
           "textAlign": "right",
@@ -272,11 +264,11 @@
         },
         {
           "to": {
-            "name": "index"
+            "name": "besthome-46"
           },
           "imageSrc": "smart-block-3.jpg",
           "title": "Secondary housing",
-          "header": "Greenday Park BestHome 48",
+          "header": "BestHome 46",
           "text": "Sold out",
           "textPosition": "bottom",
           "textAlign": "right",
@@ -284,11 +276,11 @@
         },
         {
           "to": {
-            "name": "index"
+            "name": "besthome-45"
           },
           "imageSrc": "smart-block-4.jpg",
           "title": "Secondary housing",
-          "header": "Greenday Park<br>BestHome 48",
+          "header": "BestHome 45",
           "text": "Sold out",
           "textPosition": "top",
           "textAlign": "center",
@@ -296,11 +288,11 @@
         },
         {
           "to": {
-            "name": "index"
+            "name": "besthome-45"
           },
           "imageSrc": "smart-block-4.jpg",
           "title": "Secondary housing",
-          "header": "Greenday Park BestHome 48",
+          "header": "BestHome 45",
           "text": "Sold out",
           "textPosition": "center",
           "textAlign": "right",
@@ -308,17 +300,23 @@
         },
         {
           "to": {
-            "name": "index"
+            "name": "besthome-45"
           },
           "imageSrc": "smart-block-4.jpg",
           "title": "Secondary housing",
-          "header": "Greenday Park BestHome 48",
+          "header": "BestHome 45",
           "text": "Sold out",
           "textPosition": "center",
           "textAlign": "right",
           "col": "3"
         }
       ]
+    },
+    "projects_review": {
+      "header": {
+        "title": "City living with a touch of nature",
+        "filename": "projects-title-choose-apartment.jpg"
+      }
     },
     "projects_experiences": {
       "header": "City living with a touch of nature",
@@ -777,10 +775,10 @@
     },
     "company_history": {
       "header": {
-        "title": "Первые шаги",
+        "title": "The first steps",
         "text": [
-          "История компании «BestHome Construction» началась в 2004 году в Алании, когда двое молодых людей решили начать свой бизнес в Турции, основанный на долгосрочных партнерских отношениях, европейским понимании сервиса и уважении к клиентам. Им хотелось создать   компанию с турецкими традициями и европейским лицом. Новый быстрорастущий рынок недвижимости как нельзя лучше подходил для этой цели, хотя и тогда уже существовала конкуренция. Но учредители компании верили, что их детище сможет выйти на лидирующие позиции и, как показала дальнейшая жизнь, не ошиблись в своих прогнозах.",
-          "Опираясь на опыт работы в ведущем агентстве недвижимости Алании, они понимали, что на рынке нету такого продукта, которого им хотелось бы предложить требовательным европейским клиентам, а так же качественного послепродажного обслуживания. Тогда были приняты решения, определившие путь дальнейшего развития компании. Первое – строить дома европейского уровня качества, соответствующие ожиданиям и пожеланиям клиентов,  второе – сдерживая данные обещания, создать доверительные отношения с клиентами, третье – быть новаторами и законодателями на рынке недвижимости Алании, четвёртое – познакомив как можно больше клиентов по всему миру с прекрасным городом Аланией и непревзойдённой турецкой культурой, повысить ценность региона."
+          "The history of BestHome Construction began in 2004 in Alanya, when two young people decided to start their own business in Turkey, based on long-term partnerships, European understanding of service and respect for customers. They wanted to create a company with Turkish traditions and a European face. The new fast-growing real estate market was perfectly suited for this purpose, although there was already competition then. But the founders of the company believed that their brainchild would be able to take a leading position and, as later life showed, they were not mistaken in their forecasts.",
+          "Based on the experience of working in the leading real estate agency in Alanya, they understood that there was no such product on the market that they would like to offer to demanding European clients, as well as quality after-sales service. Then decisions were made that determined the way for the further development of the company. The first is to build houses of European quality level that meet the expectations and wishes of clients, the second is to keep these promises, to create trusting relationships with clients, the third is to be innovators and legislators in the real estate market of Alanya, and the fourth is to introduce as many clients around the world as possible to the beautiful city. Alanya and the unrivaled Turkish culture, add value to the region."
         ],
         "linkToProjects": {
           "text": "На сегодняшний день реализовано",
@@ -789,8 +787,8 @@
         }
       },
       "post_1": {
-        "title": "“Мы стремимся возвысить и превратить заброшенные районы в живые и дышащие части городов, которые вносят ценный вклад в жизнь общества.”",
-        "paragraph_with_link": "Региональный менеджер",
+        "title": "“We strive to uplift and transform abandoned areas into living and breathing parts of cities that make a valuable contribution to society.”",
+        "paragraph_with_link": "Regional Manager",
         "link": "Maconi Michal"
       }
     },
@@ -884,7 +882,7 @@
       },
       {
         "id": 9,
-        "image": "person-3.png",
+        "image": "person-9.png",
         "name": "Emre Erdem",
         "position": "Foreman",
         "info": [
@@ -895,7 +893,7 @@
       },
       {
         "id": 10,
-        "image": "person-7.png",
+        "image": "person-10.png",
         "name": "Gulden Hay Gyurr",
         "position": "Interior Designer",
         "info": [
@@ -907,7 +905,7 @@
       },
       {
         "id": 11,
-        "image": "person-4.png",
+        "image": "person-11.png",
         "name": "Khalil Ibrahim Bashpinar",
         "position": "Computer graphics and animation specialist",
         "info": [
@@ -918,7 +916,7 @@
       },
       {
         "id": 12,
-        "image": "person-5.png",
+        "image": "person-12.png",
         "name": "Byushra Yetgin",
         "position": "Designer",
         "info": [
@@ -929,7 +927,7 @@
       },
       {
         "id": 13,
-        "image": "person-1.png",
+        "image": "person-13.png",
         "name": "Neval Onach",
         "position": "Chief Accountant",
         "info": [
@@ -940,7 +938,7 @@
       },
       {
         "id": 14,
-        "image": "person-6.png",
+        "image": "person-14.png",
         "name": "Ilknur Koch",
         "position": "Accountant",
         "info": [
@@ -951,7 +949,7 @@
       },
       {
         "id": 15,
-        "image": "person-4.png",
+        "image": "person-15.png",
         "name": "Yunus Yilmaz",
         "position": "Accountant",
         "info": [
@@ -962,7 +960,7 @@
       },
       {
         "id": 16,
-        "image": "person-4.png",
+        "image": "person-16.png",
         "name": "Melike Akysh Joshkun",
         "position": "Administrator",
         "info": [

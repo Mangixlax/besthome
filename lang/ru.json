@@ -14,13 +14,6 @@
         "titleInChildren": "Все проекты",
         "children": [
           {
-            "name": "Наши проекты",
-            "route": {
-              "name": "projects-our-projects"
-            },
-            "title": "Наши проекты"
-          },
-          {
             "name": "Последний проект",
             "indicator": "new",
             "route": {
@@ -43,20 +36,13 @@
             "title": "Предпредпоследний проект"
           },
           {
-            "name": "Наш Опыт",
+            "name": "Вторичное жилье",
             "route": {
-              "name": "projects-experiences"
+              "name": "index"
             },
-            "title": "Наш Опыт"
+            "title": "Вторичное жилье"
           }
         ]
-      },
-      {
-        "name": "Вторичное жилье",
-        "route": {
-          "name": "index"
-        },
-        "title": "Вторичное жилье"
       },
       {
         "name": "Инвесторам",
@@ -224,6 +210,7 @@
             "icon": "online-purchase",
             "title": "Онлайн<br>покупка",
             "text": "Специалисты компании полностью сопровождают все сделки, проявляя гибкость и профессионализм, а также решая все вопросы. Что немаловажно, клиенты компании всегда могут рассчитывать на профессиональную помощь и послепродажное обслуживание даже после завершения сделки.",
+            "filename": "three-columns-1.jpg",
             "to": {
               "name": "service-online-purchase"
             },
@@ -233,6 +220,7 @@
             "icon": "introductory-tour",
             "title": "Ознакомительный<br>тур",
             "text": "Специалисты компании полностью сопровождают все сделки, проявляя гибкость и профессионализм, а также решая все вопросы. Что немаловажно, клиенты компании всегда могут рассчитывать на профессиональную помощь и послепродажное обслуживание даже после завершения сделки.",
+            "filename": "three-columns-2.jpg",
             "to": {
               "name": "service-introductory-tour"
             },
@@ -242,6 +230,7 @@
             "icon": "obtaining-citizenship",
             "title": "Получение<br>гражданства",
             "text": "Специалисты компании полностью сопровождают все сделки, проявляя гибкость и профессионализм, а также решая все вопросы. Что немаловажно, клиенты компании всегда могут рассчитывать на профессиональную помощь и послепродажное обслуживание даже после завершения сделки.",
+            "filename": "three-columns-3.jpg",
             "to": {
               "name": "service-online-purchase"
             },
@@ -254,7 +243,7 @@
       "smart_block": [
         {
           "to": {
-            "name": "index"
+            "name": "greenday-park-best-home-48"
           },
           "imageSrc": "smart-block-1.jpg",
           "title": "Вторичное жилье",
@@ -266,11 +255,11 @@
         },
         {
           "to": {
-            "name": "index"
+            "name": "besthome-47"
           },
           "imageSrc": "smart-block-2.jpg",
           "title": "Вторичное жилье",
-          "header": "Гриндей Парк BestHome 48",
+          "header": "BestHome 47",
           "text": "Распроданный",
           "textPosition": "bottom",
           "textAlign": "right",
@@ -278,11 +267,11 @@
         },
         {
           "to": {
-            "name": "index"
+            "name": "besthome-46"
           },
           "imageSrc": "smart-block-3.jpg",
           "title": "Вторичное жилье",
-          "header": "Гриндей Парк BestHome 48",
+          "header": "BestHome 46",
           "text": "Распроданный",
           "textPosition": "bottom",
           "textAlign": "right",
@@ -290,11 +279,11 @@
         },
         {
           "to": {
-            "name": "index"
+            "name": "besthome-45"
           },
           "imageSrc": "smart-block-4.jpg",
           "title": "Вторичное жилье",
-          "header": "Гриндей Парк <br> BestHome 48",
+          "header": "BestHome 45",
           "text": "Распроданный",
           "textPosition": "top",
           "textAlign": "center",
@@ -302,11 +291,11 @@
         },
         {
           "to": {
-            "name": "index"
+            "name": "besthome-45"
           },
           "imageSrc": "smart-block-4.jpg",
           "title": "Вторичное жилье",
-          "header": "Гриндей Парк BestHome 48",
+          "header": "BestHome 45",
           "text": "Распроданный",
           "textPosition": "center",
           "textAlign": "right",
@@ -314,11 +303,11 @@
         },
         {
           "to": {
-            "name": "index"
+            "name": "besthome-45"
           },
           "imageSrc": "smart-block-4.jpg",
           "title": "Вторичное жилье",
-          "header": "Гриндей Парк BestHome 48",
+          "header": "BestHome 45",
           "text": "Распроданный",
           "textPosition": "center",
           "textAlign": "right",
@@ -890,7 +879,7 @@
       },
       {
         "id": 9,
-        "image": "person-3.png",
+        "image": "person-9.png",
         "name": "Эмрэ Эрдэм",
         "position": "Прораб",
         "info": [
@@ -901,7 +890,7 @@
       },
       {
         "id": 10,
-        "image": "person-7.png",
+        "image": "person-10.png",
         "name": "Гюльдэн Ай Гюрэр",
         "position": "Дизайнер  интерьера",
         "info": [
@@ -913,7 +902,7 @@
       },
       {
         "id": 11,
-        "image": "person-4.png",
+        "image": "person-11.png",
         "name": "Халиль Ибрахим Башпынар",
         "position": "Специалист по компьютерной графике и анимации",
         "info": [
@@ -924,7 +913,7 @@
       },
       {
         "id": 12,
-        "image": "person-5.png",
+        "image": "person-12.png",
         "name": "Бюшра Йетгин",
         "position": "Дизайнер",
         "info": [
@@ -935,7 +924,7 @@
       },
       {
         "id": 13,
-        "image": "person-1.png",
+        "image": "person-13.png",
         "name": "Неваль Онач",
         "position": "Главный бухгалтер",
         "info": [
@@ -946,7 +935,7 @@
       },
       {
         "id": 14,
-        "image": "person-6.png",
+        "image": "person-14.png",
         "name": "Илькнур Коч",
         "position": "Бухгалтер",
         "info": [
@@ -957,7 +946,7 @@
       },
       {
         "id": 15,
-        "image": "person-2.png",
+        "image": "person-15.png",
         "name": "Юнус Йылмаз",
         "position": "Бухгалтер",
         "info": [
@@ -968,7 +957,7 @@
       },
       {
         "id": 16,
-        "image": "person-4.png",
+        "image": "person-16.png",
         "name": "Мелике Акыш Джошкун",
         "position": "Администратор ",
         "info": [

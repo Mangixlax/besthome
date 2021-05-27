@@ -16,7 +16,7 @@
             tag="p"
             version="style-5"
             :class="$style['content__link-text']"
-          ) {{ investorsPage.linkToProjects.text}}
+          ) {{ investorsPage.linkToProjects.text }}
           typo-text(
             tag="nuxt-link"
             version="style-5"

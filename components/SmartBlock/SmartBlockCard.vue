@@ -22,7 +22,12 @@
       )
       nuxt-link(
         :class="$style['link-banner__link']"
-        :to="localePath(card.to)"
+        :to="localePath({\
+          name: `projects-slug-review`,\
+          params: {\
+            slug: card.to.name\
+          }\
+        })"
         :title="card.title"
         v-html="card.text"
       )

@@ -72,7 +72,7 @@ body[menu-open]
   overflow: hidden
 
 .menu
-  @media (min-width: 1054px)
+  @media (min-width: 1024px)
     display: none
 
   &__burger

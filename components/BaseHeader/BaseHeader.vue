@@ -50,11 +50,14 @@ export default class BaseHeader extends Vue {}
   &__logo
     margin-right: 30px
 
+    @media (max-width: 1248px + 32px)
+      margin-right: 12px
+
   &__nav
     display: flex
     height: 100%
     flex-grow: 1
 
-    @media (max-width: 1054px)
+    @media (max-width: 1023px)
       display: none
 </style>

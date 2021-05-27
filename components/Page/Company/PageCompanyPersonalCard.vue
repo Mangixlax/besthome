@@ -55,12 +55,15 @@ export default {
 
   &__photo
     max-width: 212px
-    max-height: 158px
+    height: 158px
     align-self: center
     margin-bottom: 16px
 
     &-image
       width: 100%
+      max-height: 158px
+      object-fit: cover
+      object-position: right top
 
   &__name
     display: flex

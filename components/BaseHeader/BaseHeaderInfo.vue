@@ -39,7 +39,7 @@ export default class BaseHeaderInfo extends Vue {
     align-items: flex-end
 
   &--hide-on-mobile
-    @media (max-width: 1200px)
+    @media (max-width: 1023px)
       display: none
 
   a

@@ -14,37 +14,33 @@
           li(
             :class="$style['project-navigation__navbar-item']"
           )
-            typo-text(
-              tag="nuxt-link"
-              :to="localePath({ name: 'index' })"
-              version="style-7"
+            nuxt-link(
+              :to="localePath({ name: 'projects-slug-review',})"
               :class="$style['project-navigation__navbar-link']"
+              :active-class="$style['project-navigation__navbar-link--active']"
             ) Review
           li(
             :class="$style['project-navigation__navbar-item']"
           )
-            typo-text(
-              tag="nuxt-link"
-              version="style-7"
-              :to="localePath({ name: 'index' })"
+            nuxt-link(
+              :to="localePath({ name: 'projects-slug-about' })"
               :class="$style['project-navigation__navbar-link']"
+              :active-class="$style['project-navigation__navbar-link--active']"
             ) About
           li(:class="$style['project-navigation__navbar-item']"
-          )
-            typo-text(
-              tag="nuxt-link"
-              :to="localePath({ name: 'index' })"
-              version="style-7"
-              :class="$style['project-navigation__navbar-link--active']"
+          ) 
+            nuxt-link(
+              :to="localePath({ name: 'projects-slug-experiences' })"
+              :class="$style['project-navigation__navbar-link']"
+              :active-class="$style['project-navigation__navbar-link--active']"
             ) Experiences
           li(
             :class="$style['project-navigation__navbar-item']"
           )
-            typo-text(
-              tag="nuxt-link"
-              :to="localePath({ name: 'index' })"
-              version="style-7"
+            nuxt-link(
+              :to="localePath({ name: 'projects-slug-apartments' })"
               :class="$style['project-navigation__navbar-link']"
+              :active-class="$style['project-navigation__navbar-link--active']"
             ) Choose apartment
         button(
           type="submit"
@@ -64,6 +60,15 @@ import TypoText from '~/components/Base/TypoText.vue'
 export default {
   name: 'BaseProjectNavigation',
   components: { TypoText },
+  props: {
+    isActive: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  mounted() {
+    console.log((this as any).$route.params)
+  },
 }
 </script>
 
@@ -79,13 +84,19 @@ export default {
     padding: 8px 24px
     margin: 0 auto
 
+  &__title
+    &-text
+      margin: 0
+
   &__navbar
     display: flex
-    padding: 32px 0px 32px 8px
+    padding: 22px 0px 22px 8px
 
     &-list
       list-style: none
       display: flex
+      align-items: center
+      margin: 0
       margin-left: 8px
 
       @media (max-width: 900px)
@@ -97,6 +108,7 @@ export default {
     &-link
       text-decoration: none
       color: $color-black-100
+      +style-7
 
       &--active
         text-decoration: none

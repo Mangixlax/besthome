@@ -94,6 +94,9 @@ export default class BaseHeaderNavigation extends Vue {
   margin: 0
   list-style: none
   height: 100%
+  width: 90%
+  margin: 0 auto
+  justify-content: space-around
 
   &__item
     position: relative
@@ -103,6 +106,10 @@ export default class BaseHeaderNavigation extends Vue {
     justify-content: center
     padding-left: 8px
     padding-right: 16px
+
+    @media (max-width: 1248px + 32px)
+      padding-left: 4px
+      padding-right: 6px
 
     &:hover .dropdown
       pointer-events: all
@@ -134,7 +141,7 @@ export default class BaseHeaderNavigation extends Vue {
       width: 18px
       height: 18px
       fill: $color-black
-
+      transition: transform 0.3s ease
       &.flip
         transform: rotate(180deg)
 
@@ -145,7 +152,7 @@ export default class BaseHeaderNavigation extends Vue {
   margin: 0
   list-style: none
   position: absolute
-  left: -32px
+  left: -22px
   top: 92px
   background-color: $color-white
   box-shadow: 0 20px 40px -16px rgba(17, 17, 17, 0.16)

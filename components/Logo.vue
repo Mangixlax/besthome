@@ -38,8 +38,8 @@ export default class Logo extends Vue {
   height: 26px
   fill: $color-black
 
-  @media (max-width: 1054px)
-    width: 130px
+  @media (max-width: 1248px + 32px)
+    width: 134px
     height: 21px
 
 .text
