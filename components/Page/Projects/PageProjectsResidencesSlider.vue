@@ -186,9 +186,7 @@
                 button(:class="[$style['swiper-button-prev']]" @click.prevent="$refs.swiper_2.swiperInstance.slidePrev()")
                   svg-icon(name="slider-prev-arrow-blue")
                 button(:class="[$style['swiper-button-next']]" @click.prevent="$refs.swiper_2.swiperInstance.slideNext()")
-                  svg-icon(name="slider-next-arrow-blue")
-    
-     
+                  svg-icon(name="slider-next-arrow-blue")    
 </template>
 
 <script>
@@ -269,6 +267,7 @@ export default {
 
       p
         margin: 0
+
 .slider
   max-width: 911px !important
   min-width: 0 !important
@@ -283,9 +282,6 @@ export default {
   img
     object-fit: cover
     width: 100%
-
-.tabs
-  padding: 0 24px
 
 .navigation
   max-width: 1296px

@@ -2,6 +2,7 @@
   main
     base-project-navigation
     page-projects-title(:project-review-title-data="$t('pages.projects_review.header')")
+    page-projects-four-columns(:columns="pageProjectsFourColumns")
     base-post-two-image(
        :portraitImage="require(`~/assets/images/investors/portrait-1.jpg`)"
        :landscapeImage="require(`~/assets/images/investors/landscape-1.jpg`)"
@@ -22,6 +23,7 @@
         ) {{ $t('pages.investors.post_4.link') }}
         | .
     page-projects-residences-slider
+    page-projects-infrastructure-slider
     base-scroll-line(:scroll-line-info="$t('pages.projects_experiences.scroll_line_data')")
     page-projects-photos-slider
     base-subscribe(:subscribe-data="$t('footer.subscribe')" whiteTheme)
@@ -32,11 +34,13 @@
 <script lang="ts">
 import BaseProjectNavigation from '~/components/Base/BaseProjectNavigation.vue'
 import PageProjectsTitle from '~/components/Page/Projects/PageProjectsTitle.vue'
+import PageProjectsFourColumns from '~/components/Page/Projects/PageProjectsFourColumns.vue'
 import BasePostTwoImage from '~/components/Base/BasePostTwoImage.vue'
 import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import BaseScrollLine from '~/components/Base/BaseScrollLine.vue'
 import PageProjectsResidencesSlider from '~/components/Page/Projects/PageProjectsResidencesSlider.vue'
+import PageProjectsInfrastructureSlider from '~/components/Page/Projects/PageProjectsInfrastructureSlider.vue'
 import PageProjectsPhotosSlider from '~/components/Page/Projects/PageProjectsPhotosSlider.vue'
 import BaseSubscribe from '~/components/Base/BaseSubscribe.vue'
 import BaseAccordions from '~/components/Base/BaseAccordions.vue'
@@ -47,9 +51,11 @@ export default {
   components: {
     BaseProjectNavigation,
     PageProjectsTitle,
+    PageProjectsFourColumns,
     BasePostTwoImage,
     BasePost,
     TypoText,
+    PageProjectsInfrastructureSlider,
     BaseScrollLine,
     PageProjectsResidencesSlider,
     PageProjectsPhotosSlider,
@@ -59,22 +65,38 @@ export default {
   },
   data() {
     return {
-      experiencesPageScrollLineInfo: [
+      pageProjectsFourColumns: [
         {
-          title: '239',
-          text: 'Apartments',
+          title: 'Live fully',
+          filename: 'three-columns-1.jpg',
+          to: {
+            name: 'service-online-purchase',
+          },
+          hovered: false,
         },
         {
-          title: '470',
-          text: 'Parking spots for bikes',
+          title: 'Live carefree',
+          filename: 'three-columns-2.jpg',
+          to: {
+            name: 'service-introductory-tour',
+          },
+          hovered: false,
         },
         {
-          title: '3800m²',
-          text: 'Of common green areas',
+          title: 'Live naturally',
+          filename: 'three-columns-3.jpg',
+          to: {
+            name: 'service-online-purchase',
+          },
+          hovered: false,
         },
         {
-          title: '1 to 4-room',
-          text: 'Separate rooms',
+          title: 'Live better',
+          filename: 'three-columns-3.jpg',
+          to: {
+            name: 'service-online-purchase',
+          },
+          hovered: false,
         },
       ],
     }

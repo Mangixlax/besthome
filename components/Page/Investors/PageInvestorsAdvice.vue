@@ -66,6 +66,7 @@ export default {
     &-title
       margin: 0
       margin-bottom: 40px
+      margin-top: 16px
       max-width: 700px
 
     &-text

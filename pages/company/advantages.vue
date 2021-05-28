@@ -102,9 +102,9 @@
       typo-text(
         tag="h3"
         version="style-3"
-      )  {{ $t('pages.company_advantages.article_1.title') }}
+      )  {{ $t('pages.company_advantages.article_2.title') }}
       typo-text(
-        v-for="(paragraph, i) in $t('pages.company_advantages.article_1.text')"
+        v-for="(paragraph, i) in $t('pages.company_advantages.article_2.text')"
         :key="i"
         tag="p"
         version="style-5"
