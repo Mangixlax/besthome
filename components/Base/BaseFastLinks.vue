@@ -73,14 +73,17 @@ export default class BaseFastLinks extends Vue {
   display: flex
   flex-direction: column
   position: relative
+  
 
   @media (max-width: 411px)
+    padding: 0 24px
+    
     & + &:before
       content: ""
       position: absolute
       top: 0
-      left: -24px
-      width: 100vw
+      left: 0
+      width: 100%
       height: 1px
       display: inline-block
       background-color: $color-black-4
