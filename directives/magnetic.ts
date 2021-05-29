@@ -1,25 +1,10 @@
 import { VNode } from 'vue'
-import { DirectiveBinding } from 'vue/types/options'
+import { DirectiveBinding, DirectiveOptions } from 'vue/types/options'
 import $ from 'jquery'
 import { gsap } from 'gsap'
 
 interface IHTMLElementMagnetic extends HTMLElement {
   magnetic: any
-}
-
-export type MagneticDirectiveFunction = (
-  el: IHTMLElementMagnetic,
-  binding: DirectiveBinding,
-  vnode: VNode,
-  oldVnode: VNode,
-) => void
-
-interface IMagneticDirectiveOptions {
-  bind?: MagneticDirectiveFunction
-  inserted?: MagneticDirectiveFunction
-  update?: MagneticDirectiveFunction
-  componentUpdated?: MagneticDirectiveFunction
-  unbind?: MagneticDirectiveFunction
 }
 
 interface IMagneticOptions {
@@ -84,14 +69,14 @@ class MagneticModule {
   }
 }
 
-const Magnetic: IMagneticDirectiveOptions = {
-  bind(el: IHTMLElementMagnetic, bind: DirectiveBinding) {
-    el.magnetic = new MagneticModule(el, bind.value || {})
-    el.magnetic.bind()
+const Magnetic: DirectiveOptions = {
+  bind(el: HTMLElement, bind: DirectiveBinding) {
+    ;(el as IHTMLElementMagnetic).magnetic = new MagneticModule(el, bind.value || {})
+    ;(el as IHTMLElementMagnetic).magnetic.bind()
   },
-  unbind(el: IHTMLElementMagnetic) {
-    if (el.magnetic) {
-      el.magnetic.unbind()
+  unbind(el: HTMLElement) {
+    if ((el as IHTMLElementMagnetic).magnetic) {
+      ;(el as IHTMLElementMagnetic).magnetic.unbind()
     }
   },
 }

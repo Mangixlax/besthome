@@ -4,7 +4,7 @@
       v-for="(item, index) in headerNavigationList"
       :key="index"
       @mouseover="dropdownIndex = index"
-      @mouseout="dropdownIndex = null" 
+      @mouseout="dropdownIndex = null"
       :class="$style['nav__item']"
     )
       typo-text(
