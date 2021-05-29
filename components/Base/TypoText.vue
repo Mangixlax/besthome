@@ -1,33 +1,22 @@
-<template lang="pug" functional>
-  component(
-    :is="props.tag"
-    v-bind="{\
-      ...(data.ref ? { ref: data.ref } : {}),\
-      ...(data.style ? { style: data.style } : {}),\
-      ...(data.attrs || {})\
-    }"
-    v-on="listeners"
-    :class="[\
-      $style[props.version],\
-      ...(Array.isArray(data.class) ? data.class : [data.class]),\
-    ]"
-  )
-    slot
-</template>
+<script lang="ts">
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
-<script>
-export default {
-  name: 'TypoText',
-  props: {
-    tag: {
-      type: String,
-      default: 'p',
-    },
-    version: {
-      type: [String, Number],
-      default: 'style-6',
-    },
-  },
+@Component({
+  functional: true,
+  render(h, { $style, props, data, children }) {
+    return h(
+      props.tag,
+      {
+        ...data,
+        class: [$style[props.version], ...(Array.isArray(data.class) ? data.class : [data.class])],
+      },
+      children,
+    )
+  }
+})
+export default class TypoText extends Vue {
+  @Prop({ type: String, default: 'p' }) tag!: string
+  @Prop({ type: String, default: 'style-6' }) version!: string
 }
 </script>
 
