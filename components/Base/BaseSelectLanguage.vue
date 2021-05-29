@@ -43,7 +43,7 @@ import { Component, Vue, Prop } from 'nuxt-property-decorator'
 export default class BaseSelectLanguage extends Vue {
   @Prop({ type: Array, default: () => [] }) list!: Array<any>
 
-  public selectorList: Array = []
+  public selectorList: Array<string> = []
   public selectModel: string = 'En'
   public selectorIsOpened: boolean = false
   public tiltUp: boolean = false
@@ -90,7 +90,7 @@ export default class BaseSelectLanguage extends Vue {
         this.selectorIsOpened = false
 
         this.toggleTiltUp()
-        this.selectorPosition = newIndex * $(this.$refs.selectorWrapper).height()
+        this.selectorPosition = newIndex * ($(this.$refs.selectorWrapper).height() as number)
 
         setTimeout(() => {
           this.disableAnimation = true
