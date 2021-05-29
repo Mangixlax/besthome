@@ -34,96 +34,91 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import $ from 'jquery'
 import vClickOutside from 'v-click-outside'
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
-export default {
-  components: { vClickOutside },
-  props: {
-    list: {
-      type: Array,
-      default: () => [],
-    },
-    defaultValue: {
-      type: String,
-      default: '',
-    },
-  },
-  data() {
-    return {
-      selectorList: [],
-      selectModel: 'Ru',
-      selectorIsOpened: false,
-      tiltUp: false,
-      tiltDown: false,
-      selectorPosition: 0,
-      disableAnimation: false,
-      inProcess: false,
-    }
-  },
-  watch: {
-    selectorIsOpened(newValue) {
-      this.$emit('opened', newValue)
-    },
-  },
+@Component({ components: { vClickOutside } })
+export default class BaseSelectLanguage extends Vue {
+  @Prop({ type: Array, default: () => [] }) list!: Array<any>
+
+  public selectorList: Array = []
+  public selectModel: string = 'En'
+  public selectorIsOpened: boolean = false
+  public tiltUp: boolean = false
+  public tiltDown: boolean = false
+  public selectorPosition: number = 0
+  public disableAnimation: boolean = false
+  public inProcess: boolean = false
+
   beforeMount() {
     this.selectorList = Object.assign([], this.list)
-    this.chooseSelector(this.defaultValue)
-  },
-  methods: {
-    openSelector() {
-      if (!this.selectorIsOpened && !this.inProcess) {
-        this.selectorIsOpened = true
-        this.toggleTiltDown()
+    this.chooseSelector(this.$i18n.locale.toUpperCase())
+  }
+
+  /**
+   * Methods
+   */
+  openSelector() {
+    if (!this.selectorIsOpened && !this.inProcess) {
+      this.selectorIsOpened = true
+      this.toggleTiltDown()
+    }
+  }
+
+  closeOutside() {
+    if (this.selectorIsOpened && !this.inProcess) {
+      this.selectorIsOpened = false
+      this.toggleTiltUp()
+    }
+  }
+
+  chooseSelector(selectorItem: string) {
+    this.$nextTick(() => {
+      if (this.$i18n.locale.toLowerCase() !== selectorItem.toLowerCase()) {
+        this.$i18n.setLocale(selectorItem.toLowerCase())
+        this.$store.commit('setOurCompanyCardInfo', this.$i18n.t('pages.company_our_team'))
+        this.$store.dispatch('Navigation/init')
       }
-    },
-    closeOutside() {
-      if (this.selectorIsOpened && !this.inProcess) {
+
+      if (!this.inProcess) {
+        this.inProcess = true
+
+        const newIndex: number = this.selectorList.indexOf(selectorItem)
+
         this.selectorIsOpened = false
+
         this.toggleTiltUp()
-      }
-    },
-    chooseSelector(selectorItem) {
-      this.$nextTick(() => {
-        this.$emit('change', selectorItem)
+        this.selectorPosition = newIndex * $(this.$refs.selectorWrapper).height()
 
-        if (!this.inProcess) {
-          this.inProcess = true
-
-          const newIndex = this.selectorList.indexOf(selectorItem)
-
-          this.selectorIsOpened = false
-
-          this.toggleTiltUp()
-          this.selectorPosition = newIndex * $(this.$refs.selectorWrapper).height()
-
+        setTimeout(() => {
+          this.disableAnimation = true
+          this.selectModel = selectorItem
           setTimeout(() => {
-            this.disableAnimation = true
-            this.selectModel = selectorItem
-            setTimeout(() => {
-              this.disableAnimation = false
-              this.inProcess = false
-            }, 100)
-          }, 1000)
-        }
-      })
-    },
-    toggleTiltUp() {
-      this.tiltUp = true
+            this.disableAnimation = false
+            this.inProcess = false
+          }, 100)
+        }, 1000)
+      }
+    })
+  }
 
-      setTimeout(() => {
-        this.tiltUp = false
-      }, 1000)
-    },
-    toggleTiltDown() {
-      this.tiltDown = true
+  toggleTiltUp() {
+    this.tiltUp = true
 
-      setTimeout(() => {
-        this.tiltDown = false
-      }, 1000)
-    },
-  },
+    setTimeout(() => {
+      this.tiltUp = false
+    }, 1000)
+  }
+
+  toggleTiltDown() {
+    this.tiltDown = true
+
+    setTimeout(() => {
+      this.tiltDown = false
+    }, 1000)
+  }
 }
 </script>
 
@@ -134,14 +129,6 @@ export default {
   width: 60px;
   height: 100%;
   transition: box-shadow 0.3s ease;
-  // box-shadow: 0 0 0 0 rgba(#ff3366, 0);
-
-  // @media (max-width: 768px) {
-  //   & {
-  //     width: 51px;
-  //     font-size: 12px;
-  //   }
-  // }
 
   &--disable-animation ul {
     transition: none !important;
@@ -154,12 +141,6 @@ export default {
     height: 18px;
     width: 18px;
     z-index: 10;
-    // @media (max-width: 768px) {
-    //   & {
-    //     top: 5px;
-    //     right: 8px;
-    //   }
-    // }
   }
 
   select,
@@ -196,23 +177,9 @@ export default {
     width: 60px;
     color: rgba(17, 17, 17, 0.88);
 
-    // @media (max-width: 768px) {
-    //   & {
-    //     width: 51px;
-    //     padding: 3px 0;
-    //     top: -4px;
-    //   }
-    // }
-
     li {
       padding: 10px 13px;
       cursor: pointer;
-
-      // @media (max-width: 768px) {
-      //   & {
-      //     padding: 5px 8px;
-      //   }
-      // }
     }
   }
 
@@ -244,13 +211,6 @@ export default {
     color: rgba(17, 17, 17, 0.88);
     width: 60px;
     height: 38px;
-
-    // @media (max-width: 768px) {
-    //   & {
-    //     width: 51px;
-    //     height: 23px;
-    //   }
-    // }
   }
 
   &.open ul {

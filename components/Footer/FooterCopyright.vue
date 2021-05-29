@@ -7,12 +7,12 @@
         :class="$style['copyright__container-text']"
       ) © BestHome Construction, 2021 All rights reserved.
       div(:class="$style['copyright__changelang']")
-        Typo-text(
+        typo-text(
           tag="p"
           version="style-8(with-media: false)"
           :class="$style['copyright__changelang-text']"
         ) Change language:
-        base-select-language(:list="['RU','EN']" default-value="EN" @change="onChangeLanguage")
+        base-select-language(:list="['RU','EN']")
     div(:class="$style['copyright__information']")
       ul(:class="$style['copyright__list']")
         li(
@@ -67,14 +67,6 @@ export default class FooterCopyright extends Vue {
       to: '/',
     },
   ]
-
-  onChangeLanguage(lang: string) {
-    if (this.$i18n.locale.toLowerCase() !== lang.toLowerCase()) {
-      this.$i18n.setLocale(lang.toLowerCase())
-    }
-    this.$store.commit('setOurCompanyCardInfo', this.$i18n.t('pages.company_our_team'))
-    this.$store.dispatch('Navigation/init')
-  }
 }
 </script>
 
@@ -108,8 +100,7 @@ export default class FooterCopyright extends Vue {
   &__information
     display: flex
     justify-content: center
-    padding: 0 32px
-    padding-bottom: 129px
+    padding: 0 32px 129px
 
   &__list
     display: flex
@@ -185,5 +176,5 @@ export default class FooterCopyright extends Vue {
         background-color: $color-black-16
 
       &:nth-child(2n+1)
-        margin-left: 0px
+        margin-left: 0
 </style>
