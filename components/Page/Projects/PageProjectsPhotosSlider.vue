@@ -50,7 +50,7 @@ import TypoText from '~/components/Base/TypoText.vue'
 import PageCompanyPersonalCard from '~/components/Page/Company/PageCompanyPersonalCard.vue'
 
 export default {
-  name: 'PagesMestaBlisko',
+  name: 'PageProjectsPhotosSlider',
   components: {
     Swiper,
     SwiperSlide,

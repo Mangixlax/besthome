@@ -31,7 +31,7 @@
 import TypoText from '~/components/Base/TypoText.vue'
 
 export default {
-  name: 'pageServiceRent',
+  name: 'PageServiceRent',
   components: { TypoText },
   props: {
     allAboutRent: {

@@ -13,7 +13,7 @@
 import TypoText from '~/components/Base/TypoText.vue'
 
 export default {
-  name: 'footerCompanyDescription',
+  name: 'FooterCompanyDescription',
   components: { TypoText },
   props: {
     paragraphs: {

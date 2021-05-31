@@ -13,7 +13,7 @@
 import TypoText from '~/components/Base/TypoText.vue'
 
 export default {
-  name: 'PageCompanyTitle',
+  name: 'PageProjectsExperiencesTitle',
   components: { TypoText },
   props: {
     title: {

@@ -19,7 +19,7 @@
 import TypoText from '~/components/Base/TypoText.vue'
 
 export default {
-  name: 'AccordionItem',
+  name: 'CommonAccordionItem',
   components: { TypoText },
   props: {
     title: {
@@ -98,14 +98,7 @@ export default {
     flex-direction: column-reverse
 
     > div
-      padding: 24px 32px
-
-    +mobile
-      padding-left: 16px
-      padding-right: 16px
-
-      > div
-        padding: 24px 0
+      padding: 24px 0
 
   &__header h3
     margin: 0

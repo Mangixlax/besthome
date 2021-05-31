@@ -17,7 +17,7 @@
 import TypoText from '~/components/Base/TypoText.vue'
 
 export default {
-  name: 'PageCompanyTitle',
+  name: 'PageProjectsPanorama',
   components: { TypoText },
   data() {
     return {

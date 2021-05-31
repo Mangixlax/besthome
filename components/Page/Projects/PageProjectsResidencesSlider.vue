@@ -196,7 +196,7 @@ import CommonTab from '~/components/Common/CommonTab.vue'
 import CommonTabs from '~/components/Common/CommonTabs.vue'
 
 export default {
-  name: 'PagesMestaBlisko',
+  name: 'PageProjectsResidencesSlider',
   components: {
     Swiper,
     SwiperSlide,

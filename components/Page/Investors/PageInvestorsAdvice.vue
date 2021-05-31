@@ -35,7 +35,7 @@
 import TypoText from '~/components/Base/TypoText.vue'
 
 export default {
-  name: 'PageInvestorsTitle',
+  name: 'PageInvestorsAdvice',
   components: { TypoText },
   props: {
     investorsPageAdvice: {
