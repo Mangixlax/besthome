@@ -4,8 +4,8 @@
       base-fast-links(
         v-for="(fastLinksColumn, i) in fastLinksColumns"
         :key="i"
-        :title="fastLinksColumn.title"
-        :list="fastLinksColumn.list"
+        :title="fastLinksColumn.name"
+        :list="fastLinksColumn.children"
         :active="i === 0"
       )
 </template>
@@ -13,171 +13,15 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import BaseFastLinks from '~/components/Base/BaseFastLinks.vue'
-
-interface IFastLinksColumns {
-  title: string
-  list: Array<IFastLink>
-}
-
-interface IFastLink {
-  name: string
-  to: string
-}
+import { NavigationListItem } from '~/store/Navigation'
 
 @Component({
   components: { BaseFastLinks },
 })
 export default class FooterFastLinks extends Vue {
-  public fastLinksColumns: Array<IFastLinksColumns> = [
-    {
-      title: '%LinksTitle1%',
-      list: [
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-      ],
-    },
-    {
-      title: '%LinksTitle2%',
-      list: [
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-      ],
-    },
-    {
-      title: '%LinksTitle3%',
-      list: [
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-      ],
-    },
-    {
-      title: '%LinksTitle4%',
-      list: [
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-      ],
-    },
-  ]
+  get fastLinksColumns(): NavigationListItem[] {
+    return this.$store.getters['Navigation/getMenuByKey']('fast-links').items
+  }
 }
 </script>
 

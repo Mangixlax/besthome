@@ -12,10 +12,28 @@ export interface NavigationListItem {
   hasChildren?: boolean
 }
 
+export interface IMenusItem {
+  title: string
+  url: string
+  indicator: string
+  title_in_children?: string
+  items?: IMenusItem[]
+}
+
+export interface IMenus<T> {
+  title: string
+  items: T
+}
+
+interface IMenusObject {
+  [key: string]: IMenus<IMenusItem[]>
+}
+
 /**
  * States
  */
 export const state = () => ({
+  menus: {} as IMenusObject,
   headerList: [] as NavigationListItem[],
 })
 
@@ -31,6 +49,36 @@ interface NavigationActionContext extends ActionContext<NavigationState, RootSta
  */
 export const getters: GetterTree<NavigationState, RootState> = {
   getHeaderNavigationList: (state: NavigationState): NavigationListItem[] => state.headerList,
+  getMenuByKey: (state: NavigationState) => {
+    const processing = (items: IMenusItem[] = []): NavigationListItem[] => {
+      const result: NavigationListItem[] = []
+
+      ;(items || []).forEach((item: IMenusItem) => {
+        result.push({
+          name: item.title,
+          nameInChildren: item.title_in_children,
+          indicator: item.indicator,
+          route: {
+            name: item.url,
+          },
+          children: processing(item.items?.length ? item.items : []),
+          hasChildren: !!item.items?.length,
+        })
+      })
+
+      return result
+    }
+
+    return (key: string) => {
+      const menu = (Object.keys(state.menus).indexOf(key) !== -1 ? state.menus[key] : {}) as IMenus<
+        IMenusItem[]
+      >
+      return {
+        title: menu.title,
+        items: processing(menu.items),
+      } as IMenus<NavigationListItem[]>
+    }
+  },
 }
 
 /**
@@ -39,6 +87,9 @@ export const getters: GetterTree<NavigationState, RootState> = {
 export const mutations: MutationTree<NavigationState> = {
   setHeaderNavigationList: (state: NavigationState, value: NavigationListItem[]) => {
     state.headerList = value
+  },
+  setMenus: (state: NavigationState, menus: IMenusObject = {}) => {
+    state.menus = menus
   },
 }
 
@@ -52,6 +103,11 @@ export const actions: ActionTree<NavigationState, RootState> = {
    * @param commit
    */
   init({ commit }: NavigationActionContext) {
-    commit('setHeaderNavigationList',  this.$i18n.t('header.navigation'))
+    commit('setHeaderNavigationList', this.$i18n.t('header.navigation'))
+  },
+  parseMenus({ commit }: NavigationActionContext, menus: IMenusObject = {}) {
+    if (typeof menus === 'object' && !Array.isArray(menus)) {
+      commit('setMenus', menus)
+    }
   },
 }

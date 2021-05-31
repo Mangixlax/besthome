@@ -5,7 +5,7 @@
         v-for="(siteMapColumn, i) in siteMapColumns"
         :key="i"
         :title="siteMapColumn.title"
-        :list="siteMapColumn.list"
+        :list="siteMapColumn.items"
         :class="$style[`map__grid-column-${i}`]"
         :active="i === 0"
       )
@@ -14,8 +14,8 @@
         tag="p"
         version="style-8"
         :class="$style['map__phone-text']"
-      ) 
-        | Сall the support service via the phone +90 530 547-44-15 or locate 
+      )
+        | Сall the support service via the phone +90 530 547-44-15 or locate
         span
           nuxt-link(
           :to="localePath({ name: 'contacts' })"
@@ -25,167 +25,46 @@
         nuxt-link(
           :to="localePath({ name: 'contacts' })"
           :class="$style['map__phone-link']"
-        )  
-          svg-icon(name="link-arrow")      
+        )
+          svg-icon(name="link-arrow")
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import BaseFastLinks from '~/components/Base/BaseFastLinks.vue'
 import TypoText from '~/components/Base/TypoText.vue'
-
-interface IFastLinksColumns {
-  title: string
-  list: Array<IFastLink>
-}
-
-interface IFastLink {
-  name: string
-  to: string
-}
+import { IMenus, NavigationListItem } from '~/store/Navigation'
 
 @Component({
   components: { BaseFastLinks, TypoText },
 })
 export default class FooterSiteMap extends Vue {
-  public siteMapColumns: Array<IFastLinksColumns> = [
-    {
-      title: 'Choose and buy',
-      list: [
-        {
-          name: '%Latest project%',
-          to: '/',
-        },
-        {
-          name: '%Latest project%',
-          to: '/',
-        },
-        {
-          name: '%Latest project%',
-          to: '/',
-        },
-        {
-          name: '%Latest project%',
-          to: '/',
-        },
-        {
-          name: '%Latest project%',
-          to: '/',
-        },
-        {
-          name: '%Latest project%',
-          to: '/',
-        },
-        {
-          name: '%Latest project%',
-          to: '/',
-        },
-        {
-          name: '%Latest project%',
-          to: '/',
-        },
-      ],
-    },
-    {
-      title: 'Basic services',
-      list: [
-        {
-          name: 'Introductory tour',
-          to: '/',
-        },
-        {
-          name: 'Online purchase',
-          to: '/',
-        },
-        {
-          name: 'Legal support',
-          to: '/',
-        },
-        {
-          name: 'Legal support',
-          to: '/',
-        },
-        {
-          name: 'Turkish citizenship',
-          to: '/',
-        },
-        {
-          name: 'After-sale services',
-          to: '/',
-        },
-      ],
-    },
-    {
-      title: 'Latest news',
-      list: [
-        {
-          name: '%Latest news%',
-          to: '/',
-        },
-        {
-          name: '%Latest news%',
-          to: '/',
-        },
-        {
-          name: '%Latest news%',
-          to: '/',
-        },
-        {
-          name: '%Latest news%',
-          to: '/',
-        },
-        {
-          name: '%Latest news%',
-          to: '/',
-        },
-        {
-          name: '%Latest news%',
-          to: '/',
-        },
-        {
-          name: '%Latest news%',
-          to: '/',
-        },
-      ],
-    },
-    {
-      title: 'About company',
-      list: [
-        {
-          name: 'Advantages',
-          to: '/',
-        },
-        {
-          name: 'Our team',
-          to: '/',
-        },
-        {
-          name: 'History',
-          to: '/',
-        },
-        {
-          name: 'Office & contact ',
-          to: '/',
-        },
-      ],
-    },
-    {
-      title: 'Additional services',
-      list: [
-        {
-          name: 'Secondary housing',
-          to: '/',
-        },
-        {
-          name: 'Investors',
-          to: '/',
-        },
-        {
-          name: '%FastLink%',
-          to: '/',
-        },
-      ],
-    },
+  get chooseAndBuy(): IMenus<NavigationListItem[]> {
+    return this.$store.getters['Navigation/getMenuByKey']('footer-choose-and-buy')
+  }
+
+  get basicServices(): IMenus<NavigationListItem[]> {
+    return this.$store.getters['Navigation/getMenuByKey']('footer-basic-services')
+  }
+
+  get latestNews(): IMenus<NavigationListItem[]> {
+    return this.$store.getters['Navigation/getMenuByKey']('latest-news')
+  }
+
+  get aboutCompany(): IMenus<NavigationListItem[]> {
+    return this.$store.getters['Navigation/getMenuByKey']('about-company')
+  }
+
+  get additionalServices(): IMenus<NavigationListItem[]> {
+    return this.$store.getters['Navigation/getMenuByKey']('additional-services')
+  }
+
+  public siteMapColumns: IMenus<NavigationListItem[]>[] = [
+    { ...this.chooseAndBuy },
+    { ...this.basicServices },
+    { ...this.latestNews },
+    { ...this.aboutCompany },
+    { ...this.additionalServices },
   ]
 }
 </script>

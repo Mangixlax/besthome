@@ -1,158 +1,7 @@
 {
   "header": {
     "top_line": "",
-    "call_back": "Заказать обратный звонок",
-    "navigation": [
-      {
-        "name": "Наши проекты",
-        "nameInChildren": "Все проекты",
-        "indicator": "30",
-        "route": {
-          "name": "projects-our-projects"
-        },
-        "title": "Наши проекты",
-        "titleInChildren": "Все проекты",
-        "children": [
-          {
-            "name": "Последний проект",
-            "indicator": "new",
-            "route": {
-              "name": "index"
-            },
-            "title": "Последний проект"
-          },
-          {
-            "name": "Предпоследний проект",
-            "route": {
-              "name": "index"
-            },
-            "title": "Предпоследний проект"
-          },
-          {
-            "name": "Предпредпоследний проект",
-            "route": {
-              "name": "index"
-            },
-            "title": "Предпредпоследний проект"
-          },
-          {
-            "name": "Вторичное жилье",
-            "route": {
-              "name": "index"
-            },
-            "title": "Вторичное жилье"
-          }
-        ]
-      },
-      {
-        "name": "Инвесторам",
-        "route": {
-          "name": "investors"
-        },
-        "title": "Инвесторам"
-      },
-      {
-        "name": "Услуги",
-        "nameInChildren": "Ознакомительный тур",
-        "indicator": "6",
-        "route": {
-          "name": "service-introductory-tour"
-        },
-        "title": "Услуги",
-        "titleInChildren": "Ознакомительный тур",
-        "children": [
-          {
-            "name": "Онлайн покупка",
-            "indicator": "new",
-            "route": {
-              "name": "service-online-purchase"
-            },
-            "title": "Онлайн покупка"
-          },
-          {
-            "name": "Юридическое сопровождение",
-            "route": {
-              "name": "service-legal-support"
-            },
-            "title": "Юридическое сопровождение"
-          },
-          {
-            "name": "Турецкое гражданство",
-            "route": {
-              "name": "service-turkish-citizenship"
-            },
-            "title": "Турецкое гражданство"
-          },
-          {
-            "name": "Услуги после продажи",
-            "route": {
-              "name": "service-after-sale-services"
-            },
-            "title": "Услуги после продажи"
-          },
-          {
-            "name": "Аренда",
-            "route": {
-              "name": "service-all-about-rent"
-            },
-            "title": "Аренда"
-          }
-        ]
-      },
-      {
-        "name": "Компания",
-        "route": {
-          "name": "company-about"
-        },
-        "title": "Компания",
-        "titleInChildren": "О компании",
-        "children": [
-          {
-            "name": "О компании",
-            "route": {
-              "name": "company-about"
-            },
-            "title": "О компании"
-          },
-          {
-            "name": "Преимущества",
-            "route": {
-              "name": "company-advantages"
-            },
-            "title": "Преимущества"
-          },
-          {
-            "name": "Наша команда",
-            "route": {
-              "name": "company-our-team"
-            },
-            "title": "Наша команда"
-          },
-          {
-            "name": "История",
-            "indicator": "new",
-            "route": {
-              "name": "company-history"
-            },
-            "title": "История"
-          }
-        ]
-      },
-      {
-        "name": "Медиа",
-        "route": {
-          "name": "index"
-        },
-        "title": "Медиа"
-      },
-      {
-        "name": "Контакты",
-        "route": {
-          "name": "contacts"
-        },
-        "title": "Контакты"
-      }
-    ]
+    "call_back": "Заказать обратный звонок"
   },
   "pages": {
     "home": {
@@ -237,6 +86,15 @@
             "hovered": false
           }
         ]
+      }
+    },
+    "projects": {
+      "header": {
+        "title": "Наши проекты",
+        "text1": "На сегодняшний день реализовано более 30 проектов, в том числе многоэтажных домов и частных вилл в Махмутларе, Авсалларе и других пригородах Аланьи.",
+        "text2": "Компания имеет собственные представительства в Германии, Америке, Украине, Иране, Казахстане, а также в Дании, Швеции, Норвегии и Финляндии. Риэлторы уже заключили более 1000 успешных сделок с иностранными гражданами, проживающими в странах СНГ, США, Европы и Ближнего Востока.",
+        "text3": "Подробнее о %{link}.",
+        "text3_link": "нашей компании"
       }
     },
     "projects_our_pojects": {

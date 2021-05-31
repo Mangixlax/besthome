@@ -68,22 +68,33 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Component, namespace } from 'nuxt-property-decorator'
+import { Component } from 'nuxt-property-decorator'
 import TypoText from '~/components/Base/TypoText.vue'
 import { NavigationListItem } from '~/store/Navigation'
 
-const NavigationStore = namespace('Navigation')
-
 @Component({ components: { TypoText } })
 export default class BaseHeaderNavigation extends Vue {
-  @NavigationStore.Getter('getHeaderNavigationList')
-  private headerNavigationList!: NavigationListItem[]
+  /**
+   * Data
+   */
+
+  public dropdownIndex: any = null
+
+  /**
+   * Computed
+   */
+
+  get headerNavigationList(): NavigationListItem[] {
+    return this.$store.getters['Navigation/getMenuByKey']('header').items
+  }
+
+  /**
+   * Methods
+   */
 
   public itemHasChildren(item: NavigationListItem) {
     return item.children && (item.children || []).length
   }
-
-  public dropdownIndex: any = null
 }
 </script>
 
@@ -91,7 +102,6 @@ export default class BaseHeaderNavigation extends Vue {
 .nav
   display: flex
   padding: 0
-  margin: 0
   list-style: none
   height: 100%
   width: 90%
