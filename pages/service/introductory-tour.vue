@@ -1,6 +1,9 @@
 <template lang="pug">
   main
-    base-image-title(:imageTitleData="$t('pages.service_introductory_tour.image_title')")
+    base-image-title(
+      :imageTitleData="$t('pages.service_introductory_tour.image_title')"
+      :filename="require(`~/assets/images/pages/service/introductory-tour/title.jpg`)"
+    )
     base-text-container
       typo-text(
         tag="h2"
@@ -40,7 +43,7 @@
         version="style-6"
       ) {{ paragraph }}
     base-post(
-      :filename="require(`~/assets/images/test.jpg`)" 
+      :filename="require(`~/assets/images/pages/service/introductory-tour/image-2.jpg`)"
       flip 
       text-flip
     )
@@ -61,7 +64,7 @@
         version="style-5"
       )  {{ $t('pages.service_introductory_tour.post_2.paragraph_3') }}
     base-post(
-      :filename="require(`~/assets/images/test.jpg`)"
+      :filename="require(`~/assets/images/pages/service/introductory-tour/image-3.jpg`)"
     )
       typo-text(
         tag="h3"
@@ -83,7 +86,7 @@
         ) {{ $t('pages.service_introductory_tour.post_3.link') }}
         | .
     base-post(
-      :filename="require(`~/assets/images/test.jpg`)" 
+      :filename="require(`~/assets/images/pages/service/introductory-tour/image-4.jpg`)"
       flip 
       text-flip
     )
@@ -96,7 +99,7 @@
         version="style-5"
       ) {{ $t('pages.service_introductory_tour.post_4.paragraph_1') }}
     base-post(
-      :filename="require(`~/assets/images/test.jpg`)"
+      :filename="require(`~/assets/images/pages/service/introductory-tour/image-5.jpg`)"
     )
       typo-text(
         tag="h3"
@@ -116,7 +119,7 @@
         ) {{ $t('pages.service_introductory_tour.post_5.link') }}
         | .
     base-post(
-      :filename="require(`~/assets/images/test.jpg`)" 
+      :filename="require(`~/assets/images/pages/service/introductory-tour/image-6.jpg`)"
       flip 
       text-flip
     )
@@ -130,7 +133,7 @@
       ) {{ $t('pages.service_introductory_tour.post_6.paragraph_1') }}
     base-post-two-image(
        :portraitImage="require(`~/assets/images/investors/portrait-1.jpg`)"
-       :landscapeImage="require(`~/assets/images/investors/landscape-1.jpg`)"
+       :landscapeImage="require(`~/assets/images/pages/service/introductory-tour/landscape-1.jpg`)"
     )
       typo-text(
         tag="h3"

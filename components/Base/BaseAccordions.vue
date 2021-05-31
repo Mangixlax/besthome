@@ -6,7 +6,21 @@
         :key="i"
         :title="accordion.title" 
         :active="accordion.is_active"
-      )
+      ) 
+        ul(
+          :class="$style['list']"
+          v-if="accordion.list"
+        )
+          li(
+            v-for="(item, i) in accordion.list"
+            :key="i"
+            :class="$style['list__item']"
+          )
+            typo-text(   
+              tag="p"
+              version="style-6"
+              :class="$style['list__item-text']"
+            ) {{ item }}
         typo-text(
           tag="p"
           version="style-6"
@@ -44,4 +58,26 @@ export default {
 
     &-text
       color: $color-white-88
+
+.list
+  list-style: none
+  padding: 0
+  color: $color-white-100
+
+  &__item
+    margin: 0
+    display: flex
+    align-items: center
+
+    &::before
+        content: ""
+        min-height: 8px
+        min-width: 8px
+        border-radius: 4px
+        margin-right: 44px
+        display: inline-block
+        background-color: $color-white-100
+
+    &-text
+      margin: 0
 </style>

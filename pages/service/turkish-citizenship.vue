@@ -1,6 +1,9 @@
 <template lang="pug">
   main
-    base-image-title(:imageTitleData="$t('pages.service_turkish_citizenship.image_title')")
+    base-image-title(
+      :imageTitleData="$t('pages.service_turkish_citizenship.image_title')"
+      :filename="require(`~/assets/images/pages/service/turkish-citizenship/title.jpg`)"
+      )
     base-text-container
       typo-text(
         tag="p"
@@ -13,7 +16,7 @@
         version="style-4"
       ) {{ $t('pages.service_turkish_citizenship.article_1.title') }}
     base-post(
-      :filename="require(`~/assets/images/test.jpg`)"
+      :filename="require(`~/assets/images/pages/service/turkish-citizenship/image-1.jpg`)"
     )
       typo-text(
         tag="p"
@@ -24,7 +27,7 @@
         version="style-5"
       ) {{ $t('pages.service_turkish_citizenship.post_1.paragraph_2') }}
     base-post(
-      :filename="require(`~/assets/images/test.jpg`)" 
+      :filename="require(`~/assets/images/pages/service/turkish-citizenship/image-2.jpg`)"
       tag="p"
       version="style-5"
       flip 
@@ -35,7 +38,7 @@
         version="style-5"
       ) {{ $t('pages.service_turkish_citizenship.post_2.paragraph_1') }}
     base-post(
-      :filename="require(`~/assets/images/test.jpg`)" 
+      :filename="require(`~/assets/images/pages/service/turkish-citizenship/image-3.jpg`)"
     )
       typo-text(
         tag="p"
@@ -46,8 +49,8 @@
         version="style-5"
       ) {{ $t('pages.service_turkish_citizenship.post_3.paragraph_1') }}
     base-post-two-image(
-       :portraitImage="require(`~/assets/images/investors/portrait-1.jpg`)"
-       :landscapeImage="require(`~/assets/images/investors/landscape-1.jpg`)"
+       :portraitImage="require(`~/assets/images/pages/service/turkish-citizenship/portrait-1.jpg`)"
+       :landscapeImage="require(`~/assets/images/pages/service/turkish-citizenship/landscape-1.jpg`)"
        flip
        text-flip
     )

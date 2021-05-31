@@ -58,10 +58,11 @@ ul.tabs__header
   max-width: 911px
   justify-content: space-evenly
   margin: 0 auto
-  padding: 0
+  padding: 0 24px
 
   @media (max-width: 900px)
     justify-content: space-between
+    
 ul.tabs__header > li
   padding: 44px 5px 11px 5px
 

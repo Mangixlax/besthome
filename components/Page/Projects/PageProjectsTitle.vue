@@ -1,17 +1,17 @@
 <template lang="pug">
   section(
-    :class="[$style['projects-title'], large && $style['large'], projectReviewTitleData.filename && $style['isImage'], offsetToTop && $style['offset-to-top']]"
+    :class="[$style['projects-title'], large && $style['large'], projectTitleData.filename && $style['isImage'], offsetToTop && $style['offset-to-top']]"
   )
     div(
       :class="$style['projects-title__container']"
-      :style="projectReviewTitleData.filename && { backgroundImage: `url(${require('~/assets/images/projects/' + this.projectReviewTitleData.filename)})` }"
+      :style="projectTitleData.filename && { backgroundImage: `url(${require('~/assets/images/projects/' + this.projectTitleData.filename)})` }"
     )
       div(:class="$style['projects-title__container-title']")
         typo-text(
           tag="h1"
           version="style-1"
         ) 
-          | {{ projectReviewTitleData.title }}
+          | {{ projectTitleData.title }}
 </template>
 
 <script lang="ts" scoped>
@@ -21,7 +21,7 @@ export default {
   name: 'PageProjectsTitle',
   components: { TypoText },
   props: {
-    projectReviewTitleData: {
+    projectTitleData: {
       type: Object,
       default: () => {},
     },

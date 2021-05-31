@@ -7,7 +7,13 @@
   )
     div(:class="$style['post__container']")
       div(:class="$style['post__imagebox']")
-        img(:src="filename")
+        img(
+          :src="filename"
+          :class="{\
+            [$style['shadow-right']]: flip,\
+            [$style['shadow-left']]: !flip\
+          }"
+        )
       div(
         :class="{\
           [$style['post__text']]: true,\
@@ -74,7 +80,7 @@ export default {
   &__imagebox
     max-width: 624px
     width: 100%
-
+  
     @media (max-width: 1200px)
       display: flex
       justify-content: center
@@ -91,11 +97,14 @@ export default {
       max-width: 100%
       justify-self: center
 
-      @media (max-width: 1200px)
-
-
       @media (max-width: 900px)
         max-width: 100%
+
+      &.shadow-right 
+        box-shadow: 32px 32px 0 0 $color-black-4
+
+      &.shadow-left
+        box-shadow: -32px 32px 0 0 $color-black-4
 
   &:not(.flip) &__imagebox
     padding-right: 144px

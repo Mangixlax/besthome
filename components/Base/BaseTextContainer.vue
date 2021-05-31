@@ -4,6 +4,7 @@
       [$style['text']]: true,\
       [$style['text--right']]: textAlign === 'right',\
       [$style['text--center']]: textAlign === 'center',\
+      [$style['text--blue']]: textColor === 'blue',\
     }"
   )
     slot
@@ -17,6 +18,10 @@ export default {
   components: { TypoText },
   props: {
     textAlign: {
+      type: String,
+      default: '',
+    },
+    textColor: {
       type: String,
       default: '',
     },
@@ -35,6 +40,9 @@ export default {
 
   &--right
     text-align: right
+
+  &--blue
+    color: $color-blue-100
 
   & > *:first-child
     margin-top: 0

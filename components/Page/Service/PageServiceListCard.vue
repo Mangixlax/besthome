@@ -38,7 +38,7 @@
 import TypoText from '~/components/Base/TypoText.vue'
 
 export default {
-  name: 'PageServicePurchase',
+  name: 'PageServiceListCard',
   components: { TypoText },
   props: {
     listCardData: Object,

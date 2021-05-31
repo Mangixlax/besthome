@@ -48,5 +48,5 @@ export default class FooterFastLinks extends Vue {
       padding: 34px 24px
 
     @media (max-width: 410px)
-      padding: 16px 24px
+      padding: 32px 0
 </style>

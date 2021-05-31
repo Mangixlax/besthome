@@ -77,8 +77,11 @@ export default class FooterSiteMap extends Vue {
   margin: 0 auto
   border-bottom: solid 1px $color-black-4
 
-  @media (max-width: 900px) and (min-width: 150px)
+  @media (max-width: 900px) and (min-width: 411px)
     padding: 32px 24px
+
+  @media (max-width: 410px)
+    padding: 32px 0
 
 .map__grid
   display: grid
@@ -139,6 +142,9 @@ export default class FooterSiteMap extends Vue {
       margin-top: 0
 
 .map__phone
+
+  @media (max-width: 410px)
+    padding: 0 24px
 
   &-text
     display: flex
