@@ -36,10 +36,8 @@
 
 <script lang="ts">
 import $ from 'jquery'
-import vClickOutside from 'v-click-outside'
-import { Component, Vue, Prop } from 'nuxt-property-decorator'
+import { Vue, Prop } from 'nuxt-property-decorator'
 
-@Component({ components: { vClickOutside } })
 export default class BaseSelectLanguage extends Vue {
   @Prop({ type: Array, default: () => [] }) list!: Array<any>
 

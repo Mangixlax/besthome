@@ -1,36 +1,32 @@
 <template lang="pug">
   section(:class="$style['container']" id="vertical")
-    div(ref="items" :class="[$style['items'], 'items']")
-      div(
-        v-for="(scrollLineItem, i) in scrollLineInfo"
-        :key="i"
+    ul(ref="items" :class="[$style['items'], 'items']")
+      li(
+        v-for="(item, key) in data.items"
+        :key="key"
         :class="$style['items__item']"
       )
-        typo-text(
-          tag="h3"
-          version="style-1"
-        ) {{ scrollLineItem.title }}
-        typo-text(
-          tag="p"
-          version="style-7"
-        ) {{ scrollLineItem.text }}   
+        h3(v-html="item.title")
+        p(v-html="item.subtitle")
 </template>
 
-<script>
-import { gsap, Power1, TweenMax } from 'gsap'
-import TypoText from '~/components/Base/TypoText.vue'
+<script lang="ts">
+import { Power1, TweenMax } from 'gsap'
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
 
-export default {
-  name: 'BaseScrollLine',
-  props: {
-    scrollLineInfo: {
-      type: Array,
-      default: () => []
-    }
-  },
-  components: {
-    TypoText,
-  },
+interface IData {
+  items: IDataItem[]
+}
+
+interface IDataItem {
+  title: string
+  subtitle: string
+}
+
+@Component
+export default class BaseScrollLine extends Vue {
+  @Prop({ type: Object, default: () => [] }) data!: IData
+
   mounted() {
     const containerContainer = this.$scrollmagic.controller_
 
@@ -62,14 +58,14 @@ export default {
         duration: '100%',
       })
       .setTween('.items', {
-        left: -(this.$refs.items.clientWidth / 25) + '%',
+        left: -((this.$refs.items as Element).clientWidth / 25) + '%',
         autoRound: false,
         ease: Power1.easeOut,
         duration: 200,
         offset: 1000,
       })
       .addTo(containerContainer)
-  },
+  }
 }
 </script>
 
@@ -82,7 +78,6 @@ export default {
 
   @media (max-width: 900px)
     margin: 32px 0
-  
 
 .items
   display: flex
@@ -101,11 +96,18 @@ export default {
     @media (max-width: 500px)
       margin: 0 32px
 
+    sup
+      +style-3
+      top: -1em
+
     h3
       margin: 0
+      +style-1
+
     p
       display: flex
       align-items: center
       margin: 0
       color: $color-black-80
+      +style-7
 </style>

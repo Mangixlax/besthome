@@ -6,7 +6,7 @@ import { GetterTree, ActionTree, MutationTree, ActionContext } from 'vuex'
 export const state = () => ({
   isTouchDevice: false as boolean,
   logoSubTitle: 'Construction' as string,
-  ourCompanyCardInfo: [] as Array<object>
+  ourCompanyCardInfo: [] as Array<object>,
 })
 
 export type RootState = ReturnType<typeof state>
@@ -48,7 +48,13 @@ export const mutations: MutationTree<RootState> = {
  * Actions
  */
 export const actions: ActionTree<RootState, RootState> = {
+  async fetchMainData({ commit, dispatch }: RootActionContext) {
+    const { projects_count, menus } = await this.$axios.$get('v1/main')
+    commit('Catalog/setProjectsCount', projects_count)
+    await dispatch('Navigation/parseMenus', menus)
+  },
   async nuxtServerInit({ dispatch, commit }: RootActionContext) {
+    await dispatch('fetchMainData')
     await dispatch('SettingsTopLine/init')
     await dispatch('Navigation/init')
     commit('setOurCompanyCardInfo', this.$i18n.t('pages.company_our_team'))

@@ -2,45 +2,44 @@
   section(
     :class="{\
       [$style['post']]: true,\
-      [$style['flip']]: flip\
+      [$style['flip']]: true\
     }"
   )
     div(:class="$style['post__container']")
       div(:class="$style['post__imagebox']")
-        img(:src="portraitImage")
+        img(:src="data.images[0].path")
       div(:class="$style['post__contentbox']")
         div(:class="$style['post__image']")
-          img(:src="landscapeImage")
+          img(:src="data.images[1].path")
         div(
           :class="{\
             [$style['post__text']]: true,\
-            [$style['post__text--flipped']]: textFlip,\
+            [$style['post__text--flipped']]: true,\
           }"
+          v-html="data.text"
         )
-          slot
 </template>
 
-<script>
-export default {
-  name: 'BasePostTwoImage',
-  props: {
-    flip: {
-      type: Boolean,
-      default: false,
-    },
-    textFlip: {
-      type: Boolean,
-      default: false,
-    },
-    portraitImage: {
-      type: String,
-      default: '',
-    },
-    landscapeImage: {
-      type: String,
-      default: '',
-    },
-  },
+<script lang="ts">
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
+
+interface IData {
+  text: string,
+  align: string,
+  images: IDataImage[]
+}
+
+interface IDataImage {
+  id: number
+  path: string
+}
+
+@Component
+export default class BasePostTwoImage extends Vue {
+  @Prop({ type: Object, default: () => ({}) }) data!: IData
+  /**
+   * @TODO Add flip and textFlip props
+   */
 }
 </script>
 
@@ -53,7 +52,6 @@ export default {
     text-decoration-color: $color-blue-16
     text-underline-offset: 7px
     color: $color-blue-100
-    margin-left: 0.5em
 
   h2, h3, h4, p
     margin: 0
@@ -141,6 +139,7 @@ export default {
     padding-left: 0
     padding-right: 192px
     padding-bottom: 150px
+    +style-5
 
     @media (max-width: 1200px)
       max-width: 600px
