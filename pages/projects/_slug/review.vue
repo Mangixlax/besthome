@@ -1,11 +1,13 @@
 <template lang="pug">
   main
     base-project-navigation
-    page-projects-title(:project-review-title-data="$t('pages.projects_review.header')")
-    page-projects-four-columns(:columns="pageProjectsFourColumns")
+    page-projects-title(:project-title-data="pageProjectsAboutTitle")
+    page-projects-infrastructure-slider
     base-post-two-image(
-       :portraitImage="require(`~/assets/images/investors/portrait-1.jpg`)"
-       :landscapeImage="require(`~/assets/images/investors/landscape-1.jpg`)"
+      :portraitImage="require(`~/assets/images/investors/portrait-1.jpg`)"
+      :landscapeImage="require(`~/assets/images/investors/landscape-1.jpg`)"
+      flip
+      text-flip
     )
       typo-text(
         tag="p"
@@ -23,7 +25,6 @@
         ) {{ $t('pages.investors.post_4.link') }}
         | .
     page-projects-residences-slider
-    page-projects-infrastructure-slider
     base-scroll-line(:scroll-line-info="$t('pages.projects_experiences.scroll_line_data')")
     page-projects-photos-slider
     base-subscribe(:subscribe-data="$t('footer.subscribe')" whiteTheme)
@@ -65,40 +66,9 @@ export default {
   },
   data() {
     return {
-      pageProjectsFourColumns: [
-        {
-          title: 'Live fully',
-          filename: 'three-columns-1.jpg',
-          to: {
-            name: 'service-online-purchase',
-          },
-          hovered: false,
-        },
-        {
-          title: 'Live carefree',
-          filename: 'three-columns-2.jpg',
-          to: {
-            name: 'service-introductory-tour',
-          },
-          hovered: false,
-        },
-        {
-          title: 'Live naturally',
-          filename: 'three-columns-3.jpg',
-          to: {
-            name: 'service-online-purchase',
-          },
-          hovered: false,
-        },
-        {
-          title: 'Live better',
-          filename: 'three-columns-3.jpg',
-          to: {
-            name: 'service-online-purchase',
-          },
-          hovered: false,
-        },
-      ],
+      pageProjectsAboutTitle: {
+        title: "City living with a touch of nature"
+      },
     }
   },
 }

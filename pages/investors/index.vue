@@ -2,13 +2,15 @@
   main
     page-investors-title(:investorsPage="$t('pages.investors.header')")
     base-post(
-      :filename="require(`~/assets/images/test.jpg`)"
+      :filename="require(`~/assets/images/pages/investors/image-1.jpg`)"
     )
       typo-text(
         tag="h3"
         version="style-3"
       ) {{ $t('pages.investors.post_1.title') }}
       typo-text(
+        tag="p"
+        version="style-5"
       ) {{ $t('pages.investors.post_1.paragraph_1') }}
       typo-text(
         tag="p"
@@ -23,7 +25,7 @@
         | .
     page-investors-advice(:investorsPageAdvice="$t('pages.investors.advice_data')")
     base-post(
-      :filename="require(`~/assets/images/test.jpg`)" 
+      :filename="require(`~/assets/images/pages/investors/image-2.jpg`)"
       flip 
       text-flip
     )
@@ -47,7 +49,7 @@
         ) {{ $t('pages.investors.post_2.link') }} 
         | .
     base-post(
-      :filename="require(`~/assets/images/test.jpg`)"
+      :filename="require(`~/assets/images/pages/investors/image-3.jpg`)"
     )
       typo-text(
         tag="h3"
@@ -70,8 +72,8 @@
         | .
     base-scroll-line(:scrollLineInfo="$t('pages.investors.scroll_line_data')")
     base-post-two-image(
-       :portraitImage="require(`~/assets/images/investors/portrait-1.jpg`)"
-       :landscapeImage="require(`~/assets/images/investors/landscape-1.jpg`)"
+       :portraitImage="require(`~/assets/images/pages/investors/portrait-1.jpg`)"
+       :landscapeImage="require(`~/assets/images/pages/investors/landscape-1.jpg`)"
     )
       typo-text(
         tag="p"

@@ -1,13 +1,16 @@
 <template lang="pug">
   main
-    base-image-title(:image-title-data="$t('pages.service_legal_support.image_title')")
+    base-image-title(
+      :image-title-data="$t('pages.service_legal_support.image_title')"
+      :filename="require(`~/assets/images/pages/service/legal-support/title.jpg`)"
+    )
     base-text-container
       typo-text(
         tag="p"
         version="style-5"
       ) {{ $t('pages.service_legal_support.slot_text_1') }}
     base-post(
-      :filename="require(`~/assets/images/test.jpg`)"
+      :filename="require(`~/assets/images/pages/service/legal-support/image-1.jpg`)"
     )
       typo-text(
         tag="p"
@@ -25,7 +28,7 @@
         ) {{ $t('pages.service_legal_support.post_1.link') }}
         | .
     base-post(
-      :filename="require(`~/assets/images/test.jpg`)" 
+      :filename="require(`~/assets/images/pages/service/legal-support/image-2.jpg`)"
       flip 
       text-flip
     )
@@ -34,7 +37,7 @@
         version="style-5"
       ) {{ $t('pages.service_legal_support.post_2.paragraph_1') }}
     base-post(
-      :filename="require(`~/assets/images/test.jpg`)"
+      :filename="require(`~/assets/images/pages/service/legal-support/image-3.jpg`)"
     )
       typo-text(
         tag="p"

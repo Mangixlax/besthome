@@ -1,6 +1,9 @@
 <template lang="pug">
   main
-    base-image-title(:imageTitleData="$t('pages.service_after_sale_services.image_title')")
+    base-image-title(
+      :imageTitleData="$t('pages.service_after_sale_services.image_title')"
+      :filename="require(`~/assets/images/pages/service/after-sale-services/title.jpg`)"
+    )
     base-text-container
       typo-text(
         tag="p"

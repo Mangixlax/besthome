@@ -637,7 +637,7 @@
         "title": "Advantages",
         "slider": [
           {
-            "image": "company-advantages-slider-1.jpg",
+            "image": "company-advantages-slider-3.jpg",
             "text": "We provide bank guarantees-we cooperate with the leading banks of Turkey."
           },
           {
@@ -1015,17 +1015,63 @@
     },
     "accordions": [
       {
-        "title": "Our main advantage",
-        "text": "EXPERIENCE: More than 1,000 foreigners from the CIS, Europe, America and the Middle East have become clients of the company. BestHome Construction has offices and representatives in such countries as Norway, Denmark, Sweden, Finland, Germany, USA, Iran, Ukraine, Kazakhstan.OFFICE: A three-storey office is located in the heart of Alanya, includes sales Department, Department of property management, after sales services, offices of architect and interior designer.QUALITY: BestHome Construction strictly adheres to the principle of 'Best advertising - first-class quality'.PROFITABLE INVESTMENT: The unique location of the BestHome Construction complexes in the central areas of the city, allows you to provide a stable income from renting out apartments and capital gains.RELIABILITY: BestHome Construction fully finances their projects and guarantees the legal purity of each transaction. In order to secure your deposits, BestHome Construction offers bank guarantees.DEADLINES: BestHome Construction strictly observes the deadlines for the delivery of objects.GUARANTEES: BestHome Construction prides itself on its quality, providing 5-year guarantees for the interior and exterior of buildings.SERVICES: Russian-speaking employees of the company accompany each client from the moment of conclusion of the contract until the client receives the right of ownership of the property. The purchase and sale agreement is also drawn up in Russian.PROPERTY MANAGEMENT: A subsidiary of Leader Management provides management of the complexes built by BestHome Construction, as well as provides a full range of property management services, ensuring that your administrative, financial and legal obligations related to the ownership of real estate in Turkey are fulfilled.INDIVIDUAL DESIGN: If necessary, the architect of the company will make a redevelopment, and the interior designer will develop a personal project that meets all your wishes.",
+        "title": "About company",
+        "text": "BestHome Construction is one of the leaders in the Alanya real estate market. In 2004 we started working as a real estate agency. Since 2008, we have begun the construction of our own complexes in Alanya and its suburbs. Today we offer luxury houses and apartments on the Mediterranean coast.",
         "is_active": true
       },
       {
-        "title": "A little about our servieses",
-        "text": "EXPERIENCE: More than 1,000 foreigners from the CIS, Europe, America and the Middle East have become clients of the company. BestHome Construction has offices and representatives in such countries as Norway, Denmark, Sweden, Finland, Germany, USA, Iran, Ukraine, Kazakhstan.OFFICE: A three-storey office is located in the heart of Alanya, includes sales Department, Department of property management, after sales services, offices of architect and interior designer.QUALITY: BestHome Construction strictly adheres to the principle of 'Best advertising - first-class quality'.PROFITABLE INVESTMENT: The unique location of the BestHome Construction complexes in the central areas of the city, allows you to provide a stable income from renting out apartments and capital gains.RELIABILITY: BestHome Construction fully finances their projects and guarantees the legal purity of each transaction. In order to secure your deposits, BestHome Construction offers bank guarantees.DEADLINES: BestHome Construction strictly observes the deadlines for the delivery of objects.GUARANTEES: BestHome Construction prides itself on its quality, providing 5-year guarantees for the interior and exterior of buildings.SERVICES: Russian-speaking employees of the company accompany each client from the moment of conclusion of the contract until the client receives the right of ownership of the property. The purchase and sale agreement is also drawn up in Russian.PROPERTY MANAGEMENT: A subsidiary of Leader Management provides management of the complexes built by BestHome Construction, as well as provides a full range of property management services, ensuring that your administrative, financial and legal obligations related to the ownership of real estate in Turkey are fulfilled.INDIVIDUAL DESIGN: If necessary, the architect of the company will make a redevelopment, and the interior designer will develop a personal project that meets all your wishes."
+        "title": "Преимущества компании",
+        "list": [
+          "We draw up a sale and purchase agreement (DCT) for real estate in Alanya in the buyer's language - all documentation complies with international sales standards.",
+          "We strictly adhere to the deadlines for the delivery of objects - we control each stage of construction.",
+          "We provide bank guarantees - we cooperate with leading banks in Turkey.",
+          "We guarantee the transparency of cooperation - legal advice on the sale and purchase of real estate, including at the construction stage.",
+          "We provide a guarantee for a clean finish, including electricity and water supply.",
+          "We guarantee the high quality of residential complexes - environmentally friendly and fire-safe building materials, we successfully introduce innovative developments.",
+          "Competent support at all stages of cooperation, starting with registration of a monetary policy, ending with obtaining ownership of real estate.",
+          "We offer management services for purchased apartments and villas - maintenance, renting out, paying taxes and utility bills.",
+          "Expanded consultations on obtaining Turkish citizenship - for investors buying real estate worth from $ 250,000."
+        ]
       },
       {
-        "title": "Company office",
-        "text": "EXPERIENCE: More than 1,000 foreigners from the CIS, Europe, America and the Middle East have become clients of the company. BestHome Construction has offices and representatives in such countries as Norway, Denmark, Sweden, Finland, Germany, USA, Iran, Ukraine, Kazakhstan.OFFICE: A three-storey office is located in the heart of Alanya, includes sales Department, Department of property management, after sales services, offices of architect and interior designer.QUALITY: BestHome Construction strictly adheres to the principle of 'Best advertising - first-class quality'.PROFITABLE INVESTMENT: The unique location of the BestHome Construction complexes in the central areas of the city, allows you to provide a stable income from renting out apartments and capital gains.RELIABILITY: BestHome Construction fully finances their projects and guarantees the legal purity of each transaction. In order to secure your deposits, BestHome Construction offers bank guarantees.DEADLINES: BestHome Construction strictly observes the deadlines for the delivery of objects.GUARANTEES: BestHome Construction prides itself on its quality, providing 5-year guarantees for the interior and exterior of buildings.SERVICES: Russian-speaking employees of the company accompany each client from the moment of conclusion of the contract until the client receives the right of ownership of the property. The purchase and sale agreement is also drawn up in Russian.PROPERTY MANAGEMENT: A subsidiary of Leader Management provides management of the complexes built by BestHome Construction, as well as provides a full range of property management services, ensuring that your administrative, financial and legal obligations related to the ownership of real estate in Turkey are fulfilled.INDIVIDUAL DESIGN: If necessary, the architect of the company will make a redevelopment, and the interior designer will develop a personal project that meets all your wishes."
+        "title": "EXPERIENCE",
+        "text": "Our company has its own offices in the USA, Russia, Norway, Finland, Germany, Ukraine, Iran, Denmark and Sweden. We have helped over 1000 foreign investors from America, Europe, the CIS and the Middle East to buy real estate in Alanya at a profit."
+      },
+      {
+        "title": "OFFICE",
+        "text": "Our office is located in the very center of Alanya. Three floors, one-stop service - sales, property management, post-sales services, architecture and design."
+      },
+      {
+        "title": "QUALITY",
+        "text": "Our motto is 'Best Advertising - First Class Quality'. We know how to find an individual approach to clients."
+      },
+      {
+        "title": "PROFITABLE INVESTMENT",
+        "text": "Thanks to the well-thought-out geography of residential complexes and high quality construction, we guarantee stable income for investors, the purchase of houses and apartments for short and long-term rent."
+      },
+      {
+        "title": "RELIABILITY",
+        "text": "We independently finance the construction of residential complexes, provide our clients with bank guarantees. The legal purity of transactions guarantees the safety of investments."
+      },
+      {
+        "title": "TIME",
+        "text": "We strictly adhere to the deadlines for the commissioning of facilities, we control the construction at every stage."
+      },
+      {
+        "title": "WARRANTY",
+        "text": "Construction projects are provided with a 5-year warranty, including exterior, finishing and infrastructure."
+      },
+      {
+        "title": "SERVICES",
+        "text": "For maximum transparency of cooperation, customer support is carried out in the investor's native language, including registration of the monetary policy."
+      },
+      {
+        "title": "PROPERTY MANAGEMENT",
+        "text": "Управление жилыми комплексами BestHome Construction в Алании осуществляет дочерняя компания Leader Management, предоставляя клиентам полный комплекс услуг и гарантийные обязательства."
+      },
+      {
+        "title": "INDIVIDUAL DESIGN",
+        "text": "During the construction phase, our clients can order redevelopment of premises and the development of a unique interior design, taking into account their requirements and wishes. BestHome Construction employs first-class designers and architects."
       }
     ],
     "subscribe": {

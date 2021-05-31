@@ -1,7 +1,7 @@
 <template lang="pug">
   section(:class="[$style['image-title'], large && $style['large']]")
     div(
-      :style="{ backgroundImage: `url(${require('~/assets/images/' + this.imageTitleData.filename)})` }"
+      :style="{ backgroundImage: `url(${ filename })` }"
       :class="$style['image-title__container']"
     )
       div(:class="$style['image-title__title']")
@@ -30,6 +30,10 @@ export default {
     imageTitleData: {
       type: Object,
       default: () => {},
+    },
+    filename: {
+      type: String,
+      default: '',
     },
     large: {
       type: Boolean,

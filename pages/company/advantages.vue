@@ -3,7 +3,7 @@
     page-company-advantages-title(:advantages-page-title="$t('pages.company_advantages.header')")
     base-scroll-line(:scrollLineInfo="$t('pages.company_advantages.scroll_line_data')")
     base-post(
-      :filename="require(`~/assets/images/Pages/Advantages/image-1.jpg`)" 
+      :filename="require(`~/assets/images/pages/advantages/image-1.jpg`)" 
       flip 
       text-flip
     )
@@ -16,7 +16,7 @@
         version="style-5"
       ) {{ $t('pages.company_advantages.post_1.paragraph_1') }}
     base-post(
-      :filename="require(`~/assets/images/Pages/Advantages/image-2.jpg`)"
+      :filename="require(`~/assets/images/pages/advantages/image-2.jpg`)"
       text-flip
     )
       typo-text(
@@ -50,7 +50,7 @@
         version="style-5"
       )  {{ paragraph }}
     base-post(
-      :filename="require(`~/assets/images/Pages/Advantages/image-3.jpg`)" 
+      :filename="require(`~/assets/images/pages/advantages/image-3.jpg`)" 
       flip 
       text-flip
     )
@@ -63,7 +63,7 @@
         version="style-5"
       ) {{ $t('pages.company_advantages.post_3.paragraph_1') }}
     base-post(
-      :filename="require(`~/assets/images/Pages/Advantages/image-4.jpg`)"
+      :filename="require(`~/assets/images/pages/advantages/image-4.jpg`)"
       text-flip
     )
       typo-text(
@@ -86,7 +86,7 @@
         ) {{ $t('pages.company_advantages.post_4.link') }}
         | .
     base-post(
-      :filename="require(`~/assets/images/Pages/Advantages/image-5.jpg`)"
+      :filename="require(`~/assets/images/pages/advantages/image-5.jpg`)"
       flip 
       text-flip
     )

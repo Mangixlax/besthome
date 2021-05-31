@@ -2,7 +2,7 @@
   main
     page-company-history-title(:historyPageTitle="$t('pages.company_history.header')")
     base-post(
-      :filename="require(`~/assets/images/test.jpg`)"
+      :filename="require(`~/assets/images/pages/company/history/image-1.jpg`)"
     )
       typo-text(
         tag="h3"
