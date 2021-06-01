@@ -8,7 +8,7 @@
       "header": {
         "title": "We are leaders in quality construction & infrastructure",
         "text1": "BestHome Construction is the leading construction company in Alanya, operating in the real estate market since 2004. Having started its activity as a real estate agency, since 2008. Our company specializes in the construction and implementation of turnkey residential residences in the best areas of the city of Alanya.",
-        "text2": "To date, the company has %{link}.",
+        "text2": "To date, the company has {link}.",
         "text2_link": "30 completed projects"
       },
       "hero_slider_data": {
@@ -90,7 +90,7 @@
         "title": "Our projects",
         "text1": "To date, more than 30 projects have been implemented, including high-rise buildings and private villas in Mahmutlar, Avsallar and other suburbs of Alanya.",
         "text2": "The company has its own representative offices in Germany, America, Ukraine, Iran, Kazakhstan, as well as in Denmark, Sweden, Norway and Finland. Realtors have already concluded more than 1,000 successful transactions with foreign citizens living in the CIS, the United States, Europe and the Middle East.",
-        "text3": "Learn more about %{link}.",
+        "text3": "Learn more about {link}.",
         "text3_link": "our company"
       }
     },
