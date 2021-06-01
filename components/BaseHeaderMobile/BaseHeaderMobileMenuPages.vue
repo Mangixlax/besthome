@@ -48,12 +48,10 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import {Component, namespace, Watch} from 'nuxt-property-decorator'
+import { Component, Watch } from 'nuxt-property-decorator'
 import TypoText from '~/components/Base/TypoText.vue'
 import { NavigationListItem } from '~/store/Navigation'
 import BaseHeaderMobileMenuListItem from '~/components/BaseHeaderMobile/BaseHeaderMobileMenuListItem.vue'
-
-const NavigationStore = namespace('Navigation')
 
 interface secondNavigationListItem {
   pageIndex?: number
@@ -65,12 +63,10 @@ interface secondNavigationListItem {
   components: { BaseHeaderMobileMenuListItem, TypoText },
 })
 export default class BaseHeaderMobileMenuPages extends Vue {
-  @NavigationStore.Getter('getHeaderNavigationList') headerNavigationList!: NavigationListItem[]
-
   public activeMenuPageIndex: number = -1
 
   get mainNavigationList(): NavigationListItem[] {
-    return (this.headerNavigationList || []).map((list) => {
+    return (this.$store.getters['Navigation/getMenuByKey']('header').items || []).map((list: NavigationListItem) => {
       return {
         name: list.name || '',
         title: list.title || '',
@@ -82,18 +78,18 @@ export default class BaseHeaderMobileMenuPages extends Vue {
   }
 
   get secondNavigationLists(): secondNavigationListItem[] {
-    return (this.headerNavigationList || [])
-      .map((listItem, index) => {
+    return (this.$store.getters['Navigation/getMenuByKey']('header').items || [])
+      .map((listItem: NavigationListItem, index: number) => {
         return {
           pageIndex: index,
           parentListItem: listItem,
           children: listItem.children,
         }
       })
-      .filter((list) => (list.children || []).length)
+      .filter((list: NavigationListItem) => (list.children || []).length)
   }
 
-  activateMenuPage(pageIndex: number) {
+  public activateMenuPage(pageIndex: number) {
     this.activeMenuPageIndex = pageIndex
   }
 

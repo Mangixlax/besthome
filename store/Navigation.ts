@@ -34,7 +34,6 @@ interface IMenusObject {
  */
 export const state = () => ({
   menus: {} as IMenusObject,
-  headerList: [] as NavigationListItem[],
 })
 
 export type NavigationState = ReturnType<typeof state>
@@ -48,7 +47,6 @@ interface NavigationActionContext extends ActionContext<NavigationState, RootSta
  * Getters
  */
 export const getters: GetterTree<NavigationState, RootState> = {
-  getHeaderNavigationList: (state: NavigationState): NavigationListItem[] => state.headerList,
   getMenuByKey: (state: NavigationState) => {
     const processing = (items: IMenusItem[] = []): NavigationListItem[] => {
       const result: NavigationListItem[] = []
@@ -85,9 +83,6 @@ export const getters: GetterTree<NavigationState, RootState> = {
  * Mutations
  */
 export const mutations: MutationTree<NavigationState> = {
-  setHeaderNavigationList: (state: NavigationState, value: NavigationListItem[]) => {
-    state.headerList = value
-  },
   setMenus: (state: NavigationState, menus: IMenusObject = {}) => {
     state.menus = menus
   },
@@ -97,14 +92,6 @@ export const mutations: MutationTree<NavigationState> = {
  * Actions
  */
 export const actions: ActionTree<NavigationState, RootState> = {
-  /**
-   * Temporary function for fill testing data
-   *
-   * @param commit
-   */
-  init({ commit }: NavigationActionContext) {
-    commit('setHeaderNavigationList', this.$i18n.t('header.navigation'))
-  },
   parseMenus({ commit }: NavigationActionContext, menus: IMenusObject = {}) {
     if (typeof menus === 'object' && !Array.isArray(menus)) {
       commit('setMenus', menus)

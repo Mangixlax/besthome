@@ -56,7 +56,6 @@ export const actions: ActionTree<RootState, RootState> = {
   async nuxtServerInit({ dispatch, commit }: RootActionContext) {
     await dispatch('fetchMainData')
     await dispatch('SettingsTopLine/init')
-    await dispatch('Navigation/init')
     commit('setOurCompanyCardInfo', this.$i18n.t('pages.company_our_team'))
   },
 }
