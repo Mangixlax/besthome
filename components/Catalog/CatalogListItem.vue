@@ -89,16 +89,17 @@ export default {
     &.price
       align-items: start
       grid-gap: 2px
-      
+
   &-status
     background-color: $color-black-100
     color: $color-white-100
     padding: 6px 12px
-  
+
   &-info
     color: $color-black-24
     margin-left: 6px
-p
-  margin-top: 0
-  margin-bottom: 0
+
+  p
+    margin-top: 0
+    margin-bottom: 0
 </style>

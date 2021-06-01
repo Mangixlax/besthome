@@ -103,7 +103,7 @@ export default {
 
   &:hover
     background-color: $color-blue-4
-    
+
   &__header
     display: flex
     justify-content: space-between
@@ -150,7 +150,8 @@ export default {
       &-category
         color: $color-black-72
         margin-right: 6px
-p
-  margin-top: 0
-  margin-bottom: 0
+
+  p
+    margin-top: 0
+    margin-bottom: 0
 </style>
