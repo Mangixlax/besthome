@@ -7,25 +7,7 @@
         :title="accordion.title" 
         :active="accordion.is_active"
       ) 
-        ul(
-          :class="$style['list']"
-          v-if="accordion.list"
-        )
-          li(
-            v-for="(item, i) in accordion.list"
-            :key="i"
-            :class="$style['list__item']"
-          )
-            typo-text(   
-              tag="p"
-              version="style-6"
-              :class="$style['list__item-text']"
-            ) {{ item }}
-        typo-text(
-          tag="p"
-          version="style-6"
-          :class="$style['accordions__container-text']"
-        ) {{ accordion.text }}
+        div(v-html="accordion.content")
 </template>
 
 <script lang="ts">

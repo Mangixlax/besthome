@@ -121,7 +121,7 @@
                   svg-icon(name="slider-next-arrow-blue")
       common-tab(title="3 rooms")
         div(:class="$style['container__body']")
-          swiper(ref="swiper_2" :class="$style['slider']" class="swiper" :options="swiperOption")
+          swiper(ref="swiper_4" :class="$style['slider']" class="swiper" :options="swiperOption")
             swiper-slide(
               v-for="(slide,i) in projectsSliderData"
               :key="i"
@@ -149,13 +149,13 @@
               div(:class="['swiper-pagination-progressbar', $style['swiper-pagination-progressbar']]")
                 div(class="status-bar")
               div(:class="$style['buttons']")
-                button(:class="[$style['swiper-button-prev']]" @click.prevent="$refs.swiper_2.swiperInstance.slidePrev()")
+                button(:class="[$style['swiper-button-prev']]" @click.prevent="$refs.swiper_4.swiperInstance.slidePrev()")
                   svg-icon(name="slider-prev-arrow-blue")
-                button(:class="[$style['swiper-button-next']]" @click.prevent="$refs.swiper_2.swiperInstance.slideNext()")
+                button(:class="[$style['swiper-button-next']]" @click.prevent="$refs.swiper_4.swiperInstance.slideNext()")
                   svg-icon(name="slider-next-arrow-blue")
       common-tab(title="4 rooms")
         div(:class="$style['container__body']")
-          swiper(ref="swiper_2" :class="$style['slider']" class="swiper" :options="swiperOption")
+          swiper(ref="swiper_5" :class="$style['slider']" class="swiper" :options="swiperOption")
             swiper-slide(
               v-for="(slide,i) in projectsSliderData"
               :key="i"
@@ -183,9 +183,9 @@
               div(:class="['swiper-pagination-progressbar', $style['swiper-pagination-progressbar']]")
                 div(class="status-bar")
               div(:class="$style['buttons']")
-                button(:class="[$style['swiper-button-prev']]" @click.prevent="$refs.swiper_2.swiperInstance.slidePrev()")
+                button(:class="[$style['swiper-button-prev']]" @click.prevent="$refs.swiper_5.swiperInstance.slidePrev()")
                   svg-icon(name="slider-prev-arrow-blue")
-                button(:class="[$style['swiper-button-next']]" @click.prevent="$refs.swiper_2.swiperInstance.slideNext()")
+                button(:class="[$style['swiper-button-next']]" @click.prevent="$refs.swiper_5.swiperInstance.slideNext()")
                   svg-icon(name="slider-next-arrow-blue")    
 </template>
 
