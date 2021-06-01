@@ -20,26 +20,15 @@
     div(:class="$style['image-title__undertext']")
 </template>
 
-<script lang="ts" scoped>
+<script lang="ts">
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
 import TypoText from '~/components/Base/TypoText.vue'
 
-export default {
-  name: 'BaseImageTitle',
-  components: { TypoText },
-  props: {
-    imageTitleData: {
-      type: Object,
-      default: () => {},
-    },
-    filename: {
-      type: String,
-      default: '',
-    },
-    large: {
-      type: Boolean,
-      default: false,
-    },
-  },
+@Component({ components: { TypoText } })
+export default class BaseImageTitle extends Vue {
+  @Prop({ type: Object, default: () => {} }) imageTitleData!: object
+  @Prop({ type: String, default: '' }) filename!: string
+  @Prop({ type: Boolean, default: false }) large!: boolean
 }
 </script>
 

@@ -12,45 +12,44 @@
 </template>
 
 <script lang="ts">
-export default {
-  data() {
-    return {
-      breadCrumbs: [
-        {
-          name: '%level%',
-          to: {
-            name: '',
-            query: {},
-            params: {},
-          },
-        },
-        {
-          name: '%level%',
-          to: {
-            name: '',
-            query: {},
-            params: {},
-          },
-        },
-        {
-          name: '%level%',
-          to: {
-            name: '',
-            query: {},
-            params: {},
-          },
-        },
-        {
-          name: '%level%',
-          to: {
-            name: '',
-            query: {},
-            params: {},
-          },
-        },
-      ],
-    }
-  },
+import { Component, Vue } from 'nuxt-property-decorator'
+
+@Component
+export default class BaseBreadCrumbs extends Vue {
+  public breadCrumbs: Array<object> = [
+    {
+      name: '%level%',
+      to: {
+        name: '',
+        query: {},
+        params: {},
+      },
+    },
+    {
+      name: '%level%',
+      to: {
+        name: '',
+        query: {},
+        params: {},
+      },
+    },
+    {
+      name: '%level%',
+      to: {
+        name: '',
+        query: {},
+        params: {},
+      },
+    },
+    {
+      name: '%level%',
+      to: {
+        name: '',
+        query: {},
+        params: {},
+      },
+    },
+  ]
 }
 </script>
 

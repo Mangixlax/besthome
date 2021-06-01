@@ -23,23 +23,14 @@
         slot
 </template>
 
-<script>
-export default {
-  name: 'BasePost',
-  props: {
-    flip: {
-      type: Boolean,
-      default: false,
-    },
-    textFlip: {
-      type: Boolean,
-      default: false,
-    },
-    filename: {
-      type: String,
-      default: '',
-    },
-  },
+<script lang="ts">
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
+
+@Component
+export default class BasePost extends Vue {
+  @Prop({ type: Boolean, default: false }) flip!: boolean
+  @Prop({ type: Boolean, default: false }) textFlip!: boolean
+  @Prop({ type: String, default: '' }) filename!: string
 }
 </script>
 
@@ -80,7 +71,7 @@ export default {
   &__imagebox
     max-width: 624px
     width: 100%
-  
+
     @media (max-width: 1200px)
       display: flex
       justify-content: center
@@ -100,7 +91,7 @@ export default {
       @media (max-width: 900px)
         max-width: 100%
 
-      &.shadow-right 
+      &.shadow-right
         box-shadow: 32px 32px 0 0 $color-black-4
 
       &.shadow-left

@@ -8,9 +8,9 @@
           :key="i"
           :class="$style['fastlinks__item']"
         )
-          a(:class="$style['fastlinks__item-link']" href="#") 
-            span(:class="$style['fastlinks__item-link--underline']") 
-              | {{link.name}}
+          a(:class="$style['fastlinks__item-link']" href="#")
+            span(:class="$style['fastlinks__item-link--underline']")
+              | {{ link.name }}
             svg-icon(name="link-arrow")
 </template>
 
@@ -73,11 +73,11 @@ export default class BaseFastLinks extends Vue {
   display: flex
   flex-direction: column
   position: relative
-  
+
 
   @media (max-width: 411px)
     padding: 0 24px
-    
+
     & + &:before
       content: ""
       position: absolute
