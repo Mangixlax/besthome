@@ -3,6 +3,10 @@
     "top_line": "",
     "call_back": "Заказать обратный звонок"
   },
+  "projects": {
+    "sold_out": "Распродано",
+    "free_available_units": "{0} <span>апартаментов</span>."
+  },
   "pages": {
     "home": {
       "header": {
