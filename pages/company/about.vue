@@ -6,14 +6,14 @@
       typo-text(
         tag="h3"
         version="style-3"
-      )  {{ $t('pages.company_about_company.article_1.title') }}
+      ) {{ $t('pages.company_about_company.article_1.title') }}
       typo-text(
         v-for="(paragraph, i) in $t('pages.company_about_company.article_1.text')"
         :key="i"
         tag="p"
         version="style-5"
-      )  {{ paragraph }}
-    base-scroll-line(:scroll-line-info="$t('pages.company_about_company.scroll_line_data')")
+      ) {{ paragraph }}
+    base-scroll-line(:data="$t('pages.company_about_company.scroll_line_data')")
     base-text-container
       typo-text(
         v-for="(paragraph, i) in $t('pages.company_about_company.article_2.text')"

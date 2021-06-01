@@ -36,7 +36,7 @@
       typo-text(
         tag="h3"
         version="style-3"
-      ) {{ $t('pages.projects_experiences.post_2.title') }} 
+      ) {{ $t('pages.projects_experiences.post_2.title') }}
       typo-text(
         tag="p"
         version="style-5"
@@ -50,9 +50,9 @@
           tag="a"
           href="#"
           version="style-5"
-        ) {{ $t('pages.projects_experiences.post_1.link') }} 
+        ) {{ $t('pages.projects_experiences.post_1.link') }}
         | .
-    base-scroll-line(:scroll-line-info="$t('pages.projects_experiences.scroll_line_data')")
+    base-scroll-line(:data="$t('pages.projects_experiences.scroll_line_data')")
     page-projects-panorama
     base-subscribe(:subscribe-data="$t('footer.subscribe')" whiteTheme)
     base-accordions(:accordions-data="$t('footer.accordions')")

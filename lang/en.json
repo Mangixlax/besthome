@@ -194,19 +194,19 @@
       "scroll_line_data": [
         {
           "title": "239",
-          "text": "Apartments"
+          "subtitle": "Apartments"
         },
         {
           "title": "470",
-          "text": "Parking spots for bikes"
+          "subtitle": "Parking spots for bikes"
         },
         {
           "title": "3800m²",
-          "text": "Of common green areas"
+          "subtitle": "Of common green areas"
         },
         {
           "title": "1 to 4-room",
-          "text": "Separate rooms"
+          "subtitle": "Separate rooms"
         }
       ],
       "panorama": {
@@ -270,11 +270,11 @@
       "scroll_line_data": [
         {
           "title": "Up to 31 years",
-          "text": "Loan repayment period"
+          "subtitle": "Loan repayment period"
         },
         {
           "title": "loan up to 300 000 €",
-          "text": "Most advantageous rates"
+          "subtitle": "Most advantageous rates"
         }
       ],
       "post_4": {
@@ -521,19 +521,19 @@
       "scroll_line_data": [
         {
           "title": "239",
-          "text": "Apartments"
+          "subtitle": "Apartments"
         },
         {
           "title": "470",
-          "text": "Parking spots for bikes"
+          "subtitle": "Parking spots for bikes"
         },
         {
           "title": "3800m²",
-          "text": "Of common green areas"
+          "subtitle": "Of common green areas"
         },
         {
           "title": "1 to 4-room",
-          "text": "Separate rooms"
+          "subtitle": "Separate rooms"
         }
       ],
       "article_2": {
@@ -566,19 +566,19 @@
       "scroll_line_data": [
         {
           "title": "239",
-          "text": "Apartments"
+          "subtitle": "Apartments"
         },
         {
           "title": "470",
-          "text": "Parking spots for bikes"
+          "subtitle": "Parking spots for bikes"
         },
         {
           "title": "3800m²",
-          "text": "Of common green areas"
+          "subtitle": "Of common green areas"
         },
         {
           "title": "1 to 4-room",
-          "text": "Separate rooms"
+          "subtitle": "Separate rooms"
         }
       ],
       "post_1": {

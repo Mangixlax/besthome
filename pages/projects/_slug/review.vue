@@ -23,7 +23,7 @@
       }"
     )
     //page-projects-residences-slider
-    //base-scroll-line(:scroll-line-info="$t('pages.projects_experiences.scroll_line_data')")
+    //base-scroll-line(:data="$t('pages.projects_experiences.scroll_line_data')")
     //page-projects-photos-slider
     base-subscribe(:subscribe-data="$t('footer.subscribe')" whiteTheme)
     base-accordions(:accordions-data="$t('footer.accordions')")

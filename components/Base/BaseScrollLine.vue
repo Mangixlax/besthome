@@ -2,7 +2,7 @@
   section(:class="$style['container']" id="vertical")
     ul(ref="items" :class="[$style['items'], 'items']")
       li(
-        v-for="(item, key) in data.items"
+        v-for="(item, key) in itemsList"
         :key="key"
         :class="$style['items__item']"
       )
@@ -25,7 +25,11 @@ interface IDataItem {
 
 @Component
 export default class BaseScrollLine extends Vue {
-  @Prop({ type: Object, default: () => [] }) data!: IData
+  @Prop({ type: [Object, Array], default: () => [] }) data!: IData | IDataItem[]
+
+  get itemsList(): IDataItem[] {
+    return Array.isArray(this.data) ? this.data : this.data.items
+  }
 
   mounted() {
     const containerContainer = this.$scrollmagic.controller_

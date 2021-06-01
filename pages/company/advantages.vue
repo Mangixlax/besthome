@@ -1,10 +1,10 @@
 <template lang="pug">
   main
     page-company-advantages-title(:advantages-page-title="$t('pages.company_advantages.header')")
-    base-scroll-line(:scrollLineInfo="$t('pages.company_advantages.scroll_line_data')")
+    base-scroll-line(:data="$t('pages.company_advantages.scroll_line_data')")
     base-post(
-      :filename="require(`~/assets/images/pages/advantages/image-1.jpg`)" 
-      flip 
+      :filename="require(`~/assets/images/pages/advantages/image-1.jpg`)"
+      flip
       text-flip
     )
       typo-text(
@@ -50,8 +50,8 @@
         version="style-5"
       )  {{ paragraph }}
     base-post(
-      :filename="require(`~/assets/images/pages/advantages/image-3.jpg`)" 
-      flip 
+      :filename="require(`~/assets/images/pages/advantages/image-3.jpg`)"
+      flip
       text-flip
     )
       typo-text(
@@ -87,7 +87,7 @@
         | .
     base-post(
       :filename="require(`~/assets/images/pages/advantages/image-5.jpg`)"
-      flip 
+      flip
       text-flip
     )
       typo-text(
