@@ -10,11 +10,11 @@
         typo-text(
           tag="h1"
           version="style-1"
-        ) 
+        )
           | {{ projectTitleData.title }}
 </template>
 
-<script lang="ts" scoped>
+<script lang="ts">
 import TypoText from '~/components/Base/TypoText.vue'
 
 export default {

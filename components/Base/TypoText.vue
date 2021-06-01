@@ -1,5 +1,5 @@
 <script lang="ts">
-import { Component, Vue, Prop } from 'nuxt-property-decorator'
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
 
 @Component({
   functional: true,
@@ -12,7 +12,7 @@ import { Component, Vue, Prop } from 'nuxt-property-decorator'
       },
       children,
     )
-  }
+  },
 })
 export default class TypoText extends Vue {
   @Prop({ type: String, default: 'p' }) tag!: string

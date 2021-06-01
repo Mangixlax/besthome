@@ -28,7 +28,7 @@
               :active-class="$style['project-navigation__navbar-link--active']"
             ) About
           li(:class="$style['project-navigation__navbar-item']"
-          ) 
+          )
             nuxt-link(
               :to="localePath({ name: 'projects-slug-experiences' })"
               :class="$style['project-navigation__navbar-link']"
@@ -43,32 +43,22 @@
               :active-class="$style['project-navigation__navbar-link--active']"
             ) Choose apartment
         button(
-          type="submit"
-          id="submit"
-          :class="$style['project-navigation__navbar-submit']"  
+          type="button"
+          :class="$style['project-navigation__navbar-submit']"
         ) Get a consultation
         button(
-          type="submit"
-          id="submit"
-          :class="$style['project-navigation__navbar-submit--mobile']"  
+          type="button"
+          :class="$style['project-navigation__navbar-submit--mobile']"
         ) Consultation
 </template>
 
-<script lang="ts" scoped>
+<script lang="ts">
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
 import TypoText from '~/components/Base/TypoText.vue'
 
-export default {
-  name: 'BaseProjectNavigation',
-  components: { TypoText },
-  props: {
-    isActive: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  mounted() {
-    console.log((this as any).$route.params)
-  },
+@Component({ components: { TypoText } })
+export default class BaseProjectNavigation extends Vue {
+  @Prop({ type: Boolean, default: false }) isActive!: boolean
 }
 </script>
 

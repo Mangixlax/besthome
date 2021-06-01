@@ -10,17 +10,12 @@
 </template>
 
 <script lang="ts">
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
 import TypoText from '~/components/Base/TypoText.vue'
 
-export default {
-  name: 'FooterCompanyDescription',
-  components: { TypoText },
-  props: {
-    paragraphs: {
-      type: Array,
-      default: () => [],
-    },
-  },
+@Component({ components: { TypoText } })
+export default class FooterCompanyDescription extends Vue {
+  @Prop({ type: Array, default: () => [] }) paragraphs!: Array<string>
 }
 </script>
 

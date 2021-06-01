@@ -10,22 +10,14 @@
     slot
 </template>
 
-<script lang="ts" scoped>
+<script lang="ts">
 import TypoText from '~/components/Base/TypoText.vue'
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
 
-export default {
-  name: 'BaseTextContainer',
-  components: { TypoText },
-  props: {
-    textAlign: {
-      type: String,
-      default: '',
-    },
-    textColor: {
-      type: String,
-      default: '',
-    },
-  },
+@Component({ components: { TypoText } })
+export default class BaseTextContainer extends Vue {
+  @Prop({ type: String, default: '' }) textAlign!: string
+  @Prop({ type: String, default: '' }) textColor!: string
 }
 </script>
 
