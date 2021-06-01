@@ -15,7 +15,7 @@
         swiper-slide(
           v-for="(slide, i) in sliderData.slider"
           :key="i"
-          :class="$style['slide']" 
+          :class="$style['slide']"
         )
           div
             img(:src="require(`@/assets/images/company-advantages-slider/${slide.image || 'person-1.png'}`)")
@@ -100,6 +100,8 @@ export default {
   max-width: 992px   !important
   max-height: 480px !important
   position: relative
+  opacity: 1
+  transition: opacity 0.2s ease
 
   @media (max-width: 900px)
     display: grid

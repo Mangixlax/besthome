@@ -62,6 +62,11 @@ export default <NuxtConfig>{
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['normalize.css/normalize.css', '~/sass/theme.sass'],
 
+  pageTransition: {
+    name: 'page',
+    mode: 'out-in',
+  },
+
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~plugins/slider-swiper.js',
