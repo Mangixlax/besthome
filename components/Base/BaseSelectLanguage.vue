@@ -36,8 +36,9 @@
 
 <script lang="ts">
 import $ from 'jquery'
-import { Vue, Prop } from 'nuxt-property-decorator'
+import { Vue, Prop, Component } from 'nuxt-property-decorator'
 
+@Component
 export default class BaseSelectLanguage extends Vue {
   @Prop({ type: Array, default: () => [] }) list!: Array<any>
 
