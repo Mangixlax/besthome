@@ -4,7 +4,7 @@
     hero-slider(:slides="$t('pages.home.hero_slider_data.hero_slider')")
     link-banner-wrapper
       link-banner(
-        :image-src="require('~/assets/images/link-banner-1.jpg')"
+        :image-src="require('~/assets/images/pages/home/secondary-housing.jpg')"
         :to="{ name: 'index' }"
         :title="$t('pages.home.link_baner.baner_1.title')"
         :text="$t('pages.home.link_baner.baner_1.text')"
@@ -13,7 +13,7 @@
         data-cursor-off-exclusion
       )
       link-banner(
-        :image-src="require('~/assets/images/link-banner-2.jpg')"
+        :image-src="require('~/assets/images/pages/home/for-investors.jpg')"
         :to="{ name: 'investors' }"
         :title="$t('pages.home.link_baner.baner_2.title')"
         :text="$t('pages.home.link_baner.baner_2.text')"

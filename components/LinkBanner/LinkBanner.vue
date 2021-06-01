@@ -56,7 +56,7 @@ export default class LinkBanner extends Vue {
     top: 0
     right: 0
     bottom: 0
-    background: rgba(17, 17, 17, 0.16)
+    background: rgba(17, 17, 17, 0.32)
     z-index: 2
 
   &__image

@@ -98,7 +98,20 @@ export default {
     flex-direction: column-reverse
 
     > div
-      padding: 24px 0
+      padding-bottom: 24px
+
+      a
+        text-decoration: underline
+        text-decoration-color: $color-blue-16
+        text-underline-offset: 7px
+        color: $color-blue-100
+
+      h2, h3, h4, p
+        margin: 0
+
+      p
+        +style-6
+        color: $color-white-100
 
   &__header h3
     margin: 0
