@@ -72,28 +72,22 @@
         | .
     base-scroll-line(:data="$t('pages.investors.scroll_line_data')")
     base-post-two-image(
-       :portraitImage="require(`~/assets/images/pages/investors/portrait-1.jpg`)"
-       :landscapeImage="require(`~/assets/images/pages/investors/landscape-1.jpg`)"
+      :data="{\
+        text: [\
+          `<p>${$t('pages.investors.post_4.paragraph_1')}</p>`,\
+          `<p>${$t('pages.investors.post_4.paragraph_with_link')}`,\
+          ` <a href='#'>${$t('pages.investors.post_4.link')}</a>.</p>`,\
+        ].join(''),\
+        images: [\
+          { path: require(`~/assets/images/investors/portrait-1.jpg`), },\
+          { path: require(`~/assets/images/investors/landscape-1.jpg`), },\
+        ],\
+      }"
     )
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.investors.post_4.paragraph_1') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      )
-        | {{ $t('pages.investors.post_4.paragraph_with_link') }}
-        typo-text(
-          tag="a"
-          href="#"
-          version="style-5"
-        ) {{ $t('pages.investors.post_4.link') }}
-        | .
-
 </template>
 
 <script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator'
 import PageInvestorsTitle from '~/components/Page/Investors/PageInvestorsTitle.vue'
 import PageInvestorsAdvice from '~/components/Page/Investors/PageInvestorsAdvice.vue'
 import BasePost from '~/components/Base/BasePost.vue'
@@ -101,8 +95,7 @@ import BaseScrollLine from '~/components/Base/BaseScrollLine.vue'
 import BasePostTwoImage from '~/components/Base/BasePostTwoImage.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 
-export default {
-  name: 'investors',
+@Component({
   components: {
     PageInvestorsTitle,
     PageInvestorsAdvice,
@@ -111,21 +104,6 @@ export default {
     BaseScrollLine,
     TypoText,
   },
-  data() {
-    return {
-      investorsPageScrollLineInfo: [
-        {
-          title: 'Up to 31 years',
-          text: 'Loan repayment period',
-        },
-        {
-          title: 'loan up to 300 000 €',
-          text: 'Most advantageous rates',
-        },
-      ],
-    }
-  },
-}
+})
+export default class InvestorsPage extends Vue {}
 </script>
-
-<style lang="sass" module></style>

@@ -5,24 +5,20 @@
     page-projects-title(:project-title-data="$t('pages.projects_review.header')")
     page-projects-four-columns(:columns="pageProjectsFourColumns")
     base-post-two-image(
-       :portraitImage="require(`~/assets/images/investors/portrait-1.jpg`)"
-       :landscapeImage="require(`~/assets/images/investors/landscape-1.jpg`)"
+      :data="{\
+        block_flip: false,\
+        text_align: 'left',\
+        text: [\
+          `<h3>${$t('pages.service_introductory_tour.post_7.title')}</h3>`,\
+          `<p>${$t('pages.service_introductory_tour.post_7.paragraph_1')}</p>`,\
+          `<p>${$t('pages.service_introductory_tour.post_7.paragraph_2')}</p>`,\
+        ].join(''),\
+        images: [\
+          { path: require(`~/assets/images/investors/portrait-1.jpg`), },\
+          { path: require(`~/assets/images/pages/service/introductory-tour/landscape-1.jpg`), },\
+        ],\
+      }"
     )
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.investors.post_4.paragraph_1') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      )
-        | {{ $t('pages.investors.post_4.paragraph_with_link') }}
-        typo-text(
-          tag="a"
-          href="#"
-          version="style-5"
-        ) {{ $t('pages.investors.post_4.link') }}
-        | .
     page-projects-residences-slider
     page-projects-infrastructure-slider
     base-scroll-line(:data="$t('pages.projects_experiences.scroll_line_data')")

@@ -30,7 +30,7 @@
       :filename="require(`~/assets/images/pages/service/turkish-citizenship/image-2.jpg`)"
       tag="p"
       version="style-5"
-      flip 
+      flip
       text-flip
     )
       typo-text(
@@ -49,30 +49,21 @@
         version="style-5"
       ) {{ $t('pages.service_turkish_citizenship.post_3.paragraph_1') }}
     base-post-two-image(
-       :portraitImage="require(`~/assets/images/pages/service/turkish-citizenship/portrait-1.jpg`)"
-       :landscapeImage="require(`~/assets/images/pages/service/turkish-citizenship/landscape-1.jpg`)"
-       flip
-       text-flip
+      :data="{\
+        block_flip: true,\
+        text_align: 'right',\
+        text: [\
+          `<h3>${$t('pages.service_turkish_citizenship.post_4.title')}</h3>`,\
+          `<p>${$t('pages.service_turkish_citizenship.post_4.paragraph_1')}</p>`,\
+          `<p>${$t('pages.service_turkish_citizenship.post_4.paragraph_with_link')}`,\
+          ` <a href=\"${localePath({ name: 'projects' })}\">${$t('pages.service_turkish_citizenship.post_4.link')}</a>.</p>`,\
+        ].join(''),\
+        images: [\
+          { path: require(`~/assets/images/pages/service/turkish-citizenship/portrait-1.jpg`), },\
+          { path: require(`~/assets/images/pages/service/turkish-citizenship/landscape-1.jpg`), },\
+        ],\
+      }"
     )
-      typo-text(
-        tag="h3"
-        version="style-3"
-      ) {{ $t('pages.service_turkish_citizenship.post_4.title') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.service_turkish_citizenship.post_4.paragraph_1') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      )
-        | {{ $t('pages.service_turkish_citizenship.post_4.paragraph_with_link') }}
-        typo-text(
-          tag="a"
-          href="#"
-          version="style-5"
-        ) {{ $t('pages.service_turkish_citizenship.post_4.link') }}
-        | .
 </template>
 
 <script lang="ts">

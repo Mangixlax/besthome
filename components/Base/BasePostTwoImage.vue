@@ -2,7 +2,7 @@
   section(
     :class="{\
       [$style['post']]: true,\
-      [$style['flip']]: true\
+      [$style['flip']]: data.block_flip\
     }"
   )
     div(:class="$style['post__container']")
@@ -14,7 +14,7 @@
         div(
           :class="{\
             [$style['post__text']]: true,\
-            [$style['post__text--flipped']]: true,\
+            [$style['post__text--flipped']]: data.text_align === 'right',\
           }"
           v-html="data.text"
         )
@@ -25,7 +25,8 @@ import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
 interface IData {
   text: string,
-  align: string,
+  block_flip: boolean,
+  text_align: string
   images: IDataImage[]
 }
 
@@ -53,6 +54,9 @@ export default class BasePostTwoImage extends Vue {
     text-underline-offset: 7px
     color: $color-blue-100
 
+  h2, h3
+    +style-3
+
   h2, h3, h4, p
     margin: 0
 
@@ -75,10 +79,20 @@ export default class BasePostTwoImage extends Vue {
       flex-direction: column
       align-items: center
       padding: 32px 24px
+      grid-gap: 32px
 
   &__imagebox
     max-width: 624px
     width: 100%
+    padding-right: 144px
+    padding-bottom: 90px
+
+    @media (min-width: 900px)
+      img
+        box-shadow: -32px 32px 0 rgba(17, 17, 17, 0.04)
+
+        .flip &
+          box-shadow: 32px 32px 0 rgba(17, 17, 17, 0.04)
 
     @media (max-width: 1200px)
       display: flex
@@ -95,23 +109,22 @@ export default class BasePostTwoImage extends Vue {
       object-fit: cover
       max-width: 100%
       justify-self: center
-      padding-right: 144px
-      padding-bottom: 90px
 
       @media (max-width: 900px)
         max-width: 100%
+        width: 100%
         padding-right: 0
         padding-left: 0
         padding-bottom: 0
 
-      .flip &
-        padding-left: 144px
-        padding-right: 0
+    .flip &
+      padding-left: 144px
+      padding-right: 0
 
-        @media (max-width: 900px)
-          padding-right: 0
-          padding-left: 0
-          padding-bottom: 0
+      @media (max-width: 900px)
+        padding-right: 0
+        padding-left: 0
+        padding-bottom: 0
 
   &__contentbox
     max-width: 624px
@@ -119,6 +132,13 @@ export default class BasePostTwoImage extends Vue {
     display: flex
     flex-direction: column-reverse
     justify-content: flex-end
+
+    @media (min-width: 900px)
+      img
+        box-shadow: 32px 32px 0 rgba(17, 17, 17, 0.04)
+
+        .flip &
+          box-shadow: -32px 32px 0 rgba(17, 17, 17, 0.04)
 
     @media (max-width: 1200px)
       padding: 0

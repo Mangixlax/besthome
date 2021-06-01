@@ -3,10 +3,12 @@
     page-welcome
       typo-text(tag="h1" version="style-2") {{ $t('pages.home.header.title') }}
       typo-text(tag="p" version="style-5") {{ $t('pages.home.header.text1') }}
-      i18n(path="pages.home.header.text2" tag="typo-text" version="style-5")
-        template(v-slot:link)
-          nuxt-link(:to="localePath({ name: 'projects' })")
-            | {{ $t('pages.home.header.text2_link') }}
+      typo-text(tag="p" version="style-5")
+        i18n(path="pages.home.header.text2" tag="span" version="style-5")
+          template(v-slot:link)
+            nuxt-link(:to="localePath({ name: 'projects' })")
+              | {{ $t('pages.home.header.text2_link') }}
+        common-link-icon(:variants="['stroke-blue']")
       div(:class="$style['hero__container']")
         div(:class="$style['hero__double-circle']")
       template(slot="prepend")
@@ -60,9 +62,11 @@ import LinkBannerWrapper from '~/components/LinkBanner/LinkBannerWrapper.vue'
 import LinkBanner from '~/components/LinkBanner/LinkBanner.vue'
 import TreeColumns from '~/components/TreeColumns/TreeColumns.vue'
 import Magnetic from '~/directives/magnetic'
+import CommonLinkIcon from "~/components/Common/CommonLinkIcon.vue"
 
 @Component({
   components: {
+    CommonLinkIcon,
     TreeColumns,
     LinkBanner,
     LinkBannerWrapper,

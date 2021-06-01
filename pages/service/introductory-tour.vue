@@ -44,7 +44,7 @@
       ) {{ paragraph }}
     base-post(
       :filename="require(`~/assets/images/pages/service/introductory-tour/image-2.jpg`)"
-      flip 
+      flip
       text-flip
     )
       typo-text(
@@ -87,7 +87,7 @@
         | .
     base-post(
       :filename="require(`~/assets/images/pages/service/introductory-tour/image-4.jpg`)"
-      flip 
+      flip
       text-flip
     )
       typo-text(
@@ -120,7 +120,7 @@
         | .
     base-post(
       :filename="require(`~/assets/images/pages/service/introductory-tour/image-6.jpg`)"
-      flip 
+      flip
       text-flip
     )
       typo-text(
@@ -132,21 +132,20 @@
         version="style-5"
       ) {{ $t('pages.service_introductory_tour.post_6.paragraph_1') }}
     base-post-two-image(
-       :portraitImage="require(`~/assets/images/investors/portrait-1.jpg`)"
-       :landscapeImage="require(`~/assets/images/pages/service/introductory-tour/landscape-1.jpg`)"
+      :data="{\
+        block_flip: false,\
+        text_align: 'left',\
+        text: [\
+          `<h3>${$t('pages.service_introductory_tour.post_7.title')}</h3>`,\
+          `<p>${$t('pages.service_introductory_tour.post_7.paragraph_1')}</p>`,\
+          `<p>${$t('pages.service_introductory_tour.post_7.paragraph_2')}</p>`,\
+        ].join(''),\
+        images: [\
+          { path: require(`~/assets/images/investors/portrait-1.jpg`), },\
+          { path: require(`~/assets/images/pages/service/introductory-tour/landscape-1.jpg`), },\
+        ],\
+      }"
     )
-      typo-text(
-        tag="h3"
-        version="style-3"
-      ) {{ $t('pages.service_introductory_tour.post_7.title') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.service_introductory_tour.post_7.paragraph_1') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.service_introductory_tour.post_7.paragraph_2') }}
 </template>
 
 <script lang="ts">

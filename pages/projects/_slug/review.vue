@@ -14,7 +14,7 @@
         text: [\
           `<p>${$t('pages.investors.post_4.paragraph_1')}</p>`,\
           `<p>${$t('pages.investors.post_4.paragraph_with_link')}`,\
-          `<a>${$t('pages.investors.post_4.link')}</a>.</p>`,\
+          ` <a href='#'>${$t('pages.investors.post_4.link')}</a>.</p>`,\
         ].join(''),\
         images: [\
           { path: require(`~/assets/images/investors/portrait-1.jpg`), },\
@@ -25,7 +25,7 @@
     //page-projects-residences-slider
     //base-scroll-line(:data="$t('pages.projects_experiences.scroll_line_data')")
     //page-projects-photos-slider
-    base-subscribe(:subscribe-data="$t('footer.subscribe')" whiteTheme)
+    base-subscribe(:subscribe-data="$t('footer.subscribe')" white-theme)
     base-accordions(:accordions-data="$t('footer.accordions')")
     footer-fast-links
 </template>
