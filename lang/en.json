@@ -3,6 +3,10 @@
     "top_line": "",
     "call_back": "Go get a call back"
   },
+  "projects": {
+    "sold_out": "Sold out",
+    "free_available_units": "{0} free <span>available units</span>."
+  },
   "pages": {
     "home": {
       "header": {

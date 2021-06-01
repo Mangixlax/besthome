@@ -2,11 +2,14 @@ import { RootState } from '~/store'
 import { ActionContext, ActionTree, GetterTree, MutationTree } from 'vuex'
 
 export interface IProject {
-  id: string | null
-  name: string | null
-  sold_out: string | null
+  id: string
+  name: string
+  slug: string
+  sold_out?: boolean
   updated_at?: string | null
   published_at?: string | null
+  apartments_count?: number
+  card_image?: string
   card_data?: {
     columns: string | number
     vertical_align: string
@@ -38,6 +41,7 @@ interface CatalogActionContext extends ActionContext<CatalogState, RootState> {}
  * Getters
  */
 export const getters: GetterTree<CatalogState, RootState> = {
+  getProjects: (state): IProject[] => state.projects,
   getProjectsCount: (state): number => state.projectsCount,
 }
 

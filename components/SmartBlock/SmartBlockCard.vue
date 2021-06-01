@@ -1,47 +1,48 @@
 <template lang="pug">
-  div(
+  article(
     :class="{\
       [$style['link-banner']]: true,\
-      [$style['link-banner--left']]: card.textPosition === 'left',\
-      [$style['link-banner--right']]: card.textPosition === 'right',\
-      [$style['link-banner--center']]: card.textPosition === 'center',\
-      [$style['link-banner--top']]: card.textPosition === 'top',\
-      [$style['link-banner--bottom']]: card.textPosition === 'bottom',\
-      [$style['link-banner--text-right']]: card.textAlign === 'right',\
-      [$style['link-banner--text-center']]: card.textAlign === 'center',\
+      [$style['link-banner--h-left']]: card.card_data.horizontal_align === 'left',\
+      [$style['link-banner--h-center']]: card.card_data.horizontal_align === 'center',\
+      [$style['link-banner--h-right']]: card.card_data.horizontal_align === 'right',\
+      [$style['link-banner--v-top']]: card.card_data.vertical_align === 'top',\
+      [$style['link-banner--v-center']]: card.card_data.vertical_align === 'center',\
+      [$style['link-banner--v-bottom']]: card.card_data.vertical_align === 'bottom',\
     }"
   )
     img(
+      v-if="card.card_image"
       :class="$style['link-banner__image']"
-      :src="require(`@/assets/images/smart-block/${card.imageSrc}`)"
+      :src="card.card_image"
+      loading="lazy"
     )
-    div(:class="$style['link-banner__text']")
-      h2(
-        :class="$style['link-banner__header']"
-        v-html="card.header"
-      )
+    section(:class="$style['link-banner__text']")
+      h2(:class="$style['link-banner__header']" v-html="card.name")
       nuxt-link(
-        :class="$style['link-banner__link']"
+        :class="{\
+          [$style['link-banner__link']]: true,\
+          [$style['link-banner__link--icon']]: !card.sold_out\
+        }"
         :to="localePath({\
           name: `projects-slug-review`,\
-          params: {\
-            slug: card.to.name\
-          }\
+          params: { slug: card.slug }\
         })"
-        :title="card.title"
-        v-html="card.text"
+        :title="card.name"
       )
+        span(v-html="card.sold_out ? $t('projects.sold_out') : $t('projects.free_available_units', [card.apartments_count])")
+        svg-icon(v-if="!card.sold_out" name="link-arrow")
 </template>
 
 <script lang="ts">
 import TypoText from '~/components/Base/TypoText.vue'
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
+import { IProject } from '~/store/Catalog'
 
 @Component({
   components: { TypoText },
 })
 export default class LinkBanner extends Vue {
-  @Prop({ type: Object, default: () => {}, required: true }) card!: object
+  @Prop({ type: Object, default: () => {}, required: true }) card!: IProject
 }
 </script>
 
@@ -67,7 +68,7 @@ export default class LinkBanner extends Vue {
 
   &__text
     position: absolute
-    padding: 0 32px
+    padding: 30px 32px
     left: 0
     right: 0
     top: 0
@@ -77,19 +78,24 @@ export default class LinkBanner extends Vue {
     align-items: flex-start
     text-decoration: none
     color: $color-white-100
-    justify-content: center
     text-align: left
-    margin: 30px 0px
 
   &__header
     margin: 0
-    +style-2
+    font-family: Didot, serif
+    font-style: normal
+    font-weight: bold
+    font-size: 40px
+    line-height: 64px
+    letter-spacing: 0.4px
 
   &__link
     +style-5
+    margin-top: 12px
     color: $color-white-100
+    text-decoration: none
 
-    &::after
+    &:after
       content: ""
       position: absolute
       left: 0
@@ -97,23 +103,40 @@ export default class LinkBanner extends Vue {
       top: 0
       bottom: 0
 
-  &--center &__text
-    align-items: center
+    &--icon
+      display: flex
+      align-items: center
+      justify-content: center
 
-  &--text-center &__text
+    &--icon span span
+      text-decoration: underline
+      text-decoration-color: $color-white-16
+      text-underline-offset: 7px
+
+    &--icon svg
+      width: 32px
+      height: 32px
+      margin-left: 5px
+      stroke: $color-white
+
+  &--h-left &__text
+    align-items: flex-start
+    text-align: left
+
+  &--h-center &__text
     align-items: center
     text-align: center
 
-  &--right &__text
-    align-items: flex-end
-
-  &--text-right &__text
+  &--h-right &__text
     align-items: flex-end
     text-align: right
 
-  &--top &__text
+  &--v-top &__text
     justify-content: flex-start
 
-  &--bottom &__text
+  &--v-center &__text
+    justify-content: center
+
+  &--v-bottom &__text
     justify-content: flex-end
 </style>
