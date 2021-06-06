@@ -1,4 +1,9 @@
-import { NuxtOptionsBuild, PostcssConfiguration } from '@nuxt/types/config/build'
+import {
+  NuxtOptionsBuild,
+  NuxtOptionsLoaders,
+  NuxtWebpackEnv,
+  PostcssConfiguration,
+} from '@nuxt/types/config/build'
 import { Configuration, NuxtConfig } from '@nuxt/types'
 import { NuxtOptionsRender } from '@nuxt/types/config/render'
 
@@ -73,6 +78,7 @@ export default <NuxtConfig>{
     '~plugins/v-click-outside.js',
     { src: '~plugins/vue-scrollmagic.js', ssr: false },
     '@/plugins/axios.js',
+    '@/plugins/i18n.ts',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -165,9 +171,21 @@ export default <NuxtConfig>{
 
   router: {
     prefetchLinks: false,
+    trailingSlash: true,
   },
 
-  redirect: [{ from: '^(\\/[^\\?]*[^\\/])(\\?.*)?$', to: '$1/$2' }],
+  redirect: [
+    {
+      from: '^[\\w\\.\\/]*(?<!\\/)(\\?.*\\=.*)*$',
+      to: (from: any, req: any) => {
+        const matches = req.url.match(/^.*(\?.*)$/)
+        if (matches.length > 1) {
+          return matches[0].replace(matches[1], '') + '/' + matches[1]
+        }
+        return matches[0]
+      },
+    },
+  ],
 
   /*
    ** Build configuration
