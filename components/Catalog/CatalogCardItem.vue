@@ -105,6 +105,18 @@ export default {
   &:hover
     background-color: $color-blue-4
 
+  &:hover &__header-area
+    color: $color-blue-100
+
+  &:hover &__footer-item-value
+    color: $color-blue-100
+
+  &:hover &__footer-price-value
+    color: $color-blue-100
+
+  &:hover &__footer-price-category
+    color: $color-blue-100
+
   &__header
     display: flex
     justify-content: space-between
