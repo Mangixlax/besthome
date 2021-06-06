@@ -7,14 +7,14 @@
   )
     div(:class="$style['post__container']")
       div(:class="$style['post__imagebox']")
-        img(:src="data.images[0].path")
+        img(:src="data.images[0]")
       div(:class="$style['post__contentbox']")
         div(:class="$style['post__image']")
-          img(:src="data.images[1].path")
+          img(:src="data.images[1]")
         div(
           :class="{\
             [$style['post__text']]: true,\
-            [$style['post__text--flipped']]: data.text_align === 'right',\
+            [$style['post__text--flipped']]: data.align === 'right',\
           }"
           v-html="data.text"
         )
@@ -26,13 +26,8 @@ import { Component, Vue, Prop } from 'nuxt-property-decorator'
 interface IData {
   text: string,
   block_flip: boolean,
-  text_align: string
-  images: IDataImage[]
-}
-
-interface IDataImage {
-  id: number
-  path: string
+  align: string
+  images: Array<string>
 }
 
 @Component
