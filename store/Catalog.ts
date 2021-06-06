@@ -8,6 +8,8 @@ export interface IProject {
   sold_out?: boolean
   updated_at?: string | null
   published_at?: string | null
+  apartments?: IProjectApartment[]
+  floors?: IProjectFloor[]
   apartments_count?: number
   card_image?: string
   card_data?: {
@@ -19,6 +21,32 @@ export interface IProject {
   about_data?: Array<object>
   experience_data?: Array<object>
   choose_ap_data?: Array<object>
+}
+
+export interface IProjectFloor {
+  id: number
+  number: number
+  layout_html?: string
+  miniature_html?: string
+  available_apartments_count: number
+  apartments?: IProjectApartment[]
+  block?: {
+    id: number
+    name: string
+    project_id: number
+  }
+}
+
+interface IProjectApartment {
+  id: number
+  project_id: number
+  block_id: number
+  floor_id: number
+  status: number
+  rooms: string
+  area: string
+  price: number
+  name: string
 }
 
 /**
@@ -41,6 +69,7 @@ interface CatalogActionContext extends ActionContext<CatalogState, RootState> {}
  * Getters
  */
 export const getters: GetterTree<CatalogState, RootState> = {
+  getProject: (state): IProject => state.project,
   getProjects: (state): IProject[] => state.projects,
   getProjectsCount: (state): number => state.projectsCount,
 }

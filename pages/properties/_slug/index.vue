@@ -7,21 +7,9 @@
       :key="index"
       :data="block"
     )
+    //page-projects-infrastructure-slider
     //hero-building
     //page-projects-title(:project-review-title-data="$t('pages.projects_review.header')")
-    base-post-two-image(
-      :data="{\
-        text: [\
-          `<p>${$t('pages.investors.post_4.paragraph_1')}</p>`,\
-          `<p>${$t('pages.investors.post_4.paragraph_with_link')}`,\
-          ` <a href='#'>${$t('pages.investors.post_4.link')}</a>.</p>`,\
-        ].join(''),\
-        images: [\
-          { path: require(`~/assets/images/investors/portrait-1.jpg`), },\
-          { path: require(`~/assets/images/investors/landscape-1.jpg`), },\
-        ],\
-      }"
-    )
     //page-projects-residences-slider
     //base-scroll-line(:data="$t('pages.projects_experiences.scroll_line_data')")
     //page-projects-photos-slider
@@ -45,9 +33,13 @@ import BaseAccordions from '~/components/Base/BaseAccordions.vue'
 import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
 import HeroBuilding from '~/components/HeroBuilding/HeroBuilding.vue'
 import { Context } from '@nuxt/types'
+import PageProjectsInfrastructureSlider from '~/components/Page/Projects/PageProjectsInfrastructureSlider.vue'
+import PageProjectsTimeline from '~/components/Page/Projects/PageProjectsTimeline.vue'
 
 @Component({
   components: {
+    PageProjectsInfrastructureSlider,
+    PageProjectsTimeline,
     HeroBuilding,
     BaseProjectNavigation,
     PageProjectsTitle,
@@ -65,21 +57,22 @@ import { Context } from '@nuxt/types'
     await ctx.store.dispatch('Catalog/fetchProject')
   },
 })
-export default class Review extends Vue {
+export default class PropertiesReview extends Vue {
   get reviewBlocks() {
     const componentsRelations: any = {
-      'BlockTwoPhotoText': 'base-post-two-image',
-      'BlockLineScroller': 'base-scroll-line',
+      BlockTwoPhotoText: 'base-post-two-image',
+      BlockLineScroller: 'base-scroll-line',
+      BlockInfrastructure: 'page-projects-infrastructure-slider',
+      BlockTimeline: 'page-projects-timeline',
+      BlockHeroBuilding: 'hero-building',
     }
 
-    const r = (this.$store.state.Catalog.project.review_data || []).map((block: any) => ({
+    return (this.$store.state.Catalog.project.review_data || []).map((block: any) => ({
       ...block,
-      type: Object.keys(componentsRelations).includes(block.type) ? componentsRelations[block.type] : 'p',
+      type: Object.keys(componentsRelations).includes(block.type)
+        ? componentsRelations[block.type]
+        : 'p',
     }))
-
-    console.log(r)
-
-    return r
   }
 }
 </script>
