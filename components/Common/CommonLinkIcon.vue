@@ -14,7 +14,7 @@ export default class CommonLinkIcon extends Vue {
 
   get styles() {
     return (this.variants || []).map((variant: string) => {
-      const name = `svg--${variant}`
+      const name: string = `svg--${variant}`
       return this.$style.hasOwnProperty(name) ? this.$style[name] : ''
     })
   }
