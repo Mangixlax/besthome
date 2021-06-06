@@ -5,7 +5,15 @@
   },
   "projects": {
     "sold_out": "Распродано",
-    "free_available_units": "{0} <span>апартаментов</span>."
+    "free_available_units": "{0} <span>апартаментов</span>.",
+    "navigation": {
+      "review": "Оброз",
+      "about": "О проекте",
+      "experiences": "Опыт",
+      "choose_apartment": "Выбрать квартиру",
+      "get_a_consultation": "Получить консультацию",
+      "consultation": "Консультация"
+    }
   },
   "pages": {
     "home": {

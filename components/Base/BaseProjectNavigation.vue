@@ -1,64 +1,60 @@
 <template lang="pug">
   section(:class="$style['project-navigation']")
-    div(
-      :class="$style['project-navigation__container']"
-    )
+    div(:class="$style['project-navigation__container']")
       div(:class="$style['project-navigation__title']")
         typo-text(
           tag="h3"
           version="style-4"
           :class="$style['project-navigation__title-text']"
-        ) Cleopatra Select
+        ) {{ projectTitle }}
       div(:class="$style['project-navigation__navbar']")
         ul(:class="$style['project-navigation__navbar-list']")
-          li(
-            :class="$style['project-navigation__navbar-item']"
-          )
+          li(:class="$style['project-navigation__navbar-item']")
             nuxt-link(
-              :to="localePath({ name: 'projects-slug-review',})"
+              :to="localePath({ name: 'properties-slug',})"
               :class="$style['project-navigation__navbar-link']"
               :active-class="$style['project-navigation__navbar-link--active']"
-            ) Review
-          li(
-            :class="$style['project-navigation__navbar-item']"
-          )
+            ) {{ $t('projects.navigation.review') }}
+          li(:class="$style['project-navigation__navbar-item']")
             nuxt-link(
-              :to="localePath({ name: 'projects-slug-about' })"
+              :to="localePath({ name: 'properties-slug-about' })"
               :class="$style['project-navigation__navbar-link']"
               :active-class="$style['project-navigation__navbar-link--active']"
-            ) About
-          li(:class="$style['project-navigation__navbar-item']"
-          )
+            ) {{ $t('projects.navigation.about') }}
+          li(:class="$style['project-navigation__navbar-item']")
             nuxt-link(
-              :to="localePath({ name: 'projects-slug-experiences' })"
+              :to="localePath({ name: 'properties-slug-experiences' })"
               :class="$style['project-navigation__navbar-link']"
               :active-class="$style['project-navigation__navbar-link--active']"
-            ) Experiences
-          li(
-            :class="$style['project-navigation__navbar-item']"
-          )
+            ) {{ $t('projects.navigation.experiences') }}
+          li(:class="$style['project-navigation__navbar-item']")
             nuxt-link(
-              :to="localePath({ name: 'projects-slug-apartments' })"
+              :to="localePath({ name: 'properties-slug-apartments' })"
               :class="$style['project-navigation__navbar-link']"
               :active-class="$style['project-navigation__navbar-link--active']"
-            ) Choose apartment
+            ) {{ $t('projects.navigation.choose_apartment') }}
         button(
           type="button"
           :class="$style['project-navigation__navbar-submit']"
-        ) Get a consultation
+        ) {{ $t('projects.navigation.get_a_consultation') }}
         button(
           type="button"
           :class="$style['project-navigation__navbar-submit--mobile']"
-        ) Consultation
+        ) {{ $t('projects.navigation.consultation') }}
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
 import TypoText from '~/components/Base/TypoText.vue'
+import { IProject } from '~/store/Catalog'
 
 @Component({ components: { TypoText } })
 export default class BaseProjectNavigation extends Vue {
   @Prop({ type: Boolean, default: false }) isActive!: boolean
+
+  get projectTitle(): string {
+    return (this.$store.getters['Catalog/getProject'] as IProject).name
+  }
 }
 </script>
 
