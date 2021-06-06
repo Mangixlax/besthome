@@ -88,7 +88,7 @@ export default class BaseSelectLanguage extends Vue {
         this.selectorIsOpened = false
 
         this.toggleTiltUp()
-        this.selectorPosition = newIndex * ($(this.$refs.selectorWrapper).height() as number)
+        this.selectorPosition = newIndex * ($(this.$refs.selectorWrapper as Element).height() as number)
 
         setTimeout(() => {
           this.disableAnimation = true

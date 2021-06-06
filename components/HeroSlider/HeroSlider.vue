@@ -72,7 +72,7 @@ export default class HeroSlider extends Vue {
 
   createDraggableTween(): void {
     let lastPosCaption = { x: 0, y: 0 }
-    let $captionNext = this.$refs.captionNext
+    let $captionNext = this.$refs.captionNext as Element
 
     Draggable.create(this.$refs.caption as Element, {
       trigger: this.$refs.slider as Element,
@@ -86,7 +86,7 @@ export default class HeroSlider extends Vue {
         this.isSliderPressed = true
 
         // Downscale caption on pressed
-        gsap.to(this.$refs.caption, {
+        gsap.to(this.$refs.caption as Element, {
           scale: 0.9,
           ease: Power3.easeInOut,
           duration: 0.3,
@@ -94,14 +94,14 @@ export default class HeroSlider extends Vue {
 
         // Downscale next caption on pressed
         if (($(window).width() as number) > 1224) {
-          gsap.to(this.$refs.captionNext, {
+          gsap.to(this.$refs.captionNext as Element, {
             scale: 0.9,
             x: 0,
             ease: Power3.easeInOut,
             duration: 0.3,
           })
         } else {
-          gsap.to(this.$refs.captionNext, {
+          gsap.to(this.$refs.captionNext as Element, {
             scale: 0.9,
             ease: Power3.easeInOut,
             duration: 0.3,
@@ -116,10 +116,6 @@ export default class HeroSlider extends Vue {
         })
       },
       onRelease: (event: PointerEvent) => {
-        // if (Math.floor(lastPosCaption.x))
-        // this.isSliderDisabled = true
-        // Draggable.get(this.$refs.caption as Element).disable();
-
         const eventsX = [Math.floor(lastPosCaption.x), Math.floor(event.x)]
         const minX = Math.min(...eventsX)
         const maxX = Math.max(...eventsX)
@@ -140,7 +136,7 @@ export default class HeroSlider extends Vue {
           this.isSliderPressed = false
 
           // Set to default position caption
-          gsap.to(this.$refs.caption, {
+          gsap.to(this.$refs.caption as Element, {
             scale: 1,
             x: 0,
             y: 0,
@@ -149,7 +145,7 @@ export default class HeroSlider extends Vue {
           })
 
           // Set to default position next caption
-          gsap.to(this.$refs.captionNext, {
+          gsap.to(this.$refs.captionNext as Element, {
             scale: 1,
             x: 0,
             y: 0,
@@ -168,7 +164,7 @@ export default class HeroSlider extends Vue {
   sliderTurnBackward() {
     this.isSliderPressed = true
 
-    gsap.to(this.$refs.caption, {
+    gsap.to(this.$refs.caption as Element, {
       opacity: '0.5',
       x: ($(window).width() as number) > 1224 ? '+1000%' : '+105vw',
       scale: 1,
@@ -177,7 +173,7 @@ export default class HeroSlider extends Vue {
     })
 
     // Move next caption to right side
-    gsap.to(this.$refs.captionNext, {
+    gsap.to(this.$refs.captionNext as Element, {
       opacity: '0',
       y: 0,
       x: '+100%',
@@ -192,30 +188,30 @@ export default class HeroSlider extends Vue {
    * Callback of animation changing captions after release of prev slide
    */
   changeCaptionsBackward() {
-    gsap.to(this.$refs.captionNext, {
+    gsap.to(this.$refs.captionNext as Element, {
       x: '0%',
       duration: 0.01,
       onComplete: () => {
-        gsap.to(this.$refs.caption, {
+        gsap.to(this.$refs.caption as Element, {
           duration: 0.01,
           onComplete: () => {
-            $(this.$refs.captionNext).css({
+            $(this.$refs.captionNext as Element).css({
               opacity: ($(window).width() as number) > 1224 ? 0.5 : 0,
             })
 
-            $(this.$refs.caption).css({
+            $(this.$refs.caption as Element).css({
               opacity: 0,
             })
 
             this.changeSlideIndexToPrev()
 
-            gsap.to(this.$refs.caption, {
+            gsap.to(this.$refs.caption as Element, {
               x: '-100%',
               scale: 1,
               ease: Power3.easeInOut,
               duration: 0.01,
               onComplete: () => {
-                gsap.to(this.$refs.caption, {
+                gsap.to(this.$refs.caption as Element, {
                   x: '0',
                   opacity: 1,
                   ease: Power3.easeInOut,
@@ -237,7 +233,7 @@ export default class HeroSlider extends Vue {
   sliderTurnForward() {
     this.isSliderPressed = true
 
-    gsap.to(this.$refs.caption, {
+    gsap.to(this.$refs.caption as Element, {
       opacity: '0',
       scale: 1,
       x: '-100vw',
@@ -246,7 +242,7 @@ export default class HeroSlider extends Vue {
     })
 
     // Move next caption from over right side to default right point
-    gsap.to(this.$refs.captionNext, {
+    gsap.to(this.$refs.captionNext as Element, {
       opacity: '1',
       x: ($(window).width() as number) > 1100 ? 0 : '24px',
       scale: 1,
@@ -260,7 +256,7 @@ export default class HeroSlider extends Vue {
   }
 
   changeCaptionsForward() {
-    gsap.to(this.$refs.caption, {
+    gsap.to(this.$refs.caption as Element, {
       x: '0%',
       scale: 1,
       ease: Power2.easeInOut,
@@ -268,11 +264,11 @@ export default class HeroSlider extends Vue {
       onComplete: () => {
         this.changeSlideIndexToNext()
 
-        $(this.$refs.caption).css({
+        $(this.$refs.caption as Element).css({
           opacity: '1',
         })
 
-        $(this.$refs.captionNext).css({
+        $(this.$refs.captionNext as Element).css({
           opacity: ($(window).width() as number) > 1224 ? '0.5' : '0',
           left: '140%',
           x: 0,
@@ -281,7 +277,7 @@ export default class HeroSlider extends Vue {
 
         this.isSliderPressed = false
 
-        gsap.to(this.$refs.captionNext, {
+        gsap.to(this.$refs.captionNext as Element, {
           left: '100%',
           ease: Power2.easeInOut,
           duration: 0.5,
