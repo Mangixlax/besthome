@@ -103,12 +103,12 @@ export default class BaseScrollLine extends Vue {
   }
 
   mounted() {
-    this.onResize()
-    window.addEventListener('resize', this.onResize)
+    this.onWindowResize()
+    window.addEventListener('resize', this.onWindowResize)
   }
 
   beforeDestroy() {
-    window.removeEventListener('resize', this.onResize)
+    window.removeEventListener('resize', this.onWindowResize)
   }
 }
 </script>
