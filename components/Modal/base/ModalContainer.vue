@@ -1,0 +1,123 @@
+<template lang="pug">
+  div(:class="[$style['modal'], full && $style['full']]")
+
+    div(:class="$style['modal__header']")
+
+      div(:class="$style['modal__header-buttons']")
+        slot(name="header")
+        button(
+          type="button"
+          aria-label="Close modal"
+          :class="$style['modal__close']"
+          @click.prevent="closeModal"
+        ) 
+          svg-icon(name="close-modal")
+
+    div(:class="$style['modal__body']")
+      slot(name="body")
+</template>
+
+<script>
+export default {
+  name: 'ModalContainer',
+  components: { CloseModalIcon },
+  props: {
+    name: {
+      // Modal id
+      type: String,
+      required: true,
+    },
+    title: {
+      type: String,
+      default: '',
+    },
+    full: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  methods: {
+    closeModal() {
+      this.$modal.hide(this.name)
+    },
+  },
+  mounted() {
+    this.$root.$on('HIDDEN_SEARCH_MODAL', () => {
+      this.$modal.hide(this.name)
+    })
+  },
+  beforeDestroy() {
+    this.$modal.hide(this.name)
+    this.$root.$off('HIDDEN_SEARCH_MODAL')
+  },
+}
+</script>
+
+<style lang="sass" module>
+.modal
+  display: flex
+  align-items: flex-start
+  z-index: 100
+  flex-direction: column
+  min-width: 1248px
+  height: 894px
+
+
+  h2
+    margin-top: 0
+    margin-bottom: 16px
+
+  +mobile
+    align-items: flex-start
+    min-height: 100vh
+
+  &__header
+    width: 100%
+    display: flex
+    margin: 0 auto
+    padding: 32px
+
+    +mobile
+      padding: 16px 16px 0px 16px
+
+    &-buttons
+      width: 100%
+      display: flex
+      justify-content: space-between
+      align-items: center
+      z-index: 1
+
+  &__close
+    // background-color: $color-black-56
+    height: 40px
+    width: 40px
+    padding: 0
+    display: flex
+    align-items: center
+    justify-content: center
+    border: none
+    background: none
+    cursor: pointer
+
+  &__body
+    position: relative
+    width: 100%
+    flex-direction: column
+
+
+    +mobile
+      margin: 0
+
+.full
+  .modal__body
+    padding: 0
+    margin: 0
+    height: calc(100% - 68px)
+    max-width: none
+
+  .modal__header-buttons
+    top: 20px
+    right: 20px
+    z-index: 11
+    position: fixed
+</style>
