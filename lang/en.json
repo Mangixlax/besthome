@@ -41,7 +41,7 @@
           {
             "name": "Secondary housing",
             "route": {
-              "name": "index"
+              "name": "secondary-housing"
             },
             "title": "Secondary housing"
           }
@@ -311,6 +311,14 @@
           "col": "3"
         }
       ]
+    },
+    "secondary_housing": {
+      "header": {
+        "title": "Secondary housing",
+        "sub_title": "You are only 3 steps away from your new home. Do everything online, from the comfort of your own home. Safely, simply, quickly.",
+        "button": "I want to choose a flat"
+      },
+      "article_1": "Apartments in BestHome Construction complexes are not only a comfortable stay and a quality holiday in Alanya, but also an opportunity for profitable investments. Due to the fact that the complexes built by our construction company are almost completely sold at the construction stage, and the demand for them is only increasing, we are pleased to offer our clients a service for reselling their apartments, and new buyers-the opportunity to purchase ready-made housing from BestHome Construction. In our portfolio of secondary housing, you can find offers of apartments in Alanya with furniture, as well as apartments in which no one lived."
     },
     "projects_review": {
       "header": {
