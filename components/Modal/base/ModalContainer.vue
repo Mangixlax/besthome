@@ -11,16 +11,16 @@
           :class="$style['modal__close']"
           @click.prevent="closeModal"
         ) 
-          svg-icon(name="close-modal")
-
+          svg-icon(name="modals/modals-close-cycle")
     div(:class="$style['modal__body']")
       slot(name="body")
+    div(:class="$style['modal__footer']")
+      slot(name="footer")
 </template>
 
 <script>
 export default {
   name: 'ModalContainer',
-  components: { CloseModalIcon },
   props: {
     name: {
       // Modal id
@@ -107,6 +107,9 @@ export default {
 
     +mobile
       margin: 0
+
+  &__footer
+    width: 100%
 
 .full
   .modal__body
