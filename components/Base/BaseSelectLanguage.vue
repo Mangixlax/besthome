@@ -78,7 +78,6 @@ export default class BaseSelectLanguage extends Vue {
       if (this.$i18n.locale.toLowerCase() !== selectorItem.toLowerCase()) {
         this.$i18n.setLocale(selectorItem.toLowerCase())
         this.$store.commit('setOurCompanyCardInfo', this.$i18n.t('pages.company_our_team'))
-        this.$store.dispatch('Navigation/init')
       }
 
       if (!this.inProcess) {
