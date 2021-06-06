@@ -5,19 +5,19 @@
         tag="p"
         version="style-7"
         :class="$style['filter-block__title-text']"
-      )  {{ title }}
+      ) {{ title }}
     ul(:class="$style['filter-block__grid']")
       li(
         v-for="(item,i) in filterItems"
         :key="i"
-        :class="[$style['filter-block__grid-item'], selectedItems.indexOf(item.value) != -1 && $style['selected']]"
+        :class="[$style['filter-block__grid-item'], selectedItems.indexOf(item.value) !== -1 && $style['selected']]"
         @click="addToSelectedItems(item)"
       )
         typo-text(
           tag="p"
           version="style-4"
           :class="$style['filter-block__grid-text']"
-        )  {{ item.label }} 
+        ) {{ item.label }}
 </template>
 
 <script>
