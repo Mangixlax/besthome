@@ -68,6 +68,9 @@ export default class TopLine extends Vue {
   align-items: center
   justify-content: center
 
+  html[class*='modal-is-open'] &
+    width: 100vw
+
   &:hover
     animation-play-state: paused
 
