@@ -66,7 +66,17 @@ export default <NuxtConfig>{
   plugins: [
     '~plugins/slider-swiper.js',
     '~plugins/v-click-outside.js',
-    { src: '~plugins/vue-scrollmagic.js', ssr: false },
+    { src: '~plugins/vue-scrollmagic.js', 
+      ssr: false
+    },
+    {
+      src: '~plugins/vue-slider-component.js',
+      ssr: false
+    },
+    {
+      src: '~plugins/vue-fragment.js',
+    },
+    { src: '~plugins/modal.js', mode: 'client' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
