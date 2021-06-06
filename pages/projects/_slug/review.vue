@@ -1,7 +1,11 @@
 <template lang="pug">
   main
     base-project-navigation
-    page-projects-title(:project-title-data="pageProjectsAboutTitle")
+    page-projects-title(:filename="$t('pages.projects_review.header.filename')")
+      typo-text(
+        tag="h1"
+        version="style-1"
+      ) {{ $t('pages.projects_review.header.title') }}
     page-projects-infrastructure-slider
     base-post-two-image(
       :portraitImage="require(`~/assets/images/investors/portrait-1.jpg`)"
@@ -67,7 +71,7 @@ export default {
   data() {
     return {
       pageProjectsAboutTitle: {
-        title: "City living with a touch of nature"
+        title: 'City living with a touch of nature',
       },
     }
   },

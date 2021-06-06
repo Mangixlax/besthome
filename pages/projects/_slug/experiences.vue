@@ -1,7 +1,11 @@
 <template lang="pug">
   main
     base-project-navigation
-    page-projects-experiences-title(:title="$t('pages.projects_experiences.header')")
+    page-projects-title(:filename="$t('pages.projects_review.header.filename')")
+      typo-text(
+        tag="h1"
+        version="style-1"
+      ) {{ $t('pages.projects_review.header.title') }}
     base-post(
       :filename="require(`~/assets/images/test.jpg`)"
     )
@@ -61,7 +65,7 @@
 
 <script lang="ts">
 import BaseProjectNavigation from '~/components/Base/BaseProjectNavigation.vue'
-import PageProjectsExperiencesTitle from '~/components/Page/Projects/PageProjectsExperiencesTitle.vue'
+import PageProjectsTitle from '~/components/Page/Projects/PageProjectsTitle.vue'
 import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import BaseScrollLine from '~/components/Base/BaseScrollLine.vue'
@@ -74,7 +78,7 @@ export default {
   name: 'experiences',
   components: {
     BaseProjectNavigation,
-    PageProjectsExperiencesTitle,
+    PageProjectsTitle,
     BasePost,
     TypoText,
     BaseScrollLine,

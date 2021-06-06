@@ -19,7 +19,7 @@
         ) m²
     div(:class="$style['catalog-card__image']")
       img(
-        :src="require(`@/assets/images/catalog/cleopatra-select/plans/${card.image}`)"
+        :src="require(`@/assets/images/catalog/${card.image}`)"
         :class="$style['catalog-card__image-img']"
       )
     div(:class="$style['catalog-card__footer']")
@@ -95,7 +95,8 @@ export default {
 <style lang="sass" module>
 .catalog-card
   display: flex
-  width: 330px
+  min-width: 287px
+  width: 100%
   height: 551px
   flex-direction: column
   padding: 32px
@@ -103,7 +104,7 @@ export default {
 
   &:hover
     background-color: $color-blue-4
-    
+
   &__header
     display: flex
     justify-content: space-between

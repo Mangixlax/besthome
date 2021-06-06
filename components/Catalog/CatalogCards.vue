@@ -32,7 +32,7 @@ export default {
     width: 100%
     grid-gap: 0px
     display: grid
-    grid-template-columns: repeat(auto-fill, minmax(330px, 330px))
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr))
     justify-items: center
     justify-content: center
 

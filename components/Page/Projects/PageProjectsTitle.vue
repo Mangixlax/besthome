@@ -1,17 +1,13 @@
 <template lang="pug">
   section(
-    :class="[$style['projects-title'], large && $style['large'], projectTitleData.filename && $style['isImage'], offsetToTop && $style['offset-to-top']]"
+    :class="[$style['projects-title'], large && $style['large'], filename && $style['isImage'], offsetToTop && $style['offset-to-top']]"
   )
     div(
       :class="$style['projects-title__container']"
-      :style="projectTitleData.filename && { backgroundImage: `url(${require('~/assets/images/projects/' + this.projectTitleData.filename)})` }"
+      :style="filename && { backgroundImage: `url(${require('~/assets/images/projects/' + this.filename)})` }"
     )
-      div(:class="$style['projects-title__container-title']")
-        typo-text(
-          tag="h1"
-          version="style-1"
-        ) 
-          | {{ projectTitleData.title }}
+      div(:class="$style['projects-title__container-content']")
+        slot
 </template>
 
 <script lang="ts" scoped>
@@ -21,9 +17,9 @@ export default {
   name: 'PageProjectsTitle',
   components: { TypoText },
   props: {
-    projectTitleData: {
-      type: Object,
-      default: () => {},
+    filename: {
+      type: String,
+      default: '',
     },
     large: {
       type: Boolean,
@@ -69,13 +65,28 @@ export default {
       align-items: center
       margin-bottom: 40px
 
-    &-title
+    &-content
       max-width: 863px
       margin: 0 auto
-
-      h1
-        max-width: 590px
+      display: flex
+      flex-direction: column
+      grid-gap: 40px
 
       .isImage &
         color: $color-white-100
+
+      h1
+        margin: 0
+
+      button
+        background: $color-blue-100
+        padding: 16px 32px
+        +style-5
+        color: black
+        width: fit-content
+        border: none
+        cursor: pointer
+
+        .isImage &
+          background: $color-white-100
 </style>
