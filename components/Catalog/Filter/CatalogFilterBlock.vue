@@ -106,4 +106,5 @@ export default {
 
     &-text
       text-align: center
+      margin: 0
 </style>
