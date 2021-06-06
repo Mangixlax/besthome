@@ -19,9 +19,12 @@
     "home": {
       "header": {
         "title": "We are leaders in quality construction & infrastructure",
-        "text1": "BestHome Construction is the leading construction company in Alanya, operating in the real estate market since 2004. Having started its activity as a real estate agency, since 2008. Our company specializes in the construction and implementation of turnkey residential residences in the best areas of the city of Alanya.",
-        "text2": "To date, the company has {link}.",
-        "text2_link": "30 completed projects"
+        "text": "BestHome Construction is the leading construction company in Alanya, operating in the real estate market since 2004. Having started its activity as a real estate agency, since 2008. Our company specializes in the construction and implementation of turnkey residential residences in the best areas of the city of Alanya.",
+        "linkToProjects": {
+          "text": "To date, the company has",
+          "link": "30 completed projects",
+          "route": "/projects"
+        }
       },
       "hero_slider_data": {
         "coursor_data": "Click<br>and drag",
@@ -95,15 +98,6 @@
             "hovered": false
           }
         ]
-      }
-    },
-    "projects": {
-      "header": {
-        "title": "Our projects",
-        "text1": "To date, more than 30 projects have been implemented, including high-rise buildings and private villas in Mahmutlar, Avsallar and other suburbs of Alanya.",
-        "text2": "The company has its own representative offices in Germany, America, Ukraine, Iran, Kazakhstan, as well as in Denmark, Sweden, Norway and Finland. Realtors have already concluded more than 1,000 successful transactions with foreign citizens living in the CIS, the United States, Europe and the Middle East.",
-        "text3": "Learn more about {link}.",
-        "text3_link": "our company"
       }
     },
     "projects_our_pojects": {
@@ -182,6 +176,14 @@
         }
       ]
     },
+    "secondary_housing": {
+      "header": {
+        "title": "Secondary housing",
+        "sub_title": "You are only 3 steps away from your new home. Do everything online, from the comfort of your own home. Safely, simply, quickly.",
+        "button": "I want to choose a flat"
+      },
+      "article_1": "Apartments in BestHome Construction complexes are not only a comfortable stay and a quality holiday in Alanya, but also an opportunity for profitable investments. Due to the fact that the complexes built by our construction company are almost completely sold at the construction stage, and the demand for them is only increasing, we are pleased to offer our clients a service for reselling their apartments, and new buyers-the opportunity to purchase ready-made housing from BestHome Construction. In our portfolio of secondary housing, you can find offers of apartments in Alanya with furniture, as well as apartments in which no one lived."
+    },
     "projects_review": {
       "header": {
         "title": "City living with a touch of nature",
@@ -206,19 +208,19 @@
       "scroll_line_data": [
         {
           "title": "239",
-          "subtitle": "Apartments"
+          "text": "Apartments"
         },
         {
           "title": "470",
-          "subtitle": "Parking spots for bikes"
+          "text": "Parking spots for bikes"
         },
         {
           "title": "3800m²",
-          "subtitle": "Of common green areas"
+          "text": "Of common green areas"
         },
         {
           "title": "1 to 4-room",
-          "subtitle": "Separate rooms"
+          "text": "Separate rooms"
         }
       ],
       "panorama": {
@@ -282,11 +284,11 @@
       "scroll_line_data": [
         {
           "title": "Up to 31 years",
-          "subtitle": "Loan repayment period"
+          "text": "Loan repayment period"
         },
         {
           "title": "loan up to 300 000 €",
-          "subtitle": "Most advantageous rates"
+          "text": "Most advantageous rates"
         }
       ],
       "post_4": {
@@ -533,19 +535,19 @@
       "scroll_line_data": [
         {
           "title": "239",
-          "subtitle": "Apartments"
+          "text": "Apartments"
         },
         {
           "title": "470",
-          "subtitle": "Parking spots for bikes"
+          "text": "Parking spots for bikes"
         },
         {
           "title": "3800m²",
-          "subtitle": "Of common green areas"
+          "text": "Of common green areas"
         },
         {
           "title": "1 to 4-room",
-          "subtitle": "Separate rooms"
+          "text": "Separate rooms"
         }
       ],
       "article_2": {
@@ -578,19 +580,19 @@
       "scroll_line_data": [
         {
           "title": "239",
-          "subtitle": "Apartments"
+          "text": "Apartments"
         },
         {
           "title": "470",
-          "subtitle": "Parking spots for bikes"
+          "text": "Parking spots for bikes"
         },
         {
           "title": "3800m²",
-          "subtitle": "Of common green areas"
+          "text": "Of common green areas"
         },
         {
           "title": "1 to 4-room",
-          "subtitle": "Separate rooms"
+          "text": "Separate rooms"
         }
       ],
       "post_1": {

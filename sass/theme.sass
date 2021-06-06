@@ -28,10 +28,20 @@ body,
   min-height: 100vh
   min-width: 320px
 
-@import "~swiper/swiper"
+body
+  padding-right: var(--modal-padding, 0)
 
 .page-enter-active, .page-leave-active
   transition: opacity .5s
 
 .page-enter, .page-leave-active
   opacity: 0
+
+@import "~swiper/swiper"
+@import 'modal'
+
+.swiper-wrapper
+  align-items: center
+
+.vue-slider-rail
+  background: $color-white-32 !important

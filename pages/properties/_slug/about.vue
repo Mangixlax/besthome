@@ -1,8 +1,11 @@
-
 <template lang="pug">
   main
     base-project-navigation
-    page-projects-title(:project-title-data="$t('pages.projects_review.header')")
+    page-projects-title(:filename="$t('pages.projects_review.header.filename')")
+       typo-text(
+        tag="h1"
+        version="style-1"
+      ) {{ $t('pages.projects_review.header.title') }}
     page-projects-four-columns(:columns="pageProjectsFourColumns")
     base-post-two-image(
       :data="{\

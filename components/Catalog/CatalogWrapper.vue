@@ -37,15 +37,16 @@
             )
         component(
           :is="isCardDisplay ? 'CatalogCards' : 'CatalogList'"
-          :project-catalog-info="projectCatalogData"
+          :project-catalog-info="projectCatalogInfo"
         )
-      div(:class="$style['catalog__filter']")
+      catalog-filter-list(:filter-dark-mode="filterDarkMode")
 </template>
 
 <script lang="ts">
 import TypoText from '~/components/Base/TypoText.vue'
 import CatalogCards from '~/components/Catalog/CatalogCards.vue'
 import CatalogList from '~/components/Catalog/CatalogList.vue'
+import CatalogFilterList from '~/components/Catalog/Filter/CatalogFilterList.vue'
 import Magnetic from '~/directives/magnetic'
 
 export default {
@@ -54,97 +55,25 @@ export default {
     TypoText,
     CatalogCards,
     CatalogList,
+    CatalogFilterList,
   },
   directives: {
     // @ts-ignore
     Magnetic,
   },
+  props: {
+    filterDarkMode: {
+      type: Boolean,
+      default: false,
+    },
+    projectCatalogInfo: {
+      type: Array,
+      default: () => [],
+    },
+  },
   data() {
     return {
       isCardDisplay: true,
-      projectCatalogData: [
-        {
-          status: 'RESERVED',
-          area: 120,
-          image: 'plan-1.png',
-          price: '450 400',
-          block: 'B',
-          floor: 4,
-          room: 4,
-        },
-        {
-          status: 'AVALIBLE',
-          area: 44.53,
-          image: 'plan-2.png',
-          price: '450 400',
-          block: 'B',
-          floor: '4',
-          room: '4',
-        },
-        {
-          status: 'SOLD',
-          area: 71.1,
-          image: 'plan-3.png',
-          price: '450 400',
-          block: 'B',
-          floor: '4',
-          room: '4',
-        },
-        {
-          status: 'AVALIBLE',
-          area: 120,
-          image: 'plan-1.png',
-          price: '450 400',
-          block: 'B',
-          floor: '4',
-          room: '4',
-        },
-        {
-          status: 'AVALIBLE',
-          area: 120,
-          image: 'plan-1.png',
-          price: '450 400',
-          block: 'B',
-          floor: '4',
-          room: '4',
-        },
-        {
-          status: 'AVALIBLE',
-          area: 120,
-          image: 'plan-1.png',
-          price: '450 400',
-          block: 'B',
-          floor: '4',
-          room: '4',
-        },
-        {
-          status: 'RESERVED',
-          area: 120,
-          image: 'plan-1.png',
-          price: '450 400',
-          block: 'B',
-          floor: 4,
-          room: 4,
-        },
-        {
-          status: 'AVALIBLE',
-          area: 44.53,
-          image: 'plan-2.png',
-          price: '450 400',
-          block: 'B',
-          floor: '4',
-          room: '4',
-        },
-        {
-          status: 'SOLD',
-          area: 71.1,
-          image: 'plan-3.png',
-          price: '450 400',
-          block: 'B',
-          floor: '4',
-          room: '4',
-        },
-      ],
     }
   },
 }
@@ -197,9 +126,4 @@ export default {
 
         &.active
           fill: $color-blue-100
-
-  &__filter
-    min-width: 320px
-    height: 1681px
-    background: $color-blue-100
 </style>
