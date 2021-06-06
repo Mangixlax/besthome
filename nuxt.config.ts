@@ -78,17 +78,15 @@ export default <NuxtConfig>{
     '~plugins/v-click-outside.js',
     '@/plugins/axios.js',
     '@/plugins/i18n.ts',
-    { src: '~plugins/vue-scrollmagic.js',
-      ssr: false
-    },
+    { src: '~plugins/vue-scrollmagic.js', ssr: false },
     {
       src: '~plugins/vue-slider-component.js',
-      ssr: false
+      ssr: false,
     },
     {
       src: '~plugins/vue-fragment.js',
     },
-    { src: '~plugins/modal.js', mode: 'client' }
+    { src: '~plugins/modal.js', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -140,7 +138,20 @@ export default <NuxtConfig>{
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    proxy: true,
+    debug: false,
+    headers: {
+      common: {
+        'Cache-Control': 'no-cache',
+      },
+    },
+  },
+
+  proxy: {
+    '/api/': process.env.API_URL,
+    '/storage/': process.env.API_URL,
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
@@ -168,9 +179,21 @@ export default <NuxtConfig>{
 
   router: {
     prefetchLinks: false,
+    trailingSlash: true,
   },
 
-  redirect: [{ from: '^(\\/[^\\?]*[^\\/])(\\?.*)?$', to: '$1/$2' }],
+  redirect: [
+    {
+      from: '^[\\w\\.\\/]*(?<!\\/)(\\?.*\\=.*)*$',
+      to: (from: any, req: any) => {
+        const matches = req.url.match(/^.*(\?.*)$/)
+        if (matches.length > 1) {
+          return matches[0].replace(matches[1], '') + '/' + matches[1]
+        }
+        return matches[0]
+      },
+    },
+  ],
 
   /*
    ** Build configuration
