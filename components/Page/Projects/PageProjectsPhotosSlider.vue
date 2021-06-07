@@ -47,7 +47,7 @@ interface IPhotoSlider {
   },
 })
 export default class PageProjectsPhotosSlider extends Vue {
-  @Prop({ type: Object, default: () => {}}) data!: IPhotoSlider
+  @Prop({ type: Object, default: () => {} }) data!: IPhotoSlider
 
   public swiperOption: any = {
     breakpoints: {
@@ -95,13 +95,18 @@ export default class PageProjectsPhotosSlider extends Vue {
 .slide
   display: flex
   justify-content: center
+  align-items: center
+
 
   @media (min-width: 1200px)
     width: auto !important
 
   img
-    object-fit: cover
     height: 100%
+    max-height: 600px
+    display: block
+    max-width: 100%
+    height: auto
 
 .navigation
   max-width: 1296px
