@@ -89,6 +89,7 @@ export default {
       padding: 8px
       color: $color-white-56
       cursor: pointer
+      transition: color 0.25s ease, background-color 0.25s ease
 
       &.selected
         background-color: $color-white-100
@@ -97,12 +98,11 @@ export default {
         .dark-mode &
           color: $color-black-96
 
-      &:hover
-        background-color: $color-white-100
-        color: $color-blue-100
+      &:not(.selected):hover
+        color: $color-white-100
 
         .dark-mode &
-          color: $color-black-96
+          color: $color-white-100
 
     &-text
       text-align: center
