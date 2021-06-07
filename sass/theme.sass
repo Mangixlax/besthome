@@ -31,16 +31,22 @@ body,
 body
   padding-right: var(--modal-padding, 0)
 
+/* Page transition
 .page-enter-active, .page-leave-active
   transition: opacity .5s
 
 .page-enter, .page-leave-active
   opacity: 0
 
+/* Custom modal styles
 @import 'modal'
 
+/* Custom swiper styles
 .swiper-wrapper
   align-items: center
 
-.vue-slider-rail
-  background: $color-white-32 !important
+/* Custom Vue slider component styles
+$themeColor: $color-white-100
+$bgColor: $color-white-32
+
+@import '~vue-slider-component/lib/theme/default.scss'

@@ -12,51 +12,38 @@
     )
     catalog-filter-range(
       :dark-mode="filterDarkMode"
-      :rangeFrom="'Floor'"
-      :rangeTo="'Floor'"
       :minRangeValue="1"
       :maxRangeValue="10"
       :startMinValue="2"
       :startMaxValue="9"
       :interval="1"
-      :rangeMode="true"
-      :formatNumberMode="true"
-      inputWidth="88"
       :move-adjacent-point="1"
       title="FLOOR"
     )
     catalog-filter-range(
       :dark-mode="filterDarkMode"
-      :rangeFrom="'€'"
-      :rangeTo="'€'"
+      dimension="€"
       :minRangeValue="1000"
       :maxRangeValue="1000000"
       :startMinValue="15000"
       :startMaxValue="950000"
       :interval="100"
-      :rangeMode="true"
-      :formatNumberMode="true"
-      inputWidth="88"
       :move-adjacent-point="1000"
       title="PRICE"
     )
     catalog-filter-range(
       :dark-mode="filterDarkMode"
-      :rangeFrom="'m²'"
-      :rangeTo="' m²'"
+      dimension="m²"
       :minRangeValue="20"
       :maxRangeValue="500"
       :startMinValue="40"
       :startMaxValue="450"
       :interval="0.5"
-      :rangeMode="true"
-      :formatNumberMode="true"
-      inputWidth="88"
       :move-adjacent-point="50"
       title="AREA"
     )
     catalog-filter-checkbox(
-      title="ADVANTAGES "
+      title="ADVANTAGES"
       :filter-items="checkboxFilterItems"
     )
 </template>
