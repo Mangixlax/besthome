@@ -37,11 +37,7 @@ interface IPost {
 
 @Component
 export default class BasePost extends Vue {
-  @Prop({ type: Boolean, default: false }) data!: IPost
-
-  @Prop({ type: Boolean, default: false }) flip!: boolean
-  @Prop({ type: Boolean, default: false }) textFlip!: boolean
-  @Prop({ type: String, default: '' }) filename!: string
+  @Prop({ type: Object, default: false }) data!: IPost
 }
 </script>
 
