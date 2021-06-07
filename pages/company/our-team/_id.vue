@@ -33,7 +33,7 @@
 import TypoText from '~/components/Base/TypoText.vue'
 import PageCompanyOurTeamSlider from '~/components/Page/Company/PageCompanyOurTeamSlider.vue'
 import { Context } from '@nuxt/types'
-import { Component } from 'nuxt-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component({
   components: { TypoText, PageCompanyOurTeamSlider },
