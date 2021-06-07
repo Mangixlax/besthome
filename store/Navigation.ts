@@ -15,6 +15,7 @@ export interface NavigationListItem {
 export interface IMenusItem {
   title: string
   url: string
+  params?: any
   indicator: string
   title_in_children?: string
   items?: IMenusItem[]
@@ -58,6 +59,7 @@ export const getters: GetterTree<NavigationState, RootState> = {
           indicator: item.indicator,
           route: {
             name: item.url,
+            params: item.params,
           },
           children: processing(item.items?.length ? item.items : []),
           hasChildren: !!item.items?.length,
