@@ -74,7 +74,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from 'nuxt-property-decorator'
-import ModalContainer from '~/components/modal/base/ModalContainer.vue'
+import ModalContainer from '~/components/Modal/base/ModalContainer.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import { IProject, IProjectApartment, IProjectFloor } from '~/store/Catalog'
 
