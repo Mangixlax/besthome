@@ -59,8 +59,8 @@
           ` <a href=\"${localePath({ name: 'projects' })}\">${$t('pages.service_turkish_citizenship.post_4.link')}</a>.</p>`,\
         ].join(''),\
         images: [\
-          { path: require(`~/assets/images/pages/service/turkish-citizenship/portrait-1.jpg`), },\
-          { path: require(`~/assets/images/pages/service/turkish-citizenship/landscape-1.jpg`), },\
+          require(`~/assets/images/pages/service/turkish-citizenship/portrait-1.jpg`),\
+          require(`~/assets/images/pages/service/turkish-citizenship/landscape-1.jpg`),\
         ],\
       }"
     )
@@ -73,6 +73,7 @@ import BaseImageTitle from '~/components/Base/BaseImageTitle.vue'
 import PageServiceListCard from '~/components/Page/Service/PageServiceListCard.vue'
 import BasePostTwoImage from '~/components/Base/BasePostTwoImage.vue'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
+import { Context } from '@nuxt/types'
 
 export default {
   name: 'turkish-citizenship',
@@ -83,6 +84,9 @@ export default {
     PageServiceListCard,
     BasePostTwoImage,
     BaseTextContainer,
+  },
+  async asyncData(ctx: Context): Promise<object | void> {
+    ctx.store.commit('setLogoSubTitle', 'Service')
   },
 }
 </script>

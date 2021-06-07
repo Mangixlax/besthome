@@ -4,7 +4,7 @@
       typo-text(
         tag="h2"
         version="style-4"
-      ) Similar apartments  
+      ) Similar apartments
     div(:class="$style['container__body']")
       swiper(ref="swiper" :class="$style['slider']" class="swiper" :options="swiperOption")
         swiper-slide(
@@ -21,12 +21,12 @@
               svg-icon(name="slider-prev-arrow-blue")
             button(:class="[$style['swiper-button-next']]" @click.prevent="$refs.swiper.swiperInstance.slideNext()")
               svg-icon(name="slider-next-arrow-blue")
-      div(:class="$style['footer']") 
+      div(:class="$style['footer']")
         typo-text(
           tag="p"
           version="style-5"
           :class="$style['footer__link-text']"
-        ) Cleopatra Select 
+        ) Cleopatra Select
         typo-text(
           tag="nuxt-link"
           version="style-5"
@@ -81,7 +81,6 @@ export default {
           el: '.swiper-pagination-progressbar',
           type: 'progressbar',
         },
-        enabled: false,
       },
     }
   },

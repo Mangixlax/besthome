@@ -1,14 +1,12 @@
 <template lang="pug">
   main
-    page-projects-title(filename="projects-title-secondary-housing.jpg")
-      typo-text(
-        tag="h1"
-        version="style-1"
-      ) {{ $t('pages.secondary_housing.header.title') }}
-      typo-text(
-        tag="p"
-        version="style-6"
-      ) {{ $t('pages.secondary_housing.header.sub_title') }}
+    page-projects-title(
+      :data="{\
+        header: $t('pages.secondary_housing.header.title'),\
+        text: `<p>${$t('pages.secondary_housing.header.sub_title')}</p>`,\
+        image: require('@/assets/images/projects/projects-title-secondary-housing.jpg')\
+      }"
+    )
       button(
         @click="onClickBtn"
       ) {{ $t('pages.secondary_housing.header.button') }}
@@ -52,6 +50,9 @@ export default {
     BaseAccordions,
     FooterFastLinks,
     TypoText,
+  },
+  asyncData(ctx) {
+    ctx.store.commit('setLogoSubTitle', 'Secondary housing')
   },
   mixins: [modalsTriggerMixin],
   methods: {

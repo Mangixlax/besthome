@@ -21,7 +21,7 @@
     link-banner-wrapper
       link-banner(
         :image-src="require('~/assets/images/pages/home/secondary-housing.jpg')"
-        :to="{ name: 'index' }"
+        :to="localePath({ name: 'investors' })"
         :title="$t('pages.home.link_baner.baner_1.title')"
         :text="$t('pages.home.link_baner.baner_1.text')"
         text-align="right"
@@ -30,7 +30,7 @@
       )
       link-banner(
         :image-src="require('~/assets/images/pages/home/for-investors.jpg')"
-        :to="{ name: 'investors' }"
+        :to="localePath({ name: 'secondary-housing' })"
         :title="$t('pages.home.link_baner.baner_2.title')"
         :text="$t('pages.home.link_baner.baner_2.text')"
         text-align="center"

@@ -102,9 +102,9 @@ export default {
 
       a
         text-decoration: underline
-        text-decoration-color: $color-blue-16
+        text-decoration-color: $color-white-16
         text-underline-offset: 7px
-        color: $color-blue-100
+        color: $color-white-100
 
       h2, h3, h4, p
         margin: 0

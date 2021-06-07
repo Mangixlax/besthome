@@ -2,27 +2,31 @@
   section(:class="$style['accordions']")
     div(:class="$style['accordions__container']")
       common-accordion-item(
-        v-for="(accordion, i) in accordionsData"
+        v-for="(accordion, i) in list"
         :key="i"
-        :title="accordion.title" 
+        :title="accordion.title"
         :active="accordion.is_active"
-      ) 
+      )
         div(v-html="accordion.content")
 </template>
 
 <script lang="ts">
 import CommonAccordionItem from '~/components/Common/CommonAccordionItem.vue'
 import TypoText from '~/components/Base/TypoText.vue'
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
 
-export default {
-  name: 'BaseAccordions',
+@Component({
   components: { CommonAccordionItem, TypoText },
-  props: {
-    accordionsData: {
-      type: Array,
-      default: () => [],
-    },
-  },
+})
+export default class BaseAccordions extends Vue {
+  @Prop({ type: Array, default: () => [] }) accordionsData!: any
+
+  get list() {
+    return (this.accordionsData || []).map((item: any, index: number) => ({
+      ...item,
+      is_active: index === 0 ? true : item.is_active,
+    }))
+  }
 }
 </script>
 

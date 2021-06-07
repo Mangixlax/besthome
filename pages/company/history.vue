@@ -25,10 +25,14 @@
 import PageCompanyHistoryTitle from '~/components/Page/Company/PageCompanyHistoryTitle.vue'
 import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
+import { Context } from '@nuxt/types'
 
 export default {
   name: 'legal-support',
   components: { PageCompanyHistoryTitle, BasePost, TypoText },
+  asyncData(ctx: Context): void {
+    ctx.store.commit('setLogoSubTitle', 'Company')
+  },
 }
 </script>
 

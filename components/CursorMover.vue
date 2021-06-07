@@ -148,8 +148,8 @@ export default class CursorMover extends Vue {
         .on('mousemove', this.onMouseMove)
         .on('mousedown', this.activateCursor)
         .on('mouseup', this.deactivateCursor)
-        .on('mouseenter', 'a,input,textarea,button', this.onMouseEnterPointer)
-        .on('mouseleave', 'a,input,textarea,button', this.onMouseLeavePointer)
+        .on('mouseenter', 'a,label,input,textarea,button', this.onMouseEnterPointer)
+        .on('mouseleave', 'a,label,input,textarea,button', this.onMouseLeavePointer)
         .on('mouseenter', 'h1,[data-cursor-text]', this.onMouseEnterText)
         .on('mouseleave', 'h1,[data-cursor-text]', this.onMouseLeaveText)
   }

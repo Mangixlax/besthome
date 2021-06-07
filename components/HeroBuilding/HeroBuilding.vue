@@ -26,7 +26,7 @@
     div(
       :class="{\
         [$style['tooltip']]: true,\
-        [$style['tooltip--show']]: tooltip.title.length,\
+        [$style['tooltip--show']]: tooltip.title.length && tooltip.styles.left !== '0px',\
         [$style['tooltip--disabled']]: tooltip.available <= 0,\
       }"
       :style="tooltip.styles"
@@ -81,7 +81,8 @@ export default class HeroBuilding extends Vue {
     },
   }
 
-  mounted(): void {
+  async mounted() {
+    await this.$nextTick()
     this.$floors = (this.$refs.container as Element).querySelectorAll('[id*=bfloor-]')
     this.$blocks = (this.$refs.container as Element).querySelectorAll('[id*=block]')
     ;(this.$floors || []).forEach((el: Element) => {
@@ -117,7 +118,6 @@ export default class HeroBuilding extends Vue {
           options: {
             width: '100%',
             height: '100%',
-            scrollable: false,
           },
         })
       })
@@ -215,6 +215,7 @@ export default class HeroBuilding extends Vue {
   max-width: 150px
   padding: 10px
   background-color: $color-blue-100
+  pointer-events: none
 
   &--show
     display: block
@@ -237,7 +238,7 @@ export default class HeroBuilding extends Vue {
   min-height: 850px
   background-position: 50%
   background-size: cover
-  padding: 0 64px
+  padding: 80px 64px
 
   &__container
     height: auto

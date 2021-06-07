@@ -15,6 +15,7 @@ declare module '*.vue' {
 declare module 'vue/types/vue' {
   interface Vue {
     $style: { [key: string]: string }
+    [key: string]: any
   }
 }
 
@@ -32,6 +33,7 @@ declare module 'vue/types/options' {
 
   interface RenderContext<Props = DefaultProps> {
     $style: { [key: string]: string }
+    [key: string]: any
   }
 }
 

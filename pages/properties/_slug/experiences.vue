@@ -1,115 +1,95 @@
 <template lang="pug">
   main
     base-project-navigation
-    page-projects-title(:filename="$t('pages.projects_review.header.filename')")
-      typo-text(
-        tag="h1"
-        version="style-1"
-      ) {{ $t('pages.projects_review.header.title') }}
-    base-post(
-      :filename="require(`~/assets/images/test.jpg`)"
+    component(
+      :is="block.type"
+      v-for="(block, index) in blocks"
+      :key="index"
+      :data="block"
     )
-      typo-text(
-        tag="h3"
-        version="style-3"
-      ) {{ $t('pages.projects_experiences.post_1.title') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.projects_experiences.post_1.paragraph_1') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.projects_experiences.post_1.paragraph_2') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      )
-        | {{ $t('pages.projects_experiences.post_1.paragraph_with_link') }}
-        typo-text(
-          tag="a"
-          href="#"
-          version="style-5"
-        ) {{ $t('pages.projects_experiences.post_1.link') }}
-        | .
-    base-post(
-      :filename="require(`~/assets/images/test.jpg`)"
-      flip
-      text-flip
-    )
-      typo-text(
-        tag="h3"
-        version="style-3"
-      ) {{ $t('pages.projects_experiences.post_2.title') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.projects_experiences.post_1.paragraph_1') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      )
-        | {{ $t('pages.projects_experiences.post_2.paragraph_with_link') }}
-        typo-text(
-          tag="a"
-          href="#"
-          version="style-5"
-        ) {{ $t('pages.projects_experiences.post_1.link') }}
-        | .
-    base-scroll-line(:data="$t('pages.projects_experiences.scroll_line_data')")
-    page-projects-panorama
-    base-subscribe(:subscribe-data="$t('footer.subscribe')" whiteTheme)
+    base-subscribe(:subscribe-data="$t('footer.subscribe')" white-theme)
     base-accordions(:accordions-data="$t('footer.accordions')")
     footer-fast-links
 </template>
 
 <script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator'
 import BaseProjectNavigation from '~/components/Base/BaseProjectNavigation.vue'
 import PageProjectsTitle from '~/components/Page/Projects/PageProjectsTitle.vue'
+import BasePostTwoImage from '~/components/Base/BasePostTwoImage.vue'
 import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import BaseScrollLine from '~/components/Base/BaseScrollLine.vue'
-import PageProjectsPanorama from '~/components/Page/Projects/PageProjectsPanorama.vue'
+import PageProjectsResidencesSlider from '~/components/Page/Projects/PageProjectsResidencesSlider.vue'
+import PageProjectsPhotosSlider from '~/components/Page/Projects/PageProjectsPhotosSlider.vue'
 import BaseSubscribe from '~/components/Base/BaseSubscribe.vue'
 import BaseAccordions from '~/components/Base/BaseAccordions.vue'
 import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
+import HeroBuilding from '~/components/HeroBuilding/HeroBuilding.vue'
+import { Context } from '@nuxt/types'
+import PageProjectsInfrastructureSlider from '~/components/Page/Projects/PageProjectsInfrastructureSlider.vue'
+import PageProjectsTimeline from '~/components/Page/Projects/PageProjectsTimeline.vue'
+import VueRouter from "vue-router"
 
-export default {
-  name: 'experiences',
+@Component({
   components: {
+    PageProjectsInfrastructureSlider,
+    PageProjectsTimeline,
+    HeroBuilding,
     BaseProjectNavigation,
     PageProjectsTitle,
+    BasePostTwoImage,
     BasePost,
     TypoText,
     BaseScrollLine,
-    PageProjectsPanorama,
+    PageProjectsResidencesSlider,
+    PageProjectsPhotosSlider,
     BaseSubscribe,
     BaseAccordions,
     FooterFastLinks,
   },
-  data() {
-    return {
-      experiencesPageScrollLineInfo: [
-        {
-          title: '239',
-          text: 'Apartments',
-        },
-        {
-          title: '470',
-          text: 'Parking spots for bikes',
-        },
-        {
-          title: '3800m²',
-          text: 'Of common green areas',
-        },
-        {
-          title: '1 to 4-room',
-          text: 'Separate rooms',
-        },
-      ],
+  async asyncData(ctx: Context): Promise<object | void> {
+    ctx.store.commit('setLogoSubTitle', 'Projects')
+
+    // Dont load project from api if project already saved in store
+    if (ctx.route.params.slug !== ctx.store.getters['Catalog/getProject'].slug) {
+      const projectId = (ctx.route.params.slug || '').split('-').pop()
+      await ctx.store.dispatch('Catalog/fetchProject', projectId)
+
+      if (
+        process.server &&
+        ctx.store.getters['Catalog/getProject'].slug !== ctx.route.params.slug
+      ) {
+        ctx.redirect(
+          301,
+          (ctx.app.router as VueRouter).resolve({
+            name: ctx.route.name as string,
+            params: { slug: ctx.store.getters['Catalog/getProject'].slug },
+          }).href,
+        )
+      }
     }
   },
+})
+export default class PropertiesExperiencesPage extends Vue {
+  get blocks() {
+    const componentsRelations: any = {
+      BlockTwoPhotoText: 'base-post-two-image',
+      BlockLineScroller: 'base-scroll-line',
+      BlockInfrastructure: 'page-projects-infrastructure-slider',
+      BlockTimeline: 'page-projects-timeline',
+      BlockHeroBuilding: 'hero-building',
+      BlockPhotoSlider: 'page-projects-photos-slider',
+      BlockResidenceOffer: 'page-projects-residences-slider',
+      BlockProjectTitle: 'page-projects-title',
+    }
+
+    return (this.$store.state.Catalog.project.experience_data || []).map((block: any) => ({
+      ...block,
+      type: Object.keys(componentsRelations).includes(block.type)
+        ? componentsRelations[block.type]
+        : 'p',
+    }))
+  }
 }
 </script>
-
-<style lang="sass" module></style>

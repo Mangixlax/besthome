@@ -21,10 +21,14 @@ import TypoText from '~/components/Base/TypoText.vue'
 import BaseImageTitle from '~/components/Base/BaseImageTitle.vue'
 import PageServiceListCard from '~/components/Page/Service/PageServiceListCard.vue'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
+import { Context } from '@nuxt/types'
 
 export default {
   name: 'after-sale-services',
   components: { TypoText, BaseImageTitle, PageServiceListCard, BaseTextContainer },
+  async asyncData(ctx: Context): Promise<object | void> {
+    ctx.store.commit('setLogoSubTitle', 'Service')
+  },
 }
 </script>
 

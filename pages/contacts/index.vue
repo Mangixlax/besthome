@@ -8,11 +8,15 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import PageContactsMap from '~/components/Page/Contacts/PageContactsMap.vue'
 import CommonConsultantSlider from '~/components/Common/CommonConsultantSlider.vue'
+import { Context } from '@nuxt/types'
 
 @Component({
   components: {
     PageContactsMap,
     CommonConsultantSlider,
+  },
+  asyncData(ctx: Context): void {
+    ctx.store.commit('setLogoSubTitle', 'Contacts')
   },
 })
 export default class IndexPage extends Vue {}

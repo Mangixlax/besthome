@@ -186,17 +186,28 @@
                 button(:class="[$style['swiper-button-prev']]" @click.prevent="$refs.swiper_5.swiperInstance.slidePrev()")
                   svg-icon(name="slider-prev-arrow-blue")
                 button(:class="[$style['swiper-button-next']]" @click.prevent="$refs.swiper_5.swiperInstance.slideNext()")
-                  svg-icon(name="slider-next-arrow-blue")    
+                  svg-icon(name="slider-next-arrow-blue")
 </template>
 
-<script>
+<script lang="ts">
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import TypoText from '~/components/Base/TypoText.vue'
 import CommonTab from '~/components/Common/CommonTab.vue'
 import CommonTabs from '~/components/Common/CommonTabs.vue'
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
-export default {
-  name: 'PageProjectsResidencesSlider',
+interface IResidenceSlider {
+  header: string
+  text: string
+  apartments: Array<{
+    id: number
+    area: string
+    floor: number
+    scheme?: string
+  }>
+}
+
+@Component({
   components: {
     Swiper,
     SwiperSlide,
@@ -204,30 +215,26 @@ export default {
     CommonTab,
     CommonTabs,
   },
-  data() {
-    return {
-      swiperOption: {
-        slidesPerView: 1,
-        pagination: {
-          el: '.swiper-pagination-progressbar',
-          type: 'progressbar',
-        },
-      },
-      projectsSliderData: [
-        '1-rooms-1.jpg',
-        '1-rooms-2.jpg',
-        '1-rooms-3.jpg',
-        '1-rooms-4.jpg',
-        '1-rooms-5.jpg',
-        '1-rooms-6.jpg',
-      ],
-    }
-  },
-  computed: {
-    getOurCompanyCardInfo() {
-      return this.$store.state.ourCompanyCardInfo
+})
+export default class PageProjectsResidencesSlider extends Vue {
+  @Prop({ type: Object, default: () => {}}) data!: IResidenceSlider
+
+  public swiperOption: any = {
+    slidesPerView: 1,
+    pagination: {
+      el: '.swiper-pagination-progressbar',
+      type: 'progressbar',
     },
-  },
+  }
+
+  public projectsSliderData: any = [
+    '1-rooms-1.jpg',
+    '1-rooms-2.jpg',
+    '1-rooms-3.jpg',
+    '1-rooms-4.jpg',
+    '1-rooms-5.jpg',
+    '1-rooms-6.jpg',
+  ]
 }
 </script>
 

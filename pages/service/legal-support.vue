@@ -29,7 +29,7 @@
         | .
     base-post(
       :filename="require(`~/assets/images/pages/service/legal-support/image-2.jpg`)"
-      flip 
+      flip
       text-flip
     )
       typo-text(
@@ -61,10 +61,14 @@ import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import BaseImageTitle from '~/components/Base/BaseImageTitle.vue'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
+import { Context } from '@nuxt/types'
 
 export default {
   name: 'legal-support',
   components: { BasePost, TypoText, BaseImageTitle, BaseTextContainer },
+  async asyncData(ctx: Context): Promise<object | void> {
+    ctx.store.commit('setLogoSubTitle', 'Service')
+  },
 }
 </script>
 

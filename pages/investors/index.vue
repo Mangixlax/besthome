@@ -94,6 +94,7 @@ import BasePost from '~/components/Base/BasePost.vue'
 import BaseScrollLine from '~/components/Base/BaseScrollLine.vue'
 import BasePostTwoImage from '~/components/Base/BasePostTwoImage.vue'
 import TypoText from '~/components/Base/TypoText.vue'
+import { Context } from '@nuxt/types'
 
 @Component({
   components: {
@@ -103,6 +104,9 @@ import TypoText from '~/components/Base/TypoText.vue'
     BasePostTwoImage,
     BaseScrollLine,
     TypoText,
+  },
+  asyncData(ctx: Context): void {
+    ctx.store.commit('setLogoSubTitle', 'Investors')
   },
 })
 export default class InvestorsPage extends Vue {}
