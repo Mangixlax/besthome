@@ -63,9 +63,9 @@
 
 <script>
 import TypoText from '~/components/Base/TypoText.vue'
-import CatalogFilterBlock from '~/components/catalog/Filter/CatalogFilterBlock'
-import CatalogFilterRange from '~/components/catalog/Filter/CatalogFilterRange'
-import CatalogFilterCheckbox from '~/components/catalog/Filter/CatalogFilterCheckbox'
+import CatalogFilterBlock from '~/components/Catalog/Filter/CatalogFilterBlock.vue'
+import CatalogFilterRange from '~/components/Catalog/Filter/CatalogFilterRange.vue'
+import CatalogFilterCheckbox from '~/components/Catalog/Filter/CatalogFilterCheckbox.vue'
 
 export default {
   name: 'PageProjectsFilterList',

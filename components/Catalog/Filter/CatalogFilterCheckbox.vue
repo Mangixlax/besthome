@@ -11,7 +11,7 @@
         v-for="(item,i) in filterItems"
         :key="i"
         :class="$style['filter-checkbox__grid-item']"
-        
+
       )
         label(:class="$style['filter-checkbox__grid-label']")
           input(
@@ -30,7 +30,7 @@
 
 <script>
 import TypoText from '~/components/Base/TypoText.vue'
-import CatalogFilterRange from '~/components/catalog/Filter/CatalogFilterRange'
+import CatalogFilterRange from '~/components/Catalog/Filter/CatalogFilterRange'
 
 export default {
   name: 'PageProjectsFilterList',
@@ -109,7 +109,7 @@ export default {
       user-select: none
       grid-gap: 16px
       margin: 0
-      
+
       &::before
         content: ''
         display: inline-block
