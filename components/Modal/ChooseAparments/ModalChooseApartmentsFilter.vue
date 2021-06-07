@@ -170,7 +170,7 @@ export default {
   justify-content: center
   align-items: center
   grid-gap: 32px
-  padding: 40px 0
+  padding-top: 40px
   border-top: solid 1px $color-black-8
   border-bottom: solid 1px $color-black-8
 
@@ -179,7 +179,7 @@ export default {
 
   &__title
     margin: 0
-    padding: 24px
+    padding: 0 24px
 
   &__body
     width: 100%
