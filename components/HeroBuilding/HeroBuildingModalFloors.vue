@@ -56,7 +56,7 @@
         div(:class="[$style['floor__footer-miniature'], $style['floor__footer-miniature--orientation']]")
           svg-icon(name="modals/orientation")
       div(
-        :class="[$style['floor__tooltip'], tooltip.name.length && $style['floor__tooltip--show']]"
+        :class="[$style['floor__tooltip'], (tooltip.name.length && tooltip.styles.left !== '0px') && $style['floor__tooltip--show']]"
         :style="tooltip.styles"
       )
         div(:class="$style['floor__tooltip-name']") {{ tooltip.name }}
@@ -316,6 +316,7 @@ export default class HeroBuildingModalFloors extends Vue {
   min-width: 350px
   animation: opacity 0.25s linear forwards
   will-change: opacity
+  pointer-events: none
 
   @media (max-width: 700px)
     min-width: 280px

@@ -26,7 +26,7 @@
     div(
       :class="{\
         [$style['tooltip']]: true,\
-        [$style['tooltip--show']]: tooltip.title.length,\
+        [$style['tooltip--show']]: tooltip.title.length && tooltip.styles.left !== '0px',\
         [$style['tooltip--disabled']]: tooltip.available <= 0,\
       }"
       :style="tooltip.styles"
@@ -81,7 +81,8 @@ export default class HeroBuilding extends Vue {
     },
   }
 
-  mounted(): void {
+  async mounted(): void {
+    await this.$nextTick()
     this.$floors = (this.$refs.container as Element).querySelectorAll('[id*=bfloor-]')
     this.$blocks = (this.$refs.container as Element).querySelectorAll('[id*=block]')
     ;(this.$floors || []).forEach((el: Element) => {
@@ -215,6 +216,7 @@ export default class HeroBuilding extends Vue {
   max-width: 150px
   padding: 10px
   background-color: $color-blue-100
+  pointer-events: none
 
   &--show
     display: block
