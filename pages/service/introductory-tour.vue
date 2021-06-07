@@ -10,27 +10,18 @@
         version="style-4"
       ) {{ $t('pages.service_introductory_tour.slot_text_1')}}
     base-post(
-      :filename="require(`~/assets/images/test.jpg`)"
+      :data="{\
+        image: require(`~/assets/images/test.jpg`),\
+        text: [\
+          `<h3>${$t('pages.service_introductory_tour.post_1.title')}</h3>`,\
+          `<p>${$t('pages.service_introductory_tour.post_1.paragraph_1')}</p>`,\
+          `<p>${$t('pages.service_introductory_tour.post_1.paragraph_with_link')}`,\
+          `<a href='#'>${$t('pages.service_introductory_tour.post_1.link')}</a>.</p>`,\
+        ].join(''),\
+        align: 'left',\
+        block_flip: false,\
+      }"
     )
-      typo-text(
-        tag="h3"
-        version="style-3"
-      ) {{ $t('pages.service_introductory_tour.post_1.title') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.service_introductory_tour.post_1.paragraph_1') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      )
-        | {{ $t('pages.service_introductory_tour.post_1.paragraph_with_link') }}
-        typo-text(
-          tag="a"
-          href="#"
-          version="style-5"
-        ) {{ $t('pages.service_introductory_tour.post_1.link') }}
-        | .
     base-text-container
       typo-text(
         tag="h2"
@@ -43,94 +34,66 @@
         version="style-6"
       ) {{ paragraph }}
     base-post(
-      :filename="require(`~/assets/images/pages/service/introductory-tour/image-2.jpg`)"
-      flip
-      text-flip
+      :data="{\
+        image: require(`~/assets/images/pages/service/introductory-tour/image-2.jpg`),\
+        text: [\
+          `<h3>${$t('pages.service_introductory_tour.post_2.title')}</h3>`,\
+          `<p>${$t('pages.service_introductory_tour.post_2.paragraph_1')}</p>`,\
+          `<p>${$t('pages.service_introductory_tour.post_2.paragraph_2')}</p>`,\
+          `<p>${$t('pages.service_introductory_tour.post_2.paragraph_3')}</p>`,\
+        ].join(''),\
+        align: 'right',\
+        block_flip: true,\
+      }"
     )
-      typo-text(
-        tag="h3"
-        version="style-3"
-      ) {{ $t('pages.service_introductory_tour.post_2.title') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.service_introductory_tour.post_2.paragraph_1') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.service_introductory_tour.post_2.paragraph_2') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      )  {{ $t('pages.service_introductory_tour.post_2.paragraph_3') }}
     base-post(
-      :filename="require(`~/assets/images/pages/service/introductory-tour/image-3.jpg`)"
+      :data="{\
+        image: require(`~/assets/images/pages/service/introductory-tour/image-3.jpg`),\
+        text: [\
+          `<h3>${$t('pages.service_introductory_tour.post_3.title')}</h3>`,\
+          `<p>${$t('pages.service_introductory_tour.post_3.paragraph_1')}</p>`,\
+          `<p>${$t('pages.service_introductory_tour.post_3.paragraph_with_link')}`,\
+          `<a href='#'>${$t('pages.service_introductory_tour.post_3.link')}</a>.</p>`,\
+        ].join(''),\
+        align: 'left',\
+        block_flip: false,\
+      }"
     )
-      typo-text(
-        tag="h3"
-        version="style-3"
-      ) {{ $t('pages.service_introductory_tour.post_3.title') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.service_introductory_tour.post_3.paragraph_1') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      )
-        | {{ $t('pages.service_introductory_tour.post_3.paragraph_with_link') }}
-        typo-text(
-          tag="a"
-          href="#"
-          version="style-5"
-        ) {{ $t('pages.service_introductory_tour.post_3.link') }}
-        | .
     base-post(
-      :filename="require(`~/assets/images/pages/service/introductory-tour/image-4.jpg`)"
-      flip
-      text-flip
+      :data="{\
+        image: require(`~/assets/images/pages/service/introductory-tour/image-4.jpg`),\
+        text: [\
+          `<h3>${$t('pages.service_introductory_tour.post_4.title')}</h3>`,\
+          `<p>${$t('pages.service_introductory_tour.post_4.paragraph_1')}</p>`,\
+        ].join(''),\
+        align: 'right',\
+        block_flip: true,\
+      }"
     )
-      typo-text(
-        tag="h3"
-        version="style-3"
-      ) {{ $t('pages.service_introductory_tour.post_4.title') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.service_introductory_tour.post_4.paragraph_1') }}
     base-post(
-      :filename="require(`~/assets/images/pages/service/introductory-tour/image-5.jpg`)"
+      :data="{\
+        image: require(`~/assets/images/pages/service/introductory-tour/image-5.jpg`),\
+        text: [\
+          `<h3>${$t('pages.service_introductory_tour.post_5.title')}</h3>`,\
+          `<p>${$t('pages.service_introductory_tour.post_5.paragraph_1')}</p>`,\
+          `<p>${$t('pages.service_introductory_tour.post_5.paragraph_with_link')}`,\
+          `<a href='#'>${$t('pages.service_introductory_tour.post_5.link')}</a>.</p>`,\
+        ].join(''),\
+        align: 'left',\
+        block_flip: false,\
+      }"
     )
-      typo-text(
-        tag="h3"
-        version="style-3"
-      ) {{ $t('pages.service_introductory_tour.post_5.title') }}
-      typo-text(
-      ) {{ $t('pages.service_introductory_tour.post_5.paragraph_1') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      )
-        | {{ $t('pages.service_introductory_tour.post_5.paragraph_with_link') }}
-        typo-text(
-          tag="a"
-          href="#"
-          version="style-5"
-        ) {{ $t('pages.service_introductory_tour.post_5.link') }}
-        | .
     base-post(
-      :filename="require(`~/assets/images/pages/service/introductory-tour/image-6.jpg`)"
-      flip
-      text-flip
+      :data="{\
+        image: require(`~/assets/images/pages/service/introductory-tour/image-6.jpg`),\
+        text: [\
+          `<h3>${$t('pages.service_introductory_tour.post_6.title')}</h3>`,\
+          `<p>${$t('pages.service_introductory_tour.post_6.paragraph_1')}</p>`,\
+        ].join(''),\
+        align: 'right',\
+        block_flip: true,\
+      }"
     )
-      typo-text(
-        tag="h3"
-        version="style-3"
-      ) {{ $t('pages.service_introductory_tour.post_6.title') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.service_introductory_tour.post_6.paragraph_1') }}
     base-post-two-image(
       :data="{\
         block_flip: false,\

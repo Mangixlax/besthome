@@ -16,38 +16,37 @@
         version="style-4"
       ) {{ $t('pages.service_turkish_citizenship.article_1.title') }}
     base-post(
-      :filename="require(`~/assets/images/pages/service/turkish-citizenship/image-1.jpg`)"
+      :data="{\
+        image: require(`~/assets/images/pages/service/turkish-citizenship/image-1.jpg`),\
+        text: [\
+          `<p>${$t('pages.service_turkish_citizenship.post_1.paragraph_1')}</p>`,\
+          `<p>${$t('pages.service_turkish_citizenship.post_1.paragraph_2')}</p>`,\
+        ].join(''),\
+        align: 'left',\
+        block_flip: false,\
+      }"
     )
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.service_turkish_citizenship.post_1.paragraph_1') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.service_turkish_citizenship.post_1.paragraph_2') }}
     base-post(
-      :filename="require(`~/assets/images/pages/service/turkish-citizenship/image-2.jpg`)"
-      tag="p"
-      version="style-5"
-      flip
-      text-flip
+      :data="{\
+        image: require(`~/assets/images/pages/service/turkish-citizenship/image-2.jpg`),\
+        text: [\
+          `<p>${$t('pages.service_turkish_citizenship.post_2.paragraph_1')}</p>`,\
+        ].join(''),\
+        align: 'right',\
+        block_flip: true,\
+      }"
     )
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.service_turkish_citizenship.post_2.paragraph_1') }}
     base-post(
-      :filename="require(`~/assets/images/pages/service/turkish-citizenship/image-3.jpg`)"
+      :data="{\
+        image: require(`~/assets/images/pages/service/turkish-citizenship/image-3.jpg`),\
+        text: [\
+          `<p>${$t('pages.service_turkish_citizenship.post_3.paragraph_1')}</p>`,\
+          `<p>${$t('pages.service_turkish_citizenship.post_3.paragraph_2')}</p>`,\
+        ].join(''),\
+        align: 'left',\
+        block_flip: false,\
+      }"
     )
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.service_turkish_citizenship.post_3.paragraph_1') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.service_turkish_citizenship.post_3.paragraph_1') }}
     base-post-two-image(
       :data="{\
         block_flip: true,\
