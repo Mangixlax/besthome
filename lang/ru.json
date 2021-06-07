@@ -106,6 +106,18 @@
         "text3_link": "нашей компании"
       }
     },
+    "apartments": {
+      "block": "Корпус",
+      "status": "Статус",
+      "floor": "Этаж",
+      "area": "Площадь",
+      "price": "Цена",
+      "status_1": "В наличии",
+      "status_2": "Зарезервированный",
+      "status_3": "Зарезервировано",
+      "status_4": "Продано",
+      "nth": "{0} апартаментов"
+    },
     "projects_our_pojects": {
       "smart_block": [
         {

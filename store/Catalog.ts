@@ -21,6 +21,7 @@ export interface IProject {
   about_data?: Array<object>
   experience_data?: Array<object>
   choose_ap_data?: Array<object>
+  miniature_html?: string
 }
 
 export interface IProjectFloor {
@@ -37,7 +38,7 @@ export interface IProjectFloor {
   }
 }
 
-interface IProjectApartment {
+export interface IProjectApartment {
   id: number
   project_id: number
   block_id: number

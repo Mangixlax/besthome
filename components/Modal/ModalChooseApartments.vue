@@ -3,7 +3,7 @@
     v-bind="$attrs"
     :name="name"
     :class="$style['choose-apartments']"
-  ) 
+  )
     template(slot="header")
       ul( :class="$style['choose-apartments__navlist']")
         li(

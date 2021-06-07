@@ -106,6 +106,18 @@
         "text3_link": "our company"
       }
     },
+    "apartments": {
+      "block": "Block",
+      "status": "Status",
+      "floor": "Floor",
+      "area": "Area",
+      "price": "Price",
+      "status_1": "Available",
+      "status_2": "Reserved",
+      "status_3": "Prereserved",
+      "status_4": "Sold",
+      "nth": "{0} type"
+    },
     "projects_our_pojects": {
       "smart_block": [
         {

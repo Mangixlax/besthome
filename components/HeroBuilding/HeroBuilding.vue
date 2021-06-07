@@ -38,6 +38,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
 import { IProjectFloor } from '~/store/Catalog'
+import { modalsTriggerMixin } from '~/mixins/modals'
 
 interface IHeroBuilding {
   type: number
@@ -61,7 +62,9 @@ interface IFloorMatch {
   floorNumber: string | number
 }
 
-@Component
+@Component({
+  mixins: [modalsTriggerMixin],
+})
 export default class HeroBuilding extends Vue {
   @Prop({ type: Object, default: () => {} }) data!: IHeroBuilding
 
@@ -103,7 +106,19 @@ export default class HeroBuilding extends Vue {
     if (event.target) {
       const target: Element = event.target as Element
       this.getFloorDataById(target.id || '').then((floor: IProjectFloor) => {
-        console.log('open', floor)
+        this.showModal({
+          name: 'modal-hero-building-choose-floors',
+          modal: () => import('@/components/HeroBuilding/HeroBuildingModalFloors'),
+          props: {
+            floors: this.$store.getters['Catalog/getProject'].floors,
+            selectedFloor: floor,
+          },
+          options: {
+            width: '100%',
+            height: '100%',
+            scrollable: false,
+          },
+        })
       })
     }
   }
@@ -170,8 +185,9 @@ export default class HeroBuilding extends Vue {
     if (event.target) {
       const target: Element = event.target as Element
       this.getFloorDataById(target.id).then((floor: IProjectFloor) => {
-        this.tooltip.title = `${floor.number}th Floor`
-        this.tooltip.text = `${floor.available_apartments_count} type`
+        this.tooltip.title =
+          this.$i18n.locale === 'ru' ? `${floor.number}-й этаж` : `${floor.number}th Floor`
+        this.tooltip.text = this.$t('pages.apartments.nth', [floor.available_apartments_count])
         this.tooltip.available = floor.available_apartments_count
       })
     }

@@ -10,7 +10,7 @@
           aria-label="Close modal"
           :class="$style['modal__close']"
           @click.prevent="closeModal"
-        ) 
+        )
           svg-icon(name="modals/modals-close-cycle")
     div(:class="$style['modal__body']")
       slot(name="body")
@@ -71,6 +71,10 @@ export default {
     align-items: flex-start
     min-height: 100vh
 
+  &.full
+    min-width: 100%
+    height: 100%
+
   &__header
     width: 100%
     display: flex
@@ -119,8 +123,10 @@ export default {
     max-width: none
 
   .modal__header-buttons
-    top: 20px
-    right: 20px
+    top: 32px
+    left: 32px
+    right: 32px
     z-index: 11
     position: fixed
+    width: calc(100% - 64px)
 </style>
