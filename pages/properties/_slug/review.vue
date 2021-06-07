@@ -54,6 +54,7 @@ import PageProjectsTimeline from '~/components/Page/Projects/PageProjectsTimelin
     FooterFastLinks,
   },
   async asyncData(ctx: Context): Promise<object | void> {
+    ctx.store.commit('setLogoSubTitle', 'Projects')
     await ctx.store.dispatch('Catalog/fetchProject')
   },
 })

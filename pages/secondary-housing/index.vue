@@ -24,7 +24,7 @@
     footer-fast-links
 </template>
 
-<script>
+<script lang="ts">
 import { modalsTriggerMixin } from '@/mixins/modals'
 import BaseProjectNavigation from '~/components/Base/BaseProjectNavigation.vue'
 import PageProjectsTitle from '~/components/Page/Projects/PageProjectsTitle.vue'
@@ -36,6 +36,7 @@ import BaseSubscribe from '~/components/Base/BaseSubscribe.vue'
 import BaseAccordions from '~/components/Base/BaseAccordions.vue'
 import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
 import TypoText from '~/components/Base/TypoText.vue'
+import { Context } from '@nuxt/types'
 
 export default {
   name: 'apartmemts',
@@ -50,6 +51,9 @@ export default {
     BaseAccordions,
     FooterFastLinks,
     TypoText,
+  },
+  asyncData(ctx: Context): void {
+    ctx.store.commit('setLogoSubTitle', 'Secondary housing')
   },
   mixins: [modalsTriggerMixin],
   methods: {

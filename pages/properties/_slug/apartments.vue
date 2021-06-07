@@ -48,6 +48,7 @@ export default {
     TypoText,
   },
   async asyncData(ctx: Context): Promise<object | void> {
+    ctx.store.commit('setLogoSubTitle', 'Projects')
     await ctx.store.dispatch('Catalog/fetchProject')
   },
   data() {

@@ -129,6 +129,7 @@ import BaseScrollLine from '~/components/Base/BaseScrollLine.vue'
 import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
+import { Context } from '@nuxt/types'
 
 export default {
   name: 'introductory-tour',
@@ -139,6 +140,9 @@ export default {
     BaseScrollLine,
     BasePost,
     TypoText,
+  },
+  asyncData(ctx: Context): void {
+    ctx.store.commit('setLogoSubTitle', 'Company')
   },
 }
 </script>

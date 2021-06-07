@@ -29,13 +29,17 @@
       page-company-our-team-slider
 </template>
 
-<script>
+<script lang="ts">
 import TypoText from '~/components/Base/TypoText.vue'
 import PageCompanyOurTeamSlider from '~/components/Page/Company/PageCompanyOurTeamSlider.vue'
+import { Context } from '@nuxt/types'
 
 export default {
   name: 'PersonalPage',
   components: { TypoText, PageCompanyOurTeamSlider },
+  asyncData(ctx: Context): void {
+    ctx.store.commit('setLogoSubTitle', 'Our team')
+  },
   data() {
     return {
       routeParam: 1,
