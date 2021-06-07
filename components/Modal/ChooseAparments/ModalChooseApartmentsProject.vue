@@ -289,7 +289,7 @@ export default {
   display: flex
   grid-gap: 72px
   align-items: center
-  padding: 24px
+  padding: 0 24px 
 
   @media (max-width: 800px)
     flex-direction: column
@@ -305,7 +305,7 @@ export default {
   display: flex
   align-items: center
   justify-content: space-between
-  padding: 24px
+  padding: 0 24px
 
 .swiper-pagination-progressbar
   position: relative !important
