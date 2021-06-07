@@ -1,11 +1,7 @@
 <template lang="pug">
   main
     base-project-navigation
-    page-projects-title(:filename="$t('pages.projects_review.header.filename')")
-      typo-text(
-        tag="h1"
-        version="style-1"
-      ) {{ $t('pages.projects_review.header.title') }}
+    page-projects-title(:data="{ header: $t('pages.projects_review.header.title') }")
     base-post(
       :filename="require(`~/assets/images/test.jpg`)"
     )
@@ -73,6 +69,7 @@ import PageProjectsPanorama from '~/components/Page/Projects/PageProjectsPanoram
 import BaseSubscribe from '~/components/Base/BaseSubscribe.vue'
 import BaseAccordions from '~/components/Base/BaseAccordions.vue'
 import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
+import { Context } from '@nuxt/types'
 
 export default {
   name: 'experiences',
@@ -86,6 +83,9 @@ export default {
     BaseSubscribe,
     BaseAccordions,
     FooterFastLinks,
+  },
+  async asyncData(ctx: Context): Promise<object | void> {
+    await ctx.store.dispatch('Catalog/fetchProject')
   },
   data() {
     return {

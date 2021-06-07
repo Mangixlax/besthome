@@ -81,7 +81,7 @@ export default class HeroBuilding extends Vue {
     },
   }
 
-  async mounted(): void {
+  async mounted() {
     await this.$nextTick()
     this.$floors = (this.$refs.container as Element).querySelectorAll('[id*=bfloor-]')
     this.$blocks = (this.$refs.container as Element).querySelectorAll('[id*=block]')
@@ -118,7 +118,6 @@ export default class HeroBuilding extends Vue {
           options: {
             width: '100%',
             height: '100%',
-            scrollable: false,
           },
         })
       })
@@ -239,7 +238,7 @@ export default class HeroBuilding extends Vue {
   min-height: 850px
   background-position: 50%
   background-size: cover
-  padding: 0 64px
+  padding: 80px 64px
 
   &__container
     height: auto

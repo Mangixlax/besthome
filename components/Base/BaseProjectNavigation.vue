@@ -11,25 +11,25 @@
         ul(:class="$style['project-navigation__navbar-list']")
           li(:class="$style['project-navigation__navbar-item']")
             nuxt-link(
-              :to="localePath({ name: 'properties-slug-review',})"
+              :to="localePath({ name: 'properties-slug-review', params: { slug: projectSlug } })"
               :class="$style['project-navigation__navbar-link']"
               :active-class="$style['project-navigation__navbar-link--active']"
             ) {{ $t('projects.navigation.review') }}
           li(:class="$style['project-navigation__navbar-item']")
             nuxt-link(
-              :to="localePath({ name: 'properties-slug-about' })"
+              :to="localePath({ name: 'properties-slug-about', params: { slug: projectSlug } })"
               :class="$style['project-navigation__navbar-link']"
               :active-class="$style['project-navigation__navbar-link--active']"
             ) {{ $t('projects.navigation.about') }}
           li(:class="$style['project-navigation__navbar-item']")
             nuxt-link(
-              :to="localePath({ name: 'properties-slug-experiences' })"
+              :to="localePath({ name: 'properties-slug-experiences', params: { slug: projectSlug } })"
               :class="$style['project-navigation__navbar-link']"
               :active-class="$style['project-navigation__navbar-link--active']"
             ) {{ $t('projects.navigation.experiences') }}
           li(:class="$style['project-navigation__navbar-item']")
             nuxt-link(
-              :to="localePath({ name: 'properties-slug-apartments' })"
+              :to="localePath({ name: 'properties-slug-apartments', params: { slug: projectSlug } })"
               :class="$style['project-navigation__navbar-link']"
               :active-class="$style['project-navigation__navbar-link--active']"
             ) {{ $t('projects.navigation.choose_apartment') }}
@@ -54,6 +54,10 @@ export default class BaseProjectNavigation extends Vue {
 
   get projectTitle(): string {
     return (this.$store.getters['Catalog/getProject'] as IProject).name
+  }
+
+  get projectSlug(): string {
+    return (this.$store.getters['Catalog/getProject'] as IProject).slug
   }
 }
 </script>

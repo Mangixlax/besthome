@@ -1,11 +1,12 @@
 <template lang="pug">
   main
     base-project-navigation
-    page-projects-title(:filename="$t('pages.projects_review.header.filename')")
-      typo-text(
-        tag="h1"
-        version="style-1"
-      ) {{ $t('pages.projects_review.header.title') }}
+    page-projects-title(
+      :data="{\
+        header: $t('pages.projects_review.header.title'),\
+        image: require('@/assets/images/projects/' + $t('pages.projects_review.header.filename'))\
+      }"
+    )
     base-text-container(text-color="blue")
       typo-text(
         tag="h3"
@@ -30,6 +31,7 @@ import BaseSubscribe from '~/components/Base/BaseSubscribe.vue'
 import BaseAccordions from '~/components/Base/BaseAccordions.vue'
 import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
 import TypoText from '~/components/Base/TypoText.vue'
+import { Context } from '@nuxt/types'
 
 export default {
   name: 'apartmemts',
@@ -44,6 +46,9 @@ export default {
     BaseAccordions,
     FooterFastLinks,
     TypoText,
+  },
+  async asyncData(ctx: Context): Promise<object | void> {
+    await ctx.store.dispatch('Catalog/fetchProject')
   },
   data() {
     return {

@@ -29,8 +29,8 @@
         })"
         :title="card.name"
       )
-        span(v-html="card.sold_out ? $t('projects.sold_out') : $t('projects.free_available_units', [card.apartments_count])")
-        svg-icon(v-if="!card.sold_out" name="link-arrow")
+        span(v-html="(card.sold_out || !card.apartments_count) ? $t('projects.sold_out') : $t('projects.free_available_units', [card.apartments_count])")
+        svg-icon(v-if="!card.sold_out && card.apartments_count" name="link-arrow")
 </template>
 
 <script lang="ts">

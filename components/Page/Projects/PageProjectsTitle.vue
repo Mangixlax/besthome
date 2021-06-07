@@ -1,35 +1,34 @@
 <template lang="pug">
   section(
-    :class="[$style['projects-title'], large && $style['large'], filename && $style['isImage'], offsetToTop && $style['offset-to-top']]"
+    :class="[$style['projects-title'], large && $style['large'], data.image && $style['isImage'], offsetToTop && $style['offset-to-top']]"
   )
     div(
       :class="$style['projects-title__container']"
-      :style="filename && { backgroundImage: `url(${require('~/assets/images/projects/' + this.filename)})` }"
+      :style="data.image && { backgroundImage: `url(${data.image})` }"
     )
       div(:class="$style['projects-title__container-content']")
+        h2(v-html="data.header")
+        div(v-if="data.text" v-html="data.text")
         slot
 </template>
 
 <script lang="ts">
 import TypoText from '~/components/Base/TypoText.vue'
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
-export default {
-  name: 'PageProjectsTitle',
+interface IProjectsTitle {
+  header: string
+  text: string
+  image?: string
+}
+
+@Component({
   components: { TypoText },
-  props: {
-    filename: {
-      type: String,
-      default: '',
-    },
-    large: {
-      type: Boolean,
-      default: false,
-    },
-    offsetToTop: {
-      type: Boolean,
-      default: false,
-    },
-  },
+})
+export default class PageProjectsTitle extends Vue {
+  @Prop({ type: Object, default: () => {} }) data!: IProjectsTitle
+  @Prop({ type: Boolean, default: false }) large!: boolean
+  @Prop({ type: Boolean, default: false }) offsetToTop!: boolean
 }
 </script>
 
@@ -56,6 +55,17 @@ export default {
 
     .isImage &
       min-height: 640px
+      margin-bottom: 80px
+
+      &:before
+        content: ''
+        position: absolute
+        left: 0
+        top: 0
+        bottom: 0
+        right: 0
+        background: linear-gradient(110.48deg, rgba(104, 43, 45, 0.32) 0%, rgba(55, 143, 177, 0.32) 100%)
+        z-index: 1
 
     .large &
       max-width: 1440px
@@ -71,12 +81,15 @@ export default {
       display: flex
       flex-direction: column
       grid-gap: 40px
+      position: relative
+      z-index: 2
 
       .isImage &
         color: $color-white-100
 
-      h1
+      h1, h2
         margin: 0
+        +style-1
 
       button
         background: $color-blue-100

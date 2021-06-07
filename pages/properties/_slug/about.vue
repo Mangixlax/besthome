@@ -1,11 +1,7 @@
 <template lang="pug">
   main
     base-project-navigation
-    page-projects-title(:filename="$t('pages.projects_review.header.filename')")
-       typo-text(
-        tag="h1"
-        version="style-1"
-      ) {{ $t('pages.projects_review.header.title') }}
+    page-projects-title(:data="{ header: 'The future is generous space' }")
     page-projects-four-columns(:columns="pageProjectsFourColumns")
     base-post-two-image(
       :data="{\
@@ -22,10 +18,10 @@
         ],\
       }"
     )
-    page-projects-residences-slider
-    page-projects-infrastructure-slider
+    //page-projects-residences-slider
+    //page-projects-infrastructure-slider
     base-scroll-line(:data="$t('pages.projects_experiences.scroll_line_data')")
-    page-projects-photos-slider
+    //page-projects-photos-slider
     base-subscribe(:subscribe-data="$t('footer.subscribe')" whiteTheme)
     base-accordions(:accordions-data="$t('footer.accordions')")
     footer-fast-links
@@ -45,6 +41,7 @@ import PageProjectsPhotosSlider from '~/components/Page/Projects/PageProjectsPho
 import BaseSubscribe from '~/components/Base/BaseSubscribe.vue'
 import BaseAccordions from '~/components/Base/BaseAccordions.vue'
 import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
+import { Context } from '@nuxt/types'
 
 export default {
   name: 'experiences',
@@ -62,6 +59,9 @@ export default {
     BaseSubscribe,
     BaseAccordions,
     FooterFastLinks,
+  },
+  async asyncData(ctx: Context): Promise<object | void> {
+    await ctx.store.dispatch('Catalog/fetchProject')
   },
   data() {
     return {

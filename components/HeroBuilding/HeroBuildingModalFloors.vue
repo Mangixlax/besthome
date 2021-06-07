@@ -107,7 +107,7 @@ export default class HeroBuildingModalFloors extends Vue {
 
   public tooltip: ITooltip = {
     name: '',
-    status: 0,
+    status: 1,
     price: '',
     area: '',
     styles: {
@@ -205,7 +205,7 @@ export default class HeroBuildingModalFloors extends Vue {
 
   public cleanTooltip() {
     this.tooltip.name = ''
-    this.tooltip.status = 0
+    this.tooltip.status = 1
     this.tooltip.area = ''
     this.tooltip.price = ''
   }
