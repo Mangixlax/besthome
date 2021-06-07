@@ -79,8 +79,8 @@
           ` <a href='#'>${$t('pages.investors.post_4.link')}</a>.</p>`,\
         ].join(''),\
         images: [\
-          { path: require(`~/assets/images/investors/portrait-1.jpg`), },\
-          { path: require(`~/assets/images/investors/landscape-1.jpg`), },\
+          require(`~/assets/images/pages/investors/portrait-1.jpg`),\
+          require(`~/assets/images/pages/investors/landscape-1.jpg`)\
         ],\
       }"
     )
