@@ -59,17 +59,14 @@ export default {
   align-items: flex-start
   z-index: 100
   flex-direction: column
-  min-width: 1248px
-  height: 894px
-
 
   h2
     margin-top: 0
     margin-bottom: 16px
 
-  +mobile
-    align-items: flex-start
-    min-height: 100vh
+  // +mobile
+  //   align-items: flex-start
+  //   min-height: 100vh
 
   &__header
     width: 100%
@@ -78,7 +75,7 @@ export default {
     padding: 32px
 
     +mobile
-      padding: 16px 16px 0px 16px
+      padding: 24px
 
     &-buttons
       width: 100%

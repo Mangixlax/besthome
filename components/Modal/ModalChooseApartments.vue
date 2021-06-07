@@ -13,21 +13,25 @@
           typo-text(
             tag="p"
             version="style-7"
-            :class="$style['choose-apartments__navlist-number']"
+            :class="[$style['choose-apartments__navlist-number'], i + 1 === step && $style['selected']]"
           ) {{ item.number }}
           typo-text(
             tag="p"
             version="style-7"
-            :class="$style['choose-apartments__navlist-label']"
+            :class="[$style['choose-apartments__navlist-label'], i + 1 === step && $style['selected']]"
           )  {{ item.label }}
     template(slot="body")
-      component(:is='component')
+      modal-choose-apartments-project( v-show="step === 1" @nextStepInfo="setStep")
+      modal-choose-apartments-filter( v-show="step === 2" @prevStepInfo="setStep" @nextStepInfo="setStep")
+      modal-choose-apartments-contact( v-show="step === 3" @prevStepInfo="setStep" @sendData="sendFormInfo")
 </template>
 
 <script>
 import TypoText from '~/components/Base/TypoText.vue'
 import ModalContainer from '~/components/Modal/base/ModalContainer'
 import ModalChooseApartmentsProject from '~/components/Modal/ChooseAparments/ModalChooseApartmentsProject'
+import ModalChooseApartmentsFilter from '~/components/Modal/ChooseAparments/ModalChooseApartmentsFilter.vue'
+import ModalChooseApartmentsContact from '~/components/Modal/ChooseAparments/ModalChooseApartmentsContact.vue'
 
 export default {
   name: 'ModalChooseApartments',
@@ -35,17 +39,19 @@ export default {
     TypoText,
     ModalContainer,
     ModalChooseApartmentsProject,
+    ModalChooseApartmentsFilter,
+    ModalChooseApartmentsContact,
   },
 
   props: {
     name: {
-      // Modal id
       type: String,
       default: '',
     },
   },
   data() {
     return {
+      step: 1,
       component: 'ModalChooseApartmentsProject',
       modalNavigation: [
         {
@@ -69,7 +75,12 @@ export default {
       apiMethod: 'v1/forms/newSubscriber',
     }
   },
-  methods: {},
+  methods: {
+    setStep(stepInfo) {
+      this.step = stepInfo
+    },
+    sendFormInfo(form) {},
+  },
 }
 </script>
 
@@ -79,12 +90,16 @@ export default {
 
   &__navlist
     display: flex
-    justify-content: space-between
+    width: 100%
+    justify-content: space-around
     align-items: center
     list-style: none
     margin: 0
     padding: 0
-    grid-gap: 169px
+
+    @media (max-width: 800px)
+      flex-direction: column
+      align-items: start
 
     &-item
       display: flex
@@ -97,4 +112,13 @@ export default {
 
     &-number
       width: 19px
+      text-align: center
+
+      &.selected
+        background: $color-black-100
+        color: $color-white-100
+
+    &-label
+      &.selected
+        color: $color-black-100
 </style>
