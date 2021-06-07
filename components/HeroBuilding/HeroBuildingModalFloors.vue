@@ -148,7 +148,7 @@ export default class HeroBuildingModalFloors extends Vue {
     }
   }
 
-  public getApartmentDataById(elementId: string = ''): Promise<IProjectApartment | undefined> {
+  public getApartmentDataById(elementId: string = ''): Promise<IProjectApartment> {
     return new Promise((resolve, reject) => {
       const apartmentMatch: IApartmentMatch = this.apartmentMatching(elementId || '')
 

@@ -106,9 +106,10 @@ export default class HeroBuilding extends Vue {
     if (event.target) {
       const target: Element = event.target as Element
       this.getFloorDataById(target.id || '').then((floor: IProjectFloor) => {
+        // @ts-ignore
         this.showModal({
           name: 'modal-hero-building-choose-floors',
-          modal: () => import('@/components/HeroBuilding/HeroBuildingModalFloors'),
+          modal: () => import('@/components/HeroBuilding/HeroBuildingModalFloors.vue'),
           props: {
             floors: this.$store.getters['Catalog/getProject'].floors,
             selectedFloor: floor,
@@ -187,7 +188,7 @@ export default class HeroBuilding extends Vue {
       this.getFloorDataById(target.id).then((floor: IProjectFloor) => {
         this.tooltip.title =
           this.$i18n.locale === 'ru' ? `${floor.number}-й этаж` : `${floor.number}th Floor`
-        this.tooltip.text = this.$t('pages.apartments.nth', [floor.available_apartments_count])
+        this.tooltip.text = this.$t('pages.apartments.nth', [floor.available_apartments_count]) as string
         this.tooltip.available = floor.available_apartments_count
       })
     }
