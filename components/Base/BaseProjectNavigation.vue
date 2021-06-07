@@ -11,7 +11,7 @@
         ul(:class="$style['project-navigation__navbar-list']")
           li(:class="$style['project-navigation__navbar-item']")
             nuxt-link(
-              :to="localePath({ name: 'properties-slug',})"
+              :to="localePath({ name: 'properties-slug-review',})"
               :class="$style['project-navigation__navbar-link']"
               :active-class="$style['project-navigation__navbar-link--active']"
             ) {{ $t('projects.navigation.review') }}
