@@ -13,24 +13,20 @@
 <script lang="ts">
 import CommonAccordionItem from '~/components/Common/CommonAccordionItem.vue'
 import TypoText from '~/components/Base/TypoText.vue'
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
 
-export default {
-  name: 'BaseAccordions',
+@Component({
   components: { CommonAccordionItem, TypoText },
-  props: {
-    accordionsData: {
-      type: Array,
-      default: () => [],
-    },
-  },
-  computed: {
-    list() {
-      return (this.accordionsData || []).map((item, index) => ({
-        ...item,
-        is_active: index === 0 ? true : item.is_active,
-      }))
-    },
-  },
+})
+export default class BaseAccordions extends Vue {
+  @Prop({ type: Array, default: () => [] }) accordionsData!: any
+
+  get list() {
+    return (this.accordionsData || []).map((item: any, index: number) => ({
+      ...item,
+      is_active: index === 0 ? true : item.is_active,
+    }))
+  }
 }
 </script>
 
