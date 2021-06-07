@@ -141,8 +141,8 @@
           `<p>${$t('pages.service_introductory_tour.post_7.paragraph_2')}</p>`,\
         ].join(''),\
         images: [\
-          { path: require(`~/assets/images/investors/portrait-1.jpg`), },\
-          { path: require(`~/assets/images/pages/service/introductory-tour/landscape-1.jpg`), },\
+          require(`~/assets/images/investors/portrait-1.jpg`),\
+          require(`~/assets/images/pages/service/introductory-tour/landscape-1.jpg`),\
         ],\
       }"
     )

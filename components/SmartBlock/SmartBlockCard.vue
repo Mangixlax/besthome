@@ -24,13 +24,13 @@
           [$style['link-banner__link--icon']]: !card.sold_out\
         }"
         :to="localePath({\
-          name: `properties-slug`,\
+          name: `properties-slug-review`,\
           params: { slug: card.slug }\
         })"
         :title="card.name"
       )
-        span(v-html="card.sold_out ? $t('projects.sold_out') : $t('projects.free_available_units', [card.apartments_count])")
-        svg-icon(v-if="!card.sold_out" name="link-arrow")
+        span(v-html="(card.sold_out || !card.apartments_count) ? $t('projects.sold_out') : $t('projects.free_available_units', [card.apartments_count])")
+        svg-icon(v-if="!card.sold_out && card.apartments_count" name="link-arrow")
 </template>
 
 <script lang="ts">

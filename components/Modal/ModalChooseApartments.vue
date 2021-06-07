@@ -3,7 +3,7 @@
     v-bind="$attrs"
     :name="name"
     :class="$style['choose-apartments']"
-  ) 
+  )
     template(slot="header")
       ul( :class="$style['choose-apartments__navlist']")
         li(
@@ -13,22 +13,25 @@
           typo-text(
             tag="p"
             version="style-7"
-            :class="$style['choose-apartments__navlist-number']"
+            :class="[$style['choose-apartments__navlist-number'], i + 1 === step && $style['selected']]"
           ) {{ item.number }}
           typo-text(
             tag="p"
             version="style-7"
-            :class="$style['choose-apartments__navlist-label']"
+            :class="[$style['choose-apartments__navlist-label'], i + 1 === step && $style['selected']]"
           )  {{ item.label }}
     template(slot="body")
-      component(:is='component')
-      //- modal-choose-apartments-project
+      modal-choose-apartments-project( v-show="step === 1" @nextStepInfo="setStep")
+      modal-choose-apartments-filter( v-show="step === 2" @prevStepInfo="setStep" @nextStepInfo="setStep")
+      modal-choose-apartments-contact( v-show="step === 3" @prevStepInfo="setStep" @sendData="sendFormInfo")
 </template>
 
 <script>
 import TypoText from '~/components/Base/TypoText.vue'
-import ModalContainer from '@/components/modal/base/ModalContainer'
+import ModalContainer from '~/components/Modal/base/ModalContainer'
 import ModalChooseApartmentsProject from '~/components/Modal/ChooseAparments/ModalChooseApartmentsProject'
+import ModalChooseApartmentsFilter from '~/components/Modal/ChooseAparments/ModalChooseApartmentsFilter.vue'
+import ModalChooseApartmentsContact from '~/components/Modal/ChooseAparments/ModalChooseApartmentsContact.vue'
 
 export default {
   name: 'ModalChooseApartments',
@@ -36,17 +39,19 @@ export default {
     TypoText,
     ModalContainer,
     ModalChooseApartmentsProject,
+    ModalChooseApartmentsFilter,
+    ModalChooseApartmentsContact,
   },
+
   props: {
     name: {
-      // Modal id
       type: String,
       default: '',
     },
   },
-
   data() {
     return {
+      step: 1,
       component: 'ModalChooseApartmentsProject',
       modalNavigation: [
         {
@@ -63,34 +68,18 @@ export default {
         },
       ],
       form: {
-        full_name: '',
-        email: '',
+        porojects: [],
+        rooms: [],
+        advantages: [],
       },
       apiMethod: 'v1/forms/newSubscriber',
     }
   },
   methods: {
-    updateDescription() {
-      if (!this.showFinishStep) {
-        this.description = this.$t('modals.subscribe.description_1')
-      } else if (this.form.full_name) {
-        this.description =
-          this.form.full_name + ', ' + this.$t('modals.subscribe.description_2').toLowerCase()
-      } else {
-        this.description = this.$t('modals.subscribe.description_2')
-      }
+    setStep(stepInfo) {
+      this.step = stepInfo
     },
-    afterFinish() {
-      this.form.full_name = ''
-      this.form.email = ''
-    },
-    afterSuccess() {
-      this.$ym.reachGoal('order-subscribe-to-offers')
-      this.$ga.event({
-        eventCategory: 'Заявка',
-        eventAction: 'Рассылка',
-      })
-    },
+    sendFormInfo(form) {},
   },
 }
 </script>
@@ -101,12 +90,16 @@ export default {
 
   &__navlist
     display: flex
-    justify-content: space-between
+    width: 100%
+    justify-content: space-around
     align-items: center
     list-style: none
     margin: 0
     padding: 0
-    grid-gap: 169px
+
+    @media (max-width: 800px)
+      flex-direction: column
+      align-items: start
 
     &-item
       display: flex
@@ -114,6 +107,18 @@ export default {
       grid-gap: 16px
       color: $color-black-56
 
+      p
+        margin: 0
+
     &-number
       width: 19px
+      text-align: center
+
+      &.selected
+        background: $color-black-100
+        color: $color-white-100
+
+    &-label
+      &.selected
+        color: $color-black-100
 </style>

@@ -65,6 +65,9 @@ export default class PropertiesReview extends Vue {
       BlockInfrastructure: 'page-projects-infrastructure-slider',
       BlockTimeline: 'page-projects-timeline',
       BlockHeroBuilding: 'hero-building',
+      BlockPhotoSlider: 'page-projects-photos-slider',
+      BlockResidenceOffer: 'page-projects-residences-slider',
+      BlockProjectTitle: 'page-projects-title',
     }
 
     return (this.$store.state.Catalog.project.review_data || []).map((block: any) => ({

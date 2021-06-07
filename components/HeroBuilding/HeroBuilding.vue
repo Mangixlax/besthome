@@ -26,7 +26,7 @@
     div(
       :class="{\
         [$style['tooltip']]: true,\
-        [$style['tooltip--show']]: tooltip.title.length,\
+        [$style['tooltip--show']]: tooltip.title.length && tooltip.styles.left !== '0px',\
         [$style['tooltip--disabled']]: tooltip.available <= 0,\
       }"
       :style="tooltip.styles"
@@ -38,6 +38,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
 import { IProjectFloor } from '~/store/Catalog'
+import { modalsTriggerMixin } from '~/mixins/modals'
 
 interface IHeroBuilding {
   type: number
@@ -61,7 +62,9 @@ interface IFloorMatch {
   floorNumber: string | number
 }
 
-@Component
+@Component({
+  mixins: [modalsTriggerMixin],
+})
 export default class HeroBuilding extends Vue {
   @Prop({ type: Object, default: () => {} }) data!: IHeroBuilding
 
@@ -78,7 +81,8 @@ export default class HeroBuilding extends Vue {
     },
   }
 
-  mounted(): void {
+  async mounted() {
+    await this.$nextTick()
     this.$floors = (this.$refs.container as Element).querySelectorAll('[id*=bfloor-]')
     this.$blocks = (this.$refs.container as Element).querySelectorAll('[id*=block]')
     ;(this.$floors || []).forEach((el: Element) => {
@@ -103,7 +107,19 @@ export default class HeroBuilding extends Vue {
     if (event.target) {
       const target: Element = event.target as Element
       this.getFloorDataById(target.id || '').then((floor: IProjectFloor) => {
-        console.log('open', floor)
+        // @ts-ignore
+        this.showModal({
+          name: 'modal-hero-building-choose-floors',
+          modal: () => import('@/components/HeroBuilding/HeroBuildingModalFloors.vue'),
+          props: {
+            floors: this.$store.getters['Catalog/getProject'].floors,
+            selectedFloor: floor,
+          },
+          options: {
+            width: '100%',
+            height: '100%',
+          },
+        })
       })
     }
   }
@@ -170,8 +186,9 @@ export default class HeroBuilding extends Vue {
     if (event.target) {
       const target: Element = event.target as Element
       this.getFloorDataById(target.id).then((floor: IProjectFloor) => {
-        this.tooltip.title = `${floor.number}th Floor`
-        this.tooltip.text = `${floor.available_apartments_count} type`
+        this.tooltip.title =
+          this.$i18n.locale === 'ru' ? `${floor.number}-й этаж` : `${floor.number}th Floor`
+        this.tooltip.text = this.$t('pages.apartments.nth', [floor.available_apartments_count]) as string
         this.tooltip.available = floor.available_apartments_count
       })
     }
@@ -198,6 +215,7 @@ export default class HeroBuilding extends Vue {
   max-width: 150px
   padding: 10px
   background-color: $color-blue-100
+  pointer-events: none
 
   &--show
     display: block
@@ -220,7 +238,7 @@ export default class HeroBuilding extends Vue {
   min-height: 850px
   background-position: 50%
   background-size: cover
-  padding: 0 64px
+  padding: 80px 64px
 
   &__container
     height: auto

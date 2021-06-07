@@ -108,7 +108,8 @@ export default {
       align-items: center
       user-select: none
       grid-gap: 16px
-
+      margin: 0
+      
       &::before
         content: ''
         display: inline-block

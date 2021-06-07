@@ -44,6 +44,7 @@
     height: 100%
     min-height: 100vh
     overflow-y: auto
+    z-index: 1001
     -webkit-overflow-scrolling: touch
 
   .v--modal-background-click
@@ -137,3 +138,6 @@
 
   &:not(:first-of-type)
     border-left: 1px solid #eee
+
+[data-modal="modal-hero-building-choose-floors"] .v--modal
+  width: 100% !important

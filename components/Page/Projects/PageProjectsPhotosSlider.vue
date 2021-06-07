@@ -4,16 +4,17 @@
       typo-text(
         tag="h2"
         version="style-4"
-      ) Photos
+        v-html="data.header"
+      )
     div(:class="$style['container__body']")
       swiper(ref="swiper" :class="$style['slider']" class="swiper" :options="swiperOption")
         swiper-slide(
-          v-for="(slide,i) in projectsSliderData"
+          v-for="(slide, i) in data.items"
           :key="i"
           :class="$style['slide']"
-        ) 
+        )
           div(:class="$style['container__body-image']")
-            img(:src="require(`@/assets/images/projects-photos-slider/${slide}`)")
+            img(:src="slide")
         div(slot="pagination" :class="$style['navigation']")
           div(:class="['swiper-pagination-progressbar', $style['swiper-pagination-progressbar']]")
             div(class="status-bar")
@@ -22,77 +23,50 @@
               svg-icon(name="slider-prev-arrow-blue")
             button(:class="[$style['swiper-button-next']]" @click.prevent="$refs.swiper.swiperInstance.slideNext()")
               svg-icon(name="slider-next-arrow-blue")
-      div(:class="$style['footer']") 
-        typo-text(
-          tag="p"
-          version="style-5"
-          :class="$style['footer__link-text']"
-        ) Cleopatra Select 
-        typo-text(
-          tag="nuxt-link"
-          version="style-5"
-          :to="localePath({ name: 'index' })"
-          :class="$style['footer__link-text--underline']"
-        ) сhoose an apartment
-        | .
-        typo-text(
-          tag="nuxt-link"
-          version="none"
-          :to="localePath({ name: 'index' })"
-          :class="$style['footer__link-arrow']"
-        )
-          svg-icon(name="link-arrow-blue")
+      div(:class="$style['footer']" v-html="data.under_text")
 </template>
 
-<script>
+<script lang="ts">
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import TypoText from '~/components/Base/TypoText.vue'
 import PageCompanyPersonalCard from '~/components/Page/Company/PageCompanyPersonalCard.vue'
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
-export default {
-  name: 'PageProjectsPhotosSlider',
+interface IPhotoSlider {
+  header: string
+  under_text: string
+  items: Array<string>
+}
+
+@Component({
   components: {
     Swiper,
     SwiperSlide,
     TypoText,
     PageCompanyPersonalCard,
   },
-  data() {
-    return {
-      swiperOption: {
-        breakpoints: {
-          // when window width is >= 900px
-          900: {
-            slidesPerView: 1,
-            spaceBetween: 32,
-          },
-          1200: {
-            slidesPerView: 'auto',
-            spaceBetween: 64,
-          },
-        },
-        spaceBetween: 64,
-        pagination: {
-          el: '.swiper-pagination-progressbar',
-          type: 'progressbar',
-        },
+})
+export default class PageProjectsPhotosSlider extends Vue {
+  @Prop({ type: Object, default: () => {}}) data!: IPhotoSlider
+
+  public swiperOption: any = {
+    breakpoints: {
+      // when window width is >= 900px
+      900: {
+        slidesPerView: 1,
+        spaceBetween: 32,
       },
-      projectsSliderData: [
-        'projects-photos-slider-1.jpg',
-        'projects-photos-slider-2.jpg',
-        'projects-photos-slider-3.jpg',
-        'projects-photos-slider-1.jpg',
-        'projects-photos-slider-1.jpg',
-        'projects-photos-slider-2.jpg',
-        'projects-photos-slider-3.jpg',
-      ],
-    }
-  },
-  computed: {
-    getOurCompanyCardInfo() {
-      return this.$store.state.ourCompanyCardInfo
+      1200: {
+        slidesPerView: 'auto',
+        spaceBetween: 64,
+      },
     },
-  },
+    spaceBetween: 64,
+    pagination: {
+      el: '.swiper-pagination-progressbar',
+      type: 'progressbar',
+    },
+  }
 }
 </script>
 
@@ -182,31 +156,18 @@ export default {
   max-width: 911px
   margin: 0 auto
   flex-wrap: wrap
+  +style-5
 
-  &__link
-    display: flex
-    align-items: center
-    flex-wrap: wrap
+  & > *:first-child
+    margin-top: 0
 
-    &-text
-      margin: 0
-      white-space: nowrap
+  & > *:last-child
+    margin-bottom: 0
 
-      &--underline
-        white-space: nowrap
-        text-decoration: underline
-        text-decoration-color: $color-blue-16
-        text-underline-offset: 7px
-        color: $color-blue-100
-        margin-left: 0.5em
-
-        @media (max-width: 450px)
-          margin-left: initial
-
-    &-arrow
-      height: 26px
-
-      svg
-        height: 26px
-        width: 26px
+  a
+    white-space: nowrap
+    text-decoration: underline
+    text-decoration-color: $color-blue-16
+    text-underline-offset: 7px
+    color: $color-blue-100
 </style>

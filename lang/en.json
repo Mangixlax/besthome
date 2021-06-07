@@ -106,6 +106,18 @@
         "text3_link": "our company"
       }
     },
+    "apartments": {
+      "block": "Block",
+      "status": "Status",
+      "floor": "Floor",
+      "area": "Area",
+      "price": "Price",
+      "status_1": "Available",
+      "status_2": "Reserved",
+      "status_3": "Prereserved",
+      "status_4": "Sold",
+      "nth": "{0} type"
+    },
     "projects_our_pojects": {
       "smart_block": [
         {
@@ -690,18 +702,6 @@
           "Anna Larina - Sales Director at BestHome Construction. Joined the company in 2012.",
           "Anna speaks several foreign languages, including Russian, English, Turkish, Latvian, French.",
           "Graduated from the University of Latvia with a degree in French Philology. She has been successfully working in the field of marketing and sales since 2007."
-        ]
-      },
-      {
-        "id": 3,
-        "image": "person-3.png",
-        "name": "Irina Sotnik",
-        "position": "Sales Manager",
-        "info": [
-          "Irina Sotnik - Sales Manager of BestHome Construction. Joined the company since 2020.",
-          "Irina has 6 years of experience in the tourism business. Since 2015, she has been working in the real estate industry.",
-          "Graduated with honors from the Kharkiv National University of Internal Affairs with a degree in psychology. She received a master's degree from the Kharkiv Regional Institute of Public Administration under the President of Ukraine with a degree in Public Administration and Administration.",
-          "She speaks Russian, Ukrainian, English and Turkish."
         ]
       },
       {
