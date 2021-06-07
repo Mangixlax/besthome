@@ -5,13 +5,12 @@
         tag="p"
         version="style-7"
         :class="$style['filter-checkbox__title-text']"
-      )  {{ title }}
+      ) {{ title }}
     ul(:class="$style['filter-checkbox__grid']")
       li(
         v-for="(item,i) in filterItems"
         :key="i"
         :class="$style['filter-checkbox__grid-item']"
-
       )
         label(:class="$style['filter-checkbox__grid-label']")
           input(
@@ -25,7 +24,7 @@
             tag="p"
             version="style-8"
             :class="$style['filter-checkbox__grid-text']"
-          )  {{ item.label }}
+          ) {{ item.label }}
 </template>
 
 <script>
@@ -83,15 +82,20 @@ export default {
 
     &-item
       color: $color-white-56
+      transition: color 0.25s ease
 
       &.selected
         background-color: $color-white-100
         color: $color-blue-100
 
+      &:hover
+        color: $color-white-100
+
     &-label
       display: flex
       align-items: center
       grid-gap: 16px
+      cursor: pointer
 
     &-checkbox
       position: absolute
