@@ -79,6 +79,7 @@ export default class LinkBanner extends Vue {
     text-decoration: none
     color: $color-white-100
     text-align: left
+    background-color: $color-black-24
 
   &__header
     margin: 0
