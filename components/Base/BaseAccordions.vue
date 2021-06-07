@@ -2,11 +2,11 @@
   section(:class="$style['accordions']")
     div(:class="$style['accordions__container']")
       common-accordion-item(
-        v-for="(accordion, i) in accordionsData"
+        v-for="(accordion, i) in list"
         :key="i"
-        :title="accordion.title" 
+        :title="accordion.title"
         :active="accordion.is_active"
-      ) 
+      )
         div(v-html="accordion.content")
 </template>
 
@@ -21,6 +21,14 @@ export default {
     accordionsData: {
       type: Array,
       default: () => [],
+    },
+  },
+  computed: {
+    list() {
+      return (this.accordionsData || []).map((item, index) => ({
+        ...item,
+        is_active: index === 0 ? true : item.is_active,
+      }))
     },
   },
 }
