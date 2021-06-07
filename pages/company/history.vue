@@ -2,23 +2,17 @@
   main
     page-company-history-title(:historyPageTitle="$t('pages.company_history.header')")
     base-post(
-      :filename="require(`~/assets/images/pages/company/history/image-1.jpg`)"
+      :data="{\
+        image: require(`~/assets/images/pages/company/history/image-1.jpg`),\
+        text: [\
+          `<h3>${$t('pages.company_history.post_1.title')}</h3>`,\
+          `<p>${$t('pages.company_history.post_1.paragraph_with_link')}`,\
+          `<a href='#'>${$t('pages.company_history.post_1.link')}</a>.</p>`,\
+        ].join(''),\
+        align: 'left',\
+        block_flip: false,\
+      }"
     )
-      typo-text(
-        tag="h3"
-        version="style-3"
-      ) {{ $t('pages.company_history.post_1.title') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      )
-        | {{ $t('pages.company_history.post_1.paragraph_with_link') }}
-        typo-text(
-          tag="a"
-          href="#"
-          version="style-5"
-        ) {{ $t('pages.company_history.post_1.link') }}
-        | .
 </template>
 
 <script lang="ts">

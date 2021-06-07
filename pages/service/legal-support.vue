@@ -10,50 +10,39 @@
         version="style-5"
       ) {{ $t('pages.service_legal_support.slot_text_1') }}
     base-post(
-      :filename="require(`~/assets/images/pages/service/legal-support/image-1.jpg`)"
+      :data="{\
+        image: require(`~/assets/images/pages/service/legal-support/image-1.jpg`),\
+        text: [\
+          `<p>${$t('pages.service_legal_support.post_1.paragraph_1')}</p>`,\
+          `<p>${$t('pages.service_legal_support.post_1.paragraph_with_link')}`,\
+          `<a href='#'>${$t('pages.service_legal_support.post_1.link')}</a>.</p>`,\
+        ].join(''),\
+        align: 'left',\
+        block_flip: false,\
+      }"
     )
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.service_legal_support.post_1.paragraph_1') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      )
-        | {{ $t('pages.service_legal_support.post_1.paragraph_with_link') }}
-        typo-text(
-          tag="a"
-          href="#"
-          version="style-5"
-        ) {{ $t('pages.service_legal_support.post_1.link') }}
-        | .
     base-post(
-      :filename="require(`~/assets/images/pages/service/legal-support/image-2.jpg`)"
-      flip
-      text-flip
+      :data="{\
+        image: require(`~/assets/images/pages/service/legal-support/image-2.jpg`),\
+        text: [\
+          `<p>${$t('pages.service_legal_support.post_2.paragraph_1')}</p>`,\
+        ].join(''),\
+        align: 'right',\
+        block_flip: true,\
+      }"
     )
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.service_legal_support.post_2.paragraph_1') }}
     base-post(
-      :filename="require(`~/assets/images/pages/service/legal-support/image-3.jpg`)"
+      :data="{\
+        image: require(`~/assets/images/pages/service/legal-support/image-3.jpg`),\
+        text: [\
+          `<p>${$t('pages.service_legal_support.post_3.paragraph_1')}</p>`,\
+          `<p>${$t('pages.service_legal_support.post_3.paragraph_with_link')}`,\
+          `<a href='#'>${$t('pages.service_legal_support.post_3.link')}</a>.</p>`,\
+        ].join(''),\
+        align: 'left',\
+        block_flip: false,\
+      }"
     )
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.service_legal_support.post_3.paragraph_1') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      )
-        | {{ $t('pages.service_legal_support.post_1.paragraph_with_link') }}
-        typo-text(
-          tag="a"
-          href="#"
-          version="style-5"
-        ) {{ $t('pages.service_legal_support.post_1.link') }}
-        |
 </template>
 
 <script lang="ts">
