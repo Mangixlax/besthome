@@ -33,23 +33,18 @@
 import TypoText from '~/components/Base/TypoText.vue'
 import PageCompanyOurTeamSlider from '~/components/Page/Company/PageCompanyOurTeamSlider.vue'
 import { Context } from '@nuxt/types'
+import { Component } from 'nuxt-property-decorator'
 
-export default {
-  name: 'PersonalPage',
+@Component({
   components: { TypoText, PageCompanyOurTeamSlider },
   asyncData(ctx: Context): void {
     ctx.store.commit('setLogoSubTitle', 'Our team')
   },
-  data() {
-    return {
-      routeParam: 1,
-    }
-  },
-  computed: {
-    person() {
-      return this.$store.getters.getPersonById(this.$route.params.id)
-    },
-  },
+})
+export default class PersonalPage extends Vue {
+  get person(): any {
+    return this.$store.getters.getPersonById(this.$route.params.id)
+  }
 }
 </script>
 
