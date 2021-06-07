@@ -125,6 +125,9 @@ export default class PageProjectsInfrastructureSlider extends Vue {
   display: flex
   justify-content: center
 
+.slider [class*="swiper-wrapper"]
+  align-items: start
+
 .navigation
   max-width: 1296px
   margin: 32px auto

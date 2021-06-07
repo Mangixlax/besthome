@@ -102,16 +102,24 @@ export default {
           value: 2,
         },
         {
-          label: '2',
-          value: 3,
+          label: '1',
+          value: 4,
+          sublabel: '+1'
         },
         {
+          label: '2',
+          value: 5,
+          sublabel: '+1'
+        },
+        
+        {
           label: '3',
-          value: 4,
+          value: 6,
+          sublabel: '+1'
         },
         {
           label: '4',
-          value: 5,
+          value: 7,
         },
       ],
       checkboxFilterItems: [

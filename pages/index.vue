@@ -1,7 +1,7 @@
 <template lang="pug">
   main
     page-welcome
-      typo-text(tag="h1" version="style-2") {{ $t('pages.home.header.title') }}
+      typo-text(tag="h1" version="style-2" v-html="$t('pages.home.header.title')")
       typo-text(tag="p" version="style-5") {{ $t('pages.home.header.text1') }}
       typo-text(tag="p" version="style-5")
         i18n(path="pages.home.header.text2" tag="span" version="style-5")
@@ -62,7 +62,7 @@ import LinkBannerWrapper from '~/components/LinkBanner/LinkBannerWrapper.vue'
 import LinkBanner from '~/components/LinkBanner/LinkBanner.vue'
 import TreeColumns from '~/components/TreeColumns/TreeColumns.vue'
 import Magnetic from '~/directives/magnetic'
-import CommonLinkIcon from "~/components/Common/CommonLinkIcon.vue"
+import CommonLinkIcon from '~/components/Common/CommonLinkIcon.vue'
 
 @Component({
   components: {

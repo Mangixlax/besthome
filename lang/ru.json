@@ -18,10 +18,10 @@
   "pages": {
     "home": {
       "header": {
-        "title": "We are leaders in quality construction & infrastructure",
-        "text1": "BestHome Construction is the leading construction company in Alanya, operating in the real estate market since 2004. Having started its activity as a real estate agency, since 2008. Our company specializes in the construction and implementation of turnkey residential residences in the best areas of the city of Alanya.",
-        "text2": "To date, the company has {link}.",
-        "text2_link": "30 completed projects"
+        "title": "Мы лидеры в области качественного строительства <br>и инфраструктуры",
+        "text1": "BestHome Construction - ведущая строительная компания в Аланье, работающая на рынке недвижимости с 2004 года. Начав свою деятельность как агентство недвижимости с 2008 года. Наша компания специализируется на строительстве и реализации жилых домов под ключ в лучших районах города. город Аланья.",
+        "text2": "На сегодняшний день у компании есть {link}.",
+        "text2_link": "30 реализованных проектов"
       },
       "hero_slider_data": {
         "coursor_data": "Перетащи<br>или нажми",
