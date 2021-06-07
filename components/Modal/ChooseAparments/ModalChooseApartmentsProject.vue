@@ -99,7 +99,6 @@ export default {
             title: 'Cleopatra Select',
             subtitle:
               'Cleopatra Select is conceived for people who want their home to extend beyond apartment walls. The quintessential urban life is complemented by closeness to nature. Apartments are energy-efficient and buildings are surrounded by greenery and covered with green roofs.',
-            link: 'More<a href="#">residences Cleopatra Select</a>.',
             button: 'Add to selection',
           },
           {
@@ -108,7 +107,6 @@ export default {
             title: 'Cleopatra Select',
             subtitle:
               'Cleopatra Select is conceived for people who want their home to extend beyond apartment walls. The quintessential urban life is complemented by closeness to nature. Apartments are energy-efficient and buildings are surrounded by greenery and covered with green roofs.',
-            link: 'More<a href="#">residences Cleopatra Select</a>.',
             button: 'Add to selection',
           },
           {
@@ -117,7 +115,6 @@ export default {
             title: 'Cleopatra Select',
             subtitle:
               'Cleopatra Select is conceived for people who want their home to extend beyond apartment walls. The quintessential urban life is complemented by closeness to nature. Apartments are energy-efficient and buildings are surrounded by greenery and covered with green roofs.',
-            link: 'More<a href="#">residences Cleopatra Select</a>.',
             button: 'Add to selection',
           },
         ],
