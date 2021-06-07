@@ -1,58 +1,46 @@
 <template lang="pug">
   main
     base-project-navigation
-    page-projects-title(:data="{ header: 'The future is generous space' }")
-    page-projects-four-columns(:columns="pageProjectsFourColumns")
-    base-post-two-image(
-      :data="{\
-        block_flip: false,\
-        text_align: 'left',\
-        text: [\
-          `<h3>${$t('pages.service_introductory_tour.post_7.title')}</h3>`,\
-          `<p>${$t('pages.service_introductory_tour.post_7.paragraph_1')}</p>`,\
-          `<p>${$t('pages.service_introductory_tour.post_7.paragraph_2')}</p>`,\
-        ].join(''),\
-        images: [\
-          require(`~/assets/images/investors/portrait-1.jpg`),\
-          require(`~/assets/images/pages/service/introductory-tour/landscape-1.jpg`),\
-        ],\
-      }"
+    component(
+      :is="block.type"
+      v-for="(block, index) in blocks"
+      :key="index"
+      :data="block"
     )
-    //page-projects-residences-slider
-    //page-projects-infrastructure-slider
-    base-scroll-line(:data="$t('pages.projects_experiences.scroll_line_data')")
-    //page-projects-photos-slider
-    base-subscribe(:subscribe-data="$t('footer.subscribe')" whiteTheme)
+    base-subscribe(:subscribe-data="$t('footer.subscribe')" white-theme)
     base-accordions(:accordions-data="$t('footer.accordions')")
     footer-fast-links
 </template>
 
 <script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator'
 import BaseProjectNavigation from '~/components/Base/BaseProjectNavigation.vue'
 import PageProjectsTitle from '~/components/Page/Projects/PageProjectsTitle.vue'
-import PageProjectsFourColumns from '~/components/Page/Projects/PageProjectsFourColumns.vue'
 import BasePostTwoImage from '~/components/Base/BasePostTwoImage.vue'
 import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import BaseScrollLine from '~/components/Base/BaseScrollLine.vue'
 import PageProjectsResidencesSlider from '~/components/Page/Projects/PageProjectsResidencesSlider.vue'
-import PageProjectsInfrastructureSlider from '~/components/Page/Projects/PageProjectsInfrastructureSlider.vue'
 import PageProjectsPhotosSlider from '~/components/Page/Projects/PageProjectsPhotosSlider.vue'
 import BaseSubscribe from '~/components/Base/BaseSubscribe.vue'
 import BaseAccordions from '~/components/Base/BaseAccordions.vue'
 import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
+import HeroBuilding from '~/components/HeroBuilding/HeroBuilding.vue'
 import { Context } from '@nuxt/types'
+import PageProjectsInfrastructureSlider from '~/components/Page/Projects/PageProjectsInfrastructureSlider.vue'
+import PageProjectsTimeline from '~/components/Page/Projects/PageProjectsTimeline.vue'
+import VueRouter from "vue-router"
 
-export default {
-  name: 'experiences',
+@Component({
   components: {
+    PageProjectsInfrastructureSlider,
+    PageProjectsTimeline,
+    HeroBuilding,
     BaseProjectNavigation,
     PageProjectsTitle,
-    PageProjectsFourColumns,
     BasePostTwoImage,
     BasePost,
     TypoText,
-    PageProjectsInfrastructureSlider,
     BaseScrollLine,
     PageProjectsResidencesSlider,
     PageProjectsPhotosSlider,
@@ -62,47 +50,46 @@ export default {
   },
   async asyncData(ctx: Context): Promise<object | void> {
     ctx.store.commit('setLogoSubTitle', 'Projects')
-    await ctx.store.dispatch('Catalog/fetchProject')
-  },
-  data() {
-    return {
-      pageProjectsFourColumns: [
-        {
-          title: 'Live fully',
-          filename: 'three-columns-1.jpg',
-          to: {
-            name: 'service-online-purchase',
-          },
-          hovered: false,
-        },
-        {
-          title: 'Live carefree',
-          filename: 'three-columns-2.jpg',
-          to: {
-            name: 'service-introductory-tour',
-          },
-          hovered: false,
-        },
-        {
-          title: 'Live naturally',
-          filename: 'three-columns-3.jpg',
-          to: {
-            name: 'service-online-purchase',
-          },
-          hovered: false,
-        },
-        {
-          title: 'Live better',
-          filename: 'three-columns-3.jpg',
-          to: {
-            name: 'service-online-purchase',
-          },
-          hovered: false,
-        },
-      ],
+
+    // Dont load project from api if project already saved in store
+    if (ctx.route.params.slug !== ctx.store.getters['Catalog/getProject'].slug) {
+      const projectId = (ctx.route.params.slug || '').split('-').pop()
+      await ctx.store.dispatch('Catalog/fetchProject', projectId)
+
+      if (
+        process.server &&
+        ctx.store.getters['Catalog/getProject'].slug !== ctx.route.params.slug
+      ) {
+        ctx.redirect(
+          301,
+          (ctx.app.router as VueRouter).resolve({
+            name: ctx.route.name as string,
+            params: { slug: ctx.store.getters['Catalog/getProject'].slug },
+          }).href,
+        )
+      }
     }
   },
+})
+export default class PropertiesAboutPage extends Vue {
+  get blocks() {
+    const componentsRelations: any = {
+      BlockTwoPhotoText: 'base-post-two-image',
+      BlockLineScroller: 'base-scroll-line',
+      BlockInfrastructure: 'page-projects-infrastructure-slider',
+      BlockTimeline: 'page-projects-timeline',
+      BlockHeroBuilding: 'hero-building',
+      BlockPhotoSlider: 'page-projects-photos-slider',
+      BlockResidenceOffer: 'page-projects-residences-slider',
+      BlockProjectTitle: 'page-projects-title',
+    }
+
+    return (this.$store.state.Catalog.project.about_data || []).map((block: any) => ({
+      ...block,
+      type: Object.keys(componentsRelations).includes(block.type)
+        ? componentsRelations[block.type]
+        : 'p',
+    }))
+  }
 }
 </script>
-
-<style lang="sass" module></style>
