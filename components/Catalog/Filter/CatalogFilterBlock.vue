@@ -18,6 +18,12 @@
           version="style-4"
           :class="$style['filter-block__grid-text']"
         ) {{ item.label }}
+        typo-text(
+          tag="p"
+          version="none"
+          :class="$style['filter-block__grid-subtext']"
+          v-show="item.sublabel"
+        ) {{ item.sublabel }}
 </template>
 
 <script>
@@ -79,12 +85,13 @@ export default {
     padding: 0
     margin: 0
     display: grid
-    grid-template-columns: repeat(auto-fill, minmax(41px, auto))
-    justify-items: center
+    grid-template-columns: 1fr 1fr 1fr 1fr
+    align-items: center
+    justify-items: start
     grid-gap: 10px
-    flex-wrap: wrap
 
     &-item
+      display: flex
       border: solid 1px $color-white-4
       padding: 8px
       color: $color-white-56
@@ -107,4 +114,16 @@ export default {
     &-text
       text-align: center
       margin: 0
+
+    &-subtext
+      display: flex
+      width: 19px
+      height: 30px
+      margin: 0
+      font-family: Didot
+      font-style: normal
+      font-weight: bold
+      font-size: 16px
+      line-height: 30px
+      letter-spacing: 0.002em
 </style>
