@@ -705,18 +705,6 @@
         ]
       },
       {
-        "id": 3,
-        "image": "person-3.png",
-        "name": "Irina Sotnik",
-        "position": "Sales Manager",
-        "info": [
-          "Irina Sotnik - Sales Manager of BestHome Construction. Joined the company since 2020.",
-          "Irina has 6 years of experience in the tourism business. Since 2015, she has been working in the real estate industry.",
-          "Graduated with honors from the Kharkiv National University of Internal Affairs with a degree in psychology. She received a master's degree from the Kharkiv Regional Institute of Public Administration under the President of Ukraine with a degree in Public Administration and Administration.",
-          "She speaks Russian, Ukrainian, English and Turkish."
-        ]
-      },
-      {
         "id": 4,
         "image": "person-4.png",
         "name": "Murat Cholak",
