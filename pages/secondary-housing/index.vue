@@ -58,7 +58,7 @@ export default {
     onClickBtn() {
       this.showModal({
         name: 'modal-choose-apartments',
-        modal: () => import('@/components/Modal/ModalChooseApartments'),
+        modal: () => import('@/components/Modal/ModalChooseApartments.vue'),
       })
     },
   },

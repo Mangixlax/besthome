@@ -6,7 +6,7 @@
       :class="$style['project__title']"
     )  {{ projectData.title }}
     div(:class="$style['project__body']")
-      swiper(ref="swiper" :class="$style['slider']" class="swiper" :options="swiperOption")
+      swiper(ref="swiper_2" :class="$style['slider']" class="swiper" :options="swiperOption")
         swiper-slide(
           v-for="(slide,i) in projectData.slides"
           :key="i"
@@ -38,13 +38,14 @@
           div(:class="['swiper-pagination-progressbar', $style['swiper-pagination-progressbar']]")
             div(class="status-bar")
           div(:class="$style['buttons']")
-            button(:class="[$style['swiper-button-prev']]" @click.prevent="$refs.swiper.swiperInstance.slidePrev()")
+            button(:class="[$style['swiper-button-prev']]" @click.prevent="$refs.swiper_2.swiperInstance.slidePrev()")
               svg-icon(name="slider-prev-arrow-blue")
-            button(:class="[$style['swiper-button-next']]" @click.prevent="$refs.swiper.swiperInstance.slideNext()")
+            button(:class="[$style['swiper-button-next']]" @click.prevent="$refs.swiper_2.swiperInstance.slideNext()")
               svg-icon(name="slider-next-arrow-blue")
     div(:class="$style['project__footer']")  
       button(
         :class="$style['project__footer-prevbutton']"
+        @click="closeModal"
       )
         svg-icon(
           name="modals/modals-close-square"
@@ -52,6 +53,7 @@
         | Closed
       button(
         :class="$style['project__footer-nextbutton']"
+        @click="setNextStep"
       ) 
         div(
           :class="$style['project__footer-selected-count']"
@@ -123,6 +125,15 @@ export default {
     }
   },
   methods: {
+    setNextStep() {
+      this.$emit('nextStepInfo', 2)
+    },
+
+    closeModal() {
+      console.log(this.$modal)
+      this.$modal.hide('modal-choose-apartments')
+    },
+
     addToSelectedProjects(slide) {
       const slideIndex = this.selectedPojects.indexOf(slide.value)
       if (slideIndex === -1) {
@@ -144,7 +155,7 @@ export default {
   justify-content: center
   align-items: center
   grid-gap: 32px
-  padding: 40px 0
+  padding-top: 40px
   border-top: solid 1px $color-black-8
   border-bottom: solid 1px $color-black-8
 
@@ -161,12 +172,14 @@ export default {
       img
         box-shadow: -32px -32px 0 0 $color-black-4
 
+        @media (max-width: 800px)
+          box-shadow: none
+
     &-description
       width: 100%
       display: flex
       flex-direction: column
       grid-gap: 16px
-      margin-right: 32px
 
       &-title
         margin: 0
@@ -220,6 +233,13 @@ export default {
       border: none
       grid-gap: 12px
       height: 100%
+      cursor: pointer
+
+      @media (max-width: 800px)
+        padding: 8px 16px
+
+        svg
+          display: none
 
       svg
         height: 28px
@@ -236,6 +256,13 @@ export default {
       border: none
       grid-gap: 12px
       height: 100%
+      cursor: pointer
+
+      @media (max-width: 800px)
+        padding: 8px 16px
+
+        svg
+          display: none
 
       .is-selected-projects &
         background-color: $color-blue-100
@@ -254,12 +281,17 @@ export default {
   padding-top: 32px !important
   padding-left: 32px !important
 
+  @media (max-width: 800px)
+    padding-top: initial  !important
+    padding-left: initial !important
+
 .slide
   display: flex
   grid-gap: 72px
   align-items: center
+  padding: 24px
 
-  @media (max-width: 600px)
+  @media (max-width: 800px)
     flex-direction: column
 
   img
@@ -273,6 +305,7 @@ export default {
   display: flex
   align-items: center
   justify-content: space-between
+  padding: 24px
 
 .swiper-pagination-progressbar
   position: relative !important
