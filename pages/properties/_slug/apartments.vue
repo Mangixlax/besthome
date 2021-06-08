@@ -261,6 +261,7 @@ export default class PropertiesApartmentsPage extends Vue {
 
   get blocks() {
     const componentsRelations: any = {
+      BlockOnePhotoText: 'base-post',
       BlockTwoPhotoText: 'base-post-two-image',
       BlockLineScroller: 'base-scroll-line',
       BlockInfrastructure: 'page-projects-infrastructure-slider',
