@@ -335,8 +335,8 @@ export default class HeroSlider extends Vue {
 
 <style lang="sass" module>
 .slider
-  margin: 0 64px 80px
-  width: calc(100% - 128px)
+  margin: 0 24px 24px 24px
+  width: calc(100% - 48px)
   touch-action: pan-y
   user-select: none
   perspective: 100vw
