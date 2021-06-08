@@ -105,7 +105,7 @@ export default class BaseProjectNavigation extends Vue {
         color: $color-black-40
 
     &-submit
-      width: 170px
+      width: fit-content
       height: 48px
       border: none
       background-color: $color-blue-100
@@ -116,7 +116,7 @@ export default class BaseProjectNavigation extends Vue {
         display: none
 
       &--mobile
-        width: 102px
+        width: fit-content
         height: 32px
         border: none
         background-color: $color-blue-100
