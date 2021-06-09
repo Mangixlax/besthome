@@ -98,6 +98,7 @@ export default class BaseProjectNavigation extends Vue {
     &-link
       text-decoration: none
       color: $color-black-100
+      white-space: nowrap
       +style-7
 
       &--active
@@ -109,6 +110,7 @@ export default class BaseProjectNavigation extends Vue {
       height: 48px
       border: none
       background-color: $color-blue-100
+      white-space: nowrap
       color: $color-white-88
       +style-7
 

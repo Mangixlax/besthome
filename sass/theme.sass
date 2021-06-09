@@ -45,6 +45,32 @@ body
 .swiper-wrapper
   align-items: center
 
+  
+.swiper-pagination-bullet-custom
+  background: $color-white-100 !important
+  border: solid 1px $color-blue-100 !important
+  margin-right: 50px
+  display: flex 
+  position: relative
+  align-items: center 
+  justify-content: space-between
+  flex-direction: row
+  opacity: 1 !important
+
+  & + &:before
+    content: ""
+    position: absolute
+    top: 50%
+    left: -42px
+    width: 30px
+    height: 1px
+    margin-right: 12px
+    border-radius: 3px
+    display: inline-block
+    background-color: $color-blue-100
+    
+.swiper-pagination-bullet-active
+  background: $color-blue-100 !important
 /* Custom Vue slider component styles
 $themeColor: $color-white-100
 $bgColor: $color-white-32
