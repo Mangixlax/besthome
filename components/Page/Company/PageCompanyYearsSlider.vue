@@ -184,7 +184,7 @@ export default {
   margin-top: 40px
   display: flex
   align-items: center
-  justify-content: start
+  justify-content: flex-start
   padding: 0 24px
 
   @media (max-width: 1200px)
