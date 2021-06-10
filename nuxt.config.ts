@@ -214,7 +214,7 @@ export default <NuxtConfig>{
     loaders: {
       cssModules: {
         modules: {
-          localIdentName: isDev ? '[local]_[hash:base64:4]' : '[hash:base64:4]',
+          localIdentName: isDev ? '[local]_[hash:base64:4]' : '[hash:base64:6]',
         },
       },
     },
