@@ -78,17 +78,11 @@
 
 <script lang="ts">
 import TypoText from '~/components/Base/TypoText.vue'
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
 
-export default {
-  name: 'CatalogCardItem',
-  components: { TypoText },
-
-  props: {
-    card: {
-      type: Object,
-      default: () => {},
-    },
-  },
+@Component({ components: { TypoText } })
+export default class CatalogCardItem extends Vue {
+  @Prop({ type: Object, default: () => ({}) }) card!: any
 }
 </script>
 

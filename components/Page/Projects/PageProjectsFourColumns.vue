@@ -31,7 +31,7 @@
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
 
 @Component
-export default class TreeColumns extends Vue {
+export default class PageProjectsFourColumns extends Vue {
   @Prop({ type: String, default: '' }) title!: string
   @Prop({ type: String, default: '' }) description!: string
   @Prop({ type: Array, default: () => [] }) columns!: Array<Object>
