@@ -209,11 +209,18 @@ export default class PropertiesApartmentsPage extends Vue {
   }
 
   get apartmentsList(): IProjectApartment[] {
-    return ((this.$store.state.Catalog as CatalogState).project.apartments || {}).data || []
+    return (
+      // @TODO Add type apartments data
+      (((this.$store.state.Catalog as CatalogState).project.apartments || {}) as any).data || []
+    )
   }
 
   get similarApartmentsList(): IProjectApartment[] {
-    return ((this.$store.state.Catalog as CatalogState).project.similar_apartments || {}).data || []
+    return (
+      // @TODO Add type apartments data
+      (((this.$store.state.Catalog as CatalogState).project.similar_apartments || {}) as any)
+        .data || []
+    )
   }
 }
 </script>

@@ -61,21 +61,15 @@
 
 <script lang="ts">
 import TypoText from '~/components/Base/TypoText.vue'
+import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
-export default {
-  name: 'CatalogListItem',
-  components: { TypoText },
-  props: {
-    itemData: {
-      type: Object,
-      default: () => {},
-    },
-  },
-  computed: {
-    getArea() {
-      return (this.itemData.area || '').replace(/\.00.*/gm, '')
-    },
-  },
+@Component({ components: { TypoText } })
+export default class CatalogListItem extends Vue {
+  @Prop({ type: Object, default: () => {} }) itemData?: any
+
+  get getArea(): string {
+    return (this.itemData.area || '').replace(/\.00.*/gm, '')
+  }
 }
 </script>
 

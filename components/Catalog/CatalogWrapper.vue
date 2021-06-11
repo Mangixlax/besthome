@@ -48,15 +48,13 @@
 
 <script lang="ts">
 import TypoText from '~/components/Base/TypoText.vue'
-import CatalogFilterList from '~/components/Catalog/Filter/CatalogFilterList.vue'
 import { modalsTriggerMixin } from '@/mixins/modals'
 import Magnetic from '~/directives/magnetic'
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
 
-export default {
-  name: 'CatalogWrapper',
+@Component({
   components: {
     TypoText,
-    CatalogFilterList,
     CatalogFilterList: () => import('~/components/Catalog/Filter/CatalogFilterList.vue'),
   },
   directives: {
@@ -64,53 +62,42 @@ export default {
     Magnetic,
   },
   mixins: [modalsTriggerMixin],
-  props: {
-    filterDarkMode: {
-      type: Boolean,
-      default: false,
-    },
-    list: {
-      type: Array,
-      default: () => [],
-    },
-  },
-  data() {
-    return {
-      isCardDisplay: true,
-      isFilterReady: false,
+})
+export default class CatalogWrapper extends Vue {
+  @Prop({ type: Boolean, default: false }) filterDarkMode?: boolean
+  @Prop({ type: Array, default: false }) list?: Array<any>
+
+  public isCardDisplay: boolean = true
+  public isFilterReady: boolean = false
+
+  public onResize() {
+    this.isFilterReady = window.innerWidth > 1000
+  }
+
+  public showFilter() {
+    if (!this.isFilterReady) {
+      this.showModal({
+        name: 'modal-mobile-filter',
+        modal: () => import('~/components/Modal/MobileFilter/ModalMobileFilter.vue'),
+        options: {
+          width: '100%',
+          height: 'auto',
+        },
+        props: {
+          whiteMode: true,
+        },
+      })
     }
-  },
-  methods: {
-    onResize() {
-      if (window.innerWidth > 1000) {
-        this.isFilterReady = true
-      } else {
-        this.isFilterReady = false
-      }
-    },
-    showFilter() {
-      if (!this.isFilterReady) {
-        this.showModal({
-          name: 'modal-mobile-filter',
-          modal: () => import('~/components/Modal/MobileFilter/ModalMobileFilter.vue'),
-          options: {
-            width: '100%',
-            height: 'auto',
-          },
-          props: {
-            whiteMode: true,
-          },
-        })
-      }
-    },
-  },
+  }
+
   mounted() {
     this.onResize()
     window.addEventListener('resize', this.onResize)
-  },
+  }
+
   beforeDestroy() {
     window.removeEventListener('resize', this.onResize)
-  },
+  }
 }
 </script>
 
