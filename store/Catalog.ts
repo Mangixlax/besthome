@@ -9,6 +9,7 @@ export interface IProject {
   updated_at?: string | null
   published_at?: string | null
   apartments?: IProjectApartment[]
+  similar_apartments?: IProjectApartment[]
   floors?: IProjectFloor[]
   apartments_count?: number
   card_image?: string
@@ -38,6 +39,12 @@ export interface IProjectFloor {
   }
 }
 
+export interface IProjectBlock {
+  id: number
+  name: string
+  project_id: number
+}
+
 export interface IProjectApartment {
   id: number
   project_id: number
@@ -48,6 +55,10 @@ export interface IProjectApartment {
   area: string
   price: number
   name: string
+  block: IProjectBlock
+  floor: IProjectFloor
+  planning?: string
+  compass?: string
 }
 
 /**
@@ -56,6 +67,8 @@ export interface IProjectApartment {
 export const state = () => ({
   project: {} as IProject,
   projects: [] as IProject[],
+  apartment: {} as IProjectApartment,
+  apartments: [] as IProjectApartment[],
   projectsCount: 0 as number,
 })
 
@@ -73,6 +86,8 @@ export const getters: GetterTree<CatalogState, RootState> = {
   getProject: (state): IProject => state.project,
   getProjects: (state): IProject[] => state.projects,
   getProjectsCount: (state): number => state.projectsCount,
+  getApartment: (state): IProjectApartment => state.apartment,
+  getApartments: (state): IProjectApartment[] => state.apartments,
 }
 
 /**
@@ -86,6 +101,12 @@ export const mutations: MutationTree<CatalogState> = {
     state.projects = value
   },
   setProjectsCount: (state, value: number) => (state.projectsCount = value),
+  setApartment: (state: CatalogState, value: IProjectApartment) => {
+    state.apartment = value
+  },
+  setApartments: (state: CatalogState, value: IProjectApartment[]) => {
+    state.apartments = value
+  },
 }
 
 /**
@@ -118,12 +139,20 @@ export const actions: ActionTree<CatalogState, RootState> = {
         })
     })
   },
-  /**
-   * Temporary function for fill testing data
-   *
-   * @param commit
-   */
-  // init({ commit }: NavigationActionContext) {
-  //   commit('setHeaderNavigationList', this.$i18n.t('header.navigation'))
-  // },
+  async fetchApartments(
+    { commit }: CatalogActionContext,
+    { project_id = null }: { project_id?: number | null },
+  ) {
+    return new Promise(async (resolve, reject) => {
+      this.$axios
+        .$get(`v1/apartments/${project_id ? project_id : ''}`)
+        .then((apartment: IProjectApartment) => {
+          commit('setApartments', apartment)
+          resolve(apartment)
+        })
+        .catch(({ response: { data } }) => {
+          reject(data)
+        })
+    })
+  },
 }

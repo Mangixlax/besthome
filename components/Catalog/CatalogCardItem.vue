@@ -1,79 +1,82 @@
 <template lang="pug">
-  div(:class="$style['catalog-card']")
-    div(
-      :class="$style['catalog-card__header']"
-    )
-      div(:class="$style['catalog-card__header-status']")
+  nuxt-link(
+    :class="$style['catalog-card']"
+    :to="localePath({\
+      name: 'company-our-team-id',\
+      params: {\
+        id: card.id\
+      }\
+    })"
+  )
+    div(:class="$style['catalog-card__header']")
+      typo-text(
+        tag="div"
+        version="style-10"
+        :class="{\
+          [$style['catalog-card__header-status']]: true,\
+          [$style['catalog-card__header-status--available']]: card.status === 1,\
+        }"
+      ) {{ $t('pages.apartments.status_' + card.status) }}
+      typo-text(
+        tag="div"
+        version="style-6"
+        :class="$style['catalog-card__header-area']"
+      ) {{ card.area }}m
         typo-text(
-          tag="p"
-          version="style-10"
-        ) {{ card.status }}
-      div(:class="$style['catalog-card__header-area']")
-        typo-text(
-          tag="p"
-          version="style-6"
-        ) {{ card.area }}
-        typo-text(
-          tag="p"
-          version="style-6"
-        ) m²
+          tag="span"
+          version="style-9"
+        ) 2
     div(:class="$style['catalog-card__image']")
       img(
-        :src="require(`@/assets/images/catalog/${card.image}`)"
+        v-if="card.planning"
+        :src="card.planning"
+        loading="lazy"
         :class="$style['catalog-card__image-img']"
       )
     div(:class="$style['catalog-card__footer']")
-      div(:class="$style['catalog-card__footer-price']")
+      typo-text(
+        tag="div"
+        version="style-5"
+        :class="$style['catalog-card__footer-price']"
+      ) {{ card.price.toLocaleString('ru') }}
         typo-text(
-          tag="nuxt-link"
-          version="style-5"
-            :to="localePath({\
-            name: 'company-our-team-id',\
-            params: {\
-              id: card.id\
-            }\
-          })"
-          :class="$style['catalog-card__footer-price-value']"
-        ) {{ card.price }}
-        typo-text(
-          tag="p"
-          version="style-7"
-          :class="$style['catalog-card__footer-price-category']"
+          tag="span"
+          version="style-8"
         ) €
       div(:class="$style['catalog-card__footer-info']")
         div(:class="$style['catalog-card__footer-item']")
           typo-text(
-            tag="p"
+            tag="div"
             version="style-7"
             :class="$style['catalog-card__footer-item-category']"
-          ) Block
+          ) {{ $t('pages.apartments.block') }}
           typo-text(
-            tag="p"
+            tag="div"
             version="style-5"
             :class="$style['catalog-card__footer-item-value']"
-          ) {{ card.block }}
+          ) {{ card.block.name }}
         div(:class="$style['catalog-card__footer-item']")
           typo-text(
-            tag="p"
+            tag="div"
             version="style-7"
             :class="$style['catalog-card__footer-item-category']"
-          ) Floor
+          ) {{ $t('pages.apartments.floor') }}
           typo-text(
-            tag="p"
+            tag="div"
             version="style-5"
             :class="$style['catalog-card__footer-item-value']"
-          ) {{ card.floor }}
+          ) {{ card.floor.number }}
         div(:class="$style['catalog-card__footer-item']")
           typo-text(
-            tag="p"
+            tag="div"
             version="style-7"
             :class="$style['catalog-card__footer-item-category']"
-          ) Room
+          ) {{ $t('pages.apartments.rooms') }}
           typo-text(
-            tag="p"
+            tag="div"
             version="style-5"
             :class="$style['catalog-card__footer-item-value']"
-          ) {{ card.room }}
+          ) {{ card.rooms }}
 </template>
 
 <script lang="ts">
@@ -95,6 +98,8 @@ export default class CatalogCardItem extends Vue {
   flex-direction: column
   padding: 32px
   position: relative
+  text-decoration: none
+  color: inherit
 
   &:hover
     background-color: $color-blue-4
@@ -120,15 +125,30 @@ export default class CatalogCardItem extends Vue {
       background-color: $color-black-100
       color: $color-white-100
       padding: 6px 12px
+      text-transform: uppercase
+      letter-spacing: 0.24em
+
+      &--available
+        background-color: $color-blue-72
 
     &-area
       display: flex
 
   &__image
-    width: 250px
-    height: 3231px
+    width: 100%
+    height: 339px
+    padding: 8px
+    display: flex
+    align-items: center
+    justify-content: center
+
+    img
+      object-fit: cover
+      max-height: 100%
+      max-width: 100%
 
   &__footer
+    margin-top: auto
 
     &-price
       display: flex
@@ -138,27 +158,18 @@ export default class CatalogCardItem extends Vue {
         text-decoration: none
         color: $color-black-100
 
-        &::after
-          content: ""
-          position: absolute
-          top: 0
-          right: 0
-          bottom: 0
-          left: 0
-
     &-info
       display: flex
+      margin-top: 8px
 
     &-item
       display: flex
-      margin-right: 16px
       align-items: center
+
+      & +&
+        margin-left: 16px
 
       &-category
         color: $color-black-72
         margin-right: 6px
-
-  p
-    margin-top: 0
-    margin-bottom: 0
 </style>

@@ -2,10 +2,11 @@
   section(:class="$style['catalog-cards']")
     div(:class="$style['catalog-cards__container']")
       catalog-card-item(
-        v-for="(card,i) in projectCatalogInfo"
+        v-for="(card,i) in list"
         :key="i"
         :card="card"
       )
+    div(:class="$style['catalog-cards__empty']") {{ $t('pages.apartments.empty_list') }}
 </template>
 
 <script>
@@ -16,7 +17,7 @@ export default {
   name: 'CatalogCards',
   components: { TypoText, CatalogCardItem },
   props: {
-    projectCatalogInfo: {
+    list: {
       type: Array,
       default: () => [],
     },
@@ -50,4 +51,11 @@ export default {
 
       @media (max-width: 1124px)
          border-right: none
+
+  &__empty
+    display: flex
+    align-items: center
+    justify-content: center
+    +style-4
+    margin: 100px 0
 </style>

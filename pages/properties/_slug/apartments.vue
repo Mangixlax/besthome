@@ -7,8 +7,13 @@
       :key="index"
       :data="block"
     )
-    catalog-wrapper(:project-catalog-info="projectCatalogData")
-    page-projects-similar-slider(:slider-data="sliderData")
+    catalog-wrapper
+      template(v-slot="{ isCardDisplay }")
+        component(
+          :is="isCardDisplay ? 'CatalogCards' : 'CatalogList'"
+          :list="apartmentsList"
+        )
+    page-projects-similar-slider(:slider-data="similarApartmentsList")
     page-projects-apartment-slider(:card="apartmentSliderData")
     base-subscribe(:subscribe-data="$t('footer.subscribe')" white-theme)
     base-accordions(:accordions-data="$t('footer.accordions')")
@@ -35,7 +40,10 @@ import PageProjectsTimeline from '~/components/Page/Projects/PageProjectsTimelin
 import CatalogWrapper from '~/components/Catalog/CatalogWrapper.vue'
 import PageProjectsSimilarSlider from '~/components/Page/Projects/PageProjectsSimilarSlider.vue'
 import PageProjectsApartmentSlider from '~/components/Page/Projects/PageProjectsApartmentSlider.vue'
-import VueRouter from "vue-router"
+import VueRouter from 'vue-router'
+import { CatalogState, IProjectApartment } from '~/store/Catalog'
+import CatalogCards from '~/components/Catalog/CatalogCards.vue'
+import CatalogList from '~/components/Catalog/CatalogList.vue'
 
 @Component({
   components: {
@@ -56,6 +64,8 @@ import VueRouter from "vue-router"
     BaseSubscribe,
     BaseAccordions,
     FooterFastLinks,
+    CatalogCards,
+    CatalogList,
   },
   async asyncData(ctx: Context): Promise<object | void> {
     ctx.store.commit('setLogoSubTitle', 'Projects')
@@ -81,93 +91,9 @@ import VueRouter from "vue-router"
   },
 })
 export default class PropertiesApartmentsPage extends Vue {
-  public projectCatalogData = [
-    {
-      status: 'RESERVED',
-      area: 120,
-      image: 'cleopatra-select/plans/plan-1.png',
-      price: '450 400',
-      block: 'B',
-      floor: 4,
-      room: 4,
-    },
-    {
-      status: 'AVAILABLE',
-      area: 44.53,
-      image: 'cleopatra-select/plans/plan-2.png',
-      price: '450 400',
-      block: 'B',
-      floor: '4',
-      room: '4',
-    },
-    {
-      status: 'SOLD',
-      area: 71.1,
-      image: 'cleopatra-select/plans/plan-3.png',
-      price: '450 400',
-      block: 'B',
-      floor: '4',
-      room: '4',
-    },
-    {
-      status: 'AVAILABLE',
-      area: 120,
-      image: 'cleopatra-select/plans/plan-1.png',
-      price: '450 400',
-      block: 'B',
-      floor: '4',
-      room: '4',
-    },
-    {
-      status: 'AVAILABLE',
-      area: 120,
-      image: 'cleopatra-select/plans/plan-1.png',
-      price: '450 400',
-      block: 'B',
-      floor: '4',
-      room: '4',
-    },
-    {
-      status: 'AVAILABLE',
-      area: 120,
-      image: 'cleopatra-select/plans/plan-1.png',
-      price: '450 400',
-      block: 'B',
-      floor: '4',
-      room: '4',
-    },
-    {
-      status: 'RESERVED',
-      area: 120,
-      image: 'cleopatra-select/plans/plan-1.png',
-      price: '450 400',
-      block: 'B',
-      floor: 4,
-      room: 4,
-    },
-    {
-      status: 'AVAILABLE',
-      area: 44.53,
-      image: 'cleopatra-select/plans/plan-2.png',
-      price: '450 400',
-      block: 'B',
-      floor: '4',
-      room: '4',
-    },
-    {
-      status: 'SOLD',
-      area: 71.1,
-      image: 'cleopatra-select/plans/plan-3.png',
-      price: '450 400',
-      block: 'B',
-      floor: '4',
-      room: '4',
-    },
-  ]
-
   public apartmentSliderData = {
     apartment: 'Apartment B.01.02',
-    status: 'Reserved',
+    status: 2,
     area: 120,
     price: '450 400',
     block: 'B',
@@ -177,7 +103,7 @@ export default class PropertiesApartmentsPage extends Vue {
 
   public sliderData: any = [
     {
-      status: 'RESERVED',
+      status: 2,
       area: 120,
       image: 'cleopatra-select/plans/plan-1.png',
       price: '450 400',
@@ -186,7 +112,7 @@ export default class PropertiesApartmentsPage extends Vue {
       room: 4,
     },
     {
-      status: 'AVAILABLE',
+      status: 1,
       area: 44.53,
       image: 'cleopatra-select/plans/plan-2.png',
       price: '450 400',
@@ -195,7 +121,7 @@ export default class PropertiesApartmentsPage extends Vue {
       room: '4',
     },
     {
-      status: 'SOLD',
+      status: 3,
       area: 71.1,
       image: 'cleopatra-select/plans/plan-3.png',
       price: '450 400',
@@ -204,7 +130,7 @@ export default class PropertiesApartmentsPage extends Vue {
       room: '4',
     },
     {
-      status: 'AVAILABLE',
+      status: 1,
       area: 120,
       image: 'cleopatra-select/plans/plan-1.png',
       price: '450 400',
@@ -213,7 +139,7 @@ export default class PropertiesApartmentsPage extends Vue {
       room: '4',
     },
     {
-      status: 'AVAILABLE',
+      status: 1,
       area: 120,
       image: 'cleopatra-select/plans/plan-1.png',
       price: '450 400',
@@ -222,7 +148,7 @@ export default class PropertiesApartmentsPage extends Vue {
       room: '4',
     },
     {
-      status: 'AVAILABLE',
+      status: 1,
       area: 120,
       image: 'cleopatra-select/plans/plan-1.png',
       price: '450 400',
@@ -231,7 +157,7 @@ export default class PropertiesApartmentsPage extends Vue {
       room: '4',
     },
     {
-      status: 'RESERVED',
+      status: 2,
       area: 120,
       image: 'cleopatra-select/plans/plan-1.png',
       price: '450 400',
@@ -240,7 +166,7 @@ export default class PropertiesApartmentsPage extends Vue {
       room: 4,
     },
     {
-      status: 'AVAILABLE',
+      status: 1,
       area: 44.53,
       image: 'cleopatra-select/plans/plan-2.png',
       price: '450 400',
@@ -249,7 +175,7 @@ export default class PropertiesApartmentsPage extends Vue {
       room: '4',
     },
     {
-      status: 'SOLD',
+      status: 3,
       area: 71.1,
       image: 'cleopatra-select/plans/plan-3.png',
       price: '450 400',
@@ -272,12 +198,22 @@ export default class PropertiesApartmentsPage extends Vue {
       BlockProjectTitle: 'page-projects-title',
     }
 
-    return (this.$store.state.Catalog.project.choose_ap_data || []).map((block: any) => ({
-      ...block,
-      type: Object.keys(componentsRelations).includes(block.type)
-        ? componentsRelations[block.type]
-        : 'p',
-    }))
+    return ((this.$store.state.Catalog as CatalogState).project.choose_ap_data || []).map(
+      (block: any) => ({
+        ...block,
+        type: Object.keys(componentsRelations).includes(block.type)
+          ? componentsRelations[block.type]
+          : 'p',
+      }),
+    )
+  }
+
+  get apartmentsList(): IProjectApartment[] {
+    return ((this.$store.state.Catalog as CatalogState).project.apartments || {}).data || []
+  }
+
+  get similarApartmentsList(): IProjectApartment[] {
+    return ((this.$store.state.Catalog as CatalogState).project.similar_apartments || {}).data || []
   }
 }
 </script>

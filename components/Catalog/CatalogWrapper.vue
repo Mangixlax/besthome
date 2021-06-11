@@ -4,17 +4,17 @@
       div(:class="$style['catalog__content']")
         div(:class="$style['catalog__panel']")
           form(
-            action="" 
+            action=""
             method="method"
             :class="$style['catalog__panel-form']"
-          ) 
+          )
             typo-text(
               tag="p"
               version="style-8"
             ) Sort:
             select(
-              id="dropdown" 
-              name="role" 
+              id="dropdown"
+              name="role"
               :class="$style['catalog__panel-form-select']"
             )
               option(selected value) Recomended
@@ -35,17 +35,12 @@
               }"
               v-magnetic
             )
-        component(
-          :is="isCardDisplay ? 'CatalogCards' : 'CatalogList'"
-          :project-catalog-info="projectCatalogInfo"
-        )
+        slot(:is-card-display="isCardDisplay")
       catalog-filter-list(:filter-dark-mode="filterDarkMode")
 </template>
 
 <script lang="ts">
 import TypoText from '~/components/Base/TypoText.vue'
-import CatalogCards from '~/components/Catalog/CatalogCards.vue'
-import CatalogList from '~/components/Catalog/CatalogList.vue'
 import CatalogFilterList from '~/components/Catalog/Filter/CatalogFilterList.vue'
 import Magnetic from '~/directives/magnetic'
 
@@ -53,8 +48,6 @@ export default {
   name: 'CatalogWrapper',
   components: {
     TypoText,
-    CatalogCards,
-    CatalogList,
     CatalogFilterList,
   },
   directives: {
@@ -66,7 +59,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    projectCatalogInfo: {
+    list: {
       type: Array,
       default: () => [],
     },

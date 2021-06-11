@@ -110,13 +110,15 @@
       "block": "Block",
       "status": "Status",
       "floor": "Floor",
+      "rooms": "Rooms",
       "area": "Area",
       "price": "Price",
       "status_1": "Available",
       "status_2": "Reserved",
       "status_3": "Prereserved",
       "status_4": "Sold",
-      "nth": "{0} type"
+      "nth": "{0} type",
+      "empty_list": "Apartments is not found"
     },
     "projects_our_pojects": {
       "smart_block": [
