@@ -21,15 +21,16 @@
             :class="$style['history__description-link']"
             v-html="slide.link"
           )
-          div(:class="$style['content__link']")
+          div(
+            v-if="slide.linkToProject"
+            :class="$style['content__link']"
+          )
             typo-text(
-              v-show="slide.linkToProject.text"
               tag="p"
               version="style-5"
               :class="$style['content__link-text']"
             ) {{ slide.linkToProject.text }}
             typo-text(
-              v-show="slide.linkToProject.link"
               tag="nuxt-link"
               version="style-5"
               :to="localePath(slide.linkToProject.route)"
@@ -38,7 +39,6 @@
             ) {{ slide.linkToProject.link }}
             | .
             typo-text(
-              v-show="slide.linkToProject.route"
               tag="nuxt-link"
               version="none"
               :to="localePath(slide.linkToProject.route)"
@@ -50,7 +50,6 @@
             :style="{ backgroundImage: `url(${require('~/assets/images/pages/company/history/' + slide.year) })` }"
             :class="$style['history__description-year']"
           )
-             
         div(:class="$style['history__image']")
           img(:src="require(`@/assets/images/pages/company/history/years-image/${slide.image}`)")
       div(slot="pagination" :class="$style['navigation']")
@@ -91,6 +90,7 @@ export default {
           renderBullet(index, className) {
             return `<span class="${className} swiper-pagination-bullet-custom"></span>`
           },
+          clickable: true
         },
       },
     }
@@ -168,7 +168,7 @@ export default {
 
     @media (max-width: 1023px)
       height: 100%
-      max-height: 600px
+      max-height: 750px
       display: block
       max-width: 100%
       height: auto
@@ -178,12 +178,13 @@ export default {
     opacity: 0.2
 
 .navigation
-  max-width: 912px
+  max-width: 1200px
   margin: 0 auto
   margin-top: 40px
   display: flex
   align-items: center
   justify-content: flex-start
+  flex-wrap: wrap
   padding: 0 24px
 
   @media (max-width: 1200px)
@@ -193,9 +194,9 @@ export default {
     
   .swiper-pagination-bullets
     display: grid !important
-    grid-template-columns: repeat(16, 1fr)
+    grid-template-columns: repeat(18, 1fr)
 
-    @media (max-width: 1200px)
+    @media (max-width: 1300px)
       max-width: none
 
     @media (max-width: 1023px)
