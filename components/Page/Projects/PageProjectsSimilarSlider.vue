@@ -12,7 +12,7 @@
           :key="i"
           :class="$style['slide']"
         )
-          catalog-card-item(:card="slide")
+          catalog-card-item(:item-data="slide")
         div(slot="pagination" :class="$style['navigation']")
           div(:class="['swiper-pagination-progressbar', $style['swiper-pagination-progressbar']]")
             div(class="status-bar")

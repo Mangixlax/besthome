@@ -4,7 +4,7 @@
     :to="localePath({\
       name: 'company-our-team-id',\
       params: {\
-        id: card.id\
+        id: itemData.id\
       }\
     })"
   )
@@ -14,22 +14,22 @@
         version="style-10"
         :class="{\
           [$style['catalog-card__header-status']]: true,\
-          [$style['catalog-card__header-status--available']]: card.status === 1,\
+          [$style['catalog-card__header-status--available']]: itemData.status === 1,\
         }"
-      ) {{ $t('pages.apartments.status_' + card.status) }}
+      ) {{ $t('pages.apartments.status_' + itemData.status) }}
       typo-text(
         tag="div"
         version="style-6"
         :class="$style['catalog-card__header-area']"
-      ) {{ card.area }}m
+      ) {{ getArea }}m
         typo-text(
           tag="span"
           version="style-9"
         ) 2
     div(:class="$style['catalog-card__image']")
       img(
-        v-if="card.planning"
-        :src="card.planning"
+        v-if="itemData.planning"
+        :src="itemData.planning"
         loading="lazy"
         :class="$style['catalog-card__image-img']"
       )
@@ -38,7 +38,7 @@
         tag="div"
         version="style-5"
         :class="$style['catalog-card__footer-price']"
-      ) {{ card.price.toLocaleString('ru') }}
+      ) {{ itemData.price.toLocaleString('ru') }}
         typo-text(
           tag="span"
           version="style-8"
@@ -54,7 +54,7 @@
             tag="div"
             version="style-5"
             :class="$style['catalog-card__footer-item-value']"
-          ) {{ card.block.name }}
+          ) {{ itemData.block.name }}
         div(:class="$style['catalog-card__footer-item']")
           typo-text(
             tag="div"
@@ -65,7 +65,7 @@
             tag="div"
             version="style-5"
             :class="$style['catalog-card__footer-item-value']"
-          ) {{ card.floor.number }}
+          ) {{ itemData.floor.number }}
         div(:class="$style['catalog-card__footer-item']")
           typo-text(
             tag="div"
@@ -76,7 +76,7 @@
             tag="div"
             version="style-5"
             :class="$style['catalog-card__footer-item-value']"
-          ) {{ card.rooms }}
+          ) {{ itemData.rooms }}
 </template>
 
 <script lang="ts">
@@ -85,7 +85,11 @@ import { Component, Prop, Vue } from 'nuxt-property-decorator'
 
 @Component({ components: { TypoText } })
 export default class CatalogCardItem extends Vue {
-  @Prop({ type: Object, default: () => ({}) }) card!: any
+  @Prop({ type: Object, default: () => ({}) }) itemData!: any
+
+  get getArea() {
+    return (this.itemData.area || '').replace(/\.00.*/gm, '')
+  }
 }
 </script>
 

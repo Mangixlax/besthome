@@ -1,16 +1,19 @@
 <template lang="pug">
-  ul(:class="$style['catalog-list-item__list']")
-    li(:class="$style['catalog-list-item__list-item']")
-      div(:class="$style['catalog-list-item__list-status']")
-        typo-text(
-          tag="p"
-          version="style-10"
-        ) {{ list.status }}
-    li(:class="$style['catalog-list-item__list-item']")
+  div(:class="$style['catalog-list-item__list']")
+    div(:class="$style['catalog-list-item__list-item']")
+      typo-text(
+        tag="div"
+        version="style-10"
+        :class="{\
+          [$style['catalog-list-item__list-status']]: true,\
+          [$style['catalog-list-item__list-status--available']]: itemData.status === 1,\
+        }"
+      ) {{ $t('pages.apartments.status_' + itemData.status) }}
+    div(:class="$style['catalog-list-item__list-item']")
       typo-text(
         tag="p"
         version="style-5"
-      ) {{ list.block }}
+      ) {{ itemData.block.name }}
       typo-text(
         tag="p"
         version="style-7"
@@ -20,7 +23,7 @@
       typo-text(
         tag="p"
         version="style-5"
-      ) {{ list.floor }}
+      ) {{ itemData.floor.number }}
       typo-text(
         tag="p"
         version="style-7"
@@ -30,7 +33,7 @@
       typo-text(
         tag="p"
         version="style-5"
-      ) {{ list.rooms }}
+      ) {{ itemData.rooms }}
       typo-text(
         tag="p"
         version="style-7"
@@ -40,7 +43,7 @@
       typo-text(
         tag="p"
         version="style-5"
-      ) {{ list.area }}
+      ) {{ getArea }}
       typo-text(
         tag="p"
         version="style-5"
@@ -49,7 +52,7 @@
       typo-text(
         tag="p"
         version="style-5"
-      ) {{ list.price }}
+      ) {{ itemData.price.toLocaleString('ru') }}
       typo-text(
         tag="p"
         version="style-8"
@@ -62,11 +65,15 @@ import TypoText from '~/components/Base/TypoText.vue'
 export default {
   name: 'CatalogListItem',
   components: { TypoText },
-
   props: {
-    list: {
+    itemData: {
       type: Object,
       default: () => {},
+    },
+  },
+  computed: {
+    getArea() {
+      return (this.itemData.area || '').replace(/\.00.*/gm, '')
     },
   },
 }
@@ -94,6 +101,10 @@ export default {
     background-color: $color-black-100
     color: $color-white-100
     padding: 6px 12px
+    text-transform: uppercase
+
+    &--available
+      background-color: $color-blue-72
 
   &-info
     color: $color-black-24

@@ -1,43 +1,46 @@
 <template lang="pug">
   section(:class="$style['catalog-list']")
     div(:class="$style['catalog-list__container']")
-      ul(:class="$style['catalog-list__container-list']")
-        li(:class="$style['catalog-list__container-label']")
-          typo-text(
-            tag="p"
-            version="style-7"
-          ) {{ $t('pages.apartments.status') }}
-        li(:class="$style['catalog-list__container-label']")
-          typo-text(
-            tag="p"
-            version="style-7"
-          ) {{ $t('pages.apartments.block') }}
-        li(:class="$style['catalog-list__container-label']")
-          typo-text(
-            tag="p"
-            version="style-7"
-          ) {{ $t('pages.apartments.floor') }}
-        li(:class="$style['catalog-list__container-label']")
-          typo-text(
-            tag="p"
-            version="style-7"
-          ) {{ $t('pages.apartments.rooms') }}
-        li(:class="$style['catalog-list__container-label']")
-          typo-text(
-            tag="p"
-            version="style-7"
-          ) {{ $t('pages.apartments.area') }}
-        li(:class="$style['catalog-list__container-label']")
-          typo-text(
-            tag="p"
-            version="style-7"
-          ) {{ $t('pages.apartments.price') }}
+      div(:class="$style['catalog-list__container-list']")
+        typo-text(
+          tag="div"
+          version="style-7"
+          :class="$style['catalog-list__container-label']"
+        ) {{ $t('pages.apartments.status') }}
+        typo-text(
+          tag="div"
+          version="style-7"
+          :class="$style['catalog-list__container-label']"
+        ) {{ $t('pages.apartments.block') }}
+        typo-text(
+          tag="div"
+          version="style-7"
+          :class="$style['catalog-list__container-label']"
+        ) {{ $t('pages.apartments.floor') }}
+        typo-text(
+          tag="div"
+          version="style-7"
+          :class="$style['catalog-list__container-label']"
+        ) {{ $t('pages.apartments.rooms') }}
+        typo-text(
+          tag="div"
+          version="style-7"
+          :class="$style['catalog-list__container-label']"
+        ) {{ $t('pages.apartments.area') }}
+        typo-text(
+          tag="div"
+          version="style-7"
+          :class="$style['catalog-list__container-label']"
+        ) {{ $t('pages.apartments.price') }}
       catalog-list-item(
-        v-for="(list,i) in projectCatalogInfo"
-        :key="i"
-        :list="list"
+        v-for="(itemData, key) in list"
+        :key="key"
+        :item-data="itemData"
       )
-    div(:class="$style['catalog-list__empty']") {{ $t('pages.apartments.empty_list') }}
+    div(
+      v-if="list.length"
+      :class="$style['catalog-list__empty']"
+    ) {{ $t('pages.apartments.empty_list') }}
 </template>
 
 <script>
@@ -48,7 +51,7 @@ export default {
   name: 'CatalogList',
   components: { TypoText, CatalogListItem },
   props: {
-    projectCatalogInfo: {
+    list: {
       type: Array,
       default: () => [],
     },

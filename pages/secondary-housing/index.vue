@@ -16,10 +16,10 @@
         version="style-6"
       ) {{ $t('pages.secondary_housing.article_1') }}
     catalog-wrapper(
-      :project-catalog-info="SecodaryHousingCatalogData"
+      :list="SecodaryHousingCatalogData"
       :filter-dark-mode="true"
     )
-    base-subscribe(:subscribe-data="$t('footer.subscribe')" whiteTheme)
+    base-subscribe(:subscribe-data="$t('footer.subscribe')" white-theme)
     base-accordions(:accordions-data="$t('footer.accordions')")
     footer-fast-links
 </template>
@@ -67,7 +67,7 @@ export default {
     return {
       SecodaryHousingCatalogData: [
         {
-          status: 'RESERVED',
+          status: 2,
           area: 120,
           image: 'secondary-housing/image-1.jpg',
           price: '450 400',
@@ -76,7 +76,7 @@ export default {
           room: 4,
         },
         {
-          status: 'AVALIBLE',
+          status: 1,
           area: 44.53,
           image: 'secondary-housing/image-2.jpg',
           price: '450 400',
@@ -94,7 +94,7 @@ export default {
           room: '4',
         },
         {
-          status: 'AVALIBLE',
+          status: 1,
           area: 120,
           image: 'secondary-housing/image-4.jpg',
           price: '450 400',
@@ -103,7 +103,7 @@ export default {
           room: '4',
         },
         {
-          status: 'AVALIBLE',
+          status: 1,
           area: 120,
           image: 'secondary-housing/image-5.jpg',
           price: '450 400',
@@ -112,7 +112,7 @@ export default {
           room: '4',
         },
         {
-          status: 'AVALIBLE',
+          status: 1,
           area: 120,
           image: 'secondary-housing/image-6.jpg',
           price: '450 400',

@@ -2,26 +2,26 @@
   section(:class="$style['catalog-cards']")
     div(:class="$style['catalog-cards__container']")
       catalog-card-item(
-        v-for="(card,i) in list"
-        :key="i"
-        :card="card"
+        v-for="(itemData, key) in list"
+        :key="key"
+        :item-data="itemData"
       )
-    div(:class="$style['catalog-cards__empty']") {{ $t('pages.apartments.empty_list') }}
+    div(
+      v-if="list.length"
+      :class="$style['catalog-cards__empty']"
+    ) {{ $t('pages.apartments.empty_list') }}
 </template>
 
-<script>
+<script lang="ts">
 import TypoText from '~/components/Base/TypoText.vue'
 import CatalogCardItem from '~/components/Catalog/CatalogCardItem.vue'
+import { Component, Prop } from 'nuxt-property-decorator'
 
-export default {
-  name: 'CatalogCards',
+@Component({
   components: { TypoText, CatalogCardItem },
-  props: {
-    list: {
-      type: Array,
-      default: () => [],
-    },
-  },
+})
+export default class CatalogCards extends Vue {
+  @Prop({ type: Array, default: () => [] }) list?: any
 }
 </script>
 
