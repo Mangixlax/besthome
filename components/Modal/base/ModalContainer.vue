@@ -11,7 +11,7 @@
           :class="$style['modal__close']"
           @click.prevent="closeModal"
         )
-          svg-icon(name="modals/modals-close-cycle")
+          modal-close(:white-mode="whiteMode")
     div(:class="$style['modal__body']")
       slot(name="body")
     div(:class="$style['modal__footer']")
@@ -19,8 +19,12 @@
 </template>
 
 <script>
+import ModalClose from '@/components/Modal/base/ModalClose.vue'
 export default {
   name: 'ModalContainer',
+  components: {
+    ModalClose,
+  },
   props: {
     name: {
       // Modal id
@@ -32,6 +36,10 @@ export default {
       default: '',
     },
     full: {
+      type: Boolean,
+      default: false,
+    },
+    whiteMode: {
       type: Boolean,
       default: false,
     },
@@ -64,10 +72,6 @@ export default {
     margin-top: 0
     margin-bottom: 16px
 
-  // +mobile
-  //   align-items: flex-start
-  //   min-height: 100vh
-
   &.full
     min-width: 100%
     height: 100%
@@ -76,10 +80,6 @@ export default {
     width: 100%
     display: flex
     margin: 0 auto
-    padding: 32px
-
-    +mobile
-      padding: 24px
 
     &-buttons
       width: 100%
@@ -89,11 +89,13 @@ export default {
       z-index: 1
 
   &__close
-    // background-color: $color-black-56
     height: 40px
     width: 40px
     padding: 0
     display: flex
+    position: absolute
+    top: 24px
+    right: 24px
     align-items: center
     justify-content: center
     border: none
@@ -104,7 +106,6 @@ export default {
     position: relative
     width: 100%
     flex-direction: column
-
 
     +mobile
       margin: 0
