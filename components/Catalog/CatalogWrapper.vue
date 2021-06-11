@@ -35,10 +35,11 @@
               }"
               v-magnetic
             )
-        component(
-          :is="isCardDisplay ? 'CatalogCards' : 'CatalogList'"
-          :project-catalog-info="projectCatalogInfo"
-        )
+        transition(name="component-fade" mode="out-in")
+          component(
+            :is="isCardDisplay ? 'CatalogCards' : 'CatalogList'"
+            :project-catalog-info="projectCatalogInfo"
+          )
       div(:class="$style['catalog__filter']" @click="showFilter")
         typo-text(
           tag="p"

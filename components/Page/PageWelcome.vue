@@ -97,10 +97,6 @@ export default class PageWelcome extends Vue {
       & + *
         margin-top: 0
 
-    p
-      display: flex
-      flex-wrap: nowrap
-
       & + &
         margin-top: 16px
 
@@ -112,8 +108,4 @@ export default class PageWelcome extends Vue {
       color: $color-blue
       border-bottom: 1px solid rgba($color-blue, 0.16)
       cursor: pointer
-
-    @media (max-width: 1060px)
-      & span
-        display: block
 </style>

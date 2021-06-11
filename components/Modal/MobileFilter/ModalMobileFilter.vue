@@ -17,6 +17,12 @@ export default {
     ModalContainer,
     CatalogFilterList,
   },
+  props: {
+    name: {
+      type: String,
+      default: '',
+    },
+  },
 }
 </script>
 

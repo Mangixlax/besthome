@@ -7,7 +7,8 @@
     ]"
   )
     div(:class="$style['slider__image-wrapper']")
-      img(:class="$style['slider__image']" :src="require(`~/assets/images/pages/home/hero-slider/${ slides[currentSlideIndex].image }`)")
+      transition(name="component-fade" mode="out-in")
+        img(:class="$style['slider__image']" :key="slides[currentSlideIndex].image" :src="require(`~/assets/images/pages/home/hero-slider/${ slides[currentSlideIndex].image }`)")
     div(:class="$style['slider__nav']")
       div(:class="$style['slider__nav-prev']" @click="sliderTurnBackward")
         svg-icon(name="hero-slider-arrow")
@@ -394,8 +395,9 @@ export default class HeroSlider extends Vue {
     object-fit: cover
 
     &-wrapper
-      height: auto
-      width: 100%
+      padding-bottom: 56.25%
+      height: 0
+      // width: 100%
       -webkit-backface-visibility: hidden
       backface-visibility: hidden
       -webkit-font-smoothing: subpixel-antialiased
@@ -410,6 +412,13 @@ export default class HeroSlider extends Vue {
         left: 0
         background: rgba(17, 17, 17, 0.26)
 
+      img
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        
 .slide
   position: absolute
   top: 64px
@@ -481,7 +490,6 @@ export default class HeroSlider extends Vue {
   &__caption
     +style-1($with-media: false)
     margin-bottom: 2rem
-    width: 10%
     height: 108px
     display: block
     padding-top: 0!important
