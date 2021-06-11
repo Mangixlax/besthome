@@ -252,8 +252,12 @@ export default class HeroBuilding extends Vue {
     &-mobile
       width: 100%
 
-    &-mobile
+    &-desktop
       @media (max-width: 832px)
+        display: none
+
+    &-mobile
+      @media (min-width: 832px)
         display: none
 
     &-svg
