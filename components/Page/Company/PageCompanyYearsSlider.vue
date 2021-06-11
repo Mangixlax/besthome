@@ -60,7 +60,6 @@
           button(:class="[$style['swiper-button-next']]" @click.prevent="$refs.swiper_2.swiperInstance.slideNext()")
             svg-icon(name="slider-next-arrow-blue")
         div(:class="['swiper-pagination-bullets', $style['swiper-pagination-bullets']]")
-       
 </template>
 
 <script>
@@ -68,7 +67,7 @@ import TypoText from '~/components/Base/TypoText.vue'
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 
 export default {
-  name: 'PageCompanyHistorySlider',
+  name: 'PageCompanyYearsSlider',
   props: {
     sliderHistory: {
       type: Array,
@@ -190,7 +189,8 @@ export default {
   @media (max-width: 1200px)
     margin: initial
     padding: initial
-
+    margin-top: 40px
+    
   .swiper-pagination-bullets
     display: grid !important
     grid-template-columns: repeat(16, 1fr)

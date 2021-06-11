@@ -18,7 +18,7 @@
           v-for="(paragraph, i) in listCardData.header.subtext"
           :key="i"
           tag="p"
-          version="style-6"
+          version="style-5"
           :class="$style['list-card__header-text']"
         ) {{ paragraph }}
       ul(:class="$style['list']")

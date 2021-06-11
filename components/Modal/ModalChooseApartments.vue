@@ -95,7 +95,7 @@ export default {
     align-items: center
     list-style: none
     margin: 0
-    padding: 0
+    padding: 32px
 
     @media (max-width: 800px)
       flex-direction: column

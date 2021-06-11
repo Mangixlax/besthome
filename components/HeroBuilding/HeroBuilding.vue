@@ -234,11 +234,9 @@ export default class HeroBuilding extends Vue {
 .hero
   position: relative
   overflow: hidden
-  height: 100vh
-  min-height: 850px
   background-position: 50%
   background-size: cover
-  padding: 80px 64px
+  padding: 24px
 
   &__container
     height: auto
@@ -256,10 +254,6 @@ export default class HeroBuilding extends Vue {
 
     &-mobile
       @media (max-width: 832px)
-        display: none
-
-    &-mobile
-      @media (min-width: 832px)
         display: none
 
     &-svg

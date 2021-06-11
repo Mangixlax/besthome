@@ -37,7 +37,7 @@
                 :class="$style['slide__link-email']"
               ) {{ slide.email }}
                 svg-icon(name="link-arrow-white")
-          img(:src="require(`~/assets/images/consultant-slider/${slide.image}`)", alt="alt")
+          img(:src="require(`~/assets/images/our-team/${slide.image}`)", alt="alt")
     div(:class="$style['footer']")
       div(:class="$style['footer__navigation']")
         div(:class="$style['buttons']")
@@ -201,6 +201,7 @@ export default {
     justify-self: center
     box-shadow: 32px 32px $color-white-4
     margin: 0 32px
+    background: white
 
     @media (max-width: 700px)
       max-width: 100%

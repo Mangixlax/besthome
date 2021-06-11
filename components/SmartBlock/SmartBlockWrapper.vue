@@ -26,18 +26,19 @@ export default class LinkBannerWrapper extends Vue {
 .link-banner-wrapper
   display: grid
   grid-template-columns: repeat(6, 1fr)
-  padding: 0 64px
-  margin-bottom: 80px
-  grid-column-gap: 64px
-  grid-row-gap: 80px
+  padding: 0 24px
+  margin-bottom: 24px
+  grid-column-gap: 24px
+  grid-row-gap: 24px
 
   @media (max-width: 1224px)
     padding: 0 24px
     margin: 24px 0
     grid-gap: 24px
 
-  @media (max-width: 900px)
+  @media (max-width: 1000px)
     flex-direction: column
+    grid-template-columns: 1fr
 
     & > div
       width: 100%
@@ -48,9 +49,18 @@ export default class LinkBannerWrapper extends Vue {
 .col-1
   grid-column: span 2
 
+  @media (max-width: 1000px)
+    grid-column: initial
+
 .col-2
   grid-column: span 3
 
+  @media (max-width: 1000px)
+    grid-column: initial
+
 .col-3
   grid-column: span 6
+
+  @media (max-width: 1000px)
+    grid-column: initial
 </style>

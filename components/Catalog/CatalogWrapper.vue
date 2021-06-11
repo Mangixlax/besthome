@@ -36,12 +36,19 @@
               v-magnetic
             )
         slot(:is-card-display="isCardDisplay")
-      catalog-filter-list(:filter-dark-mode="filterDarkMode")
+      div(:class="$style['catalog__filter']" @click="showFilter")
+        typo-text(
+          tag="p"
+          version="style-6"
+          v-if="!isFilterReady"
+        ) Filter
+        catalog-filter-list(v-if="isFilterReady" :filter-dark-mode="filterDarkMode")
 </template>
 
 <script lang="ts">
 import TypoText from '~/components/Base/TypoText.vue'
 import CatalogFilterList from '~/components/Catalog/Filter/CatalogFilterList.vue'
+import { modalsTriggerMixin } from '@/mixins/modals'
 import Magnetic from '~/directives/magnetic'
 
 export default {
@@ -49,11 +56,13 @@ export default {
   components: {
     TypoText,
     CatalogFilterList,
+    CatalogFilterList: () => import('~/components/Catalog/Filter/CatalogFilterList.vue'),
   },
   directives: {
     // @ts-ignore
     Magnetic,
   },
+  mixins: [modalsTriggerMixin],
   props: {
     filterDarkMode: {
       type: Boolean,
@@ -67,7 +76,39 @@ export default {
   data() {
     return {
       isCardDisplay: true,
+      isFilterReady: false,
     }
+  },
+  methods: {
+    onResize() {
+      if (window.innerWidth > 1000) {
+        this.isFilterReady = true
+      } else {
+        this.isFilterReady = false
+      }
+    },
+    showFilter() {
+      if (!this.isFilterReady) {
+        this.showModal({
+          name: 'modal-mobile-filter',
+          modal: () => import('~/components/Modal/MobileFilter/ModalMobileFilter.vue'),
+          options: {
+            width: '100%',
+            height: 'auto',
+          },
+          props: {
+            whiteMode: true,
+          },
+        })
+      }
+    },
+  },
+  mounted() {
+    this.onResize()
+    window.addEventListener('resize', this.onResize)
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.onResize)
   },
 }
 </script>
@@ -119,4 +160,17 @@ export default {
 
         &.active
           fill: $color-blue-100
+
+  &__filter
+    @media (max-width: 1000px)
+      display: flex
+      align-items: center
+      justify-content: center
+      color: $color-white-100
+      height: 72px
+      width: 83px
+      position: fixed
+      top: 50%
+      right: 0
+      background: $color-blue-100
 </style>

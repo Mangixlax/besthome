@@ -43,7 +43,7 @@ export default class PageProjectsTitle extends Vue {
     display: flex
     align-items: center
     padding: 80px 24px
-    margin: 0 64px
+    margin: 0 24px
     background-size: cover
     background-repeat: no-repeat
     background-position-x: center
@@ -54,8 +54,8 @@ export default class PageProjectsTitle extends Vue {
       min-height: auto
 
     .isImage &
-      min-height: 640px
-      margin-bottom: 80px
+      min-height: 690px
+      margin-bottom: 24px
 
       &:before
         content: ''

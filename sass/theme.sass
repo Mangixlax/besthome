@@ -45,14 +45,13 @@ body
 .swiper-wrapper
   align-items: center
 
-  
 .swiper-pagination-bullet-custom
   background: $color-white-100 !important
   border: solid 1px $color-blue-100 !important
-  margin-right: 50px
-  display: flex 
+  margin-right: 49px
+  display: flex
   position: relative
-  align-items: center 
+  align-items: center
   justify-content: space-between
   flex-direction: row
   opacity: 1 !important
@@ -68,11 +67,18 @@ body
     border-radius: 3px
     display: inline-block
     background-color: $color-blue-100
-    
+
 .swiper-pagination-bullet-active
   background: $color-blue-100 !important
 /* Custom Vue slider component styles
+
 $themeColor: $color-white-100
 $bgColor: $color-white-32
 
 @import '~vue-slider-component/lib/theme/default.scss'
+
+.component-fade-enter-active, .component-fade-leave-active 
+  transition: opacity .3s ease
+
+.component-fade-enter, .component-fade-leave-to
+  opacity: 0
