@@ -1,5 +1,5 @@
 <template lang="pug">
-  div(:class="[$style['filter'], filterDarkMode && $style['dark-mode'] ]")
+  div(:class="$style['filter']")
     catalog-filter-block(
       :dark-mode="filterDarkMode"
       title="BLOCK"
@@ -111,7 +111,6 @@ export default {
           value: 5,
           sublabel: '+1'
         },
-        
         {
           label: '3',
           value: 6,
@@ -149,12 +148,7 @@ export default {
 .filter
   display: flex
   flex-direction: column
-  min-width: 320px
-  background: $color-blue-100
   min-height: 100%
   padding: 32px
   grid-gap: 40px
-
-  &.dark-mode
-    background: $color-black-96
 </style>

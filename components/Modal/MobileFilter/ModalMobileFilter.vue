@@ -4,7 +4,7 @@
     :name="name"
   )
     template(slot="body")
-      catalog-filter-list()
+      catalog-filter-list(:class="$style['filter']")
 </template>
 
 <script>
@@ -26,4 +26,7 @@ export default {
 }
 </script>
 
-<style lang="sass" module></style>
+<style lang="sass" module>
+.filter
+  background-color: $color-blue-100
+</style>

@@ -36,11 +36,12 @@
               v-magnetic
             )
         slot(:is-card-display="isCardDisplay")
-      div(:class="$style['catalog__filter']" @click="showFilter")
+      div(:class="[$style['catalog__filter'], filterDarkMode && $style['catalog__filter--dark']]" @click="showFilter")
         typo-text(
-          tag="p"
-          version="style-6"
           v-if="!isFilterReady"
+          :class="$style['catalog__filter-button']"
+          tag="div"
+          version="style-6"
         ) Filter
         catalog-filter-list(v-if="isFilterReady" :filter-dark-mode="filterDarkMode")
 </template>
@@ -162,6 +163,15 @@ export default {
           fill: $color-blue-100
 
   &__filter
+    background: $color-blue-100
+    min-width: 320px
+
+    &--dark
+      background: $color-black-96
+
+    &-button
+      display: none
+
     @media (max-width: 1000px)
       display: flex
       align-items: center
@@ -172,5 +182,8 @@ export default {
       position: fixed
       top: 50%
       right: 0
-      background: $color-blue-100
+      min-width: auto
+
+      &-button
+        display: block
 </style>
