@@ -4,7 +4,7 @@
       :style="{ backgroundImage: `url(${ filename })` }"
       :class="$style['image-title__container']"
     )
-      div(:class="$style['image-title__title']")
+      div(v-if="imageTitleData" :class="$style['image-title__title']")
         typo-text(
           tag="h1"
           version="style-1"
@@ -39,11 +39,10 @@ export default class BaseImageTitle extends Vue {
   &__container
     display: flex
     align-items: center
-    // max-width: 1360px
-    min-height: 760px
+    min-height: 800px
     height: 70vh
     padding: 80px 24px
-    margin: 0 64px
+    margin: 0 24px
     background-size: cover
     background-repeat: no-repeat
     background-position-x: center

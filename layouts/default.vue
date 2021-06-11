@@ -1,5 +1,6 @@
 <template lang="pug">
   div
+    top-line-select-country
     top-line(v-if="!topLineIsHidden" @close="onToggleHiddenMode")
     base-header
     nuxt
@@ -15,6 +16,7 @@ import { Component, Mutation, namespace } from 'nuxt-property-decorator'
 import { SettingsTopLineState } from '~/store/SettingsTopLine'
 import { ActionTree, MutationTree } from 'vuex'
 import { RootState } from '~/store'
+import TopLineSelectCountry from '~/components/TopLine/TopLineSelectCountry.vue'
 import TopLine from '~/components/TopLine/TopLine.vue'
 import BaseHeader from '~/components/BaseHeader/BaseHeader.vue'
 import BaseHeaderMobile from '~/components/BaseHeaderMobile/BaseHeaderMobile.vue'
@@ -25,6 +27,7 @@ const SettingsTopLineStore = namespace('SettingsTopLine')
 
 @Component({
   components: {
+    TopLineSelectCountry,
     TopLine,
     BaseHeader,
     BaseHeaderMobile,

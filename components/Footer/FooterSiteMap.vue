@@ -15,12 +15,15 @@
         version="style-8"
         :class="$style['map__phone-text']"
       )
-        | Сall the support service via the phone +90 530 547-44-15 or locate
+        | {{ $t('footer.footer_site_map.text') }}
+        a(href="tel:+905305474415" title="Call +90 530 547-44-15" :class="$style['map__phone-text-link']")
+          span(v-html="'+90 530 547<span>-</span>44<span>-</span>15'")
+        | {{ $t('footer.footer_site_map.text_2') }}
         span
           nuxt-link(
           :to="localePath({ name: 'contacts' })"
           :class="$style['map__phone-link--underline']"
-        ) sales office
+        ) {{ $t('footer.footer_site_map.link') }}
           | .
         nuxt-link(
           :to="localePath({ name: 'contacts' })"
@@ -151,10 +154,15 @@ export default class FooterSiteMap extends Vue {
     align-items: center
     flex-wrap: wrap
     +style-8($with-media: false)
-
+    
     @media (max-width: 450px)
       max-width: 190px
 
+    &-link
+      +style-8($with-media: false)
+      text-decoration: none
+      color: rgba($color-black, 0.88)
+      margin: 0 0.3em
   span
     white-space: nowrap
 

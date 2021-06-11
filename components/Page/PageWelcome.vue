@@ -73,7 +73,7 @@ export default class PageWelcome extends Vue {
 
   @media (max-width: 1060px)
     padding-top: 24px
-    padding-bottom: 264px
+    padding-bottom: 24px
 
   &__container
     max-width: 912px
@@ -94,13 +94,13 @@ export default class PageWelcome extends Vue {
       margin-bottom: 40px
       display: inline-block
 
-      @media (max-width: 1060px)
-        margin-top: 32px
-
       & + *
         margin-top: 0
 
     p
+      display: flex
+      flex-wrap: nowrap
+
       & + &
         margin-top: 16px
 

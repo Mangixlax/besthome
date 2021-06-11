@@ -5,13 +5,13 @@
         tag="p"
         version="style-8(with-media: false)"
         :class="$style['copyright__container-text']"
-      ) © BestHome Construction, 2021 All rights reserved.
+      ) © BestHome Construction, 2021 {{ $t('footer.footer_copyright.rights') }}
       div(:class="$style['copyright__changelang']")
         typo-text(
           tag="p"
           version="style-8(with-media: false)"
           :class="$style['copyright__changelang-text']"
-        ) Change language:
+        ) {{ $t('footer.footer_copyright.language') }}
         base-select-language(:list="['RU','EN']")
     div(:class="$style['copyright__information']")
       ul(:class="$style['copyright__list']")

@@ -28,21 +28,29 @@
             nuxt-link(
               :to="localePath(column.to)"
               v-html="column.title"
-              data-cursor-text="Click<br>to watch"
+              :data-cursor-text="dataCursor"
               data-cursor-off-exclusion
             )
           div(ref="text" :class="$style['tree__columns-content-text']")
-            p {{ column.text }}
+            typo-text(
+              tag="p"
+              version="style-6"
+              v-html="column.text"
+            )
 </template>
 
 <script lang="ts">
+import TypoText from '~/components/Base/TypoText.vue'
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
 
-@Component
+@Component({
+  components: { TypoText },
+})
 export default class TreeColumns extends Vue {
   @Prop({ type: String, default: '' }) title!: string
   @Prop({ type: String, default: '' }) description!: string
   @Prop({ type: Array, default: () => [] }) columns!: Array<Object>
+  @Prop({ type: String, default: ''}) dataCursor!: string
 
   public isHovered: boolean = false
 

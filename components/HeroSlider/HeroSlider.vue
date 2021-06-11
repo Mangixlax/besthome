@@ -7,11 +7,11 @@
     ]"
   )
     div(:class="$style['slider__image-wrapper']")
-      img(:class="$style['slider__image']" src="~assets/images/hero-slide-1.jpg")
+      img(:class="$style['slider__image']" :src="require(`~/assets/images/pages/home/hero-slider/${ slides[currentSlideIndex].image }`)")
     div(:class="$style['slider__nav']")
-      div(:class="$style['slider__nav-prev']" @click="sliderTurnForward")
+      div(:class="$style['slider__nav-prev']" @click="sliderTurnBackward")
         svg-icon(name="hero-slider-arrow")
-      div(:class="$style['slider__nav-next']" @click="sliderTurnBackward")
+      div(:class="$style['slider__nav-next']" @click="sliderTurnForward")
         svg-icon(name="hero-slider-arrow")
     div(
       ref="slider"
@@ -22,7 +22,7 @@
       data-cursor-off-exclusion
     )
       div(:class="$style['slide__counter']")
-        | Projects {{ currentSlideIndex + 1 }} of {{ slides.length }}
+        | {{ $t('pages.home.hero_slider_data.label_1') }} {{ currentSlideIndex + 1 }} {{ $t('pages.home.hero_slider_data.label_2') }} {{ slides.length }}
       a(
         ref="caption"
         :class="$style['slide__caption']"
@@ -38,12 +38,12 @@
           span(:class="$style['slide__info-text']") /
           span(:class="$style['slide__info-text']") {{ slides[currentSlideIndex].location.region }}
         div(:class="$style['slide__info-line']")
-          span(:class="$style['slide__info-text']") From
+          span(:class="$style['slide__info-text']") {{ $t('pages.home.hero_slider_data.label_from') }}
           span(:class="$style['slide__info-text']") {{ slides[currentSlideIndex].price }}
           span(:class="$style['slide__info-text']") €
         div(:class="$style['slide__info-line']")
           svg-icon(name="swim")
-          span(:class="$style['slide__info-text']") {{ slides[currentSlideIndex].sea }} m
+          span(:class="$style['slide__info-text']") {{ slides[currentSlideIndex].sea }} {{ $t('pages.home.hero_slider_data.label_meter') }}
       div(:class="$style['slide__description']")
         | {{ slides[currentSlideIndex].description }}
 </template>
@@ -408,7 +408,7 @@ export default class HeroSlider extends Vue {
         bottom: 0
         right: 0
         left: 0
-        background: rgba(17, 17, 17, 0.16)
+        background: rgba(17, 17, 17, 0.26)
 
 .slide
   position: absolute

@@ -41,6 +41,7 @@
       :title="$t('pages.home.tree_columns.title')"
       :description="$t('pages.home.tree_columns.description')"
       :columns="$t('pages.home.tree_columns.columns')"
+      :data-cursor="$t('pages.home.tree_columns.data_cursor')"
     )
     common-consultant-slider(:slider-data="$t('footer.consultant_slider')")
     base-accordions(:accordions-data="$t('footer.accordions')")
