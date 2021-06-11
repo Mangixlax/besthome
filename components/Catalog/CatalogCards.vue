@@ -15,7 +15,7 @@
 <script lang="ts">
 import TypoText from '~/components/Base/TypoText.vue'
 import CatalogCardItem from '~/components/Catalog/CatalogCardItem.vue'
-import { Component, Prop } from 'nuxt-property-decorator'
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
 
 @Component({
   components: { TypoText, CatalogCardItem },
