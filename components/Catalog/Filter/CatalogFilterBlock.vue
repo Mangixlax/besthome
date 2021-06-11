@@ -1,15 +1,14 @@
 <template lang="pug">
   div(:class="[$style['filter-block'], darkMode && $style['dark-mode']]")
-    div(:class="$style['filter-block__title']")
-      typo-text(
-        tag="p"
-        version="style-7"
-        :class="$style['filter-block__title-text']"
-      ) {{ title }}
+    typo-text(
+      tag="div"
+      version="style-7"
+      :class="$style['filter-block__title']"
+    ) {{ title }}
     ul(:class="$style['filter-block__grid']")
       li(
-        v-for="(item,i) in filterItems"
-        :key="i"
+        v-for="(item, key) in filterItems"
+        :key="key"
         :class="[$style['filter-block__grid-item'], selectedItems.indexOf(item.value) !== -1 && $style['selected']]"
         @click="addToSelectedItems(item)"
       )
@@ -75,7 +74,6 @@ export default {
   display: flex
   flex-direction: column
   min-height: 98px
-  grid-gap: 16px
 
   &__title
     color: $color-white-100
@@ -83,12 +81,10 @@ export default {
   &__grid
     list-style: none
     padding: 0
-    margin: 0
-    display: grid
-    grid-template-columns: 1fr 1fr 1fr 1fr
-    align-items: center
-    justify-items: start
+    margin: 16px 0 0 0
+    display: flex
     grid-gap: 10px
+    flex-wrap: wrap
 
     &-item
       display: flex
