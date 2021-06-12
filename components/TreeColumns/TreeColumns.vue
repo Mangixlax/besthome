@@ -155,6 +155,7 @@ export default class TreeColumns extends Vue {
     display: flex
     justify-content: space-between
     height: 100%
+    padding: 0 24px
 
     @media (max-width: 1224px)
       flex-direction: column
@@ -163,19 +164,13 @@ export default class TreeColumns extends Vue {
     &-item
       width: 33.33%
       height: 100%
-      padding: 64px
+      padding: 64px 0
       position: relative
       cursor: pointer
 
       &:not(:first-child):not(:last-child)
         padding-left: 32px
         padding-right: 32px
-
-      &:first-child
-        padding-right: 32px
-
-      &:last-child
-        padding-left: 32px
 
       @media (max-width: 1300px)
         padding-left: 32px

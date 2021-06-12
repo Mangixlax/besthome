@@ -59,7 +59,7 @@ export const getters: GetterTree<NavigationState, RootState> = {
           indicator: item.indicator,
           route: {
             name: item.url,
-            params: item.params,
+            params: Object.keys(item.params || {}).length ? item.params : {},
           },
           children: processing(item.items?.length ? item.items : []),
           hasChildren: !!item.items?.length,
