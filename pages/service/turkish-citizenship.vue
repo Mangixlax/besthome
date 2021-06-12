@@ -4,17 +4,18 @@
       :imageTitleData="$t('pages.service_turkish_citizenship.image_title')"
       :filename="require(`~/assets/images/pages/service/turkish-citizenship/title.jpg`)"
       )
-    base-text-container
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.service_turkish_citizenship.slot_text_1') }}
+    base-text-container(
+      :data="{\
+        text: `<p>${$t('pages.service_turkish_citizenship.slot_text_1')}</p>`\
+      }"
+    )
     page-service-list-card(:listCardData="$t('pages.service_turkish_citizenship.list_card')")
-    base-text-container(textAlign="center")
-      typo-text(
-        tag="p"
-        version="style-4"
-      ) {{ $t('pages.service_turkish_citizenship.article_1.title') }}
+    base-text-container(
+      :data="{\
+        text: `<h3>${$t('pages.service_turkish_citizenship.article_1.title')}</h3>`,\
+        text_position: 'center'\
+      }"
+    )
     base-post(
       :data="{\
         image: require(`~/assets/images/pages/service/turkish-citizenship/image-1.jpg`),\

@@ -4,11 +4,11 @@
       :imageTitleData="$t('pages.service_introductory_tour.image_title')"
       :filename="require(`~/assets/images/pages/service/introductory-tour/title.jpg`)"
     )
-    base-text-container
-      typo-text(
-        tag="h2"
-        version="style-4"
-      ) {{ $t('pages.service_introductory_tour.slot_text_1')}}
+    base-text-container(
+      :data="{\
+        text: `<h2>${$t('pages.service_introductory_tour.slot_text_1')}</h2>`\
+      }"
+    )
     base-post(
       :data="{\
         image: require(`~/assets/images/test.jpg`),\

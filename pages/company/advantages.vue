@@ -26,17 +26,14 @@
         block_flip: false,\
       }"
     )
-    base-text-container
-      typo-text(
-        tag="h3"
-        version="style-3"
-      ) {{ $t('pages.company_advantages.article_1.title') }}
-      typo-text(
-        v-for="(paragraph, i) in $t('pages.company_advantages.article_1.text')"
-        :key="i"
-        tag="p"
-        version="style-5"
-      ) {{ paragraph }}
+    base-text-container(
+      :data="{\
+        text: [\
+          `<h3>${$t('pages.company_advantages.article_1.title')}</h3>`,\
+          ...$t('pages.company_advantages.article_1.text').map((p) => `<p>${p}<p>`)\
+        ].join('')\
+      }"
+    )
     base-post(
       :data="{\
         image: require(`~/assets/images/pages/advantages/image-3.jpg`),\
@@ -72,27 +69,16 @@
         block_flip: true,\
       }"
     )
-    base-text-container
-      typo-text(
-        tag="h3"
-        version="style-3"
-      ) {{ $t('pages.company_advantages.article_2.title') }}
-      typo-text(
-        v-for="(paragraph, i) in $t('pages.company_advantages.article_2.text')"
-        :key="i"
-        tag="p"
-        version="style-5"
-      ) {{ paragraph }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.company_advantages.article_2.paragraph_with_link') }}
-        typo-text(
-          tag="a"
-          href="#"
-          version="style-5"
-        ) {{ $t('pages.company_advantages.article_2.link') }}
-        | .
+    base-text-container(
+      :data="{\
+        text: [\
+          `<h3>${$t('pages.company_advantages.article_2.title')}</h3>`,\
+          ...$t('pages.company_advantages.article_2.text').map((p) => `<p>${p}<p>`),\
+          `<p>${$t('pages.company_advantages.article_2.paragraph_with_link')}`,\
+          `<a href='#'>${$t('pages.company_advantages.article_2.link')}</a>.</p>`,\
+        ].join('')\
+      }"
+    )
 </template>
 
 <script lang="ts">
