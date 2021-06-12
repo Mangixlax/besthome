@@ -553,16 +553,28 @@
         "title": "Advantages",
         "slider": [
           {
-            "image": "company-advantages-slider-3.jpg",
-            "text": "We provide bank guarantees-we cooperate with the leading banks of Turkey."
-          },
-          {
             "image": "company-advantages-slider-1.jpg",
-            "text": "Full legal support of a transaction for the sale and purchase of real estate in Turkey."
+            "text": "High quality of use with the use of modern technologies and materials certified by the Turkish Standards Institute"
           },
           {
             "image": "company-advantages-slider-2.jpg",
-            "text": "We strictly observe the deadlines for the delivery of objects-controls all stages of construction."
+            "text": "Multilevel quality control system."
+          },
+          {
+            "image": "company-advantages-slider-3.jpg",
+            "text": "Compliance with the deadlines for the delivery of objects"
+          },
+          {
+            "image": "company-advantages-slider-4.jpg",
+            "text": "Guaranteed legal purity of transactions"
+          },
+          {
+            "image": "company-advantages-slider-5.jpg",
+            "text": "Accompanying each client from the moment of concluding an agreement to obtaining ownership of the property."
+          },
+          {
+            "image": "company-advantages-slider-6.jpg",
+            "text": "Full range of services after registration of ownership"
           }
         ]
       },
