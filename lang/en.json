@@ -31,7 +31,8 @@
         "label_meter": "m",
         "hero_slider": [
           {
-            "title": "Best Home 36-37 The Legend",
+            "title": "Best Home 36-37",
+            "sub_title": "The Legend",
             "image": "slide-1.jpg",
             "location": {
               "city": "Alanya",
@@ -42,7 +43,8 @@
             "description": "The project which is being constructed on a hill surrounded with green space, accompanied with unique landscapes of Alanya castle merging with sea and mountains, we are bringing you to calm and peaceful environment."
           },
           {
-            "title": "Best Home 35 Aria",
+            "title": "Best Home 35",
+            "sub_title": "Aria",
             "image": "slide-2.jpg",
             "location": {
               "city": "Alanya",
@@ -53,7 +55,8 @@
             "description": "\"Besthome 35 Aria\" is a new investment project in the central part of Alanya, Turkey. Despite the fact that this is the central part, here is quiet and green. Apartment on the shores of the Mediterranean Sea is an exclusive product that can be bought for life!"
           },
           {
-            "title": "Best Home 33 Cleopatra Symphony",
+            "title": "Best Home 33",
+            "sub_title": "Cleopatra Symphony",
             "image": "slide-3.jpg",
             "location": {
               "city": "Аланья",
