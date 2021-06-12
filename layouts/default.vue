@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    top-line-select-country
+    top-line-select-country(v-if="!topLineLocaleIsHidden")
     top-line(v-if="!topLineIsHidden" @close="onToggleHiddenMode")
     base-header
     nuxt
@@ -37,6 +37,8 @@ const SettingsTopLineStore = namespace('SettingsTopLine')
 })
 export default class DefaultLayout extends Vue {
   @SettingsTopLineStore.Getter('isHidden') topLineIsHidden!: SettingsTopLineState['hidden']
+  @SettingsTopLineStore.Getter('isLocaleHidden')
+  topLineLocaleIsHidden!: SettingsTopLineState['localeHidden']
   @SettingsTopLineStore.Action('toggleHiddenMode') onToggleHiddenMode!: ActionTree<
     SettingsTopLineState,
     RootState

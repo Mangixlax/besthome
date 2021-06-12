@@ -1,7 +1,11 @@
 {
   "header": {
     "top_line": "",
-    "call_back": "Go get a call back"
+    "call_back": "Go get a call back",
+    "select_locale": {
+      "text": "Select a country or region to match the content to your location.",
+      "next": "Apply"
+    }
   },
   "projects": {
     "sold_out": "Sold out",
