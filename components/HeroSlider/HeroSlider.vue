@@ -27,7 +27,17 @@
         ref="caption"
         :class="$style['slide__caption']"
         href="#"
-      ) {{ slides[currentSlideIndex].title }}
+      ) 
+        typo-text(
+          tag="h1"
+          version="style-1"
+          :class="$style['slide__caption-title']"
+        ) {{ slides[currentSlideIndex].title }}
+        typo-text(
+          tag="h3"
+          version="style-2"
+          :class="$style['slide__caption-subtitle']"
+        ) {{ slides[currentSlideIndex].sub_title }}
       div(
         ref="captionNext"
         :class="[$style['slide__caption'], $style['slide__caption--next']]"
@@ -54,13 +64,14 @@ import { gsap, Power2, Power3 } from 'gsap'
 import Draggable from 'gsap/dist/Draggable'
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
 import HeroSliderSlide from '~/components/HeroSlider/HeroSliderSlide.vue'
+import TypoText from '~/components/Base/TypoText.vue'
 import { IHeroSlide } from '~/types/HeroSlider'
 
 if (process.client) {
   gsap.registerPlugin(Draggable)
 }
 
-@Component({ components: { HeroSliderSlide } })
+@Component({ components: { HeroSliderSlide, TypoText } })
 export default class HeroSlider extends Vue {
   @Prop({ type: Array, default: () => [], required: true }) slides!: IHeroSlide[]
 
@@ -428,7 +439,7 @@ export default class HeroSlider extends Vue {
   &__info
     display: flex
     align-items: center
-    margin-top: 40px
+    margin-top: 90px
     color: $color-white-100
     opacity: 1
     transition: opacity 0.25s ease
@@ -489,6 +500,12 @@ export default class HeroSlider extends Vue {
     white-space: nowrap
     text-decoration: none
     color: $color-white-100
+
+    &-title
+      margin: 0
+
+    &-subtitle
+      margin: 0
 
     @media (max-width: 1100px)
       font-size: 48px

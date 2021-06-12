@@ -46,10 +46,11 @@
               :class="$style['content__link-arrow']"
             )
               svg-icon(name="link-arrow-blue")
-          div(
-            :style="{ backgroundImage: `url(${require('~/assets/images/pages/company/history/' + slide.year) })` }"
+          typo-text(
+            tag="div"
+            version="style-0"
             :class="$style['history__description-year']"
-          )
+          ) {{ slide.year }}
         div(:class="$style['history__image']")
           img(:src="require(`@/assets/images/pages/company/history/years-image/${slide.image}`)")
       div(slot="pagination" :class="$style['navigation']")
@@ -119,21 +120,19 @@ export default {
 
     &-year
       margin-top: 79px
-      height: 240px
-      height: 240px
       max-width: 1057px
-      height: 240px
-      width: 100%
       top: 35px
       left: 95px
       background-size: 100%
       background-position: center center
       background-repeat: no-repeat
       justify-self: end
-      
+      margin: 0
+      color: $color-black-8
+
       @media (max-width: 700px)
-        margin-top: initial
-        
+        margin-top: initial   
+
   &__image
     max-width: 624px
     padding-left: 144px

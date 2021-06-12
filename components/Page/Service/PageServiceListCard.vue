@@ -9,14 +9,14 @@
         ) {{ listCardData.header.title }}
         typo-text(
           v-for="(paragraph, i) in listCardData.header.text"
-          :key="i"
+          :key="`text_${i}`"
           tag="p"
           version="style-5"
           :class="$style['list-card__header-text']"
         ) {{ paragraph }}
         typo-text(
           v-for="(paragraph, i) in listCardData.header.subtext"
-          :key="i"
+          :key="`subtext_${i}`"
           tag="p"
           version="style-5"
           :class="$style['list-card__header-text']"
@@ -24,7 +24,7 @@
       ul(:class="$style['list']")
         li(
           v-for="(item, i) in listCardData.list"
-          :key="i"
+          :key="`list_${i}`"
           :class="$style['list__item']"
         )
           typo-text(   
