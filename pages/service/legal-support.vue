@@ -4,11 +4,11 @@
       :image-title-data="$t('pages.service_legal_support.image_title')"
       :filename="require(`~/assets/images/pages/service/legal-support/title.jpg`)"
     )
-    base-text-container
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.service_legal_support.slot_text_1') }}
+    base-text-container(
+      :data="{\
+        text: `<p>${$t('pages.service_legal_support.slot_text_1')}</p>`\
+      }"
+    )
     base-post(
       :data="{\
         image: require(`~/assets/images/pages/service/legal-support/image-1.jpg`),\

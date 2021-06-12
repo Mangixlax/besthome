@@ -29,7 +29,8 @@ import HeroBuilding from '~/components/HeroBuilding/HeroBuilding.vue'
 import { Context } from '@nuxt/types'
 import PageProjectsInfrastructureSlider from '~/components/Page/Projects/PageProjectsInfrastructureSlider.vue'
 import PageProjectsTimeline from '~/components/Page/Projects/PageProjectsTimeline.vue'
-import VueRouter from "vue-router"
+import VueRouter from 'vue-router'
+import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
 
 @Component({
   components: {
@@ -47,6 +48,7 @@ import VueRouter from "vue-router"
     BaseSubscribe,
     BaseAccordions,
     FooterFastLinks,
+    BaseTextContainer,
   },
   async asyncData(ctx: Context): Promise<object | void> {
     ctx.store.commit('setLogoSubTitle', 'Projects')
@@ -83,6 +85,7 @@ export default class PropertiesExperiencesPage extends Vue {
       BlockPhotoSlider: 'page-projects-photos-slider',
       BlockResidenceOffer: 'page-projects-residences-slider',
       BlockProjectTitle: 'page-projects-title',
+      BlockTextContainer: 'base-text-container',
     }
 
     return (this.$store.state.Catalog.project.experience_data || []).map((block: any) => ({

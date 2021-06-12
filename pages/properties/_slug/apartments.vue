@@ -44,6 +44,7 @@ import VueRouter from 'vue-router'
 import { CatalogState, IProjectApartment } from '~/store/Catalog'
 import CatalogCards from '~/components/Catalog/CatalogCards.vue'
 import CatalogList from '~/components/Catalog/CatalogList.vue'
+import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
 
 @Component({
   components: {
@@ -66,6 +67,7 @@ import CatalogList from '~/components/Catalog/CatalogList.vue'
     FooterFastLinks,
     CatalogCards,
     CatalogList,
+    BaseTextContainer,
   },
   async asyncData(ctx: Context): Promise<object | void> {
     ctx.store.commit('setLogoSubTitle', 'Projects')
@@ -112,6 +114,7 @@ export default class PropertiesApartmentsPage extends Vue {
       BlockPhotoSlider: 'page-projects-photos-slider',
       BlockResidenceOffer: 'page-projects-residences-slider',
       BlockProjectTitle: 'page-projects-title',
+      BlockTextContainer: 'base-text-container',
     }
 
     return ((this.$store.state.Catalog as CatalogState).project.choose_ap_data || []).map(

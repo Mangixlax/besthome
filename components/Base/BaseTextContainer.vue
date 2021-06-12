@@ -2,22 +2,27 @@
   section(
     :class="{\
       [$style['text']]: true,\
-      [$style['text--right']]: textAlign === 'right',\
-      [$style['text--center']]: textAlign === 'center',\
-      [$style['text--blue']]: textColor === 'blue',\
+      [$style['text--right']]: data.text_position === 'right',\
+      [$style['text--center']]: data.text_position === 'center',\
+      [$style['text--blue']]: data.color === 'blue',\
     }"
+    v-html="data.text"
   )
-    slot
 </template>
 
 <script lang="ts">
 import TypoText from '~/components/Base/TypoText.vue'
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
 
+interface IData {
+  text: string
+  text_position: string
+  color: string
+}
+
 @Component({ components: { TypoText } })
 export default class BaseTextContainer extends Vue {
-  @Prop({ type: String, default: '' }) textAlign!: string
-  @Prop({ type: String, default: '' }) textColor!: string
+  @Prop({ type: String, default: '' }) data!: IData
 }
 </script>
 
@@ -44,6 +49,15 @@ export default class BaseTextContainer extends Vue {
 
   &:is(h1, h2, h3, h4, h5, h6)
     margin-bottom: 40px
+
+  h2
+    +style-4
+
+  h3
+    +style-3
+
+  p
+    +style-5
 
   a
     text-decoration: underline

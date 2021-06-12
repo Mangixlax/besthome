@@ -5,25 +5,21 @@
         typo-text(
           tag="span"
           version="style-8"
-        ) Выберите страну или регион, чтобы контент соответствовал вашему местоположению.
+        ) {{ $t('header.select_locale.text') }}
       div(:class="$style['selsect-language__select']")
-        form(
-          action=""
-          method="method"
-          :class="$style['selsect-language__select-form']"
-        ) 
+        div(:class="$style['selsect-language__select-form']")
           select(
-            id="language" 
-            name="role" 
+            v-model="language"
             :class="$style['selsect-language__select-form-select']"
           )
-            option(selected value) English
-            option(value) Russian
+            option(value="en") English
+            option(value="ru") Russian
           button(
-            type="submit"
+            type="button"
             :class="$style['selsect-language__select-form-button']"
-          ) Далее
-        div(:class="$style['selsect-language__close']" @click="listeners['close']()")
+            @click="onSubmit"
+          ) {{ $t('header.select_locale.next') }}
+        div(:class="$style['selsect-language__close']" @click="onClose")
           svg-icon(name="close")
 </template>
 
@@ -33,7 +29,19 @@ import { Component, Prop } from 'nuxt-property-decorator'
 import TypoText from '~/components/Base/TypoText.vue'
 
 @Component({ components: { TypoText } })
-export default class TopLineSelectCountry extends Vue {}
+export default class TopLineSelectCountry extends Vue {
+  public language: string = this.$i18n.locale.toLowerCase()
+
+  public onSubmit() {
+    this.$i18n.setLocale(this.language.toLowerCase())
+    this.$store.commit('setOurCompanyCardInfo', this.$i18n.t('pages.company_our_team'))
+    this.$store.dispatch('SettingsTopLine/toggleLocaleHiddenMode')
+  }
+
+  public onClose() {
+    this.$store.dispatch('SettingsTopLine/toggleLocaleHiddenMode')
+  }
+}
 </script>
 
 <style lang="sass" module>

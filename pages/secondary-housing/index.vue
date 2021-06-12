@@ -10,11 +10,11 @@
       button(
         @click="onClickBtn"
       ) {{ $t('pages.secondary_housing.header.button') }}
-    base-text-container
-      typo-text(
-        tag="p"
-        version="style-6"
-      ) {{ $t('pages.secondary_housing.article_1') }}
+    base-text-container(
+      :data="{\
+        text: `<p>${$t('pages.secondary_housing.article_1')}</p>`,\
+      }"
+    )
     catalog-wrapper(
       :list="SecodaryHousingCatalogData"
       :filter-dark-mode="true"

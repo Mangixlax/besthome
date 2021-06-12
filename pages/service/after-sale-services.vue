@@ -4,15 +4,14 @@
       :imageTitleData="$t('pages.service_after_sale_services.image_title')"
       :filename="require(`~/assets/images/pages/service/after-sale-services/title.jpg`)"
     )
-    base-text-container
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.service_after_sale_services.slot_text_1') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.service_after_sale_services.slot_text_2') }}
+    base-text-container(
+      :data="{\
+        text: [\
+          `<p>${$t('pages.service_after_sale_services.slot_text_1')}</p>`,\
+          `<p>${$t('pages.service_after_sale_services.slot_text_2')}</p>`\
+        ].join('')\
+      }"
+    )
     page-service-list-card(:listCardData="$t('pages.service_after_sale_services.list_card')")
 </template>
 
