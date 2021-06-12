@@ -67,13 +67,13 @@
       },
       "link_baner": {
         "baner_1": {
-          "title": "For investors",
-          "text": "For investors",
+          "title": "Secondary housing",
+          "text": "Secondary housing",
           "data-cursor-text": "Click<br>and watch"
         },
         "baner_2": {
-          "title": "Secondary housing",
-          "text": "Secondary housing",
+          "title": "For investors",
+          "text": "For investors",
           "data-cursor-text": "Click<br>and watch"
         }
       },
@@ -107,7 +107,7 @@
             "text": "Since 2019, foreign investors have a real opportunity to make their dreams come true. Now, when buying real estate worth $ 250,000 or more, you can obtain Turkish citizenship under a simplified scheme. Moreover, the owners of a house or apartment, their spouses and children under 18 years of age can become full citizens.",
             "filename": "three-columns-3.jpg",
             "to": {
-              "name": "service-online-purchase"
+              "name": "service-turkish-citizenship"
             },
             "hovered": false
           }
@@ -538,7 +538,7 @@
         "text": [
           "BestHome Construction is a leading construction company in Alanya. One of the leading in the Turkish market. It started as a real estate agency in 2004. Since 2008, the firm has been implementing its own projects, providing buyers with new comfortable housing in Alanya.",
           "To date, more than 33 projects have been implemented in the center of Alanya and in the Oba region.",
-          "The firm has its own representatives in Germany, America, Russia, Ukraine, Iran, Kazakhstan, as well as in Denmark, Sweden, Norway and Finland. We have already concluded more than 1000 successful transactions with foreign citizens living in the CIS, USA, Europe and the Middle east. ",
+          "The firm has its own representatives in Germany, America, Russia, Ukraine, Iran, Kazakhstan, as well as in Denmark, Sweden, Norway and Finland. The company has already concluded more than 1000 successful transactions with foreign citizens living in the CIS, USA, Europe and the Middle east. ",
           "Today it is a construction company in Alanya, with the help of which any foreigner can profitably and quickly buy an apartment or a private house without leaving his country. All issues are resolved remotely. You can conclude an agreement and issue a TAPU remotely."
         ]
       },
@@ -697,13 +697,13 @@
       },
       "history_slider": [
         {
-          "year": "2004.svg",
+          "year": "2004",
           "image": "2004.jpg",
           "title": "The first steps",
           "subtitle": "The history of BestHome Construction began in 2004 in Alanya, when two young people decided to start their own business in Turkey, based on long-term partnerships, European understanding of service and respect for customers."
         },
         {
-          "year": "2005.svg",
+          "year": "2005",
           "image": "2005.jpg",
           "title": "First project",
           "subtitle": "Partners of the company Ali Yetgin and Per Holm, together with Danish investors, buy out an entire project in the Cikcilli region of Alanya and give it the name - BestHome Resort. The main clients of the company are Danes",
@@ -714,7 +714,7 @@
           }
         },
         {
-          "year": "2006.svg",
+          "year": "2006",
           "image": "2006.jpg",
           "title": "Emerging market",
           "subtitle": "The company actively enters the Norwegian market. The following projects were put into operation: BestHome Residence 1, BestHome Residence 2, Tofko Villas. Also this year, a decree is issued prohibiting the registration of Tapu for foreigners. Sales to foreigners stop.",
@@ -725,7 +725,7 @@
           }
         },
         {
-          "year": "2007.svg",
+          "year": "2007",
           "image": "2007.jpg",
           "title": "The law on real estate",
           "subtitle": "The government approves a law allowing foreigners to buy property in Turkey. Employees of the company are busy with the registration of Tapu (certificate of ownership) for clients who purchased apartments before the law was passed in 2006",
@@ -736,7 +736,7 @@
           }
         },
         {
-          "year": "2008.svg",
+          "year": "2008",
           "image": "2008.jpg",
           "title": "A new direction",
           "subtitle": "2008 - The partners of the company understand that a new direction is opening on the market: Russian-speaking clients from the CIS countries. Their wishes are inexpensive, small apartments in the central districts of the city. The partners decide to buy out the apart-hotel and reconstruct it into apartments.",
@@ -747,7 +747,7 @@
           }
         },
         {
-          "year": "2009.svg",
+          "year": "2009",
           "image": "2009.jpg",
           "title": "BestHome City 1 & 2",
           "subtitle": "The complexes BestHome City 1 and BestHome City 2 were commissioned. Ali Yetgina's partner, Per Holm, decides to return to Denmark and leaves the list of founders.",
@@ -758,7 +758,7 @@
           }
         },
         {
-          "year": "2010.svg",
+          "year": "2010",
           "image": "2010.jpg",
           "title": "Quality",
           "subtitle": "We are confident that the quality of construction is one of the main criteria for choosing real estate in Alanya. Building new complexes, we understand that you want your house to be durable, strong and reliable, does not require constant repairs and does not lose its liquidity over time. We guarantee that all construction work in our houses was carried out at a high quality level in compliance with all regulatory requirements.",
@@ -769,7 +769,7 @@
           }
         },
         {
-          "year": "2011.svg",
+          "year": "2011",
           "image": "2011.jpg",
           "title": "New technologies",
           "subtitle": "The complexes BestHome City 3, BestHome City 4, BestHome City 5 and BestHome City 6 were commissioned. For the first time in Alanya, the walls between the apartments were built from two kerpichs using Knauf glass wool in the BestHome City 4 complex.",
@@ -780,7 +780,7 @@
           }
         },
         {
-          "year": "2012.svg",
+          "year": "2012",
           "image": "2012.jpg",
           "title": "4 more projects",
           "subtitle": "The complexes BestHome 8 Yuksek, BestHome City 9 and BestHome City 10, BestHome City 11 were put into operation. For the first time in Alanya, the apron in the kitchen was made of black glass in BestHome 7 Comfort.",
@@ -791,7 +791,7 @@
           }
         },
         {
-          "year": "2013.svg",
+          "year": "2013",
           "image": "2013.jpg",
           "title": "BestHome 12 Comfort",
           "subtitle": "The BestHome 12 Comfort complex was put into operation. The company enters the Iranian market.",
@@ -802,7 +802,7 @@
           }
         },
         {
-          "year": "2014.svg",
+          "year": "2014",
           "image": "2014.jpg",
           "title": "New infrastructure",
           "subtitle": "The complexes BestHome City 14 and BestHome 15 VIP were commissioned. BestHome 15 VIP is the first complex of the company with an expanded infrastructure. It was in it for the first time in Alanya that a special platform for sunbathing directly in the pool was created, as well as 500 year old olive trees were planted.",
@@ -813,7 +813,7 @@
           }
         },
         {
-          "year": "2015.svg",
+          "year": "2015",
           "image": "2015.jpg",
           "title": "4 new projects",
           "subtitle": "The complexes BestHome 16 VIP, BestHome 17 Cleopatra, BestHome City 18 and BestHome City 19 were put into operation",
@@ -824,7 +824,7 @@
           }
         },
         {
-          "year": "2016.svg",
+          "year": "2016",
           "image": "2016.jpg",
           "title": "Large-scale projects",
           "subtitle": "BestHome City 21 was commissioned, as well as one of the iconic complexes in the Cleopatra area - BestHome 20 Cleopatra Select. It was we who entered into an agreement with the owner of the BestHome 20 Cleopatra Select land, beating 9 other construction companies.",
@@ -835,7 +835,7 @@
           }
         },
         {
-          "year": "2017.svg",
+          "year": "2017",
           "image": "2017.jpg",
           "title": "The luxury segment",
           "subtitle": "The company's management understands that despite the demand from Russian-speaking clients, there are no decent apartments in the luxury segment on the real estate market in Alanya, and BestHome Construction begins construction of the largest of the complexes previously built by the company - Alanya Towers.",
@@ -846,7 +846,7 @@
           }
         },
         {
-          "year": "2018.svg",
+          "year": "2018",
           "image": "2018.jpg",
           "title": "Alanya Towers",
           "subtitle": "The Alanya Towers complex is put into operation and becomes the hallmark of the company. The complex is admired by the clients, competitors and real estate agencies of Alanya. It is rightfully called the most luxurious and most exclusive complex in the Antalya region. Also this year, the company's asset includes a 4-star hotel - Enki Otel.",
@@ -857,7 +857,7 @@
           }
         },
         {
-          "year": "2019.svg",
+          "year": "2019",
           "image": "2019.jpg",
           "title": "Cleopatra District",
           "subtitle": "The main buyers of real estate in Alanya are still residents of the CIS countries. But due to the economic instability in their countries, clients prefer to purchase apartments that will bring them a stable rental income, as well as increase their capital upon sale.",
@@ -868,7 +868,7 @@
           }
         },
         {
-          "year": "2020.svg",
+          "year": "2020",
           "image": "2020.jpg",
           "title": "Important year",
           "subtitle": "In February, the company acquires a detached three-story building, which will house the company's new office, where all divisions are located under one roof: construction, sales, agriculture, car sales.",
@@ -879,7 +879,7 @@
           }
         },
         {
-          "year": "2021.svg",
+          "year": "2021",
           "image": "2021.jpg",
           "title": "Future",
           "subtitle": "We are proud of our projects. But this year we would like to share with you our yet another new premium project Best Home 36-37 The Legend, which conquers history in real estate. Best Home 36-37 The Legend is a unique complex in the very center of Alanya with the infrastructure of a 5 * hotel, which is 120 meters from the sandy beach.",
@@ -1083,24 +1083,24 @@
       "navigation": "Next consultant",
       "slides": [
         {
-          "greeting": "Hello, I am Svetlana, I will answer any of your questions! We build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.",
-          "languages": "Russian, english, turkish, latvian, french",
+          "greeting": "Hello, I am Anna, I will answer any of your questions! We build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.",
+          "languages": "Russian, English, Turkish, Latvian, French",
           "phone": "+90 530 547-44-15",
-          "email": "svetlana@besthome.com.tr",
+          "email": "info@besthome.com.tr",
           "image": "person-2.png"
         },
         {
-          "greeting": "Hello, I am Svetlana, I will answer any of your questions! We build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.",
-          "languages": "Russian, english, turkish, latvian, french",
+          "greeting": "Hello, I am Anna, I will answer any of your questions! We build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.",
+          "languages": "Russian, English, Turkish, Latvian, French",
           "phone": "+90 530 547-44-15",
-          "email": "svetlana@besthome.com.tr",
+          "email": "info@besthome.com.tr",
           "image": "person-2.png"
         },
         {
-          "greeting": "Hello, I am Svetlana, I will answer any of your questions! We build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.",
-          "languages": "Russian, english, turkish, latvian, french",
+          "greeting": "Hello, I am Anna, I will answer any of your questions! We build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.",
+          "languages": "Russian, English, Turkish, Latvian, French",
           "phone": "+90 530 547-44-15",
-          "email": "svetlana@besthome.com.tr",
+          "email": "info@besthome.com.tr",
           "image": "person-2.png"
         }
       ]
@@ -1144,7 +1144,7 @@
       "link": "process my personal data"
     },
     "footer_company_description": [
-      "BestHome Construction is a leading construction company in Alanya. One of the leading companies in the Turkish market. Started as a real estate agency in 2004. Since 2008, the company began to implement its own projects, providing buyers with new comfortable housing in Alanya. To date, more than 33 projects have been implemented in the center of Alanya and in the Oba region. The firm has its own representatives in Germany, America, Russia, Ukraine, Iran, Kazakhstan, as well as in Denmark, Sweden, Norway and Finland. We have already concluded more than 1000 successful transactions with foreign citizens living in the CIS, USA, Europe and the Middle East. Today it is a construction company in Alanya, with the help of which any foreigner can profitably and quickly buy an apartment or a private house without leaving his country. All issues are resolved remotely. You can conclude an agreement and issue a TAPU remotely.",
+      "BestHome Construction is a leading construction company in Alanya. One of the leading companies in the Turkish market. Started as a real estate agency in 2004. Since 2008, the company began to implement its own projects, providing buyers with new comfortable housing in Alanya. To date, more than 33 projects have been implemented in the center of Alanya and in the Oba region. The firm has its own representatives in Germany, America, Russia, Ukraine, Iran, Kazakhstan, as well as in Denmark, Sweden, Norway and Finland. The company has already concluded more than 1000 successful transactions with foreign citizens living in the CIS, USA, Europe and the Middle East. Today it is a construction company in Alanya, with the help of which any foreigner can profitably and quickly buy an apartment or a private house without leaving his country. All issues are resolved remotely. You can conclude an agreement and issue a TAPU remotely.",
       "You can entrust the after-sale service of your apartment, villa or office to a subsidiary company Leader Management, being sure that all your administrative, legal and financial obligations are fulfilled, as well as consultations on your choice, assistance in obtaining a residence permit and citizenship, legal and financial support for each transactions. Trust professionals with over 16 years of experience in the Turkish market - contact us."
     ],
     "footer_site_map": {

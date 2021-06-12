@@ -85,6 +85,7 @@ export default {
           // when window width is >= 900px
           900: {},
         },
+        enabled: false,
         centeredSlides: true,
         spaceBetween: 128,
         pagination: {
