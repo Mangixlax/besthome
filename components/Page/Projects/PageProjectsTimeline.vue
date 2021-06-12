@@ -68,10 +68,14 @@ export default class PageProjectsTimeline extends Vue {
 
 .timeline
   width: 100%
-  max-width: 1440px
+  max-width: 1488px
   margin-right: auto
   margin-left: auto
   display: flex
+  padding: 0 24px
+
+  @media (max-width: 800px)
+    flex-direction: column
 
   &__images
     width: 100%
@@ -81,14 +85,22 @@ export default class PageProjectsTimeline extends Vue {
     padding-bottom: 64px
     padding-top: 32px
 
+    @media (max-width: 800px)
+      min-height: 600px
+
     img
       transition: opacity .8s ease 0s
       position: absolute
       top: 32px
       left: 0
+      height: 100%
+      object-fit: cover
       width: calc(100% - 64px)
       display: none
 
+      @media (max-width: 800px)
+        width: 100%
+        
     img#{&}--active
       display: block
       animation: animation 0.4s linear forwards
@@ -98,6 +110,9 @@ export default class PageProjectsTimeline extends Vue {
     padding-left: 64px
     width: 50%
     padding-top: 284px
+
+    @media (max-width: 800px)
+      padding-top: 80px
 
     &-title
       +style-4

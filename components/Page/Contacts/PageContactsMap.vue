@@ -11,7 +11,10 @@
           tag="p"
           version="style-5"
           :class="$style['contact__content-phone']"
-        ) {{ contactMap.phone }}
+        ) {{ contactMap.phone }} 
+            svg-icon(name="icon-whatsup")
+            svg-icon(name="icon-viber")
+            svg-icon(name="icon-telegram")  
         typo-text(
           tag="p"
           version="style-5"
@@ -111,6 +114,13 @@ export default {
     &-phone
       margin: 0
       color: $color-white-100
+      display: flex
+      align-items: center
+
+      svg
+        height: 20px
+        width: 20px
+        margin-left: 6px
 
     &-email
       margin: 0
