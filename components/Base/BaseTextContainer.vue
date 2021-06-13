@@ -22,7 +22,7 @@ interface IData {
 
 @Component({ components: { TypoText } })
 export default class BaseTextContainer extends Vue {
-  @Prop({ type: String, default: '' }) data!: IData
+  @Prop({ type: Object, default: () => {} }) data!: IData
 }
 </script>
 
