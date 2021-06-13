@@ -7,7 +7,7 @@
         :item-data="itemData"
       )
     div(
-      v-if="list.length"
+      v-if="!list.length"
       :class="$style['catalog-cards__empty']"
     ) {{ $t('pages.apartments.empty_list') }}
 </template>
