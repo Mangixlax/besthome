@@ -15,16 +15,18 @@
         text: `<p>${$t('pages.secondary_housing.article_1')}</p>`,\
       }"
     )
-    catalog-wrapper(
-      :list="SecodaryHousingCatalogData"
-      :filter-dark-mode="true"
-    )
+    catalog-wrapper(filter-dark-mode)
+      template(v-slot="{ isCardDisplay }")
+        component(
+          :is="isCardDisplay ? 'CatalogCards' : 'CatalogList'"
+          :list="apartmentsList"
+        )
     base-subscribe(:subscribe-data="$t('footer.subscribe')" white-theme)
     base-accordions(:accordions-data="$t('footer.accordions')")
     footer-fast-links
 </template>
 
-<script>
+<script lang="ts">
 import { modalsTriggerMixin } from '@/mixins/modals'
 import BaseProjectNavigation from '~/components/Base/BaseProjectNavigation.vue'
 import PageProjectsTitle from '~/components/Page/Projects/PageProjectsTitle.vue'
@@ -36,9 +38,13 @@ import BaseSubscribe from '~/components/Base/BaseSubscribe.vue'
 import BaseAccordions from '~/components/Base/BaseAccordions.vue'
 import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
 import TypoText from '~/components/Base/TypoText.vue'
+import { Component, Vue } from 'nuxt-property-decorator'
+import { Context } from '@nuxt/types'
+import CatalogCards from '~/components/Catalog/CatalogCards.vue'
+import CatalogList from '~/components/Catalog/CatalogList.vue'
+import { CatalogState, IProjectApartment } from '~/store/Catalog'
 
-export default {
-  name: 'apartmemts',
+@Component({
   components: {
     BaseProjectNavigation,
     PageProjectsTitle,
@@ -50,79 +56,38 @@ export default {
     BaseAccordions,
     FooterFastLinks,
     TypoText,
-  },
-  asyncData(ctx) {
-    ctx.store.commit('setLogoSubTitle', 'Secondary housing')
+    CatalogCards,
+    CatalogList,
   },
   mixins: [modalsTriggerMixin],
-  methods: {
-    onClickBtn() {
-      this.showModal({
-        name: 'modal-choose-apartments',
-        modal: () => import('@/components/Modal/ModalChooseApartments.vue'),
-      })
-    },
+  async asyncData(ctx: Context): Promise<object | void> {
+    // Set subtitle
+    ctx.store.commit('setLogoSubTitle', 'Secondary housing')
+
+    return new Promise(async (resolve) => {
+      ctx.store.commit('Catalog/setFilters', {})
+      ctx.store.commit('Catalog/setProject', {})
+      ctx.store.commit('Catalog/setProjects', [])
+      // Fetch apartments to catalog list with filters
+      await ctx.store.dispatch('Catalog/fetchApartments')
+      resolve({})
+    })
   },
-  data() {
-    return {
-      SecodaryHousingCatalogData: [
-        {
-          status: 2,
-          area: 120,
-          image: 'secondary-housing/image-1.jpg',
-          price: '450 400',
-          block: 'B',
-          floor: 4,
-          room: 4,
-        },
-        {
-          status: 1,
-          area: 44.53,
-          image: 'secondary-housing/image-2.jpg',
-          price: '450 400',
-          block: 'B',
-          floor: '4',
-          room: '4',
-        },
-        {
-          status: 'SOLD',
-          area: 71.1,
-          image: 'secondary-housing/image-3.jpg',
-          price: '450 400',
-          block: 'B',
-          floor: '4',
-          room: '4',
-        },
-        {
-          status: 1,
-          area: 120,
-          image: 'secondary-housing/image-4.jpg',
-          price: '450 400',
-          block: 'B',
-          floor: '4',
-          room: '4',
-        },
-        {
-          status: 1,
-          area: 120,
-          image: 'secondary-housing/image-5.jpg',
-          price: '450 400',
-          block: 'B',
-          floor: '4',
-          room: '4',
-        },
-        {
-          status: 1,
-          area: 120,
-          image: 'secondary-housing/image-6.jpg',
-          price: '450 400',
-          block: 'B',
-          floor: '4',
-          room: '4',
-        },
-      ],
-    }
-  },
+})
+export default class SecondaryHousingPage extends Vue {
+  public onClickBtn() {
+    this.showModal({
+      name: 'modal-choose-apartments',
+      modal: () => import('@/components/Modal/ModalChooseApartments.vue'),
+    })
+  }
+
+  get apartmentsList(): IProjectApartment[] {
+    return (
+      // @TODO Add type apartments data
+      (((this.$store.state.Catalog as CatalogState).apartments || {}) as any).data || []
+    )
+  }
 }
 </script>
 

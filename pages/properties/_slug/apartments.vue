@@ -1,6 +1,9 @@
 <template lang="pug">
   main
-    base-project-navigation
+    base-project-navigation(
+      :name="project.name"
+      :slug="project.slug"
+    )
     component(
       :is="block.type"
       v-for="(block, index) in blocks"
@@ -40,11 +43,12 @@ import PageProjectsTimeline from '~/components/Page/Projects/PageProjectsTimelin
 import CatalogWrapper from '~/components/Catalog/CatalogWrapper.vue'
 import PageProjectsSimilarSlider from '~/components/Page/Projects/PageProjectsSimilarSlider.vue'
 import PageProjectsApartmentSlider from '~/components/Page/Projects/PageProjectsApartmentSlider.vue'
-import VueRouter from 'vue-router'
-import { CatalogState, IProjectApartment } from '~/store/Catalog'
+import VueRouter, { Route } from 'vue-router'
+import { CatalogState, IProject, IProjectApartment } from '~/store/Catalog'
 import CatalogCards from '~/components/Catalog/CatalogCards.vue'
 import CatalogList from '~/components/Catalog/CatalogList.vue'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
+import { NavigationGuardNext } from 'vue-router/types/router'
 
 @Component({
   components: {
@@ -72,24 +76,33 @@ import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
   async asyncData(ctx: Context): Promise<object | void> {
     ctx.store.commit('setLogoSubTitle', 'Projects')
 
-    // Dont load project from api if project already saved in store
-    if (ctx.route.params.slug !== ctx.store.getters['Catalog/getProject'].slug) {
-      const projectId = (ctx.route.params.slug || '').split('-').pop()
-      await ctx.store.dispatch('Catalog/fetchProject', projectId)
+    return new Promise(async (resolve) => {
+      let project: IProject = ctx.store.getters['Catalog/getProject']
 
-      if (
-        process.server &&
-        ctx.store.getters['Catalog/getProject'].slug !== ctx.route.params.slug
-      ) {
-        ctx.redirect(
-          301,
-          (ctx.app.router as VueRouter).resolve({
-            name: ctx.route.name as string,
-            params: { slug: ctx.store.getters['Catalog/getProject'].slug },
-          }).href,
-        )
+      // Dont load project from api if project already saved in store
+      if (ctx.route.params.slug !== ctx.store.getters['Catalog/getProject'].slug) {
+        const projectId = (ctx.route.params.slug || '').split('-').pop()
+        project = await ctx.store.dispatch('Catalog/fetchProject', projectId)
+
+        ctx.store.commit('Catalog/setProject', project)
+
+        if (project.slug !== ctx.route.params.slug) {
+          return ctx.redirect(
+            301,
+            (ctx.app.router as VueRouter).resolve({
+              name: ctx.route.name as string,
+              params: { slug: project.slug },
+            }).href,
+          )
+        }
       }
-    }
+
+      await ctx.store.dispatch('Catalog/fetchApartments')
+
+      resolve({
+        project: project,
+      })
+    })
   },
 })
 export default class PropertiesApartmentsPage extends Vue {
@@ -117,29 +130,23 @@ export default class PropertiesApartmentsPage extends Vue {
       BlockTextContainer: 'base-text-container',
     }
 
-    return ((this.$store.state.Catalog as CatalogState).project.choose_ap_data || []).map(
-      (block: any) => ({
-        ...block,
-        type: Object.keys(componentsRelations).includes(block.type)
-          ? componentsRelations[block.type]
-          : 'p',
-      }),
-    )
+    return ((this.project as IProject).choose_ap_data || []).map((block: any) => ({
+      ...block,
+      type: Object.keys(componentsRelations).includes(block.type)
+        ? componentsRelations[block.type]
+        : 'p',
+    }))
   }
 
   get apartmentsList(): IProjectApartment[] {
     return (
       // @TODO Add type apartments data
-      (((this.$store.state.Catalog as CatalogState).project.apartments || {}) as any).data || []
+      (((this.$store.state.Catalog as CatalogState).apartments || {}) as any).data || []
     )
   }
 
   get similarApartmentsList(): IProjectApartment[] {
-    return (
-      // @TODO Add type apartments data
-      (((this.$store.state.Catalog as CatalogState).project.similar_apartments || {}) as any)
-        .data || []
-    )
+    return (((this.project as IProject).similar_apartments || {}) as IProjectApartment).data || []
   }
 }
 </script>

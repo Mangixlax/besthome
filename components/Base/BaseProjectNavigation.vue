@@ -6,30 +6,30 @@
           tag="h3"
           version="style-4"
           :class="$style['project-navigation__title-text']"
-        ) {{ projectTitle }}
+        ) {{ name }}
       div(:class="$style['project-navigation__navbar']")
         ul(:class="$style['project-navigation__navbar-list']")
           li(:class="$style['project-navigation__navbar-item']")
             nuxt-link(
-              :to="localePath({ name: 'properties-slug-review', params: { slug: projectSlug } })"
+              :to="localePath({ name: 'properties-slug-review', params: { slug } })"
               :class="$style['project-navigation__navbar-link']"
               :active-class="$style['project-navigation__navbar-link--active']"
             ) {{ $t('projects.navigation.review') }}
           li(:class="$style['project-navigation__navbar-item']")
             nuxt-link(
-              :to="localePath({ name: 'properties-slug-about', params: { slug: projectSlug } })"
+              :to="localePath({ name: 'properties-slug-about', params: { slug } })"
               :class="$style['project-navigation__navbar-link']"
               :active-class="$style['project-navigation__navbar-link--active']"
             ) {{ $t('projects.navigation.about') }}
           li(:class="$style['project-navigation__navbar-item']")
             nuxt-link(
-              :to="localePath({ name: 'properties-slug-experiences', params: { slug: projectSlug } })"
+              :to="localePath({ name: 'properties-slug-experiences', params: { slug } })"
               :class="$style['project-navigation__navbar-link']"
               :active-class="$style['project-navigation__navbar-link--active']"
             ) {{ $t('projects.navigation.experiences') }}
           li(:class="$style['project-navigation__navbar-item']")
             nuxt-link(
-              :to="localePath({ name: 'properties-slug-apartments', params: { slug: projectSlug } })"
+              :to="localePath({ name: 'properties-slug-apartments', params: { slug } })"
               :class="$style['project-navigation__navbar-link']"
               :active-class="$style['project-navigation__navbar-link--active']"
             ) {{ $t('projects.navigation.choose_apartment') }}
@@ -51,14 +51,8 @@ import { IProject } from '~/store/Catalog'
 @Component({ components: { TypoText } })
 export default class BaseProjectNavigation extends Vue {
   @Prop({ type: Boolean, default: false }) isActive!: boolean
-
-  get projectTitle(): string {
-    return (this.$store.getters['Catalog/getProject'] as IProject).name
-  }
-
-  get projectSlug(): string {
-    return (this.$store.getters['Catalog/getProject'] as IProject).slug
-  }
+  @Prop({ type: String, required: true }) name!: string
+  @Prop({ type: String, required: true }) slug!: string
 }
 </script>
 

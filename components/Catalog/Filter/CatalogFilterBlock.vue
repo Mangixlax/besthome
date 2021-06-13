@@ -18,6 +18,7 @@
           :class="$style['filter-block__grid-text']"
         ) {{ item.label }}
         typo-text(
+          v-if="item.sublabel"
           tag="p"
           version="none"
           :class="$style['filter-block__grid-subtext']"
@@ -30,7 +31,7 @@ import TypoText from '~/components/Base/TypoText.vue'
 import CatalogFilterRange from '~/components/Catalog/Filter/CatalogFilterRange'
 
 export default {
-  name: 'PageProjectsFilterList',
+  name: 'CatalogFilterBlock',
   components: {
     TypoText,
     CatalogFilterRange,

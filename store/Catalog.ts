@@ -23,6 +23,7 @@ export interface IProject {
   experience_data?: Array<object>
   choose_ap_data?: Array<object>
   miniature_html?: string
+  filters?: IProjectApartmentsFilter
 }
 
 export interface IProjectFloor {
@@ -46,6 +47,7 @@ export interface IProjectBlock {
 }
 
 export interface IProjectApartment {
+  data?: IProjectApartment[]
   id: number
   project_id: number
   block_id: number
@@ -61,6 +63,14 @@ export interface IProjectApartment {
   compass?: string
 }
 
+export interface IProjectApartmentsFilter {
+  blocks?: Array<{ id: number; name: string }>
+  floors?: { min: number; max: number }
+  area?: { min: string; max: string }
+  price?: { min: number; max: number }
+  rooms?: Array<{ id: number; number: number; ad_number: number }>
+}
+
 /**
  * States
  */
@@ -70,6 +80,8 @@ export const state = () => ({
   apartment: {} as IProjectApartment,
   apartments: [] as IProjectApartment[],
   projectsCount: 0 as number,
+  filters: {} as IProjectApartmentsFilter,
+  selectedFilters: {} as any,
 })
 
 export type CatalogState = ReturnType<typeof state>
@@ -88,6 +100,7 @@ export const getters: GetterTree<CatalogState, RootState> = {
   getProjectsCount: (state): number => state.projectsCount,
   getApartment: (state): IProjectApartment => state.apartment,
   getApartments: (state): IProjectApartment[] => state.apartments,
+  getFilters: (state): IProjectApartmentsFilter => state.filters,
 }
 
 /**
@@ -107,6 +120,17 @@ export const mutations: MutationTree<CatalogState> = {
   setApartments: (state: CatalogState, value: IProjectApartment[]) => {
     state.apartments = value
   },
+  setFilters: (state: CatalogState, value: IProjectApartmentsFilter) => {
+    state.filters = {}
+    state.selectedFilters = {}
+    state.filters = value
+  },
+  setSelectedFilter: (
+    state: CatalogState,
+    { key, value }: { key: 'blocks' | 'floors' | 'area' | 'price' | 'rooms'; value: any },
+  ) => {
+    state.selectedFilters[key] = value
+  },
 }
 
 /**
@@ -117,8 +141,7 @@ export const actions: ActionTree<CatalogState, RootState> = {
     return new Promise(async (resolve, reject) => {
       this.$axios
         .$get(`v1/projects/${id}`)
-        .then((project: any) => {
-          commit('setProject', project)
+        .then((project: IProject) => {
           resolve(project)
         })
         .catch(({ response: { data } }) => {
@@ -130,26 +153,31 @@ export const actions: ActionTree<CatalogState, RootState> = {
     return new Promise(async (resolve, reject) => {
       this.$axios
         .$get(`v1/projects`)
-        .then((project: any) => {
-          commit('setProjects', project)
-          resolve(project)
+        .then((projects: IProject[]) => {
+          commit('setProjects', projects)
+          resolve(projects)
         })
         .catch(({ response: { data } }) => {
           reject(data)
         })
     })
   },
-  async fetchApartments(
-    { commit }: CatalogActionContext,
-    { project_id = null }: { project_id?: number | null },
-  ) {
+  async fetchApartments({ commit, state }: CatalogActionContext, apartment_id?: number) {
     return new Promise(async (resolve, reject) => {
       this.$axios
-        .$get(`v1/apartments/${project_id ? project_id : ''}`)
-        .then((apartment: IProjectApartment) => {
-          commit('setApartments', apartment)
-          resolve(apartment)
+        .$get(`v1/apartments${apartment_id ? '/' + apartment_id : ''}`, {
+          params: {
+            project_id: state.project.id ? state.project.id : null,
+            ...state.selectedFilters,
+          },
         })
+        .then(
+          ({ filters, apartments }: { filters: any; apartments: { data?: IProjectApartment } }) => {
+            commit('setApartments', apartments)
+            commit('setFilters', filters)
+            resolve({ filters, apartments })
+          },
+        )
         .catch(({ response: { data } }) => {
           reject(data)
         })

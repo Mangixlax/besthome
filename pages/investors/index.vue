@@ -66,6 +66,8 @@ import BaseScrollLine from '~/components/Base/BaseScrollLine.vue'
 import BasePostTwoImage from '~/components/Base/BasePostTwoImage.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import { Context } from '@nuxt/types'
+import { Route } from 'vue-router'
+import { NavigationGuardNext } from 'vue-router/types/router'
 
 @Component({
   components: {
@@ -78,6 +80,11 @@ import { Context } from '@nuxt/types'
   },
   asyncData(ctx: Context): void {
     ctx.store.commit('setLogoSubTitle', 'Investors')
+  },
+  beforeRouteEnter(to: Route, from: Route, next: NavigationGuardNext) {
+    next((vm: Vue) => {
+      vm.$store.commit('setPageLoadingStatus', false)
+    })
   },
 })
 export default class InvestorsPage extends Vue {}

@@ -32,7 +32,7 @@ import TypoText from '~/components/Base/TypoText.vue'
 import CatalogFilterRange from '~/components/Catalog/Filter/CatalogFilterRange'
 
 export default {
-  name: 'PageProjectsFilterList',
+  name: 'CatalogFilterCheckbox',
   components: {
     TypoText,
     CatalogFilterRange,

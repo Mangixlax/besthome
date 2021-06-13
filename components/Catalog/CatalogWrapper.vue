@@ -36,7 +36,10 @@
               v-magnetic
             )
         slot(:is-card-display="isCardDisplay")
-      div(:class="[$style['catalog__filter'], filterDarkMode && $style['catalog__filter--dark']]" @click="showFilter")
+      div(
+        :class="[$style['catalog__filter'], filterDarkMode && $style['catalog__filter--dark']]"
+        @click="showFilter"
+      )
         typo-text(
           v-if="!isFilterReady"
           :class="$style['catalog__filter-button']"
@@ -65,7 +68,6 @@ import { Component, Prop, Vue } from 'nuxt-property-decorator'
 })
 export default class CatalogWrapper extends Vue {
   @Prop({ type: Boolean, default: false }) filterDarkMode?: boolean
-  @Prop({ type: Array, default: false }) list?: Array<any>
 
   public isCardDisplay: boolean = true
   public isFilterReady: boolean = false

@@ -4,6 +4,7 @@ import { GetterTree, ActionTree, MutationTree, ActionContext } from 'vuex'
  * States
  */
 export const state = () => ({
+  pageIsLoading: false as boolean,
   isTouchDevice: false as boolean,
   logoSubTitle: 'Construction' as string,
   ourCompanyCardInfo: [] as Array<object>,
@@ -41,6 +42,17 @@ export const mutations: MutationTree<RootState> = {
   },
   setOurCompanyCardInfo: (state, value: Array<Object>) => {
     state.ourCompanyCardInfo = value
+  },
+  setPageLoadingStatus(state: RootState, value: boolean) {
+    if (process.client) {
+      if (value && !state.pageIsLoading) {
+        document.body.setAttribute('loading', '')
+      } else {
+        document.body.removeAttribute('loading')
+      }
+    }
+
+    state.pageIsLoading = value
   },
 }
 

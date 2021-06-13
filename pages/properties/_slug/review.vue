@@ -1,6 +1,9 @@
 <template lang="pug">
   main
-    base-project-navigation
+    base-project-navigation(
+      :name="project.name"
+      :slug="project.slug"
+    )
     component(
       :is="block.type"
       v-for="(block, index) in blocks"
@@ -31,6 +34,7 @@ import PageProjectsInfrastructureSlider from '~/components/Page/Projects/PagePro
 import PageProjectsTimeline from '~/components/Page/Projects/PageProjectsTimeline.vue'
 import VueRouter from 'vue-router'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
+import { IProject } from '~/store/Catalog'
 
 @Component({
   components: {
@@ -53,24 +57,32 @@ import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
   async asyncData(ctx: Context): Promise<object | void> {
     ctx.store.commit('setLogoSubTitle', 'Projects')
 
-    // Dont load project from api if project already saved in store
-    if (ctx.route.params.slug !== ctx.store.getters['Catalog/getProject'].slug) {
-      const projectId = (ctx.route.params.slug || '').split('-').pop()
-      await ctx.store.dispatch('Catalog/fetchProject', projectId)
+    return new Promise(async (resolve) => {
+      let project: IProject = ctx.store.getters['Catalog/getProject']
 
-      if (
-        process.server &&
-        ctx.store.getters['Catalog/getProject'].slug !== ctx.route.params.slug
-      ) {
-        ctx.redirect(
-          301,
-          (ctx.app.router as VueRouter).resolve({
-            name: ctx.route.name as string,
-            params: { slug: ctx.store.getters['Catalog/getProject'].slug },
-          }).href,
-        )
+      // Dont load project from api if project already saved in store
+      if (ctx.route.params.slug !== ctx.store.getters['Catalog/getProject'].slug) {
+        const projectId = (ctx.route.params.slug || '').split('-').pop()
+        project = await ctx.store.dispatch('Catalog/fetchProject', projectId)
+
+        if (project.slug !== ctx.route.params.slug) {
+          return ctx.redirect(
+            301,
+            (ctx.app.router as VueRouter).resolve({
+              name: ctx.route.name as string,
+              params: { slug: project.slug },
+            }).href,
+          )
+        }
+
+        ctx.store.commit('Catalog/setProject', project)
+        ctx.store.commit('Catalog/setFilters', project.filters)
       }
-    }
+
+      resolve({
+        project: project,
+      })
+    })
   },
 })
 export default class PropertiesReviewPage extends Vue {
@@ -88,7 +100,7 @@ export default class PropertiesReviewPage extends Vue {
       BlockTextContainer: 'base-text-container',
     }
 
-    return (this.$store.state.Catalog.project.review_data || []).map((block: any) => ({
+    return ((this.project as IProject).review_data || []).map((block: any) => ({
       ...block,
       type: Object.keys(componentsRelations).includes(block.type)
         ? componentsRelations[block.type]

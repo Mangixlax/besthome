@@ -9,6 +9,8 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import PageContactsMap from '~/components/Page/Contacts/PageContactsMap.vue'
 import CommonConsultantSlider from '~/components/Common/CommonConsultantSlider.vue'
 import { Context } from '@nuxt/types'
+import { Route } from 'vue-router'
+import { NavigationGuardNext } from 'vue-router/types/router'
 
 @Component({
   components: {
@@ -17,6 +19,11 @@ import { Context } from '@nuxt/types'
   },
   asyncData(ctx: Context): void {
     ctx.store.commit('setLogoSubTitle', 'Contacts')
+  },
+  beforeRouteEnter(to: Route, from: Route, next: NavigationGuardNext) {
+    next((vm: Vue) => {
+      vm.$store.commit('setPageLoadingStatus', false)
+    })
   },
 })
 export default class IndexPage extends Vue {}

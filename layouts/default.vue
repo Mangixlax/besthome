@@ -3,8 +3,8 @@
     top-line-select-country(v-if="!topLineLocaleIsHidden")
     top-line(v-if="!topLineIsHidden" @close="onToggleHiddenMode")
     base-header
-    nuxt
-    Footer
+    nuxt(:class="$style['transition-effect']")
+    Footer(:class="$style['transition-effect']")
     base-header-mobile
     cursor-mover(v-if="!isTouchDevice")
 </template>
@@ -12,7 +12,7 @@
 <script lang="ts">
 import $ from 'jquery'
 import Vue from 'vue'
-import { Component, Mutation, namespace } from 'nuxt-property-decorator'
+import {Component, Mutation, namespace, Watch} from 'nuxt-property-decorator'
 import { SettingsTopLineState } from '~/store/SettingsTopLine'
 import { ActionTree, MutationTree } from 'vuex'
 import { RootState } from '~/store'
@@ -85,3 +85,25 @@ export default class DefaultLayout extends Vue {
   }
 }
 </script>
+
+<style lang="sass" module>
+@keyframes opacity
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
+@keyframes opacity-out
+  0%
+    opacity: 1
+  100%
+    opacity: 0
+
+//.transition-effect
+//  transition: opacity 0.5s ease
+//  animation: opacity 0.5s linear forwards
+//  will-change: opacity
+//
+//body[loading] .transition-effect
+//  animation: opacity-out 0.5s linear forwards
+</style>
