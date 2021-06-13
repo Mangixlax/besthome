@@ -74,7 +74,7 @@ import { NavigationGuardNext } from 'vue-router/types/router'
     BaseTextContainer,
   },
   async asyncData(ctx: Context): Promise<object | void> {
-    ctx.store.commit('setLogoSubTitle', 'Projects')
+    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.projects'))
 
     return new Promise(async (resolve) => {
       let project: IProject = ctx.store.getters['Catalog/getProject']

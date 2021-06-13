@@ -56,7 +56,7 @@ import { IProject } from '~/store/Catalog'
     BaseTextContainer,
   },
   async asyncData(ctx: Context): Promise<object | void> {
-    ctx.store.commit('setLogoSubTitle', 'Projects')
+    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.projects'))
 
     return new Promise(async (resolve) => {
       let project: IProject = ctx.store.getters['Catalog/getProject']

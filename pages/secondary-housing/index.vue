@@ -62,7 +62,7 @@ import { CatalogState, IProjectApartment } from '~/store/Catalog'
   mixins: [modalsTriggerMixin],
   async asyncData(ctx: Context): Promise<object | void> {
     // Set subtitle
-    ctx.store.commit('setLogoSubTitle', 'Secondary housing')
+    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.secondary_housing'))
 
     return new Promise(async (resolve) => {
       ctx.store.commit('Catalog/setFilters', {})

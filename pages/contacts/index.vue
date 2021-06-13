@@ -18,7 +18,7 @@ import { NavigationGuardNext } from 'vue-router/types/router'
     CommonConsultantSlider,
   },
   asyncData(ctx: Context): void {
-    ctx.store.commit('setLogoSubTitle', 'Contacts')
+    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.contacts'))
   },
   beforeRouteEnter(to: Route, from: Route, next: NavigationGuardNext) {
     next((vm: Vue) => {

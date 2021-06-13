@@ -79,7 +79,7 @@ import { NavigationGuardNext } from 'vue-router/types/router'
     TypoText,
   },
   asyncData(ctx: Context): void {
-    ctx.store.commit('setLogoSubTitle', 'Investors')
+    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.investors'))
   },
   beforeRouteEnter(to: Route, from: Route, next: NavigationGuardNext) {
     next((vm: Vue) => {

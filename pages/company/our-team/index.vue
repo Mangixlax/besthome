@@ -11,7 +11,7 @@ export default {
   name: 'our-team',
   components: { PageCompanyOurTeam },
   asyncData(ctx: Context): void {
-    ctx.store.commit('setLogoSubTitle', 'Our team')
+    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.company'))
   },
 }
 </script>

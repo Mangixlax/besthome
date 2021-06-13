@@ -12,6 +12,7 @@
       tag="div"
       version="style-9"
       :class="$style['header__info-callback']"
+      @click="showGetCallback"
     ) {{ $t('header.call_back')}}
 </template>
 
@@ -19,14 +20,27 @@
 import Vue from 'vue'
 import { Component, Prop } from 'nuxt-property-decorator'
 import TypoText from '~/components/Base/TypoText.vue'
+import { modalsTriggerMixin } from '~/mixins/modals'
 
 @Component({
   components: { TypoText },
+  mixins: [modalsTriggerMixin],
 })
 export default class BaseHeaderInfo extends Vue {
   @Prop({ type: Boolean, default: false }) hideOnMobile!: boolean
   @Prop({ type: Boolean, default: false }) alignRight!: boolean
+
+  public showGetCallback() {
+    this.showModal({
+      name: 'modal-get-callback',
+      modal: () => import('~/components/Modal/GetCallback/ModalGetCallback.vue'),
+      options: {
+        width: '100%'
+      }
+    })
+  }
 }
+
 </script>
 
 <style lang="sass" module>
