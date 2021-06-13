@@ -52,7 +52,7 @@ export default {
     TypoText,
   },
   asyncData(ctx) {
-    ctx.store.commit('setLogoSubTitle', 'Secondary housing')
+    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.secondary_housing'))
   },
   mixins: [modalsTriggerMixin],
   methods: {

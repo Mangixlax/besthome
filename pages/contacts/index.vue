@@ -16,7 +16,7 @@ import { Context } from '@nuxt/types'
     CommonConsultantSlider,
   },
   asyncData(ctx: Context): void {
-    ctx.store.commit('setLogoSubTitle', 'Contacts')
+    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.contacts'))
   },
 })
 export default class IndexPage extends Vue {}

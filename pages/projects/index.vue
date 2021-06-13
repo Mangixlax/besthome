@@ -44,7 +44,7 @@ import CommonLinkIcon from '~/components/Common/CommonLinkIcon.vue'
     FooterFastLinks,
   },
   async asyncData(ctx: Context): Promise<void> {
-    ctx.store.commit('setLogoSubTitle', 'Projects')
+    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.projects'))
     await ctx.store.dispatch('Catalog/fetchProjects')
   },
 })

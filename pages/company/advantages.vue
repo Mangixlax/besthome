@@ -101,7 +101,7 @@ export default {
     TypoText,
   },
   asyncData(ctx: Context): void {
-    ctx.store.commit('setLogoSubTitle', 'Company')
+    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.company'))
   },
 }
 </script>

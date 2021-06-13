@@ -36,21 +36,37 @@
         button(
           type="button"
           :class="$style['project-navigation__navbar-submit']"
+          @click="showGetCallback"
         ) {{ $t('projects.navigation.get_a_consultation') }}
         button(
           type="button"
           :class="$style['project-navigation__navbar-submit--mobile']"
+          @click="showGetCallback"
         ) {{ $t('projects.navigation.consultation') }}
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
+import { modalsTriggerMixin } from '~/mixins/modals'
 import TypoText from '~/components/Base/TypoText.vue'
 import { IProject } from '~/store/Catalog'
 
-@Component({ components: { TypoText } })
+@Component({ 
+  components: { TypoText },
+  mixins: [modalsTriggerMixin]
+})
 export default class BaseProjectNavigation extends Vue {
   @Prop({ type: Boolean, default: false }) isActive!: boolean
+
+  public showGetCallback() {
+    this.showModal({
+      name: 'modal-get-callback',
+      modal: () => import('~/components/Modal/GetCallback/ModalGetCallback.vue'),
+      options: {
+        width: '100%'
+      }
+    })
+  }
 
   get projectTitle(): string {
     return (this.$store.getters['Catalog/getProject'] as IProject).name

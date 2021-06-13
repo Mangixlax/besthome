@@ -5,6 +5,14 @@
     "select_locale": {
       "text": "Select a country or region to match the content to your location.",
       "next": "Apply"
+    },
+    "logo": {
+      "projects": "PROJECTS",
+      "investors": "INVESTORS",
+      "servise": "SERVICE",
+      "company": "COMPANY",
+      "contacts": "CONTACTS",
+      "secondary_housing": "SECONDARY HOUSING"
     }
   },
   "projects": {
@@ -23,7 +31,11 @@
     "home": {
       "header": {
         "title": "We are leaders in quality construction & infrastructure",
-        "text1": "BestHome Construction is the leading construction company in Alanya, operating in the real estate market since 2004. Having started its activity as a real estate agency, since 2008. Our company specializes in the construction and implementation of turnkey residential residences in the best areas of the city of Alanya.",
+        "text1": [
+          "BestHome Construction is a leading construction company in Alanya. One of the leading companies in the Turkish market. Started as a real estate agency in 2004. To date, more than 30 projects have been implemented in the center of Alanya and in the Oba region.",
+          "The firm has its own representatives in Germany, America, Russia, Ukraine, Iran, Kazakhstan, as well as in Denmark, Sweden, Norway and Finland. We have already concluded more than 1000 successful transactions with foreign citizens living in the CIS, USA, Europe and the Middle East.",
+          "Today it is a construction company in Alanya, with the help of which any foreigner can profitably and quickly buy an apartment or a private house without leaving his country. All issues are resolved remotely. You can conclude an agreement and issue a TAPU remotely."
+        ],
         "text2": "To date, the company has {link}.",
         "text2_link": "33 completed projects"
       },
@@ -44,7 +56,7 @@
             },
             "price": "110 000",
             "sea": 120,
-            "description": "The project which is being constructed on a hill surrounded with green space, accompanied with unique landscapes of Alanya castle merging with sea and mountains, we are bringing you to calm and peaceful environment."
+            "description": "BestHome 36-37 The Legend is a new premium class complex in the very center of Alanya, 120 meters from the sandy beach. The complex is unique due to its advantageous location, infrastructure of a 5-star hotel and unique design."
           },
           {
             "title": "Best Home 35",
@@ -68,7 +80,7 @@
             },
             "price": "170 000",
             "sea": 250,
-            "description": "The new Grand Project \"Besthome 33 Cleopatra Symphony\" will be built only 250 meters from the famous Cleopatra and Mediterranean Beach, in the center of Alanya, Turkey. The complex itself is located in a quiet area where there are no noisy bars and clubs, but just a few minutes, developed socio-city infrastructure, for those who love the rapid rhythm of tourist life."
+            "description": "The complex BestHome 33 Cleopatra Symphony is located a 5-minute walk from the Cleopatra beach, from its most beautiful part with a magnificent park area, sports and playgrounds, restaurants and cafes."
           }
         ]
       },
@@ -591,16 +603,16 @@
       },
       "scroll_line_data": [
         {
-          "title": "239",
-          "text": "Apartments"
+          "title": "33",
+          "text": "Projects"
         },
         {
-          "title": "470",
-          "text": "Parking spots for bikes"
+          "title": "More than 17",
+          "text": "Years of experience"
         },
         {
-          "title": "3800m²",
-          "text": "Of common green areas"
+          "title": "Thousands",
+          "text": "Satisfied customers"
         },
         {
           "title": "1 to 4-room",
@@ -1127,31 +1139,35 @@
     "accordions": [
       {
         "title": "Company experience",
-        "content": "<p> Our <a href='#'>company</a> has its own offices in the USA, Russia, Norway, Finland, Germany, Ukraine, Iran, Denmark and Sweden. We have helped over 1000 foreign investors from America, Europe, the CIS and the Middle East to buy real estate in Alanya at a profit. </p>"
+        "content": "<p> Our <a href='#'>company</a> has its representatives in the USA, Russia, Norway, Finland, Germany, Ukraine, Iran, Denmark and Sweden. We have helped over 1000 foreign investors from America, Europe, the CIS and the Middle East to buy real estate in Alanya at a profit. </p>"
       },
       {
         "title": "Buying real estate as an investment",
-        "content": "<p> Thanks to the well-thought-out geography of residential complexes and high quality construction, we guarantee stable profits for investors who purchase houses and <a href='#'>apartments in Alanya</a> for short and long-term rentals. </p>"
+        "content": "<p>Due to the unique location of residential complexes of residential complexes and high quality construction, we guarantee stable profits for investors who purchase houses and <a href='#'>apartments in Alanya</a> for short and long-term rentals. </p>"
       },
       {
         "title": "Trust management",
-        "content": "<p> The management of residential complexes BestHome Construction in Alanya is carried out by a subsidiary company Leader Management, providing customers with a full range of services and warranty obligations. </p>"
+        "content": "<p>The management of residential complexes BestHome Construction in Alanya is carried out by a subsidiary company Leader Management, providing customers with a full range of services and warranty obligations. </p>"
       },
       {
         "title": "Quality and reliability",
-        "content": "<p> Our motto is 'Best Advertising - First-class Quality'. We know how to find an individual approach to clients. We independently finance the construction of residential complexes, provide our clients with bank guarantees. And the legal purity of transactions guarantees the safety of investments. </p>"
+        "content": "<p>Our motto is 'Best Advertising - First-class Quality'. We know how to find an individual approach to clients. We independently finance the construction of residential complexes, provide our clients with bank guarantees. And the legal purity of transactions guarantees the safety of investments. </p>"
       },
       {
-        "title": "Term and guarantee",
-        "content": "<p> We strictly adhere to the deadlines for the commissioning of facilities, we control the construction at every stage. Construction projects are provided with a 5-year warranty, including exterior, clean finish and infrastructure. </p>"
+        "title": "Terms and guarantees",
+        "content": "<p>We strictly adhere to the deadlines for putting objects into operation, we control the construction at every stage. We provide guarantees for up to 5 years, including the exterior finishing of the network and water supply.</p>"
       },
       {
-        "title": "Custom design and services",
-        "content": "<p> During the construction phase, our clients can order redevelopment of premises and unique interior design, their requirements and wishes. BestHome Construction employs first-class designers and architects. For maximum transparency, cooperation and customer support is carried out in the investor's native language, including the registration of the monetary policy. </p>"
+        "title": "Custom design",
+        "content": "<p>Individual design - during the construction phase, our clients can order redevelopment of premises, as well as the development of a unique design, taking into account their requirements and wishes. BestHome Construction employs first-class designers and architects. For maximum transparency, cooperation and customer support is carried out in the investor's native language, including the registration of the monetary policy. </p>"
+      },
+      {
+        "title": "Services",
+        "content": "<p>For maximum transparency, including drawing up a purchase and sale agreement, customer support is carried out in the investor's native language, including the execution of the contract of sale.</p>"
       },
       {
         "title": "Our office",
-        "content": "<p> Our office is located in the very center of Alanya. Three floors, one-stop service - sales, property management, post-sales services, architecture and design. </p>"
+        "content": "<p>Our office is located in the very center of Alanya. Three floors, one-stop service - sales, property management, post-sales services, after sales and designer services</p>"
       }
     ],
     "subscribe": {
@@ -1163,8 +1179,8 @@
       "link": "process my personal data"
     },
     "footer_company_description": [
-      "BestHome Construction is a leading construction company in Alanya. One of the leading companies in the Turkish market. Started as a real estate agency in 2004. Since 2008, the company began to implement its own projects, providing buyers with new comfortable housing in Alanya. To date, more than 33 projects have been implemented in the center of Alanya and in the Oba region. The firm has its own representatives in Germany, America, Russia, Ukraine, Iran, Kazakhstan, as well as in Denmark, Sweden, Norway and Finland. The company has already concluded more than 1000 successful transactions with foreign citizens living in the CIS, USA, Europe and the Middle East. Today it is a construction company in Alanya, with the help of which any foreigner can profitably and quickly buy an apartment or a private house without leaving his country. All issues are resolved remotely. You can conclude an agreement and issue a TAPU remotely.",
-      "You can entrust the after-sale service of your apartment, villa or office to a subsidiary company Leader Management, being sure that all your administrative, legal and financial obligations are fulfilled, as well as consultations on your choice, assistance in obtaining a residence permit and citizenship, legal and financial support for each transactions. Trust professionals with over 16 years of experience in the Turkish market - contact us."
+      "BestHome Construction is a leading construction company in Alanya. One of the leading companies in the Turkish market. Started as a real estate agency in 2004. To date, more than 33 projects have been implemented in the center of Alanya and in the Oba region. The firm has its own representatives in Germany, America, Russia, Ukraine, Iran, Kazakhstan, as well as in Denmark, Sweden, Norway and Finland. The company has already concluded more than 1000 successful transactions with foreign citizens living in the CIS, USA, Europe and the Middle East. Today it is a construction company in Alanya, with the help of which any foreigner can profitably and quickly buy an apartment or a private house without leaving his country. All issues are resolved remotely. You can conclude an agreement and issue a TAPU remotely.",
+      "You can entrust the after-sale service of your apartment, villa or office to a subsidiary company Leader Management, being sure that all your administrative, legal and financial obligations are fulfilled, as well as consultations on your choice, assistance in obtaining a residence permit and citizenship, legal and financial support for each transactions. Trust professionals with over 17 years of experience in the Turkish market - contact us."
     ],
     "footer_site_map": {
       "text": "Сall the support service via the phone",
@@ -1175,5 +1191,59 @@
       "rights": "All rights reserved.",
       "language": "Change language:"
     }
+  },
+  "modals": {
+    "get_callback": {
+      "feedback": {
+        "title": "Feedback",
+        "text": "Hello, I am Anna Larina, I will answer any of your questions! We try to build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.",
+        "label_name": "Your name",
+        "label_email_number": {
+          "number": "Phone number",
+          "or": "or",
+          "email": "email"
+        },
+        "label_project": {
+          "main": "Project of interest",
+          "support": "(optional)"
+        },
+        "label_building": {
+          "main": "Building",
+          "support": "(optional)"
+        },
+        "label_rooms": {
+          "main": "Number of rooms",
+          "support": "(optional)"
+        },
+        "label_message": {
+          "title": "Your message",
+          "label": "State your question here"
+        },
+        "label_checkbox_1": "I agree to allow BestHome to collect and",
+        "label_checkbox_2": "I am interested in receiving the newsletter with news."
+      },
+      "info": {
+        "name": "Anna Larina",
+        "position": "Sales Director",
+        "languages": "Russian, English, Turkish, Latvian, French",
+        "office": "Cikcilli mahallesi, Saraybeleni caddesi, Tugayoğlu sokak, №18/1, Alanya 07400, Antalya, Türkiye Monday-Saturday, from 9:00 to 18:00",
+        "link": {
+          "text": "More",
+          "link": "view map",
+          "route": "contacts"
+        }
+      }
+    },
+    "subscribe": {
+      "title": "Newsletter subscription",
+      "title_success": "You have subscribed!",
+      "submit": "Accept",
+      "description_1": "Subscribe to our newsletter and be the first to know about hot offers!",
+      "description_2": "You will receive our newsletter and be the first to know about hot offers!"
+    },
+    "full_name_input": "Surname, Name and Patronymic",
+    "phone_input": "Actual phone number",
+    "email_input": "Email for notifications",
+    "sending": "Sending..."
   }
 }

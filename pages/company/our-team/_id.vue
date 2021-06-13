@@ -38,7 +38,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
 @Component({
   components: { TypoText, PageCompanyOurTeamSlider },
   asyncData(ctx: Context): void {
-    ctx.store.commit('setLogoSubTitle', 'Our team')
+    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.company'))
   },
 })
 export default class PersonalPage extends Vue {

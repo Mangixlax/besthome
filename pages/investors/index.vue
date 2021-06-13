@@ -77,7 +77,7 @@ import { Context } from '@nuxt/types'
     TypoText,
   },
   asyncData(ctx: Context): void {
-    ctx.store.commit('setLogoSubTitle', 'Investors')
+    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.investors'))
   },
 })
 export default class InvestorsPage extends Vue {}

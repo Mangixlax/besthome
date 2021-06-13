@@ -129,7 +129,7 @@ export default {
     BaseTextContainer,
   },
   async asyncData(ctx: Context): Promise<object | void> {
-    ctx.store.commit('setLogoSubTitle', 'Service')
+    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.service'))
   },
 }
 </script>

@@ -51,7 +51,7 @@ import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
     BaseTextContainer,
   },
   async asyncData(ctx: Context): Promise<object | void> {
-    ctx.store.commit('setLogoSubTitle', 'Projects')
+    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.projects'))
 
     // Dont load project from api if project already saved in store
     if (ctx.route.params.slug !== ctx.store.getters['Catalog/getProject'].slug) {

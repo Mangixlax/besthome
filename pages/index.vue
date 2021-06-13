@@ -2,7 +2,12 @@
   main
     page-welcome
       typo-text(tag="h1" version="style-2" v-html="$t('pages.home.header.title')")
-      typo-text(tag="p" version="style-5") {{ $t('pages.home.header.text1') }}
+      typo-text(
+        v-for="(text1,i) in  $t('pages.home.header.text1')"
+        :key="i"
+        tag="p" 
+        version="style-5"
+        ) {{ text1 }}
       typo-text(tag="p" version="style-5")
         i18n(path="pages.home.header.text2" tag="span" version="style-5")
           template(v-slot:link)
