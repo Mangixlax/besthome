@@ -36,6 +36,10 @@
               v-magnetic
             )
         slot(:is-card-display="isCardDisplay")
+        div(:class="{\
+          [$style['catalog__content-overlay']]: true,\
+          [$style['catalog__content-overlay--show']]: $store.state.Catalog.loading\
+        }")
       div(
         :class="[$style['catalog__filter'], filterDarkMode && $style['catalog__filter--dark']]"
         @click="showFilter"
@@ -118,6 +122,23 @@ export default class CatalogWrapper extends Vue {
 
   &__content
     width: 100%
+    position: relative
+
+    &-overlay
+      position: absolute
+      left: 0
+      right: 0
+      top: 0
+      bottom: 0
+      background-color: $color-white-40
+      z-index: 1
+      opacity: 0
+      pointer-events: none
+      transition: opacity 0.25s ease
+
+      &--show
+        opacity: 1
+        pointer-events: auto
 
   &__panel
     display: flex

@@ -82,6 +82,7 @@ export const state = () => ({
   projectsCount: 0 as number,
   filters: {} as IProjectApartmentsFilter,
   selectedFilters: {} as any,
+  loading: false as boolean,
 })
 
 export type CatalogState = ReturnType<typeof state>
@@ -131,6 +132,9 @@ export const mutations: MutationTree<CatalogState> = {
   ) => {
     state.selectedFilters[key] = value
   },
+  setLoading: (state: CatalogState, value: boolean) => {
+    state.loading = value
+  },
 }
 
 /**
@@ -163,6 +167,7 @@ export const actions: ActionTree<CatalogState, RootState> = {
     })
   },
   async fetchApartments({ commit, state }: CatalogActionContext, apartment_id?: number) {
+    commit('setLoading', true)
     return new Promise(async (resolve, reject) => {
       this.$axios
         .$get(`v1/apartments${apartment_id ? '/' + apartment_id : ''}`, {
@@ -175,6 +180,7 @@ export const actions: ActionTree<CatalogState, RootState> = {
           ({ filters, apartments }: { filters: any; apartments: { data?: IProjectApartment } }) => {
             commit('setApartments', apartments)
             commit('setFilters', filters)
+            commit('setLoading', false)
             resolve({ filters, apartments })
           },
         )
