@@ -18,7 +18,7 @@
         div(:class="$style['hero__double-circle']")
       template(slot="prepend")
         div(:class="$style['hero__container']")
-          div(:class="$style['hero__video-link']" data-cursor-text)
+          div(:class="$style['hero__video-link']" @click="showVideo" data-cursor-text)
             svg-icon(:class="$style['hero__video-icon-text']" name="hero-link-circle-text")
             div(:class="$style['hero__video-icon-circle-wrapper']" v-magnetic)
               svg-icon(:class="$style['hero__video-icon-circle']" name="hero-link-circle")
@@ -69,6 +69,7 @@ import LinkBanner from '~/components/LinkBanner/LinkBanner.vue'
 import TreeColumns from '~/components/TreeColumns/TreeColumns.vue'
 import Magnetic from '~/directives/magnetic'
 import CommonLinkIcon from '~/components/Common/CommonLinkIcon.vue'
+import { modalsTriggerMixin } from '~/mixins/modals'
 
 @Component({
   components: {
@@ -85,10 +86,34 @@ import CommonLinkIcon from '~/components/Common/CommonLinkIcon.vue'
     FooterFastLinks,
   },
   directives: { Magnetic },
+  mixins: [modalsTriggerMixin],
 })
 export default class IndexPage extends Vue {
   created() {
     this.$store.commit('setLogoSubTitle', 'Construction')
+  }
+
+  public showVideo() {
+    this.showModal({
+      name: 'modal-video',
+      modal: () => import('~/components/Modal/Video/ModalVideo.vue'),
+      options: {
+        height: 'auto',
+        width: '100%',
+        // scrollable: false,
+        // classes: [".v--modal-fullscreen"]
+      },
+      events: {
+        'before-open': () => {
+          document.documentElement.classList.add('modal-video-is-open')
+        },
+        'before-close': () => {
+          if (document.body.getElementsByClassName('vm--container').length <= 1) {
+            document.documentElement.classList.remove('modal-video-is-open')
+          }
+        },
+      },
+    })
   }
 }
 </script>

@@ -106,6 +106,7 @@ export default {
   @media (max-width: 900px)
     display: grid
     grid-template-columns: 1fr 1fr
+    align-items: center
     max-width: 100%   !important
     max-height: 100%  !important
 
@@ -128,6 +129,8 @@ export default {
       position: static
       margin-bottom: 0
       padding: 24px
+      width: 100%
+      box-shadow: none
 
     &-text
       margin: 0

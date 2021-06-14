@@ -22,17 +22,14 @@
         block_flip: false,\
       }"
     )
-    base-text-container
-      typo-text(
-        tag="h2"
-        version="style-2"
-      ) {{ $t('pages.service_introductory_tour.article_1.title') }}
-      typo-text(
-        v-for="(paragraph, i) in $t('pages.service_introductory_tour.article_1.text')"
-        :key="i"
-        tag="p"
-        version="style-6"
-      ) {{ paragraph }}
+    base-text-container(
+      :data="{\
+        text: [\
+          `<h2>${$t('pages.service_introductory_tour.slot_text_1')}</h2>`,\
+          ...$t('pages.service_introductory_tour.article_1.text').map((p) => `<p>${p}<p>`),\
+        ].join(''),\
+      }"
+    )
     base-post(
       :data="{\
         image: require(`~/assets/images/pages/service/introductory-tour/image-2.jpg`),\

@@ -1,6 +1,6 @@
 <template lang="pug">
-  div(:class="$style[`${tag}__wrapper`]")
-    div(:class="[$style[`${tag}__label`], showInput ? $style['show'] : '', isFocused && $style['focused'], !valid && $style['error']]")
+  div(:class="[$style[`${tag}__wrapper`], !valid && $style['error']]")
+    div(:class="[$style[`${tag}__label`], showInput ? $style['show'] : '', isFocused && $style['focused']]")
       slot
       span(
         v-if="required"
@@ -120,18 +120,18 @@ export default {
   text-overflow: ''
   overflow: hidden
   width: 100%
-  color:$color-black-100
+  color: $color-black-100
   cursor: pointer
 
   &:focus
     outline: none
     cursor: text
     border-color: rgba($color-blue-16, 0.32)
-    
-  &.error
+
+  .error &
     // box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.32)
-    border-color: rgba(red, 0.32)
-    
+    border-color: rgba(204, 0, 0, 0.48)
+
   &__wrapper
     position: relative
 
@@ -143,7 +143,7 @@ export default {
 
   &__wrapper:hover &:not(:focus)
     border-color: rgba($color-blue-16, 0.32)
-    
+
 
   &__label
     +style-7
@@ -155,7 +155,7 @@ export default {
     color: $color-black-100
     transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
     transition: font-size 0.25s ease, transform 0.25s ease, color 0.25s ease
-    
+
     span
       margin: 0 0.25em
 
@@ -175,13 +175,13 @@ export default {
 
       > span
         color: $color-blue-48
-    
-    &.error span:not(.required)
+
+    .error & span:not(.required)
       color: rgba(204, 0, 0, 0.96)
-    
+
       > span
         color: rgba(204, 0, 0, 0.48)
-      
+
 .textarea
   resize: none
   min-height: 112px

@@ -122,6 +122,7 @@ export default <NuxtConfig>{
     '@nuxtjs/component-cache',
     'cookie-universal-nuxt',
     'nuxt-i18n',
+    '~/modules/recaptcha/module.js',
   ],
 
   i18n: {
@@ -132,6 +133,11 @@ export default <NuxtConfig>{
 
   svgSprite: {
     publicPath: '/_nuxt/',
+  },
+
+  recaptcha: {
+    siteKey: process.env.RECAPTCHA_SITE_KEY,
+    version: 2,
   },
 
   /*
