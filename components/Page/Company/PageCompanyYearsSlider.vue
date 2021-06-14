@@ -52,7 +52,7 @@
             :class="$style['history__description-year']"
           ) {{ slide.year }}
         div(:class="$style['history__image']")
-          img(:src="require(`@/assets/images/pages/company/history/years-image/${slide.image}`)")
+          img(:src="require(`@/assets/images/pages/company/history/years-image/${slide.image}`)" loading="lazy")
       div(slot="pagination" :class="$style['navigation']")
         div(:class="$style['buttons']")
           button(:class="[$style['swiper-button-prev']]" @click.prevent="$refs.swiper_2.swiperInstance.slidePrev()")
@@ -103,7 +103,7 @@ export default {
 .history
   width: 100%
   padding: 80px 0
-  
+
   @media (max-width: 800px)
     padding-top: initial  !important
     padding-left: initial !important
@@ -131,7 +131,7 @@ export default {
       color: $color-black-8
 
       @media (max-width: 700px)
-        margin-top: initial   
+        margin-top: initial
 
   &__image
     max-width: 624px
@@ -190,7 +190,7 @@ export default {
     margin: initial
     padding: initial
     margin-top: 40px
-    
+
   .swiper-pagination-bullets
     display: grid !important
     grid-template-columns: repeat(18, 1fr)

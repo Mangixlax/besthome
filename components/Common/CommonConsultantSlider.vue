@@ -30,14 +30,14 @@
               ) {{ slide.phone }}
               svg-icon(name="icon-whatsup")
               svg-icon(name="icon-viber")
-              svg-icon(name="icon-telegram")  
+              svg-icon(name="icon-telegram")
             div(:class="$style['slide__link']")
               a(
                 href="mailto: svetlana@besthome.com.tr"
                 :class="$style['slide__link-email']"
               ) {{ slide.email }}
                 svg-icon(name="link-arrow-white")
-          img(:src="require(`~/assets/images/our-team/${slide.image}`)", alt="alt")
+          img(:src="require(`~/assets/images/our-team/${slide.image}`)" alt="alt" loading="lazy")
     div(:class="$style['footer']")
       div(:class="$style['footer__navigation']")
         div(:class="$style['buttons']")

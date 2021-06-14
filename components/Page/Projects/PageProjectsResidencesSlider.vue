@@ -26,7 +26,7 @@
               :class="$style['slide']"
             )
               div(:class="$style['container__body-image']")
-                img(:src="require(`@/assets/images/projects-residences-slider/1-rooms/${slide}`)")
+                img(:src="require(`@/assets/images/projects-residences-slider/1-rooms/${slide}`)" loading="lazy")
               div(:class="$style['container__body-description']")
                 typo-text(
                   tag="p"
@@ -60,7 +60,7 @@
               :class="$style['slide']"
             )
               div(:class="$style['container__body-image']")
-                img(:src="require(`@/assets/images/projects-residences-slider/1-rooms/${slide}`)")
+                img(:src="require(`@/assets/images/projects-residences-slider/1-rooms/${slide}`)" loading="lazy")
               div(:class="$style['container__body-description']")
                 typo-text(
                   tag="p"
@@ -94,7 +94,7 @@
               :class="$style['slide']"
             )
               div(:class="$style['container__body-image']")
-                img(:src="require(`@/assets/images/projects-residences-slider/1-rooms/${slide}`)")
+                img(:src="require(`@/assets/images/projects-residences-slider/1-rooms/${slide}`)" loading="lazy")
               div(:class="$style['container__body-description']")
                 typo-text(
                   tag="p"
@@ -128,7 +128,7 @@
               :class="$style['slide']"
             )
               div(:class="$style['container__body-image']")
-                img(:src="require(`@/assets/images/projects-residences-slider/1-rooms/${slide}`)")
+                img(:src="require(`@/assets/images/projects-residences-slider/1-rooms/${slide}`)" loading="lazy")
               div(:class="$style['container__body-description']")
                 typo-text(
                   tag="p"
@@ -162,7 +162,7 @@
               :class="$style['slide']"
             )
               div(:class="$style['container__body-image']")
-                img(:src="require(`@/assets/images/projects-residences-slider/1-rooms/${slide}`)")
+                img(:src="require(`@/assets/images/projects-residences-slider/1-rooms/${slide}`)" loading="lazy")
               div(:class="$style['container__body-description']")
                 typo-text(
                   tag="p"

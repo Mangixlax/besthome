@@ -10,6 +10,7 @@
     img(
       :class="$style['link-banner__image']"
       :src="imageSrc"
+      loading="lazy"
     )
     nuxt-link(
       :class="$style['link-banner__text']"

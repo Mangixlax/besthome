@@ -1,7 +1,7 @@
 <template lang="pug">
   div(:class="$style['get-callback__info']")
     div(:class="$style['get-callback__info-avatar']")
-      img(:src="require(`~/assets/images/our-team/person-2.png`)", alt="alt")
+      img(:src="require(`~/assets/images/our-team/person-2.png`)" alt="alt" loading="lazy")
     typo-text(
       tag="div"
       version="style-6"
@@ -84,11 +84,11 @@ export default {
       display: flex
       align-items: center
       justify-content: center
-      
+
       img
         height: 100%
         border-radius: 50%
-        
+
     &-position
       color: $color-black-56
       margin-bottom: 16px

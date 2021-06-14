@@ -7,7 +7,7 @@
     ]"
   )
     div(:class="$style['slider__image-wrapper']")
-      img(:class="$style['slider__image']" :src="require(`~/assets/images/pages/home/hero-slider/${ slides[currentSlideIndex].image }`)")
+      img(:class="$style['slider__image']" :src="require(`~/assets/images/pages/home/hero-slider/${ slides[currentSlideIndex].image }`)" loading="lazy")
     div(:class="$style['slider__nav']")
       div(:class="$style['slider__nav-prev']" @click="sliderTurnBackward")
         svg-icon(name="hero-slider-arrow")
@@ -27,7 +27,7 @@
         ref="caption"
         :class="$style['slide__caption']"
         href="#"
-      ) 
+      )
         typo-text(
           tag="h1"
           version="style-1"
@@ -421,7 +421,7 @@ export default class HeroSlider extends Vue {
         left: 0
         background: rgba(17, 17, 17, 0.26)
 
-        
+
 .slide
   position: absolute
   top: 64px

@@ -74,7 +74,7 @@
             ) €
       div(:class="$style['container__cardinfo-footer']")
         input(
-          type="button" 
+          type="button"
           value="Request now"
           :class="$style['container__cardinfo-footer-button']"
         )
@@ -104,9 +104,9 @@
             v-for="(slide,i) in projectsSliderData"
             :key="i"
             :class="$style['slide']"
-          ) 
+          )
             div(:class="$style['container__body-image']")
-              img(:src="require(`@/assets/images/projects-photos-slider/${slide}`)")
+              img(:src="require(`@/assets/images/projects-photos-slider/${slide}`)" loading="lazy")
           div(slot="pagination" :class="$style['navigation']")
             div(:class="['swiper-pagination-progressbar', $style['swiper-pagination-progressbar']]")
               div(class="status-bar")

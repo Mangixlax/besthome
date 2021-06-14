@@ -45,7 +45,7 @@
           )
     template(slot="body")
       div(ref="content" :class="$style['floor__content']" @mousemove="onMouseMove")
-        img(:src="localSelectedFloor.layout")
+        img(:src="localSelectedFloor.layout" loading="lazy")
         div(:class="$style['floor__content-svg']" v-html="localSelectedFloor.layout_html")
       div(:class="$style['floor__footer']")
         div(

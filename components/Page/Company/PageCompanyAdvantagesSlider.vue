@@ -18,7 +18,7 @@
           :class="$style['slide']"
         )
           div
-            img(:src="require(`@/assets/images/company-advantages-slider/${slide.image || 'person-1.png'}`)")
+            img(:src="require(`@/assets/images/company-advantages-slider/${slide.image || 'person-1.png'}`)" loading="lazy")
           div(:class="$style['slide__textbox']")
             typo-text(
               tag="p"

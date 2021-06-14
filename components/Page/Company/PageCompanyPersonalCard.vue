@@ -6,6 +6,7 @@
       img(
         :src="require(`@/assets/images/our-team/${card.image || 'person-1.png'}`)"
         :class="$style['personal-card__photo-image']"
+        loading="lazy"
       )
     div(:class="$style['personal-card__name']")
       typo-text(
@@ -19,12 +20,12 @@
         })"
         :class="$style['personal-card__name-link']"
       ) {{ card.name }}
-      svg-icon(name="link-arrow-blue") 
+      svg-icon(name="link-arrow-blue")
     typo-text(
       tag="p"
       version="style-7"
       :class="$style['personal-card-position']"
-    ) {{ card.position }}  
+    ) {{ card.position }}
 </template>
 
 <script lang="ts">

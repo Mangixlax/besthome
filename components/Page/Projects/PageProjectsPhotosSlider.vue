@@ -14,7 +14,7 @@
           :class="$style['slide']"
         )
           div(:class="$style['container__body-image']")
-            img(:src="slide")
+            img(:src="slide" loading="lazy")
         div(slot="pagination" :class="$style['navigation']")
           div(:class="['swiper-pagination-progressbar', $style['swiper-pagination-progressbar']]")
             div(class="status-bar")

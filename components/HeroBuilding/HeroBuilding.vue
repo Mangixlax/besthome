@@ -11,11 +11,13 @@
           ref="image"
           :src="data.desktop_image"
           :class="$style['hero__image-desktop']"
+          loading="lazy"
         )
         img(
           v-if="data.mobile_image"
           :src="data.mobile_image"
           :class="$style['hero__image-mobile']"
+          loading="lazy"
         )
         div(
           v-if="data.svg_html"

@@ -13,7 +13,7 @@
           :class="$style['slide']"
         )
           div(:class="$style['project__body-image']")
-            img(:src="require(`@/assets/images/modals/modals-choose-apartments-project/${slide.image}`)")
+            img(:src="require(`@/assets/images/modals/modals-choose-apartments-project/${slide.image}`)" loading="lazy")
           div(:class="$style['project__body-description']")
             typo-text(
               tag="h3"
@@ -42,7 +42,7 @@
               svg-icon(name="slider-prev-arrow-blue")
             button(:class="[$style['swiper-button-next']]" @click.prevent="$refs.swiper_2.swiperInstance.slideNext()")
               svg-icon(name="slider-next-arrow-blue")
-    div(:class="$style['project__footer']")  
+    div(:class="$style['project__footer']")
       button(
         :class="$style['project__footer-prevbutton']"
         @click="closeModal"
@@ -54,13 +54,13 @@
       button(
         :class="$style['project__footer-nextbutton']"
         @click="setNextStep"
-      ) 
+      )
         div(
           :class="$style['project__footer-selected-count']"
           v-if="selectedPojects.length"
         ) {{ selectedPojects.length }}
 
-        | Choose an Apartment 
+        | Choose an Apartment
         svg-icon(
           name="modals/modals-next"
         )
@@ -286,7 +286,7 @@ export default {
   display: flex
   grid-gap: 72px
   align-items: center
-  padding: 0 24px 
+  padding: 0 24px
 
   @media (max-width: 800px)
     flex-direction: column

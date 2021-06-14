@@ -7,10 +7,10 @@
   )
     div(:class="$style['post__container']")
       div(:class="$style['post__imagebox']")
-        img(:src="data.images[0]")
+        img(:src="data.images[0]" loading="lazy")
       div(:class="$style['post__contentbox']")
         div(:class="$style['post__image']")
-          img(:src="data.images[1]")
+          img(:src="data.images[1]" loading="lazy")
         div(
           :class="{\
             [$style['post__text']]: true,\
