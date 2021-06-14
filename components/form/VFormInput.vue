@@ -113,7 +113,7 @@ export default {
   transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease
   border: none
   border-bottom: 1px solid $color-black-16
-  padding: 22px 14px 6px
+  padding: 15px 8px
   -webkit-appearance: none
   -moz-appearance: none
   text-indent: 1px
@@ -146,8 +146,9 @@ export default {
     
 
   &__label
+    +style-7
     position: absolute
-    top: 16px
+    top: 9px
     left: 8px
     pointer-events: none
     display: flex
@@ -165,7 +166,7 @@ export default {
         color: $color-black-48
 
     &.show
-      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -11, 0, 1)
+      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -20, 0, 1)
       color: rgba(#1A1B29, 0.64)
       font-size: 12px
 
