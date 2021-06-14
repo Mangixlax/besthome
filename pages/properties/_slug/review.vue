@@ -34,6 +34,7 @@ import PageProjectsInfrastructureSlider from '~/components/Page/Projects/PagePro
 import PageProjectsTimeline from '~/components/Page/Projects/PageProjectsTimeline.vue'
 import VueRouter from 'vue-router'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
+import HeromapSlider from '~/components/HeromapSlider/HeromapSlider.vue'
 import { IProject } from '~/store/Catalog'
 
 @Component({
@@ -53,6 +54,7 @@ import { IProject } from '~/store/Catalog'
     BaseAccordions,
     FooterFastLinks,
     BaseTextContainer,
+    HeromapSlider,
   },
   async asyncData(ctx: Context): Promise<object | void> {
     ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.projects'))
@@ -98,6 +100,7 @@ export default class PropertiesReviewPage extends Vue {
       BlockResidenceOffer: 'page-projects-residences-slider',
       BlockProjectTitle: 'page-projects-title',
       BlockTextContainer: 'base-text-container',
+      BlockHeromapSlider: 'heromap-slider',
     }
 
     return ((this.project as IProject).review_data || []).map((block: any) => ({
