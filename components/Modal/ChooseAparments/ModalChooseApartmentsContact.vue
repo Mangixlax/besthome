@@ -99,7 +99,6 @@ export default {
     },
 
     closeModal() {
-      console.log(this.$modal)
       this.$modal.hide('modal-choose-apartments')
     },
     addToSelectedMethods(card) {

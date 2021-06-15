@@ -57,6 +57,23 @@
         :class="$style['get-callback__info-link-arrow']"
       )
         svg-icon(name="link-arrow")
+    div(
+      v-if="showFinishStep"
+      :class="$style['get-callback__info-fisnish']"
+    )
+      typo-text(
+        tag="p"
+        version="style-5"
+        :class="$style['get-callback__info-fisnish-text']"
+      ) Шорош
+      typo-text(
+        tag="nuxt-link"
+        version="style-5"
+        :to="localePath('contacts')"
+        title="contacts"
+        :class="$style['get-callback__info-fisnish--underline']"
+      ) Всё сделано
+      | .
 </template>
 
 <script>
@@ -65,6 +82,12 @@ import TypoText from '~/components/Base/TypoText.vue'
 export default {
   name: 'ModalGetCallbackInfo',
   components: {TypoText },
+  props: {
+    showFinishStep: {
+      type: Boolean,
+      default: false
+    }
+  }
 }
 </script>
 
@@ -149,5 +172,10 @@ export default {
           stroke: $color-black-100
           height: 32px
           width: 32px
+
+    &-finish
+      height: 500px
+      width: auto
+      background: red
 </style>
 

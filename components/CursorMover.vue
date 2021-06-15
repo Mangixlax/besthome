@@ -175,7 +175,7 @@ export default class CursorMover extends Vue {
   position: fixed
   top: 0
   left: 0
-  z-index: 250
+  z-index: 999999999
   contain: layout style size
   pointer-events: none
   will-change: transform

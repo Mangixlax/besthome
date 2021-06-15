@@ -44,6 +44,15 @@ export default class DefaultLayout extends Vue {
     RootState
   >
 
+  //@Watch('$route')
+  //onRouteChange(value: any) {
+  //  console.log(value, this.$root._dynamicContainer.modals);
+  //   this.$root._dynamicContainer.modals.forEach((modal: any) => {
+  //      this.$root._dynamicContainer.remove(modal.id)
+  //   })
+  //  //this.$modal.hideAll()
+  //}
+
   @Mutation('detectTouchDevice') detectTouchDevice!: MutationTree<RootState> | any
 
   get isTouchDevice() {

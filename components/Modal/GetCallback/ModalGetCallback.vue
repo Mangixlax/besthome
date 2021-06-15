@@ -83,7 +83,16 @@
                 tag="p"
                 version="style-8"
                 :class="$style['get-callback__feedback-label-text']"
-              ) {{ $t('modals.get_callback.feedback.label_checkbox_1') }}
+              ) {{ $t('modals.get_callback.feedback.label_checkbox_1.text') }}
+              typo-text(
+                tag="a"
+                version="style-8"
+                :href="localePath('privacy-policy')"
+                title="privacy-policy"
+                :class="$style['get-callback__feedback-label-link']"
+                @click.prevent="onClickToPrivacy"
+              ) {{ $t('modals.get_callback.feedback.label_checkbox_1.link') }}
+              | .
             label(:class="$style['get-callback__feedback-label']")
               input(
                 name="news"
@@ -111,7 +120,7 @@
               :disabled="isBusy"
               type="submit"
             ) {{ isBusy ? $t('modals.sending') : $t('modals.subscribe.submit') }}
-        modal-get-callback-info
+        modal-get-callback-info(:show-finish-step="showFinishStep")
 </template>
 
 <script>
@@ -172,9 +181,14 @@ export default {
       },
       apiMethod: 'v1/forms/newSubscriber',
       selectedCheckboxes: [],
+      description: ''
     }
   },
   methods: {
+    closeModal() {
+      console.log(this.$modal)
+      this.$modal.hide('modal-get-callback')
+    },
     updateDescription() {
       if (!this.showFinishStep) {
         this.description = this.$t('modals.subscribe.description_1')
@@ -190,12 +204,16 @@ export default {
       this.form.email = ''
     },
     afterSuccess() {
-     // this.$ym.reachGoal('order-subscribe-to-offers')
-     // this.$ga.event({
-     //   eventCategory: 'Заявка',
-     //   eventAction: 'Рассылка',
-     // })
+     this.$ym.reachGoal('order-subscribe-to-offers')
+     this.$ga.event({
+       eventCategory: 'Заявка',
+       eventAction: 'Рассылка',
+     })
     },
+    onClickToPrivacy() {
+      this.$modal.hide(this.name);
+      this.$router.push(this.localePath('privacy-policy'));
+    }
   },
 }
 </script>
@@ -223,7 +241,6 @@ export default {
     &-label
       display: flex
       align-items: center
-      grid-gap: 16px
       cursor: pointer
       margin-bottom: 8px
 
@@ -255,6 +272,14 @@ export default {
           background-position: center center
           background-size: 50% 50%
           background-color: $color-black-24
+
+      &-link
+        white-space: nowrap
+        text-decoration: underline
+        text-decoration-color: $color-blue-16
+        text-underline-offset: 7px
+        color: $color-blue-100
+        margin-left: 0.5em
 
     button
       margin-top: 32px

@@ -90,7 +90,10 @@ export default class PageProjectsTitle extends Vue {
       h1, h2
         margin: 0
         +style-1
-
+      
+      p 
+        +style-5
+        margin: 0
       button
         background: $color-blue-100
         padding: 16px 32px

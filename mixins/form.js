@@ -85,24 +85,31 @@ export const formMixin = {
 
         this.form.from_page = window.location.href
         this.form.recaptcha = this.captchaToken
-        this.form.offer = this.$store.state.catalog.offer_item
-
-        this.$axios
-          .$post(this.apiMethod, this.form)
-          .then(() => {
-            this.isBusy = false
-            this.recaptchaIsValid = false
-            this.form.recaptcha = ''
-            this.showFinishStep = true
-            this.updateDescription()
-            this.afterSuccess()
-          })
-          .catch((error) => {
-            this.isBusy = false
-            this.recaptchaIsValid = false
-            this.form.recaptcha = ''
-            this.$sentry.captureException(error)
-          })
+        
+        setTimeout(() => {
+          this.isBusy = false
+          this.recaptchaIsValid = false
+          this.form.recaptcha = ''
+          this.showFinishStep = true
+          this.updateDescription()
+          this.afterSuccess()
+        }, 500)
+        // this.$axios
+        //   .$post(this.apiMethod, this.form)
+        //   .then(() => {
+        //     this.isBusy = false
+        //     this.recaptchaIsValid = false
+        //     this.form.recaptcha = ''
+        //     this.showFinishStep = true
+        //     this.updateDescription()
+        //     this.afterSuccess()
+        //   })
+        //   .catch((error) => {
+        //     this.isBusy = false
+        //     this.recaptchaIsValid = false
+        //     this.form.recaptcha = ''
+        //     // this.$sentry.captureException(error)
+        //   })
       }
     },
     onRecaptchaSuccess(token) {

@@ -19,9 +19,9 @@
     "sold_out": "Sold out",
     "free_available_units": "{0} free <span>available units</span>.",
     "navigation": {
-      "review": "Review",
-      "about": "About",
-      "experiences": "Experiences",
+      "review": "About the project",
+      "about": "Location",
+      "experiences": "Gallery",
       "choose_apartment": "Choose apartment",
       "get_a_consultation": "Get a consultation",
       "consultation": "Consultation"
@@ -32,9 +32,7 @@
       "header": {
         "title": "We are leaders in quality construction & infrastructure",
         "text1": [
-          "BestHome Construction is a leading construction company in Alanya. One of the leading companies in the Turkish market. Started as a real estate agency in 2004. To date, more than 30 projects have been implemented in the center of Alanya and in the Oba region.",
-          "The firm has its own representatives in Germany, America, Russia, Ukraine, Iran, Kazakhstan, as well as in Denmark, Sweden, Norway and Finland. We have already concluded more than 1000 successful transactions with foreign citizens living in the CIS, USA, Europe and the Middle East.",
-          "Today it is a construction company in Alanya, with the help of which any foreigner can profitably and quickly buy an apartment or a private house without leaving his country. All issues are resolved remotely. You can conclude an agreement and issue a TAPU remotely."
+          "BestHome Construction is a leading construction company in Alanya. One of the leading companies in the Turkish market. Started as a real estate agency in 2004. To date, more than 30 projects have been implemented in the center of Alanya and in the Oba region."
         ],
         "text2": "To date, the company has {link}.",
         "text2_link": "33 completed projects"
@@ -424,7 +422,7 @@
     },
     "service_introductory_tour": {
       "image_title": {
-        "header": "Introductory tour",
+        "header": "Inspection trip",
         "text": [
           "After talking with the manager of our company, you can tell him about the dates that are most suitable for you to come to Turkey. Thanks to the high professionalism of the company's employees, as well as the excellent organization, the study tour usually takes no more than 3-4 days. This time is enough to get acquainted with the districts of the city of Alanya, get answers to all your questions and explore the properties that interest you."
         ],
@@ -1185,7 +1183,7 @@
     "footer_site_map": {
       "text": "Сall the support service via the phone",
       "text_2": "or locate",
-      "link": "sales offise"
+      "link": "sales office"
     },
     "footer_copyright": {
       "rights": "All rights reserved.",
@@ -1208,7 +1206,7 @@
           "support": "(optional)"
         },
         "label_building": {
-          "main": "Building",
+          "main": "Block",
           "support": "(optional)"
         },
         "label_rooms": {
@@ -1219,14 +1217,17 @@
           "title": "Your message",
           "label": "State your question here"
         },
-        "label_checkbox_1": "I agree to allow BestHome to collect and",
+        "label_checkbox_1": {
+          "text": "I agree to allow BestHome to collect and",
+          "link": "process my personal data"
+        },
         "label_checkbox_2": "I am interested in receiving the newsletter with news."
       },
       "info": {
         "name": "Anna Larina",
         "position": "Sales Director",
         "languages": "Russian, English, Turkish, Latvian, French",
-        "office": "Cikcilli mahallesi, Saraybeleni caddesi, Tugayoğlu sokak, №18/1, Alanya 07400, Antalya, Türkiye Monday-Saturday, from 9:00 to 18:00",
+        "office": "Cikcilli mahallesi, Tugayoğlu sokak, №18/1, Alanya 07400, Antalya, Türkiye Monday-Saturday, from 9:00 to 18:00",
         "link": {
           "text": "More",
           "link": "view map",
@@ -1234,6 +1235,7 @@
         }
       }
     },
+    "video": "Click<br>to close",
     "subscribe": {
       "title": "Newsletter subscription",
       "title_success": "You have subscribed!",
