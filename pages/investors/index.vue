@@ -20,7 +20,7 @@
         image: require(`~/assets/images/pages/investors/image-2.jpg`),\
         text: [\
           `<h3>${$t('pages.investors.post_2.title')}</h3>`,\
-          `<p>${$t('pages.investors.post_2.paragraph_1')}</p>`,\
+          ...$t('pages.investors.post_2.paragraph_1').map((p) => `<p>${p}<p>`),\
           `<p>${$t('pages.investors.post_2.paragraph_with_link')}`,\
           `<a href='#'>${$t('pages.investors.post_2.link')}</a>.</p>`\
         ].join(''),\

@@ -37,7 +37,6 @@
           `<h3>${$t('pages.service_introductory_tour.post_2.title')}</h3>`,\
           `<p>${$t('pages.service_introductory_tour.post_2.paragraph_1')}</p>`,\
           `<p>${$t('pages.service_introductory_tour.post_2.paragraph_2')}</p>`,\
-          `<p>${$t('pages.service_introductory_tour.post_2.paragraph_3')}</p>`,\
         ].join(''),\
         align: 'right',\
         block_flip: true,\

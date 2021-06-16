@@ -6,21 +6,24 @@
           tag="h4"
           version="style-4"
           :class="$style['list-card__header-title']"
-        ) {{ listCardData.header.title }}
+          v-html="listCardData.header.title"
+        )
         typo-text(
           v-for="(paragraph, i) in listCardData.header.text"
           :key="`text_${i}`"
           tag="p"
           version="style-5"
           :class="$style['list-card__header-text']"
-        ) {{ paragraph }}
+          v-html="paragraph"
+        )
         typo-text(
           v-for="(paragraph, i) in listCardData.header.subtext"
           :key="`subtext_${i}`"
           tag="p"
           version="style-5"
           :class="$style['list-card__header-text']"
-        ) {{ paragraph }}
+          v-html="paragraph"
+        )
       ul(:class="$style['list']")
         li(
           v-for="(item, i) in listCardData.list"
@@ -28,10 +31,11 @@
           :class="$style['list__item']"
         )
           typo-text(   
-              tag="p"
-              version="style-6"
-              :class="$style['list__item-text']"
-            ) {{ item }}
+            tag="p"
+            version="style-6"
+            :class="$style['list__item-text']"
+            v-html="item"
+          )
 </template>
 
 <script lang="ts">

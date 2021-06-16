@@ -14,7 +14,8 @@
           :class="$style['slide']"
         )
           div(:class="$style['container__body-image']")
-            img(:src="slide" loading="lazy")
+            img(:data-src="slide" loading="lazy" class="swiper-lazy")
+            div(class="swiper-lazy-preloader")
         div(slot="pagination" :class="$style['navigation']")
           div(:class="['swiper-pagination-progressbar', $style['swiper-pagination-progressbar']]")
             div(class="status-bar")
@@ -50,6 +51,9 @@ export default class PageProjectsPhotosSlider extends Vue {
   @Prop({ type: Object, default: () => {} }) data!: IPhotoSlider
 
   public swiperOption: any = {
+    lazy: true,
+    watchSlidesVisibility : true,
+    preloadImages: false,
     breakpoints: {
       // when window width is >= 900px
       900: {
@@ -92,21 +96,38 @@ export default class PageProjectsPhotosSlider extends Vue {
     @media (max-width: 900px)
       padding: 40px 0
 
-.slide
-  display: flex
-  justify-content: center
-  align-items: center
+    &-image
+      position: relative
+      padding-bottom: 66.6%
+      height: 0
+      background: white
+      border-image: none
+      img
+        background: white
+        outline: none
+        border: none
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
 
+      [class*="swiper-lazy-preloader-white"]
+        
 
   @media (min-width: 1200px)
     width: auto !important
 
-  img
-    height: 100%
-    max-height: 600px
-    display: block
-    max-width: 100%
-    height: auto
+  
+
+.slide
+  position: relative
+  background: #444 !important
+  width: 50% !important
+  height: auto
+  
+  @media (max-width: 900px)
+    width: 100% !important
 
 .navigation
   max-width: 1296px
