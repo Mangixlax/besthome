@@ -55,16 +55,16 @@ export default class TreeColumns extends Vue {
   public isHovered: boolean = false
 
   public onHoverItem(index: number) {
-    this.isHovered = true
-    ;(this.columns[index] as any).hovered = true
-    ;((this.$refs.text as any)[index] as any).style.height =
-      (this.$refs.text as any)[index].querySelector('p').clientHeight + 'px'
+    // this.isHovered = true
+    // ;(this.columns[index] as any).hovered = true
+    // ;((this.$refs.text as any)[index] as any).style.height =
+    //   (this.$refs.text as any)[index].querySelector('p').clientHeight + 'px'
   }
 
   public onLeaveItem(index: number) {
-    this.isHovered = false
-    ;(this.columns[index] as any).hovered = false
-    ;(this.$refs.text as any)[index].style.height = 0
+    // this.isHovered = false
+    // ;(this.columns[index] as any).hovered = false
+    // ;(this.$refs.text as any)[index].style.height = 0
   }
 }
 </script>

@@ -1,47 +1,55 @@
 <template lang="pug">
   section(:class="$style['container']")
-    div(ref="container" :class="$style['container__box']")
-      div(ref="container" :class="$style['container__map']")
-        img(
-          v-if="data.background"
-          ref="image"
-          :src="data.background"
-          :class="$style['container__map-image']"
-          loading="lazy"
+    div(ref="container" :class="$style['container__map']")
+      img(
+        v-if="data.background"
+        ref="image"
+        :src="data.background"
+        :class="$style['container__map-image']"
+        loading="lazy"
+      )
+      div(
+        v-if="data.svg_html"
+        ref="container"
+        :class="[$style['container__map-svg'], 'container__map-svg']"
+        v-html="data.svg_html"
+      )
+      typo-text(
+        tag="div"
+        v-if="data.text"
+        v-html="data.text"
+        :class="$style['container__map-text']"
+      ) 
+    div(:class="$style['container__slider']")
+      swiper(ref="mySwiper" :class="$style['slider']" class="swiper" :options="swiperOption" @slideChange="onSlideChange")
+        swiper-slide(
+          v-for="(slide, i) in data.slides"
+          :key="i"
+          :class="$style['slide']"
         )
-        div(
-          v-if="data.svg_html"
-          ref="container"
-          :class="[$style['container__map-svg'], 'container__map-svg']"
-          v-html="data.svg_html"
-        )
-        div(:class="$style['container__slider']")
-          swiper(ref="mySwiper" :class="$style['slider']" class="swiper" :options="swiperOption" @slideChange="onSlideChange")
-            swiper-slide(
-              v-for="(slide, i) in data.slides"
-              :key="i"
-              :class="$style['slide']"
+          div(v-if="slide.image")
+            img(:src="slide.image")
+          div(:class="$style['slide__textbox']")
+            typo-text(
+              tag="div"
+              version="style-4"
+              v-html="slide.title"
+              :class="$style['slide__textbox-text']"
+            ) 
+            typo-text(
+              tag="div"
+              version="style-7"
+              v-html="slide.text"
+              :class="$style['slide__textbox-text']"
             )
-              div(:class="$style['slide__textbox']")
-                typo-text(
-                  tag="div"
-                  version="style-4"
-                  v-html="slide.title"
-                  :class="$style['slide__textbox-text']"
-                ) 
-                typo-text(
-                  tag="div"
-                  version="style-7"
-                  v-html="slide.text"
-                  :class="$style['slide__textbox-text']"
-                )
-            div(slot="pagination" :class="$style['navigation']")
-              div(:class="$style['buttons']")
-                button(:class="[$style['swiper-button-prev']]" @click.prevent="$refs.mySwiper.swiperInstance.slidePrev()")
-                  svg-icon(name="slider-prev-arrow-white-56")
-                button(:class="[$style['swiper-button-next']]" @click.prevent="$refs.mySwiper.swiperInstance.slideNext()")
-                  svg-icon(name="slider-next-arrow-white")
-              div(:class="['swiper-pagination-bullets', $style['swiper-pagination-bullets']]")
+        div(slot="pagination" :class="$style['navigation']")
+          div(:class="['swiper-pagination-progressbar', $style['swiper-pagination-progressbar']]")
+            div(class="status-bar")
+          div(:class="$style['buttons']")
+            button(:class="[$style['swiper-button-prev']]" @click.prevent="$refs.mySwiper.swiperInstance.slidePrev()" )
+              svg-icon(name="slider-prev-arrow-blue")
+            button(:class="[$style['swiper-button-next']]" @click.prevent="$refs.mySwiper.swiperInstance.slideNext()")
+              svg-icon(name="slider-next-arrow-blue")
 </template>
 
 <script>
@@ -64,7 +72,7 @@ export default {
   data() {
     return {
       swiperOption: {
-        slidesPerView: '1',
+        slidesPerView: 'auto',
         breakpoints: {
           // when window width is >= 250
           250: {},
@@ -82,17 +90,6 @@ export default {
           type: 'progressbar',
         },
         speed: 500,
-        loop: true,
-        autoplay: {
-          delay: 5000,
-        },
-        pagination: {
-          el: '.swiper-pagination-bullets',
-          renderBullet(index, className) {
-            return `<span class="${className} swiper-pagination-bullet-map"></span>`
-          },
-          clickable: true
-        },
       },
     }
   },
@@ -126,7 +123,7 @@ export default {
 <style lang="sass" module>
 .container
   width: 100%
-  padding: 80px 24px
+  padding: 80px 0
   position: relative
 
   &__body
@@ -134,34 +131,28 @@ export default {
     margin: 0 auto
     position: relative
 
-  &__box
-    max-width: 1440px
-    margin: 0 auto
-
   &__map
+    width: 100%
+    max-width: 1392px
+    padding: 0 24px
+    margin: 0 auto
+    height: auto
+    margin: 0 auto
     position: relative
-    padding-bottom: 56.25%
-    height: 0
 
     @media (max-width: 900px)
       display: none
 
     &-image
-      object-fit: contain
-      position: absolute
-      top: 0
-      left: 0
       width: 100%
-      height: 100%
-
 
     &-svg
-      object-fit: contain
       position: absolute
-      top: 0
+      bottom: 0
       left: 0
       width: 100%
       height: 100%
+      z-index: 9
 
       circle
         stroke-width: 0
@@ -175,6 +166,7 @@ export default {
           fill: transparent 
     
     &-text
+      position: absolute
       display: flex
       flex-direction: column
       grid-gap: 32px
@@ -191,29 +183,18 @@ export default {
         grid-gap: 12px
 
       h1,h2,h3,h4,h5
-        +style-2
+        +style-1
         margin: 0
       p
         +style-5
         margin: 0
 
   &__slider
-    z-index: 1000
-    position: absolute
-    top: 50px
-    left: 50px
-    bottom: 50px
-    right: 50px
-
-.slider
-  max-width: 1000px
-  height: 100%
-  display: flex
-  flex-direction: column
-  justify-content: space-between
+    margin-top: -160px
 
 .slide
   display: flex
+  max-width: 992px   !important
   max-height: 480px !important
   position: relative
   opacity: 1
@@ -232,10 +213,13 @@ export default {
 
   &__textbox
     max-width: 487px
-    background-color: transparent 
-    color: $color-white-100
+    position: absolute
+    background-color: $color-white-100
     right: 0
+    margin-bottom: -104px
     bottom: 50%
+    padding: 48px
+    box-shadow: 0 40px 60px $color-black-16
 
     @media (max-width: 900px)
       position: static
@@ -263,40 +247,23 @@ export default {
   height: 2px
   flex: 1 1 auto
   position: relative
-  background: $color-white-100
-  max-width: 500px
+  background: $color-blue-4
+  max-width: 860px
   width: 100%
 
 
 .navigation
   max-width: 992px
+  margin: 0 auto
   margin-top: 56px
   display: flex
+  flex-direction: row-reverse
   justify-content: space-between
   align-items: center
   grid-gap: 32px
 
   @media (max-width: 700px)
     margin-top: 12px
-
-  .swiper-pagination-bullets
-    display: flex
-
-  [class*="swiper-pagination-bullet-map"]
-    background: $color-white-40 !important
-    border-radius: initial !important
-    margin-right: 12px
-    height: 1px
-    width: 16px
-    display: flex
-    position: relative
-    align-items: center
-    justify-content: space-between
-    flex-direction: row
-    opacity: 1 !important
-
-  [class*="swiper-pagination-bullet-active"]
-    background: $color-white-100 !important
     
 .swiper-button-prev
   display: block

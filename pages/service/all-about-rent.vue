@@ -1,6 +1,7 @@
 <template lang="pug">
   main
     base-image-title(
+      :image-title-data="$t('pages.all_about_rent.image_title')"
       :filename="require(`~/assets/images/pages/service/rent/title.jpg`)"
     )
     page-service-rent(:allAboutRent="$t('pages.all_about_rent')")

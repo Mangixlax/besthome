@@ -1,7 +1,7 @@
 <template lang="pug">
   main
     base-image-title(
-      :imageTitleData="$t('pages.service_introductory_tour.image_title')"
+      :image-title-data="$t('pages.service_introductory_tour.image_title')"
       :filename="require(`~/assets/images/pages/service/introductory-tour/title.jpg`)"
     )
     base-text-container(

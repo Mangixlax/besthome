@@ -35,6 +35,7 @@ import PageProjectsTimeline from '~/components/Page/Projects/PageProjectsTimelin
 import VueRouter, { Route } from 'vue-router'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
 import { NavigationGuardNext } from 'vue-router/types/router'
+import HeromapSlider from '~/components/HeromapSlider/HeromapSlider.vue'
 import { IProject } from '~/store/Catalog'
 
 @Component({
@@ -54,6 +55,7 @@ import { IProject } from '~/store/Catalog'
     BaseAccordions,
     FooterFastLinks,
     BaseTextContainer,
+    HeromapSlider
   },
   async asyncData(ctx: Context): Promise<object | void> {
     ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.projects'))
@@ -99,6 +101,7 @@ export default class PropertiesExperiencesPage extends Vue {
       BlockResidenceOffer: 'page-projects-residences-slider',
       BlockProjectTitle: 'page-projects-title',
       BlockTextContainer: 'base-text-container',
+      BlockHeromapSlider: 'heromap-slider',
     }
 
     return ((this.project as IProject).experience_data || []).map((block: any) => ({

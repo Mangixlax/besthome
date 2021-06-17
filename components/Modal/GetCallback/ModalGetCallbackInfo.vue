@@ -22,9 +22,18 @@
         href="tel: +90 530 547-44-15"
         :class="$style['get-callback__info-contact-phone']"
       ) +90 530 547-44-15
-      svg-icon(name="icon-whatsup")
-      svg-icon(name="icon-viber")
-      svg-icon(name="icon-telegram")
+      a(
+        href="https://wa.me/+90530547-44-15"
+      )
+        svg-icon(name="icon-whatsup")
+      a(
+        href="viber://add?number=+90530547-44-15"
+      )
+        svg-icon(name="icon-viber")
+      a(
+        href="tg://resolve?domain=+90530547-44-15"
+      )
+        svg-icon(name="icon-telegram")
     a(
       href="mailto: info@besthome.com.tr"
       :class="$style['get-callback__info-email']"

@@ -3,11 +3,6 @@
     div(:class="$style['rent__container']")
       article(:class="$style['rent__article']")
         typo-text(
-          tag="h1"
-          version="style-2"
-          :class="$style['rent__article-title']"
-        ) {{ allAboutRent.title }}
-        typo-text(
           v-for="(paragraph, i) in allAboutRent.text"
           :key="i"
           tag="p"

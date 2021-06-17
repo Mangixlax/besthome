@@ -1,7 +1,8 @@
 <template lang="pug">
   main
     base-image-title(
-      :filename="require(`~/assets/images/pages/service/legal-support/title.jpg`)"
+      :image-title-data="$t('pages.service_online_purchase.image_title')"
+      :filename="require(`~/assets/images/pages/service/online-purchace/title.jpg`)"
     )
     page-service-purchase
 </template>

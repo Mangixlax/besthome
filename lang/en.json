@@ -30,7 +30,7 @@
   "pages": {
     "home": {
       "header": {
-        "title": "We are leaders in quality construction & infrastructure",
+        "title": "Your reliable partner in the real estate market of Turkey",
         "text1": [
           "BestHome Construction is a leading construction company in Alanya. One of the leading companies in the Turkish market. Started as a real estate agency in 2004. To date, more than 30 projects have been implemented in the center of Alanya and in the Oba region."
         ],
@@ -357,8 +357,12 @@
       }
     },
     "service_online_purchase": {
-      "title": "Online purchase",
-      "text": "Buying and registering real estate in Alanya without coming to Turkey is easy. The remote real estate purchase and registration service provided by BestHome Construction is becoming more and more popular.",
+      "image_title": {
+        "header": "Online purchase",
+        "text": [
+          "Buying and registering real estate in Alanya without coming to Turkey is easy. The remote real estate purchase and registration service provided by BestHome Construction is becoming more and more popular."
+        ]
+      },
       "cards": [
         {
           "title": "1. Choosing a residential complex",
@@ -411,10 +415,14 @@
       }
     },
     "all_about_rent": {
-      "title": "All about rent",
+      "image_title": {
+        "header": "All about apartment leasing",
+        "text": [
+          "Renting apartments and apartments in Alanya is an opportunity to provide a stable income in foreign currency.",
+          "The complexes of BestHome Construction company are located only in the central ar  as of the city of Alanya, near the sea, have a developed infrastructure and innovative design. Thanks to these features, the properties from BestHome Construction are ideal for both long-term and short-term rentals."
+        ]
+      },
       "text": [
-        "Renting apartments and apartments in Alanya is an opportunity to provide a stable income in foreign currency.",
-        "The complexes of BestHome Construction company are located only in the central ar  as of the city of Alanya, near the sea, have a developed infrastructure and innovative design. Thanks to these features, the properties from BestHome Construction are ideal for both long-term and short-term rentals.",
         "Regardless of whether you have purchased an apartment for a rental business or for a holiday, and want to rent your apartment only during the period when it is free, our partner company will be happy to provide all services related to the rental of your property:"
       ],
       "cards": [
