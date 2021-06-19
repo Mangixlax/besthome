@@ -69,14 +69,6 @@ export default class BaseProjectNavigation extends Vue {
       }
     })
   }
-
-  get projectTitle(): string {
-    return (this.$store.getters['Catalog/getProject'] as IProject).name
-  }
-
-  get projectSlug(): string {
-    return (this.$store.getters['Catalog/getProject'] as IProject).slug
-  }
 }
 </script>
 

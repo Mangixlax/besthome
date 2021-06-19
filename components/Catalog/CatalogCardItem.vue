@@ -2,8 +2,9 @@
   nuxt-link(
     :class="$style['catalog-card']"
     :to="localePath({\
-      name: 'company-our-team-id',\
+      name: 'properties-slug-apartments-id',\
       params: {\
+        slug: $route.params.slug,\
         id: itemData.id\
       }\
     })"

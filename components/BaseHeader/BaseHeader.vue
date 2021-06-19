@@ -1,5 +1,10 @@
 <template lang="pug">
-  header(:class="$style['header']")
+  header(
+    :class="{\
+      [$style['header']]: true,\
+      [$style['header--sticky']]: $store.state.stickyHeader\
+    }"
+  )
     div(:class="$style['header__inner']")
       logo(:class="$style['header__logo']")
       nav(:class="$style['header__nav']")
@@ -9,7 +14,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Component } from 'nuxt-property-decorator'
+import { Component, Watch } from 'nuxt-property-decorator'
 import BaseHeaderNavigation from '~/components/BaseHeader/BaseHeaderNavigation.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import BaseHeaderInfo from '~/components/BaseHeader/BaseHeaderInfo.vue'
@@ -18,7 +23,16 @@ import Logo from '~/components/Logo.vue'
 @Component({
   components: { Logo, BaseHeaderInfo, TypoText, BaseHeaderNavigation },
 })
-export default class BaseHeader extends Vue {}
+export default class BaseHeader extends Vue {
+  @Watch('$route.path')
+  onChangeRoutePath(path: string) {
+    this.$store.commit('setStickyHeader', path)
+  }
+
+  created() {
+    this.$store.commit('setStickyHeader', this.$route.path)
+  }
+}
 </script>
 
 <style lang="sass" module>
@@ -28,14 +42,17 @@ export default class BaseHeader extends Vue {}
   justify-content: center
   width: 100%
   height: 92px
-  position: sticky
-  top: 0
+  position: relative
   background-color: $color-white
   z-index: 10
 
-  @media (max-width: 1054px)
-    position: static
-    height: 97px
+  &--sticky
+    position: sticky
+    top: 0
+
+    @media (max-width: 1054px)
+      position: static
+      height: 97px
 
   &__inner
     display: flex

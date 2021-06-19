@@ -4,6 +4,7 @@ import { GetterTree, ActionTree, MutationTree, ActionContext } from 'vuex'
  * States
  */
 export const state = () => ({
+  stickyHeader: false as boolean,
   pageIsLoading: false as boolean,
   isTouchDevice: false as boolean,
   logoSubTitle: 'Construction' as string,
@@ -53,6 +54,9 @@ export const mutations: MutationTree<RootState> = {
     }
 
     state.pageIsLoading = value
+  },
+  setStickyHeader(state: RootState, path: string) {
+    state.stickyHeader = path.indexOf('/properties/') === -1
   },
 }
 

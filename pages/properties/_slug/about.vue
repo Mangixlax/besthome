@@ -1,7 +1,7 @@
 <template lang="pug">
   main
     base-project-navigation(
-      :name="project.name"
+      :name="project.short_name"
       :slug="project.slug"
     )
     component(
