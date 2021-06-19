@@ -50,6 +50,7 @@ import CatalogList from '~/components/Catalog/CatalogList.vue'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
 import HeromapSlider from '~/components/HeromapSlider/HeromapSlider.vue'
 import { NavigationGuardNext } from 'vue-router/types/router'
+import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.vue'
 
 @Component({
   components: {
@@ -73,7 +74,8 @@ import { NavigationGuardNext } from 'vue-router/types/router'
     CatalogCards,
     CatalogList,
     BaseTextContainer,
-    HeromapSlider
+    HeromapSlider,
+    HeroImageTooltips,
   },
   async asyncData(ctx: Context): Promise<object | void> {
     ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.projects'))
@@ -131,6 +133,7 @@ export default class PropertiesApartmentsPage extends Vue {
       BlockProjectTitle: 'page-projects-title',
       BlockTextContainer: 'base-text-container',
       BlockHeromapSlider: 'heromap-slider',
+      BlockImageTooltip: 'hero-image-tooltips',
     }
 
     return ((this.project as IProject).choose_ap_data || []).map((block: any) => ({

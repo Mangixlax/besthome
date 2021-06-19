@@ -36,6 +36,7 @@ import VueRouter from 'vue-router'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
 import HeromapSlider from '~/components/HeromapSlider/HeromapSlider.vue'
 import { IProject } from '~/store/Catalog'
+import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.vue'
 
 @Component({
   components: {
@@ -55,6 +56,7 @@ import { IProject } from '~/store/Catalog'
     FooterFastLinks,
     BaseTextContainer,
     HeromapSlider,
+    HeroImageTooltips,
   },
   async asyncData(ctx: Context): Promise<object | void> {
     ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.projects'))
@@ -101,6 +103,7 @@ export default class PropertiesReviewPage extends Vue {
       BlockProjectTitle: 'page-projects-title',
       BlockTextContainer: 'base-text-container',
       BlockHeromapSlider: 'heromap-slider',
+      BlockImageTooltip: 'hero-image-tooltips',
     }
 
     return ((this.project as IProject).review_data || []).map((block: any) => ({
