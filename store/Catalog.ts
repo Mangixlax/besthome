@@ -22,6 +22,7 @@ export interface IProject {
   location_data?: Array<object>
   gallery_data?: Array<object>
   choose_ap_data?: Array<object>
+  allow_transition?: boolean
   miniature_html?: string
   filters?: IProjectApartmentsFilter
 }

@@ -43,9 +43,16 @@ import CommonLinkIcon from '~/components/Common/CommonLinkIcon.vue'
     BaseAccordions,
     FooterFastLinks,
   },
-  async asyncData(ctx: Context): Promise<void> {
-    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.projects'))
-    await ctx.store.dispatch('Catalog/fetchProjects')
+  async asyncData(ctx: Context): Promise<void | object> {
+    return new Promise(async (resolve) => {
+      // Set subtitle in logo
+      ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.projects'))
+
+      // Fetch projects list
+      await ctx.store.dispatch('Catalog/fetchProjects')
+
+      resolve({})
+    })
   },
 })
 export default class ProjectsPage extends Vue {}

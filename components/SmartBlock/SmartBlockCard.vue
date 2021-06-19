@@ -18,19 +18,20 @@
     )
     section(:class="$style['link-banner__text']")
       h2(:class="$style['link-banner__header']" v-html="card.name")
-      nuxt-link(
+      component(
+        :is="card.allow_transition ? 'nuxt-link' : 'div'"
         :class="{\
           [$style['link-banner__link']]: true,\
           [$style['link-banner__link--icon']]: !card.sold_out\
         }"
-        :to="localePath({\
+        :to="card.allow_transition ? localePath({\
           name: `properties-slug-about`,\
           params: { slug: card.slug }\
-        })"
-        :title="card.name"
+        }) : null"
+        :title="card.allow_transition ? card.name : null"
       )
-        span(v-html="(card.sold_out || !card.apartments_count) ? $t('projects.sold_out') : $t('projects.free_available_units', [card.apartments_count])")
-        svg-icon(v-if="!card.sold_out && card.apartments_count" name="link-arrow")
+        span(v-html="(card.sold_out || !card.apartments_count || !card.allow_transition) ? $t('projects.sold_out') : $t('projects.free_available_units', [card.apartments_count])")
+        svg-icon(v-if="!card.sold_out && card.apartments_count && card.allow_transition" name="link-arrow")
 </template>
 
 <script lang="ts">
