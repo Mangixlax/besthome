@@ -63,6 +63,16 @@ import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.
     ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.projects'))
 
     return new Promise(async (resolve) => {
+      if (!ctx.params.slug) {
+        return resolve(
+          ctx.redirect(
+            ctx.localePath({
+              name: 'projects',
+            }),
+          ),
+        )
+      }
+
       let project: IProject = ctx.store.getters['Catalog/getProject']
 
       // Dont load project from api if project already saved in store
@@ -70,13 +80,19 @@ import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.
         const projectId = (ctx.route.params.slug || '').split('-').pop()
         project = await ctx.store.dispatch('Catalog/fetchProject', projectId)
 
+        if (Object.keys(project).indexOf('error') !== -1) {
+          return resolve(ctx.error({}))
+        }
+
         if (project.slug !== ctx.route.params.slug) {
-          return ctx.redirect(
-            301,
-            (ctx.app.router as VueRouter).resolve({
-              name: ctx.route.name as string,
-              params: { slug: project.slug },
-            }).href,
+          return resolve(
+            ctx.redirect(
+              301,
+              (ctx.app.router as VueRouter).resolve({
+                name: ctx.route.name as string,
+                params: { slug: project.slug },
+              }).href,
+            ),
           )
         }
 
