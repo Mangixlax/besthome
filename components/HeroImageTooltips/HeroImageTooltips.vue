@@ -3,7 +3,11 @@
     section(:class="$style['container__header']")
       h2 {{ data.title }}
       p {{ data.text }}
-    section(ref="container" :class="[$style['container__body'], hovered && $style['hovered']]")
+    section(
+      ref="container"
+      :class="[$style['container__body'], hovered && $style['hovered']]"
+      :style="{ paddingTop: `${data.image_padding}%` }"
+    )
       img(:src="data.image" loading="lazy")
       div(ref="svg" :class="$style['container__image-svg']" v-html="data.svg_html")
       ul(ref="tooltips" :class="$style['container__tooltips']")
@@ -13,8 +17,8 @@
           :class="$style['container__tooltips-item']"
           :data-point-code="item.point_code"
         )
-          h3 {{ item.title }}
-          p {{ item.text }}
+          h3(v-html="item.title")
+          p(v-html="item.text")
     swiper(ref="mySwiper" :class="$style['slider']" class="swiper" :options="swiperOption" @slideChange="onSlideChange")
       swiper-slide(
         v-for="(item, i) in data.items"
@@ -43,6 +47,7 @@ interface IData {
   text: string
   image: string
   svg_html: string
+  image_padding: string
   items: IDataItem[]
 }
 
@@ -79,13 +84,6 @@ export default class HeroImageTooltips extends Vue {
     },
   }
 
-  public maxContainerCoords: { minX: number; maxX: number; minY: number; maxY: number } = {
-    minX: 0,
-    maxX: 0,
-    minY: 0,
-    maxY: 0,
-  }
-
   public $lastMouseEnteredTooltip: HTMLElement | null = null
 
   public hovered: boolean = false
@@ -94,34 +92,19 @@ export default class HeroImageTooltips extends Vue {
     await this.$nextTick()
 
     // Bind events to points
-    ;((this.$refs.svg as Element).querySelectorAll('svg > g') || []).forEach((el: Element) => {
+    ;((this.$refs.svg as Element).querySelectorAll('div') || []).forEach((el: Element) => {
       el.addEventListener('mouseenter', this.onMouseEnterPoint)
       el.addEventListener('mouseleave', this.onMouseLeavePoint)
     })
-
-    this.setMaxContainerCoords()
 
     this.setActiveSlide(0)
   }
 
   public beforeDestroy() {
-    ;((this.$refs.svg as Element).querySelectorAll('svg > g') || []).forEach((el: Element) => {
+    ;((this.$refs.svg as Element).querySelectorAll('div') || []).forEach((el: Element) => {
       el.removeEventListener('mouseenter', this.onMouseEnterPoint)
       el.removeEventListener('mouseleave', this.onMouseLeavePoint)
     })
-  }
-
-  public setMaxContainerCoords() {
-    const $container: HTMLElement = this.$refs.container as HTMLElement
-
-    if ($container) {
-      const rect: DOMRect = $container.getBoundingClientRect()
-
-      this.maxContainerCoords.minX = $container.offsetLeft
-      this.maxContainerCoords.maxX = $container.offsetLeft + rect.width
-      this.maxContainerCoords.minY = $container.offsetTop
-      this.maxContainerCoords.maxY = $container.offsetTop + rect.height
-    }
   }
 
   public onMouseEnterPoint(event: Event) {
@@ -142,41 +125,57 @@ export default class HeroImageTooltips extends Vue {
 
     // If tooltip is found
     if (this.$lastMouseEnteredTooltip) {
-      const padding = parseInt(
-        window
-          .getComputedStyle(this.$lastMouseEnteredTooltip, null)
-          .getPropertyValue('padding-left'),
-      )
-
       /**
        * Calculate top position
        */
-      const tooltipOffsetTop = tooltipRect.y + window.scrollY
-      const containerOffsetTop = containerRect.y + window.scrollY
-      let top: number = tooltipOffsetTop - containerOffsetTop + tooltipRect.height + 24
+      const tooltipOffsetTop: number = tooltipRect.y + window.scrollY
+      const containerOffsetTop: number = containerRect.y + window.scrollY
+      let left: number = 0
+      let top: number = 0
 
-      if (top + this.$lastMouseEnteredTooltip.clientHeight > containerRect.height) {
-        top = top - this.$lastMouseEnteredTooltip.clientHeight - tooltipRect.height - 48
+      switch ($target.getAttribute('data-pos')) {
+        case 'top':
+          top =
+            tooltipOffsetTop -
+            containerOffsetTop -
+            this.$lastMouseEnteredTooltip.clientHeight -
+            tooltipRect.height / 2
+
+          left = tooltipRect.x - this.$lastMouseEnteredTooltip.clientWidth / 2 + 24
+          break
+        case 'left':
+          top =
+            tooltipOffsetTop -
+            containerOffsetTop -
+            this.$lastMouseEnteredTooltip.clientHeight / 2 +
+            tooltipRect.height / 2
+
+          left = tooltipRect.x - this.$lastMouseEnteredTooltip.clientWidth - tooltipRect.width
+          break
+        case 'right':
+          top =
+            tooltipOffsetTop -
+            containerOffsetTop -
+            this.$lastMouseEnteredTooltip.clientHeight / 2 +
+            tooltipRect.height / 2
+
+          left = tooltipRect.x + tooltipRect.width
+          break
+        case 'bottom':
+          top = tooltipOffsetTop - containerOffsetTop + tooltipRect.height + 24
+
+          left = tooltipRect.x - this.$lastMouseEnteredTooltip.clientWidth / 2 + 24
+          break
+        default:
       }
 
-      top = top >= containerRect.height ? containerRect.height - 24 : top <= 0 ? 24 : top
-
-      /**
-       * Calculate left position
-       */
-      let left: number = tooltipRect.x - (this.$lastMouseEnteredTooltip.clientWidth - padding) / 2
-
-      if (left > this.maxContainerCoords.maxX - this.$lastMouseEnteredTooltip.clientWidth) {
-        left =
-          left -
-          (left + this.$lastMouseEnteredTooltip.clientWidth - containerRect.width) -
-          24 -
-          (this.$lastMouseEnteredTooltip.clientWidth - padding) / 2
-      } else if (left < this.maxContainerCoords.minX) {
-        left = left + (this.maxContainerCoords.minX - left)
+      if (top <= 0) {
+        top = 24
       }
 
-      left = left >= containerRect.width ? containerRect.width - 24 : left <= 24 ? 24 : left
+      if (top >= containerRect.height) {
+        top = containerRect.height - this.$lastMouseEnteredTooltip.clientHeight - 24
+      }
 
       /**
        * Set position styles and show tooltip
@@ -186,7 +185,6 @@ export default class HeroImageTooltips extends Vue {
 
       this.$nextTick(() => {
         this.$lastMouseEnteredTooltip?.classList.add(this.$style['show'])
-        console.log($target, this.$lastMouseEnteredTooltip, this.$style['show'])
         $target?.classList.add(this.$style['show'])
       })
     }
@@ -202,7 +200,7 @@ export default class HeroImageTooltips extends Vue {
       this.$lastMouseEnteredTooltip?.classList.remove(this.$style['show'])
     }
 
-    ;((this.$refs.svg as Element).querySelectorAll('svg > g') || []).forEach((el: Element) => {
+    ;((this.$refs.svg as Element).querySelectorAll('div') || []).forEach((el: Element) => {
       el.classList.remove(this.$style['show'])
     })
 
@@ -239,6 +237,17 @@ export default class HeroImageTooltips extends Vue {
 </script>
 
 <style lang="sass" module>
+@keyframes pulse
+  0%
+    -moz-box-shadow: 0 0 0 0 rgba(120, 120, 120, 0.3)
+    box-shadow: 0 0 0 0 rgba(120, 120, 120, 0.3)
+  70%
+    -moz-box-shadow: 0 0 0 1vw rgba(120, 120, 120, 0)
+    box-shadow: 0 0 0 1vw rgba(120, 120, 120, 0)
+  100%
+    -moz-box-shadow: 0 0 0 0 rgba(120, 120, 120, 0)
+    box-shadow: 0 0 0 0 rgba(120, 120, 120, 0)
+
 .container
   width: 100%
   padding: 24px
@@ -262,7 +271,6 @@ export default class HeroImageTooltips extends Vue {
 
   &__body
     position: relative
-    padding-top: 51.7%
 
     img
       max-width: 100%
@@ -283,20 +291,42 @@ export default class HeroImageTooltips extends Vue {
       width: 100%
       height: 100%
 
-      svg
-        & > g
-          cursor: pointer
-          opacity: 1
-          transition: opacity 0.25s ease
-          will-change: opacity
+      > div
+        position: absolute
+        left: 37%
+        top: 32%
+        width: 6vw
+        height: 6vw
+        background: rgba(120, 120, 120, 0.3)
+        border-radius: 50%
+        animation: pulse 1.5s infinite
+        box-shadow: 0 0 0 rgb(120, 120, 120, 0.8)
+        display: flex
+        flex: 1
+        flex-direction: row
+        align-items: center
+        justify-content: center
+        cursor: pointer
+        opacity: 1
+        transition: opacity 0.25s ease
+        will-change: opacity
 
-          @media (max-width: 900px)
-            opacity: 0
+        &:after
+          content: ""
+          position: relative
+          width: 1vw
+          height: 1vw
+          background: transparent
+          border-radius: 50%
+          box-shadow: 0 0 0 0.8vw white
 
-            &.show
-              opacity: 1
+        @media (max-width: 900px)
+          opacity: 0
 
-        .hovered & > g
+          &.show
+            opacity: 1
+
+        .hovered &
           opacity: 0.3
 
           @media (max-width: 900px)
