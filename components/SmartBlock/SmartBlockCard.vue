@@ -24,7 +24,7 @@
           [$style['link-banner__link--icon']]: !card.sold_out\
         }"
         :to="localePath({\
-          name: `properties-slug-review`,\
+          name: `properties-slug-about`,\
           params: { slug: card.slug }\
         })"
         :title="card.name"

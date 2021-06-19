@@ -11,22 +11,22 @@
         ul(:class="$style['project-navigation__navbar-list']")
           li(:class="$style['project-navigation__navbar-item']")
             nuxt-link(
-              :to="localePath({ name: 'properties-slug-review', params: { slug } })"
-              :class="$style['project-navigation__navbar-link']"
-              :active-class="$style['project-navigation__navbar-link--active']"
-            ) {{ $t('projects.navigation.review') }}
-          li(:class="$style['project-navigation__navbar-item']")
-            nuxt-link(
               :to="localePath({ name: 'properties-slug-about', params: { slug } })"
               :class="$style['project-navigation__navbar-link']"
               :active-class="$style['project-navigation__navbar-link--active']"
             ) {{ $t('projects.navigation.about') }}
           li(:class="$style['project-navigation__navbar-item']")
             nuxt-link(
-              :to="localePath({ name: 'properties-slug-experiences', params: { slug } })"
+              :to="localePath({ name: 'properties-slug-location', params: { slug } })"
               :class="$style['project-navigation__navbar-link']"
               :active-class="$style['project-navigation__navbar-link--active']"
-            ) {{ $t('projects.navigation.experiences') }}
+            ) {{ $t('projects.navigation.location') }}
+          li(:class="$style['project-navigation__navbar-item']")
+            nuxt-link(
+              :to="localePath({ name: 'properties-slug-gallery', params: { slug } })"
+              :class="$style['project-navigation__navbar-link']"
+              :active-class="$style['project-navigation__navbar-link--active']"
+            ) {{ $t('projects.navigation.gallery') }}
           li(:class="$style['project-navigation__navbar-item']")
             nuxt-link(
               :to="localePath({ name: 'properties-slug-apartments', params: { slug } })"

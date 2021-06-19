@@ -18,9 +18,9 @@ export interface IProject {
     vertical_align: string
     horizontal_align: string
   }
-  review_data?: Array<object>
   about_data?: Array<object>
-  experience_data?: Array<object>
+  location_data?: Array<object>
+  gallery_data?: Array<object>
   choose_ap_data?: Array<object>
   miniature_html?: string
   filters?: IProjectApartmentsFilter

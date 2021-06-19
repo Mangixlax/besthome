@@ -32,9 +32,8 @@ import HeroBuilding from '~/components/HeroBuilding/HeroBuilding.vue'
 import { Context } from '@nuxt/types'
 import PageProjectsInfrastructureSlider from '~/components/Page/Projects/PageProjectsInfrastructureSlider.vue'
 import PageProjectsTimeline from '~/components/Page/Projects/PageProjectsTimeline.vue'
-import VueRouter, { Route } from 'vue-router'
+import VueRouter from 'vue-router'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
-import { NavigationGuardNext } from 'vue-router/types/router'
 import HeromapSlider from '~/components/HeromapSlider/HeromapSlider.vue'
 import { IProject } from '~/store/Catalog'
 import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.vue'
@@ -90,7 +89,7 @@ import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.
     })
   },
 })
-export default class PropertiesExperiencesPage extends Vue {
+export default class PropertiesGalleryPage extends Vue {
   get blocks() {
     const componentsRelations: any = {
       BlockOnePhotoText: 'base-post',
@@ -107,7 +106,7 @@ export default class PropertiesExperiencesPage extends Vue {
       BlockImageTooltip: 'hero-image-tooltips',
     }
 
-    return ((this.project as IProject).experience_data || []).map((block: any) => ({
+    return ((this.project as IProject).gallery_data || []).map((block: any) => ({
       ...block,
       type: Object.keys(componentsRelations).includes(block.type)
         ? componentsRelations[block.type]
