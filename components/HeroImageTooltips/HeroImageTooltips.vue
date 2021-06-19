@@ -36,6 +36,7 @@ import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
 import { SwiperOptions } from 'swiper'
 import TypoText from '~/components/Base/TypoText.vue'
+import { SwiperComponent } from 'swiper/types'
 
 interface IData {
   title: string
@@ -63,7 +64,7 @@ export default class HeroImageTooltips extends Vue {
   @Prop({ type: Object, default: () => ({}) }) data!: IData
 
   public swiperOption: SwiperOptions = {
-    slidesPerView: '1',
+    slidesPerView: 1,
     centeredSlides: true,
     spaceBetween: 64,
     loop: false,
@@ -85,7 +86,7 @@ export default class HeroImageTooltips extends Vue {
     maxY: 0,
   }
 
-  public $lastMouseEnteredTooltip: Element | null = null
+  public $lastMouseEnteredTooltip: HTMLElement | null = null
 
   public hovered: boolean = false
 
@@ -111,7 +112,7 @@ export default class HeroImageTooltips extends Vue {
   }
 
   public setMaxContainerCoords() {
-    const $container: Element = this.$refs.container as Element
+    const $container: HTMLElement = this.$refs.container as HTMLElement
 
     if ($container) {
       const rect: DOMRect = $container.getBoundingClientRect()
@@ -135,7 +136,7 @@ export default class HeroImageTooltips extends Vue {
     // Remember last hovered tooltip
     this.$lastMouseEnteredTooltip = (this.$refs.tooltips as Element).querySelector(
       `[data-point-code="${$target.id}"]`,
-    )
+    ) as HTMLElement
 
     this.hovered = true
 
@@ -208,22 +209,26 @@ export default class HeroImageTooltips extends Vue {
     this.hovered = false
   }
 
-  public onSlideChange(swiper) {
+  public onSlideChange(swiper: any) {
     this.setActiveSlide(swiper.realIndex)
   }
 
-  public setActiveSlide(index) {
+  public setActiveSlide(index: number) {
     if (
       this.data.items?.length > 0 &&
       index < this.data.items?.length - 1 &&
       window.innerWidth <= 900
     ) {
-      const slideCode = this.data.items[index].point_code
-      const $activePoint = this.$refs.svg.querySelector(`[id="${slideCode}"]`)
+      const slideCode: string = this.data.items[index].point_code as string
+      const $activePoint: Element = (this.$refs.svg as Element).querySelector(
+        `[id="${slideCode}"]`,
+      ) as Element
 
-      ;(this.$refs.svg.querySelectorAll('.' + this.$style['show']) || []).forEach((el) => {
-        el.classList.remove(this.$style['show'])
-      })
+      ;((this.$refs.svg as Element).querySelectorAll('.' + this.$style['show']) || []).forEach(
+        (el: Element) => {
+          el.classList.remove(this.$style['show'])
+        },
+      )
 
       if ($activePoint) {
         $activePoint.classList.add(this.$style['show'])
