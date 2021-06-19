@@ -84,7 +84,7 @@ export default {
   },
   methods: {
     setActiveSlide(index) {
-      if (this.data.slides?.length - 1 < index) {
+      if (this.data.slides?.length > 0 && index < this.data.slides?.length - 1) {
         const slideCode = this.data.slides[index].point_code
         const $activeSlide = this.$refs.container.querySelector(`[id="${slideCode}"]`)
 
