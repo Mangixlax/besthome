@@ -26,6 +26,12 @@ export interface IProject {
   allow_transition?: boolean
   miniature_html?: string
   filters?: IProjectApartmentsFilter
+  total_area?: string
+  to_sea?: string
+  to_rest?: string
+  location?: string
+  start_building?: string
+  end_building?: string
 }
 
 export interface IProjectFloor {
