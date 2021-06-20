@@ -8,7 +8,7 @@
           :class="$style['project-navigation__title-text']"
         ) {{ name }}
       div(:class="$style['project-navigation__navbar']")
-        ul(:class="$style['project-navigation__navbar-list']")
+        ul(:class="[$style['project-navigation__navbar-list'],  showMenu && $style['show']]")
           li(:class="$style['project-navigation__navbar-item']")
             nuxt-link(
               :to="localePath({ name: 'properties-slug-about', params: { slug } })"
@@ -33,6 +33,8 @@
               :class="$style['project-navigation__navbar-link']"
               :active-class="$style['project-navigation__navbar-link--active']"
             ) {{ $t('projects.navigation.choose_apartment') }}
+        div(@click="toggleMenu" :class="$style['project-navigation__navbar-dropdown']")
+          svg-icon(name="project-navigation-dropdown")
         button(
           type="button"
           :class="$style['project-navigation__navbar-submit']"
@@ -65,12 +67,13 @@ export default class BaseProjectNavigation extends Vue {
       name: 'modal-get-callback',
       modal: () => import('~/components/Modal/GetCallback/ModalGetCallback.vue'),
       options: {
-        width: '100%'
+        width: '100%',
       }
     })
   }
 
   public prevFixedStatus: boolean = false
+  public showMenu: boolean = false
 
   public onScroll() {
     if (window.scrollY >= 92) {
@@ -80,6 +83,11 @@ export default class BaseProjectNavigation extends Vue {
       !this.prevFixedStatus && this.$root.$emit('navigation:sticky', false)
       this.prevFixedStatus = true
     }
+  }
+
+  public toggleMenu() {
+    console.log(this.showMenu )
+    this.showMenu = !this.showMenu
   }
 
   mounted() {
@@ -98,7 +106,7 @@ export default class BaseProjectNavigation extends Vue {
   position: sticky
   top: 0
   background-color: $color-white-100
-  z-index: 2
+  z-index: 8
 
   &__container
     display: flex
@@ -111,6 +119,9 @@ export default class BaseProjectNavigation extends Vue {
   &__title
     &-text
       margin: 0
+      
+      @media (width: 320px)
+        +style-4-alt
 
   &__navbar
     display: flex
@@ -121,14 +132,35 @@ export default class BaseProjectNavigation extends Vue {
       display: flex
       align-items: center
       margin: 0
-      margin-left: 8px
-
+      
       @media (max-width: 900px)
         display: none
+        padding-left: 24px
+        width: 100%
+        background: white
+        padding: 0
+        margin-left: 0px
+        flex-direction: column
+        position: absolute
+        left: 0px
+        top: 100%
+        float: left
+        padding-bottom: 12px
+        align-items: flex-start
+
+        &.show
+          display: block
 
     &-item
       margin-right: 24px
+      padding: 8px 0
 
+      @media (max-width: 900px)
+        margin-left: 24px
+
+        &:not(:first-of-type)
+          border-top: solid 1px $color-black-4
+        
     &-link
       text-decoration: none
       color: $color-black-100
@@ -138,6 +170,18 @@ export default class BaseProjectNavigation extends Vue {
       &--active
         text-decoration: none
         color: $color-black-40
+
+    &-dropdown
+      display: flex
+      align-items: center
+      margin-right: 8px
+
+      @media (min-width: 900px)
+        display: none
+
+      svg
+        height: 32px
+        width: 32px
 
     &-submit
       width: fit-content

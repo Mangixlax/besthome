@@ -271,6 +271,10 @@ export default class HeroImageTooltips extends Vue {
       color: $color-black-80
       margin: 0
 
+    @media (max-width: 900px)
+      display: flex
+      flex-direction: column
+      
   &__body
     position: relative
 

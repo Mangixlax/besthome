@@ -156,6 +156,7 @@ export default {
     transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
     transition: font-size 0.25s ease, transform 0.25s ease, color 0.25s ease
 
+  
     span
       margin: 0 0.25em
 
@@ -187,6 +188,9 @@ export default {
   min-height: 112px
   border: 1px solid $color-black-16
 
+  &__label
+     &.show
+      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -30, 0, 1)
 .required
   color: rgba(245, 25, 25, 0.8)
   margin-left: 4px
