@@ -18,7 +18,7 @@
         tag="p"
         version="style-7"
         :class="$style['catalog-list-item__list-info']"
-      ) block
+      ) {{ $t('pages.apartments.block') }}
     li(:class="$style['catalog-list-item__list-item']")
       typo-text(
         tag="p"
@@ -28,17 +28,19 @@
         tag="p"
         version="style-7"
         :class="$style['catalog-list-item__list-info']"
-      ) floor
+      ) {{ $t('pages.apartments.floor') }}
     li(:class="$style['catalog-list-item__list-item']")
       typo-text(
         tag="p"
         version="style-5"
-      ) {{ itemData.rooms }}
+      ) {{ itemData.room.number }}
+        typo-text(version="style-7" tag="sup")
+          | {{ itemData.room.ad_number ? `+${itemData.room.ad_number}` : ''}}
       typo-text(
         tag="p"
         version="style-7"
         :class="$style['catalog-list-item__list-info']"
-      ) rooms
+      ) {{ $t('pages.apartments.rooms') }}
     li(:class="$style['catalog-list-item__list-item']")
       typo-text(
         tag="p"
@@ -103,6 +105,7 @@ export default class CatalogListItem extends Vue {
   &-info
     color: $color-black-24
     margin-left: 6px
+    text-transform: lowercase
 
   p
     margin-top: 0
