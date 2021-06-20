@@ -21,7 +21,6 @@ export default {
   name: 'ModalVideo',
   methods: {
     closeModal() {
-      console.log(this.$modal)
       this.$modal.hide('modal-video')
     },
   }

@@ -3,7 +3,7 @@
     v-bind="$attrs"
     :name="name"
     :class="$style['get-callback']"
-  ) 
+  )
     template(slot="body")
       div(:class="$style['get-callback__container']")
         div(:class="$style['get-callback__feedback']")
@@ -26,14 +26,14 @@
               :class="$style.line"
               v-model="$v.form.full_name.$model"
               :valid="!$v.form.full_name.$error"
-            ) 
+            )
               span {{ $t('modals.get_callback.feedback.label_name') }}
             v-form-input(
               :class="$style.line"
               required
               v-model="$v.form.phone_or_email.$model"
               :valid="!$v.form.phone_or_email.$error"
-            ) 
+            )
               span
                 | {{ $t('modals.get_callback.feedback.label_email_number.number') }}
                 span {{ $t('modals.get_callback.feedback.label_email_number.or') }}
@@ -42,7 +42,7 @@
               :class="$style.line"
               v-model="$v.form.project.$model"
               :valid="!$v.form.project.$error"
-            ) 
+            )
               span {{ $t('modals.get_callback.feedback.label_project.main') }}
                 span {{ $t('modals.get_callback.feedback.label_project.support') }}
 
@@ -50,7 +50,7 @@
               :class="$style.line"
               v-model="$v.form.building.$model"
               :valid="!$v.form.building.$error"
-            ) 
+            )
               span {{ $t('modals.get_callback.feedback.label_building.main') }}
                 span {{ $t('modals.get_callback.feedback.label_building.support') }}
             v-form-input(
@@ -186,7 +186,6 @@ export default {
   },
   methods: {
     closeModal() {
-      console.log(this.$modal)
       this.$modal.hide('modal-get-callback')
     },
     updateDescription() {
@@ -231,7 +230,7 @@ export default {
 
     @media (max-width: 800px)
       flex-direction: column
-      
+
   &__feedback
     max-width: 492px
     display: flex
