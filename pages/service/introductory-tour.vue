@@ -11,12 +11,12 @@
     )
     base-post(
       :data="{\
-        image: require(`~/assets/images/test.jpg`),\
+        image: require(`~/assets/images/pages/service/introductory-tour/image-1.jpg`),\
         text: [\
           `<h3>${$t('pages.service_introductory_tour.post_1.title')}</h3>`,\
           `<p>${$t('pages.service_introductory_tour.post_1.paragraph_1')}</p>`,\
           `<p>${$t('pages.service_introductory_tour.post_1.paragraph_with_link')}`,\
-          `<a href='#'>${$t('pages.service_introductory_tour.post_1.link')}</a>.</p>`,\
+          `<a href='${this.localePath({ name: 'projects' })}'>${$t('pages.service_introductory_tour.post_1.link')}</a>.</p>`,\
         ].join(''),\
         align: 'left',\
         block_flip: false,\
@@ -49,7 +49,7 @@
           `<h3>${$t('pages.service_introductory_tour.post_3.title')}</h3>`,\
           `<p>${$t('pages.service_introductory_tour.post_3.paragraph_1')}</p>`,\
           `<p>${$t('pages.service_introductory_tour.post_3.paragraph_with_link')}`,\
-          `<a href='#'>${$t('pages.service_introductory_tour.post_3.link')}</a>.</p>`,\
+          `<a href='${this.localePath({ name: 'projects' })}'>${$t('pages.service_introductory_tour.post_3.link')}</a>.</p>`,\
         ].join(''),\
         align: 'left',\
         block_flip: false,\
@@ -73,7 +73,7 @@
           `<h3>${$t('pages.service_introductory_tour.post_5.title')}</h3>`,\
           `<p>${$t('pages.service_introductory_tour.post_5.paragraph_1')}</p>`,\
           `<p>${$t('pages.service_introductory_tour.post_5.paragraph_with_link')}`,\
-          `<a href='#'>${$t('pages.service_introductory_tour.post_5.link')}</a>.</p>`,\
+          `<a href='${this.localePath({ name: 'projects' })}'>${$t('pages.service_introductory_tour.post_5.link')}</a>.</p>`,\
         ].join(''),\
         align: 'left',\
         block_flip: false,\
@@ -100,7 +100,7 @@
           `<p>${$t('pages.service_introductory_tour.post_7.paragraph_2')}</p>`,\
         ].join(''),\
         images: [\
-          require(`~/assets/images/investors/portrait-1.jpg`),\
+          require(`~/assets/images/pages/service/introductory-tour/portrait-1.jpg`),\
           require(`~/assets/images/pages/service/introductory-tour/landscape-1.jpg`),\
         ],\
       }"

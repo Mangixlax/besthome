@@ -20,7 +20,7 @@
           `<h3>${$t('pages.company_advantages.post_2.title')}</h3>`,\
           `<p>${$t('pages.company_advantages.post_2.paragraph_1')}</p>`,\
           `<p>${$t('pages.company_advantages.post_2.paragraph_with_link')}`,\
-          `<a href='#'>${$t('pages.company_advantages.post_2.link')}</a>.</p>`\
+          `<a href='${this.localePath({ name: 'contacts' })}'>${$t('pages.company_advantages.post_2.link')}</a>.</p>`\
         ].join(''),\
         align: 'right',\
         block_flip: false,\
@@ -52,7 +52,7 @@
           `<h3>${$t('pages.company_advantages.post_4.title')}</h3>`,\
           `<p>${$t('pages.company_advantages.post_4.paragraph_1')}</p>`,\
           `<p>${$t('pages.company_advantages.post_4.paragraph_with_link')}`,\
-          `<a href='#'>${$t('pages.company_advantages.post_4.link')}</a>.</p>`\
+          `<a href='${this.localePath({ name: 'our-team' })}'>${$t('pages.company_advantages.post_4.link')}</a>.</p>`\
         ].join(''),\
         align: 'right',\
         block_flip: false,\
@@ -75,7 +75,7 @@
           `<h3>${$t('pages.company_advantages.article_2.title')}</h3>`,\
           ...$t('pages.company_advantages.article_2.text').map((p) => `<p>${p}<p>`),\
           `<p>${$t('pages.company_advantages.article_2.paragraph_with_link')}`,\
-          `<a href='#'>${$t('pages.company_advantages.article_2.link')}</a>.</p>`,\
+          `<a href='${this.localePath({ name: 'projects' })}'>${$t('pages.company_advantages.article_2.link')}</a>.</p>`,\
         ].join('')\
       }"
     )

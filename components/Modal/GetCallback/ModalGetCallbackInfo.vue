@@ -14,28 +14,36 @@
     ) {{ $t('modals.get_callback.info.position') }}
     typo-text(
       tag="div"
-      version="style-6"
+      version="style-7"
       :class="$style['get-callback__info-languages']"
     ) {{ $t('modals.get_callback.info.languages') }}
     div(:class="$style['get-callback__info-contact']")
       a(
-        href="tel: +90 530 547-44-15"
+        href="tel:+90 530 547-44-15"
         :class="$style['get-callback__info-contact-phone']"
+        @click="$emit('click-to-contact')"
       ) +90 530 547-44-15
       a(
-        href="https://wa.me/+90530547-44-15"
+        @click="$emit('click-to-contact')"
+        target="_blank"
+        href="https://wa.me/905305474415"
       )
         svg-icon(name="icon-whatsup")
       a(
-        href="viber://add?number=+90530547-44-15"
+        target="_blank"
+        @click="$emit('click-to-contact')"
+        href="viber://chat?number=+905305474415"
       )
         svg-icon(name="icon-viber")
       a(
-        href="tg://resolve?domain=+90530547-44-15"
+        target="_blank"
+        @click="$emit('click-to-contact')"
+        href="tg://resolve?domain=905305474415"
       )
         svg-icon(name="icon-telegram")
     a(
-      href="mailto: info@besthome.com.tr"
+      @click="$emit('click-to-contact')"
+      href="mailto:info@besthome.com.tr"
       :class="$style['get-callback__info-email']"
     ) info@besthome.com.tr
       svg-icon(name="link-arrow")
@@ -51,10 +59,11 @@
         :class="$style['get-callback__info-link-text']"
       ) {{ $t('modals.get_callback.info.link.text') }}
       typo-text(
-        tag="nuxt-link"
+        tag="a"
         version="style-5"
-        :to="localePath('contacts')"
+        :href="localePath('contacts')"
         title="contacts"
+        @click.prevent="$emit('my-event')"
         :class="$style['get-callback__info-link-text--underline']"
       ) {{ $t('modals.get_callback.info.link.link') }}
       | .
@@ -66,27 +75,11 @@
         :class="$style['get-callback__info-link-arrow']"
       )
         svg-icon(name="link-arrow")
-    div(
-      v-if="showFinishStep"
-      :class="$style['get-callback__info-fisnish']"
-    )
-      typo-text(
-        tag="p"
-        version="style-5"
-        :class="$style['get-callback__info-fisnish-text']"
-      ) Шорош
-      typo-text(
-        tag="nuxt-link"
-        version="style-5"
-        :to="localePath('contacts')"
-        title="contacts"
-        :class="$style['get-callback__info-fisnish--underline']"
-      ) Всё сделано
-      | .
 </template>
 
 <script>
 import TypoText from '~/components/Base/TypoText.vue'
+import { modalsTriggerMixin } from '~/mixins/modals'
 
 export default {
   name: 'ModalGetCallbackInfo',
@@ -96,6 +89,12 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+  mixins: [modalsTriggerMixin],
+  methods: {
+     onClickToMap() {
+      this.$emit('clickToMap', this.selectedRooms)
+    },
   }
 }
 </script>
@@ -108,6 +107,7 @@ export default {
 
     @media (max-width: 800px)
       padding: 0
+
     &-avatar
       height: 88px
       width: 88px
@@ -125,7 +125,11 @@ export default {
       color: $color-black-56
       margin-bottom: 16px
 
+    &-languages
+      margin-bottom: 2px
+
     &-contact
+      margin-bottom: 2px
       display: flex
       align-items: center
 
@@ -134,6 +138,7 @@ export default {
         text-decoration: none
         margin: 0
         color: $color-black-100
+        white-space: nowrap
 
       svg
         height: 20px

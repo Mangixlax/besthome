@@ -8,16 +8,34 @@
           :class="$style['contact__content-title']"
         ) {{ contactMap.title }}
         typo-text(
-          tag="p"
+          tag="div"
           version="style-5"
-          :class="$style['contact__content-phone']"
-        ) {{ contactMap.phone }} 
+          :class="$style['contact__content-contact']"
+        )
+          a(
+            href="tel:+90 530 547-44-15"
+            :class="$style['contact__content-contact-phone']"
+            @click="$emit('click-to-contact')"
+          ) +90 530 547-44-15
+          a(
+            target="_blank"
+            href="https://wa.me/905305474415"
+          )
             svg-icon(name="icon-whatsup")
+          a(
+            target="_blank"
+            href="viber://chat?number=+905305474415"
+          )
             svg-icon(name="icon-viber")
-            svg-icon(name="icon-telegram")  
+          a(
+            target="_blank"
+            href="tg://resolve?domain=905305474415"
+          )
+            svg-icon(name="icon-telegram")
         typo-text(
-          tag="p"
+          tag="a"
           version="style-5"
+          href="mailto:info@besthome.com.tr"
           :class="$style['contact__content-email']"
         ) {{ contactMap.email }}
         typo-text(
@@ -111,13 +129,20 @@ export default {
       @media (max-width: 1054px)
         margin-bottom: 0
 
-    &-phone
-      margin: 0
+    &-contact
+      text-decoration: none
       color: $color-white-100
       display: flex
       align-items: center
 
+      a 
+        color: $color-white-100
+        display: block
+        align-items: center
+        text-decoration: none
+
       svg
+        display: block
         height: 20px
         width: 20px
         margin-left: 6px
@@ -126,6 +151,7 @@ export default {
       margin: 0
       margin-bottom: 32px
       color: $color-white-100
+      text-decoration: none
 
     &-address
       max-width: 450px

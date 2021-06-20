@@ -15,7 +15,7 @@
         text: [\
           `<p>${$t('pages.service_legal_support.post_1.paragraph_1')}</p>`,\
           `<p>${$t('pages.service_legal_support.post_1.paragraph_with_link')}`,\
-          `<a href='#'>${$t('pages.service_legal_support.post_1.link')}</a>.</p>`,\
+          `<a href='${this.localePath({ name: 'projects' })}'>${$t('pages.service_legal_support.post_1.link')}</a>.</p>`,\
         ].join(''),\
         align: 'left',\
         block_flip: false,\
@@ -37,7 +37,7 @@
         text: [\
           `<p>${$t('pages.service_legal_support.post_3.paragraph_1')}</p>`,\
           `<p>${$t('pages.service_legal_support.post_3.paragraph_with_link')}`,\
-          `<a href='#'>${$t('pages.service_legal_support.post_3.link')}</a>.</p>`,\
+          `<a href='${this.localePath({ name: 'projects' })}'>${$t('pages.service_legal_support.post_3.link')}</a>.</p>`,\
         ].join(''),\
         align: 'left',\
         block_flip: false,\
