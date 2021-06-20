@@ -1,5 +1,5 @@
 <template lang="pug">
-  section(:class="$style['project-navigation']")
+  section(ref="navigation" :class="$style['project-navigation']")
     div(:class="$style['project-navigation__container']")
       div(:class="$style['project-navigation__title']")
         typo-text(
@@ -69,12 +69,36 @@ export default class BaseProjectNavigation extends Vue {
       }
     })
   }
+
+  public prevFixedStatus: boolean = false
+
+  public onScroll() {
+    if (window.scrollY >= 92) {
+      this.prevFixedStatus && this.$root.$emit('navigation:sticky', true)
+      this.prevFixedStatus = false
+    } else {
+      !this.prevFixedStatus && this.$root.$emit('navigation:sticky', false)
+      this.prevFixedStatus = true
+    }
+  }
+
+  mounted() {
+    document.addEventListener('scroll', this.onScroll)
+  }
+
+  beforeDestroy() {
+    document.removeEventListener('scroll', this.onScroll)
+  }
 }
 </script>
 
 <style lang="sass" module>
 .project-navigation
   width: 100%
+  position: sticky
+  top: 0
+  background-color: $color-white-100
+  z-index: 2
 
   &__container
     display: flex
