@@ -73,6 +73,7 @@ export interface IProjectApartment {
   floor: IProjectFloor
   planning?: string
   compass?: string
+  additional_text?: string
 }
 
 export interface IProjectApartmentsFilter {

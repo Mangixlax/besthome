@@ -26,11 +26,7 @@
       div(:class="[$style['block'], $style['features']]")
         section(:class="$style['block-inner']")
           h2 Additional features
-          div(:class="$style['features__text']")
-            h3 Underground parking
-            p Each building will have a two-floor underground parking garage, making it easy to access or exit the building. With parked vehicles removed, the neighbourhood will have a functional outdoor space for socializing.
-            h3 Underground parking
-            p Each building will have a two-floor underground parking garage, making it easy to access or exit the building. With parked vehicles removed, the neighbourhood will have a functional outdoor space for socializing.
+          div(:class="$style['features__text']" v-html="apartment.additional_text")
           ul(:class="$style['features__list']")
             li(:class="$style['features__list-item']")
               span(:class="$style['features__list-item-key']") До пляжа
