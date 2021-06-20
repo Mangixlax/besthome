@@ -17,6 +17,7 @@
   },
   "projects": {
     "sold_out": "Распродано",
+    "for_sale": "Продается",
     "free_available_units": "{0} <span>апартаментов</span>.",
     "navigation": {
       "about": "О проекте",

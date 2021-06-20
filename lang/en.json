@@ -17,6 +17,7 @@
   },
   "projects": {
     "sold_out": "Sold out",
+    "for_sale": "For sale",
     "free_available_units": "{0} free <span>available units</span>.",
     "navigation": {
       "about": "About the project",
