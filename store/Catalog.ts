@@ -184,7 +184,6 @@ export const actions: ActionTree<CatalogState, RootState> = {
       this.$axios
         .$get(`v1/apartments${apartment_id ? '/' + apartment_id : ''}`)
         .then(({ data }: { data?: IProjectApartment }) => {
-          console.log(data)
           commit('setApartment', data)
           commit('setLoading', false)
           resolve(data)

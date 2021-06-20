@@ -9,8 +9,11 @@
         div(:class="$style['apartment__image']")
           div(:class="$style['apartment__image-background']")
             div(:class="$style['apartment__image-background-inner']")
-              div(:class="$style['apartment__image-background-item']")
-                img(:src="apartment.planning")
+              div(
+                ref="svgPlanning"
+                :class="$style['apartment__image-background-item']"
+                v-html="svgPlanning"
+              )
       div(
         ref="aside"
         :class="{\
@@ -99,13 +102,47 @@ import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
   },
   async asyncData(ctx: Context): Promise<void | object> {
     return new Promise(async (resolve) => {
-      await ctx.store.dispatch('Catalog/fetchApartment', ctx.params.id)
-      resolve({})
+      // Fetch apartment data
+      const apartment = await ctx.store.dispatch('Catalog/fetchApartment', ctx.params.id)
+
+      // Show error page if has error in response
+      if (Object.keys(apartment).indexOf('error') !== -1) {
+        resolve(ctx.error({}))
+      }
+
+      // Redirect to new apartment slug if project.slug and params.slug not equal
+      if (apartment.project.slug !== ctx.params.slug) {
+        resolve(
+          ctx.redirect(
+            ctx.localePath({
+              name: 'properties-slug-apartments-id',
+              params: {
+                slug: apartment.project.slug,
+                id: apartment.id,
+              },
+            }),
+          ),
+        )
+      }
+
+      let svgPlanning = ''
+
+      // If apartment has a planning
+      if (apartment.planning) {
+        // Fetch svg code of apartment planning
+        svgPlanning = await ctx.$axios.$get(apartment.planning)
+      }
+
+      resolve({
+        svgPlanning,
+      })
     })
   },
   scrollToTop: true,
 })
 export default class PropertiesSlugApartmentsApartmentPage extends Vue {
+  public svgPlanning: string = ''
+
   public navigationIsFixed: boolean = false
   public asideIsFixedBottom: boolean = false
 
@@ -158,6 +195,12 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
   public mounted() {
     this.$root.$on('navigation:sticky', this.onCheckNavigationSticky)
     document.addEventListener('scroll', this.onScroll)
+
+    // Remove old class and set new class for styling a text in svg
+    ;((this.$refs.svgPlanning as Element).querySelectorAll('text') || []).forEach((el: Element) => {
+      el.setAttribute('class', '')
+      el.classList.add(this.$style['svg-text'])
+    })
   }
 
   public beforeDestroy() {
@@ -169,10 +212,10 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
 
 <style lang="sass" module>
 .main
-    min-height: 50vh
+  min-height: 50vh
 
-    &__wrapper
-      position: relative
+  &__wrapper
+    position: relative
 
 .apartment
   box-sizing: border-box
@@ -334,4 +377,9 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
 .tour
   margin: 0 0 0 auto
   max-width: calc(50% - 630px + 736px)
+
+.svg-text
+  +style-6
+  font-size: 6px
+  color: $color-black-100
 </style>
