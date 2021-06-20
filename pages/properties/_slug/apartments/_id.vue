@@ -14,6 +14,12 @@
                 :class="$style['apartment__image-background-item']"
                 v-html="svgPlanning"
               )
+            div(:class="$style['apartment__footer']")
+              div(
+                ref="miniature"
+                :class="$style['apartment__miniature']"
+                v-html="apartment.project.miniature_html"
+              )
       div(
         ref="aside"
         :class="{\
@@ -40,10 +46,20 @@
             li(:class="$style['features__list-item']")
               span(:class="$style['features__list-item-key']") Сдача в эксплуатацию
               span(:class="$style['features__list-item-value']") {{ apartment.project.end_building }}
+            li(
+              v-for="(advantage, index) in apartment.advantages"
+              :key="index"
+              :class="$style['features__list-item']"
+            )
+              span(:class="$style['features__list-item-key']") {{ advantage.title }}
+              span(:class="$style['features__list-item-value']") {{ getAdvantageValue(advantage) }}
       div(:class="[$style['block'], $style['equipment']]")
         section(:class="$style['block-inner']")
           h2 Комплектация апартаментов
-          page-projects-infrastructure-slider(:data="equipmentSlides" :padding="false")
+          page-projects-infrastructure-slider(
+            :data="{ items: apartment.complete_sets }"
+            :padding="false"
+          )
       div(:class="[$style['block'], $style['tour']]")
         h2 A tour of the apartment
         page-projects-apartment-slider(:card="apartment")
@@ -60,7 +76,11 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import { Context } from '@nuxt/types'
 import CatalogApartmentCard from '~/components/Catalog/CatalogApartmentCard.vue'
 import BaseProjectNavigation from '~/components/Base/BaseProjectNavigation.vue'
-import { IProjectApartment } from '~/store/Catalog'
+import {
+  IProjectApartment,
+  IProjectApartmentAdvantage,
+  IProjectApartmentCompleteSet,
+} from '~/store/Catalog'
 import PageProjectsInfrastructureSlider from '~/components/Page/Projects/PageProjectsInfrastructureSlider.vue'
 import PageProjectsApartmentSlider from '~/components/Page/Projects/PageProjectsApartmentSlider.vue'
 import PageProjectsSimilarSlider from '~/components/Page/Projects/PageProjectsSimilarSlider.vue'
@@ -131,37 +151,26 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
     this.navigationIsFixed = status
   }
 
-  public equipmentSlides: any = {
-    items: [
-      {
-        title: 'Underground parking',
-        text: 'Each building will have a two-floor underground parking garage, making it easy to access or exit the building. With parked vehicles removed, the neighbourhood will have a functional outdoor space for socializing.',
-      },
-      {
-        title: 'Intelligent floor plans',
-        text: 'Ground floor apartments will have loggias and several floor plan options to choose from. Units on top floors will have higher ceilings and terraces, and will be perfect for more demanding clients.',
-      },
-      {
-        title: 'Underground parking',
-        text: 'Each building will have a two-floor underground parking garage, making it easy to access or exit the building. With parked vehicles removed, the neighbourhood will have a functional outdoor space for socializing.',
-      },
-      {
-        title: 'Underground parking',
-        text: 'Each building will have a two-floor underground parking garage, making it easy to access or exit the building. With parked vehicles removed, the neighbourhood will have a functional outdoor space for socializing.',
-      },
-      {
-        title: 'Intelligent floor plans',
-        text: 'Ground floor apartments will have loggias and several floor plan options to choose from. Units on top floors will have higher ceilings and terraces, and will be perfect for more demanding clients.',
-      },
-      {
-        title: 'Underground parking',
-        text: 'Each building will have a two-floor underground parking garage, making it easy to access or exit the building. With parked vehicles removed, the neighbourhood will have a functional outdoor space for socializing.',
-      },
-    ],
-  }
-
   get apartment(): IProjectApartment {
     return this.$store.getters['Catalog/getApartment'] as IProjectApartment
+  }
+
+  public getAdvantageValue(advantage: IProjectApartmentAdvantage) {
+    if (advantage.type) {
+      if (advantage.type === '1') {
+        return advantage.value === '1' ? 'Есть' : 'Нет'
+      }
+
+      if (advantage.type === '2') {
+        return advantage.value === '1' ? 'Да' : 'Нет'
+      }
+
+      if (advantage.type === '3') {
+        return advantage.value
+      }
+    }
+
+    return ''
   }
 
   public onScroll() {
@@ -173,7 +182,7 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
       0
   }
 
-  public mounted() {
+  public async mounted() {
     this.$root.$on('navigation:sticky', this.onCheckNavigationSticky)
     document.addEventListener('scroll', this.onScroll)
 
@@ -182,6 +191,17 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
       el.setAttribute('class', '')
       el.classList.add(this.$style['svg-text'])
     })
+
+    await this.$nextTick()
+
+    // Select miniature
+    const polygon: Element = (this.$refs.miniature as Element).querySelector(
+      `#bfloor-${this.apartment.block?.name.toLowerCase()}-${this.apartment.floor.number}`,
+    ) as Element
+
+    if (polygon) {
+      polygon.classList.add(this.$style['selected'])
+    }
   }
 
   public beforeDestroy() {
@@ -205,6 +225,29 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
   position: relative
   background: $color-black-4
   user-select: none
+
+  &__footer
+    display: flex
+
+  &__layout
+    height: 60px
+    position: relative
+
+    img
+      max-height: 60px
+      height: 100%
+
+    div
+      position: absolute
+      left: 0
+      top: 0
+
+  &__miniature
+    max-height: 60px
+    height: 100%
+
+    polygon.selected
+      fill: $color-black-100
 
   &__wrapper
     box-sizing: border-box
@@ -231,7 +274,6 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
       width: 696px
       height: 100%
       padding: 16px
-      max-height: 600px
 
       &-inner
         box-sizing: border-box

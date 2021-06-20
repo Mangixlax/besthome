@@ -80,6 +80,22 @@ export interface IProjectApartment {
   planning?: string
   compass?: string
   additional_text?: string
+  complete_sets?: IProjectApartmentCompleteSet[]
+  advantages?: IProjectApartmentAdvantage[]
+}
+
+export interface IProjectApartmentCompleteSet {
+  id: number
+  title: string
+  icon?: string
+  text: string
+}
+
+export interface IProjectApartmentAdvantage {
+  id: number
+  title: string
+  type?: string
+  value?: string
 }
 
 export interface IProjectApartmentsFilter {
