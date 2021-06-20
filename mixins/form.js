@@ -91,9 +91,9 @@ export const formMixin = {
           this.recaptchaIsValid = false
           this.form.recaptcha = ''
           this.showFinishStep = true
-          this.updateDescription()
-          this.afterSuccess()
-        }, 500)
+          this.$modal.hide(this.name)
+          this.showFinishModal()
+        }, 1)
         // this.$axios
         //   .$post(this.apiMethod, this.form)
         //   .then(() => {

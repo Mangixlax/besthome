@@ -116,7 +116,8 @@ export default class BaseHeaderNavigation extends Vue {
     justify-content: center
     padding-left: 8px
     padding-right: 16px
-
+    z-index: 50
+    
     @media (max-width: 1248px + 32px)
       padding-left: 4px
       padding-right: 6px

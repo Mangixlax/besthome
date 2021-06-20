@@ -63,6 +63,7 @@
             typo-text(
               tag="p"
               version="style-6"
+              :class="$style['get-callback__feedback-msglabel']"
             ) {{ $t('modals.get_callback.feedback.label_message.title') }}
             v-form-input(
               :class="$style.line"
@@ -120,7 +121,11 @@
               :disabled="isBusy"
               type="submit"
             ) {{ isBusy ? $t('modals.sending') : $t('modals.subscribe.submit') }}
-        modal-get-callback-info(:show-finish-step="showFinishStep")
+        modal-get-callback-info(
+          :show-finish-step="showFinishStep"
+          v-on:my-event="onClickToMap"
+          @click-to-contact="onClickToContact"
+        )
 </template>
 
 <script>
@@ -133,11 +138,13 @@ import ModalGetCallbackInfo from '@/components/Modal/GetCallback/ModalGetCallbac
 import ModalContainer from '@/components/Modal/base/ModalContainer.vue'
 import VForm from '@/components/form/VForm.vue'
 import VFormInput from '@/components/form/VFormInput.vue'
+import { modalsTriggerMixin } from '~/mixins/modals'
 
 export default {
   name: 'ModalGetCallback',
   components: { VFormInput, VForm, ModalContainer, VButton, TypoText, ModalGetCallbackInfo },
-  mixins: [validationMixin, formDescriptionTimerMixin, formMixin, formPhoneMixin],
+  mixins: [validationMixin, formDescriptionTimerMixin, formMixin, formPhoneMixin, modalsTriggerMixin],
+  
   props: {
     name: {
       // Modal id
@@ -145,6 +152,7 @@ export default {
       default: '',
     },
   },
+  
   validations: {
     form: {
       full_name: {
@@ -212,6 +220,23 @@ export default {
     onClickToPrivacy() {
       this.$modal.hide(this.name);
       this.$router.push(this.localePath('privacy-policy'));
+    },
+    onClickToMap() {
+      this.$modal.hide(this.name);
+      this.$router.push(this.localePath('contacts'));
+    },
+    showFinishModal() {
+      this.showModal({
+        name: 'finish-modal',
+        modal: () => import('~/components/Modal/base/ModalFinishStep.vue'),
+        options: {
+          width: 600,
+          height: "auto"
+        }
+      })
+    },
+    onClickToContact() {
+      this.$modal.hide(this.name);
     }
   },
 }
@@ -279,6 +304,9 @@ export default {
         text-underline-offset: 7px
         color: $color-blue-100
         margin-left: 0.5em
+
+    &-msglabel
+      padding-left: 10px
 
     button
       margin-top: 32px
