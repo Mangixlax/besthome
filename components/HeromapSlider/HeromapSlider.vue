@@ -185,7 +185,7 @@ export default {
         margin: 0
 
   &__slider
-    z-index: 1000
+    z-index: 2
     position: absolute
     top: 50px
     left: 50px
