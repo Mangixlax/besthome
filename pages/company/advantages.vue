@@ -7,7 +7,7 @@
         image: require(`~/assets/images/pages/advantages/image-1.jpg`),\
         text: [\
           `<h3>${$t('pages.company_advantages.post_1.title')}</h3>`,\
-          `<p>${$t('pages.company_advantages.post_1.paragraph_1')}</p>`,\
+          ...$t('pages.company_advantages.post_1.paragraph_1').map((p) => `<p>${p}<p>`),\
         ].join(''),\
         align: 'right',\
         block_flip: true,\

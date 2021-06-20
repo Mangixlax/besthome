@@ -24,7 +24,8 @@
               tag="p"
               version="style-6"
               :class="$style['slide__textbox-text']"
-            ) {{ slide.text }}
+              v-html="slide.text"
+            )
 </template>
 
 <script>
