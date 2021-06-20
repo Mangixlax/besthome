@@ -141,7 +141,7 @@ export default class HeroImageTooltips extends Vue {
             this.$lastMouseEnteredTooltip.clientHeight -
             tooltipRect.height / 2
 
-          left = tooltipRect.x - this.$lastMouseEnteredTooltip.clientWidth / 2 + 24
+          left = tooltipRect.x - containerRect.x - this.$lastMouseEnteredTooltip.clientWidth / 2 + 24
           break
         case 'left':
           top =
@@ -150,7 +150,7 @@ export default class HeroImageTooltips extends Vue {
             this.$lastMouseEnteredTooltip.clientHeight / 2 +
             tooltipRect.height / 2
 
-          left = tooltipRect.x - this.$lastMouseEnteredTooltip.clientWidth - tooltipRect.width
+          left = tooltipRect.x - containerRect.x - this.$lastMouseEnteredTooltip.clientWidth - tooltipRect.width
           break
         case 'right':
           top =
@@ -159,12 +159,12 @@ export default class HeroImageTooltips extends Vue {
             this.$lastMouseEnteredTooltip.clientHeight / 2 +
             tooltipRect.height / 2
 
-          left = tooltipRect.x + tooltipRect.width
+          left = tooltipRect.x - containerRect.x + tooltipRect.width + 24
           break
         case 'bottom':
           top = tooltipOffsetTop - containerOffsetTop + tooltipRect.height + 24
 
-          left = tooltipRect.x - this.$lastMouseEnteredTooltip.clientWidth / 2 + 24
+          left = tooltipRect.x - containerRect.x - this.$lastMouseEnteredTooltip.clientWidth / 2 + 24
           break
         default:
       }
@@ -251,6 +251,8 @@ export default class HeroImageTooltips extends Vue {
 .container
   width: 100%
   padding: 24px
+  max-width: 1296px
+  margin: 64px auto
 
   &__header
     max-width: 864px
@@ -295,8 +297,8 @@ export default class HeroImageTooltips extends Vue {
         position: absolute
         left: 37%
         top: 32%
-        width: 6vw
-        height: 6vw
+        width: 4vw
+        height: 4vw
         background: rgba(120, 120, 120, 0.3)
         border-radius: 50%
         animation: pulse 1.5s infinite
@@ -314,11 +316,11 @@ export default class HeroImageTooltips extends Vue {
         &:after
           content: ""
           position: relative
-          width: 1vw
-          height: 1vw
+          width: 0.7vw
+          height: 0.7vw
           background: transparent
           border-radius: 50%
-          box-shadow: 0 0 0 0.8vw white
+          box-shadow: 0 0 0 0.5vw white
 
         @media (max-width: 900px)
           opacity: 0

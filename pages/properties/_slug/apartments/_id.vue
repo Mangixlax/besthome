@@ -9,8 +9,11 @@
         div(:class="$style['apartment__image']")
           div(:class="$style['apartment__image-background']")
             div(:class="$style['apartment__image-background-inner']")
-              div(:class="$style['apartment__image-background-item']")
-                img(:src="apartment.planning")
+              div(
+                ref="svgPlanning"
+                :class="$style['apartment__image-background-item']"
+                v-html="svgPlanning"
+              )
       div(
         ref="aside"
         :class="{\
@@ -23,39 +26,20 @@
       div(:class="[$style['block'], $style['features']]")
         section(:class="$style['block-inner']")
           h2 Additional features
-          div(:class="$style['features__text']")
-            h3 Underground parking
-            p Each building will have a two-floor underground parking garage, making it easy to access or exit the building. With parked vehicles removed, the neighbourhood will have a functional outdoor space for socializing.
-            h3 Underground parking
-            p Each building will have a two-floor underground parking garage, making it easy to access or exit the building. With parked vehicles removed, the neighbourhood will have a functional outdoor space for socializing.
+          div(:class="$style['features__text']" v-html="apartment.additional_text")
           ul(:class="$style['features__list']")
             li(:class="$style['features__list-item']")
               span(:class="$style['features__list-item-key']") До пляжа
-              span(:class="$style['features__list-item-value']") 270м
+              span(:class="$style['features__list-item-value']") {{ apartment.project.to_sea }}м
             li(:class="$style['features__list-item']")
-              span(:class="$style['features__list-item-key']") Может быть не четное кол-во
-              span(:class="$style['features__list-item-value']") Второе поле
+              span(:class="$style['features__list-item-key']") До ресторана
+              span(:class="$style['features__list-item-value']") {{ apartment.project.to_rest }}м
             li(:class="$style['features__list-item']")
-              span(:class="$style['features__list-item-key']") Сдача в эксплуатацию
-              span(:class="$style['features__list-item-value']") 30 апреля 2022
-            li(:class="$style['features__list-item']")
-              span(:class="$style['features__list-item-key']") До пляжа
-              span(:class="$style['features__list-item-value']") 270м
-            li(:class="$style['features__list-item']")
-              span(:class="$style['features__list-item-key']") Может быть не четное кол-во
-              span(:class="$style['features__list-item-value']") Второе поле
+              span(:class="$style['features__list-item-key']") Начало строительства
+              span(:class="$style['features__list-item-value']") {{ apartment.project.start_building }}
             li(:class="$style['features__list-item']")
               span(:class="$style['features__list-item-key']") Сдача в эксплуатацию
-              span(:class="$style['features__list-item-value']") 30 апреля 2022
-            li(:class="$style['features__list-item']")
-              span(:class="$style['features__list-item-key']") До пляжа
-              span(:class="$style['features__list-item-value']") 270м
-            li(:class="$style['features__list-item']")
-              span(:class="$style['features__list-item-key']") Может быть не четное кол-во
-              span(:class="$style['features__list-item-value']") Второе поле
-            li(:class="$style['features__list-item']")
-              span(:class="$style['features__list-item-key']") Сдача в эксплуатацию
-              span(:class="$style['features__list-item-value']") 30 апреля 2022
+              span(:class="$style['features__list-item-value']") {{ apartment.project.end_building }}
       div(:class="[$style['block'], $style['equipment']]")
         section(:class="$style['block-inner']")
           h2 Комплектация апартаментов
@@ -99,13 +83,47 @@ import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
   },
   async asyncData(ctx: Context): Promise<void | object> {
     return new Promise(async (resolve) => {
-      await ctx.store.dispatch('Catalog/fetchApartment', ctx.params.id)
-      resolve({})
+      // Fetch apartment data
+      const apartment = await ctx.store.dispatch('Catalog/fetchApartment', ctx.params.id)
+
+      // Show error page if has error in response
+      if (Object.keys(apartment).indexOf('error') !== -1) {
+        resolve(ctx.error({}))
+      }
+
+      // Redirect to new apartment slug if project.slug and params.slug not equal
+      if (apartment.project.slug !== ctx.params.slug) {
+        resolve(
+          ctx.redirect(
+            ctx.localePath({
+              name: 'properties-slug-apartments-id',
+              params: {
+                slug: apartment.project.slug,
+                id: apartment.id,
+              },
+            }),
+          ),
+        )
+      }
+
+      let svgPlanning = ''
+
+      // If apartment has a planning
+      if (apartment.planning) {
+        // Fetch svg code of apartment planning
+        svgPlanning = await ctx.$axios.$get(apartment.planning)
+      }
+
+      resolve({
+        svgPlanning,
+      })
     })
   },
   scrollToTop: true,
 })
 export default class PropertiesSlugApartmentsApartmentPage extends Vue {
+  public svgPlanning: string = ''
+
   public navigationIsFixed: boolean = false
   public asideIsFixedBottom: boolean = false
 
@@ -158,6 +176,12 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
   public mounted() {
     this.$root.$on('navigation:sticky', this.onCheckNavigationSticky)
     document.addEventListener('scroll', this.onScroll)
+
+    // Remove old class and set new class for styling a text in svg
+    ;((this.$refs.svgPlanning as Element).querySelectorAll('text') || []).forEach((el: Element) => {
+      el.setAttribute('class', '')
+      el.classList.add(this.$style['svg-text'])
+    })
   }
 
   public beforeDestroy() {
@@ -169,10 +193,10 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
 
 <style lang="sass" module>
 .main
-    min-height: 50vh
+  min-height: 50vh
 
-    &__wrapper
-      position: relative
+  &__wrapper
+    position: relative
 
 .apartment
   box-sizing: border-box
@@ -334,4 +358,9 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
 .tour
   margin: 0 0 0 auto
   max-width: calc(50% - 630px + 736px)
+
+.svg-text
+  +style-6
+  font-size: 6px
+  color: $color-black-100
 </style>

@@ -26,6 +26,12 @@ export interface IProject {
   allow_transition?: boolean
   miniature_html?: string
   filters?: IProjectApartmentsFilter
+  total_area?: string
+  to_sea?: string
+  to_rest?: string
+  location?: string
+  start_building?: string
+  end_building?: string
 }
 
 export interface IProjectFloor {
@@ -73,6 +79,7 @@ export interface IProjectApartment {
   floor: IProjectFloor
   planning?: string
   compass?: string
+  additional_text?: string
 }
 
 export interface IProjectApartmentsFilter {
@@ -184,7 +191,6 @@ export const actions: ActionTree<CatalogState, RootState> = {
       this.$axios
         .$get(`v1/apartments${apartment_id ? '/' + apartment_id : ''}`)
         .then(({ data }: { data?: IProjectApartment }) => {
-          console.log(data)
           commit('setApartment', data)
           commit('setLoading', false)
           resolve(data)

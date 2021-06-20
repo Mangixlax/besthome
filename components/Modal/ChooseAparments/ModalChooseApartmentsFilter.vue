@@ -37,7 +37,7 @@
               version="style-8"
               :class="$style['filter__body-advantages-text']"
             ) {{ item.label }}
-    div(:class="$style['filter__footer']")  
+    div(:class="$style['filter__footer']")
       button(
         :class="$style['filter__footer-prevbutton']"
         @click="setPrevStep"
@@ -46,10 +46,10 @@
           name="modals/modals-prev"
         )
         | Previos step
-      button( 
+      button(
         :class="$style['filter__footer-nextbutton']"
         @click="setNextStep"
-      ) 
+      )
         | Go to contact
         svg-icon(
           name="modals/modals-next"
@@ -146,7 +146,6 @@ export default {
       this.$emit('nextStepInfo', 3)
     },
     closeModal() {
-      console.log(this.$modal)
       this.$modal.hide('modal-choose-apartments')
     },
     addToSelectedRooms(card) {

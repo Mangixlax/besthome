@@ -124,6 +124,7 @@ import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.
       })
     })
   },
+  scrollToTop: true,
 })
 export default class PropertiesApartmentsPageIndex extends Vue {
   public apartmentSliderData = {

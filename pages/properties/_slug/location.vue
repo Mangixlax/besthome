@@ -105,6 +105,7 @@ import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.
       })
     })
   },
+  scrollToTop: true,
 })
 export default class PropertiesLocationPage extends Vue {
   get blocks() {
