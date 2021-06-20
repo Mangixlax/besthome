@@ -103,6 +103,7 @@ import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
       resolve({})
     })
   },
+  scrollToTop: true,
 })
 export default class PropertiesSlugApartmentsApartmentPage extends Vue {
   public navigationIsFixed: boolean = false
