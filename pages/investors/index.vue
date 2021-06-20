@@ -22,7 +22,7 @@
           `<h3>${$t('pages.investors.post_2.title')}</h3>`,\
           ...$t('pages.investors.post_2.paragraph_1').map((p) => `<p>${p}<p>`),\
           `<p>${$t('pages.investors.post_2.paragraph_with_link')}`,\
-          `<a href='#'>${$t('pages.investors.post_2.link')}</a>.</p>`\
+          `<a href='${this.localePath({ name: 'properties-besthome-20-cleopatra-select-7' })}'>${$t('pages.investors.post_2.link')}</a>.</p>`\
         ].join(''),\
         align: 'right',\
         block_flip: true,\
@@ -45,9 +45,9 @@
     base-post-two-image(
       :data="{\
         text: [\
-          `<p>${$t('pages.investors.post_4.paragraph_1')}</p>`,\
+          ...$t('pages.investors.post_4.paragraph_1').map((p) => `<p>${p}<p>`),\
           `<p>${$t('pages.investors.post_4.paragraph_with_link')}`,\
-          ` <a href='#'>${$t('pages.investors.post_4.link')}</a>.</p>`,\
+          ` <a href='/projects'>${$t('pages.investors.post_4.link')}</a>.</p>`,\
         ].join(''),\
         images: [\
           require(`~/assets/images/pages/investors/portrait-1.jpg`),\

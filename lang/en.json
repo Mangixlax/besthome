@@ -1,4 +1,4 @@
-{
+  {
   "header": {
     "top_line": "",
     "call_back": "Go get a call back",
@@ -294,8 +294,8 @@
         }
       },
       "post_1": {
-        "title": "Bet on long-term cooperation",
-        "paragraph_1": "We know that the success of cooperation with us primarily depends on the stability of our clients ' income. We rely on a long-term mutually beneficial partnership. The more our investors earn, the more promising our business is.",
+        "title": "Company and client development through long term relationships",
+        "paragraph_1": "Our success is your success - only by finding you the those properties that fully meet your expectations, either from a lifestyle or investment angle, can we continue to grow.",
         "paragraph_with_link": "To date, the company has",
         "link": "33 completed projects"
       },
@@ -351,7 +351,10 @@
         }
       ],
       "post_4": {
-        "paragraph_1": "We believe that client and corporate responsibility underpin everything we do. Our goal is to provide you with property or properties that are both lifestyle and investment oriented.",
+        "paragraph_1": [
+          "We believe that client and corporate responsibility underpin everything we do. Our goal is to provide you with property or properties that are both lifestyle and investment oriented.",
+          "We will advise on all property taxation and legislative issues."
+        ],
         "paragraph_with_link": "More",
         "link": "about Best Home 36-37 The Legend"
       }
@@ -418,18 +421,20 @@
       "image_title": {
         "header": "All about apartment leasing",
         "text": [
-          "Renting apartments and apartments in Alanya is an opportunity to provide a stable income in foreign currency.",
-          "The complexes of BestHome Construction company are located only in the central ar  as of the city of Alanya, near the sea, have a developed infrastructure and innovative design. Thanks to these features, the properties from BestHome Construction are ideal for both long-term and short-term rentals."
+          "For those that might consider utilising their property as an income producing asset, then you have come to the right place!",
+          "Given the huge amount of incoming visitors and the amenable climate, good quality rental apartments in Alanya are in demand all year round and rental yields are good, both for short and long term rental periods."
         ]
       },
       "text": [
+        "The apartments in BestHome Construction projects are not only desirable from a lifestyle perspective, they can also be profitable investment assets. The majority of all units within our projects are sold well before project completion and it a fact that demand for these projects far outstrips supply. In this respect, we have a large database of clients looking to buy only in existing BestHome projects (on a re-sale basis).",
+        "So, if you ever feel that the time is right to sell your property (either with or without furniture), be assured that we have many potential buyers ready and waiting!",
         "Regardless of whether you have purchased an apartment for a rental business or for a holiday, and want to rent your apartment only during the period when it is free, our partner company will be happy to provide all services related to the rental of your property:"
       ],
       "cards": [
-        "Professional photo and video shooting of your apartments",
-        "Search for customers",
-        "Reception of apartments at the departure of tenants",
-        "Ordering apartment cleaning"
+        "Professional photos and video presentation of your property",
+        "Sourcing of potential tenants",
+        "Preparation of leasing agreements",
+        "Apartment cleaning upon tenant departure"
       ]
     },
     "service_introductory_tour": {
@@ -489,21 +494,21 @@
       "image_title": {
         "header": "Legal support",
         "text": [
-          "Our specialists will not only prepare all the necessary documents for the transfer of ownership in your name, but also check the legal purity of all documents for the purchase of secondary real estate."
+          "The specialists of our company will  prepare all the necessary documents for the transfer of ownership into your name."
         ],
         "filename": "service-legal-support-bg.jpg"
       },
-      "slot_text_1": "After signing the purchase and sale agreement, we will receive for you the taxpayer's number, which is necessary for registration of the Certificate of ownership, and also, if desired, we will open an account in your name in a Turkish bank.",
+      "slot_text_1": "After the conclusion of the purchase and sale agreement, we will request a tax number, necessary for the title deed transfer and for opening a bank account in Turkey.",
       "post_1": {
-        "paragraph_1": "Our specialists will submit an application to the cadastral office, assign a time to an interpreter, and accompany you to the cadastral office. After you obtain a Certificate of right of ownership of the employees of the company will execute on your behalf counters of water and electricity.",
+        "paragraph_1": "We will submit an application to the Land Registry and accompany you on the appointed date of title transfer. Оnce you have received your title deed, water and electricity subscriptions will also be transferred into your name.",
         "paragraph_with_link": "To date, the company has",
         "link": "33 completed projects"
       },
       "post_2": {
-        "paragraph_1": "If you are unable to come to Turkey to issue a Certificate of ownership, as well as to issue water and electricity meters in your name, you can issue a power of attorney in order for a full package of documents to be drawn up without your personal presence"
+        "paragraph_1": "In case you cannot come to Turkey for the title deed registration, you can assign Power of Attorney - this will allow us to complete all formalities in your absence."
       },
       "post_3": {
-        "paragraph_1": "Our specialists will help you in obtaining a residence permit in Turkey for you and your family, and if you buy a property for the sum of $ 250,000 (cadastral value), will help to get Turkish citizenship.",
+        "paragraph_1": "We can also assist with all legal and administrative issues in respect of  your application for Turkish residency. In addition, we can assist will of issues relating to Turkish citizenship (if applicable).",
         "paragraph_with_link": "To date, the company has",
         "link": "33 completed projects"
       }
@@ -575,27 +580,27 @@
         "slider": [
           {
             "image": "company-advantages-slider-1.jpg",
-            "text": "High quality of use with the use of modern technologies and materials certified by the Turkish Standards Institute"
+            "text": "Professional approach - innovation in design and the use of the latest technologies and materials"
           },
           {
             "image": "company-advantages-slider-2.jpg",
-            "text": "Multilevel quality control system."
+            "text": "Quality control at every stage of development -<br>a multi-level verification system."
           },
           {
             "image": "company-advantages-slider-3.jpg",
-            "text": "Compliance with the deadlines for the delivery of objects"
+            "text": "Professional advice on finishing and fitting - all important to ensure we deliver to you your dream home in the Sun"
           },
           {
             "image": "company-advantages-slider-4.jpg",
-            "text": "Guaranteed legal purity of transactions"
+            "text": "Bank guarantees - provided for all client monies received"
           },
           {
             "image": "company-advantages-slider-5.jpg",
-            "text": "Accompanying each client from the moment of concluding an agreement to obtaining ownership of the property."
+            "text": "Transparency of documentation - contracts drafted in your own language and compliant with international law"
           },
           {
             "image": "company-advantages-slider-6.jpg",
-            "text": "Full range of services after registration of ownership"
+            "text": "A full range of services for the maintenance and management of your property."
           }
         ]
       },
@@ -613,19 +618,19 @@
       "scroll_line_data": [
         {
           "title": "33",
-          "text": "Projects"
+          "subtitle": "Projects"
         },
         {
           "title": "More than 17",
-          "text": "Years of experience"
+          "subtitle": "Years of experience"
         },
         {
           "title": "Thousands",
-          "text": "Satisfied customers"
+          "subtitle": "Satisfied customers"
         },
         {
           "title": "1 to 4-room",
-          "text": "Separate rooms"
+          "subtitle": "Separate rooms"
         }
       ],
       "article_2": {
@@ -634,25 +639,26 @@
           "You can purchase housing for personal use or for rent without leaving your country.",
           "You can entrust the after-sales service of your apartment, villa or office to a Leader Management subsidiary, confident that all your administrative, legal and financial obligations are met.",
           "As well as consultations on the choice, assistance in obtaining a residence permit and citizenship, legal and financial support for each transaction.",
-          "Trust professionals with over 16 years of experience in the Turkish market - contact us."
+          "Trust Us - more than 17 years experience of providing only the very best real estate solutions. "
         ]
       }
     },
     "company_advantages": {
       "header": {
-        "title": "Company advantages",
+        "title": "Our Difference in Reliability",
         "sub_title": "The reliability of the developer",
         "text": [
-          "Real estate at the construction stage is very attractive due to its relatively low cost. However, the purchase of housing in a building under construction always, one way or another, is associated with certain risks. The first question asked by potential buyers of real estate in Turkey, and in particular in Alanya: what will be if the complex is not completed?",
-          "The developers of Alanya in Turkey are very well aware of the concerns of investors about this and are trying to meet them in everything. BestHome Construction offers its clients a new unique service - a guarantee from a state bank.",
-          "Not so long ago, BestHome Construction entered into a special agreement with the leading state-owned bank of Turkey in the province of Alanya - Ziraat Bank. The essence of the agreement is that if the company does not have time to complete the construction of its new residential complex or does not transfer a certificate of ownership of the property, then the bank guarantees that we will transfer the ownership. Thus, this completely relieves the client of any risks, and gives him a guarantee that his investments will not be lost.",
-          "It is worth noting that such a service on the Turkish construction market is a rarity, and in many other countries one can only dream of it. The fact is that it is not so easy to conclude such an agreement with a state bank. studies the history of the developer and its financial structure. And only after that, having made conclusions about the solvency of the company, provides him with guarantees for all payments.",
-          "You can be sure that no one will have to take advantage of this opportunity, because the company builds on its own funds, without attracting loans incommensurate with its real financial situation. of the contract of obligations. But the guarantee of the bank will allow customers to be calm about the invested funds by 100%. The highest value of the company is the justified trust of its customers"
+          "When making the decision to invest in overseas property, two of the primary considerations when choosing your overseas investment partner are: Reliability and Trust.",
+          "Whether purchasing from a lifestyle perspective or from an investment angle, all clients must have absolute confidence in the people they are working with.",
+          "In order that their investment is directed into the most appropriate projects, investors need expert local knowledge in order to ensure that the property has been priced in accordance with current market values, that the project will be completed and delivered on time and that it presents a profitable and efficient investment vehicle for the foreseeable future.",
+          "Best Home have been at the forefront of the real estate business in Alanya for more than 16 years and in that time, have conceived and delivered some of the most notable residential projects in the region. With a reputation for excellence, we appreciate that our customers, both past and present, are our most valuable asset and this must remain so if our business is to be sustained.",
+          "We at BestHome can provide a ‘one-stop’ service for all your property investment requirements in Alanya",
+          "”From our initial consultation through to the signing of property purchase contract, from shopping for furniture through to the transfer of your title deed, we will be with you every step of the way.”"
         ],
         "linkToProjects": {
           "text": "Today the company has",
           "link": "33 completed projects",
-          "route": "/ projects"
+          "route": "/projects"
         }
       },
       "scroll_line_data": [
@@ -674,12 +680,16 @@
         }
       ],
       "post_1": {
-        "title": "Property quality",
-        "paragraph_1": "We are confident that the quality of construction is one of the main criteria for choosing real estate in Alanya. Building new complexes, we understand that you want your home to be durable, strong and reliable, does not require constant repairs and does not lose its value over time. We guarantee that all construction work in our houses was carried out at a high quality level in compliance with all regulatory requirements."
+        "title": "Construction quality",
+        "paragraph_1": [
+          "Construction quality is the primary factor of choosing property",
+          "We understand that you want your home to be safe, problem-free, remain inhabitable indefinitely and retain its value should you decide to sell it.",
+          "We can ensure you that all of our projects are built to the highest of standards."
+        ]
       },
       "post_2": {
-        "title": "Construction innovation",
-        "paragraph_1": "We constantly monitor the technologies used and the changing trends in the construction sector.",
+        "title": "Innovation",
+        "paragraph_1": "We are constantly reviewing our construction methods to ensure they incorporate the best elements of modern technology.",
         "paragraph_with_link": "Go to",
         "link": "contacts"
       },
@@ -693,26 +703,29 @@
         ]
       },
       "post_3": {
-        "title": "Architectural design",
-        "paragraph_1": "Careful attention to detail and the use of modern architectural solutions help us build beautiful, reliable homes that harmoniously fit into the look of the popular Mediterranean resort."
+        "title": "Design",
+        "paragraph_1": "Intelligent design and attention to detail ensure our homes are built to suit your lifestyle and to keep pace with the demands of modern life."
       },
       "post_4": {
-        "title": "Our team",
-        "paragraph_1": "The presence of a staff of highly qualified specialists with extensive work experience: architects, engineers, builders and foremen is the key to our successful work",
+        "title": "Craftsmanship",
+        "paragraph_1": "Our highly skilled workforce take pride in delivering the exceptional standards on which we have built our reputation.",
         "paragraph_with_link": "Look",
         "link": "Employees"
       },
       "post_5": {
-        "title": "The materials used by the developer",
-        "paragraph_1": "We build residential complexes using high quality innovative materials and modern engineering equipment."
+        "title": "Specification",
+        "paragraph_1": "By carefully sourcing quality materials we aim to meet the very high standards you expect."
       },
       "article_2": {
-        "title": "Design",
+        "title": "Our Difference in Design",
         "text": [
-          "The first thing that potential buyers pay attention to when choosing an apartment is not the quality of internal communications and not even the view from the window, but the design of the apartment. And this is absolutely normal, since in this space you are going to spend most of your free time, which means that it should be comfortable, cozy and attractive. And no matter what you bring to your new home, its basic design should suit you in every way.",
-          "Interior design, like any other creative field, has its own trends. Glitter, chic and bright colors are gradually becoming a thing of the past. They are replaced by pastel shades and expensive, but not pretentious finishes. In the coming 2017, natural materials (wood, stone, cotton, etc.), light and spacious rooms, white as the main color scheme, the use of lightweight furniture and transformers are at the peak of popularity. In a word, space, air, lightness and comfort in every detail. Residential complexes of the BestHome Construction company correspond to all these trends.",
-          "All BestHome Construction projects combine minimalism, grace and the most modern design. As a rule, such housing is preferred by people with impeccable taste, self-confidence, purposefulness, creative and successful. The minimalistic interior decor adapts to the lifestyle of the owners and does not distract them with unnecessary details and flashy colors. Everything here is thought out to the smallest detail and harmoniously. By purchasing apartments at the stage of construction of the complex, the clients of our company have the opportunity to choose the design, texture and color of finishing materials. And our designers will help you to organically fit your dreams into the style of the complex",
-          "The appearance of the complex is no less harmonious. When drawing up the project, special attention is paid to the surrounding urban and natural landscape. The building organically fits into the surrounding space and occupies its own cozy niche in it. Residential complexes BestHome Construction become easily recognizable due to their stylish and ergonomic design. The decoration of the common areas also pleases the eye with its impeccable style and original, but unobtrusive accents. It is pleasant not only to meet guests here, but also to admire the wonderful Mediterranean sunsets with the whole family."
+          "In the competitive world that is the Alanya real estate industry, it is important always to stay ahead of the competition – one way to do this is by offering something totally unique in terms of design, both externally and internally.",
+          "As an example, all Best Home projects are low-rise and the external facade will incorporate a mix of materials and finishes that will set it apart from other developments in the area – additionally, the external social areas will comprise lush landscaping, decorative walling and a tiled sun terrace surrounding the pool.",
+          "For the interior of each property, we have a highly skilled and specialised interior design team that enable us to constantly deliver modern living spaces of the very highest quality – this quality is evident throughout, not just in the fittings and fixtures but also in the design detail. For example, the kitchens have an ample expanse of bench space and ample upper and lower storage, both critical elements in modern apartment living.",
+          "In addition to the interior design being streamlined and aesthetically pleasing, all fittings and fixtures are long lasting and hard wearing.",
+          "By paying close attention to these design details, we believe our projects are a cut above the rest and one of the the primary reasons why our projects are so successful – as an example, some 75% of all units (within any project) are sold well before project completion.",
+          "Additionally, this close attention to detail ‘adds value’ to all units within a specific project and will go some way to ensuring its status as an investment asset, both at the time of purchase as well as at the time (if appropriate) of reselling.",
+          "These ‘value added’ details are also important for those clients that are ‘buying to rent’ – with the rental market in Alanya continuing to grow, highly specified apartments (within a good location) are at the top of every renter’s wish list!"
         ],
         "paragraph_with_link": "Today the company has",
         "link": "33 completed projects"
