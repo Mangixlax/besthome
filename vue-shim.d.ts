@@ -6,6 +6,7 @@ import {
   DefaultProps,
   PropsDefinition,
 } from 'vue/types/options'
+import { NuxtCookies } from 'cookie-universal-nuxt'
 
 declare module '*.vue' {
   import Vue from 'vue'
@@ -15,6 +16,7 @@ declare module '*.vue' {
 declare module 'vue/types/vue' {
   interface Vue {
     $style: { [key: string]: string }
+    $cookies: NuxtCookies
     [key: string]: any
   }
 }

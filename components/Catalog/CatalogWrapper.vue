@@ -115,7 +115,7 @@ export default class CatalogWrapper extends Vue {
   padding: 80px 64px
 
   @media (max-width: 820px)
-    padding: 40px 32px
+    padding: 40px 0
 
   &__container
     display: flex

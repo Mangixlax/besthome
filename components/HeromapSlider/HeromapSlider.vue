@@ -28,7 +28,7 @@
                   version="style-4"
                   v-html="slide.title"
                   :class="$style['slide__textbox-text']"
-                ) 
+                )
                 typo-text(
                   tag="div"
                   version="style-7"
@@ -65,22 +65,8 @@ export default {
     return {
       swiperOption: {
         slidesPerView: '1',
-        breakpoints: {
-          // when window width is >= 250
-          250: {},
-          // when window width is >= 600px
-          600: {
-            // centeredSlides: false,
-          },
-          // when window width is >= 900px
-          900: {},
-        },
         centeredSlides: true,
         spaceBetween: 64,
-        pagination: {
-          el: '.swiper-pagination-progressbar',
-          type: 'progressbar',
-        },
         speed: 500,
         loop: true,
         autoplay: {
@@ -91,35 +77,36 @@ export default {
           renderBullet(index, className) {
             return `<span class="${className} swiper-pagination-bullet-map"></span>`
           },
-          clickable: true
+          clickable: true,
         },
       },
     }
   },
   methods: {
     setActiveSlide(index) {
-      if (this.data.slides.length) {
+      if (this.data.slides?.length > 0 && index < this.data.slides?.length - 1) {
         const slideCode = this.data.slides[index].point_code
         const $activeSlide = this.$refs.container.querySelector(`[id="${slideCode}"]`)
 
-        ;(this.$refs.container.querySelectorAll('.' + this.$style['active']) || []).forEach((el) => { 
-          el.classList.remove(this.$style['active'])
-        })
-        
+        ;(this.$refs.container.querySelectorAll('.' + this.$style['active']) || []).forEach(
+          (el) => {
+            el.classList.remove(this.$style['active'])
+          },
+        )
+
         if ($activeSlide) {
           $activeSlide.classList.add(this.$style['active'])
         }
-        
       }
     },
-    
+
     onSlideChange(swiper) {
       this.setActiveSlide(swiper.realIndex)
-    }
+    },
   },
   mounted() {
     this.setActiveSlide(0)
-  }
+  },
 }
 </script>
 
@@ -172,8 +159,8 @@ export default {
           stroke-width: 5px
           stroke: white
           r: 5
-          fill: transparent 
-    
+          fill: transparent
+
     &-text
       display: flex
       flex-direction: column
@@ -232,7 +219,7 @@ export default {
 
   &__textbox
     max-width: 487px
-    background-color: transparent 
+    background-color: transparent
     color: $color-white-100
     right: 0
     bottom: 50%
@@ -249,7 +236,7 @@ export default {
 
     &-text
       margin: 0
-      
+
   img
     object-fit: cover
     max-width: 720px
@@ -297,7 +284,7 @@ export default {
 
   [class*="swiper-pagination-bullet-active"]
     background: $color-white-100 !important
-    
+
 .swiper-button-prev
   display: block
   margin-left: auto

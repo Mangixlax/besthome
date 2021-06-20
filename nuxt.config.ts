@@ -163,6 +163,17 @@ export default <NuxtConfig>{
   pwa: {
     manifest: {
       lang: 'en',
+      name: 'BestHome',
+      short_name: 'BestHome',
+      description: '',
+      theme_color: '#0066CC',
+      start_url: '/',
+      display: 'browser',
+      background_color: '#FFF',
+    },
+    workbox: false,
+    icon: {
+      sizes: [16, 32, 64, 120, 144, 152, 192, 384, 512],
     },
   },
 

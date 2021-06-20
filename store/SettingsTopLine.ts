@@ -58,7 +58,10 @@ export const actions: ActionTree<SettingsTopLineState, RootState> = {
     const newHiddenMode = !state.hidden
     commit('setHiddenMode', newHiddenMode)
     // Save new mode in cookie
-    this.$cookies.set(SettingTopLineCookieName, newHiddenMode)
+    this.$cookies.set(SettingTopLineCookieName, newHiddenMode, {
+      maxAge: 60 * 60 * 24 * 31 * 12,
+      path: '/',
+    })
   },
   /**
    * Change hidden mode and save new mode in cookie
@@ -71,7 +74,10 @@ export const actions: ActionTree<SettingsTopLineState, RootState> = {
     const newHiddenMode = !state.localeHidden
     commit('setLocaleHiddenMode', newHiddenMode)
     // Save new mode in cookie
-    this.$cookies.set(SettingTopLineLocaleCookieName, newHiddenMode)
+    this.$cookies.set(SettingTopLineLocaleCookieName, newHiddenMode, {
+      maxAge: 60 * 60 * 24 * 31 * 12,
+      path: '/',
+    })
   },
   /**
    * Init action for set default or already saved hidden mode in cookie

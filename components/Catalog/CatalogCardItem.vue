@@ -2,8 +2,9 @@
   nuxt-link(
     :class="$style['catalog-card']"
     :to="localePath({\
-      name: 'company-our-team-id',\
+      name: 'properties-slug-apartments-id',\
       params: {\
+        slug: $route.params.slug,\
         id: itemData.id\
       }\
     })"
@@ -76,7 +77,9 @@
             tag="div"
             version="style-5"
             :class="$style['catalog-card__footer-item-value']"
-          ) {{ itemData.rooms }}
+          ) {{ itemData.room.number }}
+            typo-text(version="style-7" tag="sup")
+              | {{ itemData.room.ad_number ? `+${itemData.room.ad_number}` : ''}}
 </template>
 
 <script lang="ts">

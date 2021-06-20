@@ -1,5 +1,5 @@
 <template lang="pug">
-  section(:class="$style['project-navigation']")
+  section(ref="navigation" :class="$style['project-navigation']")
     div(:class="$style['project-navigation__container']")
       div(:class="$style['project-navigation__title']")
         typo-text(
@@ -11,22 +11,22 @@
         ul(:class="$style['project-navigation__navbar-list']")
           li(:class="$style['project-navigation__navbar-item']")
             nuxt-link(
-              :to="localePath({ name: 'properties-slug-review', params: { slug } })"
-              :class="$style['project-navigation__navbar-link']"
-              :active-class="$style['project-navigation__navbar-link--active']"
-            ) {{ $t('projects.navigation.review') }}
-          li(:class="$style['project-navigation__navbar-item']")
-            nuxt-link(
               :to="localePath({ name: 'properties-slug-about', params: { slug } })"
               :class="$style['project-navigation__navbar-link']"
               :active-class="$style['project-navigation__navbar-link--active']"
             ) {{ $t('projects.navigation.about') }}
           li(:class="$style['project-navigation__navbar-item']")
             nuxt-link(
-              :to="localePath({ name: 'properties-slug-experiences', params: { slug } })"
+              :to="localePath({ name: 'properties-slug-location', params: { slug } })"
               :class="$style['project-navigation__navbar-link']"
               :active-class="$style['project-navigation__navbar-link--active']"
-            ) {{ $t('projects.navigation.experiences') }}
+            ) {{ $t('projects.navigation.location') }}
+          li(:class="$style['project-navigation__navbar-item']")
+            nuxt-link(
+              :to="localePath({ name: 'properties-slug-gallery', params: { slug } })"
+              :class="$style['project-navigation__navbar-link']"
+              :active-class="$style['project-navigation__navbar-link--active']"
+            ) {{ $t('projects.navigation.gallery') }}
           li(:class="$style['project-navigation__navbar-item']")
             nuxt-link(
               :to="localePath({ name: 'properties-slug-apartments', params: { slug } })"
@@ -70,12 +70,24 @@ export default class BaseProjectNavigation extends Vue {
     })
   }
 
-  get projectTitle(): string {
-    return (this.$store.getters['Catalog/getProject'] as IProject).name
+  public prevFixedStatus: boolean = false
+
+  public onScroll() {
+    if (window.scrollY >= 92) {
+      this.prevFixedStatus && this.$root.$emit('navigation:sticky', true)
+      this.prevFixedStatus = false
+    } else {
+      !this.prevFixedStatus && this.$root.$emit('navigation:sticky', false)
+      this.prevFixedStatus = true
+    }
   }
 
-  get projectSlug(): string {
-    return (this.$store.getters['Catalog/getProject'] as IProject).slug
+  mounted() {
+    document.addEventListener('scroll', this.onScroll)
+  }
+
+  beforeDestroy() {
+    document.removeEventListener('scroll', this.onScroll)
   }
 }
 </script>
@@ -83,6 +95,10 @@ export default class BaseProjectNavigation extends Vue {
 <style lang="sass" module>
 .project-navigation
   width: 100%
+  position: sticky
+  top: 0
+  background-color: $color-white-100
+  z-index: 2
 
   &__container
     display: flex

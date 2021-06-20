@@ -19,9 +19,9 @@
     "sold_out": "Sold out",
     "free_available_units": "{0} free <span>available units</span>.",
     "navigation": {
-      "review": "About the project",
-      "about": "Location",
-      "experiences": "Gallery",
+      "about": "About the project",
+      "location": "Location",
+      "gallery": "Gallery",
       "choose_apartment": "Choose apartment",
       "get_a_consultation": "Get a consultation",
       "consultation": "Consultation"

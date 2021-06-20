@@ -10,6 +10,14 @@
       :key="index"
       :data="block"
     )
+    catalog-wrapper
+      template(v-slot="{ isCardDisplay }")
+        component(
+          :is="isCardDisplay ? 'CatalogCards' : 'CatalogList'"
+          :list="apartmentsList"
+        )
+    page-projects-similar-slider(:slider-data="similarApartmentsList")
+    page-projects-apartment-slider(:card="apartmentSliderData")
     base-subscribe(:subscribe-data="$t('footer.subscribe')" white-theme)
     base-accordions(:accordions-data="$t('footer.accordions')")
     footer-fast-links
@@ -32,15 +40,23 @@ import HeroBuilding from '~/components/HeroBuilding/HeroBuilding.vue'
 import { Context } from '@nuxt/types'
 import PageProjectsInfrastructureSlider from '~/components/Page/Projects/PageProjectsInfrastructureSlider.vue'
 import PageProjectsTimeline from '~/components/Page/Projects/PageProjectsTimeline.vue'
+import CatalogWrapper from '~/components/Catalog/CatalogWrapper.vue'
+import PageProjectsSimilarSlider from '~/components/Page/Projects/PageProjectsSimilarSlider.vue'
+import PageProjectsApartmentSlider from '~/components/Page/Projects/PageProjectsApartmentSlider.vue'
 import VueRouter, { Route } from 'vue-router'
+import { CatalogState, IProject, IProjectApartment } from '~/store/Catalog'
+import CatalogCards from '~/components/Catalog/CatalogCards.vue'
+import CatalogList from '~/components/Catalog/CatalogList.vue'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
-import { NavigationGuardNext } from 'vue-router/types/router'
 import HeromapSlider from '~/components/HeromapSlider/HeromapSlider.vue'
-import { IProject } from '~/store/Catalog'
+import { NavigationGuardNext } from 'vue-router/types/router'
 import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.vue'
 
 @Component({
   components: {
+    PageProjectsApartmentSlider,
+    PageProjectsSimilarSlider,
+    CatalogWrapper,
     PageProjectsInfrastructureSlider,
     PageProjectsTimeline,
     HeroBuilding,
@@ -55,6 +71,8 @@ import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.
     BaseSubscribe,
     BaseAccordions,
     FooterFastLinks,
+    CatalogCards,
+    CatalogList,
     BaseTextContainer,
     HeromapSlider,
     HeroImageTooltips,
@@ -84,6 +102,8 @@ import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.
           return resolve(ctx.error({}))
         }
 
+        ctx.store.commit('Catalog/setProject', project)
+
         if (project.slug !== ctx.route.params.slug) {
           return resolve(
             ctx.redirect(
@@ -95,10 +115,9 @@ import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.
             ),
           )
         }
-
-        ctx.store.commit('Catalog/setProject', project)
-        ctx.store.commit('Catalog/setFilters', project.filters)
       }
+
+      await ctx.store.dispatch('Catalog/fetchApartments')
 
       resolve({
         project: project,
@@ -106,7 +125,17 @@ import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.
     })
   },
 })
-export default class PropertiesAboutPage extends Vue {
+export default class PropertiesApartmentsPageIndex extends Vue {
+  public apartmentSliderData = {
+    apartment: 'Apartment B.01.02',
+    status: 2,
+    area: 120,
+    price: '450 400',
+    block: 'B',
+    floor: 4,
+    room: 4,
+  }
+
   get blocks() {
     const componentsRelations: any = {
       BlockOnePhotoText: 'base-post',
@@ -123,12 +152,23 @@ export default class PropertiesAboutPage extends Vue {
       BlockImageTooltip: 'hero-image-tooltips',
     }
 
-    return ((this.project as IProject).about_data || []).map((block: any) => ({
+    return ((this.project as IProject).choose_ap_data || []).map((block: any) => ({
       ...block,
       type: Object.keys(componentsRelations).includes(block.type)
         ? componentsRelations[block.type]
         : 'p',
     }))
+  }
+
+  get apartmentsList(): IProjectApartment[] {
+    return (
+      // @TODO Add type apartments data
+      (((this.$store.state.Catalog as CatalogState).apartments || {}) as any).data || []
+    )
+  }
+
+  get similarApartmentsList(): IProjectApartment[] {
+    return (((this.project as IProject).similar_apartments || {}) as IProjectApartment).data || []
   }
 }
 </script>

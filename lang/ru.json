@@ -19,9 +19,9 @@
     "sold_out": "Распродано",
     "free_available_units": "{0} <span>апартаментов</span>.",
     "navigation": {
-      "review": "О проекте",
-      "about": "Месторасположение",
-      "experiences": "Галерея",
+      "about": "О проекте",
+      "location": "Месторасположение",
+      "gallery": "Галерея",
       "choose_apartment": "Выбрать квартиру",
       "get_a_consultation": "Получить консультацию",
       "consultation": "Консультация"

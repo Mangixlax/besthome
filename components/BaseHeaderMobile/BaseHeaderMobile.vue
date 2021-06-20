@@ -138,6 +138,6 @@ body[menu-open]
       height: 100%
 
 .logo
-  margin-top: 16px
+  margin-top: 13px
   margin-left: 24px
 </style>

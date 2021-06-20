@@ -1,7 +1,7 @@
 <template lang="pug">
   main
     base-project-navigation(
-      :name="project.name"
+      :name="project.short_name"
       :slug="project.slug"
     )
     component(
@@ -32,10 +32,12 @@ import HeroBuilding from '~/components/HeroBuilding/HeroBuilding.vue'
 import { Context } from '@nuxt/types'
 import PageProjectsInfrastructureSlider from '~/components/Page/Projects/PageProjectsInfrastructureSlider.vue'
 import PageProjectsTimeline from '~/components/Page/Projects/PageProjectsTimeline.vue'
-import VueRouter from 'vue-router'
+import VueRouter, { Route } from 'vue-router'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
+import { NavigationGuardNext } from 'vue-router/types/router'
 import HeromapSlider from '~/components/HeromapSlider/HeromapSlider.vue'
 import { IProject } from '~/store/Catalog'
+import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.vue'
 
 @Component({
   components: {
@@ -55,11 +57,22 @@ import { IProject } from '~/store/Catalog'
     FooterFastLinks,
     BaseTextContainer,
     HeromapSlider,
+    HeroImageTooltips,
   },
   async asyncData(ctx: Context): Promise<object | void> {
     ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.projects'))
 
     return new Promise(async (resolve) => {
+      if (!ctx.params.slug) {
+        return resolve(
+          ctx.redirect(
+            ctx.localePath({
+              name: 'projects',
+            }),
+          ),
+        )
+      }
+
       let project: IProject = ctx.store.getters['Catalog/getProject']
 
       // Dont load project from api if project already saved in store
@@ -67,13 +80,19 @@ import { IProject } from '~/store/Catalog'
         const projectId = (ctx.route.params.slug || '').split('-').pop()
         project = await ctx.store.dispatch('Catalog/fetchProject', projectId)
 
+        if (Object.keys(project).indexOf('error') !== -1) {
+          return resolve(ctx.error({}))
+        }
+
         if (project.slug !== ctx.route.params.slug) {
-          return ctx.redirect(
-            301,
-            (ctx.app.router as VueRouter).resolve({
-              name: ctx.route.name as string,
-              params: { slug: project.slug },
-            }).href,
+          return resolve(
+            ctx.redirect(
+              301,
+              (ctx.app.router as VueRouter).resolve({
+                name: ctx.route.name as string,
+                params: { slug: project.slug },
+              }).href,
+            ),
           )
         }
 
@@ -87,7 +106,7 @@ import { IProject } from '~/store/Catalog'
     })
   },
 })
-export default class PropertiesReviewPage extends Vue {
+export default class PropertiesLocationPage extends Vue {
   get blocks() {
     const componentsRelations: any = {
       BlockOnePhotoText: 'base-post',
@@ -101,9 +120,10 @@ export default class PropertiesReviewPage extends Vue {
       BlockProjectTitle: 'page-projects-title',
       BlockTextContainer: 'base-text-container',
       BlockHeromapSlider: 'heromap-slider',
+      BlockImageTooltip: 'hero-image-tooltips',
     }
 
-    return ((this.project as IProject).review_data || []).map((block: any) => ({
+    return ((this.project as IProject).location_data || []).map((block: any) => ({
       ...block,
       type: Object.keys(componentsRelations).includes(block.type)
         ? componentsRelations[block.type]
