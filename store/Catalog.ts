@@ -206,11 +206,19 @@ export const actions: ActionTree<CatalogState, RootState> = {
     return new Promise(async (resolve, reject) => {
       this.$axios
         .$get(`v1/apartments${apartment_id ? '/' + apartment_id : ''}`)
-        .then(({ data }: { data?: IProjectApartment }) => {
-          commit('setApartment', data)
-          commit('setLoading', false)
-          resolve(data)
-        })
+        .then(
+          ({
+            data,
+            similar_apartments,
+          }: {
+            data?: IProjectApartment
+            similar_apartments?: IProjectApartment[]
+          }) => {
+            commit('setApartment', data)
+            commit('setLoading', false)
+            resolve({ apartment: data, similarApartments: similar_apartments })
+          },
+        )
         .catch(({ response: { data } }) => {
           reject(data)
         })

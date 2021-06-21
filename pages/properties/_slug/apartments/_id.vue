@@ -64,8 +64,8 @@
       //div(:class="[$style['block'], $style['tour']]")
       //  h2 {{ $t('pages.apartments.photo_tour') }}
       //  page-projects-apartment-slider(:card="apartment")
-    div(:class="$style['block']")
-      page-projects-similar-slider(:slider-data="[apartment,apartment,apartment,apartment]")
+    div(v-if="similarApartments.length" :class="$style['block']")
+      page-projects-similar-slider(:slider-data="similarApartments")
     base-subscribe(:subscribe-data="$t('footer.subscribe')" white-theme)
     base-accordions(:accordions-data="$t('footer.accordions')")
     common-consultant-slider(:slider-data="$t('footer.consultant_slider')")
@@ -105,10 +105,10 @@ import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
   async asyncData(ctx: Context): Promise<void | object> {
     return new Promise(async (resolve) => {
       // Fetch apartment data
-      const apartment = await ctx.store.dispatch('Catalog/fetchApartment', ctx.params.id)
+      const { apartment, similarApartments, error } = await ctx.store.dispatch('Catalog/fetchApartment', ctx.params.id)
 
       // Show error page if has error in response
-      if (Object.keys(apartment || { error: '' }).indexOf('error') !== -1) {
+      if (error || Object.keys(apartment || { error: '' }).indexOf('error') !== -1) {
         resolve(ctx.error({}))
       }
 
@@ -137,6 +137,7 @@ import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
 
       resolve({
         svgPlanning,
+        similarApartments,
       })
     })
   },
