@@ -48,7 +48,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'nuxt-property-decorator'
+import {Component, Prop, Vue, Watch} from 'nuxt-property-decorator'
 import { modalsTriggerMixin } from '~/mixins/modals'
 import TypoText from '~/components/Base/TypoText.vue'
 import { IProject } from '~/store/Catalog'
@@ -72,26 +72,27 @@ export default class BaseProjectNavigation extends Vue {
     })
   }
 
-  public prevFixedStatus: boolean = false
+  public prevFixedStatus: boolean = true
   public showMenu: boolean = false
 
   public onScroll() {
     if (window.scrollY >= 92) {
-      this.prevFixedStatus && this.$root.$emit('navigation:sticky', true)
+      this.prevFixedStatus && this.$store.commit('setStickyNavigation', true)
       this.prevFixedStatus = false
     } else {
-      !this.prevFixedStatus && this.$root.$emit('navigation:sticky', false)
+      !this.prevFixedStatus && this.$store.commit('setStickyNavigation', false)
       this.prevFixedStatus = true
     }
   }
 
   public toggleMenu() {
-    console.log(this.showMenu )
     this.showMenu = !this.showMenu
   }
 
-  mounted() {
+  async mounted() {
     document.addEventListener('scroll', this.onScroll)
+    await this.$nextTick()
+    this.onScroll()
   }
 
   beforeDestroy() {
@@ -119,7 +120,7 @@ export default class BaseProjectNavigation extends Vue {
   &__title
     &-text
       margin: 0
-      
+
       @media (width: 320px)
         +style-4-alt
 
@@ -132,7 +133,7 @@ export default class BaseProjectNavigation extends Vue {
       display: flex
       align-items: center
       margin: 0
-      
+
       @media (max-width: 900px)
         display: none
         padding-left: 24px
@@ -160,7 +161,7 @@ export default class BaseProjectNavigation extends Vue {
 
         &:not(:first-of-type)
           border-top: solid 1px $color-black-4
-        
+
     &-link
       text-decoration: none
       color: $color-black-100

@@ -30,7 +30,7 @@
         }) : null"
         :title="card.allow_transition ? card.name : null"
       )
-        span(v-html="(card.sold_out || !card.apartments_count || !card.allow_transition) ? $t('projects.sold_out') : $t('projects.free_available_units', [card.apartments_count])")
+        span(v-html="subText")
         svg-icon(v-if="!card.sold_out && card.apartments_count && card.allow_transition" name="link-arrow")
 </template>
 
@@ -44,6 +44,18 @@ import { IProject } from '~/store/Catalog'
 })
 export default class LinkBanner extends Vue {
   @Prop({ type: Object, default: () => {}, required: true }) card!: IProject
+
+  get subText() {
+    if (this.card.sold_out) {
+      return this.$t('projects.sold_out')
+    }
+
+    if (this.card.apartments_count) {
+      return this.$t('projects.free_available_units', [this.card.apartments_count])
+    }
+
+    return this.$t('projects.for_sale')
+  }
 }
 </script>
 

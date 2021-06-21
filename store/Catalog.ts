@@ -27,8 +27,8 @@ export interface IProject {
   miniature_html?: string
   filters?: IProjectApartmentsFilter
   total_area?: string
-  to_sea?: string
-  to_rest?: string
+  to_sea?: number
+  to_rest?: number
   location?: string
   start_building?: string
   end_building?: string
@@ -80,6 +80,22 @@ export interface IProjectApartment {
   planning?: string
   compass?: string
   additional_text?: string
+  complete_sets?: IProjectApartmentCompleteSet[]
+  advantages?: IProjectApartmentAdvantage[]
+}
+
+export interface IProjectApartmentCompleteSet {
+  id: number
+  title: string
+  icon?: string
+  text: string
+}
+
+export interface IProjectApartmentAdvantage {
+  id: number
+  title: string
+  type?: string
+  value?: string
 }
 
 export interface IProjectApartmentsFilter {
@@ -190,11 +206,19 @@ export const actions: ActionTree<CatalogState, RootState> = {
     return new Promise(async (resolve, reject) => {
       this.$axios
         .$get(`v1/apartments${apartment_id ? '/' + apartment_id : ''}`)
-        .then(({ data }: { data?: IProjectApartment }) => {
-          commit('setApartment', data)
-          commit('setLoading', false)
-          resolve(data)
-        })
+        .then(
+          ({
+            data,
+            similar_apartments,
+          }: {
+            data?: IProjectApartment
+            similar_apartments?: IProjectApartment[]
+          }) => {
+            commit('setApartment', data)
+            commit('setLoading', false)
+            resolve({ apartment: data, similarApartments: similar_apartments })
+          },
+        )
         .catch(({ response: { data } }) => {
           reject(data)
         })

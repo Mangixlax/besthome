@@ -17,6 +17,7 @@
   },
   "projects": {
     "sold_out": "Распродано",
+    "for_sale": "Продается",
     "free_available_units": "{0} <span>апартаментов</span>.",
     "navigation": {
       "about": "О проекте",
@@ -142,6 +143,7 @@
       }
     },
     "apartments": {
+      "apartment": "Апартаменты",
       "block": "Корпус",
       "status": "Статус",
       "floor": "Этаж",
@@ -149,11 +151,22 @@
       "area": "Площадь",
       "price": "Цена",
       "status_1": "В наличии",
-      "status_2": "Зарезервированный",
-      "status_3": "Зарезервировано",
+      "status_2": "Резерв",
+      "status_3": "Резерв",
       "status_4": "Продано",
       "nth": "{0} апартаментов",
-      "empty_list": "Список апартаментов пуст"
+      "empty_list": "Список апартаментов пуст",
+      "additional_features": "Дополнительные возможности",
+      "to_sea": "До моря",
+      "to_rest": "До ресторана",
+      "start_building": "Начало строительства",
+      "end_building": "Сдача в эксплуатацию",
+      "equipments": "Комплектация апартаментов",
+      "photo_tour": "Тур по апартаментам",
+      "m": "м",
+      "request_now": "Оставить заявку",
+      "download_pdf": "Скачать PDF",
+      "similar_apartments": "Похожие апартаменты"
     },
     "projects_our_pojects": {
       "smart_block": [

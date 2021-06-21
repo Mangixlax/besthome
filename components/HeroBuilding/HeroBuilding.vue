@@ -110,11 +110,14 @@ export default class HeroBuilding extends Vue {
       const target: Element = event.target as Element
       this.getFloorDataById(target.id || '').then((floor: IProjectFloor) => {
         // @ts-ignore
+        const floors = [...this.$store.getters['Catalog/getProject'].floors]
         this.showModal({
           name: 'modal-hero-building-choose-floors',
           modal: () => import('@/components/HeroBuilding/HeroBuildingModalFloors.vue'),
           props: {
-            floors: this.$store.getters['Catalog/getProject'].floors,
+            floors: floors.sort((a: any, b: any) => {
+              return a.number - b.number
+            }),
             selectedFloor: floor,
           },
           options: {
