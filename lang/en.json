@@ -143,6 +143,7 @@
       }
     },
     "apartments": {
+      "apartment": "Apartment",
       "block": "Block",
       "status": "Status",
       "floor": "Floor",
@@ -154,7 +155,18 @@
       "status_3": "Prereserved",
       "status_4": "Sold",
       "nth": "{0} type",
-      "empty_list": "Apartments is not found"
+      "empty_list": "Apartments is not found",
+      "additional_features": "Additional features",
+      "to_sea": "To sea",
+      "to_rest": "To restaurant",
+      "start_building": "Start building",
+      "end_building": "End building",
+      "equipments": "Equipments of Apartment",
+      "photo_tour": "A tour of the apartment",
+      "m": "m",
+      "request_now": "Request now",
+      "download_pdf": "Download PDF",
+      "similar_apartments": "Similar apartments"
     },
     "projects_our_pojects": {
       "smart_block": [

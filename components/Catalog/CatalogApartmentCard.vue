@@ -4,12 +4,12 @@
       version="style-7"
       tag="div"
       :class="$style['card__id']"
-    ) Apartment {{ card.block.name }}.{{ getFloor }}.{{ getRoom }}
+    ) {{ $t('pages.apartments.apartment') }} {{ card.block.name }}.{{ getFloor }}.{{ getRoom }}
     typo-text(
       version="style-2"
       tag="div"
       :class="$style['card__area']"
-    ) {{ getArea }}m
+    ) {{ getArea }}{{ $t('pages.apartments.m') }}
       typo-text(
         version="style-4"
         tag="sup"
@@ -31,9 +31,9 @@
       div(:class="$style['card__line-value']")
         | {{ card.price.toLocaleString('ru') }}
         span €
-    div(:class="$style['card__request']") Request now
+    div(:class="$style['card__request']" @click="showGetCallback") {{ $t('pages.apartments.request_now') }}
     div(:class="$style['card__pdf']")
-      span Download PDF
+      span {{ $t('pages.apartments.download_pdf') }}
       svg-icon(name="link-arrow-blue")
 </template>
 
@@ -41,8 +41,10 @@
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
 import TypoText from '~/components/Base/TypoText.vue'
 import { IProjectApartment } from '~/store/Catalog'
+import { modalsTriggerMixin } from '~/mixins/modals'
 @Component({
   components: { TypoText },
+  mixins: [modalsTriggerMixin],
 })
 export default class CatalogApartmentCard extends Vue {
   @Prop({ type: Object, required: true }) card!: IProjectApartment
@@ -59,6 +61,16 @@ export default class CatalogApartmentCard extends Vue {
   get getRoom(): string | number {
     if (this.card.room.number > 9) return this.card.room.number
     return '0' + this.card.room.number
+  }
+
+  public showGetCallback() {
+    this.showModal({
+      name: 'modal-get-callback',
+      modal: () => import('~/components/Modal/GetCallback/ModalGetCallback.vue'),
+      options: {
+        width: '100%',
+      },
+    })
   }
 }
 </script>

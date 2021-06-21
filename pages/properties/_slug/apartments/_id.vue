@@ -20,31 +20,32 @@
                 :class="$style['apartment__miniature']"
                 v-html="apartment.project.miniature_html"
               )
-      div(
-        ref="aside"
-        :class="{\
-          [$style['info__aside']]: true,\
-          [$style['info__aside--fixed']]: navigationIsFixed,\
-          [$style['info__aside--fixed-bottom']]: asideIsFixedBottom\
-        }"
-      )
-        catalog-apartment-card(:card="apartment")
-      div(:class="[$style['block'], $style['features']]")
+      client-only
+        div(
+          ref="aside"
+          :class="{\
+            [$style['info__aside']]: true,\
+            [$style['info__aside--fixed']]: $store.state.stickyNavigation,\
+            [$style['info__aside--fixed-bottom']]: asideIsFixedBottom\
+          }"
+        )
+          catalog-apartment-card(:card="apartment")
+      div(v-if="hasFeatures" :class="[$style['block'], $style['features']]")
         section(:class="$style['block-inner']")
-          h2 Additional features
+          h2 {{ $t('pages.apartments.additional_features') }}
           div(:class="$style['features__text']" v-html="apartment.additional_text")
           ul(:class="$style['features__list']")
-            li(:class="$style['features__list-item']")
-              span(:class="$style['features__list-item-key']") До пляжа
-              span(:class="$style['features__list-item-value']") {{ apartment.project.to_sea }}м
-            li(:class="$style['features__list-item']")
-              span(:class="$style['features__list-item-key']") До ресторана
-              span(:class="$style['features__list-item-value']") {{ apartment.project.to_rest }}м
-            li(:class="$style['features__list-item']")
-              span(:class="$style['features__list-item-key']") Начало строительства
+            li(v-if="apartment.project.to_sea" :class="$style['features__list-item']")
+              span(:class="$style['features__list-item-key']") {{ $t('pages.apartments.to_sea') }}
+              span(:class="$style['features__list-item-value']") {{ apartment.project.to_sea }}{{ $t('pages.apartments.m') }}
+            li(v-if="apartment.project.to_rest" :class="$style['features__list-item']")
+              span(:class="$style['features__list-item-key']") {{ $t('pages.apartments.to_rest') }}
+              span(:class="$style['features__list-item-value']") {{ apartment.project.to_rest }}{{ $t('pages.apartments.m') }}
+            li(v-if="apartment.project.start_building" :class="$style['features__list-item']")
+              span(:class="$style['features__list-item-key']") {{ $t('pages.apartments.start_building') }}
               span(:class="$style['features__list-item-value']") {{ apartment.project.start_building }}
-            li(:class="$style['features__list-item']")
-              span(:class="$style['features__list-item-key']") Сдача в эксплуатацию
+            li(v-if="apartment.project.end_building" :class="$style['features__list-item']")
+              span(:class="$style['features__list-item-key']") {{ $t('pages.apartments.end_building') }}
               span(:class="$style['features__list-item-value']") {{ apartment.project.end_building }}
             li(
               v-for="(advantage, index) in apartment.advantages"
@@ -53,16 +54,16 @@
             )
               span(:class="$style['features__list-item-key']") {{ advantage.title }}
               span(:class="$style['features__list-item-value']") {{ getAdvantageValue(advantage) }}
-      div(:class="[$style['block'], $style['equipment']]")
+      div(v-if="apartment.complete_sets.length" :class="[$style['block'], $style['equipment']]")
         section(:class="$style['block-inner']")
-          h2 Комплектация апартаментов
+          h2 {{ $t('pages.apartments.equipments') }}
           page-projects-infrastructure-slider(
             :data="{ items: apartment.complete_sets }"
             :padding="false"
           )
-      div(:class="[$style['block'], $style['tour']]")
-        h2 A tour of the apartment
-        page-projects-apartment-slider(:card="apartment")
+      //div(:class="[$style['block'], $style['tour']]")
+      //  h2 {{ $t('pages.apartments.photo_tour') }}
+      //  page-projects-apartment-slider(:card="apartment")
     div(:class="$style['block']")
       page-projects-similar-slider(:slider-data="[apartment,apartment,apartment,apartment]")
     base-subscribe(:subscribe-data="$t('footer.subscribe')" white-theme)
@@ -107,7 +108,7 @@ import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
       const apartment = await ctx.store.dispatch('Catalog/fetchApartment', ctx.params.id)
 
       // Show error page if has error in response
-      if (Object.keys(apartment).indexOf('error') !== -1) {
+      if (Object.keys(apartment || { error: '' }).indexOf('error') !== -1) {
         resolve(ctx.error({}))
       }
 
@@ -144,15 +145,20 @@ import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
 export default class PropertiesSlugApartmentsApartmentPage extends Vue {
   public svgPlanning: string = ''
 
-  public navigationIsFixed: boolean = false
   public asideIsFixedBottom: boolean = false
-
-  public onCheckNavigationSticky(status: boolean) {
-    this.navigationIsFixed = status
-  }
 
   get apartment(): IProjectApartment {
     return this.$store.getters['Catalog/getApartment'] as IProjectApartment
+  }
+
+  get hasFeatures(): boolean {
+    return (
+      this.apartment.project.to_sea ||
+      this.apartment.project.to_rest ||
+      this.apartment.project.start_building ||
+      this.apartment.project.end_building ||
+      this.apartment.advantages?.length
+    )
   }
 
   public getAdvantageValue(advantage: IProjectApartmentAdvantage) {
@@ -183,8 +189,10 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
   }
 
   public async mounted() {
-    this.$root.$on('navigation:sticky', this.onCheckNavigationSticky)
+    await this.$nextTick()
+
     document.addEventListener('scroll', this.onScroll)
+    this.onScroll()
 
     // Remove old class and set new class for styling a text in svg
     ;((this.$refs.svgPlanning as Element).querySelectorAll('text') || []).forEach((el: Element) => {
@@ -320,17 +328,17 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
     &--fixed
       top: 250px - 92px
 
-    &--fixed-bottom
-      position: absolute
-      bottom: 92px
-      top: auto
-
     @media (max-height: 700px)
       top: 120px
       padding: 32px 64px
 
     @media (max-width: 900px)
       position: static
+
+    &--fixed-bottom
+      position: absolute
+      bottom: 92px
+      top: auto
 
 .block
   margin: 0 auto
