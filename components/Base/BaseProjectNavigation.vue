@@ -48,7 +48,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'nuxt-property-decorator'
+import {Component, Prop, Vue, Watch} from 'nuxt-property-decorator'
 import { modalsTriggerMixin } from '~/mixins/modals'
 import TypoText from '~/components/Base/TypoText.vue'
 import { IProject } from '~/store/Catalog'
@@ -76,7 +76,6 @@ export default class BaseProjectNavigation extends Vue {
   public showMenu: boolean = false
 
   public onScroll() {
-    console.log(window.scrollY)
     if (window.scrollY >= 92) {
       this.prevFixedStatus && this.$store.commit('setStickyNavigation', true)
       this.prevFixedStatus = false

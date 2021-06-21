@@ -73,7 +73,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+import {Component, Vue, Watch} from 'nuxt-property-decorator'
 import { Context } from '@nuxt/types'
 import CatalogApartmentCard from '~/components/Catalog/CatalogApartmentCard.vue'
 import BaseProjectNavigation from '~/components/Base/BaseProjectNavigation.vue'
@@ -195,6 +195,7 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
 
   public async mounted() {
     await this.$nextTick()
+    this.$store.commit('setStickyNavigation', false)
 
     document.addEventListener('scroll', this.onScroll)
     this.onScroll()
@@ -306,7 +307,7 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
         -webkit-box-align: center
         align-items: center
 
-        img
+        svg
           max-width: 100%
           max-height: 100%
 

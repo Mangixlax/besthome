@@ -167,7 +167,24 @@ export default class HeroBuildingModalFloors extends Vue {
     })
   }
 
-  public onClickToApartment() {}
+  public onClickToApartment(event: Event) {
+    if (event.target) {
+      const target: Element = event.target as Element
+      this.getApartmentDataById(target.id)
+        .then((apartment: IProjectApartment) => {
+          this.$modal.hide(this.name)
+          this.$router.push(
+            this.localePath({
+              name: 'properties-slug-apartments-id',
+              params: {
+                id: apartment.id.toString(),
+              }
+            })
+          )
+        })
+        .catch(() => {})
+    }
+  }
 
   public onMouseEnterToApartment(event: Event) {
     if (event.target) {
@@ -351,14 +368,14 @@ export default class HeroBuildingModalFloors extends Vue {
     top: 50%
     left: 50%
     transform: translate(-50%, -50%)
-    height: calc(100vh - 300px)
-    max-height: 650px
+    height: 100vh
+    max-height: 100%
     max-width: 100%
 
   &-svg
     svg
-      height: calc(100vh - 300px)
-      max-height: 650px
+      height: 100vh
+      max-height: 100%
       position: absolute
       top: 50%
       left: 50%
@@ -371,9 +388,11 @@ export default class HeroBuildingModalFloors extends Vue {
 
         &:hover
           fill: $color-blue-80
+          cursor: pointer
 
         &.disabled
           fill: $color-black-32
+          cursor: default
 
 .floor__footer
   transition: all .3s ease 0s
