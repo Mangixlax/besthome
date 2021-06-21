@@ -105,7 +105,10 @@ import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
   async asyncData(ctx: Context): Promise<void | object> {
     return new Promise(async (resolve) => {
       // Fetch apartment data
-      const { apartment, similarApartments, error } = await ctx.store.dispatch('Catalog/fetchApartment', ctx.params.id)
+      const { apartment, similarApartments, error } = await ctx.store.dispatch(
+        'Catalog/fetchApartment',
+        ctx.params.id,
+      )
 
       // Show error page if has error in response
       if (error || Object.keys(apartment || { error: '' }).indexOf('error') !== -1) {
@@ -114,6 +117,7 @@ import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
 
       // Redirect to new apartment slug if project.slug and params.slug not equal
       if (apartment.project.slug !== ctx.params.slug) {
+        console.log('1')
         resolve(
           ctx.redirect(
             ctx.localePath({
@@ -154,11 +158,11 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
 
   get hasFeatures(): boolean {
     return (
-      this.apartment.project.to_sea ||
-      this.apartment.project.to_rest ||
-      this.apartment.project.start_building ||
-      this.apartment.project.end_building ||
-      this.apartment.advantages?.length
+      (this.apartment.project.to_sea as number) > 0 ||
+      (this.apartment.project.to_rest as number) > 0 ||
+      (this.apartment.project.start_building as string) !== '' ||
+      (this.apartment.project.end_building as string) !== '' ||
+      ((this.apartment.advantages || []).length as number) > 0
     )
   }
 

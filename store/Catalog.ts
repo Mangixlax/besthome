@@ -27,8 +27,8 @@ export interface IProject {
   miniature_html?: string
   filters?: IProjectApartmentsFilter
   total_area?: string
-  to_sea?: string
-  to_rest?: string
+  to_sea?: number
+  to_rest?: number
   location?: string
   start_building?: string
   end_building?: string
