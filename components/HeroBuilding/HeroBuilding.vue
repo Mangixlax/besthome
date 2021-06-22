@@ -244,14 +244,17 @@ export default class HeroBuilding extends Vue {
   padding: 24px
 
   &__container
+    position: relative
+    padding-bottom: 53%
     height: auto
     min-height: 0
 
   &__image
-    display: grid
+    position: absolute
+    top: 0
+    left: 0
     width: 100%
-    height: auto
-    position: relative
+    height: 100%
 
     &-desktop,
     &-mobile

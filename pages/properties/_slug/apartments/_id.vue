@@ -8,18 +8,40 @@
       div(:class="$style['apartment']")
         div(:class="$style['apartment__image']")
           div(:class="$style['apartment__image-background']")
-            div(:class="$style['apartment__image-background-inner']")
-              div(
-                ref="svgPlanning"
-                :class="$style['apartment__image-background-item']"
-                v-html="svgPlanning"
+            swiper(ref="swiper" :class="$style['slider']" class="swiper" :options="swiperOption")
+              swiper-slide(
+                :class="$style['slide']"
               )
-            div(:class="$style['apartment__footer']")
-              div(
-                ref="miniature"
-                :class="$style['apartment__miniature']"
-                v-html="apartment.project.miniature_html"
+                div(:class="$style['apartment__image-background-inner']")
+                  div(
+                    ref="svgPlanning"
+                    :class="$style['apartment__image-background-item']"
+                    v-html="svgPlanning"
+                  )
+              swiper-slide(
+                :class="$style['slide']"
               )
+                div(:class="$style['apartment__image-background-inner']")
+                  div(
+                    ref="svgPlanning"
+                    :class="$style['apartment__image-background-item']"
+                    v-html="svgPlanning"
+                  )
+              div(slot="pagination" :class="$style['navigation']")
+                div(:class="['swiper-pagination-progressbar', $style['swiper-pagination-progressbar']]")
+                  div(class="status-bar")
+                div(:class="$style['buttons']")
+                  button(:class="[$style['swiper-button-prev']]" @click.prevent="$refs.swiper.swiperInstance.slidePrev()")
+                    svg-icon(name="slider-prev-arrow-blue")
+                  button(:class="[$style['swiper-button-next']]" @click.prevent="$refs.swiper.swiperInstance.slideNext()")
+                    svg-icon(name="slider-next-arrow-blue")
+            div( :class="$style['apartment__footer']")
+              div(:class="$style['apartment__footer']")
+                div(
+                  ref="miniature"
+                  :class="$style['apartment__miniature']"
+                  v-html="apartment.project.miniature_html"
+                )
       client-only
         div(
           ref="aside"
@@ -89,6 +111,7 @@ import BaseSubscribe from '~/components/Base/BaseSubscribe.vue'
 import BaseAccordions from '~/components/Base/BaseAccordions.vue'
 import CommonConsultantSlider from '~/components/Common/CommonConsultantSlider.vue'
 import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 
 @Component({
   components: {
@@ -101,6 +124,8 @@ import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
     PageProjectsInfrastructureSlider,
     BaseProjectNavigation,
     CatalogApartmentCard,
+    Swiper,
+    SwiperSlide
   },
   async asyncData(ctx: Context): Promise<void | object> {
     return new Promise(async (resolve) => {
@@ -151,6 +176,16 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
   public svgPlanning: string = ''
 
   public asideIsFixedBottom: boolean = false
+
+  public swiperOption: Object = {
+    slidesPerView: 'auto',
+    centeredSlides: true,
+    spaceBetween: 128,
+    pagination: {
+      el: '.swiper-pagination-progressbar',
+      type: 'progressbar'
+    }
+  }
 
   get apartment(): IProjectApartment {
     return this.$store.getters['Catalog/getApartment'] as IProjectApartment
@@ -239,9 +274,20 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
   position: relative
   background: $color-black-4
   user-select: none
-
+  
+  @media (max-width: 1300px)
+    height: 100%
+    padding: 0 8px
+    
   &__footer
     display: flex
+    flex-direction: column
+    grid-gap: 8px
+    position: absolute
+    bottom: 207px
+
+    @media (max-width: 1300px)
+      bottom: 95px
 
   &__layout
     height: 60px
@@ -274,26 +320,36 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
   &__image
     box-sizing: border-box
     overflow: hidden
-    position: absolute
     top: 80px
     right: 0
     height: 100%
     width: 100%
 
+    @media (min-width: 1300px)
+        position: absolute
+
     &-background
       box-sizing: border-box
-      position: absolute
       top: 0
       right: calc((100vw - 1250px) / 2)
-      width: 696px
+      max-width: 696px
+      width: 100%
       height: 100%
       padding: 16px
+
+      @media (min-width: 1300px)
+        position: absolute
+
+      @media (max-width: 1300px)
+        padding: 34px 24px
+        position: relative
+        right: initial
+        top: initial
+        margin: 0 auto
 
       &-inner
         box-sizing: border-box
         width: 100%
-        height: 100%
-        max-height: 600px
 
       &-item
         box-sizing: border-box
@@ -309,7 +365,7 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
 
         svg
           max-width: 100%
-          max-height: 100%
+          max-height: 600px
 
 .info
   margin: 0 auto
@@ -319,7 +375,8 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
 
   &__aside
     height: auto
-    width: 456px
+    max-width: 456px
+    width: 100%
     background-color: $color-white-100
     box-sizing: border-box
     z-index: 1
@@ -331,21 +388,26 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
     transition-property: top
     left: calc(50% - 630px)
 
-    &--fixed
-      top: 250px - 92px
 
     @media (max-height: 700px)
       top: 120px
       padding: 32px 64px
 
-    @media (max-width: 900px)
+    @media (max-width: 1300px)
       position: static
+      margin: 0 auto
+      padding: 32px
 
-    &--fixed-bottom
-      position: absolute
-      bottom: 92px
-      top: auto
+    @media (min-width: 1300px)
 
+      &--fixed-bottom
+        position: absolute
+        bottom: 92px
+        top: auto
+
+      &--fixed
+        top: 250px - 92px
+        
 .block
   margin: 0 auto
   max-width: 1248px
@@ -419,4 +481,57 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
   +style-6
   font-size: 6px
   color: $color-black-100
+
+.slider
+  display: flex
+  flex-direction: column
+  grid-gap: 80px
+  
+  @media (max-width: 1300px)
+    margin-bottom: 40px
+
+.navigation
+  width: 100%
+  margin: 32px auto
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+.swiper-pagination-progressbar
+  position: relative !important
+  height: 2px
+  flex: 1 1 auto
+  position: relative
+  background: $color-blue-4
+  max-width: 860px
+  width: 100%
+
+.swiper-button-prev
+  display: block
+  margin-left: auto
+  outline: none
+  padding: 0
+  background-color: transparent
+  border: none
+
+  svg
+    width: 32px
+    height: 32px
+
+.swiper-button-next
+  display: block
+  margin-right: auto
+  outline: none
+  padding: 0
+  background-color: transparent
+  border: none
+
+  svg
+    width: 32px
+    height: 32px
+
+.buttons
+  margin-left: 24px
+  display: flex
+  grid-gap: 24
 </style>
