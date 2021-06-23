@@ -107,7 +107,7 @@ export default class BaseProjectNavigation extends Vue {
   position: sticky
   top: 0
   background-color: $color-white-100
-  z-index: 8
+  z-index: 30
 
   &__container
     display: flex

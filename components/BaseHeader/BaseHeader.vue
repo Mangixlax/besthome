@@ -44,7 +44,7 @@ export default class BaseHeader extends Vue {
   height: 92px
   position: relative
   background-color: $color-white
-  z-index: 10
+  z-index: 35
 
   &--sticky
     position: sticky
