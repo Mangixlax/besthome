@@ -1,5 +1,5 @@
 <template lang="pug">
-  div(:class="$style['cookies']" v-show="isCardShow" )
+  div(v-if="isCardShow" :class="$style['cookies']")
     typo-text(
       tag="p"
       version="style-2"
@@ -26,7 +26,7 @@
         tag="button"
         version="style-7"
         :class="$style['cookies__decline']"
-        @click="onClickAccept"
+        @click="onClickDecline"
       ) {{ $t('footer.cookies.decline')}}
 </template>
 
@@ -40,10 +40,40 @@ import { Component, Vue } from 'nuxt-property-decorator'
   },
 })
 export default class BaseCookiesCard extends Vue {
-  public isCardShow: boolean = true
+  public isCardShow: boolean = false
+
+  public cookieAlreadyShowedName: string = 'cookies_already_showed'
+
+  public cookieAcceptedName: string = 'cookies_accepted'
+
+  public defaultCookiesOptions: any = {
+    maxAge: 2419200, // one month
+    path: '/', // set cookie to all pages on this site
+  }
+
+  public hideBlock() {
+    this.isCardShow = false
+    this.$cookies.set(this.cookieAlreadyShowedName, 'true', this.defaultCookiesOptions)
+  }
+
+  public showBlock() {
+    this.isCardShow = true
+  }
 
   public onClickAccept() {
-    this.isCardShow = !this.isCardShow
+    this.hideBlock()
+    this.$cookies.set(this.cookieAcceptedName, 'true', this.defaultCookiesOptions)
+  }
+
+  public onClickDecline() {
+    this.hideBlock()
+    this.$cookies.set(this.cookieAcceptedName, 'false', this.defaultCookiesOptions)
+  }
+
+  public mounted() {
+    if (this.$cookies.get(this.cookieAlreadyShowedName) !== true) {
+      this.showBlock()
+    }
   }
 }
 </script>
@@ -59,9 +89,8 @@ export default class BaseCookiesCard extends Vue {
   flex-direction: column
   grid-gap: 24px
   max-width: 325px
-  background: rgba(255, 255, 255, 0.96)
+  background: $color-white-100
   box-shadow: 0 24px 32px -8px rgba(0, 0, 0, 0.12)
-  backdrop-filter: blur(20px)
   z-index: 30
 
   & > p
