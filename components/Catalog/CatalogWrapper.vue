@@ -86,12 +86,21 @@ export default class CatalogWrapper extends Vue {
         name: 'modal-mobile-filter',
         modal: () => import('~/components/Modal/MobileFilter/ModalMobileFilter.vue'),
         options: {
-          width: '100%',
-          height: 'auto',
+          height: '100%',
         },
         props: {
           whiteMode: true,
         },
+        events: {
+          'before-open': () => {
+            document.documentElement.classList.add('modal-fullwidth-is-open')
+          },
+          'before-close': () => {
+            if (document.body.getElementsByClassName('vm--container').length <= 1) {
+              document.documentElement.classList.remove('modal-fullwidth-is-open')
+            }
+          },
+        }
       })
     }
   }

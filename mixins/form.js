@@ -91,8 +91,7 @@ export const formMixin = {
           this.recaptchaIsValid = false
           this.form.recaptcha = ''
           this.showFinishStep = true
-          this.$modal.hide(this.name)
-          this.showFinishModal()
+          this.afterSuccess()
         }, 1)
         // this.$axios
         //   .$post(this.apiMethod, this.form)
@@ -139,10 +138,10 @@ export const formMixin = {
       if (value) {
         if ('hideTimerStart' in this) {
           this.hideTimerStart(() => {
-            this.$modal.hide(this.name)
+            this.$modal.hideAll()
             this.showFinishStep = false
             this.afterFinish()
-          }, 6)
+          }, 100)
         } else {
           this.showFinishStep = false
           this.afterFinish()

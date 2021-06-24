@@ -1,23 +1,24 @@
 <template lang="pug">
   section(:class="[$style['image-title'], large && $style['large']]")
-    div(
-      :style="{ backgroundImage: `url(${ filename })` }"
-      :class="$style['image-title__container']"
-    )
-      div(v-if="imageTitleData" :class="$style['image-title__title']")
-        typo-text(
-          tag="h1"
-          version="style-1"
-          :class="$style['image-title__title-header']"
-        ) {{ imageTitleData.header }}
-        typo-text(
-          v-for="(paragraph, i) in imageTitleData.text"
-          :key="i"
-          tag="p"
-          version="style-5"
-          :class="$style['image-title__title-text']"
-        ) {{ paragraph }}
-    div(:class="$style['image-title__undertext']")
+    div(:class="$style['image-title__box']") 
+      div(
+        :style="{ backgroundImage: `url(${ filename })` }"
+        :class="$style['image-title__container']"
+      )
+        div(v-if="imageTitleData" :class="$style['image-title__title']")
+          typo-text(
+            tag="h1"
+            version="style-1"
+            :class="$style['image-title__title-header']"
+          ) {{ imageTitleData.header }}
+          typo-text(
+            v-for="(paragraph, i) in imageTitleData.text"
+            :key="i"
+            tag="p"
+            version="style-5"
+            :class="$style['image-title__title-text']"
+          ) {{ paragraph }}
+      div(:class="$style['image-title__undertext']")
 </template>
 
 <script lang="ts">
@@ -36,6 +37,8 @@ export default class BaseImageTitle extends Vue {
 .image-title
   width: 100%
 
+  &__box
+    
   &__container
     display: flex
     align-items: center

@@ -95,6 +95,7 @@
               ) {{ $t('modals.get_callback.feedback.label_checkbox_1.link') }}
               | .
             label(:class="$style['get-callback__feedback-label']")
+              |
               input(
                 name="news"
                 :value="2"
@@ -125,7 +126,7 @@
           :show-finish-step="showFinishStep"
           v-on:my-event="onClickToMap"
           @click-to-contact="onClickToContact"
-        )
+        ) 
 </template>
 
 <script>
@@ -196,27 +197,22 @@ export default {
     closeModal() {
       this.$modal.hide('modal-get-callback')
     },
-    updateDescription() {
-      if (!this.showFinishStep) {
-        this.description = this.$t('modals.subscribe.description_1')
-      } else if (this.form.full_name) {
-        this.description =
-          this.form.full_name + ', ' + this.$t('modals.subscribe.description_2').toLowerCase()
-      } else {
-        this.description = this.$t('modals.subscribe.description_2')
-      }
-    },
-    afterFinish() {
-      this.form.full_name = ''
-      this.form.email = ''
-    },
+    // updateDescription() {
+    //   if (!this.showFinishStep) {
+    //     this.description = this.$t('modals.subscribe.description_1')
+    //   } else if (this.form.full_name) {
+    //     this.description =
+    //       this.form.full_name + ', ' + this.$t('modals.subscribe.description_2').toLowerCase()
+    //   } else {
+    //     this.description = this.$t('modals.subscribe.description_2')
+    //   }
+    // },
+
     afterSuccess() {
-     this.$ym.reachGoal('order-subscribe-to-offers')
-     this.$ga.event({
-       eventCategory: 'Заявка',
-       eventAction: 'Рассылка',
-     })
+      this.$modal.hide(this.name)
+      this.showFinishModal()
     },
+
     onClickToPrivacy() {
       this.$modal.hide(this.name);
       this.$router.push(this.localePath('privacy-policy'));
@@ -230,8 +226,21 @@ export default {
         name: 'finish-modal',
         modal: () => import('~/components/Modal/base/ModalFinishStep.vue'),
         options: {
-          width: 600,
+          width: 864,
           height: "auto"
+        },
+        props: {
+          fullName: this.$v.form.full_name.$model,
+        },
+        events: {
+          'before-open': () => {
+            document.documentElement.classList.add('modal-finish-is-open')
+          },
+          'before-close': () => {
+            if (document.body.getElementsByClassName('vm--container').length <= 1) {
+              document.documentElement.classList.remove('modal-finish-is-open')
+            }
+          },
         }
       })
     },
@@ -245,6 +254,7 @@ export default {
 <style lang="sass" module>
 .get-callback
   width: 100%
+  padding: 64px
 
   &__container
     max-width: 912px

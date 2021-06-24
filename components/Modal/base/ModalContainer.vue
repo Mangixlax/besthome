@@ -67,7 +67,8 @@ export default {
   align-items: flex-start
   z-index: 100
   flex-direction: column
-
+  width: 100%
+  height: 100%
   h2
     margin-top: 0
     margin-bottom: 16px
@@ -86,6 +87,7 @@ export default {
       display: flex
       justify-content: space-between
       align-items: center
+      position: relative
       z-index: 1
 
   &__close
@@ -105,6 +107,7 @@ export default {
   &__body
     position: relative
     width: 100%
+    height: 100%
     flex-direction: column
 
     +mobile
