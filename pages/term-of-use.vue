@@ -13,8 +13,9 @@
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
 
 export default {
-  name: 'privacy-policy',
+  name: 'term-of-use',
   components: {
+    TypoText,
     BaseTextContainer,
   },
 }
