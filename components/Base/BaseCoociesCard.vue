@@ -1,25 +1,26 @@
 <template lang="pug">
-  section(:class="$style['coocies__card']" v-show="isCardShow" )
-    typo-text(
-      tag="p"
-      version="style-2"
-      :class="$style['coocies__card-title']"
-    ) {{ $t('footer.coocies.title')}}
-    typo-text(
-      tag="p"
-      version="style-8"
-      :class="$style['coocies__card-text']"
-    ) {{ $t('footer.coocies.text')}}
+  section(:class="$style['track']")
+    div(:class="$style['coocies__card']" v-show="isCardShow" )
       typo-text(
-        :to="localePath('term-of-use')"
-        title="privacy-policy"
-        tag="nuxt-link"
+        tag="p"
+        version="style-2"
+        :class="$style['coocies__card-title']"
+      ) {{ $t('footer.coocies.title')}}
+      typo-text(
+        tag="p"
         version="style-8"
-        :class="$style['coocies__card-text--underline']"
-      ) {{ $t('footer.coocies.link')}}
-    div()
-      button(:class="$style['coocies__card-accept']" @click="hideCard") {{ $t('footer.coocies.accept')}}
-      button(:class="$style['coocies__card-decline']" @click="hideCard") {{ $t('footer.coocies.decline')}}
+        :class="$style['coocies__card-text']"
+      ) {{ $t('footer.coocies.text')}}
+        typo-text(
+          :to="localePath('term-of-use')"
+          title="privacy-policy"
+          tag="nuxt-link"
+          version="style-8"
+          :class="$style['coocies__card-text--underline']"
+        ) {{ $t('footer.coocies.link')}}
+      div()
+        button(:class="$style['coocies__card-accept']" @click="hideCard") {{ $t('footer.coocies.accept')}}
+        button(:class="$style['coocies__card-decline']" @click="hideCard") {{ $t('footer.coocies.decline')}}
 </template>
 
 <script>
@@ -44,7 +45,12 @@ export default {
 </script>
 
 <style lang="sass" module>
+.track
+  height: 100%
+  
 .coocies__card
+  position: sticky
+  top: 91px
   width: 100%
   padding: 24px 32px
   display: flex

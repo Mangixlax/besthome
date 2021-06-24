@@ -29,10 +29,12 @@ export default class Footer extends Vue {}
 
 <style lang="sass" module>
 .footer
+  position: relative
   width: 100%
   background: $color-black-8
 
 .coocies
-  position: sticky
-  top: 91px
+  position: absolute
+  top: -367px
+  
 </style>
