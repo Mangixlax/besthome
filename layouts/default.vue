@@ -1,5 +1,6 @@
 <template lang="pug">
   div
+    base-coocies-card(:class="$style['coocies']")
     top-line-select-country(v-if="!topLineLocaleIsHidden")
     top-line(v-if="!topLineIsHidden" @close="onToggleHiddenMode")
     base-header
@@ -12,6 +13,7 @@
 <script lang="ts">
 import $ from 'jquery'
 import Vue from 'vue'
+import BaseCoociesCard from '~/components/Base/BaseCoociesCard.vue'
 import {Component, Mutation, namespace, Watch} from 'nuxt-property-decorator'
 import { SettingsTopLineState } from '~/store/SettingsTopLine'
 import { ActionTree, MutationTree } from 'vuex'
@@ -27,6 +29,7 @@ const SettingsTopLineStore = namespace('SettingsTopLine')
 
 @Component({
   components: {
+    BaseCoociesCard,
     TopLineSelectCountry,
     TopLine,
     BaseHeader,
@@ -96,6 +99,11 @@ export default class DefaultLayout extends Vue {
 </script>
 
 <style lang="sass" module>
+.coocies
+  position: fixed
+  bottom: 48px
+  right: 48px
+
 @keyframes opacity
   0%
     opacity: 0
