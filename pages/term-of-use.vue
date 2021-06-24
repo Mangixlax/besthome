@@ -2,8 +2,8 @@
   base-text-container(
     :data="{\
        text: [\
-          `<h3>${$t('pages.privacy-policy.title')}</h3>`,\
-          ...$t('pages.privacy-policy.text').map((p) => `<p>${p}<p>`)\
+          `<h3>${$t('pages.term-of-use.title')}</h3>`,\
+          ...$t('pages.term-of-use.text').map((p) => `<p>${p}<p>`)\
         ].join('')\
     }"
   )

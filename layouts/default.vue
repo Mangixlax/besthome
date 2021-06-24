@@ -101,7 +101,7 @@ export default class DefaultLayout extends Vue {
 <style lang="sass" module>
 .coocies
   position: fixed
-  bottom: 48px
+  bottom: 24px
   right: 48px
 
 @keyframes opacity
