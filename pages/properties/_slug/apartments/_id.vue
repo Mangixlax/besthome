@@ -284,7 +284,7 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
     flex-direction: column
     grid-gap: 8px
     position: absolute
-    bottom: 207px
+    bottom: 65px
 
     @media (max-width: 1300px)
       bottom: 95px
@@ -334,7 +334,6 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
       right: calc((100vw - 1250px) / 2)
       max-width: 696px
       width: 100%
-      height: 100%
       padding: 16px
 
       @media (min-width: 1300px)
