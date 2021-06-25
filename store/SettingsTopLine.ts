@@ -12,7 +12,7 @@ const SettingTopLineLocaleCookieName = 'top_line_locale_hidden'
  * States
  */
 export const state = () => ({
-  hidden: false,
+  hidden: true,
   localeHidden: false,
 })
 

@@ -1,6 +1,5 @@
 <template lang="pug">
   div
-    base-coocies-card(:class="$style['coocies']")
     top-line-select-country(v-if="!topLineLocaleIsHidden")
     top-line(v-if="!topLineIsHidden" @close="onToggleHiddenMode")
     base-header
@@ -8,12 +7,13 @@
     Footer(:class="$style['transition-effect']")
     base-header-mobile
     cursor-mover(v-if="!isTouchDevice")
+    base-cookies-card
 </template>
 
 <script lang="ts">
 import $ from 'jquery'
 import Vue from 'vue'
-import BaseCoociesCard from '~/components/Base/BaseCoociesCard.vue'
+import BaseCookiesCard from '~/components/Base/BaseCookiesCard.vue'
 import {Component, Mutation, namespace, Watch} from 'nuxt-property-decorator'
 import { SettingsTopLineState } from '~/store/SettingsTopLine'
 import { ActionTree, MutationTree } from 'vuex'
@@ -29,7 +29,7 @@ const SettingsTopLineStore = namespace('SettingsTopLine')
 
 @Component({
   components: {
-    BaseCoociesCard,
+    BaseCookiesCard,
     TopLineSelectCountry,
     TopLine,
     BaseHeader,
@@ -46,15 +46,6 @@ export default class DefaultLayout extends Vue {
     SettingsTopLineState,
     RootState
   >
-
-  //@Watch('$route')
-  //onRouteChange(value: any) {
-  //  console.log(value, this.$root._dynamicContainer.modals);
-  //   this.$root._dynamicContainer.modals.forEach((modal: any) => {
-  //      this.$root._dynamicContainer.remove(modal.id)
-  //   })
-  //  //this.$modal.hideAll()
-  //}
 
   @Mutation('detectTouchDevice') detectTouchDevice!: MutationTree<RootState> | any
 
@@ -99,11 +90,6 @@ export default class DefaultLayout extends Vue {
 </script>
 
 <style lang="sass" module>
-.coocies
-  position: fixed
-  bottom: 24px
-  right: 48px
-
 @keyframes opacity
   0%
     opacity: 0

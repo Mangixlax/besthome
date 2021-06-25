@@ -30,7 +30,7 @@ export default class Footer extends Vue {}
   width: 100%
   background: $color-black-8
 
-.coocies
+.cookies
   position: absolute
   top: -367px
 
