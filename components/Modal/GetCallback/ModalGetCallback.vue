@@ -168,6 +168,7 @@ export default {
   validations: {
     form: {
       name: {
+        required,
         minLength: minLength(5),
       },
       phone_or_email: {
