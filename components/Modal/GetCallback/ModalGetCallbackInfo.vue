@@ -49,18 +49,23 @@
       svg-icon(name="link-arrow")
     typo-text(
       tag="div"
-      version="style-8"
+      version="style-7"
       :class="$style['get-callback__info-office']"
     ) {{ $t('modals.get_callback.info.office') }}
+    typo-text(
+      tag="div"
+      version="style-8"
+      :class="$style['get-callback__info-text']"
+    ) {{ $t('modals.get_callback.info.work_time') }}
     div(:class="$style['get-callback__info-link']")
       typo-text(
         tag="p"
-        version="style-5"
+        version="style-6"
         :class="$style['get-callback__info-link-text']"
       ) {{ $t('modals.get_callback.info.link.text') }}
       typo-text(
         tag="a"
-        version="style-5"
+        version="style-6"
         :href="localePath('contacts')"
         title="contacts"
         @click.prevent="$emit('my-event')"
@@ -162,12 +167,17 @@ export default {
         stroke: $color-black-100
 
     &-office
+      margin-bottom: 0.5em
+      color: $color-black-72
+
+    &-text
       color: $color-black-72
       margin-bottom: 12px
 
     &-link
       display: flex
       align-items: center
+      color: $color-black-100
 
       &-text
         margin: 0

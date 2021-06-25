@@ -1303,7 +1303,8 @@
           "name": "Anna Larina",
           "position": "Sales Director",
           "languages": "Russian, English, Turkish, Latvian, French",
-          "office": "Cikcilli mahallesi, Tugayoğlu sokak, №18/1, Alanya 07400, Antalya, Türkiye Monday-Saturday, from 9:00 to 18:00",
+          "office": "Cikcilli mahallesi, Tugayoğlu sokak, №18/1, Alanya 07400, Antalya, Türkiye",
+          "work_time": "Monday-Saturday, from 9:00 to 18:00",
           "link": {
             "text": "More",
             "link": "view map",
