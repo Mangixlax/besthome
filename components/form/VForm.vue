@@ -1,6 +1,6 @@
 <template lang="pug">
   form(:class="$style['form']" @submit.prevent)
-    slot(v-if="!finished")
+    slot()
 
     div(v-if="!finished" :class="$style['form__footer']")
       slot(name="footer")
@@ -43,7 +43,7 @@ export default {
   name: 'VForm',
   mixins: [navigationExtends],
   components: {
-    TypoText
+    TypoText,
   },
   props: {
     description: {

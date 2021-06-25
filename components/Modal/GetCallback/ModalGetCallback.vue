@@ -20,12 +20,11 @@
           v-form(
             :description="description"
             :finished="showFinishStep"
-            :submit-name="$t('modals.subscribe.submit')"
           )
             v-form-input(
               :class="$style.line"
-              v-model="$v.form.full_name.$model"
-              :valid="!$v.form.full_name.$error"
+              v-model="$v.form.name.$model"
+              :valid="!$v.form.name.$error"
             )
               span {{ $t('modals.get_callback.feedback.label_name') }}
             v-form-input(
@@ -48,15 +47,15 @@
 
             v-form-input(
               :class="$style.line"
-              v-model="$v.form.building.$model"
-              :valid="!$v.form.building.$error"
+              v-model="$v.form.block.$model"
+              :valid="!$v.form.block.$error"
             )
               span {{ $t('modals.get_callback.feedback.label_building.main') }}
                 span {{ $t('modals.get_callback.feedback.label_building.support') }}
             v-form-input(
               :class="$style.line"
-              v-model="$v.form.rooms.$model"
-              :valid="!$v.form.rooms.$error"
+              v-model="$v.form.number_of_rooms.$model"
+              :valid="!$v.form.number_of_rooms.$error"
             )
               span {{ $t('modals.get_callback.feedback.label_rooms.main') }}
                 span {{ $t('modals.get_callback.feedback.label_rooms.support') }}
@@ -115,6 +114,12 @@
               @error="onRecaptchaError"
               @expired="onRecaptchaError"
             )
+            typo-text(
+              v-if="isError"
+              tag="p"
+              version="style-8"
+              :class="$style['error']"
+            ) {{ $t('modals.error.title') }}
             v-button(
               v-if="isBusy || !isShowRecaptcha"
               @click="showRecaptcha"
@@ -144,8 +149,14 @@ import { modalsTriggerMixin } from '~/mixins/modals'
 export default {
   name: 'ModalGetCallback',
   components: { VFormInput, VForm, ModalContainer, VButton, TypoText, ModalGetCallbackInfo },
-  mixins: [validationMixin, formDescriptionTimerMixin, formMixin, formPhoneMixin, modalsTriggerMixin],
-  
+  mixins: [
+    validationMixin,
+    formDescriptionTimerMixin,
+    formMixin,
+    formPhoneMixin,
+    modalsTriggerMixin,
+  ],
+
   props: {
     name: {
       // Modal id
@@ -153,10 +164,10 @@ export default {
       default: '',
     },
   },
-  
+
   validations: {
     form: {
-      full_name: {
+      name: {
         minLength: minLength(5),
       },
       phone_or_email: {
@@ -164,15 +175,9 @@ export default {
         email,
         minLength: minLength(5),
       },
-      project: {
-        minLength: minLength(5),
-      },
-      building: {
-        minLength: minLength(5),
-      },
-      rooms: {
-        minLength: minLength(5),
-      },
+      project: {},
+      block: {},
+      number_of_rooms: {},
       message: {
         minLength: minLength(5),
       },
@@ -181,72 +186,88 @@ export default {
   data() {
     return {
       form: {
-        full_name: '',
+        name: '',
         phone_or_email: '',
         project: '',
-        building: '',
-        rooms: '',
+        block: '',
+        number_of_rooms: '',
         message: '',
       },
       apiMethod: 'v1/forms/newSubscriber',
       selectedCheckboxes: [],
-      description: ''
+      description: '',
+      userName: '',
+      isError: false,
     }
   },
   methods: {
     closeModal() {
       this.$modal.hide('modal-get-callback')
     },
-    // updateDescription() {
-    //   if (!this.showFinishStep) {
-    //     this.description = this.$t('modals.subscribe.description_1')
-    //   } else if (this.form.full_name) {
-    //     this.description =
-    //       this.form.full_name + ', ' + this.$t('modals.subscribe.description_2').toLowerCase()
-    //   } else {
-    //     this.description = this.$t('modals.subscribe.description_2')
-    //   }
-    // },
 
     afterSuccess() {
-      this.$modal.hide(this.name)
-      this.showFinishModal()
+      this.onSubmit()
+    },
+
+    onSubmit() {
+      this.userName = this.$v.form.name.$model
+      this.$axios
+        .$post('v1/forms', {
+          ...this.form,
+          form_code: 'feedback',
+        })
+        .then((result) => {
+          if (result.status === 200) {
+            console.log(this.form.name)
+            this.showFinishModal()
+            this.isError = false
+          } else {
+            this.isError = true
+          }
+        })
+        .catch((result) => {
+          this.isError = true
+        })
     },
 
     onClickToPrivacy() {
-      this.$modal.hide(this.name);
-      this.$router.push(this.localePath('privacy-policy'));
+      this.$modal.hide(this.name)
+      this.$router.push(this.localePath('privacy-policy'))
     },
     onClickToMap() {
-      this.$modal.hide(this.name);
-      this.$router.push(this.localePath('contacts'));
+      this.$modal.hide(this.name)
+      this.$router.push(this.localePath('contacts'))
     },
     showFinishModal() {
+      this.$modal.hide(this.name)
       this.showModal({
         name: 'finish-modal',
         modal: () => import('~/components/Modal/base/ModalFinishStep.vue'),
         options: {
           width: 864,
-          height: "auto"
+          height: 'auto',
         },
         props: {
-          fullName: this.$v.form.full_name.$model,
+          fullName: this.userName,
+          title: this.$t('modals.get_callback.finish_modal.title'),
+          text: this.$t('modals.get_callback.finish_modal.text'),
         },
         events: {
-          'before-open': () => {
+          opened: () => {
             document.documentElement.classList.add('modal-finish-is-open')
           },
-          'before-close': () => {
+          closed: () => {
             if (document.body.getElementsByClassName('vm--container').length <= 1) {
               document.documentElement.classList.remove('modal-finish-is-open')
             }
           },
-        }
-      })
+        },
+      }),
+        this.onSubmit()
     },
     onClickToContact() {
-      this.$modal.hide(this.name);
-    }
+      this.$modal.hide(this.name)
+    },
   },
 }
 </script>
@@ -332,4 +353,7 @@ export default {
 
   +mobile
     margin-bottom: 16px
+
+.error
+  color: red
 </style>

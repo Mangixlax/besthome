@@ -12,17 +12,17 @@
         tag="div"
         version="style-4"
         :class="$style['modal__finish-title']"
-      ) Thank you, expect a response
+      ) {{ title }}
       typo-text(
         tag="div"
         version="style-5"
         :class="$style['modal__finish-text']"
-      ) {{ fullName }} our agent is already studying the questionnaire and will contact you very soon at the specified phone number, as well as compose and send an email.
+      ) {{ fullName }} {{ text }}
       typo-text(
         tag="div"
         version="style-5"
         :class="$style['modal__finish-text']"
-      ) This window will close after {{ hideTimerSeconds }} sec.
+      ) {{ $t('modals.finish_modal.timer') }} {{ hideTimerSeconds }} {{ $t('modals.finish_modal.sec') }}
 </template>
 
 <script>
@@ -36,7 +36,7 @@ export default {
     TypoText,
     ModalContainer,
   },
-  mixins: [ formDescriptionTimerMixin, formMixin, formPhoneMixin,],
+  mixins: [formDescriptionTimerMixin, formMixin, formPhoneMixin],
   data() {
     return {
       hideTimer: null,
@@ -45,6 +45,14 @@ export default {
   },
   props: {
     name: {
+      type: String,
+      default: '',
+    },
+    title: {
+      type: String,
+      default: '',
+    },
+    text: {
       type: String,
       default: '',
     },
@@ -59,7 +67,7 @@ export default {
       this.showFinishStep = false
       this.afterFinish()
     }, 9)
-  }
+  },
 }
 </script>
 
@@ -72,13 +80,13 @@ export default {
   &-title
     margin-top: 32px
     margin-bottom: 24px
-    
+
   &-text
     margin-bottom: 24px
 
 .modal__header-space
   height: 48px
-  
+
 .modal__body
   margin-top: 24px
 </style>

@@ -77,6 +77,7 @@ export default <NuxtConfig>{
     '~plugins/slider-swiper.js',
     '~plugins/v-click-outside.js',
     '@/plugins/axios.js',
+    '@/plugins/vuelidate.js',
     '@/plugins/i18n.ts',
     { src: '~plugins/vue-scrollmagic.js', ssr: false },
     {

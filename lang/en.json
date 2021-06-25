@@ -1310,19 +1310,28 @@
             "link": "view map",
             "route": "contacts"
           }
+        },
+        "finish_modal": {
+          "title": "Спасибо, ожидайте ответа",
+          "text": ", наш агент уже изучает анкету и в ближайшее время свяжется с вами по указанному номеру телефона, а также составит и отправит электронное письмо."
         }
       },
       "video": "Click<br>to close",
       "subscribe": {
-        "title": "Newsletter subscription",
+        "title": "You signed up!",
+        "text": "You will receive the newsletter and be the first to know about the hot offers!",
         "title_success": "You have subscribed!",
         "submit": "Accept",
         "description_1": "Subscribe to our newsletter and be the first to know about hot offers!",
         "description_2": "You will receive our newsletter and be the first to know about hot offers!"
       },
-      "full_name_input": "Surname, Name and Patronymic",
-      "phone_input": "Actual phone number",
-      "email_input": "Email for notifications",
-      "sending": "Sending..."
+      "sending": "Sending...",
+      "finish_modal": {
+        "timer": "This window will close after",
+        "sec": "sec."
+      },
+      "error": {
+        "title": "An error occured. Please try again..."
+      }
     }
   }

@@ -10,21 +10,27 @@
             version="style-4"
             :class="$style['subscribe__textbox-text']"
           ) {{ subscribeData.title }}
-        form(:class="$style['subscribe__formbox']")
+        
+        form(:class="$style['subscribe__formbox']" @submit.prevent="onSubmit")
           div(:class="$style['subscribe__mailing']")
             input(
+              v-model="$v.form.phone_or_email.$model"
               type="text"
               name="email"
-              id="email"
               :placeholder="getPlaceholderValue()"
               :class="$style['subscribe__mailing-email']"
               required
             )
             button(
               type="submit"
-              id="submit"
               :class="$style['subscribe__mailing-submit']"
             ) {{ subscribeData.submit }}
+          typo-text(
+            v-if="isError"
+            tag="p"
+            version="style-8"
+            :class="$style['error']"
+          ) {{ $t('modals.error.title') }}
           div(:class="$style['subscribe__agreement']")
             label(:class="$style['subscribe__agreement-label']")
               input(
@@ -55,9 +61,22 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
 import TypoText from '~/components/Base/TypoText.vue'
+import { email, required, minLength } from 'vuelidate/lib/validators'
+import { formMixin, formPhoneMixin, formDescriptionTimerMixin } from '@/mixins/form.js'
+import { modalsTriggerMixin } from '~/mixins/modals'
 
 @Component({
   components: { TypoText },
+  mixins: [formDescriptionTimerMixin, formMixin, formPhoneMixin, modalsTriggerMixin],
+  validations: {
+    form: {
+      phone_or_email: {
+        required,
+        email,
+        minLength: minLength(5),
+      },
+    },
+  },
 })
 export default class BaseBreadCrumbs extends Vue {
   @Prop({ type: Boolean, default: false })
@@ -68,6 +87,59 @@ export default class BaseBreadCrumbs extends Vue {
 
   public isWhiteTheme: boolean = this.whiteTheme
 
+  public isError: boolean = false
+
+  public form: { phone_or_email: string } = {
+    phone_or_email: ''
+  }
+
+  public onSubmit() {
+    this.$axios.$post('v1/forms', {
+      ...this.form,
+      form_code: 'subscribe_to_news',
+    })
+    .then((result) => {
+      console.log('открываем модалку с сообщением об успешной отправке', result);
+      if (result.status === 200) {
+        this.showFinishModal()
+      } else {
+        this.isError = true
+      }
+    })
+    .catch((result) => {
+      this.isError = true
+    })
+  }
+  
+  public showError() {
+
+  }
+
+  public showFinishModal() {
+    this.showModal({
+      name: 'finish-modal',
+      modal: () => import('~/components/Modal/base/ModalFinishStep.vue'),
+      options: {
+        width: 864,
+        height: "auto"
+      },
+      props: {
+        title: this.$t('modals.subscribe.title'),
+        text: this.$t('modals.subscribe.text'),
+      },
+      events: {
+        'opened': () => {
+          document.documentElement.classList.add('modal-finish-is-open')
+          
+        },
+        'closed': () => {
+          if (document.body.getElementsByClassName('vm--container').length <= 1) {
+            document.documentElement.classList.remove('modal-finish-is-open')
+          }
+        },
+      }
+    })
+  }
   public getPlaceholderValue() {
     if (this.windowWidth < 900) {
       return (this as any).subscribeData.mobile_place_holder
@@ -319,4 +391,7 @@ export default class BaseBreadCrumbs extends Vue {
       svg
         height: 26px
         width: 26px
+
+.error
+  color: red
 </style>

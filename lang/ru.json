@@ -1240,7 +1240,7 @@
         },
         "label_checkbox_1": {
           "text": "Я разрешаю BestHome собирать и",
-          "link": "обрабатывать свои личные данные."
+          "link": "обрабатывать свои личные данные"
         },
         "label_checkbox_2": "Я заинтересован в получении рассылки с новостями."
       },
@@ -1255,19 +1255,28 @@
           "link": "на карте",
           "route": "contacts"
         }
+      },
+      "finish_modal": {
+        "title": "Спасибо, ожидайте ответа",
+        "text": ", наш агент уже изучает анкету и в ближайшее время свяжется с вами по указанному номеру телефона, а также составит и отправит электронное письмо."
       }
     },
     "video": "Нажми<br>и закрой",
     "subscribe": {
-      "title": "Newsletter subscription",
+      "title": "Вы подписались!",
+      "text": "Вы будете получать рассылку новостей и первыми узнавать о горячих предложениях!",
       "title_success": "You have subscribed!",
-      "submit": "Submit an application",
+      "submit": "Отправить",
       "description_1": "Subscribe to our newsletter and be the first to know about hot offers!",
       "description_2": "You will receive our newsletter and be the first to know about hot offers!"
     },
-    "full_name_input": "Surname, Name and Patronymic",
-    "phone_input": "Actual phone number",
-    "email_input": "Email for notifications",
-    "sending": "Sending..."
+    "sending": "Отправка...",
+    "finish_modal": {
+      "timer": "Это окно закроется через",
+      "sec": "сек."
+    },
+    "error": {
+      "title": "Произошла ошибка. Пожалуйста, попробуйте еще раз"
+    }
   }
 }
