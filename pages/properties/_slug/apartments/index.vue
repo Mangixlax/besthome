@@ -48,7 +48,7 @@ import { CatalogState, IProject, IProjectApartment } from '~/store/Catalog'
 import CatalogCards from '~/components/Catalog/CatalogCards.vue'
 import CatalogList from '~/components/Catalog/CatalogList.vue'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
-import HeromapSlider from '~/components/HeromapSlider/HeromapSlider.vue'
+import HeromapSlider from '~/components/HeromapSlider/HeromapSliderNoPhoto.vue'
 import { NavigationGuardNext } from 'vue-router/types/router'
 import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.vue'
 
