@@ -12,7 +12,7 @@
       tag="div"
       version="style-9"
       :class="$style['header__info-callback']"
-      @click="showGetCallback"
+      @click="goToFeedback"
     ) {{ $t('header.call_back')}}
 </template>
 
@@ -30,14 +30,8 @@ export default class BaseHeaderInfo extends Vue {
   @Prop({ type: Boolean, default: false }) hideOnMobile!: boolean
   @Prop({ type: Boolean, default: false }) alignRight!: boolean
 
-  public showGetCallback() {
-    this.showModal({
-      name: 'modal-get-callback',
-      modal: () => import('~/components/Modal/GetCallback/ModalGetCallback.vue'),
-      options: {
-        width: '100%'
-      }
-    })
+  public goToFeedback() {
+    this.$router.push(this.localePath({ name: 'feedback' }))
   }
 }
 

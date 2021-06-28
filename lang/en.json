@@ -1267,37 +1267,10 @@
     }
   },
   "modals": {
-    "get_callback": {
+    "get_feedback": {
       "feedback": {
         "title": "Feedback",
-        "text": "Hello, I am Anna Larina, I will answer any of your questions! We try to build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.",
-        "label_name": "Your name",
-        "label_email_number": {
-          "number": "Phone number",
-          "or": "or",
-          "email": "email"
-        },
-        "label_project": {
-          "main": "Project of interest",
-          "support": "(optional)"
-        },
-        "label_building": {
-          "main": "Block",
-          "support": "(optional)"
-        },
-        "label_rooms": {
-          "main": "Number of rooms",
-          "support": "(optional)"
-        },
-        "label_message": {
-          "title": "Your message",
-          "label": "State your question here"
-        },
-        "label_checkbox_1": {
-          "text": "I agree to allow BestHome to collect and",
-          "link": "process my personal data"
-        },
-        "label_checkbox_2": "I am interested in receiving the newsletter with news."
+        "text": "Hello, I am Anna Larina, I will answer any of your questions! We try to build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home."
       },
       "info": {
         "name": "Anna Larina",
@@ -1312,8 +1285,8 @@
         }
       },
       "finish_modal": {
-        "title": "Спасибо, ожидайте ответа",
-        "text": ", наш агент уже изучает анкету и в ближайшее время свяжется с вами по указанному номеру телефона, а также составит и отправит электронное письмо."
+        "title": "Thank you, wait for an answer",
+        "text": "{0}, our agent is already studying the questionnaire and in the near future will contact you at the indicated phone number, as well as compose and send an e-mail."
       }
     },
     "video": "Click<br>to close",
@@ -1335,6 +1308,23 @@
     }
   },
   "forms": {
+    "inputs": {
+      "name": "Your name",
+      "phone": "Phone number",
+      "email": "Email address",
+      "project_of_interest": "Project of interest",
+      "block": "Block",
+      "number_of_rooms": "Number of rooms",
+      "message": "Your message",
+      "message_placeholder": "State your question here",
+      "optional": "(optional)",
+      "agree_collect_data": "I agree to allow BestHome to collect and {link}.",
+      "agree_collect_data_link": "process my personal data",
+      "agree_to_newsletter": "I am interested in receiving the newsletter with news."
+    },
+    "buttons": {
+      "accept": "Accept"
+    },
     "rules": {
       "required": "Field is required",
       "agree": "You must agree to the data processing policy"

@@ -3,8 +3,11 @@
     v-bind="$attrs"
     :name="name"
     :white-mode="true"
-    :class="$style['modal__finish']"
-  ) 
+    :class="{\
+      [$style['modal__finish']]: true,\
+      [$style['modal__finish--error']]: !success,\
+    }"
+  )
     template(slot="header")
       div(:class="$style['modal__header-space']")
     template(slot="body" :class="$style['modal__body']")
@@ -14,10 +17,11 @@
         :class="$style['modal__finish-title']"
       ) {{ title }}
       typo-text(
+        v-if="text"
         tag="div"
         version="style-5"
         :class="$style['modal__finish-text']"
-      ) {{ fullName }} {{ text }}
+      ) {{ text }}
       typo-text(
         tag="div"
         version="style-5"
@@ -56,9 +60,9 @@ export default {
       type: String,
       default: '',
     },
-    fullName: {
-      type: String,
-      default: '',
+    success: {
+      type: Boolean,
+      default: true,
     },
   },
   mounted() {
@@ -66,7 +70,10 @@ export default {
       this.$modal.hide(this.name)
       this.showFinishStep = false
       this.afterFinish()
-    }, 9)
+    }, 6)
+  },
+  beforeDestroy() {
+    this.hideTimerClear()
   },
 }
 </script>
@@ -74,8 +81,11 @@ export default {
 <style lang="sass" module>
 .modal__finish
   padding: 24px 40px 48px 64px
-  background: $color-blue-100
+  background-color: $color-blue-100
   color: $color-white-100
+
+  &--error
+    background-color: $color-red-100
 
   &-title
     margin-top: 32px

@@ -1,6 +1,6 @@
 <template lang="pug">
-  div(:class="[$style[`input__wrapper`], !valid && $style['error']]")
-    div(:class="[$style[`input__label`], showInput ? $style['show'] : '', isFocused && $style['focused']]")
+  div(:class="[$style[`textarea__wrapper`], !valid && $style['error']]")
+    div(:class="[$style[`textarea__label`], showInput ? $style['show'] : '', isFocused && $style['focused']]")
       slot
         span(v-if="placeholder") {{ placeholder }}
           span(v-if="optional") {{ $t('forms.inputs.optional') }}
@@ -8,9 +8,10 @@
         v-if="required"
         :class="$style['required']"
       ) *
-    input(
+    textarea(
+      ref="input"
       :value="value"
-      :class="[$style['input'], ]"
+      :class="[$style['textarea'], ]"
       @focus="onFocus"
       @blur="onBlur"
       @input="onChange"
@@ -21,7 +22,7 @@
 
 <script>
 export default {
-  name: 'VFormInput',
+  name: 'VFormTextarea',
   model: {
     prop: 'value',
     event: 'update',
@@ -73,6 +74,7 @@ export default {
       const value = evt.target.value
       this.localValue = value
       !this.isFocused && this.canShowInput()
+      this.onTextareaInput()
       this.$emit('update', value)
     },
     onFocus(evt) {
@@ -86,6 +88,14 @@ export default {
       this.canShowInput()
       this.$emit('blur', evt)
     },
+    onTextareaInput() {
+      const textarea = this.$refs.input
+
+      this.$nextTick(() => {
+        textarea.style.height = 'auto' // Fix for correct get scrollHeight value
+        textarea.style.height = textarea.scrollHeight + 'px'
+      })
+    },
   },
   mounted() {
     this.canShowInput()
@@ -98,11 +108,9 @@ export default {
 </script>
 
 <style lang="sass" module>
-.input
+.textarea
   box-shadow: 0 0 0 0 #D8E1E4
   transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease
-  border: none
-  border-bottom: 1px solid $color-black-16
   padding: 15px 8px
   -webkit-appearance: none
   -moz-appearance: none
@@ -112,6 +120,9 @@ export default {
   width: 100%
   color: $color-black-100
   cursor: pointer
+  resize: none
+  min-height: 112px
+  border: 1px solid $color-black-16
 
   &:focus
     outline: none
@@ -154,7 +165,7 @@ export default {
         color: $color-black-48
 
     &.show
-      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -20, 0, 1)
+      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -30, 0, 1)
       color: rgba(#1A1B29, 0.64)
       font-size: 12px
 
