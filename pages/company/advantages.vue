@@ -102,6 +102,32 @@ export default {
   },
   asyncData(ctx: Context): void {
     ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.company'))
+    ctx.store.commit('setBreadcrumbs', [
+      {
+        name: ctx.app.i18n.t('breadcrumbs.history'),
+        route: {
+          name: 'company-history',
+        },
+      },
+      {
+        name: ctx.app.i18n.t('breadcrumbs.our_team'),
+        route: {
+          name: 'company-our-team',
+        },
+      },
+      {
+        name: ctx.app.i18n.t('breadcrumbs.about'),
+        route: {
+          name: 'company-about',
+        },
+      },
+      {
+        name: ctx.app.i18n.t('breadcrumbs.our_difference'),
+        route: {
+          name: 'company-advantages',
+        },
+      },
+    ])
   },
 }
 </script>

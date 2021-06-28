@@ -10,6 +10,7 @@ export const state = () => ({
   isTouchDevice: false as boolean,
   logoSubTitle: 'Construction' as string,
   ourCompanyCardInfo: [] as Array<object>,
+  breadcrumbs: [] as Array<object>,
 })
 
 export type RootState = ReturnType<typeof state>
@@ -26,6 +27,9 @@ export const getters: GetterTree<RootState, RootState> = {
   getLogoSubTitle(state: RootState) {
     return state.logoSubTitle
   },
+  getBreadcrumbs(state) {
+    return state.breadcrumbs || []
+  },
   getPersonById: (state) => (id: any) => {
     return state.ourCompanyCardInfo.find((person: any) => person.id == id)
   },
@@ -35,6 +39,9 @@ export const getters: GetterTree<RootState, RootState> = {
  * Mutations
  */
 export const mutations: MutationTree<RootState> = {
+  setBreadcrumbs(state, list = []) {
+    state.breadcrumbs = list
+  },
   setLogoSubTitle(state: RootState, value: string) {
     state.logoSubTitle = value
   },

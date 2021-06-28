@@ -70,6 +70,7 @@ import TreeColumns from '~/components/TreeColumns/TreeColumns.vue'
 import Magnetic from '~/directives/magnetic'
 import CommonLinkIcon from '~/components/Common/CommonLinkIcon.vue'
 import { modalsTriggerMixin } from '~/mixins/modals'
+import { Context } from '@nuxt/types'
 
 @Component({
   components: {
@@ -87,6 +88,35 @@ import { modalsTriggerMixin } from '~/mixins/modals'
   },
   directives: { Magnetic },
   mixins: [modalsTriggerMixin],
+  asyncData(ctx: Context): void {
+    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.investors'))
+    ctx.store.commit('setBreadcrumbs', [
+      {
+        name: ctx.app.i18n.t('breadcrumbs.projects'),
+        route: {
+          name: 'projects',
+        },
+      },
+      {
+        name: ctx.app.i18n.t('breadcrumbs.about'),
+        route: {
+          name: 'company-about',
+        },
+      },
+      {
+        name: ctx.app.i18n.t('breadcrumbs.our_difference'),
+        route: {
+          name: 'company-advantages',
+        },
+      },
+      {
+        name: ctx.app.i18n.t('breadcrumbs.history'),
+        route: {
+          name: 'company-history',
+        },
+      },
+    ])
+  },
 })
 export default class IndexPage extends Vue {
   created() {
@@ -109,7 +139,10 @@ export default class IndexPage extends Vue {
         },
         'before-close': () => {
           if (document.body.getElementsByClassName('vm--container').length <= 1) {
-            document.documentElement.classList.remove('modal-fullwidth-is-open', 'modal-video-is-open')
+            document.documentElement.classList.remove(
+              'modal-fullwidth-is-open',
+              'modal-video-is-open',
+            )
           }
         },
       },

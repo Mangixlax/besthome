@@ -41,28 +41,32 @@ export default {
   },
   asyncData(ctx: Context): void {
     ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.company'))
-  },
-  data() {
-    return {
-      aboutPageScrollLineInfo: [
-        {
-          title: '239',
-          text: 'Apartments',
+    ctx.store.commit('setBreadcrumbs', [
+      {
+        name: ctx.app.i18n.t('breadcrumbs.our_difference'),
+        route: {
+          name: 'company-advantages',
         },
-        {
-          title: '470',
-          text: 'Parking spots for bikes',
+      },
+      {
+        name: ctx.app.i18n.t('breadcrumbs.history'),
+        route: {
+          name: 'company-history',
         },
-        {
-          title: '3800m²',
-          text: 'Of common green areas',
+      },
+      {
+        name: ctx.app.i18n.t('breadcrumbs.our_team'),
+        route: {
+          name: 'company-our-team',
         },
-        {
-          title: '1 to 4-room',
-          text: 'Separate rooms',
+      },
+      {
+        name: ctx.app.i18n.t('breadcrumbs.about'),
+        route: {
+          name: 'company-about',
         },
-      ],
-    }
+      },
+    ])
   },
 }
 </script>
