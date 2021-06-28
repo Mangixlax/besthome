@@ -1,4 +1,22 @@
 {
+  "breadcrumbs": {
+    "privacy_policy": "Политика конфиденциальности",
+    "term_of_use": "Условия пользования",
+    "our_team": "Наша команда",
+    "about": "О BestHome",
+    "our_difference": "Приимущества",
+    "history": "История",
+    "contacts": "Контакты",
+    "projects": "Проекты",
+    "online_purchase": "Онлайн покупка",
+    "apartment_leasing": "Аренда",
+    "legal_suppurt": "Юридическая поддержка",
+    "turkish_citizenship": "Турецкое гражданство",
+    "after_sales_services": "Услуги после продажи",
+    "inspection_trip": "Ознакомительная поездка",
+    "investments": "Инвестиции",
+    "our_projects": "Наши проекты"
+  },
   "header": {
     "top_line": "",
     "call_back": "Заказать обратный звонок",

@@ -1,4 +1,22 @@
 {
+  "breadcrumbs": {
+    "privacy_policy": "Privacy Policy",
+    "term_of_use": "Term of Use",
+    "our_team": "Our team",
+    "about": "About BestHome",
+    "our_difference": "Our difference",
+    "history": "History",
+    "contacts": "Contacts",
+    "projects": "Projects",
+    "online_purchase": "Online purchase",
+    "apartment_leasing": "Apartment leasing",
+    "legal_suppurt": "Legal support",
+    "turkish_citizenship": "Turkish citizenship",
+    "after_sales_services": "After sales services",
+    "inspection_trip": "Inspection trip",
+    "investments": "Invesments",
+    "our_projects": "Our Projects"
+  },
   "header": {
     "top_line": "",
     "call_back": "Go get a call back",

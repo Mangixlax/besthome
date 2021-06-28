@@ -35,7 +35,7 @@ import PageProjectsTimeline from '~/components/Page/Projects/PageProjectsTimelin
 import VueRouter, { Route } from 'vue-router'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
 import { NavigationGuardNext } from 'vue-router/types/router'
-import HeromapSlider from '~/components/HeromapSlider/HeromapSliderNoPhoto.vue'
+import HeromapSlider from '~/components/HeromapSlider/HeroMapSliderNoPhoto.vue'
 import { IProject } from '~/store/Catalog'
 import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.vue'
 
@@ -103,6 +103,33 @@ import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.
       resolve({
         project: project,
       })
+
+      ctx.store.commit('setBreadcrumbs', [
+        {
+          name: ctx.app.i18n.t('breadcrumbs.projects'),
+          route: {
+            name: 'projects',
+          },
+        },
+        {
+          name: ctx.app.i18n.t('breadcrumbs.about'),
+          route: {
+            name: 'company-about',
+          },
+        },
+        {
+          name: ctx.app.i18n.t('breadcrumbs.our_difference'),
+          route: {
+            name: 'company-advantages',
+          },
+        },
+        {
+          name: project.short_name,
+          route: {
+            name: ctx.route.params.slug,
+          },
+        },
+      ])
     })
   },
   scrollToTop: true,

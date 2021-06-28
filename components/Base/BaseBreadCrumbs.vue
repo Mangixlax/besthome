@@ -1,56 +1,45 @@
 <template lang="pug">
   ol(:class="$style['breadcrumbs']")
     li(:class="$style['breadcrumbs__item']")
-      a(:class="$style['breadcrumbs__item-link']" href="#")
+      typo-text(
+        tag="nuxt-link"
+        version="style-8"
+        :to="localePath('index')"
+        title="Home"
+        :class="$style['breadcrumbs__item-link']"
+      )
         svg-icon(name="home")
     li(
-      v-for="(crumb, i) in breadCrumbs"
+      v-for="(crumb, i) in breadcrumbs"
       :key="i"
       :class="$style['breadcrumbs__item']"
     )
-      a(:class="$style['breadcrumbs__item-link']" href="#") {{crumb.name}}
+      typo-text(
+        tag="nuxt-link"
+        version="style-8"
+        :to="localePath(crumb.route)"
+        :title="crumb.route.name"
+        :class="[$style['breadcrumbs__item-link'], i === breadcrumbs.length - 1 && $style['disabled']]"
+        :disabled="true"
+      ) {{crumb.name}}
 </template>
 
 <script lang="ts">
+import TypoText from '~/components/Base/TypoText.vue'
 import { Component, Vue } from 'nuxt-property-decorator'
+import { mapGetters } from 'vuex'
 
-@Component
-export default class BaseBreadCrumbs extends Vue {
-  public breadCrumbs: Array<object> = [
-    {
-      name: '%level%',
-      to: {
-        name: '',
-        query: {},
-        params: {},
-      },
-    },
-    {
-      name: '%level%',
-      to: {
-        name: '',
-        query: {},
-        params: {},
-      },
-    },
-    {
-      name: '%level%',
-      to: {
-        name: '',
-        query: {},
-        params: {},
-      },
-    },
-    {
-      name: '%level%',
-      to: {
-        name: '',
-        query: {},
-        params: {},
-      },
-    },
-  ]
-}
+@Component({
+  components: {
+    TypoText,
+  },
+  computed: {
+    ...mapGetters({
+      breadcrumbs: 'getBreadcrumbs',
+    }),
+  },
+})
+export default class BaseBreadCrumbs extends Vue {}
 </script>
 
 <style lang="sass" module>
@@ -89,4 +78,7 @@ export default class BaseBreadCrumbs extends Vue {
       svg
         width: 18px
         height: 18px
+
+      &.disabled
+        pointer-events: none
 </style>
