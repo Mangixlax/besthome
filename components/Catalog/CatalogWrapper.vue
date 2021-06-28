@@ -3,21 +3,21 @@
     div(:class="$style['catalog__container']")
       div(:class="$style['catalog__content']")
         div(:class="$style['catalog__panel']")
-          form(
-            action=""
-            method="method"
-            :class="$style['catalog__panel-form']"
-          )
+          div(:class="$style['catalog__panel-form']")
             typo-text(
               tag="p"
               version="style-8"
-            ) Sort:
+            ) {{ $i18n.locale === 'ru' ? 'Сортировка' : 'Sort' }}:
             select(
-              id="dropdown"
-              name="role"
+              v-model="sortBy"
               :class="$style['catalog__panel-form-select']"
             )
-              option(selected value) Recomended
+              option(
+                v-for="(option, index) in sortingList"
+                :value="option.value"
+                :key="index"
+                :selected="option.value === sortBy"
+              ) {{ option.label }}
           div(:class="$style['catalog__panel-display']")
             svg-icon(
               name="catalog/list-icon"
@@ -49,7 +49,7 @@
           :class="$style['catalog__filter-button']"
           tag="div"
           version="style-6"
-        ) Filter
+        ) {{ $i18n.locale === 'ru' ? 'Фильтр' : 'Filter' }}
         catalog-filter-list(v-if="isFilterReady" :filter-dark-mode="filterDarkMode")
 </template>
 
@@ -57,7 +57,13 @@
 import TypoText from '~/components/Base/TypoText.vue'
 import { modalsTriggerMixin } from '@/mixins/modals'
 import Magnetic from '~/directives/magnetic'
-import { Component, Prop, Vue } from 'nuxt-property-decorator'
+import {Component, Prop, Vue, Watch} from 'nuxt-property-decorator'
+
+/**
+ * @TODO
+ * 1. Добавить перевод Filter, Recommended, Sort в файл с переводом (Аслан)
+ * 2. Доработать сортировку, перенести всё в стор (Сергей)
+ */
 
 @Component({
   components: {
@@ -75,6 +81,17 @@ export default class CatalogWrapper extends Vue {
 
   public isCardDisplay: boolean = true
   public isFilterReady: boolean = false
+
+  public sortingList: any = [
+    { value: 'new', label: this.$i18n.locale === 'ru' ? 'Рекомендуемое' : 'Recommended' },
+  ]
+
+  public sortBy: any = this.sortingList[0].value
+
+  @Watch('sortBy')
+  onChangeSortBy(value: boolean) {
+    this.$emit('change-sorting', value)
+  }
 
   public onResize() {
     this.isFilterReady = window.innerWidth > 1000
@@ -100,7 +117,7 @@ export default class CatalogWrapper extends Vue {
               document.documentElement.classList.remove('modal-fullwidth-is-open')
             }
           },
-        }
+        },
       })
     }
   }

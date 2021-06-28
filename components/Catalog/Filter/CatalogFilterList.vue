@@ -76,25 +76,6 @@ import { IProjectApartmentsFilter } from '~/store/Catalog'
 export default class CatalogFilterList extends Vue {
   @Prop({ type: Boolean, default: false }) filterDarkMode?: boolean
 
-  // public checkboxFilterItems: Array<any> = [
-  //   {
-  //     label: 'Separate toilet',
-  //     value: 1,
-  //   },
-  //   {
-  //     label: 'Closet',
-  //     value: 2,
-  //   },
-  //   {
-  //     label: 'Terrace',
-  //     value: 3,
-  //   },
-  //   {
-  //     label: 'Balcony/loggia',
-  //     value: 4,
-  //   },
-  // ]
-
   get filters(): IProjectApartmentsFilter {
     return this.$store.getters['Catalog/getFilters'] || {}
   }

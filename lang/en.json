@@ -1,1337 +1,1343 @@
-  {
-    "header": {
-      "top_line": "",
-      "call_back": "Go get a call back",
-      "select_locale": {
-        "text": "Select a country or region to match the content to your location.",
-        "next": "Apply"
+{
+  "header": {
+    "top_line": "",
+    "call_back": "Go get a call back",
+    "select_locale": {
+      "text": "Select a country or region to match the content to your location.",
+      "next": "Apply"
+    },
+    "logo": {
+      "projects": "PROJECTS",
+      "investors": "INVESTMENTS",
+      "service": "SERVICES",
+      "company": "COMPANY",
+      "contacts": "CONTACTS",
+      "secondary_housing": "SECONDARY HOUSING"
+    }
+  },
+  "projects": {
+    "sold_out": "Sold out",
+    "for_sale": "For sale",
+    "free_available_units": "{0} free <span>available units</span>.",
+    "navigation": {
+      "about": "About the project",
+      "location": "Location",
+      "gallery": "Gallery",
+      "choose_apartment": "Choose apartment",
+      "get_a_consultation": "Get a consultation",
+      "consultation": "Consultation"
+    }
+  },
+  "pages": {
+    "home": {
+      "header": {
+        "title": "Your reliable partner in the real estate market of Turkey",
+        "text1": [
+          "BestHome Construction is a leading construction company in Alanya. One of the leading companies in the Turkish market. Started as a real estate agency in 2004. To date, more than 30 projects have been implemented in the center of Alanya and in the Oba region."
+        ],
+        "text2": "To date, the company has {link}.",
+        "text2_link": "33 completed projects"
       },
-      "logo": {
-        "projects": "PROJECTS",
-        "investors": "INVESTMENTS",
-        "service": "SERVICES",
-        "company": "COMPANY",
-        "contacts": "CONTACTS",
-        "secondary_housing": "SECONDARY HOUSING"
+      "hero_slider_data": {
+        "coursor_data": "Click<br>and drag",
+        "label_1": "Project",
+        "label_2": "of",
+        "label_from": "From",
+        "label_meter": "m",
+        "hero_slider": [
+          {
+            "title": "Best Home 36-37",
+            "sub_title": "The Legend",
+            "image": "slide-1.jpg",
+            "location": {
+              "city": "Alanya",
+              "region": "Center"
+            },
+            "price": "110 000",
+            "sea": 120,
+            "description": "BestHome 36-37 The Legend is a new premium class complex in the very center of Alanya, 120 meters from the sandy beach. The complex is unique due to its advantageous location, infrastructure of a 5-star hotel and unique design."
+          },
+          {
+            "title": "Best Home 35",
+            "sub_title": "Aria",
+            "image": "slide-2.jpg",
+            "location": {
+              "city": "Alanya",
+              "region": "Saray Mahalle"
+            },
+            "price": "107 000",
+            "sea": 600,
+            "description": "\"Besthome 35 Aria\" is a new investment project in the central part of Alanya, Turkey. Despite the fact that this is the central part, here is quiet and green. Apartment on the shores of the Mediterranean Sea is an exclusive product that can be bought for life!"
+          },
+          {
+            "title": "Best Home 33",
+            "sub_title": "Cleopatra Symphony",
+            "image": "slide-3.jpg",
+            "location": {
+              "city": "Аланья",
+              "region": "Центр"
+            },
+            "price": "170 000",
+            "sea": 250,
+            "description": "The complex BestHome 33 Cleopatra Symphony is located a 5-minute walk from the Cleopatra beach, from its most beautiful part with a magnificent park area, sports and playgrounds, restaurants and cafes."
+          }
+        ]
+      },
+      "link_baner": {
+        "baner_1": {
+          "title": "Resale apartments",
+          "text": "Resale apartments",
+          "data-cursor-text": "Click<br>and watch"
+        },
+        "baner_2": {
+          "title": "Investments",
+          "text": "Investments",
+          "data-cursor-text": "Click<br>and watch"
+        }
+      },
+      "tree_columns": {
+        "title": "How we work",
+        "description": "The company's specialists fully support all transactions, demonstrating flexibility and professionalism, as well as solving all issues. What is important, the company's customers can always count on professional assistance and after-sales service even after the transaction is completed.",
+        "columns": [
+          {
+            "icon": "online-purchase",
+            "title": "Online<br>purchase",
+            "text": "Buying and registering real estate in Alanya without coming to Turkey is easy. The remote real estate purchase and registration service provided by BestHome Construction is becoming more and more popular.",
+            "filename": "three-columns-1.jpg",
+            "to": {
+              "name": "service-online-purchase"
+            },
+            "hovered": false
+          },
+          {
+            "icon": "introductory-tour",
+            "title": "Inspection<br>trip",
+            "text": "If you have decided to purchase real estate in Alanya, but are not ready for an online purchase, we will be happy to offer you the service of an individual study tour. Having coordinated with the manager of our company the dates that are most suitable for you to come to Turkey, we will be happy to meet you at the airport.",
+            "filename": "three-columns-2.jpg",
+            "to": {
+              "name": "service-introductory-tour"
+            },
+            "hovered": false
+          },
+          {
+            "icon": "obtaining-citizenship",
+            "title": "Turkish<br>citizenship",
+            "text": "Since 2019, foreign investors have a real opportunity to make their dreams come true. Now, when buying real estate worth $ 250,000 or more, you can obtain Turkish citizenship under a simplified scheme. Moreover, the owners of a house or apartment, their spouses and children under 18 years of age can become full citizens.",
+            "filename": "three-columns-3.jpg",
+            "to": {
+              "name": "service-turkish-citizenship"
+            },
+            "hovered": false
+          }
+        ],
+        "data_cursor": "Click<br>to watch"
       }
     },
     "projects": {
-      "sold_out": "Sold out",
-      "for_sale": "For sale",
-      "free_available_units": "{0} free <span>available units</span>.",
-      "navigation": {
-        "about": "About the project",
-        "location": "Location",
-        "gallery": "Gallery",
-        "choose_apartment": "Choose apartment",
-        "get_a_consultation": "Get a consultation",
-        "consultation": "Consultation"
+      "header": {
+        "title": "Our projects",
+        "text1": "To date, more than 33 projects have been implemented, including high-rise buildings and private villas in Mahmutlar, Avsallar and other suburbs of Alanya.",
+        "text2": "The company has its own representative offices in Germany, America, Ukraine, Iran, Kazakhstan, as well as in Denmark, Sweden, Norway and Finland. Realtors have already concluded more than 1,000 successful transactions with foreign citizens living in the CIS, the United States, Europe and the Middle East.",
+        "text3": "Learn more about {link}.",
+        "text3_link": "our company"
       }
     },
-    "pages": {
-      "home": {
-        "header": {
-          "title": "Your reliable partner in the real estate market of Turkey",
-          "text1": [
-            "BestHome Construction is a leading construction company in Alanya. One of the leading companies in the Turkish market. Started as a real estate agency in 2004. To date, more than 30 projects have been implemented in the center of Alanya and in the Oba region."
-          ],
-          "text2": "To date, the company has {link}.",
-          "text2_link": "33 completed projects"
-        },
-        "hero_slider_data": {
-          "coursor_data": "Click<br>and drag",
-          "label_1": "Project",
-          "label_2": "of",
-          "label_from": "From",
-          "label_meter": "m",
-          "hero_slider": [
-            {
-              "title": "Best Home 36-37",
-              "sub_title": "The Legend",
-              "image": "slide-1.jpg",
-              "location": {
-                "city": "Alanya",
-                "region": "Center"
-              },
-              "price": "110 000",
-              "sea": 120,
-              "description": "BestHome 36-37 The Legend is a new premium class complex in the very center of Alanya, 120 meters from the sandy beach. The complex is unique due to its advantageous location, infrastructure of a 5-star hotel and unique design."
-            },
-            {
-              "title": "Best Home 35",
-              "sub_title": "Aria",
-              "image": "slide-2.jpg",
-              "location": {
-                "city": "Alanya",
-                "region": "Saray Mahalle"
-              },
-              "price": "107 000",
-              "sea": 600,
-              "description": "\"Besthome 35 Aria\" is a new investment project in the central part of Alanya, Turkey. Despite the fact that this is the central part, here is quiet and green. Apartment on the shores of the Mediterranean Sea is an exclusive product that can be bought for life!"
-            },
-            {
-              "title": "Best Home 33",
-              "sub_title": "Cleopatra Symphony",
-              "image": "slide-3.jpg",
-              "location": {
-                "city": "Аланья",
-                "region": "Центр"
-              },
-              "price": "170 000",
-              "sea": 250,
-              "description": "The complex BestHome 33 Cleopatra Symphony is located a 5-minute walk from the Cleopatra beach, from its most beautiful part with a magnificent park area, sports and playgrounds, restaurants and cafes."
-            }
-          ]
-        },
-        "link_baner": {
-          "baner_1": {
-            "title": "Resale apartments",
-            "text": "Resale apartments",
-            "data-cursor-text": "Click<br>and watch"
+    "apartments": {
+      "apartment": "Apartment",
+      "block": "Block",
+      "status": "Status",
+      "floor": "Floor",
+      "rooms": "Rooms",
+      "area": "Area",
+      "price": "Price",
+      "status_1": "Available",
+      "status_2": "Reserved",
+      "status_3": "Prereserved",
+      "status_4": "Sold",
+      "nth": "{0} type",
+      "empty_list": "Apartments is not found",
+      "additional_features": "Additional features",
+      "to_sea": "To sea",
+      "to_rest": "To restaurant",
+      "start_building": "Start building",
+      "end_building": "End building",
+      "equipments": "Equipments of Apartment",
+      "photo_tour": "A tour of the apartment",
+      "m": "m",
+      "request_now": "Request now",
+      "download_pdf": "Download PDF",
+      "similar_apartments": "Similar apartments"
+    },
+    "projects_our_pojects": {
+      "smart_block": [
+        {
+          "to": {
+            "name": "greenday-park-best-home-48"
           },
-          "baner_2": {
-            "title": "Investments",
-            "text": "Investments",
-            "data-cursor-text": "Click<br>and watch"
-          }
-        },
-        "tree_columns": {
-          "title": "How we work",
-          "description": "The company's specialists fully support all transactions, demonstrating flexibility and professionalism, as well as solving all issues. What is important, the company's customers can always count on professional assistance and after-sales service even after the transaction is completed.",
-          "columns": [
-            {
-              "icon": "online-purchase",
-              "title": "Online<br>purchase",
-              "text": "Buying and registering real estate in Alanya without coming to Turkey is easy. The remote real estate purchase and registration service provided by BestHome Construction is becoming more and more popular.",
-              "filename": "three-columns-1.jpg",
-              "to": {
-                "name": "service-online-purchase"
-              },
-              "hovered": false
-            },
-            {
-              "icon": "introductory-tour",
-              "title": "Inspection<br>trip",
-              "text": "If you have decided to purchase real estate in Alanya, but are not ready for an online purchase, we will be happy to offer you the service of an individual study tour. Having coordinated with the manager of our company the dates that are most suitable for you to come to Turkey, we will be happy to meet you at the airport.",
-              "filename": "three-columns-2.jpg",
-              "to": {
-                "name": "service-introductory-tour"
-              },
-              "hovered": false
-            },
-            {
-              "icon": "obtaining-citizenship",
-              "title": "Turkish<br>citizenship",
-              "text": "Since 2019, foreign investors have a real opportunity to make their dreams come true. Now, when buying real estate worth $ 250,000 or more, you can obtain Turkish citizenship under a simplified scheme. Moreover, the owners of a house or apartment, their spouses and children under 18 years of age can become full citizens.",
-              "filename": "three-columns-3.jpg",
-              "to": {
-                "name": "service-turkish-citizenship"
-              },
-              "hovered": false
-            }
-          ],
-          "data_cursor": "Click<br>to watch"
-        }
-      },
-      "projects": {
-        "header": {
-          "title": "Our projects",
-          "text1": "To date, more than 33 projects have been implemented, including high-rise buildings and private villas in Mahmutlar, Avsallar and other suburbs of Alanya.",
-          "text2": "The company has its own representative offices in Germany, America, Ukraine, Iran, Kazakhstan, as well as in Denmark, Sweden, Norway and Finland. Realtors have already concluded more than 1,000 successful transactions with foreign citizens living in the CIS, the United States, Europe and the Middle East.",
-          "text3": "Learn more about {link}.",
-          "text3_link": "our company"
-        }
-      },
-      "apartments": {
-        "apartment": "Apartment",
-        "block": "Block",
-        "status": "Status",
-        "floor": "Floor",
-        "rooms": "Rooms",
-        "area": "Area",
-        "price": "Price",
-        "status_1": "Available",
-        "status_2": "Reserved",
-        "status_3": "Prereserved",
-        "status_4": "Sold",
-        "nth": "{0} type",
-        "empty_list": "Apartments is not found",
-        "additional_features": "Additional features",
-        "to_sea": "To sea",
-        "to_rest": "To restaurant",
-        "start_building": "Start building",
-        "end_building": "End building",
-        "equipments": "Equipments of Apartment",
-        "photo_tour": "A tour of the apartment",
-        "m": "m",
-        "request_now": "Request now",
-        "download_pdf": "Download PDF",
-        "similar_apartments": "Similar apartments"
-      },
-      "projects_our_pojects": {
-        "smart_block": [
-          {
-            "to": {
-              "name": "greenday-park-best-home-48"
-            },
-            "imageSrc": "smart-block-1.jpg",
-            "title": "Secondary housing",
-            "header": "Greenday Park BestHome 48",
-            "text": "Sold out",
-            "textPosition": "bottom",
-            "textAlign": "right",
-            "col": "1"
-          },
-          {
-            "to": {
-              "name": "besthome-47"
-            },
-            "imageSrc": "smart-block-2.jpg",
-            "title": "Secondary housing",
-            "header": "BestHome 47",
-            "text": "Sold out",
-            "textPosition": "bottom",
-            "textAlign": "right",
-            "col": "1"
-          },
-          {
-            "to": {
-              "name": "besthome-46"
-            },
-            "imageSrc": "smart-block-3.jpg",
-            "title": "Secondary housing",
-            "header": "BestHome 46",
-            "text": "Sold out",
-            "textPosition": "bottom",
-            "textAlign": "right",
-            "col": "1"
-          },
-          {
-            "to": {
-              "name": "besthome-45"
-            },
-            "imageSrc": "smart-block-4.jpg",
-            "title": "Secondary housing",
-            "header": "BestHome 45",
-            "text": "Sold out",
-            "textPosition": "top",
-            "textAlign": "center",
-            "col": "2"
-          },
-          {
-            "to": {
-              "name": "besthome-45"
-            },
-            "imageSrc": "smart-block-4.jpg",
-            "title": "Secondary housing",
-            "header": "BestHome 45",
-            "text": "Sold out",
-            "textPosition": "center",
-            "textAlign": "right",
-            "col": "2"
-          },
-          {
-            "to": {
-              "name": "besthome-45"
-            },
-            "imageSrc": "smart-block-4.jpg",
-            "title": "Secondary housing",
-            "header": "BestHome 45",
-            "text": "Sold out",
-            "textPosition": "center",
-            "textAlign": "right",
-            "col": "3"
-          }
-        ]
-      },
-      "secondary_housing": {
-        "header": {
+          "imageSrc": "smart-block-1.jpg",
           "title": "Secondary housing",
-          "sub_title": "You are only 3 steps away from your new home. Do everything online, from the comfort of your own home. Safely, simply, quickly.",
-          "button": "I want to choose a flat"
+          "header": "Greenday Park BestHome 48",
+          "text": "Sold out",
+          "textPosition": "bottom",
+          "textAlign": "right",
+          "col": "1"
         },
-        "article_1": "Apartments in BestHome Construction complexes are not only a comfortable stay and a quality holiday in Alanya, but also an opportunity for profitable investments. Due to the fact that the complexes built by our construction company are almost completely sold at the construction stage, and the demand for them is only increasing, we are pleased to offer our clients a service for reselling their apartments, and new buyers-the opportunity to purchase ready-made housing from BestHome Construction. In our portfolio of secondary housing, you can find offers of apartments in Alanya with furniture, as well as apartments in which no one lived."
-      },
-      "projects_review": {
-        "header": {
-          "title": "City living with a touch of nature",
-          "filename": "projects-title-choose-apartment.jpg"
+        {
+          "to": {
+            "name": "besthome-47"
+          },
+          "imageSrc": "smart-block-2.jpg",
+          "title": "Secondary housing",
+          "header": "BestHome 47",
+          "text": "Sold out",
+          "textPosition": "bottom",
+          "textAlign": "right",
+          "col": "1"
+        },
+        {
+          "to": {
+            "name": "besthome-46"
+          },
+          "imageSrc": "smart-block-3.jpg",
+          "title": "Secondary housing",
+          "header": "BestHome 46",
+          "text": "Sold out",
+          "textPosition": "bottom",
+          "textAlign": "right",
+          "col": "1"
+        },
+        {
+          "to": {
+            "name": "besthome-45"
+          },
+          "imageSrc": "smart-block-4.jpg",
+          "title": "Secondary housing",
+          "header": "BestHome 45",
+          "text": "Sold out",
+          "textPosition": "top",
+          "textAlign": "center",
+          "col": "2"
+        },
+        {
+          "to": {
+            "name": "besthome-45"
+          },
+          "imageSrc": "smart-block-4.jpg",
+          "title": "Secondary housing",
+          "header": "BestHome 45",
+          "text": "Sold out",
+          "textPosition": "center",
+          "textAlign": "right",
+          "col": "2"
+        },
+        {
+          "to": {
+            "name": "besthome-45"
+          },
+          "imageSrc": "smart-block-4.jpg",
+          "title": "Secondary housing",
+          "header": "BestHome 45",
+          "text": "Sold out",
+          "textPosition": "center",
+          "textAlign": "right",
+          "col": "3"
         }
+      ]
+    },
+    "secondary_housing": {
+      "header": {
+        "title": "Secondary housing",
+        "sub_title": "You are only 3 steps away from your new home. Do everything online, from the comfort of your own home. Safely, simply, quickly.",
+        "button": "I want to choose a flat"
       },
-      "projects_experiences": {
-        "header": "City living with a touch of nature",
-        "post_1": {
-          "title": "Fitness Centre",
-          "paragraph_1": "Cleopatra Select is conceived for people who want their home to extend beyond apartment walls. The quintessential urban life is complemented by closeness to nature. Apartments are energy-efficient and buildings are surrounded by greenery and covered with green roofs.",
-          "paragraph_2": "The largest fitness in the country. For indoor sports activities enthusiasts (and for rainy days too).",
-          "paragraph_with_link": "More",
-          "link": "about Cleopatra Select"
-        },
-        "post_2": {
-          "title": "Library",
-          "paragraph_1": "A modern, spacious and bright public library for all bibliophiles.",
-          "paragraph_with_link": "More",
-          "link": "about Cleopatra Select"
-        },
-        "scroll_line_data": [
-          {
-            "title": "239",
-            "text": "Apartments"
-          },
-          {
-            "title": "470",
-            "text": "Parking spots for bikes"
-          },
-          {
-            "title": "3800m²",
-            "text": "Of common green areas"
-          },
-          {
-            "title": "1 to 4-room",
-            "text": "Separate rooms"
-          }
-        ],
-        "panorama": {
-          "text_1": "Hold",
-          "text_2": "& use mouse to navigate panorama"
-        }
+      "article_1": "Apartments in BestHome Construction complexes are not only a comfortable stay and a quality holiday in Alanya, but also an opportunity for profitable investments. Due to the fact that the complexes built by our construction company are almost completely sold at the construction stage, and the demand for them is only increasing, we are pleased to offer our clients a service for reselling their apartments, and new buyers-the opportunity to purchase ready-made housing from BestHome Construction. In our portfolio of secondary housing, you can find offers of apartments in Alanya with furniture, as well as apartments in which no one lived."
+    },
+    "projects_review": {
+      "header": {
+        "title": "City living with a touch of nature",
+        "filename": "projects-title-choose-apartment.jpg"
+      }
+    },
+    "projects_experiences": {
+      "header": "City living with a touch of nature",
+      "post_1": {
+        "title": "Fitness Centre",
+        "paragraph_1": "Cleopatra Select is conceived for people who want their home to extend beyond apartment walls. The quintessential urban life is complemented by closeness to nature. Apartments are energy-efficient and buildings are surrounded by greenery and covered with green roofs.",
+        "paragraph_2": "The largest fitness in the country. For indoor sports activities enthusiasts (and for rainy days too).",
+        "paragraph_with_link": "More",
+        "link": "about Cleopatra Select"
       },
-      "investors": {
-        "header": {
-          "title": "Turkey - Real estate investment in Alanya",
-          "text": "Over the past 10 years, the Republic of Turkey has replenished its treasury with foreign investment of $ 100 billion. What attracts investors from Russia, the United States and Europe? Economic stability, political liberality to foreign investors, high quality of construction, relatively low taxes on the purchase of apartments and houses. And in recent years, the possibility of obtaining Turkish citizenship under a simplified scheme has also been added.",
-          "linkToProjects": {
-            "text": "To date, the company has",
-            "link": "33 completed projects",
-            "route": "/projects"
-          }
-        },
-        "post_1": {
-          "title": "Company and client development through long term relationships",
-          "paragraph_1": "Our success is your success - only by finding you the those properties that fully meet your expectations, either from a lifestyle or investment angle, can we continue to grow.",
-          "paragraph_with_link": "To date, the company has",
-          "link": "33 completed projects"
-        },
-        "advice_data": {
-          "intoduction": [
-            "Alanya is one of the most promising regions for profitable investment of finances. Mahmutlar, Kargicak, Kestel, Oba, Cikcilli-Alanya and its suburbs have been actively built up over the past years. The infrastructure of residential complexes is not inferior to five-star hotels. And the high quality of the interior decoration of apartments and villas is impressive.",
-            "Since 2004, BestHome Construction has been successfully cooperating with investors in Russia, Ukraine, Kazakhstan, America, Denmark, Norway, Germany and other countries, helping them to increase their capital and invest profitably by buying houses and apartments in Turkey. The success of our work lies in the observance of the basic principles of the company."
-          ],
-          "title": "Investment advice from BestHome Construction is:",
-          "cards": [
-            {
-              "title": "1.",
-              "text": "Individual approach to each client-we will select from 5 options for buying real estate, ready-made business in the field of agriculture or tourist service."
-            },
-            {
-              "title": "2.",
-              "text": "Assistance in obtaining Turkish citizenship – we will answer all your questions in detail."
-            },
-            {
-              "title": "3.",
-              "text": "Advice on taxation and the legal side of investing."
-            },
-            {
-              "title": "4.",
-              "text": "Assistance in obtaining Turkish citizenship – we will answer all your questions in detail."
-            }
-          ]
-        },
-        "post_2": {
-          "title": "Responsible approach to work",
-          "paragraph_1": [
-            "We make strict demands on each of our employees in order that we maintain and exceed those high standards for which we have become known.",
-            "We approach each client as if they were our first!  Meticulous planning and attention to detail are foremost and we will select only those projects that come closest to fulfilling all your needs.",
-            "We addition to to assisting you with Turkish residency, we now consider ourselves specialist in the field of Turkish citizenship!"
-          ],
-          "paragraph_with_link": "More",
-          "link": "about Cleopatra Select"
-        },
-        "post_3": {
-          "title": "Transparency and honesty",
-          "paragraph_1": "We will always fulfil our obligations to you and in return, we ask that we become your preferred property investment partner, both now and in the foreseeable future.",
-          "paragraph_with_link": "To date, the company has",
-          "link": "33 completed projects"
-        },
-        "scroll_line_data": [
-          {
-            "title": "17",
-            "subtitle": "years of experience"
-          },
-          {
-            "title": "1000",
-            "subtitle": "satisfied customers"
-          }
-        ],
-        "post_4": {
-          "paragraph_1": [
-            "We believe that client and corporate responsibility underpin everything we do. Our goal is to provide you with property or properties that are both lifestyle and investment oriented.",
-            "We will advise on all property taxation and legislative issues."
-          ],
-          "paragraph_with_link": "More",
-          "link": "about Best Home 36-37 The Legend"
-        }
+      "post_2": {
+        "title": "Library",
+        "paragraph_1": "A modern, spacious and bright public library for all bibliophiles.",
+        "paragraph_with_link": "More",
+        "link": "about Cleopatra Select"
       },
-      "service_online_purchase": {
-        "image_title": {
-          "header": "Online purchase",
-          "text": [
-            "Buying and registering real estate in Alanya without coming to Turkey is easy. The remote real estate purchase and registration service provided by BestHome Construction is becoming more and more popular."
-          ]
-        },
-        "cards": [
-          {
-            "title": "1. Choosing a residential complex",
-            "text": "You can contact our managers in a convenient way for you - via WhatsApp, Telegram, Skype or e-mail, and you can also order a call back. After you indicate your preferences, the company's managers will compile an individual portfolio that meets your wishes, provide complete information on apartments and answer all your questions."
-          },
-          {
-            "title": "2. Inspection of real estate by video call",
-            "text": "The manager of the company will conduct an online broadcast on the spot, showing the area in which the complex is located, places nearby, the road to the sea. If the complex is ready, the infrastructure of the complex and the apartment that interests you, as well as the view from the balcony and windows."
-          },
-          {
-            "title": "3. Drawing up a sales contract",
-            "text": "Having agreed on the payment plan for the purchased apartment, you will need to inform the manager of your contact information, as well as send a copy of your passport. Based on this information in two languages ​​(Russian and Turkish), a purchase-and-sale agreement will be drawn up, which will be sent to you by e-mail or WhatsApp, Telegram for approval. After the confirmation received from you, the contract will be signed by our construction company, scanned and sent to you. After putting your signatures, you will also send the contract to the company manager."
-          },
-          {
-            "title": "4. Execution of a power of attorney",
-            "text": "If you cannot come to Turkey to become a proprietor, you issue a power of attorney at the Turkish Embassy (according to the template sent by the manager of our company) in order for the Certificate of Title to be issued in your name without personal presence. Thanks to the new system, there is no need to mail the power of attorney issued to you. By sending a copy of it, an employee of the company can receive the original at any notary office in the city."
-          },
-          {
-            "title": "5. Ordering furniture",
-            "text": "If you want to come to an already furnished apartment, the company manager will send options for furniture packages that match your preferences and budget. The company's employees will make sure that the furniture is delivered on time, assembled and placed in the apartment exactly as you planned. It is also worth noting that there is an opportunity to use the services of our interior designer, he will select accessories that will decorate your new home."
-          }
-        ],
-        "conclusion": [
-          "Thus, you can be sure that upon arrival in Turkey you will have a ready-to-move, cozy apartment that will surpass all your expectations.",
-          "If you have decided to purchase real estate in Alanya, but are not ready for an online purchase, we will be happy to offer you the service of an individual study tour."
-        ]
-      },
-      "service_after_sale_services": {
-        "image_title": {
-          "header": "After-sale services",
-          "text": [
-            "The acquisition of property in Turkey may seem daunting and over complicated when, in fact, the procedure is actually rather simple and largely 'red-tape' free."
-          ],
-          "filename": "service-after-sale-services-bg.jpg"
-        },
-        "slot_text_1": "Our professionals, all of whom are multi-lingual, with be with you on the property purchase journey every step of the way, from finding you the right property, assisting with furnishings, arranging title deed tranfer and that all important key delivery!",
-        "slot_text_2": "Once you have taken delivery of your property, we will continue to assist you in any way we can.",
-        "list_card": {
-          "header": {
-            "title": "Some of our 'after-sales' services include<br>(but are not limited to) :"
-          },
-          "list": [
-            "Transfer to / from the airports of Antalya and Alanya-Gazipasa;",
-            "Car rent;",
-            "Assistance in buying furniture and interior design;",
-            "Rental management;",
-            "Apartment cleaning;",
-            "Assistance in obtaining a residence permit and Turkish citizenship."
-          ]
-        }
-      },
-      "all_about_rent": {
-        "image_title": {
-          "header": "All about apartment leasing",
-          "text": [
-            "For those that might consider utilising their property as an income producing asset, then you have come to the right place!",
-            "Given the huge amount of incoming visitors and the amenable climate, good quality rental apartments in Alanya are in demand all year round and rental yields are good, both for short and long term rental periods."
-          ]
-        },
-        "text": [
-          "The apartments in BestHome Construction projects are not only desirable from a lifestyle perspective, they can also be profitable investment assets. The majority of all units within our projects are sold well before project completion and it a fact that demand for these projects far outstrips supply. In this respect, we have a large database of clients looking to buy only in existing BestHome projects (on a re-sale basis).",
-          "So, if you ever feel that the time is right to sell your property (either with or without furniture), be assured that we have many potential buyers ready and waiting!",
-          "Regardless of whether you have purchased an apartment for a rental business or for a holiday, and want to rent your apartment only during the period when it is free, our partner company will be happy to provide all services related to the rental of your property:"
-        ],
-        "cards": [
-          "Professional photos and video presentation of your property",
-          "Sourcing of potential tenants",
-          "Preparation of leasing agreements",
-          "Apartment cleaning upon tenant departure"
-        ]
-      },
-      "service_introductory_tour": {
-        "image_title": {
-          "header": "Inspection trip",
-          "text": [
-            "If you have decided to purchase real estate in Alanya and would like to view any property in person, why not join us on an Inspection Tour?  An inspection tour, with a duration of 3-4 days will allow you to look at a selection of preferred properties as well as allowing you to get a real feel for the sights and sounds of Alanya - indeed, you should also get an insight as to what being a property owner here is all about!"
-          ],
-          "filename": "service-introductory-tour-bg.jpg"
-        },
-        "slot_text_1": "If you have decided to purchase a property in Alanya, but are not ready for an online purchase, we will be happy to offer you the service of an individual study tour.",
-        "post_1": {
-          "title": "Meeting at the airport",
-          "paragraph_1": "After you have purchased your a flight ticket, send this to your sales manager and he or she can commence planning your tour. Upon arrival at the airport, either Antalya or Alanya-Gazipasa, you will be met by one of our chauffeurs - he will drive you to your appointed accommodation.",
-          "paragraph_with_link": "To date, the company has",
-          "link": "33 completed projects"
-        },
-        "article_1": {
-          "title": "Accommodation in an apartment in one of our complexes",
-          "text": [
-            "In order for you to feel what it may be like as an owner of property in Alanya, you will be hosted in one of our guest apartments. Here you can appreciate the quality of fit and finishing down to the very smallest of details!",
-            "Your sales manager will be there to greet you upon arrival and make sure that you are settled in before meeting up the next day."
-          ]
-        },
-        "post_2": {
-          "title": "Getting to know the districts of Alanya",
-          "paragraph_1": "We will start the day with the famous Turkish breakfast, rich in variety and taste and which no Turk would ever start their day without - we will ensure the location offers stunning far-reaching views of the Alanya cityscape and the Mediterranean Sea. We may also have the time for a stroll around the Harbour area before the real business begins! which is famous not only for the variety of organic products, but also for the magnificent views of the mountains and the sea.",
-          "paragraph_2": "You will then be shown around those regions of Alanya in which the BestHome projects are located."
-        },
-        "post_3": {
-          "title": "Presentation in the office of the company",
-          "paragraph_1": "We will return to the office for a presentation of those projects specifically chosen by you to be of interest. At this stage, we will also provide further information in respect of the property purchasing procedure.",
-          "paragraph_with_link": "To date, the company has",
-          "link": "33 completed projects"
-        },
-        "post_4": {
-          "title": "Conclusion of a sales contract",
-          "paragraph_1": "One you have settled on your ideal property, we will prepare a sales contract - this will be in two languages - English and Turkish. We will also request a tax number,  a pre-requisite for property title transfer - this number will also be needed when opening a bank account."
-        },
-        "post_5": {
-          "title": "Power of attorney execution",
-          "paragraph_1": "If you cannot come to Turkey for title deed registration, you can opt to assign Power of Attorney (POA). This will allow us to transfer the title deed to you in your absence (as well as transferring water and electricity subscriptions into your name).",
-          "paragraph_with_link": "To date, the company has",
-          "link": "33 completed projects"
-        },
-        "post_6": {
-          "title": "Visiting furniture stores",
-          "paragraph_1": "If you wish to purchase furniture for your property during this inspection tour, we will accompany you to a number of stores in order that you get an idea of availability and price."
-        },
-        "post_7": {
-          "title": "Transfer from Alanya to airport",
-          "paragraph_1": "At the appointed time, your chauffeur will pick you up and take you back to the airport for your flight home.",
-          "paragraph_2": "Should you decide to purchase a property from BestHome, all flight costs will be re-imbursed."
-        }
-      },
-      "service_legal_support": {
-        "image_title": {
-          "header": "Legal support",
-          "text": [
-            "The specialists of our company will  prepare all the necessary documents for the transfer of ownership into your name."
-          ],
-          "filename": "service-legal-support-bg.jpg"
-        },
-        "slot_text_1": "After the conclusion of the purchase and sale agreement, we will request a tax number, necessary for the title deed transfer and for opening a bank account in Turkey.",
-        "post_1": {
-          "paragraph_1": "We will submit an application to the Land Registry and accompany you on the appointed date of title transfer. Оnce you have received your title deed, water and electricity subscriptions will also be transferred into your name.",
-          "paragraph_with_link": "To date, the company has",
-          "link": "33 completed projects"
-        },
-        "post_2": {
-          "paragraph_1": "In case you cannot come to Turkey for the title deed registration, you can assign Power of Attorney - this will allow us to complete all formalities in your absence."
-        },
-        "post_3": {
-          "paragraph_1": "We can also assist with all legal and administrative issues in respect of  your application for Turkish residency. In addition, we can assist will of issues relating to Turkish citizenship (if applicable).",
-          "paragraph_with_link": "To date, the company has",
-          "link": "33 completed projects"
-        }
-      },
-      "service_turkish_citizenship": {
-        "image_title": {
-          "header": "Turkish Citizenship for Foreign Investors",
-          "text": [
-            "The Turkish citizenship through property investment program has been an unequivocal success. It is estimated that, in the last 2 years, 'new' citizen  passports have been issued at a rate of more than 800 per day!Since 2019, foreign investors have had a real opportunity to make their dreams come true. Now, when buying a property worth $ 250,000 or more, you can get Turkish citizenship under a simplified scheme. Moreover, the owners of a house or apartment, their spouses and children under 18 can become full citizens directly."
-          ],
-          "filename": "turkish-citizenship-bg.jpg"
-        },
-        "slot_text_1": "Turkey is a great place for seasonal recreation and for living. Many foreigners dream of moving to the Republic of Turkey for permanent residence. Go into business. Buy your own home. And move to the land of the hot sun with your family.",
-        "list_card": {
-          "header": {
-            "title": "Real benefits for foreigners",
-            "text": [
-              "Turkish citizens not only have the right to reside in the country without any obstacles and restrictions, but also have other advantages, such as:"
-            ],
-            "subtext": [
-              "In addition, taxes for Turkish citizens are lower than for foreign investors, as are bank interest on mortgages and loans."
-            ]
-          },
-          "list": [
-            "Social benefits and assistance from the state;",
-            "Health insurance;",
-            "Free education, including in the Russian language;",
-            "Pension payments;",
-            "Obtaining loans with a low interest rate;",
-            "Purchase of land for personal and business purposes;",
-            "Employment without a work VISA;",
-            "Possibility of registration of legal entities;",
-            "VISA-free travel to over 110 countries."
-          ]
-        },
-        "article_1": {
-          "title": "What do you need to know?"
-        },
-        "post_1": {
-          "paragraph_1": "It is important to remember that a foreigner who has acquired property in order to obtain Turkish citizenship does not have the right to sell it for 3 years. But a house or apartment can be rented out for a long-term or short-term lease, which will allow you not only to invest money profitably,but also to increase your capital.",
-          "paragraph_2": "BestHome Constructi Our reson company specializes in the sale of Turkish real estate in the best areas of Alanya and other regions of the country.idential complexes are perfect for investment, seasonal recreation and year-round living, thanks to the convenient location, well-developed infrastructure, high quality construction and finishing, our residential complexes are perfect for investments, seasonal vacations and permanent residence."
-        },
-        "post_2": {
-          "paragraph_1": "To buy a house or apartment in Alanya, you do not have to leave the country in which you are located. It is enough to issue a power of attorney for a lawyer at the Turkish embassy, send all the necessary documents by mail. Our consultants will tell you more about the procedure."
-        },
-        "post_3": {
-          "paragraph_1": "When purchasing real estate and obtaining Turkish citizenship, there are many nuances because the documents must be properly drawn up. Our BestHome Construction specialists have full competence and experience from the legal side of this issue.",
-          "paragraph_2": "We cooperate with trusted law firms that specialize in obtaining Turkish citizenship for foreign investors. With our help, more  than a dozen clients have successfully purchased high-quality housing in developed areas and become legal citizens of the Republic of Turkey."
-        },
-        "post_4": {
-          "title": "Another good news!",
-          "paragraph_1": "Many developers in Alanya offer favorable terms of installments for foreigners who want to invest their capital and become the owner of an apartment or villa at the stage of construction of a residential complex. Thus, Turkish legislation allows you to obtain Turkish citizenship even before the house is put into operation.",
-          "paragraph_with_link": "To date, the company has",
-          "link": "33 completed projects"
-        }
-      },
-      "company_about_company": {
-        "header": {
-          "title": "About company",
-          "text": [
-            "BestHome Construction is a full service real estate company and one of the top developers in the Alanya region After having been founded in 2004, primarily as an agency, it was in 2008 that we made the decision to develop our 'own-brand' projects.",
-            "Since that time we have, to date, delivered 30 residential projects across the Alanya region - are current projects can be found in those regions most in demand from overseas buyers, including  Mahmutlar, Avsallar and Oba.",
-            "The firm has several overseas representative offices, including  Germany, USA, Ukraine, Iran, Kazakhstan, Denmark, Sweden, Norway and Finland.",
-            "Today, with the advancement of technology, it is possible to purchase property in Turkey without having the need to visit! Indeed, more and more of our buyers are searching and sourcing their properties online - even the title deed transfer can be concluded remotely!"
-          ]
-        },
-        "advantages_slider": {
-          "title": "Advantages",
-          "slider": [
-            {
-              "image": "company-advantages-slider-1.jpg",
-              "text": "Professional approach - innovation in design and the use of the latest technologies and materials"
-            },
-            {
-              "image": "company-advantages-slider-2.jpg",
-              "text": "Quality control at every stage of development -<br>a multi-level verification system."
-            },
-            {
-              "image": "company-advantages-slider-3.jpg",
-              "text": "Professional advice on finishing and fitting - all important to ensure we deliver to you your dream home in the Sun"
-            },
-            {
-              "image": "company-advantages-slider-4.jpg",
-              "text": "Bank guarantees - provided for all client monies received"
-            },
-            {
-              "image": "company-advantages-slider-5.jpg",
-              "text": "Transparency of documentation - contracts drafted in your own language and compliant with international law"
-            },
-            {
-              "image": "company-advantages-slider-6.jpg",
-              "text": "A full range of services for the maintenance and management of your property."
-            }
-          ]
-        },
-        "article_1": {
-          "title": "Real Estate in Alanya",
-          "text": [
-            "Why Alanya? Simply because it offers  diverse range of property types to satisfy even the demanding of buyers and at prices to suit!",
-            "The social facilities within our projects are equal to those found in the very best hotels and the vision and skill of our designers ensure living spaces that are functional, comfortable and  aesthetically striking.",
-            "Alanya and Oba are the most prestigious areas, suitable for living and seasonal recreation, as well as for profitable investment of money. In the future, the company plans to expand the boundaries of construction.",
-            "The developer offers to buy quality apartments on the Mediterranean coast. The buildings are built and finished in the best European traditions. The housing meets high international standards. Spacious rooms with high ceilings, fine finishing using ECO materials. Partial or full furnishings, built-in household appliances. Variety of decorative solutions will be appreciated even by very demanding clients. ",
-            "To choose housing, taking into account your wishes, requirements and financial capabilities, you can go on an introductory tour or trust the professionalism of the company's employees, who will agree on all important organizational issues for the client.",
-            "Thanks to the competent planning, in new buildings you can buy apartments from different price segments. Small apartments and or luxury penthouses on the upper floors."
-          ]
-        },
-        "scroll_line_data": [
-          {
-            "title": "33",
-            "subtitle": "Projects"
-          },
-          {
-            "title": "More than 17",
-            "subtitle": "Years of experience"
-          },
-          {
-            "title": "Thousands",
-            "subtitle": "Satisfied customers"
-          },
-          {
-            "title": "1 to 4-room",
-            "subtitle": "Separate rooms"
-          }
-        ],
-        "article_2": {
-          "text": [
-            "So, by contacting BestHome Construction, you get the opportunity to buy apartments in Alanya at the most favorable price, including issue an interest-free installment plan from the developer,",
-            "You can purchase housing for personal use or for rent without leaving your country.",
-            "You can entrust the after-sales service of your apartment, villa or office to a Leader Management subsidiary, confident that all your administrative, legal and financial obligations are met.",
-            "As well as consultations on the choice, assistance in obtaining a residence permit and citizenship, legal and financial support for each transaction.",
-            "Trust Us - more than 17 years experience of providing only the very best real estate solutions. "
-          ]
-        }
-      },
-      "company_advantages": {
-        "header": {
-          "title": "Our Difference in Reliability",
-          "sub_title": "The reliability of the developer",
-          "text": [
-            "When making the decision to invest in overseas property, two of the primary considerations when choosing your overseas investment partner are: Reliability and Trust.",
-            "Whether purchasing from a lifestyle perspective or from an investment angle, all clients must have absolute confidence in the people they are working with.",
-            "In order that their investment is directed into the most appropriate projects, investors need expert local knowledge in order to ensure that the property has been priced in accordance with current market values, that the project will be completed and delivered on time and that it presents a profitable and efficient investment vehicle for the foreseeable future.",
-            "Best Home have been at the forefront of the real estate business in Alanya for more than 16 years and in that time, have conceived and delivered some of the most notable residential projects in the region. With a reputation for excellence, we appreciate that our customers, both past and present, are our most valuable asset and this must remain so if our business is to be sustained.",
-            "We at BestHome can provide a ‘one-stop’ service for all your property investment requirements in Alanya",
-            "”From our initial consultation through to the signing of property purchase contract, from shopping for furniture through to the transfer of your title deed, we will be with you every step of the way.”"
-          ],
-          "linkToProjects": {
-            "text": "Today the company has",
-            "link": "33 completed projects",
-            "route": "/projects"
-          }
-        },
-        "scroll_line_data": [
-          {
-            "title": "33",
-            "subtitle": "Completed projects"
-          },
-          {
-            "title": "17",
-            "subtitle": "Years of experience"
-          },
-          {
-            "title": "Thousands",
-            "subtitle": "of satisfied customers"
-          },
-          {
-            "title": "since 2004",
-            "subtitle": "On the market"
-          }
-        ],
-        "post_1": {
-          "title": "Construction quality",
-          "paragraph_1": [
-            "Construction quality is the primary factor of choosing property",
-            "We understand that you want your home to be safe, problem-free, remain inhabitable indefinitely and retain its value should you decide to sell it.",
-            "We can ensure you that all of our projects are built to the highest of standards."
-          ]
-        },
-        "post_2": {
-          "title": "Innovation",
-          "paragraph_1": "We are constantly reviewing our construction methods to ensure they incorporate the best elements of modern technology.",
-          "paragraph_with_link": "Go to",
-          "link": "contacts"
-        },
-        "article_1": {
-          "title": "Unique location",
-          "text": [
-            "A lot depends on the location of your apartment. The favorable location guarantees you not only a comfortable life, but also the opportunity, if necessary, to sell your property very profitably.",
-            "BestHome Construction chooses only the best areas of Alanya with excellent infrastructure for its projects. The plots on which the projects are being built are of great value. Around them, as a rule, everything has been built up for a long time. Accordingly, the infrastructure in such areas is very active. Here you will find many parks, squares and green areas for a comfortable family vacation.",
-            "When implementing new projects, our company invariably gives preference to such areas as the center of Alanya (including the Damlatash area) and Oba. In Oba, due to the limitation in the height of projects according to the city plan, the company's margins are often lower, but that is why all projects are used as highly liquid ones. This area has been considered European for about 15 years. Cozy complexes with 5-storey blocks and swimming pools conquered Europeans with their laconic style and comfort.",
-            "And finally, the most popular area among our clients is Damlatas. It is located in the very center of Alanya and very close to the main city. It has everything you need for a calm and comfortable life: landscaped beaches marked with the Blue Flag, schools, hospitals, cafes, restaurants, tennis courts and chic walking areas. The special charm of Damlatas is given by the fact that the building height is limited to five floors here, and the road along the embankment is one-way. Despite the large number of tourists, it is always comfortable and calm here. The cost of housing in this area is quite high, which guarantees you a profitable investment in real estate and the possibility of further renting out an apartment or selling it at a more attractive price."
-          ]
-        },
-        "post_3": {
-          "title": "Design",
-          "paragraph_1": "Intelligent design and attention to detail ensure our homes are built to suit your lifestyle and to keep pace with the demands of modern life."
-        },
-        "post_4": {
-          "title": "Craftsmanship",
-          "paragraph_1": "Our highly skilled workforce take pride in delivering the exceptional standards on which we have built our reputation.",
-          "paragraph_with_link": "Look",
-          "link": "Employees"
-        },
-        "post_5": {
-          "title": "Specification",
-          "paragraph_1": "By carefully sourcing quality materials we aim to meet the very high standards you expect."
-        },
-        "article_2": {
-          "title": "Our Difference in Design",
-          "text": [
-            "In the competitive world that is the Alanya real estate industry, it is important always to stay ahead of the competition – one way to do this is by offering something totally unique in terms of design, both externally and internally.",
-            "As an example, all Best Home projects are low-rise and the external facade will incorporate a mix of materials and finishes that will set it apart from other developments in the area – additionally, the external social areas will comprise lush landscaping, decorative walling and a tiled sun terrace surrounding the pool.",
-            "For the interior of each property, we have a highly skilled and specialised interior design team that enable us to constantly deliver modern living spaces of the very highest quality – this quality is evident throughout, not just in the fittings and fixtures but also in the design detail. For example, the kitchens have an ample expanse of bench space and ample upper and lower storage, both critical elements in modern apartment living.",
-            "In addition to the interior design being streamlined and aesthetically pleasing, all fittings and fixtures are long lasting and hard wearing.",
-            "By paying close attention to these design details, we believe our projects are a cut above the rest and one of the the primary reasons why our projects are so successful – as an example, some 75% of all units (within any project) are sold well before project completion.",
-            "Additionally, this close attention to detail ‘adds value’ to all units within a specific project and will go some way to ensuring its status as an investment asset, both at the time of purchase as well as at the time (if appropriate) of reselling.",
-            "These ‘value added’ details are also important for those clients that are ‘buying to rent’ – with the rental market in Alanya continuing to grow, highly specified apartments (within a good location) are at the top of every renter’s wish list!"
-          ],
-          "paragraph_with_link": "Today the company has",
-          "link": "33 completed projects"
-        }
-      },
-      "our_team": {
-        "title": "Our team",
-        "slider_title": "Other employees"
-      },
-      "company_history": {
-        "header": {
-          "title": "The first steps",
-          "text": [
-            "The history of BestHome Construction began in 2004 in Alanya, when two young people decided to start their own business in Turkey, based on long-term partnerships, European understanding of service and respect for customers. They wanted to create a company with Turkish traditions and a European face. The new fast-growing real estate market was perfectly suited for this purpose, although there was already competition then. But the founders of the company believed that their brainchild would be able to take a leading position and, as later life showed, they were not mistaken in their forecasts.",
-            "Based on the experience of working in the leading real estate agency in Alanya, they understood that there was no such product on the market that they would like to offer to demanding European clients, as well as quality after-sales service. Then decisions were made that determined the way for the further development of the company. The first is to build houses of European quality level that meet the expectations and wishes of clients, the second is to keep these promises, to create trusting relationships with clients, the third is to be innovators and legislators in the real estate market of Alanya, and the fourth is to introduce as many clients around the world as possible to the beautiful city. Alanya and the unrivaled Turkish culture, add value to the region."
-          ],
-          "linkToProjects": {
-            "text": "Today the company has",
-            "link": "33 completed projects",
-            "route": "/projects"
-          }
-        },
-        "history_slider": [
-          {
-            "year": "2004",
-            "image": "2004.jpg",
-            "title": "The first steps",
-            "subtitle": "Partners of the company - Ali Yetgin and Per Holm - and a consortium of Danish investors buy out a whole completed project in the Cikcilli region of Alanya - BestHome Resort - all units purchased by Danes."
-          },
-          {
-            "year": "2005",
-            "image": "2005.jpg",
-            "title": "First project",
-            "subtitle": "The company actively enters the Norwegian market. The following projects were commissioned: BestHome Residence 1, BestHome Residence 2, Tofko Villas.",
-            "linkToProject": {
-              "text": "More",
-              "link": "about this year",
-              "route": "company-about"
-            }
-          },
-          {
-            "year": "2006",
-            "image": "2006.jpg",
-            "title": "Emerging market",
-            "subtitle": "The government approves a new and revised law allowing foreigners to buy property in Turkey.",
-            "linkToProject": {
-              "text": "More",
-              "link": "about this year",
-              "route": "company-about"
-            }
-          },
-          {
-            "year": "2007",
-            "image": "2007.jpg",
-            "title": "The law on real estate",
-            "subtitle": "The government approves a new and revised law allowing foreigners to buy property in Turkey.",
-            "linkToProject": {
-              "text": "More",
-              "link": "about this year",
-              "route": "company-about"
-            }
-          },
-          {
-            "year": "2008",
-            "image": "2008.jpg",
-            "title": "A new direction",
-            "subtitle": "The partners of the company understand that there is a new opportunity emerging in Russia and CIS countries. These 'new' client are looking for inexpensive, small apartments in the central districts of the city. The partners decide to buy out an existing the apart-hotel and reconstruct it into apartments for sale specifically to these 'new' clients. This new residential project offered great value apartments in the heart of Alanya and close to the famous Cleopatra beach Thus, BestHome Construction offers its clients quality housing at low prices in the very heart of Alanya, within walking distance of the famous Cleopatra beach.",
-            "linkToProject": {
-              "text": "More",
-              "link": "about this year",
-              "route": "company-about"
-            }
-          },
-          {
-            "year": "2009",
-            "image": "2009.jpg",
-            "title": "BestHome City 1 & 2",
-            "subtitle": "The complexes BestHome City 1 and BestHome City 2 were commissioned. Ali Yetgina's partner, Per Holm, decides to return to Denmark and leaves the list of founders.",
-            "linkToProject": {
-              "text": "More",
-              "link": "about this year",
-              "route": "company-about"
-            }
-          },
-          {
-            "year": "2010",
-            "image": "2010.jpg",
-            "title": "Quality",
-            "subtitle": "We are confident that the quality of construction is one of the main criteria for choosing real estate in Alanya. Building new complexes, we understand that you want your house to be durable, strong and reliable, does not require constant repairs and does not lose its liquidity over time. We guarantee that all construction work in our houses was carried out at a high quality level in compliance with all regulatory requirements.",
-            "linkToProject": {
-              "text": "More",
-              "link": "about this year",
-              "route": "company-about"
-            }
-          },
-          {
-            "year": "2011",
-            "image": "2011.jpg",
-            "title": "New technologies",
-            "subtitle": "The complexes BestHome City 3, BestHome City 4, BestHome City 5 and BestHome City 6 were commissioned. For the first time in Alanya, the walls between the apartments were built with a depth of 2 bricks of two bricks, with Knauf glass wool used as insulation material.",
-            "linkToProject": {
-              "text": "More",
-              "link": "about this year",
-              "route": "company-about"
-            }
-          },
-          {
-            "year": "2012",
-            "image": "2012.jpg",
-            "title": "4 more projects",
-            "subtitle": "The complexes BestHome 8 Yuksek, BestHome City 9 and BestHome City 10, BestHome City 11 were commissioned.",
-            "linkToProject": {
-              "text": "More",
-              "link": "about this year",
-              "route": "company-about"
-            }
-          },
-          {
-            "year": "2013",
-            "image": "2013.jpg",
-            "title": "BestHome 12 Comfort",
-            "subtitle": "The BestHome 12 Comfort complex was  commissioned . The company enters the Iranian market.",
-            "linkToProject": {
-              "text": "More",
-              "link": "about this year",
-              "route": "company-about"
-            }
-          },
-          {
-            "year": "2014",
-            "image": "2014.jpg",
-            "title": "New infrastructure",
-            "subtitle": "The complexes BestHome City 14 and BestHome 15 VIP were commissioned. BestHome 15 VIP is the company's first complex with an expanded infrastructure. It was here that a special platform for sunbathing directly in the pool was created for the first time in Alanya -  500-year-old olive trees were planted!",
-            "linkToProject": {
-              "text": "More",
-              "link": "about this year",
-              "route": "company-about"
-            }
-          },
-          {
-            "year": "2015",
-            "image": "2015.jpg",
-            "title": "4 new projects",
-            "subtitle": "The complexes BestHome 16 VIP, BestHome 17 Cleopatra, BestHome City 18 and BestHome City 19 were commissioned.",
-            "linkToProject": {
-              "text": "More",
-              "link": "about this year",
-              "route": "company-about"
-            }
-          },
-          {
-            "year": "2016",
-            "image": "2016.jpg",
-            "title": "Large-scale projects",
-            "subtitle": "The company's management understands that despite the demand from Russian-speaking clients, there are no projects, thus far, than can truly claim to occupy the luxury segment. In this respect, Alanya Towers was born, to date the largest project within our portfolio.",
-            "linkToProject": {
-              "text": "More",
-              "link": "about this year",
-              "route": "company-about"
-            }
-          },
-          {
-            "year": "2017",
-            "image": "2017.jpg",
-            "title": "The luxury segment",
-            "subtitle": "The company's management understands that despite the demand from Russian-speaking clients, there are no decent apartments in the luxury segment on the real estate market in Alanya, and BestHome Construction begins construction of the largest of the complexes previously built by the company - Alanya Towers.",
-            "linkToProject": {
-              "text": "More",
-              "link": "about this year",
-              "route": "company-about"
-            }
-          },
-          {
-            "year": "2018",
-            "image": "2018.jpg",
-            "title": "Alanya Towers",
-            "subtitle": "The Alanya Towers complex becomes operational into operation and becomes our 'benchmark' project, one upon which all future projects will be judged! Today, it is considered to be the most exclusive complex in the Antalya region.",
-            "linkToProject": {
-              "text": "More",
-              "link": "about this year",
-              "route": "company-about"
-            }
-          },
-          {
-            "year": "2019",
-            "image": "2019.jpg",
-            "title": "Cleopatra District",
-            "subtitle": "The main buyers of real estate in Alanya are still residents of the CIS countries. But due to the economic instability in their countries, clients prefer to purchase apartments that will bring them a stable rental income, as well as increase their capital upon sale. The leaders of the company understand that the most liquid place in Alanya is still the Cleopatra beach area and the complexes built here will be able to fully meet these rental income priorities.",
-            "linkToProject": {
-              "text": "More",
-              "link": "about this year",
-              "route": "company-about"
-            }
-          },
-          {
-            "year": "2020",
-            "image": "2020.jpg",
-            "title": "Important year",
-            "subtitle": "In February, the company acquires a detached three-story building, which will house the company's new office, which will include all departments under one roof: construction, sales, agriculture, car sales.",
-            "linkToProject": {
-              "text": "More",
-              "link": "about this year",
-              "route": "company-about"
-            }
-          },
-          {
-            "year": "2021",
-            "image": "2021.jpg",
-            "title": "Future",
-            "subtitle": "We are proud of our projects. But this year we would like to share with you our yet another new premium project Best Home 36-37 The Legend, which conquers history in real estate. Best Home 36-37 The Legend is a unique complex in the very center of Alanya with the infrastructure of a 5 * hotel, which is 120 meters from the sandy beach.",
-            "linkToProject": {
-              "text": "More",
-              "link": "about this year",
-              "route": "company-about"
-            }
-          }
-        ],
-        "post_1": {
-          "title": "“We are proud of the history of our company and are trying to reach new heights in the real estate industry”",
-          "paragraph_with_link": "Sales Director",
-          "link": "Anna Larina"
-        }
-      },
-      "company_our_team": [
+      "scroll_line_data": [
         {
-          "id": 1,
-          "image": "person-1.png",
-          "name": "Mehmet Ali Yetgin",
-          "position": "General Manager",
-          "info": [
-            "Mehmet Ali Yetgin - Founder and CEO of BestHome Construction",
-            "In 2004 he founded BestHome Construction - from the outset, his focus has been two-fold - to provide residential properties of the very highest quality and to provide all clients with an after-sales service unmatched by any other.",
-            "Mehmet's passion for the real estate business remains steadfast and he is determined to be both innovative and creative in order to satisy client demands.",
-            "He has established co- operation agreements with a number of overseas investors as well as a widespread network of agent partners - these partners hail from, amongst others, Russia, CIS countries, Germany, Scandinavia, the Middle East and the USA."
-          ]
+          "title": "239",
+          "text": "Apartments"
         },
         {
-          "id": 2,
-          "image": "person-2.png",
-          "name": "Anna Larina",
-          "position": "Sales Director",
-          "info": [
-            "Anna Betul Larina Sales Director",
-            "Anna Larina is the Sales Director at BestHome Construction. Joined the company in 2012.",
-            "Anna speaks several foreign languages, including Russian, English, Turkish, Latvian, French. Graduated from the University of Latvia with a degree in French philology. Has been successfully working in the field of marketing and sales since 2007"
-          ]
+          "title": "470",
+          "text": "Parking spots for bikes"
         },
         {
-          "id": 4,
-          "image": "person-4.png",
-          "name": "Murat Colak",
-          "position": "After sales services, rent",
-          "info": [
-            "Murat Cholak is a brokerage and after-sales service specialist. At BestHome Construction since 2019.",
-            "Murat got his education in Germany. He has a 19 years’ experience in management. Has been working in real estate since 2016. Fluent in several foreign languages - Russian, Turkish, English, and German."
-          ]
+          "title": "3800m²",
+          "text": "Of common green areas"
         },
         {
-          "id": 5,
-          "image": "person-5.png",
-          "name": "Emrah Yetgin",
-          "position": "Assistant to the General Manager",
-          "info": [
-            "Emrah Yetgin is Assistant to the General Manager. At BestHome Construction since 2018.",
-            "Emrah graduated from Eskişehir Anadolu Üniversitesi University with a degree in Management. He got master degree at Alaadin Keykubat Üniversitesi University.",
-            "Emrah has a 13 years’ experience in the insurance industry. Fluent in Turkish and English."
-          ]
-        },
-        {
-          "id": 6,
-          "image": "person-6.png",
-          "name": "Ahmet Siniksaran",
-          "position": "Personal Assistant to the General Manager",
-          "info": [
-            "Ahmet Siniksaran – is personal assistant to the general manager.  Joined the company in 2019.",
-            "Akmet got education at Selçuk Üniversitesi University, worked as a topographer for 7 years. Now he is studying at Anadolu Üniversitesi Universityat the faculty of State and Regional Administration."
-          ]
-        },
-        {
-          "id": 7,
-          "image": "person-7.png",
-          "name": "Emirhan Yetgin",
-          "position": "Architect",
-          "info": [
-            "Emirhan Yetgin is an architect. Has been working at BestHome Construction since 2019.",
-            "Emirhan graduated from Haliç Üniversitesi University. He got master degree at Alaadin Keykubat Üniversitesi University.",
-            "Works in 3ds Max, Autocad, Sketchup, Adobe Photoshop, Corona Renderer, Lumion, Adobe Premiere. Fluent in Turkish and English."
-          ]
-        },
-        {
-          "id": 8,
-          "image": "person-8.png",
-          "name": "Adem Sonmez",
-          "position": "Civil Engineer",
-          "info": [
-            "Adem Sonmez is a civil engineer. He has been working in BestHome since 2014.",
-            "Adam graduated from Bozok Üniversitesi University and got master degree at Alaadin Keykubat Üniversitesi University.",
-            "Fluent in Turkish and English. Knows how to work in the Autocad program."
-          ]
-        },
-        {
-          "id": 9,
-          "image": "person-9.png",
-          "name": "Emre Erdem",
-          "position": "Civil Engineer",
-          "info": [
-            "Emre Erdem is a civil engineer at BestHome Construction. He has been working in BestHome since 2021. Emre graduated from Sakarya Üniversitesi University.",
-            "Fluent in Russian and Turkish. Can work in Autocad, Sta4cad, Idecad programs."
-          ]
-        },
-        {
-          "id": 10,
-          "image": "person-10.png",
-          "name": "Gulden Ay Gurer",
-          "position": "Architect, interior designer",
-          "info": [
-            "Gulden Ay Gyurr is an architect and interior designer. Has been working at BestHome Construction since 2016.",
-            "Gulden graduated from Dokuz Eylül Üniversitesi University with. She also got master degreet at the İstanbul Teknik Üniversitesi University and master degree in Finland at Lahti University of Applied Sciences. She attanded course of interior design in India at the Center of Environmental Planning and Technology.",
-            "Gulden has been working as an interior designer since 2012. Fluent in Turkish and English.",
-            "Can work in 3ds Max, Autocad, Sketchup, Adobe Photoshop programs."
-          ]
-        },
-        {
-          "id": 11,
-          "image": "person-11.png",
-          "name": "Halil Ibrahim Baspinar",
-          "position": "Architect, 3D Designer",
-          "info": [
-            "Halil Ibrahim Baspinar is an architect, interior designer, computer graphics and animation specialist. At BestHome Construction since 2021.",
-            "Halil Ibrahim graduated as an architect from Yıldız Teknik Üniversitesi University. Now he is studying computer technology at Anadolu Üniversitesi.",
-            "He is expert in 3ds Max, Autocad, Sketchup, Adobe Photoshop, Corona Renderer, Lumion, Adobe Premiere."
-          ]
-        },
-        {
-          "id": 12,
-          "image": "person-12.png",
-          "name": "Busra Yetgin",
-          "position": "Interior designer",
-          "info": [
-            "Bushra Yetgin is an interior designer at BestHome Construction. She joined the company in 2017.",
-            "Bushra studied Management at Alaadin Keykubat Üniversitesi University. She is currently studying HR at Anadolu Üniversitesi University and attending interior designer courses.",
-            "Can work in 3ds Max, Vray, Sketchup programs."
-          ]
-        },
-        {
-          "id": 13,
-          "image": "person-13.png",
-          "name": "Neval Onac",
-          "position": "Chief Accountant",
-          "info": [
-            "Neval Onach is Chief Accountant at BestHome Construction. She joined the company in 2004.",
-            "She got education as accountant in Isparta Süleyman Demirel Üniversitesi University and studied management in Anadolu Üniversitesi. Has been working in the financial sector since 1996.",
-            "Neval speaks English and Turkish."
-          ]
-        },
-        {
-          "id": 14,
-          "image": "person-14.png",
-          "name": "Ilknur Koc",
-          "position": "Accountant",
-          "info": [
-            "Ilknur Koç is an accountant at BestHome Construction. She joined the company in 2019.",
-            "Ilknur graduated from Anadolu Üniversitesi University with a degree in Management. She studed accounting at Balıkesir Üniversitesi.",
-            "Has been working in the financial sector since 2003."
-          ]
-        },
-        {
-          "id": 15,
-          "image": "person-15.png",
-          "name": "Yunus Yilmaz",
-          "position": "Accountant",
-          "info": [
-            "Yunus Yilmaz has been working at BestHome Construction as accountant since 2016.",
-            "Yunus received economical education at Anadolu Üniversitesi University. Fluent in English and Turkish.",
-            "Has 6 years’ experience in management."
-          ]
-        },
-        {
-          "id": 16,
-          "image": "person-16.png",
-          "name": "Melike Akis Coskun",
-          "position": "Office manager",
-          "info": [
-            "Melike Akis Joskun is Office manager of BestHome Construction. Joined the company in 2020.",
-            "She is currently studying at Eskişehir Anadolu Üniversitesi University. She attanded courses of the assistant to the chief director, secretary, accountant. Has been working as an Office manager in the construction sector since 2014.",
-            "Fluent in Turkish and English."
-          ]
+          "title": "1 to 4-room",
+          "text": "Separate rooms"
         }
       ],
-      "contacts": {
-        "contact_map": {
-          "title": "BestHome",
+      "panorama": {
+        "text_1": "Hold",
+        "text_2": "& use mouse to navigate panorama"
+      }
+    },
+    "investors": {
+      "header": {
+        "title": "Turkey - Real estate investment in Alanya",
+        "text": "Over the past 10 years, the Republic of Turkey has replenished its treasury with foreign investment of $ 100 billion. What attracts investors from Russia, the United States and Europe? Economic stability, political liberality to foreign investors, high quality of construction, relatively low taxes on the purchase of apartments and houses. And in recent years, the possibility of obtaining Turkish citizenship under a simplified scheme has also been added.",
+        "linkToProjects": {
+          "text": "To date, the company has",
+          "link": "33 completed projects",
+          "route": "/projects"
+        }
+      },
+      "post_1": {
+        "title": "Company and client development through long term relationships",
+        "paragraph_1": "Our success is your success - only by finding you the those properties that fully meet your expectations, either from a lifestyle or investment angle, can we continue to grow.",
+        "paragraph_with_link": "To date, the company has",
+        "link": "33 completed projects"
+      },
+      "advice_data": {
+        "intoduction": [
+          "Alanya is one of the most promising regions for profitable investment of finances. Mahmutlar, Kargicak, Kestel, Oba, Cikcilli-Alanya and its suburbs have been actively built up over the past years. The infrastructure of residential complexes is not inferior to five-star hotels. And the high quality of the interior decoration of apartments and villas is impressive.",
+          "Since 2004, BestHome Construction has been successfully cooperating with investors in Russia, Ukraine, Kazakhstan, America, Denmark, Norway, Germany and other countries, helping them to increase their capital and invest profitably by buying houses and apartments in Turkey. The success of our work lies in the observance of the basic principles of the company."
+        ],
+        "title": "Investment advice from BestHome Construction is:",
+        "cards": [
+          {
+            "title": "1.",
+            "text": "Individual approach to each client-we will select from 5 options for buying real estate, ready-made business in the field of agriculture or tourist service."
+          },
+          {
+            "title": "2.",
+            "text": "Assistance in obtaining Turkish citizenship – we will answer all your questions in detail."
+          },
+          {
+            "title": "3.",
+            "text": "Advice on taxation and the legal side of investing."
+          },
+          {
+            "title": "4.",
+            "text": "Assistance in obtaining Turkish citizenship – we will answer all your questions in detail."
+          }
+        ]
+      },
+      "post_2": {
+        "title": "Responsible approach to work",
+        "paragraph_1": [
+          "We make strict demands on each of our employees in order that we maintain and exceed those high standards for which we have become known.",
+          "We approach each client as if they were our first!  Meticulous planning and attention to detail are foremost and we will select only those projects that come closest to fulfilling all your needs.",
+          "We addition to to assisting you with Turkish residency, we now consider ourselves specialist in the field of Turkish citizenship!"
+        ],
+        "paragraph_with_link": "More",
+        "link": "about Cleopatra Select"
+      },
+      "post_3": {
+        "title": "Transparency and honesty",
+        "paragraph_1": "We will always fulfil our obligations to you and in return, we ask that we become your preferred property investment partner, both now and in the foreseeable future.",
+        "paragraph_with_link": "To date, the company has",
+        "link": "33 completed projects"
+      },
+      "scroll_line_data": [
+        {
+          "title": "17",
+          "subtitle": "years of experience"
+        },
+        {
+          "title": "1000",
+          "subtitle": "satisfied customers"
+        }
+      ],
+      "post_4": {
+        "paragraph_1": [
+          "We believe that client and corporate responsibility underpin everything we do. Our goal is to provide you with property or properties that are both lifestyle and investment oriented.",
+          "We will advise on all property taxation and legislative issues."
+        ],
+        "paragraph_with_link": "More",
+        "link": "about Best Home 36-37 The Legend"
+      }
+    },
+    "service_online_purchase": {
+      "image_title": {
+        "header": "Online purchase",
+        "text": [
+          "Buying and registering real estate in Alanya without coming to Turkey is easy. The remote real estate purchase and registration service provided by BestHome Construction is becoming more and more popular."
+        ]
+      },
+      "cards": [
+        {
+          "title": "1. Choosing a residential complex",
+          "text": "You can contact our managers in a convenient way for you - via WhatsApp, Telegram, Skype or e-mail, and you can also order a call back. After you indicate your preferences, the company's managers will compile an individual portfolio that meets your wishes, provide complete information on apartments and answer all your questions."
+        },
+        {
+          "title": "2. Inspection of real estate by video call",
+          "text": "The manager of the company will conduct an online broadcast on the spot, showing the area in which the complex is located, places nearby, the road to the sea. If the complex is ready, the infrastructure of the complex and the apartment that interests you, as well as the view from the balcony and windows."
+        },
+        {
+          "title": "3. Drawing up a sales contract",
+          "text": "Having agreed on the payment plan for the purchased apartment, you will need to inform the manager of your contact information, as well as send a copy of your passport. Based on this information in two languages ​​(Russian and Turkish), a purchase-and-sale agreement will be drawn up, which will be sent to you by e-mail or WhatsApp, Telegram for approval. After the confirmation received from you, the contract will be signed by our construction company, scanned and sent to you. After putting your signatures, you will also send the contract to the company manager."
+        },
+        {
+          "title": "4. Execution of a power of attorney",
+          "text": "If you cannot come to Turkey to become a proprietor, you issue a power of attorney at the Turkish Embassy (according to the template sent by the manager of our company) in order for the Certificate of Title to be issued in your name without personal presence. Thanks to the new system, there is no need to mail the power of attorney issued to you. By sending a copy of it, an employee of the company can receive the original at any notary office in the city."
+        },
+        {
+          "title": "5. Ordering furniture",
+          "text": "If you want to come to an already furnished apartment, the company manager will send options for furniture packages that match your preferences and budget. The company's employees will make sure that the furniture is delivered on time, assembled and placed in the apartment exactly as you planned. It is also worth noting that there is an opportunity to use the services of our interior designer, he will select accessories that will decorate your new home."
+        }
+      ],
+      "conclusion": [
+        "Thus, you can be sure that upon arrival in Turkey you will have a ready-to-move, cozy apartment that will surpass all your expectations.",
+        "If you have decided to purchase real estate in Alanya, but are not ready for an online purchase, we will be happy to offer you the service of an individual study tour."
+      ]
+    },
+    "service_after_sale_services": {
+      "image_title": {
+        "header": "After-sale services",
+        "text": [
+          "The acquisition of property in Turkey may seem daunting and over complicated when, in fact, the procedure is actually rather simple and largely 'red-tape' free."
+        ],
+        "filename": "service-after-sale-services-bg.jpg"
+      },
+      "slot_text_1": "Our professionals, all of whom are multi-lingual, with be with you on the property purchase journey every step of the way, from finding you the right property, assisting with furnishings, arranging title deed tranfer and that all important key delivery!",
+      "slot_text_2": "Once you have taken delivery of your property, we will continue to assist you in any way we can.",
+      "list_card": {
+        "header": {
+          "title": "Some of our 'after-sales' services include<br>(but are not limited to) :"
+        },
+        "list": [
+          "Transfer to / from the airports of Antalya and Alanya-Gazipasa;",
+          "Car rent;",
+          "Assistance in buying furniture and interior design;",
+          "Rental management;",
+          "Apartment cleaning;",
+          "Assistance in obtaining a residence permit and Turkish citizenship."
+        ]
+      }
+    },
+    "all_about_rent": {
+      "image_title": {
+        "header": "All about apartment leasing",
+        "text": [
+          "For those that might consider utilising their property as an income producing asset, then you have come to the right place!",
+          "Given the huge amount of incoming visitors and the amenable climate, good quality rental apartments in Alanya are in demand all year round and rental yields are good, both for short and long term rental periods."
+        ]
+      },
+      "text": [
+        "The apartments in BestHome Construction projects are not only desirable from a lifestyle perspective, they can also be profitable investment assets. The majority of all units within our projects are sold well before project completion and it a fact that demand for these projects far outstrips supply. In this respect, we have a large database of clients looking to buy only in existing BestHome projects (on a re-sale basis).",
+        "So, if you ever feel that the time is right to sell your property (either with or without furniture), be assured that we have many potential buyers ready and waiting!",
+        "Regardless of whether you have purchased an apartment for a rental business or for a holiday, and want to rent your apartment only during the period when it is free, our partner company will be happy to provide all services related to the rental of your property:"
+      ],
+      "cards": [
+        "Professional photos and video presentation of your property",
+        "Sourcing of potential tenants",
+        "Preparation of leasing agreements",
+        "Apartment cleaning upon tenant departure"
+      ]
+    },
+    "service_introductory_tour": {
+      "image_title": {
+        "header": "Inspection trip",
+        "text": [
+          "If you have decided to purchase real estate in Alanya and would like to view any property in person, why not join us on an Inspection Tour?  An inspection tour, with a duration of 3-4 days will allow you to look at a selection of preferred properties as well as allowing you to get a real feel for the sights and sounds of Alanya - indeed, you should also get an insight as to what being a property owner here is all about!"
+        ],
+        "filename": "service-introductory-tour-bg.jpg"
+      },
+      "slot_text_1": "If you have decided to purchase a property in Alanya, but are not ready for an online purchase, we will be happy to offer you the service of an individual study tour.",
+      "post_1": {
+        "title": "Meeting at the airport",
+        "paragraph_1": "After you have purchased your a flight ticket, send this to your sales manager and he or she can commence planning your tour. Upon arrival at the airport, either Antalya or Alanya-Gazipasa, you will be met by one of our chauffeurs - he will drive you to your appointed accommodation.",
+        "paragraph_with_link": "To date, the company has",
+        "link": "33 completed projects"
+      },
+      "article_1": {
+        "title": "Accommodation in an apartment in one of our complexes",
+        "text": [
+          "In order for you to feel what it may be like as an owner of property in Alanya, you will be hosted in one of our guest apartments. Here you can appreciate the quality of fit and finishing down to the very smallest of details!",
+          "Your sales manager will be there to greet you upon arrival and make sure that you are settled in before meeting up the next day."
+        ]
+      },
+      "post_2": {
+        "title": "Getting to know the districts of Alanya",
+        "paragraph_1": "We will start the day with the famous Turkish breakfast, rich in variety and taste and which no Turk would ever start their day without - we will ensure the location offers stunning far-reaching views of the Alanya cityscape and the Mediterranean Sea. We may also have the time for a stroll around the Harbour area before the real business begins! which is famous not only for the variety of organic products, but also for the magnificent views of the mountains and the sea.",
+        "paragraph_2": "You will then be shown around those regions of Alanya in which the BestHome projects are located."
+      },
+      "post_3": {
+        "title": "Presentation in the office of the company",
+        "paragraph_1": "We will return to the office for a presentation of those projects specifically chosen by you to be of interest. At this stage, we will also provide further information in respect of the property purchasing procedure.",
+        "paragraph_with_link": "To date, the company has",
+        "link": "33 completed projects"
+      },
+      "post_4": {
+        "title": "Conclusion of a sales contract",
+        "paragraph_1": "One you have settled on your ideal property, we will prepare a sales contract - this will be in two languages - English and Turkish. We will also request a tax number,  a pre-requisite for property title transfer - this number will also be needed when opening a bank account."
+      },
+      "post_5": {
+        "title": "Power of attorney execution",
+        "paragraph_1": "If you cannot come to Turkey for title deed registration, you can opt to assign Power of Attorney (POA). This will allow us to transfer the title deed to you in your absence (as well as transferring water and electricity subscriptions into your name).",
+        "paragraph_with_link": "To date, the company has",
+        "link": "33 completed projects"
+      },
+      "post_6": {
+        "title": "Visiting furniture stores",
+        "paragraph_1": "If you wish to purchase furniture for your property during this inspection tour, we will accompany you to a number of stores in order that you get an idea of availability and price."
+      },
+      "post_7": {
+        "title": "Transfer from Alanya to airport",
+        "paragraph_1": "At the appointed time, your chauffeur will pick you up and take you back to the airport for your flight home.",
+        "paragraph_2": "Should you decide to purchase a property from BestHome, all flight costs will be re-imbursed."
+      }
+    },
+    "service_legal_support": {
+      "image_title": {
+        "header": "Legal support",
+        "text": [
+          "The specialists of our company will  prepare all the necessary documents for the transfer of ownership into your name."
+        ],
+        "filename": "service-legal-support-bg.jpg"
+      },
+      "slot_text_1": "After the conclusion of the purchase and sale agreement, we will request a tax number, necessary for the title deed transfer and for opening a bank account in Turkey.",
+      "post_1": {
+        "paragraph_1": "We will submit an application to the Land Registry and accompany you on the appointed date of title transfer. Оnce you have received your title deed, water and electricity subscriptions will also be transferred into your name.",
+        "paragraph_with_link": "To date, the company has",
+        "link": "33 completed projects"
+      },
+      "post_2": {
+        "paragraph_1": "In case you cannot come to Turkey for the title deed registration, you can assign Power of Attorney - this will allow us to complete all formalities in your absence."
+      },
+      "post_3": {
+        "paragraph_1": "We can also assist with all legal and administrative issues in respect of  your application for Turkish residency. In addition, we can assist will of issues relating to Turkish citizenship (if applicable).",
+        "paragraph_with_link": "To date, the company has",
+        "link": "33 completed projects"
+      }
+    },
+    "service_turkish_citizenship": {
+      "image_title": {
+        "header": "Turkish Citizenship for Foreign Investors",
+        "text": [
+          "The Turkish citizenship through property investment program has been an unequivocal success. It is estimated that, in the last 2 years, 'new' citizen  passports have been issued at a rate of more than 800 per day!Since 2019, foreign investors have had a real opportunity to make their dreams come true. Now, when buying a property worth $ 250,000 or more, you can get Turkish citizenship under a simplified scheme. Moreover, the owners of a house or apartment, their spouses and children under 18 can become full citizens directly."
+        ],
+        "filename": "turkish-citizenship-bg.jpg"
+      },
+      "slot_text_1": "Turkey is a great place for seasonal recreation and for living. Many foreigners dream of moving to the Republic of Turkey for permanent residence. Go into business. Buy your own home. And move to the land of the hot sun with your family.",
+      "list_card": {
+        "header": {
+          "title": "Real benefits for foreigners",
+          "text": [
+            "Turkish citizens not only have the right to reside in the country without any obstacles and restrictions, but also have other advantages, such as:"
+          ],
+          "subtext": [
+            "In addition, taxes for Turkish citizens are lower than for foreign investors, as are bank interest on mortgages and loans."
+          ]
+        },
+        "list": [
+          "Social benefits and assistance from the state;",
+          "Health insurance;",
+          "Free education, including in the Russian language;",
+          "Pension payments;",
+          "Obtaining loans with a low interest rate;",
+          "Purchase of land for personal and business purposes;",
+          "Employment without a work VISA;",
+          "Possibility of registration of legal entities;",
+          "VISA-free travel to over 110 countries."
+        ]
+      },
+      "article_1": {
+        "title": "What do you need to know?"
+      },
+      "post_1": {
+        "paragraph_1": "It is important to remember that a foreigner who has acquired property in order to obtain Turkish citizenship does not have the right to sell it for 3 years. But a house or apartment can be rented out for a long-term or short-term lease, which will allow you not only to invest money profitably,but also to increase your capital.",
+        "paragraph_2": "BestHome Constructi Our reson company specializes in the sale of Turkish real estate in the best areas of Alanya and other regions of the country.idential complexes are perfect for investment, seasonal recreation and year-round living, thanks to the convenient location, well-developed infrastructure, high quality construction and finishing, our residential complexes are perfect for investments, seasonal vacations and permanent residence."
+      },
+      "post_2": {
+        "paragraph_1": "To buy a house or apartment in Alanya, you do not have to leave the country in which you are located. It is enough to issue a power of attorney for a lawyer at the Turkish embassy, send all the necessary documents by mail. Our consultants will tell you more about the procedure."
+      },
+      "post_3": {
+        "paragraph_1": "When purchasing real estate and obtaining Turkish citizenship, there are many nuances because the documents must be properly drawn up. Our BestHome Construction specialists have full competence and experience from the legal side of this issue.",
+        "paragraph_2": "We cooperate with trusted law firms that specialize in obtaining Turkish citizenship for foreign investors. With our help, more  than a dozen clients have successfully purchased high-quality housing in developed areas and become legal citizens of the Republic of Turkey."
+      },
+      "post_4": {
+        "title": "Another good news!",
+        "paragraph_1": "Many developers in Alanya offer favorable terms of installments for foreigners who want to invest their capital and become the owner of an apartment or villa at the stage of construction of a residential complex. Thus, Turkish legislation allows you to obtain Turkish citizenship even before the house is put into operation.",
+        "paragraph_with_link": "To date, the company has",
+        "link": "33 completed projects"
+      }
+    },
+    "company_about_company": {
+      "header": {
+        "title": "About company",
+        "text": [
+          "BestHome Construction is a full service real estate company and one of the top developers in the Alanya region After having been founded in 2004, primarily as an agency, it was in 2008 that we made the decision to develop our 'own-brand' projects.",
+          "Since that time we have, to date, delivered 30 residential projects across the Alanya region - are current projects can be found in those regions most in demand from overseas buyers, including  Mahmutlar, Avsallar and Oba.",
+          "The firm has several overseas representative offices, including  Germany, USA, Ukraine, Iran, Kazakhstan, Denmark, Sweden, Norway and Finland.",
+          "Today, with the advancement of technology, it is possible to purchase property in Turkey without having the need to visit! Indeed, more and more of our buyers are searching and sourcing their properties online - even the title deed transfer can be concluded remotely!"
+        ]
+      },
+      "advantages_slider": {
+        "title": "Advantages",
+        "slider": [
+          {
+            "image": "company-advantages-slider-1.jpg",
+            "text": "Professional approach - innovation in design and the use of the latest technologies and materials"
+          },
+          {
+            "image": "company-advantages-slider-2.jpg",
+            "text": "Quality control at every stage of development -<br>a multi-level verification system."
+          },
+          {
+            "image": "company-advantages-slider-3.jpg",
+            "text": "Professional advice on finishing and fitting - all important to ensure we deliver to you your dream home in the Sun"
+          },
+          {
+            "image": "company-advantages-slider-4.jpg",
+            "text": "Bank guarantees - provided for all client monies received"
+          },
+          {
+            "image": "company-advantages-slider-5.jpg",
+            "text": "Transparency of documentation - contracts drafted in your own language and compliant with international law"
+          },
+          {
+            "image": "company-advantages-slider-6.jpg",
+            "text": "A full range of services for the maintenance and management of your property."
+          }
+        ]
+      },
+      "article_1": {
+        "title": "Real Estate in Alanya",
+        "text": [
+          "Why Alanya? Simply because it offers  diverse range of property types to satisfy even the demanding of buyers and at prices to suit!",
+          "The social facilities within our projects are equal to those found in the very best hotels and the vision and skill of our designers ensure living spaces that are functional, comfortable and  aesthetically striking.",
+          "Alanya and Oba are the most prestigious areas, suitable for living and seasonal recreation, as well as for profitable investment of money. In the future, the company plans to expand the boundaries of construction.",
+          "The developer offers to buy quality apartments on the Mediterranean coast. The buildings are built and finished in the best European traditions. The housing meets high international standards. Spacious rooms with high ceilings, fine finishing using ECO materials. Partial or full furnishings, built-in household appliances. Variety of decorative solutions will be appreciated even by very demanding clients. ",
+          "To choose housing, taking into account your wishes, requirements and financial capabilities, you can go on an introductory tour or trust the professionalism of the company's employees, who will agree on all important organizational issues for the client.",
+          "Thanks to the competent planning, in new buildings you can buy apartments from different price segments. Small apartments and or luxury penthouses on the upper floors."
+        ]
+      },
+      "scroll_line_data": [
+        {
+          "title": "33",
+          "subtitle": "Projects"
+        },
+        {
+          "title": "More than 17",
+          "subtitle": "Years of experience"
+        },
+        {
+          "title": "Thousands",
+          "subtitle": "Satisfied customers"
+        },
+        {
+          "title": "1 to 4-room",
+          "subtitle": "Separate rooms"
+        }
+      ],
+      "article_2": {
+        "text": [
+          "So, by contacting BestHome Construction, you get the opportunity to buy apartments in Alanya at the most favorable price, including issue an interest-free installment plan from the developer,",
+          "You can purchase housing for personal use or for rent without leaving your country.",
+          "You can entrust the after-sales service of your apartment, villa or office to a Leader Management subsidiary, confident that all your administrative, legal and financial obligations are met.",
+          "As well as consultations on the choice, assistance in obtaining a residence permit and citizenship, legal and financial support for each transaction.",
+          "Trust Us - more than 17 years experience of providing only the very best real estate solutions. "
+        ]
+      }
+    },
+    "company_advantages": {
+      "header": {
+        "title": "Our Difference in Reliability",
+        "sub_title": "The reliability of the developer",
+        "text": [
+          "When making the decision to invest in overseas property, two of the primary considerations when choosing your overseas investment partner are: Reliability and Trust.",
+          "Whether purchasing from a lifestyle perspective or from an investment angle, all clients must have absolute confidence in the people they are working with.",
+          "In order that their investment is directed into the most appropriate projects, investors need expert local knowledge in order to ensure that the property has been priced in accordance with current market values, that the project will be completed and delivered on time and that it presents a profitable and efficient investment vehicle for the foreseeable future.",
+          "Best Home have been at the forefront of the real estate business in Alanya for more than 16 years and in that time, have conceived and delivered some of the most notable residential projects in the region. With a reputation for excellence, we appreciate that our customers, both past and present, are our most valuable asset and this must remain so if our business is to be sustained.",
+          "We at BestHome can provide a ‘one-stop’ service for all your property investment requirements in Alanya",
+          "”From our initial consultation through to the signing of property purchase contract, from shopping for furniture through to the transfer of your title deed, we will be with you every step of the way.”"
+        ],
+        "linkToProjects": {
+          "text": "Today the company has",
+          "link": "33 completed projects",
+          "route": "/projects"
+        }
+      },
+      "scroll_line_data": [
+        {
+          "title": "33",
+          "subtitle": "Completed projects"
+        },
+        {
+          "title": "17",
+          "subtitle": "Years of experience"
+        },
+        {
+          "title": "Thousands",
+          "subtitle": "of satisfied customers"
+        },
+        {
+          "title": "since 2004",
+          "subtitle": "On the market"
+        }
+      ],
+      "post_1": {
+        "title": "Construction quality",
+        "paragraph_1": [
+          "Construction quality is the primary factor of choosing property",
+          "We understand that you want your home to be safe, problem-free, remain inhabitable indefinitely and retain its value should you decide to sell it.",
+          "We can ensure you that all of our projects are built to the highest of standards."
+        ]
+      },
+      "post_2": {
+        "title": "Innovation",
+        "paragraph_1": "We are constantly reviewing our construction methods to ensure they incorporate the best elements of modern technology.",
+        "paragraph_with_link": "Go to",
+        "link": "contacts"
+      },
+      "article_1": {
+        "title": "Unique location",
+        "text": [
+          "A lot depends on the location of your apartment. The favorable location guarantees you not only a comfortable life, but also the opportunity, if necessary, to sell your property very profitably.",
+          "BestHome Construction chooses only the best areas of Alanya with excellent infrastructure for its projects. The plots on which the projects are being built are of great value. Around them, as a rule, everything has been built up for a long time. Accordingly, the infrastructure in such areas is very active. Here you will find many parks, squares and green areas for a comfortable family vacation.",
+          "When implementing new projects, our company invariably gives preference to such areas as the center of Alanya (including the Damlatash area) and Oba. In Oba, due to the limitation in the height of projects according to the city plan, the company's margins are often lower, but that is why all projects are used as highly liquid ones. This area has been considered European for about 15 years. Cozy complexes with 5-storey blocks and swimming pools conquered Europeans with their laconic style and comfort.",
+          "And finally, the most popular area among our clients is Damlatas. It is located in the very center of Alanya and very close to the main city. It has everything you need for a calm and comfortable life: landscaped beaches marked with the Blue Flag, schools, hospitals, cafes, restaurants, tennis courts and chic walking areas. The special charm of Damlatas is given by the fact that the building height is limited to five floors here, and the road along the embankment is one-way. Despite the large number of tourists, it is always comfortable and calm here. The cost of housing in this area is quite high, which guarantees you a profitable investment in real estate and the possibility of further renting out an apartment or selling it at a more attractive price."
+        ]
+      },
+      "post_3": {
+        "title": "Design",
+        "paragraph_1": "Intelligent design and attention to detail ensure our homes are built to suit your lifestyle and to keep pace with the demands of modern life."
+      },
+      "post_4": {
+        "title": "Craftsmanship",
+        "paragraph_1": "Our highly skilled workforce take pride in delivering the exceptional standards on which we have built our reputation.",
+        "paragraph_with_link": "Look",
+        "link": "Employees"
+      },
+      "post_5": {
+        "title": "Specification",
+        "paragraph_1": "By carefully sourcing quality materials we aim to meet the very high standards you expect."
+      },
+      "article_2": {
+        "title": "Our Difference in Design",
+        "text": [
+          "In the competitive world that is the Alanya real estate industry, it is important always to stay ahead of the competition – one way to do this is by offering something totally unique in terms of design, both externally and internally.",
+          "As an example, all Best Home projects are low-rise and the external facade will incorporate a mix of materials and finishes that will set it apart from other developments in the area – additionally, the external social areas will comprise lush landscaping, decorative walling and a tiled sun terrace surrounding the pool.",
+          "For the interior of each property, we have a highly skilled and specialised interior design team that enable us to constantly deliver modern living spaces of the very highest quality – this quality is evident throughout, not just in the fittings and fixtures but also in the design detail. For example, the kitchens have an ample expanse of bench space and ample upper and lower storage, both critical elements in modern apartment living.",
+          "In addition to the interior design being streamlined and aesthetically pleasing, all fittings and fixtures are long lasting and hard wearing.",
+          "By paying close attention to these design details, we believe our projects are a cut above the rest and one of the the primary reasons why our projects are so successful – as an example, some 75% of all units (within any project) are sold well before project completion.",
+          "Additionally, this close attention to detail ‘adds value’ to all units within a specific project and will go some way to ensuring its status as an investment asset, both at the time of purchase as well as at the time (if appropriate) of reselling.",
+          "These ‘value added’ details are also important for those clients that are ‘buying to rent’ – with the rental market in Alanya continuing to grow, highly specified apartments (within a good location) are at the top of every renter’s wish list!"
+        ],
+        "paragraph_with_link": "Today the company has",
+        "link": "33 completed projects"
+      }
+    },
+    "our_team": {
+      "title": "Our team",
+      "slider_title": "Other employees"
+    },
+    "company_history": {
+      "header": {
+        "title": "The first steps",
+        "text": [
+          "The history of BestHome Construction began in 2004 in Alanya, when two young people decided to start their own business in Turkey, based on long-term partnerships, European understanding of service and respect for customers. They wanted to create a company with Turkish traditions and a European face. The new fast-growing real estate market was perfectly suited for this purpose, although there was already competition then. But the founders of the company believed that their brainchild would be able to take a leading position and, as later life showed, they were not mistaken in their forecasts.",
+          "Based on the experience of working in the leading real estate agency in Alanya, they understood that there was no such product on the market that they would like to offer to demanding European clients, as well as quality after-sales service. Then decisions were made that determined the way for the further development of the company. The first is to build houses of European quality level that meet the expectations and wishes of clients, the second is to keep these promises, to create trusting relationships with clients, the third is to be innovators and legislators in the real estate market of Alanya, and the fourth is to introduce as many clients around the world as possible to the beautiful city. Alanya and the unrivaled Turkish culture, add value to the region."
+        ],
+        "linkToProjects": {
+          "text": "Today the company has",
+          "link": "33 completed projects",
+          "route": "/projects"
+        }
+      },
+      "history_slider": [
+        {
+          "year": "2004",
+          "image": "2004.jpg",
+          "title": "The first steps",
+          "subtitle": "Partners of the company - Ali Yetgin and Per Holm - and a consortium of Danish investors buy out a whole completed project in the Cikcilli region of Alanya - BestHome Resort - all units purchased by Danes."
+        },
+        {
+          "year": "2005",
+          "image": "2005.jpg",
+          "title": "First project",
+          "subtitle": "The company actively enters the Norwegian market. The following projects were commissioned: BestHome Residence 1, BestHome Residence 2, Tofko Villas.",
+          "linkToProject": {
+            "text": "More",
+            "link": "about this year",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2006",
+          "image": "2006.jpg",
+          "title": "Emerging market",
+          "subtitle": "The government approves a new and revised law allowing foreigners to buy property in Turkey.",
+          "linkToProject": {
+            "text": "More",
+            "link": "about this year",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2007",
+          "image": "2007.jpg",
+          "title": "The law on real estate",
+          "subtitle": "The government approves a new and revised law allowing foreigners to buy property in Turkey.",
+          "linkToProject": {
+            "text": "More",
+            "link": "about this year",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2008",
+          "image": "2008.jpg",
+          "title": "A new direction",
+          "subtitle": "The partners of the company understand that there is a new opportunity emerging in Russia and CIS countries. These 'new' client are looking for inexpensive, small apartments in the central districts of the city. The partners decide to buy out an existing the apart-hotel and reconstruct it into apartments for sale specifically to these 'new' clients. This new residential project offered great value apartments in the heart of Alanya and close to the famous Cleopatra beach Thus, BestHome Construction offers its clients quality housing at low prices in the very heart of Alanya, within walking distance of the famous Cleopatra beach.",
+          "linkToProject": {
+            "text": "More",
+            "link": "about this year",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2009",
+          "image": "2009.jpg",
+          "title": "BestHome City 1 & 2",
+          "subtitle": "The complexes BestHome City 1 and BestHome City 2 were commissioned. Ali Yetgina's partner, Per Holm, decides to return to Denmark and leaves the list of founders.",
+          "linkToProject": {
+            "text": "More",
+            "link": "about this year",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2010",
+          "image": "2010.jpg",
+          "title": "Quality",
+          "subtitle": "We are confident that the quality of construction is one of the main criteria for choosing real estate in Alanya. Building new complexes, we understand that you want your house to be durable, strong and reliable, does not require constant repairs and does not lose its liquidity over time. We guarantee that all construction work in our houses was carried out at a high quality level in compliance with all regulatory requirements.",
+          "linkToProject": {
+            "text": "More",
+            "link": "about this year",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2011",
+          "image": "2011.jpg",
+          "title": "New technologies",
+          "subtitle": "The complexes BestHome City 3, BestHome City 4, BestHome City 5 and BestHome City 6 were commissioned. For the first time in Alanya, the walls between the apartments were built with a depth of 2 bricks of two bricks, with Knauf glass wool used as insulation material.",
+          "linkToProject": {
+            "text": "More",
+            "link": "about this year",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2012",
+          "image": "2012.jpg",
+          "title": "4 more projects",
+          "subtitle": "The complexes BestHome 8 Yuksek, BestHome City 9 and BestHome City 10, BestHome City 11 were commissioned.",
+          "linkToProject": {
+            "text": "More",
+            "link": "about this year",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2013",
+          "image": "2013.jpg",
+          "title": "BestHome 12 Comfort",
+          "subtitle": "The BestHome 12 Comfort complex was  commissioned . The company enters the Iranian market.",
+          "linkToProject": {
+            "text": "More",
+            "link": "about this year",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2014",
+          "image": "2014.jpg",
+          "title": "New infrastructure",
+          "subtitle": "The complexes BestHome City 14 and BestHome 15 VIP were commissioned. BestHome 15 VIP is the company's first complex with an expanded infrastructure. It was here that a special platform for sunbathing directly in the pool was created for the first time in Alanya -  500-year-old olive trees were planted!",
+          "linkToProject": {
+            "text": "More",
+            "link": "about this year",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2015",
+          "image": "2015.jpg",
+          "title": "4 new projects",
+          "subtitle": "The complexes BestHome 16 VIP, BestHome 17 Cleopatra, BestHome City 18 and BestHome City 19 were commissioned.",
+          "linkToProject": {
+            "text": "More",
+            "link": "about this year",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2016",
+          "image": "2016.jpg",
+          "title": "Large-scale projects",
+          "subtitle": "The company's management understands that despite the demand from Russian-speaking clients, there are no projects, thus far, than can truly claim to occupy the luxury segment. In this respect, Alanya Towers was born, to date the largest project within our portfolio.",
+          "linkToProject": {
+            "text": "More",
+            "link": "about this year",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2017",
+          "image": "2017.jpg",
+          "title": "The luxury segment",
+          "subtitle": "The company's management understands that despite the demand from Russian-speaking clients, there are no decent apartments in the luxury segment on the real estate market in Alanya, and BestHome Construction begins construction of the largest of the complexes previously built by the company - Alanya Towers.",
+          "linkToProject": {
+            "text": "More",
+            "link": "about this year",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2018",
+          "image": "2018.jpg",
+          "title": "Alanya Towers",
+          "subtitle": "The Alanya Towers complex becomes operational into operation and becomes our 'benchmark' project, one upon which all future projects will be judged! Today, it is considered to be the most exclusive complex in the Antalya region.",
+          "linkToProject": {
+            "text": "More",
+            "link": "about this year",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2019",
+          "image": "2019.jpg",
+          "title": "Cleopatra District",
+          "subtitle": "The main buyers of real estate in Alanya are still residents of the CIS countries. But due to the economic instability in their countries, clients prefer to purchase apartments that will bring them a stable rental income, as well as increase their capital upon sale. The leaders of the company understand that the most liquid place in Alanya is still the Cleopatra beach area and the complexes built here will be able to fully meet these rental income priorities.",
+          "linkToProject": {
+            "text": "More",
+            "link": "about this year",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2020",
+          "image": "2020.jpg",
+          "title": "Important year",
+          "subtitle": "In February, the company acquires a detached three-story building, which will house the company's new office, which will include all departments under one roof: construction, sales, agriculture, car sales.",
+          "linkToProject": {
+            "text": "More",
+            "link": "about this year",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2021",
+          "image": "2021.jpg",
+          "title": "Future",
+          "subtitle": "We are proud of our projects. But this year we would like to share with you our yet another new premium project Best Home 36-37 The Legend, which conquers history in real estate. Best Home 36-37 The Legend is a unique complex in the very center of Alanya with the infrastructure of a 5 * hotel, which is 120 meters from the sandy beach.",
+          "linkToProject": {
+            "text": "More",
+            "link": "about this year",
+            "route": "company-about"
+          }
+        }
+      ],
+      "post_1": {
+        "title": "“We are proud of the history of our company and are trying to reach new heights in the real estate industry”",
+        "paragraph_with_link": "Sales Director",
+        "link": "Anna Larina"
+      }
+    },
+    "company_our_team": [
+      {
+        "id": 1,
+        "image": "person-1.png",
+        "name": "Mehmet Ali Yetgin",
+        "position": "General Manager",
+        "info": [
+          "Mehmet Ali Yetgin - Founder and CEO of BestHome Construction",
+          "In 2004 he founded BestHome Construction - from the outset, his focus has been two-fold - to provide residential properties of the very highest quality and to provide all clients with an after-sales service unmatched by any other.",
+          "Mehmet's passion for the real estate business remains steadfast and he is determined to be both innovative and creative in order to satisy client demands.",
+          "He has established co- operation agreements with a number of overseas investors as well as a widespread network of agent partners - these partners hail from, amongst others, Russia, CIS countries, Germany, Scandinavia, the Middle East and the USA."
+        ]
+      },
+      {
+        "id": 2,
+        "image": "person-2.png",
+        "name": "Anna Larina",
+        "position": "Sales Director",
+        "info": [
+          "Anna Betul Larina Sales Director",
+          "Anna Larina is the Sales Director at BestHome Construction. Joined the company in 2012.",
+          "Anna speaks several foreign languages, including Russian, English, Turkish, Latvian, French. Graduated from the University of Latvia with a degree in French philology. Has been successfully working in the field of marketing and sales since 2007"
+        ]
+      },
+      {
+        "id": 4,
+        "image": "person-4.png",
+        "name": "Murat Colak",
+        "position": "After sales services, rent",
+        "info": [
+          "Murat Cholak is a brokerage and after-sales service specialist. At BestHome Construction since 2019.",
+          "Murat got his education in Germany. He has a 19 years’ experience in management. Has been working in real estate since 2016. Fluent in several foreign languages - Russian, Turkish, English, and German."
+        ]
+      },
+      {
+        "id": 5,
+        "image": "person-5.png",
+        "name": "Emrah Yetgin",
+        "position": "Assistant to the General Manager",
+        "info": [
+          "Emrah Yetgin is Assistant to the General Manager. At BestHome Construction since 2018.",
+          "Emrah graduated from Eskişehir Anadolu Üniversitesi University with a degree in Management. He got master degree at Alaadin Keykubat Üniversitesi University.",
+          "Emrah has a 13 years’ experience in the insurance industry. Fluent in Turkish and English."
+        ]
+      },
+      {
+        "id": 6,
+        "image": "person-6.png",
+        "name": "Ahmet Siniksaran",
+        "position": "Personal Assistant to the General Manager",
+        "info": [
+          "Ahmet Siniksaran – is personal assistant to the general manager.  Joined the company in 2019.",
+          "Akmet got education at Selçuk Üniversitesi University, worked as a topographer for 7 years. Now he is studying at Anadolu Üniversitesi Universityat the faculty of State and Regional Administration."
+        ]
+      },
+      {
+        "id": 7,
+        "image": "person-7.png",
+        "name": "Emirhan Yetgin",
+        "position": "Architect",
+        "info": [
+          "Emirhan Yetgin is an architect. Has been working at BestHome Construction since 2019.",
+          "Emirhan graduated from Haliç Üniversitesi University. He got master degree at Alaadin Keykubat Üniversitesi University.",
+          "Works in 3ds Max, Autocad, Sketchup, Adobe Photoshop, Corona Renderer, Lumion, Adobe Premiere. Fluent in Turkish and English."
+        ]
+      },
+      {
+        "id": 8,
+        "image": "person-8.png",
+        "name": "Adem Sonmez",
+        "position": "Civil Engineer",
+        "info": [
+          "Adem Sonmez is a civil engineer. He has been working in BestHome since 2014.",
+          "Adam graduated from Bozok Üniversitesi University and got master degree at Alaadin Keykubat Üniversitesi University.",
+          "Fluent in Turkish and English. Knows how to work in the Autocad program."
+        ]
+      },
+      {
+        "id": 9,
+        "image": "person-9.png",
+        "name": "Emre Erdem",
+        "position": "Civil Engineer",
+        "info": [
+          "Emre Erdem is a civil engineer at BestHome Construction. He has been working in BestHome since 2021. Emre graduated from Sakarya Üniversitesi University.",
+          "Fluent in Russian and Turkish. Can work in Autocad, Sta4cad, Idecad programs."
+        ]
+      },
+      {
+        "id": 10,
+        "image": "person-10.png",
+        "name": "Gulden Ay Gurer",
+        "position": "Architect, interior designer",
+        "info": [
+          "Gulden Ay Gyurr is an architect and interior designer. Has been working at BestHome Construction since 2016.",
+          "Gulden graduated from Dokuz Eylül Üniversitesi University with. She also got master degreet at the İstanbul Teknik Üniversitesi University and master degree in Finland at Lahti University of Applied Sciences. She attanded course of interior design in India at the Center of Environmental Planning and Technology.",
+          "Gulden has been working as an interior designer since 2012. Fluent in Turkish and English.",
+          "Can work in 3ds Max, Autocad, Sketchup, Adobe Photoshop programs."
+        ]
+      },
+      {
+        "id": 11,
+        "image": "person-11.png",
+        "name": "Halil Ibrahim Baspinar",
+        "position": "Architect, 3D Designer",
+        "info": [
+          "Halil Ibrahim Baspinar is an architect, interior designer, computer graphics and animation specialist. At BestHome Construction since 2021.",
+          "Halil Ibrahim graduated as an architect from Yıldız Teknik Üniversitesi University. Now he is studying computer technology at Anadolu Üniversitesi.",
+          "He is expert in 3ds Max, Autocad, Sketchup, Adobe Photoshop, Corona Renderer, Lumion, Adobe Premiere."
+        ]
+      },
+      {
+        "id": 12,
+        "image": "person-12.png",
+        "name": "Busra Yetgin",
+        "position": "Interior designer",
+        "info": [
+          "Bushra Yetgin is an interior designer at BestHome Construction. She joined the company in 2017.",
+          "Bushra studied Management at Alaadin Keykubat Üniversitesi University. She is currently studying HR at Anadolu Üniversitesi University and attending interior designer courses.",
+          "Can work in 3ds Max, Vray, Sketchup programs."
+        ]
+      },
+      {
+        "id": 13,
+        "image": "person-13.png",
+        "name": "Neval Onac",
+        "position": "Chief Accountant",
+        "info": [
+          "Neval Onach is Chief Accountant at BestHome Construction. She joined the company in 2004.",
+          "She got education as accountant in Isparta Süleyman Demirel Üniversitesi University and studied management in Anadolu Üniversitesi. Has been working in the financial sector since 1996.",
+          "Neval speaks English and Turkish."
+        ]
+      },
+      {
+        "id": 14,
+        "image": "person-14.png",
+        "name": "Ilknur Koc",
+        "position": "Accountant",
+        "info": [
+          "Ilknur Koç is an accountant at BestHome Construction. She joined the company in 2019.",
+          "Ilknur graduated from Anadolu Üniversitesi University with a degree in Management. She studed accounting at Balıkesir Üniversitesi.",
+          "Has been working in the financial sector since 2003."
+        ]
+      },
+      {
+        "id": 15,
+        "image": "person-15.png",
+        "name": "Yunus Yilmaz",
+        "position": "Accountant",
+        "info": [
+          "Yunus Yilmaz has been working at BestHome Construction as accountant since 2016.",
+          "Yunus received economical education at Anadolu Üniversitesi University. Fluent in English and Turkish.",
+          "Has 6 years’ experience in management."
+        ]
+      },
+      {
+        "id": 16,
+        "image": "person-16.png",
+        "name": "Melike Akis Coskun",
+        "position": "Office manager",
+        "info": [
+          "Melike Akis Joskun is Office manager of BestHome Construction. Joined the company in 2020.",
+          "She is currently studying at Eskişehir Anadolu Üniversitesi University. She attanded courses of the assistant to the chief director, secretary, accountant. Has been working as an Office manager in the construction sector since 2014.",
+          "Fluent in Turkish and English."
+        ]
+      }
+    ],
+    "contacts": {
+      "contact_map": {
+        "title": "BestHome",
+        "phone": "+90 530 547-44-15",
+        "email": "info@besthome.com.tr",
+        "address": "Cikcilli mahallesi, Tugayoğlu sokak, №18/1, Alanya 07400, Antalya, Türkiye",
+        "workTime": "Monday-Saturday, from 9:00 to 18:00",
+        "linkToMap": {
+          "text": "More",
+          "link": "view map",
+          "route": "/"
+        }
+      }
+    },
+    "privacy-policy": {
+      "title": "Privacy policy",
+      "text": [
+        "We are committed to ensuring the security of our customers 'information and data. In this regard, a policy has been developed that explains how we maintain the privacy of our customers and how we handle our customers' personal data.",
+        "We use data and information provided by our customers at their own request, and do not collect personal data from customers who visit the website. We only store the data provided.",
+        "It is common knowledge that visits to any website, including requests from the host server, log the IP address (Internet Protocol) of the visitor's device, as well as the date and time of entry. The browser type and external referring site address are also recorded.",
+        "Like all other sites, contains links to other external sites. We are not responsible for the content and privacy policies of other sites. However, before visiting those sites, we encourage our customers to read the privacy policies of those sites.",
+        "We always strive to maintain and confidentiality of all personal information and data that our clients provide. Unless required by law or new legislation, or we believe (in good faith) that such action is desirable or required by law, or in defense of our customers, we do our best to protect the privacy of Internet property.",
+        "We will contact consumers directly if the need to satisfy requests requires the use of the data provided. We will obtain the prior written consent of the client before disclosing any data provided to a third party for marketing purposes that benefit that party. We may request permission to use of the data for statistical research purposes. This data will not contain any information that could identify the client.",
+        "In addition, the data provided should be used in response to requests from the website team, as well as in response to customer comments and questions.",
+        "We will not disclose, rent, trade, or sell any information to third parties outside of this or any of our other websites. Information will only be disclosed by order of the regulatory body!",
+        "If necessary or necessary, reserves the right to amend the privacy conditions and the Information Privacy Policy, our clients will receive notifications about the data we receive, how it will be used and who receives this data.",
+        "When the need dictates, we gladly accept calls from customers at the numbers listed on the \"contact us\" tab on the website or via the email form provided on this tab."
+      ]
+    },
+    "term-of-use": {
+      "title": "Terms of Use",
+      "text": [
+        "Welcome to our cherished website clients. We would like to bring your attention to the site. Let us point out that by browsing the website, you are tacitly agreeing to the terms of use and its privacy policy.",
+        "In addition, all websites, social media pages and all the numerous electronic accounts on the Internet are officially registered as Turkish brands. Our network includes articles, website designs, websites, logos and brands.",
+        "If there is evidence that the Organization, either on the territory of the Republic of Turkey or on the Internet, has used, published or copied any videos, photographs, written scripts or any other materials from the website, including the real estate website, for commercial purposes, without prior authorization from management, action will be taken. The Legal Department must file a complaint in writing with the Higher Institute for Brand and Intellectual Creation Rights and send a complaint by mail to Google Network informing the company of the violation and initiating legal proceedings.",
+        "We also declare that in the event that a trademark is used or plagiarized by a legal entity, our legal department retains the group's rights accredited to the Turkish government by filing a claim with the Higher Institute of Brands and Intellectual Property Rights for damages for the plagiarism.",
+        "These are the site's terms of use:",
+        "The content of the site is subject to change on the site without notice at any time by the site management.",
+        "The research carried out and the information contained on the website is available to customers as a reference source of support and assistance. The site administration is not responsible for inaccurate information or content on the site.",
+        "The application or use of any information or materials available on the pages of the site is the responsibility of the user. The site management does not interfere in any way.",
+        "The ownership of the licensed materials on the site belongs solely to the site management. Therefore, the content of the site must not be tampered with by copying, reproducing or quoting, especially for investment and real estate research, company logo and website design.",
+        "Infringement or abuse of the copyright or intellectual property rights of the Gold Ahiskali website by unscrupulous users may be subject to legal liability.",
+        "As additional information for our customers, some pages of our website may sometimes contain links to websites that our customers may find useful. However, Gold Ahiskali is not responsible for useless or inaccurate information or materials.",
+        "Our clients are allowed to create external links to the site without the explicit permission of the site management."
+      ]
+    }
+  },
+  "footer": {
+    "consultant_slider": {
+      "title": "Your personal manager",
+      "navigation": "Next consultant",
+      "slides": [
+        {
+          "greeting": "Hello, I am Anna, I will answer any of your questions! We build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.",
+          "languages": "Russian, English, Turkish, Latvian, French",
           "phone": "+90 530 547-44-15",
           "email": "info@besthome.com.tr",
-          "address": "Cikcilli mahallesi, Tugayoğlu sokak, №18/1, Alanya 07400, Antalya, Türkiye",
-          "workTime": "Monday-Saturday, from 9:00 to 18:00",
-          "linkToMap": {
-            "text": "More",
-            "link": "view map",
-            "route": "/"
-          }
-        }
-      },
-      "privacy-policy": {
-        "title": "Privacy policy",
-        "text": [
-          "We are committed to ensuring the security of our customers 'information and data. In this regard, a policy has been developed that explains how we maintain the privacy of our customers and how we handle our customers' personal data.",
-          "We use data and information provided by our customers at their own request, and do not collect personal data from customers who visit the website. We only store the data provided.",
-          "It is common knowledge that visits to any website, including requests from the host server, log the IP address (Internet Protocol) of the visitor's device, as well as the date and time of entry. The browser type and external referring site address are also recorded.",
-          "Like all other sites, contains links to other external sites. We are not responsible for the content and privacy policies of other sites. However, before visiting those sites, we encourage our customers to read the privacy policies of those sites.",
-          "We always strive to maintain and confidentiality of all personal information and data that our clients provide. Unless required by law or new legislation, or we believe (in good faith) that such action is desirable or required by law, or in defense of our customers, we do our best to protect the privacy of Internet property.",
-          "We will contact consumers directly if the need to satisfy requests requires the use of the data provided. We will obtain the prior written consent of the client before disclosing any data provided to a third party for marketing purposes that benefit that party. We may request permission to use of the data for statistical research purposes. This data will not contain any information that could identify the client.",
-          "In addition, the data provided should be used in response to requests from the website team, as well as in response to customer comments and questions.",
-          "We will not disclose, rent, trade, or sell any information to third parties outside of this or any of our other websites. Information will only be disclosed by order of the regulatory body!",
-          "If necessary or necessary, reserves the right to amend the privacy conditions and the Information Privacy Policy, our clients will receive notifications about the data we receive, how it will be used and who receives this data.",
-          "When the need dictates, we gladly accept calls from customers at the numbers listed on the \"contact us\" tab on the website or via the email form provided on this tab."
-        ]
-      },
-      "term-of-use": {
-        "title": "Terms of Use",
-        "text": [
-          "Welcome to our cherished website clients. We would like to bring your attention to the site. Let us point out that by browsing the website, you are tacitly agreeing to the terms of use and its privacy policy.",
-          "In addition, all websites, social media pages and all the numerous electronic accounts on the Internet are officially registered as Turkish brands. Our network includes articles, website designs, websites, logos and brands.",
-          "If there is evidence that the Organization, either on the territory of the Republic of Turkey or on the Internet, has used, published or copied any videos, photographs, written scripts or any other materials from the website, including the real estate website, for commercial purposes, without prior authorization from management, action will be taken. The Legal Department must file a complaint in writing with the Higher Institute for Brand and Intellectual Creation Rights and send a complaint by mail to Google Network informing the company of the violation and initiating legal proceedings.",
-          "We also declare that in the event that a trademark is used or plagiarized by a legal entity, our legal department retains the group's rights accredited to the Turkish government by filing a claim with the Higher Institute of Brands and Intellectual Property Rights for damages for the plagiarism.",
-          "These are the site's terms of use:",
-          "The content of the site is subject to change on the site without notice at any time by the site management.",
-          "The research carried out and the information contained on the website is available to customers as a reference source of support and assistance. The site administration is not responsible for inaccurate information or content on the site.",
-          "The application or use of any information or materials available on the pages of the site is the responsibility of the user. The site management does not interfere in any way.",
-          "The ownership of the licensed materials on the site belongs solely to the site management. Therefore, the content of the site must not be tampered with by copying, reproducing or quoting, especially for investment and real estate research, company logo and website design.",
-          "Infringement or abuse of the copyright or intellectual property rights of the Gold Ahiskali website by unscrupulous users may be subject to legal liability.",
-          "As additional information for our customers, some pages of our website may sometimes contain links to websites that our customers may find useful. However, Gold Ahiskali is not responsible for useless or inaccurate information or materials.",
-          "Our clients are allowed to create external links to the site without the explicit permission of the site management."
-        ]
-      }
-    },
-    "footer": {
-      "consultant_slider": {
-        "title": "Your personal manager",
-        "navigation": "Next consultant",
-        "slides": [
-          {
-            "greeting": "Hello, I am Anna, I will answer any of your questions! We build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.",
-            "languages": "Russian, English, Turkish, Latvian, French",
-            "phone": "+90 530 547-44-15",
-            "email": "info@besthome.com.tr",
-            "image": "person-2.png"
-          },
-          {
-            "greeting": "Hello, I am Anna, I will answer any of your questions! We build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.",
-            "languages": "Russian, English, Turkish, Latvian, French",
-            "phone": "+90 530 547-44-15",
-            "email": "info@besthome.com.tr",
-            "image": "person-2.png"
-          },
-          {
-            "greeting": "Hello, I am Anna, I will answer any of your questions! We build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.",
-            "languages": "Russian, English, Turkish, Latvian, French",
-            "phone": "+90 530 547-44-15",
-            "email": "info@besthome.com.tr",
-            "image": "person-2.png"
-          }
-        ]
-      },
-      "accordions": [
-        {
-          "title": "Company experience",
-          "content": "<p> Our <a href='#'>company</a> has its representatives in the USA, Russia, Norway, Finland, Germany, Ukraine, Iran, Denmark and Sweden. We have helped over 1000 foreign investors from America, Europe, the CIS and the Middle East to buy real estate in Alanya at a profit. </p>"
+          "image": "person-2.png"
         },
         {
-          "title": "Buying real estate as an investment",
-          "content": "<p>Due to the unique location of residential complexes of residential complexes and high quality construction, we guarantee stable profits for investors who purchase houses and <a href='#'>apartments in Alanya</a> for short and long-term rentals. </p>"
-        },
-        {
-          "title": "Trust management",
-          "content": "<p>The management of residential complexes BestHome Construction in Alanya is carried out by a subsidiary company Leader Management, providing customers with a full range of services and warranty obligations. </p>"
-        },
-        {
-          "title": "Quality and reliability",
-          "content": "<p>Our motto is 'Best Advertising - First-class Quality'. We know how to find an individual approach to clients. We independently finance the construction of residential complexes, provide our clients with bank guarantees. And the legal purity of transactions guarantees the safety of investments. </p>"
-        },
-        {
-          "title": "Terms and guarantees",
-          "content": "<p>We strictly adhere to the deadlines for putting objects into operation, we control the construction at every stage. We provide guarantees for up to 5 years, including the exterior finishing of the network and water supply.</p>"
-        },
-        {
-          "title": "Custom design",
-          "content": "<p>Individual design - during the construction phase, our clients can order redevelopment of premises, as well as the development of a unique design, taking into account their requirements and wishes. BestHome Construction employs first-class designers and architects. For maximum transparency, cooperation and customer support is carried out in the investor's native language, including the registration of the monetary policy. </p>"
-        },
-        {
-          "title": "Services",
-          "content": "<p>For maximum transparency, including drawing up a purchase and sale agreement, customer support is carried out in the investor's native language, including the execution of the contract of sale.</p>"
-        },
-        {
-          "title": "Our office",
-          "content": "<p>Our office is located in the very center of Alanya. Three floors, one-stop service - sales, property management, post-sales services, after sales and designer services</p>"
-        }
-      ],
-      "subscribe": {
-        "title": "Like what we do? Sign up to our newsletter.",
-        "place_holder": "Your phone number or email address",
-        "mobile_place_holder": "Phone or email address",
-        "submit": "Accept",
-        "agreement": "I agree to allow BestHome to collect and",
-        "link": "process my personal data"
-      },
-      "cookies": {
-        "title": "Cookies",
-        "text": "We use cookies to enhance your customer experience. To learn more about cookies, including our personal data protection policy,",
-        "link": "click here.",
-        "accept": "Accept",
-        "decline": "Decline"
-      },
-      "footer_company_description": [
-        "BestHome Construction is a leading construction company in Alanya. One of the leading companies in the Turkish market. Started as a real estate agency in 2004. To date, more than 33 projects have been implemented in the center of Alanya and in the Oba region. The firm has its own representatives in Germany, America, Russia, Ukraine, Iran, Kazakhstan, as well as in Denmark, Sweden, Norway and Finland. The company has already concluded more than 1000 successful transactions with foreign citizens living in the CIS, USA, Europe and the Middle East. Today it is a construction company in Alanya, with the help of which any foreigner can profitably and quickly buy an apartment or a private house without leaving his country. All issues are resolved remotely. You can conclude an agreement and issue a TAPU remotely.",
-        "You can entrust the after-sale service of your apartment, villa or office to a subsidiary company Leader Management, being sure that all your administrative, legal and financial obligations are fulfilled, as well as consultations on your choice, assistance in obtaining a residence permit and citizenship, legal and financial support for each transactions. Trust professionals with over 17 years of experience in the Turkish market - contact us."
-      ],
-      "footer_site_map": {
-        "text": "Сall the support service via the phone",
-        "text_2": "or locate",
-        "link": "sales office"
-      },
-      "footer_copyright": {
-        "rights": "All rights reserved.",
-        "language": "Change language:"
-      }
-    },
-    "modals": {
-      "get_callback": {
-        "feedback": {
-          "title": "Feedback",
-          "text": "Hello, I am Anna Larina, I will answer any of your questions! We try to build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.",
-          "label_name": "Your name",
-          "label_email_number": {
-            "number": "Phone number",
-            "or": "or",
-            "email": "email"
-          },
-          "label_project": {
-            "main": "Project of interest",
-            "support": "(optional)"
-          },
-          "label_building": {
-            "main": "Block",
-            "support": "(optional)"
-          },
-          "label_rooms": {
-            "main": "Number of rooms",
-            "support": "(optional)"
-          },
-          "label_message": {
-            "title": "Your message",
-            "label": "State your question here"
-          },
-          "label_checkbox_1": {
-            "text": "I agree to allow BestHome to collect and",
-            "link": "process my personal data"
-          },
-          "label_checkbox_2": "I am interested in receiving the newsletter with news."
-        },
-        "info": {
-          "name": "Anna Larina",
-          "position": "Sales Director",
+          "greeting": "Hello, I am Anna, I will answer any of your questions! We build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.",
           "languages": "Russian, English, Turkish, Latvian, French",
-          "office": "Cikcilli mahallesi, Tugayoğlu sokak, №18/1, Alanya 07400, Antalya, Türkiye",
-          "work_time": "Monday-Saturday, from 9:00 to 18:00",
-          "link": {
-            "text": "More",
-            "link": "view map",
-            "route": "contacts"
-          }
+          "phone": "+90 530 547-44-15",
+          "email": "info@besthome.com.tr",
+          "image": "person-2.png"
         },
-        "finish_modal": {
-          "title": "Спасибо, ожидайте ответа",
-          "text": ", наш агент уже изучает анкету и в ближайшее время свяжется с вами по указанному номеру телефона, а также составит и отправит электронное письмо."
+        {
+          "greeting": "Hello, I am Anna, I will answer any of your questions! We build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.",
+          "languages": "Russian, English, Turkish, Latvian, French",
+          "phone": "+90 530 547-44-15",
+          "email": "info@besthome.com.tr",
+          "image": "person-2.png"
+        }
+      ]
+    },
+    "accordions": [
+      {
+        "title": "Company experience",
+        "content": "<p> Our <a href='#'>company</a> has its representatives in the USA, Russia, Norway, Finland, Germany, Ukraine, Iran, Denmark and Sweden. We have helped over 1000 foreign investors from America, Europe, the CIS and the Middle East to buy real estate in Alanya at a profit. </p>"
+      },
+      {
+        "title": "Buying real estate as an investment",
+        "content": "<p>Due to the unique location of residential complexes of residential complexes and high quality construction, we guarantee stable profits for investors who purchase houses and <a href='#'>apartments in Alanya</a> for short and long-term rentals. </p>"
+      },
+      {
+        "title": "Trust management",
+        "content": "<p>The management of residential complexes BestHome Construction in Alanya is carried out by a subsidiary company Leader Management, providing customers with a full range of services and warranty obligations. </p>"
+      },
+      {
+        "title": "Quality and reliability",
+        "content": "<p>Our motto is 'Best Advertising - First-class Quality'. We know how to find an individual approach to clients. We independently finance the construction of residential complexes, provide our clients with bank guarantees. And the legal purity of transactions guarantees the safety of investments. </p>"
+      },
+      {
+        "title": "Terms and guarantees",
+        "content": "<p>We strictly adhere to the deadlines for putting objects into operation, we control the construction at every stage. We provide guarantees for up to 5 years, including the exterior finishing of the network and water supply.</p>"
+      },
+      {
+        "title": "Custom design",
+        "content": "<p>Individual design - during the construction phase, our clients can order redevelopment of premises, as well as the development of a unique design, taking into account their requirements and wishes. BestHome Construction employs first-class designers and architects. For maximum transparency, cooperation and customer support is carried out in the investor's native language, including the registration of the monetary policy. </p>"
+      },
+      {
+        "title": "Services",
+        "content": "<p>For maximum transparency, including drawing up a purchase and sale agreement, customer support is carried out in the investor's native language, including the execution of the contract of sale.</p>"
+      },
+      {
+        "title": "Our office",
+        "content": "<p>Our office is located in the very center of Alanya. Three floors, one-stop service - sales, property management, post-sales services, after sales and designer services</p>"
+      }
+    ],
+    "subscribe": {
+      "title": "Like what we do? Sign up to our newsletter.",
+      "place_holder": "Your phone number or email address",
+      "mobile_place_holder": "Phone or email address",
+      "submit": "Accept",
+      "agreement": "I agree to allow BestHome to collect and",
+      "link": "process my personal data"
+    },
+    "cookies": {
+      "title": "Cookies",
+      "text": "We use cookies to enhance your customer experience. To learn more about cookies, including our personal data protection policy,",
+      "link": "click here.",
+      "accept": "Accept",
+      "decline": "Decline"
+    },
+    "footer_company_description": [
+      "BestHome Construction is a leading construction company in Alanya. One of the leading companies in the Turkish market. Started as a real estate agency in 2004. To date, more than 33 projects have been implemented in the center of Alanya and in the Oba region. The firm has its own representatives in Germany, America, Russia, Ukraine, Iran, Kazakhstan, as well as in Denmark, Sweden, Norway and Finland. The company has already concluded more than 1000 successful transactions with foreign citizens living in the CIS, USA, Europe and the Middle East. Today it is a construction company in Alanya, with the help of which any foreigner can profitably and quickly buy an apartment or a private house without leaving his country. All issues are resolved remotely. You can conclude an agreement and issue a TAPU remotely.",
+      "You can entrust the after-sale service of your apartment, villa or office to a subsidiary company Leader Management, being sure that all your administrative, legal and financial obligations are fulfilled, as well as consultations on your choice, assistance in obtaining a residence permit and citizenship, legal and financial support for each transactions. Trust professionals with over 17 years of experience in the Turkish market - contact us."
+    ],
+    "footer_site_map": {
+      "text": "Сall the support service via the phone",
+      "text_2": "or locate",
+      "link": "sales office"
+    },
+    "footer_copyright": {
+      "rights": "All rights reserved.",
+      "language": "Change language:"
+    }
+  },
+  "modals": {
+    "get_callback": {
+      "feedback": {
+        "title": "Feedback",
+        "text": "Hello, I am Anna Larina, I will answer any of your questions! We try to build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.",
+        "label_name": "Your name",
+        "label_email_number": {
+          "number": "Phone number",
+          "or": "or",
+          "email": "email"
+        },
+        "label_project": {
+          "main": "Project of interest",
+          "support": "(optional)"
+        },
+        "label_building": {
+          "main": "Block",
+          "support": "(optional)"
+        },
+        "label_rooms": {
+          "main": "Number of rooms",
+          "support": "(optional)"
+        },
+        "label_message": {
+          "title": "Your message",
+          "label": "State your question here"
+        },
+        "label_checkbox_1": {
+          "text": "I agree to allow BestHome to collect and",
+          "link": "process my personal data"
+        },
+        "label_checkbox_2": "I am interested in receiving the newsletter with news."
+      },
+      "info": {
+        "name": "Anna Larina",
+        "position": "Sales Director",
+        "languages": "Russian, English, Turkish, Latvian, French",
+        "office": "Cikcilli mahallesi, Tugayoğlu sokak, №18/1, Alanya 07400, Antalya, Türkiye",
+        "work_time": "Monday-Saturday, from 9:00 to 18:00",
+        "link": {
+          "text": "More",
+          "link": "view map",
+          "route": "contacts"
         }
       },
-      "video": "Click<br>to close",
-      "subscribe": {
-        "title": "You signed up!",
-        "text": "You will receive the newsletter and be the first to know about the hot offers!",
-        "title_success": "You have subscribed!",
-        "submit": "Accept",
-        "description_1": "Subscribe to our newsletter and be the first to know about hot offers!",
-        "description_2": "You will receive our newsletter and be the first to know about hot offers!"
-      },
-      "sending": "Sending...",
       "finish_modal": {
-        "timer": "This window will close after",
-        "sec": "sec."
-      },
-      "error": {
-        "title": "An error occured. Please try again..."
+        "title": "Спасибо, ожидайте ответа",
+        "text": ", наш агент уже изучает анкету и в ближайшее время свяжется с вами по указанному номеру телефона, а также составит и отправит электронное письмо."
       }
+    },
+    "video": "Click<br>to close",
+    "subscribe": {
+      "title": "You signed up!",
+      "text": "You will receive the newsletter and be the first to know about the hot offers!",
+      "title_success": "You have subscribed!",
+      "submit": "Accept",
+      "description_1": "Subscribe to our newsletter and be the first to know about hot offers!",
+      "description_2": "You will receive our newsletter and be the first to know about hot offers!"
+    },
+    "sending": "Sending...",
+    "finish_modal": {
+      "timer": "This window will close after",
+      "sec": "sec."
+    },
+    "error": {
+      "title": "An error occured. Please try again..."
+    }
+  },
+  "forms": {
+    "rules": {
+      "required": "Field is required",
+      "agree": "You must agree to the data processing policy"
     }
   }
+}

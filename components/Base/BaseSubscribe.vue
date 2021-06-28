@@ -10,7 +10,6 @@
             version="style-4"
             :class="$style['subscribe__textbox-text']"
           ) {{ subscribeData.title }}
-        
         form(:class="$style['subscribe__formbox']" @submit.prevent="onSubmit")
           div(:class="$style['subscribe__mailing']")
             input(
@@ -26,7 +25,19 @@
               :class="$style['subscribe__mailing-submit']"
             ) {{ subscribeData.submit }}
           typo-text(
-            v-if="isError"
+            v-if="(!$v.form.phone_or_email.required || !$v.form.phone_or_email.minLength) && $v.form.phone_or_email.$error"
+            tag="p"
+            version="style-8"
+            :class="$style['error']"
+          ) {{ $t('forms.rules.required') }}
+          typo-text(
+            v-else-if="!$v.form.agree.isChecked && $v.form.agree.$error"
+            tag="p"
+            version="style-8"
+            :class="$style['error']"
+          ) {{ $t('forms.rules.agree') }}
+          typo-text(
+            v-else-if="isError"
             tag="p"
             version="style-8"
             :class="$style['error']"
@@ -34,8 +45,7 @@
           div(:class="$style['subscribe__agreement']")
             label(:class="$style['subscribe__agreement-label']")
               input(
-                name="agreement"
-                value="agree"
+                v-model="$v.form.agree.$model"
                 type="checkbox"
                 :class="$style['subscribe__agreement-checkbox']"
               )
@@ -53,9 +63,9 @@
               nuxt-link(
                 :to="localePath({ name: 'projects' })"
                 :class="$style['subscribe__agreement-link']"
-              )  
-                svg-icon(name="link-arrow-white" v-if="!isWhiteTheme")   
-                svg-icon(name="link-arrow-blue" v-if="isWhiteTheme")   
+              )
+                svg-icon(name="link-arrow-white" v-if="!isWhiteTheme")
+                svg-icon(name="link-arrow-blue" v-if="isWhiteTheme")
 </template>
 
 <script lang="ts">
@@ -65,6 +75,13 @@ import { email, required, minLength } from 'vuelidate/lib/validators'
 import { formMixin, formPhoneMixin, formDescriptionTimerMixin } from '@/mixins/form.js'
 import { modalsTriggerMixin } from '~/mixins/modals'
 
+/**
+ * @TODO
+ * 1. Исправить отступ слева на мобильной версии сайта
+ * 2. Исправить индекс позиционирования у фильтра или блока с подпиской,
+ * так как кнопка Accept почему-то находится поверх кнопки Filter (которая ездит в каталоге)
+ */
+
 @Component({
   components: { TypoText },
   mixins: [formDescriptionTimerMixin, formMixin, formPhoneMixin, modalsTriggerMixin],
@@ -72,8 +89,10 @@ import { modalsTriggerMixin } from '~/mixins/modals'
     form: {
       phone_or_email: {
         required,
-        email,
         minLength: minLength(5),
+      },
+      agree: {
+        isChecked: (value: boolean) => value,
       },
     },
   },
@@ -89,30 +108,49 @@ export default class BaseBreadCrumbs extends Vue {
 
   public isError: boolean = false
 
-  public form: { phone_or_email: string } = {
-    phone_or_email: ''
+  public form: { phone_or_email: string; agree: boolean } = {
+    phone_or_email: '',
+    agree: false,
   }
+
+  public windowWidth: any = ''
 
   public onSubmit() {
-    this.$axios.$post('v1/forms', {
-      ...this.form,
-      form_code: 'subscribe_to_news',
-    })
-    .then((result) => {
-      console.log('открываем модалку с сообщением об успешной отправке', result);
-      if (result.status === 200) {
-        this.showFinishModal()
-      } else {
-        this.isError = true
-      }
-    })
-    .catch((result) => {
-      this.isError = true
-    })
-  }
-  
-  public showError() {
+    // Initiate checking of valid data from form data
+    this.$v.form.$touch()
 
+    // Reset error after new submit
+    this.isError = false
+
+    // If vuelidate not have an error
+    if (!this.$v.$invalid) {
+      // Send request to server with form data
+      this.$axios
+        .$post('v1/forms', {
+          ...this.form,
+          form_code: 'subscribe_to_news', // Form code given from backend
+        })
+        .then((result) => {
+          if (result.status === 200) {
+            // Reset form data
+            this.form.agree = false
+            this.form.phone_or_email = ''
+
+            // Reset vuelidate
+            this.$v.$reset()
+
+            // Show modal with finished message
+            this.showFinishModal()
+          } else {
+            // Show error message if has any error from server
+            this.isError = true
+          }
+        })
+        .catch(() => {
+          // Show error message if has any error from server
+          this.isError = true
+        })
+    }
   }
 
   public showFinishModal() {
@@ -121,25 +159,25 @@ export default class BaseBreadCrumbs extends Vue {
       modal: () => import('~/components/Modal/base/ModalFinishStep.vue'),
       options: {
         width: 864,
-        height: "auto"
+        height: 'auto',
       },
       props: {
         title: this.$t('modals.subscribe.title'),
         text: this.$t('modals.subscribe.text'),
       },
       events: {
-        'opened': () => {
+        opened: () => {
           document.documentElement.classList.add('modal-finish-is-open')
-          
         },
-        'closed': () => {
+        closed: () => {
           if (document.body.getElementsByClassName('vm--container').length <= 1) {
             document.documentElement.classList.remove('modal-finish-is-open')
           }
         },
-      }
+      },
     })
   }
+
   public getPlaceholderValue() {
     if (this.windowWidth < 900) {
       return (this as any).subscribeData.mobile_place_holder
@@ -147,10 +185,10 @@ export default class BaseBreadCrumbs extends Vue {
       return (this as any).subscribeData.place_holder
     }
   }
+
   public getWindowWidth() {
     this.windowWidth = window.innerWidth
   }
-  public windowWidth: any = ''
 
   mounted() {
     this.getWindowWidth()
@@ -223,13 +261,13 @@ export default class BaseBreadCrumbs extends Vue {
         background-repeat: no-repeat
 
     @media (max-width: 1200px)
-      bottom: 0px
-      left: 0px
+      bottom: 0
+      left: 0
 
   &__content
     max-width: 864px
     margin: 0 auto
-    padding: 48px 0px 32px
+    padding: 48px 0 32px
     display: flex
     align-items: center
 
@@ -242,7 +280,7 @@ export default class BaseBreadCrumbs extends Vue {
       justify-content: start
 
   &__textbox
-    width: 336pxx
+    width: 336px
     z-index: 2
 
     @media (max-width: 900px)
@@ -346,7 +384,7 @@ export default class BaseBreadCrumbs extends Vue {
       display: inline-flex
       align-items: center
       user-select: none
-      margin: 0px
+      margin: 0
       color: $color-white-88
 
       .white &

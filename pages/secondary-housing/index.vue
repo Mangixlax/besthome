@@ -69,7 +69,7 @@ import { CatalogState, IProjectApartment } from '~/store/Catalog'
       ctx.store.commit('Catalog/setProject', {})
       ctx.store.commit('Catalog/setProjects', [])
       // Fetch apartments to catalog list with filters
-      await ctx.store.dispatch('Catalog/fetchApartments')
+      // await ctx.store.dispatch('Catalog/fetchApartments')
       resolve({})
     })
   },
