@@ -20,24 +20,6 @@ export default {
   asyncData(ctx) {
     ctx.store.commit('setBreadcrumbs', [
       {
-        name: ctx.app.i18n.t('breadcrumbs.about'),
-        route: {
-          name: 'company-about',
-        },
-      },
-      {
-        name: ctx.app.i18n.t('breadcrumbs.our_difference'),
-        route: {
-          name: 'company-advantages',
-        },
-      },
-      {
-        name: ctx.app.i18n.t('breadcrumbs.history'),
-        route: {
-          name: 'company-history',
-        },
-      },
-      {
         name: app.i18n.t('breadcrumbs.term_of_use'),
         route: {
           name: 'term-of-use',
