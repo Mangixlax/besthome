@@ -100,10 +100,6 @@ import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.
         ctx.store.commit('Catalog/setFilters', project.filters)
       }
 
-      resolve({
-        project: project,
-      })
-
       ctx.store.commit('setBreadcrumbs', [
         {
           name: ctx.app.i18n.t('breadcrumbs.projects'),
@@ -126,10 +122,16 @@ import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.
         {
           name: project.short_name,
           route: {
-            name: ctx.route.params.slug,
+            name: 'properties-slug-about',
+            params: ctx.route.params.slug
           },
         },
       ])
+      
+      resolve({
+        project: project,
+      })
+
     })
   },
   scrollToTop: true,

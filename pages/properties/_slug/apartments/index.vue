@@ -17,7 +17,6 @@
           :list="apartmentsList"
         )
     page-projects-similar-slider(:slider-data="similarApartmentsList")
-    page-projects-apartment-slider(:card="apartmentSliderData")
     base-subscribe(:subscribe-data="$t('footer.subscribe')" white-theme)
     base-accordions(:accordions-data="$t('footer.accordions')")
     footer-fast-links
@@ -119,6 +118,34 @@ import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.
 
       await ctx.store.dispatch('Catalog/fetchApartments')
 
+      ctx.store.commit('setBreadcrumbs', [
+        {
+          name: ctx.app.i18n.t('breadcrumbs.projects'),
+          route: {
+            name: 'projects',
+          },
+        },
+        {
+          name: ctx.app.i18n.t('breadcrumbs.about'),
+          route: {
+            name: 'company-about',
+          },
+        },
+        {
+          name: ctx.app.i18n.t('breadcrumbs.our_difference'),
+          route: {
+            name: 'company-advantages',
+          },
+        },
+        {
+          name: project.short_name,
+          route: {
+            name: 'properties-slug-about',
+            params: ctx.route.params.slug
+          },
+        },
+      ])
+      
       resolve({
         project: project,
       })

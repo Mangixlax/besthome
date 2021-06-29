@@ -93,6 +93,10 @@ export default class BasePostTwoImage extends Vue {
       display: flex
       justify-content: center
 
+    @media (max-width: 900px)
+      padding-right: initial
+      padding-bottom: initial
+      
     .flip &
       order: 2
 
