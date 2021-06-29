@@ -71,7 +71,7 @@ export default {
       display: grid
       padding: 8px
       margin: 0
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
+      grid-template-columns: 125px 1fr 1fr 1fr 1fr 1fr
       border-top: solid 1px $color-black-4
 
   &__empty

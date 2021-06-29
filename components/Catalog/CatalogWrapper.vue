@@ -18,7 +18,7 @@
                 :key="index"
                 :selected="option.value === sortBy"
               ) {{ option.label }}
-          div(:class="$style['catalog__panel-display']")
+          div(:class="$style['catalog__panel-display']" v-if="isDesktopView")
             svg-icon(
               name="catalog/list-icon"
               @click="isCardDisplay = true"
@@ -45,12 +45,12 @@
         @click="showFilter"
       )
         typo-text(
-          v-if="!isFilterReady"
+          v-if="!isDesktopView"
           :class="$style['catalog__filter-button']"
           tag="div"
           version="style-6"
         ) {{ $t('catalog.filter') }}
-        catalog-filter-list(v-if="isFilterReady" :filter-dark-mode="filterDarkMode")
+        catalog-filter-list(v-if="isDesktopView" :filter-dark-mode="filterDarkMode")
 </template>
 
 <script lang="ts">
@@ -79,7 +79,7 @@ export default class CatalogWrapper extends Vue {
   @Prop({ type: Boolean, default: false }) filterDarkMode?: boolean
 
   public isCardDisplay: boolean = true
-  public isFilterReady: boolean = false
+  public isDesktopView: boolean = false
 
   public sortingList: any = [
     { value: 'new', label: this.$t('catalog.recommended') },
@@ -93,11 +93,14 @@ export default class CatalogWrapper extends Vue {
   }
 
   public onResize() {
-    this.isFilterReady = window.innerWidth > 1000
+    this.isDesktopView = window.innerWidth > 1000
+    if (window.innerWidth < 1000) {
+      this.isCardDisplay = true
+    }
   }
 
   public showFilter() {
-    if (!this.isFilterReady) {
+    if (!this.isDesktopView) {
       this.showModal({
         name: 'modal-mobile-filter',
         modal: () => import('~/components/Modal/MobileFilter/ModalMobileFilter.vue'),

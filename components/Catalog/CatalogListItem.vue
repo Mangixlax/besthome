@@ -81,7 +81,7 @@ export default class CatalogListItem extends Vue {
   display: grid
   padding: 8px
   margin: 0
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
+  grid-template-columns: 125px 1fr 1fr 1fr 1fr 1fr
   border-top: solid 1px $color-black-4
   align-items: center
 
@@ -98,6 +98,8 @@ export default class CatalogListItem extends Vue {
     color: $color-white-100
     padding: 6px 12px
     text-transform: uppercase
+    white-space: nowrap
+    margin-right: 10px
 
     &--available
       background-color: $color-blue-72
