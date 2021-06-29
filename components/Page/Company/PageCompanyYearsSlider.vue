@@ -48,7 +48,6 @@
               svg-icon(name="link-arrow-blue")
           typo-text(
             tag="div"
-            version="style-0"
             :class="$style['history__description-year']"
           ) {{ slide.year }}
         div(:class="$style['history__image']")
@@ -85,6 +84,7 @@ export default {
       swiperOption: {
         slidesPerView: 'auto',
         spaceBetween: 32,
+        autoHeight: true,
         centeredSlides: true,
         pagination: {
           el: '.swiper-pagination-bullets',
@@ -119,6 +119,7 @@ export default {
       margin: 0
 
     &-year
+      +style-0($with-media: true)
       margin-top: 79px
       max-width: 1057px
       top: 35px
@@ -129,7 +130,7 @@ export default {
       justify-self: end
       margin: 0
       color: $color-black-8
-
+      
       @media (max-width: 700px)
         margin-top: initial
 
@@ -161,16 +162,17 @@ export default {
     flex-direction: column-reverse
     align-items: center
 
+  @media (max-width: 1000px)
+    grid-gap: 12px
+
   img
     height: 600px
     object-fit: cover
 
     @media (max-width: 1023px)
-      height: 100%
-      max-height: 750px
+      max-height: 500px
       display: block
-      max-width: 100%
-      height: auto
+      width: 100%
       margin: 0 auto
 
   &:not(:global(.swiper-slide-active))
@@ -196,9 +198,6 @@ export default {
     grid-template-columns: repeat(18, 1fr)
 
     @media (max-width: 1300px)
-      max-width: none
-
-    @media (max-width: 1023px)
       display: none !important
 
 .swiper-button-prev

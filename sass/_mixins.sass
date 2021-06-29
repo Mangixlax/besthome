@@ -34,6 +34,11 @@ $desktop-lg-width: 1800px
   line-height: 240px
   letter-spacing: 0.04em
 
+  @if $with-media
+    @media (max-width: 1054px)
+      font-size: 130px
+      line-height: 180px
+
 @mixin style-1($with-media: true)
   font-family: Didot, serif
   font-style: normal
