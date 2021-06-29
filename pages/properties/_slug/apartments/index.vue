@@ -1,8 +1,8 @@
 <template lang="pug">
   main
     base-project-navigation(
-      :name="project.short_name"
-      :slug="project.slug"
+      :name="getProject.short_name"
+      :slug="getProject.slug"
     )
     component(
       :is="block.type"
@@ -41,19 +41,16 @@ import PageProjectsInfrastructureSlider from '~/components/Page/Projects/PagePro
 import PageProjectsTimeline from '~/components/Page/Projects/PageProjectsTimeline.vue'
 import CatalogWrapper from '~/components/Catalog/CatalogWrapper.vue'
 import PageProjectsSimilarSlider from '~/components/Page/Projects/PageProjectsSimilarSlider.vue'
-import PageProjectsApartmentSlider from '~/components/Page/Projects/PageProjectsApartmentSlider.vue'
-import VueRouter, { Route } from 'vue-router'
+import VueRouter from 'vue-router'
 import { CatalogState, IProject, IProjectApartment } from '~/store/Catalog'
 import CatalogCards from '~/components/Catalog/CatalogCards.vue'
 import CatalogList from '~/components/Catalog/CatalogList.vue'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
 import HeromapSlider from '~/components/HeromapSlider/HeroMapSliderNoPhoto.vue'
-import { NavigationGuardNext } from 'vue-router/types/router'
 import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.vue'
 
 @Component({
   components: {
-    PageProjectsApartmentSlider,
     PageProjectsSimilarSlider,
     CatalogWrapper,
     PageProjectsInfrastructureSlider,
@@ -145,7 +142,7 @@ import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.
           },
         },
       ])
-      
+
       resolve({
         project: project,
       })
@@ -154,16 +151,6 @@ import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.
   scrollToTop: true,
 })
 export default class PropertiesApartmentsPageIndex extends Vue {
-  public apartmentSliderData = {
-    apartment: 'Apartment B.01.02',
-    status: 2,
-    area: 120,
-    price: '450 400',
-    block: 'B',
-    floor: 4,
-    room: 4,
-  }
-
   get blocks() {
     const componentsRelations: any = {
       BlockOnePhotoText: 'base-post',
@@ -180,7 +167,7 @@ export default class PropertiesApartmentsPageIndex extends Vue {
       BlockImageTooltip: 'hero-image-tooltips',
     }
 
-    return ((this.project as IProject).choose_ap_data || []).map((block: any) => ({
+    return ((this.getProject as IProject).choose_ap_data || []).map((block: any) => ({
       ...block,
       type: Object.keys(componentsRelations).includes(block.type)
         ? componentsRelations[block.type]
@@ -197,6 +184,10 @@ export default class PropertiesApartmentsPageIndex extends Vue {
 
   get similarApartmentsList(): IProjectApartment[] {
     return (((this.project as IProject).similar_apartments || {}) as IProjectApartment).data || []
+  }
+
+  get getProject(): IProject {
+    return this.$store.getters['Catalog/getProject']
   }
 }
 </script>

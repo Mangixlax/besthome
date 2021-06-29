@@ -64,13 +64,7 @@ export default class CatalogApartmentCard extends Vue {
   }
 
   public showGetCallback() {
-    this.showModal({
-      name: 'modal-get-callback',
-      modal: () => import('~/components/Modal/GetCallback/ModalGetCallback.vue'),
-      options: {
-        width: '100%',
-      },
-    })
+    this.$router.push(this.localePath({ name: 'feedback' }))
   }
 }
 </script>

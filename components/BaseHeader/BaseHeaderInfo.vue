@@ -4,6 +4,7 @@
       [$style['header__info']]: true,\
       [$style['header__info--align-right']]: alignRight,\
       [$style['header__info--hide-on-mobile']]: hideOnMobile,\
+      [$style['dark']]: dark,\
     }"
   )
     a(href="tel:+905305474415" title="Call +90 530 547-44-15")
@@ -12,7 +13,7 @@
       tag="div"
       version="style-9"
       :class="$style['header__info-callback']"
-      @click="showGetCallback"
+      @click="goToFeedback"
     ) {{ $t('header.call_back')}}
 </template>
 
@@ -29,15 +30,10 @@ import { modalsTriggerMixin } from '~/mixins/modals'
 export default class BaseHeaderInfo extends Vue {
   @Prop({ type: Boolean, default: false }) hideOnMobile!: boolean
   @Prop({ type: Boolean, default: false }) alignRight!: boolean
+  @Prop({ type: Boolean, default: false }) dark!: boolean
 
-  public showGetCallback() {
-    this.showModal({
-      name: 'modal-get-callback',
-      modal: () => import('~/components/Modal/GetCallback/ModalGetCallback.vue'),
-      options: {
-        width: '100%'
-      }
-    })
+  public goToFeedback() {
+    this.$router.push(this.localePath({ name: 'feedback' }))
   }
 }
 
@@ -59,20 +55,33 @@ export default class BaseHeaderInfo extends Vue {
   a
     +style-6($with-media: false)
     text-decoration: none
-    color: rgba($color-black, 0.88)
+    color: $color-black-88
+    transition: color 0.5s ease
 
     span span
-      color: rgba($color-black, 0.2)
+      color: $color-black-24
+      transition: color 0.5s ease
 
     @media (max-width: 1054px)
       +style-5($with-media: false)
+
+  &.dark a
+    color: $color-white-88
+
+  &.dark a span span
+    color: $color-white-24
 
   &-callback
     display: flex
     align-items: center
     margin-top: 4px
     padding: 0 2px 5px
-    color: $color-blue
-    border-bottom: 1px solid rgba($color-blue, 0.16)
+    color: $color-blue-100
+    border-bottom: 1px solid $color-blue-16
     cursor: pointer
+    transition: color 0.5s ease, border-bottom-color 0.5s ease
+
+  &.dark &-callback
+    color: $color-white-100
+    border-bottom-color: $color-white-16
 </style>

@@ -1,6 +1,6 @@
 <template lang="pug">
-  main
-    page-contacts-map(:contactMap="$t('pages.contacts.contact_map')")
+  main(:class="$style['main']")
+    page-contacts-map(:contact-map="$t('pages.contacts.contact_map')")
     common-consultant-slider(:slider-data="$t('footer.consultant_slider')")
 </template>
 
@@ -46,13 +46,14 @@ import { NavigationGuardNext } from 'vue-router/types/router'
       },
     ])
   },
-  beforeRouteEnter(to: Route, from: Route, next: NavigationGuardNext) {
-    next((vm: Vue) => {
-      vm.$store.commit('setPageLoadingStatus', false)
-    })
-  },
 })
 export default class IndexPage extends Vue {}
 </script>
 
-<style lang="sass" module></style>
+<style lang="sass" module>
+.main
+  margin-top: -92px
+
+  @media (max-width: 1054px)
+    margin-top: -97px
+</style>

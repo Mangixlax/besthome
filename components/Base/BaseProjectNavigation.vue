@@ -48,14 +48,14 @@
 </template>
 
 <script lang="ts">
-import {Component, Prop, Vue, Watch} from 'nuxt-property-decorator'
+import { Component, Prop, Vue, Watch } from 'nuxt-property-decorator'
 import { modalsTriggerMixin } from '~/mixins/modals'
 import TypoText from '~/components/Base/TypoText.vue'
 import { IProject } from '~/store/Catalog'
 
 @Component({
   components: { TypoText },
-  mixins: [modalsTriggerMixin]
+  mixins: [modalsTriggerMixin],
 })
 export default class BaseProjectNavigation extends Vue {
   @Prop({ type: Boolean, default: false }) isActive!: boolean
@@ -63,13 +63,7 @@ export default class BaseProjectNavigation extends Vue {
   @Prop({ type: String, required: true }) slug!: string
 
   public showGetCallback() {
-    this.showModal({
-      name: 'modal-get-callback',
-      modal: () => import('~/components/Modal/GetCallback/ModalGetCallback.vue'),
-      options: {
-        width: '100%',
-      }
-    })
+    this.$router.push(this.localePath({ name: 'feedback' }))
   }
 
   public prevFixedStatus: boolean = true
