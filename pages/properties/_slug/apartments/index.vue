@@ -1,8 +1,8 @@
 <template lang="pug">
   main
     base-project-navigation(
-      :name="project.short_name"
-      :slug="project.slug"
+      :name="getProject.short_name"
+      :slug="getProject.slug"
     )
     component(
       :is="block.type"
@@ -142,7 +142,7 @@ import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.
           },
         },
       ])
-      
+
       resolve({
         project: project,
       })
@@ -167,7 +167,7 @@ export default class PropertiesApartmentsPageIndex extends Vue {
       BlockImageTooltip: 'hero-image-tooltips',
     }
 
-    return ((this.project as IProject).choose_ap_data || []).map((block: any) => ({
+    return ((this.getProject as IProject).choose_ap_data || []).map((block: any) => ({
       ...block,
       type: Object.keys(componentsRelations).includes(block.type)
         ? componentsRelations[block.type]
@@ -184,6 +184,10 @@ export default class PropertiesApartmentsPageIndex extends Vue {
 
   get similarApartmentsList(): IProjectApartment[] {
     return (((this.project as IProject).similar_apartments || {}) as IProjectApartment).data || []
+  }
+
+  get getProject(): IProject {
+    return this.$store.getters['Catalog/getProject']
   }
 }
 </script>
