@@ -32,6 +32,9 @@ export default class BaseTextContainer extends Vue {
   padding: 80px 24px
   margin: 0 auto
 
+  @media (max-width: 1000px)
+    padding: 32px 24px
+
   &--center
     text-align: center
 

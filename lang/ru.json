@@ -22,6 +22,10 @@
     "recommended": "Рекомендуемое",
     "sort": "Сортировка"
   },
+  "hero_building": {
+    "ground": "Ground",
+    "tooltip": "-й этаж"
+  },
   "header": {
     "top_line": "",
     "call_back": "Заказать обратный звонок",

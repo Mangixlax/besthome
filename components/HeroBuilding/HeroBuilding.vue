@@ -191,9 +191,14 @@ export default class HeroBuilding extends Vue {
     if (event.target) {
       const target: Element = event.target as Element
       this.getFloorDataById(target.id).then((floor: IProjectFloor) => {
-        this.tooltip.title =
-          this.$i18n.locale === 'ru' ? `${floor.number}-й этаж` : `${floor.number}th Floor`
-        this.tooltip.text = this.$t('pages.apartments.nth', [floor.available_apartments_count]) as string
+        if (floor.number === 1) {
+          this.tooltip.title = this.$t('hero_building.ground').toString()
+        } else {
+          this.tooltip.title = `${floor.number - 1} ${this.$t('hero_building.tooltip')}`
+        }
+        this.tooltip.text = this.$t('pages.apartments.nth', [
+          floor.available_apartments_count,
+        ]) as string
         this.tooltip.available = floor.available_apartments_count
       })
     }

@@ -55,17 +55,17 @@
             :class="$style['content__link-text']"
           ) {{ contactMap.linkToMap.text}}
           typo-text(
-            tag="nuxt-link"
+            tag="a"
             version="style-5"
-            :to="localePath(contactMap.linkToMap.route)"
+            href="https://goo.gl/maps/GQ9d8WPAsrPe974L9"
             :title="contactMap.linkToMap.link"
             :class="$style['content__link-text--underline']"
           ) {{  contactMap.linkToMap.link }}
           | .
           typo-text(
-            tag="nuxt-link"
+            tag="a"
             version="none"
-            :to="localePath(contactMap.linkToMap.route)"
+            href="https://goo.gl/maps/wAAvmLgbH4eCEyEm7"
             :title="contactMap.linkToMap.link"
             :class="$style['content__link-arrow']"
           )
