@@ -7,7 +7,7 @@
             typo-text(
               tag="p"
               version="style-8"
-            ) {{ $i18n.locale === 'ru' ? 'Сортировка' : 'Sort' }}:
+            ) {{ $t('catalog.sort') }}
             select(
               v-model="sortBy"
               :class="$style['catalog__panel-form-select']"
@@ -49,7 +49,7 @@
           :class="$style['catalog__filter-button']"
           tag="div"
           version="style-6"
-        ) {{ $i18n.locale === 'ru' ? 'Фильтр' : 'Filter' }}
+        ) {{ $t('catalog.filter') }}
         catalog-filter-list(v-if="isFilterReady" :filter-dark-mode="filterDarkMode")
 </template>
 
@@ -61,7 +61,6 @@ import {Component, Prop, Vue, Watch} from 'nuxt-property-decorator'
 
 /**
  * @TODO
- * 1. Добавить перевод Filter, Recommended, Sort в файл с переводом (Аслан)
  * 2. Доработать сортировку, перенести всё в стор (Сергей)
  */
 
@@ -83,7 +82,7 @@ export default class CatalogWrapper extends Vue {
   public isFilterReady: boolean = false
 
   public sortingList: any = [
-    { value: 'new', label: this.$i18n.locale === 'ru' ? 'Рекомендуемое' : 'Recommended' },
+    { value: 'new', label: this.$t('catalog.recommended') },
   ]
 
   public sortBy: any = this.sortingList[0].value
@@ -201,7 +200,8 @@ export default class CatalogWrapper extends Vue {
   &__filter
     background: $color-blue-100
     min-width: 320px
-
+    z-index: 25
+    
     &--dark
       background: $color-black-96
 

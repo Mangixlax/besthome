@@ -20,7 +20,7 @@ export default {
   asyncData(ctx) {
     ctx.store.commit('setBreadcrumbs', [
       {
-        name: app.i18n.t('breadcrumbs.term_of_use'),
+        name: ctx.app.i18n.t('breadcrumbs.term_of_use'),
         route: {
           name: 'term-of-use',
         },

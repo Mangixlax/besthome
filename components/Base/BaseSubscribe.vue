@@ -75,13 +75,6 @@ import { email, required, minLength } from 'vuelidate/lib/validators'
 import { formMixin, formPhoneMixin, formDescriptionTimerMixin } from '@/mixins/form.js'
 import { modalsTriggerMixin } from '~/mixins/modals'
 
-/**
- * @TODO
- * 1. Исправить отступ слева на мобильной версии сайта
- * 2. Исправить индекс позиционирования у фильтра или блока с подпиской,
- * так как кнопка Accept почему-то находится поверх кнопки Filter (которая ездит в каталоге)
- */
-
 @Component({
   components: { TypoText },
   mixins: [formDescriptionTimerMixin, formMixin, formPhoneMixin, modalsTriggerMixin],
@@ -220,7 +213,7 @@ export default class BaseBreadCrumbs extends Vue {
     margin: 0 auto
 
     @media (max-width: 900px)
-      padding: 32px 24px 64px 24px
+      padding: 32px 24px
 
   &__background-1
     position: absolute
@@ -273,7 +266,7 @@ export default class BaseBreadCrumbs extends Vue {
 
     @media (max-width: 800px)
       flex-direction: column
-      align-items: center
+      align-items: start
 
     @media (max-width: 400px)
       align-items: start
@@ -305,7 +298,7 @@ export default class BaseBreadCrumbs extends Vue {
     justify-content: center
     z-index: 2
 
-    @media (max-width: 400px)
+    @media (max-width: 900px)
       padding: 0
 
   &__mailing
@@ -319,7 +312,8 @@ export default class BaseBreadCrumbs extends Vue {
     .white &
       border-bottom: 1px solid $color-blue-16
 
-    @media (max-width: 600px)
+    @media (max-width: 900px)
+      padding-left: initial
       width: 100%
 
     &-email
@@ -346,6 +340,7 @@ export default class BaseBreadCrumbs extends Vue {
       border-radius: 0
       border: none
       cursor: pointer
+      background: $color-white-96
 
       .white &
         background: $color-blue-96
@@ -363,6 +358,7 @@ export default class BaseBreadCrumbs extends Vue {
       display: flex
       align-items: center
       flex-wrap: wrap
+      column-gap: 0.25em
 
       span
         color: $color-white-88
@@ -414,7 +410,6 @@ export default class BaseBreadCrumbs extends Vue {
         +style-8
         display: inline-flex
         align-items: center
-        margin: 0 4px
         text-decoration: underline
         text-underline-offset: 6px
         text-decoration-color: $color-white-8
@@ -425,7 +420,7 @@ export default class BaseBreadCrumbs extends Vue {
           color: $color-blue-88
 
     &-link
-
+      margin-left: -0.25em
       svg
         height: 26px
         width: 26px

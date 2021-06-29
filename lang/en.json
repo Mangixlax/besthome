@@ -17,6 +17,11 @@
     "investments": "Invesments",
     "our_projects": "Our Projects"
   },
+  "catalog": {
+    "filter": "Filter",
+    "recommended": "Recommended",
+    "sort": "Sort"
+  },
   "header": {
     "top_line": "",
     "call_back": "Go get a call back",
@@ -1257,8 +1262,8 @@
     ],
     "subscribe": {
       "title": "Like what we do? Sign up to our newsletter.",
-      "place_holder": "Your phone number or email address",
-      "mobile_place_holder": "Phone or email address",
+      "place_holder": "Your email address",
+      "mobile_place_holder": "Email address",
       "submit": "Accept",
       "agreement": "I agree to allow BestHome to collect and",
       "link": "process my personal data"

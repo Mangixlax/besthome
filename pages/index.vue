@@ -164,6 +164,7 @@ export default class IndexPage extends Vue {
     padding: 0 64px
 
   @media (max-width: 1060px)
+    display: none
     &:first-child
       order: 4
 
