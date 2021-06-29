@@ -108,30 +108,17 @@ import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.
           },
         },
         {
-          name: ctx.app.i18n.t('breadcrumbs.about'),
-          route: {
-            name: 'company-about',
-          },
-        },
-        {
-          name: ctx.app.i18n.t('breadcrumbs.our_difference'),
-          route: {
-            name: 'company-advantages',
-          },
-        },
-        {
           name: project.short_name,
           route: {
             name: 'properties-slug-about',
-            params: ctx.route.params.slug
+            params: ctx.route.params.slug,
           },
         },
       ])
-      
+
       resolve({
         project: project,
       })
-
     })
   },
   scrollToTop: true,

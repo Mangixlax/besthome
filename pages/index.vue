@@ -90,32 +90,7 @@ import { Context } from '@nuxt/types'
   mixins: [modalsTriggerMixin],
   asyncData(ctx: Context): void {
     ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.investors'))
-    ctx.store.commit('setBreadcrumbs', [
-      {
-        name: ctx.app.i18n.t('breadcrumbs.projects'),
-        route: {
-          name: 'projects',
-        },
-      },
-      {
-        name: ctx.app.i18n.t('breadcrumbs.about'),
-        route: {
-          name: 'company-about',
-        },
-      },
-      {
-        name: ctx.app.i18n.t('breadcrumbs.our_difference'),
-        route: {
-          name: 'company-advantages',
-        },
-      },
-      {
-        name: ctx.app.i18n.t('breadcrumbs.history'),
-        route: {
-          name: 'company-history',
-        },
-      },
-    ])
+    ctx.store.commit('setBreadcrumbs', [])
   },
 })
 export default class IndexPage extends Vue {

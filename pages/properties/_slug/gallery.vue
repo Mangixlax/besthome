@@ -99,7 +99,6 @@ import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.
         ctx.store.commit('Catalog/setFilters', project.filters)
       }
 
-     
       ctx.store.commit('setBreadcrumbs', [
         {
           name: ctx.app.i18n.t('breadcrumbs.projects'),
@@ -108,22 +107,10 @@ import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.
           },
         },
         {
-          name: ctx.app.i18n.t('breadcrumbs.about'),
-          route: {
-            name: 'company-about',
-          },
-        },
-        {
-          name: ctx.app.i18n.t('breadcrumbs.our_difference'),
-          route: {
-            name: 'company-advantages',
-          },
-        },
-        {
           name: project.short_name,
           route: {
             name: 'properties-slug-about',
-            params: ctx.route.params.slug
+            params: ctx.route.params.slug,
           },
         },
       ])
@@ -131,7 +118,6 @@ import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.
       resolve({
         project: project,
       })
-
     })
   },
   scrollToTop: true,
