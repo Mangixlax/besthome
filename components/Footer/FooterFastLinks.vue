@@ -38,15 +38,14 @@ export default class FooterFastLinks extends Vue {
     padding: 80px 32px
     margin: 0 auto
 
-    @media (max-width: 800px) and (min-width: 410px)
+    @media (max-width: 800px) and (min-width: 600px)
       display: grid
       grid-template-columns: 1fr 1fr
       align-items: start
-      justify-items: center
       grid-row-gap: 30px
       grid-column-gap: 30px
       padding: 34px 24px
 
-    @media (max-width: 410px)
+    @media (max-width: 600px)
       padding: 32px 0
 </style>

@@ -80,10 +80,10 @@ export default class FooterSiteMap extends Vue {
   margin: 0 auto
   border-bottom: solid 1px $color-black-4
 
-  @media (max-width: 900px) and (min-width: 411px)
+  @media (max-width: 800px) and (min-width: 600px)
     padding: 32px 24px
 
-  @media (max-width: 410px)
+  @media (max-width: 600px)
     padding: 32px 0
 
 .map__grid
@@ -109,10 +109,8 @@ export default class FooterSiteMap extends Vue {
     align-self: end
     margin-top: 250px
 
-  @media (max-width: 800px) and (min-width: 410px)
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr))
-    row-gap: 20px
-    column-gap: 20px
+  @media (max-width: 900px) and (min-width: 600px)
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
     align-items: start
 
     &-column-0
@@ -128,7 +126,7 @@ export default class FooterSiteMap extends Vue {
       grid-row: auto
       margin-top: 0
 
-  @media (max-width: 409px)
+  @media (max-width: 600px)
     grid-template-columns: 1fr
 
     &-column-0
@@ -146,7 +144,7 @@ export default class FooterSiteMap extends Vue {
 
 .map__phone
 
-  @media (max-width: 410px)
+  @media (max-width: 600px)
     padding: 0 24px
 
   &-text
@@ -154,7 +152,8 @@ export default class FooterSiteMap extends Vue {
     align-items: center
     flex-wrap: wrap
     +style-8($with-media: false)
-    
+    column-gap: 0.25em
+
     @media (max-width: 450px)
       max-width: 190px
 
@@ -162,7 +161,7 @@ export default class FooterSiteMap extends Vue {
       +style-8($with-media: false)
       text-decoration: none
       color: rgba($color-black, 0.88)
-      margin: 0 0.3em
+      
   span
     white-space: nowrap
 

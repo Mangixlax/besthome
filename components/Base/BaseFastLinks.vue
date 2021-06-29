@@ -75,7 +75,7 @@ export default class BaseFastLinks extends Vue {
   position: relative
 
 
-  @media (max-width: 411px)
+  @media (max-width: 600px)
     padding: 0 24px
 
     & + &:before
@@ -85,17 +85,18 @@ export default class BaseFastLinks extends Vue {
       left: 0
       width: 100%
       height: 1px
+      width: 100%
       display: inline-block
       background-color: $color-black-4
 
-  @media (max-width: 411px)
+  @media (max-width: 600px)
     width: 100%
 
   > div
     overflow: hidden
     transition: all 1s ease
 
-    @media (min-width: 410px)
+    @media (min-width: 600px)
       height: auto !important
 
   &-title
@@ -110,7 +111,7 @@ export default class BaseFastLinks extends Vue {
 
     +style-6($with-media: false)
 
-    @media (max-width: 409px)
+    @media (max-width: 600px)
       cursor: pointer
       margin-top: 16px
       margin-bottom: 16px

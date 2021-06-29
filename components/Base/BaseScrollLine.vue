@@ -131,6 +131,7 @@ export default class BaseScrollLine extends Vue {
   left: 0
 
   @media (max-width: 1023px)
+    padding: 0
     display: grid
     grid-template-columns: 1fr
 
