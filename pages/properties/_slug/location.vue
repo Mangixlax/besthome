@@ -1,8 +1,8 @@
 <template lang="pug">
   main
     base-project-navigation(
-      :name="project.short_name"
-      :slug="project.slug"
+      :name="getProject.short_name"
+      :slug="getProject.slug"
     )
     component(
       :is="block.type"
@@ -151,12 +151,16 @@ export default class PropertiesLocationPage extends Vue {
       BlockImageTooltip: 'hero-image-tooltips',
     }
 
-    return ((this.project as IProject).location_data || []).map((block: any) => ({
+    return ((this.getProject as IProject).location_data || []).map((block: any) => ({
       ...block,
       type: Object.keys(componentsRelations).includes(block.type)
         ? componentsRelations[block.type]
         : 'p',
     }))
+  }
+
+  get getProject(): IProject {
+    return this.$store.getters['Catalog/getProject']
   }
 }
 </script>
