@@ -37,6 +37,7 @@ export default class Logo extends Vue {
   width: 162px
   height: 26px
   fill: $color-black
+  transition: fill 0.5s ease
 
   @media (max-width: 1248px + 32px)
     width: 134px
@@ -44,6 +45,7 @@ export default class Logo extends Vue {
 
 .text
   color: $color-black
+  transition: color 0.5s ease
   text-transform: uppercase
   padding-top: 6px
   text-align: center

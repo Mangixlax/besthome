@@ -99,17 +99,20 @@ export default {
     background-image: url(~/assets/images/contacts-map-bg.jpg)
     background-repeat: no-repeat
     background-position-x: center
-    -webkit-mask: linear-gradient(to left, transparent 1%, black 5%), linear-gradient(to right, transparent 1%, black 5%)
-    -webkit-mask-position: center
-    -webkit-mask-repeat: no-repeat
-    -webkit-mask-composite: add
-    mask: linear-gradient(to left, transparent 1%, black 5%), linear-gradient(to right, transparent 1%, black 5%)
-    mask-position: center
-    mask-repeat: no-repeat
-    mask-composite: intersect
 
     @media (max-width: 1054px)
       background-position-x: 86%
+      padding-top: 97px
+
+    @media (min-width: 1055px)
+      -webkit-mask: linear-gradient(to left, transparent 1%, black 5%), linear-gradient(to right, transparent 1%, black 5%)
+      -webkit-mask-position: center
+      -webkit-mask-repeat: no-repeat
+      -webkit-mask-composite: add
+      mask: linear-gradient(to left, transparent 1%, black 5%), linear-gradient(to right, transparent 1%, black 5%)
+      mask-position: center
+      mask-repeat: no-repeat
+      mask-composite: intersect
 
   &__content
     max-width: 912px
@@ -122,8 +125,7 @@ export default {
      padding: 60px 24px 60px 24px
 
     &-title
-      margin: 0
-      margin-bottom: 32px
+      margin: 0 0 32px
       color: $color-white-100
 
       @media (max-width: 1054px)
@@ -135,7 +137,7 @@ export default {
       display: flex
       align-items: center
 
-      a 
+      a
         color: $color-white-100
         display: block
         align-items: center
@@ -148,8 +150,7 @@ export default {
         margin-left: 6px
 
     &-email
-      margin: 0
-      margin-bottom: 32px
+      margin: 0 0 32px
       color: $color-white-100
       text-decoration: none
 
