@@ -128,7 +128,7 @@ export default class PageProjectsInfrastructureSlider extends Vue {
         margin-top: 16px
 
   &--padding &__body
-    padding: 48px 24px 0
+    padding: 48px 0
 
 .slide
   display: flex

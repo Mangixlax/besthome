@@ -179,7 +179,6 @@ export default class PageProjectsPhotosSlider extends Vue {
   display: flex
   align-items: center
   max-width: 911px
-  margin: 0 auto
   flex-wrap: wrap
   +style-5
 
