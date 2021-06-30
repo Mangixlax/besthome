@@ -36,8 +36,6 @@ export default class BaseImageTitle extends Vue {
 <style lang="sass" module>
 .image-title
   width: 100%
-
-  &__box
     
   &__container
     display: flex

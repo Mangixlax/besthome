@@ -21,17 +21,17 @@
           div(:class="$style['catalog__panel-display']" v-if="isDesktopView")
             svg-icon(
               name="catalog/list-icon"
-              @click="isCardDisplay = true"
+              @click="isCardDisplay = false"
               :class="{\
-                [$style['active']]: isCardDisplay\
+                [$style['active']]: !isCardDisplay\
               }"
               v-magnetic
             )
             svg-icon(
               name="catalog/cards-icon"
-              @click="isCardDisplay = false"
+              @click="isCardDisplay = true"
               :class="{\
-                [$style['active']]: !isCardDisplay\
+                [$style['active']]: isCardDisplay\
               }"
               v-magnetic
             )
