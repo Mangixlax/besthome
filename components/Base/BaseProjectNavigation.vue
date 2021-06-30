@@ -48,10 +48,9 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue, Watch } from 'nuxt-property-decorator'
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
 import { modalsTriggerMixin } from '~/mixins/modals'
 import TypoText from '~/components/Base/TypoText.vue'
-import { IProject } from '~/store/Catalog'
 
 @Component({
   components: { TypoText },
@@ -186,6 +185,7 @@ export default class BaseProjectNavigation extends Vue {
       white-space: nowrap
       color: $color-white-88
       +style-7
+      cursor: pointer
 
       @media (max-width: 600px)
         display: none
@@ -197,6 +197,7 @@ export default class BaseProjectNavigation extends Vue {
         background-color: $color-blue-100
         color: $color-white-88
         +style-7
+        cursor: pointer
 
         @media (min-width: 600px)
           display: none
