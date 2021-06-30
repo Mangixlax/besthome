@@ -20,8 +20,8 @@
           :key="i"
           :class="$style['copyright__item']"
           )
-            a(
-              :href="copyrightItem.to"
+            nuxt-link(
+              :to="localePath(copyrightItem.to)"
               :class="$style['copyright__item-link']"
             ) {{ copyrightItem.name }}
 </template>
@@ -34,7 +34,7 @@ import TypoText from '~/components/Base/TypoText.vue'
 
 interface ICopyrightItems {
   name: string
-  to: string
+  to: any
 }
 
 @Component({
@@ -44,27 +44,11 @@ export default class FooterCopyright extends Vue {
   public copyrightItems: Array<ICopyrightItems> = [
     {
       name: 'Privacy Policy',
-      to: '/',
-    },
-    {
-      name: 'Use of cookies',
-      to: '/',
+      to: { name: 'privacy-policy' },
     },
     {
       name: 'Terms of Use',
-      to: '/',
-    },
-    {
-      name: 'Sale & refund',
-      to: '/',
-    },
-    {
-      name: 'Legal information',
-      to: '/',
-    },
-    {
-      name: 'Site Map',
-      to: '/',
+      to: { name: 'term-of-use' },
     },
   ]
 }
