@@ -44,9 +44,14 @@
             @click="onChangeFloorDown"
           )
     template(slot="body")
-      div(ref="content" :class="$style['floor__content']" @mousemove="onMouseMove")
-        img(:src="localSelectedFloor.layout" loading="lazy")
-        div(:class="$style['floor__content-svg']" v-html="localSelectedFloor.layout_html")
+      div(
+        v-if="localSelectedFloor.floor_plan && localSelectedFloor.floor_plan.data && localSelectedFloor.floor_plan.data.files.length"
+        ref="content"
+        :class="$style['floor__content']"
+        @mousemove="onMouseMove"
+      )
+        img(:src="localSelectedFloor.floor_plan.data.files[0].plan" loading="lazy")
+        div(:class="$style['floor__content-svg']" v-html="localSelectedFloor.floor_plan.data.files[0].svg_mask")
       div(:class="$style['floor__footer']")
         div(
           ref="miniature"
@@ -100,6 +105,11 @@ export default class HeroBuildingModalFloors extends Vue {
   @Prop({ type: String, default: '' }) name!: string
   @Prop({ type: Array, default: '' }) floors!: IProjectFloor[]
   @Prop({ type: Object, default: '' }) selectedFloor!: IProjectFloor
+
+  public swiperOption: any = {
+    slidesPerView: '1',
+    spaceBetween: 48,
+  }
 
   public localSelectedFloor: IProjectFloor = { ...this.selectedFloor }
 
@@ -178,8 +188,8 @@ export default class HeroBuildingModalFloors extends Vue {
               name: 'properties-slug-apartments-id',
               params: {
                 id: apartment.id.toString(),
-              }
-            })
+              },
+            }),
           )
         })
         .catch(() => {})
@@ -187,7 +197,7 @@ export default class HeroBuildingModalFloors extends Vue {
   }
 
   public onMouseEnterToApartment(event: Event) {
-    if (event.target) {
+    if (event.target && window.innerWidth > 700) {
       const target: Element = event.target as Element
       this.getApartmentDataById(target.id)
         .then((apartment: IProjectApartment) => {
@@ -201,7 +211,7 @@ export default class HeroBuildingModalFloors extends Vue {
   }
 
   public onMouseLeaveFromApartment(event: Event) {
-    if (event.target) {
+    if (event.target && window.innerWidth > 700) {
       this.cleanTooltip()
     }
   }
@@ -210,7 +220,7 @@ export default class HeroBuildingModalFloors extends Vue {
     this.getApartmentDataById(el.id)
       .then((apartment: IProjectApartment) => {
         // if (apartment.status === 1) {
-          el.classList.remove(this.$style['disabled'])
+        el.classList.remove(this.$style['disabled'])
         // } else {
         //   el.classList.add(this.$style['disabled'])
         // }
@@ -371,6 +381,7 @@ export default class HeroBuildingModalFloors extends Vue {
     height: 100vh
     max-height: 100%
     max-width: 100%
+    pointer-events: none
 
   &-svg
     svg
@@ -406,6 +417,9 @@ export default class HeroBuildingModalFloors extends Vue {
   width: 100%
   padding: 0 45px 45px
 
+  @media (max-width: 700px)
+    padding: 0 24px 24px
+
   &-miniature
     display: flex
 
@@ -440,13 +454,16 @@ export default class HeroBuildingModalFloors extends Vue {
     &-changer
       display: flex
       align-items: center
-      gap: 32px
 
       &-up, &-down
         display: flex
 
       &-down
         transform: rotate(180deg)
+        margin-left: 32px
+
+        @media (max-width: 700px)
+          margin-left: 16px
 
       &-up,
       &-down

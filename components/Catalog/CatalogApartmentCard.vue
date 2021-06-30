@@ -32,9 +32,9 @@
         | {{ card.price.toLocaleString('ru') }}
         span €
     div(:class="$style['card__request']" @click="showGetCallback") {{ $t('pages.apartments.request_now') }}
-    div(:class="$style['card__pdf']")
-      span {{ $t('pages.apartments.download_pdf') }}
-      svg-icon(name="link-arrow-blue")
+    //div(:class="$style['card__pdf']")
+    //  span {{ $t('pages.apartments.download_pdf') }}
+    //  svg-icon(name="link-arrow-blue")
 </template>
 
 <script lang="ts">

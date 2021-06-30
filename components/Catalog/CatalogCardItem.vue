@@ -29,8 +29,8 @@
         ) 2
     div(:class="$style['catalog-card__image']")
       img(
-        v-if="itemData.planning"
-        :src="itemData.planning"
+        v-if="itemData.plans"
+        :src="itemData.plans[0]"
         loading="lazy"
         :class="$style['catalog-card__image-img']"
       )

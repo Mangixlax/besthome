@@ -93,6 +93,9 @@ export default class HeroBuilding extends Vue {
       el.addEventListener('mouseleave', this.onMouseLeaveFromFloor)
       this.checkAvailableApartments(el)
     })
+    ;(this.$blocks || []).forEach((el: Element) => {
+      el.addEventListener('click', this.onClickToBlock)
+    })
   }
 
   beforeDestroy() {
@@ -101,8 +104,34 @@ export default class HeroBuilding extends Vue {
       el.removeEventListener('mouseenter', this.onMouseEnterToFloor)
       el.removeEventListener('mouseleave', this.onMouseLeaveFromFloor)
     })
+    ;(this.$blocks || []).forEach((el: Element) => {
+      el.removeEventListener('click', this.onClickToBlock)
+    })
 
     this.cleanTooltip()
+  }
+
+  public onClickToBlock(event: Event) {
+    if (event.target) {
+      // @ts-ignore
+      const floors = [...this.$store.getters['Catalog/getProject'].floors]
+      this.showModal({
+        name: 'modal-hero-building-choose-floors',
+        modal: () => import('@/components/HeroBuilding/HeroBuildingModalFloors.vue'),
+        props: {
+          floors: floors.sort((a: any, b: any) => {
+            return a.number - b.number
+          }),
+          selectedFloor: floors.length ? floors[0] : {},
+        },
+        options: {
+          width: '100%',
+          height: '100%',
+          pivotY: 0,
+          pivotX: 0,
+        },
+      })
+    }
   }
 
   public onClickToFloor(event: Event) {
@@ -123,6 +152,8 @@ export default class HeroBuilding extends Vue {
           options: {
             width: '100%',
             height: '100%',
+            pivotY: 0,
+            pivotX: 0,
           },
         })
       })
@@ -191,10 +222,10 @@ export default class HeroBuilding extends Vue {
     if (event.target) {
       const target: Element = event.target as Element
       this.getFloorDataById(target.id).then((floor: IProjectFloor) => {
-        if (floor.number === 1) {
+        if (floor.number === 0) {
           this.tooltip.title = this.$t('hero_building.ground').toString()
         } else {
-          this.tooltip.title = `${floor.number - 1} ${this.$t('hero_building.tooltip')}`
+          this.tooltip.title = `${floor.number} ${this.$t('hero_building.tooltip')}`
         }
         this.tooltip.text = this.$t('pages.apartments.nth', [
           floor.available_apartments_count,

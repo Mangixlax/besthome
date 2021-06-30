@@ -1,8 +1,6 @@
 <template lang="pug">
   div(:class="[$style['modal'], full && $style['full']]")
-
     div(:class="$style['modal__header']")
-
       div(:class="$style['modal__header-buttons']")
         slot(name="header")
         button(
@@ -104,6 +102,9 @@ export default {
     background: none
     cursor: pointer
 
+    @media (max-width: 700px)
+      top: -24px
+
   &__body
     position: relative
     width: 100%
@@ -130,4 +131,9 @@ export default {
     z-index: 11
     position: fixed
     width: calc(100% - 64px)
+
+    @media (max-width: 700px)
+      left: 12px
+      right: 12px
+      width: 100%
 </style>
