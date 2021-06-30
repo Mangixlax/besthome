@@ -478,7 +478,7 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
 
 .svg-text
   +style-6
-  font-size: 6px
+  font-size: 40px
   color: $color-black-100
 
 .slider
