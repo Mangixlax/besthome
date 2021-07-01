@@ -61,7 +61,7 @@
         div(:class="[$style['floor__footer-miniature'], $style['floor__footer-miniature--orientation']]")
           svg-icon(name="modals/orientation")
       div(
-        :class="[$style['floor__tooltip'], (tooltip.name.length && tooltip.styles.left !== '0px') && $style['floor__tooltip--show']]"
+        :class="[$style['floor__tooltip'], tooltip.show && $style['floor__tooltip--show']]"
         :style="tooltip.styles"
       )
         div(:class="$style['floor__tooltip-name']") {{ tooltip.name }}
@@ -69,12 +69,12 @@
           div(:class="$style['floor__tooltip-line-block']") {{ $t('pages.apartments.status') }}
           div(:class="$style['floor__tooltip-line-block']")
             div(:class="[$style['status'], tooltip.status === 1 && $style['status--available']]") {{ $t('pages.apartments.status_' + tooltip.status) }}
-        div(:class="$style['floor__tooltip-line']")
+        div(v-if="tooltip.price" :class="$style['floor__tooltip-line']")
           div(:class="$style['floor__tooltip-line-block']") {{ $t('pages.apartments.price') }}
-          div(:class="$style['floor__tooltip-line-block']") {{ tooltip.price }}
-        div(:class="$style['floor__tooltip-line']")
+          div(:class="$style['floor__tooltip-line-block']") {{ tooltip.price }} €
+        div(v-if="tooltip.area" :class="$style['floor__tooltip-line']")
           div(:class="$style['floor__tooltip-line-block']") {{ $t('pages.apartments.area') }}
-          div(:class="$style['floor__tooltip-line-block']") {{ tooltip.area }}
+          div(:class="$style['floor__tooltip-line-block']") {{ tooltip.area }}m²
 </template>
 
 <script lang="ts">
@@ -91,7 +91,8 @@ interface ITooltip {
   styles: {
     top: string
     left: string
-  }
+  },
+  show: boolean
 }
 
 interface IApartmentMatch {
@@ -124,6 +125,7 @@ export default class HeroBuildingModalFloors extends Vue {
       top: '0px',
       left: '0px',
     },
+    show: false,
   }
 
   public $apartments: any = []
@@ -182,15 +184,18 @@ export default class HeroBuildingModalFloors extends Vue {
       const target: Element = event.target as Element
       this.getApartmentDataById(target.id)
         .then((apartment: IProjectApartment) => {
-          this.$modal.hide(this.name)
-          this.$router.push(
-            this.localePath({
-              name: 'properties-slug-apartments-id',
-              params: {
-                id: apartment.id.toString(),
-              },
-            }),
-          )
+          // Can go to apartment page if apartment have a status 4 (SOLD)
+          if (apartment.status !== 4) {
+            this.$modal.hide(this.name)
+            this.$router.push(
+              this.localePath({
+                name: 'properties-slug-apartments-id',
+                params: {
+                  id: apartment.id.toString(),
+                },
+              }),
+            )
+          }
         })
         .catch(() => {})
     }
@@ -201,10 +206,11 @@ export default class HeroBuildingModalFloors extends Vue {
       const target: Element = event.target as Element
       this.getApartmentDataById(target.id)
         .then((apartment: IProjectApartment) => {
-          this.tooltip.name = apartment.name
+          this.tooltip.show = true
+          this.tooltip.name = apartment.name.toString()
           this.tooltip.status = apartment.status
-          this.tooltip.area = `${apartment.area}m²`
-          this.tooltip.price = `${apartment.price} €`
+          this.tooltip.area = apartment.area.toString()
+          this.tooltip.price = apartment.price.toString()
         })
         .catch(() => {})
     }
@@ -212,18 +218,20 @@ export default class HeroBuildingModalFloors extends Vue {
 
   public onMouseLeaveFromApartment(event: Event) {
     if (event.target && window.innerWidth > 700) {
-      this.cleanTooltip()
+      this.tooltip.show = false
     }
   }
 
   public checkAvailableApartments(el: Element) {
     this.getApartmentDataById(el.id)
       .then((apartment: IProjectApartment) => {
-        // if (apartment.status === 1) {
-        el.classList.remove(this.$style['disabled'])
-        // } else {
-        //   el.classList.add(this.$style['disabled'])
-        // }
+        if (apartment.status === 1) {
+          el.classList.remove(this.$style['disabled'])
+        }
+
+        if (apartment.status === 4) {
+          el.classList.add(this.$style['disabled'])
+        }
       })
       .catch(() => {
         el.classList.add(this.$style['disabled'])
@@ -235,6 +243,7 @@ export default class HeroBuildingModalFloors extends Vue {
     this.tooltip.status = 1
     this.tooltip.area = ''
     this.tooltip.price = ''
+    this.tooltip.show = false
   }
 
   public onMouseMove(event: MouseEvent) {
@@ -335,22 +344,22 @@ export default class HeroBuildingModalFloors extends Vue {
     background-color: $color-blue-72
 
 .floor__tooltip
-  display: none
   padding: 56px
   position: absolute
   box-shadow: 0 40px 60px rgba(25, 26, 26, 0.1)
   background-color: #fff
   min-width: 350px
-  animation: opacity 0.25s linear forwards
+  opacity: 0
   will-change: opacity
   pointer-events: none
+  transition: opacity 0.25s ease
 
   @media (max-width: 700px)
     min-width: 280px
     max-width: 280px
 
   &--show
-    display: block
+    opacity: 1
 
   &-name
     +style-4
