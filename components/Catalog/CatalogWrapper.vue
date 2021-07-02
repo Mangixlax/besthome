@@ -105,7 +105,7 @@ export default class CatalogWrapper extends Vue {
         name: 'modal-mobile-filter',
         modal: () => import('~/components/Modal/MobileFilter/ModalMobileFilter.vue'),
         options: {
-          height: '100%',
+          height: 'auto',
         },
         props: {
           whiteMode: true,
