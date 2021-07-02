@@ -415,10 +415,13 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
 
   &-inner
     box-sizing: border-box
-    padding: 90px 0 0
-    max-width: 738px
+    padding: 90px 24px 0 24px
+    max-width: 786px
     width: 100%
     margin-left: auto
+
+    @media (max-width: 1100px)
+      margin: 0 auto
 
 .features, .equipment, .tour
   h2
@@ -445,6 +448,9 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
     display: grid
     grid-template-columns: 1fr 1fr
     grid-column-gap: 56px
+    
+    @media (max-width: 700px)
+      grid-template-columns: 1fr
 
     &-item
       padding: 14px 0
