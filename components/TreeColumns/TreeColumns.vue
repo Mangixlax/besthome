@@ -164,7 +164,7 @@ export default class TreeColumns extends Vue {
     @media (max-width: 1224px)
       flex-direction: column
       margin-top: 24px
-      padding: 8px 24px 24px 24px
+      padding: 8px 0 24px 0
 
     &-item
       width: 33.33%
@@ -173,6 +173,15 @@ export default class TreeColumns extends Vue {
       position: relative
       cursor: pointer
 
+      & + &::before
+        content: ""
+        position: absolute
+        top: 0
+        left: 0
+        height: 1px
+        width: 100%
+        background: $color-black-4
+  
       &:not(:first-child):not(:last-child)
         padding-left: 32px
         padding-right: 32px
@@ -189,7 +198,7 @@ export default class TreeColumns extends Vue {
 
       @media (max-width: 1224px)
         width: 100%
-        padding: 24px 0 !important
+        padding: 24px !important
 
     &-image
       height: 100%
