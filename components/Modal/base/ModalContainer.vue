@@ -102,9 +102,6 @@ export default {
     background: none
     cursor: pointer
 
-    @media (max-width: 700px)
-      top: -24px
-
   &__body
     position: relative
     width: 100%

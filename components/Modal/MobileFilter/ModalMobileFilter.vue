@@ -28,5 +28,6 @@ export default {
 
 <style lang="sass" module>
 .filter
+  min-height: 100vh
   background-color: $color-blue-100
 </style>
