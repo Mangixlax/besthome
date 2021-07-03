@@ -104,11 +104,12 @@ export default class PageProjectsInfrastructureSlider extends Vue {
     margin: 0 auto
 
     @media (max-width: 900px)
-      padding: 40px 0
+      padding: 40px 0 0
 
     &-content
       max-width: 256px
-
+      width: 100%
+      
       h3
         color: $color-black-100
         margin: 0 0 16px
@@ -128,12 +129,12 @@ export default class PageProjectsInfrastructureSlider extends Vue {
         margin-top: 16px
 
   &--padding &__body
-    padding: 48px 0
+    padding-top: 48px
 
 .slide
   display: flex
   justify-content: center
-
+  
 .slider [class*="swiper-wrapper"]
   align-items: start
 

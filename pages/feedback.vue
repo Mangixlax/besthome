@@ -104,6 +104,7 @@
         )
           input(
             type="checkbox"
+            checked
             :class="$style['feedback__feedback-label-checkbox']"
             v-model="$v.form.agree_to_newsletter.$model"
             :disabled="isShowRecaptcha || isBusy"
@@ -272,8 +273,8 @@ export default class FeedbackPage extends Vue {
     block: '',
     number_of_rooms: '',
     message: '',
-    agree_collect_data: false,
-    agree_to_newsletter: false,
+    agree_collect_data: true,
+    agree_to_newsletter: true,
     recaptcha: '',
   }
 

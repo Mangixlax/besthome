@@ -50,7 +50,7 @@ export default class TreeColumns extends Vue {
   @Prop({ type: String, default: '' }) title!: string
   @Prop({ type: String, default: '' }) description!: string
   @Prop({ type: Array, default: () => [] }) columns!: Array<Object>
-  @Prop({ type: String, default: ''}) dataCursor!: string
+  @Prop({ type: String, default: '' }) dataCursor!: string
 
   public isHovered: boolean = false
 
@@ -98,6 +98,10 @@ export default class TreeColumns extends Vue {
         &:last-child
           opacity: 0
           transform: scale(0.8)
+
+  @media (max-width: 700px)
+    height: 48px
+    width: 48px
 
 .tree
   display: flex
@@ -160,6 +164,7 @@ export default class TreeColumns extends Vue {
     @media (max-width: 1224px)
       flex-direction: column
       margin-top: 24px
+      padding: 8px 0 24px 0
 
     &-item
       width: 33.33%
@@ -168,6 +173,15 @@ export default class TreeColumns extends Vue {
       position: relative
       cursor: pointer
 
+      & + &::before
+        content: ""
+        position: absolute
+        top: 0
+        left: 0
+        height: 1px
+        width: 100%
+        background: $color-black-4
+  
       &:not(:first-child):not(:last-child)
         padding-left: 32px
         padding-right: 32px
@@ -204,6 +218,7 @@ export default class TreeColumns extends Vue {
         right: 0
         left: 0
         background: rgba(17, 17, 17, 0.45)
+
       &-overlay
         position: absolute
         top: 0
@@ -243,13 +258,22 @@ export default class TreeColumns extends Vue {
         fill: #0066CC
         transition: fill 0.25s ease, stroke 0.25s ease, opacity 0.25s ease, transform 0.25s ease
 
+        @media (max-width: 700px)
+          height: 48px
+          width: 48px
+
+      h3
+        margin: 0
+
       a
         +style-4
-        margin-top: 24px
         display: block
         color: $color-black-100
         text-decoration: none
         transition: color 0.25s ease
+
+        @media (min-width: 1023px)
+          margin-top: 24px
 
         &:after
           content: ''

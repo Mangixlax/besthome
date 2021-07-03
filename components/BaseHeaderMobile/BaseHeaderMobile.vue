@@ -1,7 +1,7 @@
 <template lang="pug">
   div(:class="{ [$style['menu']]: true, [$style['open']]: menuIsOpen, [$style['has-top-line']]: !topLineIsHidden }")
     div(
-      :class="$style['menu__burger']"
+      :class="[$style['menu__burger'], offsetBurger && $style['fix-to-top']]"
       @click="menuIsOpen = !menuIsOpen"
     )
       svg-icon(:name="menuIsOpen ? 'close' : 'burger-menu'")
@@ -44,7 +44,7 @@ export default class BaseHeaderMobile extends Vue {
    * This variable determines menu is opened or closed
    */
   public menuIsOpen: boolean = false
-
+  public offsetBurger: boolean = false
   /**
    * Toggle 'menu-open' attribute on body when menu is opened or closed
    */
@@ -55,7 +55,7 @@ export default class BaseHeaderMobile extends Vue {
     } else {
       document.body.removeAttribute('menu-open')
     }
-  }
+  }  
 
   /**
    * Close menu when $route is changed
@@ -63,6 +63,12 @@ export default class BaseHeaderMobile extends Vue {
   @Watch('$route')
   onChangeRoute() {
     this.menuIsOpen = false
+    const regex = /properties/
+    if ((regex as any).test(this.$route.path)) {
+      this.offsetBurger = true
+    } else {
+      this.offsetBurger = false
+    }
   }
 }
 </script>
@@ -89,7 +95,7 @@ body[menu-open]
     box-shadow: inset 0 0 0 1px rgba($color-black-100, 0.04)
     transition: background-color 0.25s ease
     background-color: $color-white-100
-
+    transition: all 0.3s ease
     svg
       width: 17px
       height: 13px
@@ -107,6 +113,10 @@ body[menu-open]
 
     .has-top-line &
       top: 72px
+
+    &.fix-to-top
+      position: absolute
+      top: 72px 
 
   &__content
     opacity: 0

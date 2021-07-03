@@ -103,7 +103,7 @@ export default class BaseBreadCrumbs extends Vue {
 
   public form: { phone_or_email: string; agree: boolean } = {
     phone_or_email: '',
-    agree: false,
+    agree: true,
   }
 
   public windowWidth: any = ''

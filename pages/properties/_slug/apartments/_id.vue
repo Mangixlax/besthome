@@ -40,7 +40,7 @@
             [$style['info__aside--fixed-bottom']]: asideIsFixedBottom\
           }"
         )
-          catalog-apartment-card(:card="apartment" :class="$style['info__aside__card']" ref="asideCard")
+          catalog-apartment-card(:card="apartment")
       div(v-if="hasFeatures" :class="[$style['block'], $style['features']]")
         section(:class="$style['block-inner']")
           h2 {{ $t('pages.apartments.additional_features') }}
@@ -84,7 +84,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Watch } from 'nuxt-property-decorator'
+import {Component, Vue, Watch} from 'nuxt-property-decorator'
 import { Context } from '@nuxt/types'
 import CatalogApartmentCard from '~/components/Catalog/CatalogApartmentCard.vue'
 import BaseProjectNavigation from '~/components/Base/BaseProjectNavigation.vue'
@@ -114,7 +114,7 @@ import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
     BaseProjectNavigation,
     CatalogApartmentCard,
     Swiper,
-    SwiperSlide,
+    SwiperSlide
   },
   async asyncData(ctx: Context): Promise<void | object> {
     return new Promise(async (resolve) => {
@@ -131,6 +131,7 @@ import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 
       // Redirect to new apartment slug if project.slug and params.slug not equal
       if (apartment.project.slug !== ctx.params.slug) {
+        console.log('1')
         resolve(
           ctx.redirect(
             ctx.localePath({
@@ -147,9 +148,9 @@ import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
       let svgPlanning = ''
 
       // If apartment has a planning
-      if (apartment.plans && (apartment.plans || []).length) {
+      if (apartment.planning) {
         // Fetch svg code of apartment planning
-        svgPlanning = await ctx.$axios.$get(apartment.plans[0])
+        svgPlanning = await ctx.$axios.$get(apartment.planning)
       }
 
       resolve({
@@ -169,11 +170,10 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
     slidesPerView: 'auto',
     centeredSlides: true,
     spaceBetween: 128,
-    disabled: true,
     pagination: {
       el: '.swiper-pagination-progressbar',
-      type: 'progressbar',
-    },
+      type: 'progressbar'
+    }
   }
 
   get apartment(): IProjectApartment {
@@ -209,14 +209,12 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
   }
 
   public onScroll() {
-    if (this.$refs.wrapper && this.$refs.asideCard) {
-      this.asideIsFixedBottom =
-        (this.$refs.wrapper as Element).clientHeight -
-          window.scrollY -
-          ((this.$refs.asideCard as Vue).$el as Element).clientHeight -
-          50 <
-        0
-    }
+    this.asideIsFixedBottom =
+      (this.$refs.wrapper as Element).clientHeight -
+        window.scrollY -
+        (this.$refs.aside as Element).clientHeight -
+        50 <
+      0
   }
 
   public async mounted() {
@@ -298,7 +296,7 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
     height: 100%
 
     polygon.selected
-      fill: $color-blue-100
+      fill: $color-black-100
 
   &__wrapper
     box-sizing: border-box
@@ -411,14 +409,17 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
 
   &-inner
     box-sizing: border-box
-    padding: 90px 0 0
-    max-width: 738px
+    padding: 90px 24px 0 24px
+    max-width: 786px
     width: 100%
     margin-left: auto
 
     @media (max-width: 800px)
       padding-left: 24px
       padding-right: 24px
+
+    @media (max-width: 1100px)
+      margin: 0 auto
 
 .features, .equipment, .tour
   h2
@@ -445,6 +446,9 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
     display: grid
     grid-template-columns: 1fr 1fr
     grid-column-gap: 56px
+
+    @media (max-width: 700px)
+      grid-template-columns: 1fr
 
     &-item
       padding: 14px 0
@@ -478,7 +482,7 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
 
 .svg-text
   +style-6
-  font-size: 40px
+  font-size: 6px
   color: $color-black-100
 
 .slider

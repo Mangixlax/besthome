@@ -80,6 +80,11 @@ export default class HeroSlider extends Vue {
 
   public isSliderPressed: boolean = false
   public isSliderDisabled: boolean = false
+  public slideLinksParams: Array<string> = [
+    'best-home-36-37-the-legend-12',
+    'best-home-35-aria-10',
+    'best-home-33-creopatra-symphony-11',
+  ]
 
   createDraggableTween(): void {
     let lastPosCaption = { x: 0, y: 0 }
@@ -144,6 +149,7 @@ export default class HeroSlider extends Vue {
           this.sliderTurnBackward()
         } else {
           // If not changed slide
+          this.$router.push(this.localePath({ name: 'properties-slug-about', params: {slug: this.slideLinksParams[this.currentSlideIndex] }}))
           this.isSliderPressed = false
 
           // Set to default position caption
@@ -421,6 +427,14 @@ export default class HeroSlider extends Vue {
         left: 0
         background: rgba(17, 17, 17, 0.26)
 
+  &-link
+    &:after
+      content: ''
+      position: absolute
+      top: 0
+      bottom: 0
+      right: 0
+      left: 0
 
 .slide
   position: absolute
