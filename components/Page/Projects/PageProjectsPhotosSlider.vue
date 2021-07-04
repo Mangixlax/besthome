@@ -14,8 +14,8 @@
           :class="$style['slide']"
         )
           div(:class="$style['container__body-image']" cla)
-            img(:data-src="slide" border=0 loading="lazy" class="swiper-lazy")
-            div(class="swiper-lazy-preloader")
+            img(:data-src="slide" class="swiper-lazy")
+            div(class="swiper-lazy-preloader-blue swiper-lazy-preloader")
         div(slot="pagination" :class="$style['navigation']")
           div(:class="['swiper-pagination-progressbar', $style['swiper-pagination-progressbar']]")
             div(class="status-bar")
@@ -53,10 +53,10 @@ export default class PageProjectsPhotosSlider extends Vue {
   public swiperOption: any = {
     lazy: {
         loadPrevNext: true,
-      	loadPrevNextAmount: "3",
+      	loadPrevNextAmount: 3,
     },
     watchSlidesVisibility : true,
-    // preloadImages: false,
+    preloadImages: false,
     
     breakpoints: {
       // when window width is >= 900px
