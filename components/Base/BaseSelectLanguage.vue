@@ -1,5 +1,6 @@
 <template>
   <div
+    v-click-outside="closeOutside"
     ref="selectorWrapper"
     class="select-menu"
     :class="{
@@ -9,7 +10,7 @@
       'select-menu--disable-animation': disableAnimation,
     }"
   >
-    <div v-click-outside="closeOutside" class="select-menu__button" @click="openSelector">
+    <div class="select-menu__button" @click="openSelector">
       <svg-icon name="select-language-arrows"></svg-icon>
       <ul
         :style="{
@@ -127,7 +128,7 @@ export default class BaseSelectLanguage extends Vue {
   width: 60px;
   height: 100%;
   transition: box-shadow 0.3s ease;
-
+  
   &--disable-animation ul {
     transition: none !important;
   }

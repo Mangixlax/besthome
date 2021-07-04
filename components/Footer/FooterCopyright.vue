@@ -63,9 +63,7 @@ export default class FooterCopyright extends Vue {
     display: flex
     justify-content: space-between
     margin: 32px
-
-    @media (max-width: 800px)
-      flex-direction: column
+    flex-wrap: wrap
 
     &-text
       margin: 0

@@ -575,7 +575,6 @@
         "list": [
           "Social benefits and assistance from the state;",
           "Health insurance;",
-          "Free education, including in the Russian language;",
           "Pension payments;",
           "Obtaining loans with a low interest rate;",
           "Purchase of land for personal and business purposes;",
@@ -793,13 +792,13 @@
           "year": "2004",
           "image": "2004.jpg",
           "title": "The first steps",
-          "subtitle": "Partners of the company - Ali Yetgin and Per Holm - and a consortium of Danish investors buy out a whole completed project in the Cikcilli region of Alanya - BestHome Resort - all units purchased by Danes."
+          "subtitle": "The history of BestHome Construction began in 2004 in Alanya, when two young people decided to start their own business in Turkey, based on long-term partnerships, European understanding of service and respect for customers."
         },
         {
           "year": "2005",
           "image": "2005.jpg",
           "title": "First project",
-          "subtitle": "The company actively enters the Norwegian market. The following projects were commissioned: BestHome Residence 1, BestHome Residence 2, Tofko Villas.",
+          "subtitle": "Partners of the company Ali Yetgin and Per Holm, together with Danish investors, buy out an entire project in the Cikcilli region of Alanya and give it the name - BestHome Resort. The main clients of the company are Danes",
           "linkToProject": {
             "text": "More",
             "link": "about this year",
@@ -810,7 +809,7 @@
           "year": "2006",
           "image": "2006.jpg",
           "title": "Emerging market",
-          "subtitle": "The government approves a new and revised law allowing foreigners to buy property in Turkey.",
+          "subtitle": "The company actively enters the Norwegian market. The following projects were put into operation: BestHome Residence 1, BestHome Residence 2, Tofko Villas. Also this year, a decree is issued prohibiting the registration of Tapu for foreigners. Sales to foreigners stop.",
           "linkToProject": {
             "text": "More",
             "link": "about this year",
@@ -821,7 +820,7 @@
           "year": "2007",
           "image": "2007.jpg",
           "title": "The law on real estate",
-          "subtitle": "The government approves a new and revised law allowing foreigners to buy property in Turkey.",
+          "subtitle": "The government approves a law allowing foreigners to buy property in Turkey. Employees of the company are busy with the registration of Tapu (certificate of ownership) for clients who purchased apartments before the law was passed in 2006",
           "linkToProject": {
             "text": "More",
             "link": "about this year",
@@ -832,7 +831,7 @@
           "year": "2008",
           "image": "2008.jpg",
           "title": "A new direction",
-          "subtitle": "The partners of the company understand that there is a new opportunity emerging in Russia and CIS countries. These 'new' client are looking for inexpensive, small apartments in the central districts of the city. The partners decide to buy out an existing the apart-hotel and reconstruct it into apartments for sale specifically to these 'new' clients. This new residential project offered great value apartments in the heart of Alanya and close to the famous Cleopatra beach Thus, BestHome Construction offers its clients quality housing at low prices in the very heart of Alanya, within walking distance of the famous Cleopatra beach.",
+          "subtitle": "The partners of the company understand that a new direction is opening on the market: Russian-speaking clients from the CIS countries. Their wishes are inexpensive, small apartments in the central districts of the city. The partners decide to buy out the apart-hotel and reconstruct it into apartments.",
           "linkToProject": {
             "text": "More",
             "link": "about this year",
@@ -1211,21 +1210,21 @@
           "greeting": "Hello, I am Anna, I will answer any of your questions! We build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.",
           "languages": "Russian, English, Turkish, Latvian, French",
           "phone": "+90 530 547-44-15",
-          "email": "info@besthome.com.tr",
+          "email": "anna@besthome.com.tr",
           "image": "person-2.png"
         },
         {
           "greeting": "Hello, I am Anna, I will answer any of your questions! We build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.",
           "languages": "Russian, English, Turkish, Latvian, French",
           "phone": "+90 530 547-44-15",
-          "email": "info@besthome.com.tr",
+          "email": "anna@besthome.com.tr",
           "image": "person-2.png"
         },
         {
           "greeting": "Hello, I am Anna, I will answer any of your questions! We build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.",
           "languages": "Russian, English, Turkish, Latvian, French",
           "phone": "+90 530 547-44-15",
-          "email": "info@besthome.com.tr",
+          "email": "anna@besthome.com.tr",
           "image": "person-2.png"
         }
       ]
@@ -1356,5 +1355,6 @@
       "required": "Field is required",
       "agree": "You must agree to the data processing policy"
     }
-  }
+  },
+  "page_in_develop": "This page is under construction ..."
 }

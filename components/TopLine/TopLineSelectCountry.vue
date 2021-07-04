@@ -58,7 +58,6 @@ export default class TopLineSelectCountry extends Vue {
     padding: 14px 24px
     display: flex
     grid-gap: 32px
-    align-items: center
     justify-content: space-between
 
     @media (max-width: 800px)
@@ -72,6 +71,7 @@ export default class TopLineSelectCountry extends Vue {
   &__select
     display: flex
     align-items: center
+    justify-content: space-between
     grid-gap: 32px
 
     @media (max-width: 800px)
