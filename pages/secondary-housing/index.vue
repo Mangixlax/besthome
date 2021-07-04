@@ -1,29 +1,34 @@
 <template lang="pug">
   main
-    page-projects-title(
-      :data="{\
-        header: $t('pages.secondary_housing.header.title'),\
-        text: `<p>${$t('pages.secondary_housing.header.sub_title')}</p>`,\
-        image: require('@/assets/images/projects/projects-title-secondary-housing.jpg')\
-      }"
-    )
-      button(
-        @click="onClickBtn"
-      ) {{ $t('pages.secondary_housing.header.button') }}
-    base-text-container(
-      :data="{\
-        text: `<p>${$t('pages.secondary_housing.article_1')}</p>`,\
-      }"
-    )
-    catalog-wrapper(filter-dark-mode)
-      template(v-slot="{ isCardDisplay }")
-        component(
-          :is="isCardDisplay ? 'CatalogCards' : 'CatalogList'"
-          :list="apartmentsList"
-        )
-    base-subscribe(:subscribe-data="$t('footer.subscribe')" white-theme)
-    base-accordions(:accordions-data="$t('footer.accordions')")
-    footer-fast-links
+    typo-text(
+      tag="h1"
+      version="style-2"
+      :class="$style['develop-msg']"
+    ) {{ $t('page_in_develop') }}
+    //- page-projects-title(
+    //-   :data="{\
+    //-     header: $t('pages.secondary_housing.header.title'),\
+    //-     text: `<p>${$t('pages.secondary_housing.header.sub_title')}</p>`,\
+    //-     image: require('@/assets/images/projects/projects-title-secondary-housing.jpg')\
+    //-   }"
+    //- )
+    //-   button(
+    //-     @click="onClickBtn"
+    //-   ) {{ $t('pages.secondary_housing.header.button') }}
+    //- base-text-container(
+    //-   :data="{\
+    //-     text: `<p>${$t('pages.secondary_housing.article_1')}</p>`,\
+    //-   }"
+    //- )
+    //- catalog-wrapper(filter-dark-mode)
+    //-   template(v-slot="{ isCardDisplay }")
+    //-     component(
+    //-       :is="isCardDisplay ? 'CatalogCards' : 'CatalogList'"
+    //-       :list="apartmentsList"
+    //-     )
+    //- base-subscribe(:subscribe-data="$t('footer.subscribe')" white-theme)
+    //- base-accordions(:accordions-data="$t('footer.accordions')")
+    //- footer-fast-links
 </template>
 
 <script lang="ts">
@@ -91,4 +96,9 @@ export default class SecondaryHousingPage extends Vue {
 }
 </script>
 
-<style lang="sass" module></style>
+<style lang="sass" module>
+.develop-msg
+  margin: 0
+  text-align: center
+  height: calc( 100vh - 97px )
+</style>
