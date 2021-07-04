@@ -17,6 +17,7 @@
           v-html="paragraph"
         )
         typo-text(
+          v-if="listCardData.header.subtext"
           v-for="(paragraph, i) in listCardData.header.subtext"
           :key="`subtext_${i}`"
           tag="p"
