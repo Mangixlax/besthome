@@ -42,7 +42,7 @@
                 svg-icon(name="icon-telegram")
             div(:class="$style['slide__link']")
               a(
-                href="mailto: svetlana@besthome.com.tr"
+                href="mailto: anna@besthome.com.tr"
                 :class="$style['slide__link-email']"
               ) {{ slide.email }}
                 svg-icon(name="link-arrow-white")
