@@ -5,7 +5,7 @@
       typo-text(
         v-for="(text1,i) in  $t('pages.home.header.text1')"
         :key="i"
-        tag="p" 
+        tag="p"
         version="style-5"
         ) {{ text1 }}
       typo-text(tag="p" version="style-5")
