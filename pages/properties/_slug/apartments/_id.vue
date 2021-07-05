@@ -131,7 +131,6 @@ import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 
       // Redirect to new apartment slug if project.slug and params.slug not equal
       if (apartment.project.slug !== ctx.params.slug) {
-        console.log('1')
         resolve(
           ctx.redirect(
             ctx.localePath({
@@ -148,9 +147,9 @@ import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
       let svgPlanning = ''
 
       // If apartment has a planning
-      if (apartment.planning) {
+      if (apartment.plans && (apartment.plans || []).length) {
         // Fetch svg code of apartment planning
-        svgPlanning = await ctx.$axios.$get(apartment.planning)
+        svgPlanning = await ctx.$axios.$get(apartment.plans[0])
       }
 
       resolve({
@@ -296,7 +295,7 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
     height: 100%
 
     polygon.selected
-      fill: $color-black-100
+      fill: $color-blue-100
 
   &__wrapper
     box-sizing: border-box
