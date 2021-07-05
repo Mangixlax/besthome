@@ -73,6 +73,10 @@ export default class CatalogApartmentCard extends Vue {
 .card
   display: flex
   flex-direction: column
+  padding: 64px
+
+  @media (max-width: 700px)
+    padding: 24px
 
   &__id
     margin-left: 8px

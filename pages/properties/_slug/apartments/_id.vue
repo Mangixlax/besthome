@@ -415,6 +415,7 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
     margin-left: auto
 
     @media (max-width: 800px)
+      padding-top: 32px
       padding-left: 24px
       padding-right: 24px
 
