@@ -88,13 +88,11 @@ import { Context } from '@nuxt/types'
   },
   directives: { Magnetic },
   mixins: [modalsTriggerMixin],
-  asyncData(ctx: Context): void {
-    ctx.store.commit('setBreadcrumbs', [])
-  },
 })
 export default class IndexPage extends Vue {
   created() {
     this.$store.commit('setLogoSubTitle', 'Construction')
+    this.store.commit('setBreadcrumbs', [])
   }
 
   public showVideo() {
