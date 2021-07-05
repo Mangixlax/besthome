@@ -89,7 +89,6 @@ import { Context } from '@nuxt/types'
   directives: { Magnetic },
   mixins: [modalsTriggerMixin],
   asyncData(ctx: Context): void {
-    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.investors'))
     ctx.store.commit('setBreadcrumbs', [])
   },
 })
