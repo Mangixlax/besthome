@@ -28,7 +28,7 @@ export default <NuxtConfig>{
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'dev.frontend.besthome.sabr.com.tr',
+    title: 'besthome.com.tr',
     meta: [
       { charset: 'utf-8', hid: 'charset' },
       {
@@ -51,6 +51,10 @@ export default <NuxtConfig>{
         name: 'apple-mobile-web-app-capable',
         content: 'yes',
         hid: 'apple-mobile-web-app-capable',
+      },
+      {
+        name: 'robots',
+        content: 'noindex,nofollow',
       },
     ],
     link: [
