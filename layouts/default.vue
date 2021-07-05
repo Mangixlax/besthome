@@ -1,7 +1,7 @@
 <template lang="pug">
   div
     top-line-select-country(v-if="!topLineLocaleIsHidden")
-    top-line(v-if="!topLineIsHidden" @close="onToggleHiddenMode")
+    //- top-line(v-if="!topLineIsHidden" @close="onToggleHiddenMode")
     base-header
     nuxt(:class="$style['transition-effect']")
     Footer(:class="$style['transition-effect']")
@@ -14,7 +14,7 @@
 import $ from 'jquery'
 import Vue from 'vue'
 import BaseCookiesCard from '~/components/Base/BaseCookiesCard.vue'
-import {Component, Mutation, namespace, Watch} from 'nuxt-property-decorator'
+import { Component, Mutation, namespace, Watch } from 'nuxt-property-decorator'
 import { SettingsTopLineState } from '~/store/SettingsTopLine'
 import { ActionTree, MutationTree } from 'vuex'
 import { RootState } from '~/store'

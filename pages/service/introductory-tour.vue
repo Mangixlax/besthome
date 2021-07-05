@@ -107,13 +107,14 @@
     )
 </template>
 
-<script lang="ts">
+<script>
 import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import BaseImageTitle from '~/components/Base/BaseImageTitle.vue'
 import BasePostTwoImage from '~/components/Base/BasePostTwoImage.vue'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
 import { Context } from '@nuxt/types'
+import metaGenerator from '~/config/meta.js'
 
 export default {
   name: 'introductory-tour',
@@ -124,7 +125,7 @@ export default {
     BasePostTwoImage,
     BaseTextContainer,
   },
-  async asyncData(ctx: Context): Promise<object | void> {
+  async asyncData(ctx) {
     ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.service'))
     ctx.store.commit('setBreadcrumbs', [
       {
@@ -134,6 +135,36 @@ export default {
         },
       },
     ])
+  },
+  head() {
+    const title =
+      this.$i18n.locale === 'ru'
+        ? 'Как поехать в ознакомительный тур в Турцию, Бесплатно! Осмотр квартир'
+        : 'How to go on a sightseeing tour to Turkey, Free! Inspection of apartments'
+
+    const description =
+      this.$i18n.locale === 'ru'
+        ? 'Если Вы приняли решение о приобретении недвижимости в Алании, но не готовы на онлайн-покупку, мы будем рады предложить Вам услугу индивидуального ознакомительного тура'
+        : 'If you have decided to purchase real estate in Alanya, but are not ready for an online purchase, we will be happy to offer you the service of an individual study tour'
+
+    return {
+      title,
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+        prefix: 'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#',
+      },
+      meta: metaGenerator({
+        title,
+        description,
+        robots: 'noindex, nofollow',
+      }),
+      link: [
+        {
+          rel: 'canonical',
+          href: `${process.env.PROTOCOL}://${process.env.DOMAIN}${this.$route.path}`,
+        },
+      ],
+    }
   },
 }
 </script>

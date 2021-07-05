@@ -38,6 +38,7 @@ import { NavigationGuardNext } from 'vue-router/types/router'
 import HeromapSlider from '~/components/HeromapSlider/HeroMapSliderNoPhoto.vue'
 import { IProject } from '~/store/Catalog'
 import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.vue'
+import metaGenerator from '~/config/meta.js'
 
 @Component({
   components: {
@@ -120,6 +121,36 @@ import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.
         project: project,
       })
     })
+  },
+  head(): any {
+    const title =
+      this.$i18n.locale === 'ru'
+        ? `${this.getProject.name} Аланья, купить недвижимость в Турции по цене застройщика`
+        : `${this.getProject.name} Alanya, buy property in Turkey at the developer's price`
+
+    const description =
+      this.$i18n.locale === 'ru'
+        ? `Продажа недвижимости по цене от застройщика в Алании ${this.getProject.name}. Официальный сайт турецкой строительной компании BEST HOME. Купить недвижимость в Алании без переплат, в рассрочку и ипотеку`
+        : `Sale of real estate at a price from the developer in Alanya ${this.getProject.name}. The official website of the Turkish construction company BEST HOME. Buy real estate in Alanya without overpayments, in installments and a mortgage`
+
+    return {
+      title,
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+        prefix: 'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#',
+      },
+      meta: metaGenerator({
+        title,
+        description,
+        robots: 'noindex, nofollow',
+      }),
+      link: [
+        {
+          rel: 'canonical',
+          href: `${process.env.PROTOCOL}://${process.env.DOMAIN}${this.$route.path}`,
+        },
+      ],
+    }
   },
   scrollToTop: true,
 })

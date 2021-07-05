@@ -30,6 +30,7 @@ import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
 import PageWelcome from '~/components/Page/PageWelcome.vue'
 import { Context } from '@nuxt/types'
 import CommonLinkIcon from '~/components/Common/CommonLinkIcon.vue'
+import metaGenerator from '~/config/meta.js'
 
 @Component({
   components: {
@@ -61,6 +62,36 @@ import CommonLinkIcon from '~/components/Common/CommonLinkIcon.vue'
 
       resolve({})
     })
+  },
+  head(): any {
+    const title =
+      this.$i18n.locale === 'ru'
+        ? 'Новостройки в Турции: купить недвижимость от застройщика - 37 комплексов'
+        : 'New buildings in Turkey: buy real estate from the developer - 37 complexes'
+
+    const description =
+      this.$i18n.locale === 'ru'
+        ? 'Купить квартиру в строящемся или готовом комплексе в Турции на побережье по цене от застройщика BEST HOME. Продажа элитной недорогой недвижимости в Алании. ☎ +90 530 547-44-15'
+        : 'Buy an apartment in a newly built or finished complex in Turkey on the coast at a price from the developer BEST HOME. Sale of elite inexpensive real estate in Alanya. ☎ +90 530 547-44-15'
+
+    return {
+      title,
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+        prefix: 'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#',
+      },
+      meta: metaGenerator({
+        title,
+        description,
+        robots: 'noindex, nofollow',
+      }),
+      link: [
+        {
+          rel: 'canonical',
+          href: `${process.env.PROTOCOL}://${process.env.DOMAIN}${this.$route.path}`,
+        },
+      ],
+    }
   },
 })
 export default class ProjectsPage extends Vue {}

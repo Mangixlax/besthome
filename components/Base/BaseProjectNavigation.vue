@@ -3,7 +3,7 @@
     div(:class="$style['project-navigation__container']")
       div(:class="$style['project-navigation__title']")
         typo-text(
-          tag="h3"
+          tag="h1"
           version="style-4"
           :class="$style['project-navigation__title-text']"
         ) {{ name }}

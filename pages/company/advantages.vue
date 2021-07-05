@@ -52,7 +52,7 @@
           `<h3>${$t('pages.company_advantages.post_4.title')}</h3>`,\
           `<p>${$t('pages.company_advantages.post_4.paragraph_1')}</p>`,\
           `<p>${$t('pages.company_advantages.post_4.paragraph_with_link')}`,\
-          `<a href='${this.localePath({ name: 'our-team' })}'>${$t('pages.company_advantages.post_4.link')}</a>.</p>`\
+          `<a href='${this.localePath({ name: 'company-our-team' })}'>${$t('pages.company_advantages.post_4.link')}</a>.</p>`\
         ].join(''),\
         align: 'right',\
         block_flip: false,\
@@ -81,7 +81,7 @@
     )
 </template>
 
-<script lang="ts">
+<script>
 import PageCompanyAdvantagesTitle from '~/components/Page/Company/PageCompanyAdvantagesTitle.vue'
 import PageCompanyAdvantagesSlider from '~/components/Page/Company/PageCompanyAdvantagesSlider.vue'
 import BaseScrollLine from '~/components/Base/BaseScrollLine.vue'
@@ -89,6 +89,7 @@ import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
 import { Context } from '@nuxt/types'
+import metaGenerator from '~/config/meta.js'
 
 export default {
   name: 'introductory-tour',
@@ -100,7 +101,7 @@ export default {
     BasePost,
     TypoText,
   },
-  asyncData(ctx: Context): void {
+  asyncData(ctx) {
     ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.company'))
     ctx.store.commit('setBreadcrumbs', [
       {
@@ -110,6 +111,30 @@ export default {
         },
       },
     ])
+  },
+  head() {
+    const title = this.$i18n.t('pages.company_advantages.header.title')
+
+    const description = ''
+
+    return {
+      title,
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+        prefix: 'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#',
+      },
+      meta: metaGenerator({
+        title,
+        description,
+        robots: 'noindex, nofollow',
+      }),
+      link: [
+        {
+          rel: 'canonical',
+          href: `${process.env.PROTOCOL}://${process.env.DOMAIN}${this.$route.path}`,
+        },
+      ],
+    }
   },
 }
 </script>

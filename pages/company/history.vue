@@ -16,17 +16,18 @@
     )
 </template>
 
-<script lang="ts">
+<script>
 import PageCompanyHistoryTitle from '~/components/Page/Company/PageCompanyHistoryTitle.vue'
 import PageCompanyYearsSlider from '~/components/Page/Company/PageCompanyYearsSlider.vue'
 import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import { Context } from '@nuxt/types'
+import metaGenerator from '~/config/meta.js'
 
 export default {
   name: 'legal-support',
   components: { PageCompanyHistoryTitle, BasePost, TypoText, PageCompanyYearsSlider },
-  asyncData(ctx: Context): void {
+  asyncData(ctx) {
     ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.company'))
     ctx.store.commit('setBreadcrumbs', [
       {
@@ -36,6 +37,30 @@ export default {
         },
       },
     ])
+  },
+  head() {
+    const title = this.$i18n.t('pages.company_history.header.title')
+
+    const description = ''
+
+    return {
+      title,
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+        prefix: 'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#',
+      },
+      meta: metaGenerator({
+        title,
+        description,
+        robots: 'noindex, nofollow',
+      }),
+      link: [
+        {
+          rel: 'canonical',
+          href: `${process.env.PROTOCOL}://${process.env.DOMAIN}${this.$route.path}`,
+        },
+      ],
+    }
   },
 }
 </script>

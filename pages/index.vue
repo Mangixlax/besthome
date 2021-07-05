@@ -71,6 +71,7 @@ import Magnetic from '~/directives/magnetic'
 import CommonLinkIcon from '~/components/Common/CommonLinkIcon.vue'
 import { modalsTriggerMixin } from '~/mixins/modals'
 import { Context } from '@nuxt/types'
+import metaGenerator from '~/config/meta.js'
 
 @Component({
   components: {
@@ -88,6 +89,36 @@ import { Context } from '@nuxt/types'
   },
   directives: { Magnetic },
   mixins: [modalsTriggerMixin],
+  head(): any {
+    const title =
+      this.$i18n.locale === 'ru'
+        ? 'Застройщик недвижимости в Турции, продажа, покупка - BEST HOME'
+        : 'Real estate developer in Turkey, sale, purchase - BEST HOME'
+
+    const description =
+      this.$i18n.locale === 'ru'
+        ? 'Недвижимость в Турции - Алания, Махмутлар: покупка и продажа квартиры, вилла, дома, коттеджи. Без переплат, в рассрочку и ипотеку. Турецкие сайты застройщика недвижимости ☎ +90 530 547-44-15'
+        : 'Real estate in Turkey - Alanya, Mahmutlar: buying and selling apartments, villas, houses, cottages. No overpayments, installments and mortgages. Turkish Real Estate Developer Sites ☎ +90 530 547-44-15'
+
+    return {
+      title,
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+        prefix: 'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#',
+      },
+      meta: metaGenerator({
+        title,
+        description,
+        robots: 'noindex, nofollow',
+      }),
+      link: [
+        {
+          rel: 'canonical',
+          href: `${process.env.PROTOCOL}://${process.env.DOMAIN}${this.$route.path}`,
+        },
+      ],
+    }
+  },
 })
 export default class IndexPage extends Vue {
   created() {

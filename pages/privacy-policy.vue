@@ -2,7 +2,7 @@
   base-text-container(
     :data="{\
        text: [\
-          `<h3>${$t('pages.privacy-policy.title')}</h3>`,\
+          `<h1>${$t('pages.privacy-policy.title')}</h1>`,\
           ...$t('pages.privacy-policy.text').map((p) => `<p>${p}<p>`)\
         ].join('')\
     }"
@@ -27,6 +27,30 @@ export default {
       },
     ])
     return {}
+  },
+  head() {
+    const title = this.$i18n.t('pages.privacy-policy.title')
+
+    const description = ''
+
+    return {
+      title,
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+        prefix: 'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#',
+      },
+      meta: metaGenerator({
+        title,
+        description,
+        robots: 'noindex, nofollow',
+      }),
+      link: [
+        {
+          rel: 'canonical',
+          href: `${process.env.PROTOCOL}://${process.env.DOMAIN}${this.$route.path}`,
+        },
+      ],
+    }
   },
 }
 </script>

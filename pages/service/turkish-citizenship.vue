@@ -66,7 +66,7 @@
     )
 </template>
 
-<script lang="ts">
+<script>
 import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import BaseImageTitle from '~/components/Base/BaseImageTitle.vue'
@@ -74,6 +74,8 @@ import PageServiceListCard from '~/components/Page/Service/PageServiceListCard.v
 import BasePostTwoImage from '~/components/Base/BasePostTwoImage.vue'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
 import { Context } from '@nuxt/types'
+import metaGenerator from '~/config/meta.js'
+import { MetaInfo } from 'vue-meta'
 
 export default {
   name: 'turkish-citizenship',
@@ -85,7 +87,7 @@ export default {
     BasePostTwoImage,
     BaseTextContainer,
   },
-  async asyncData(ctx: Context): Promise<object | void> {
+  async asyncData(ctx) {
     ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.service'))
     ctx.store.commit('setBreadcrumbs', [
       {
@@ -95,6 +97,36 @@ export default {
         },
       },
     ])
+  },
+  head() {
+    const title =
+      this.$i18n.locale === 'ru'
+        ? 'Гражданство Турции. Все выгоды от турецкого гражданства'
+        : 'Turkish citizenship. All the benefits of Turkish citizenship'
+
+    const description =
+      this.$i18n.locale === 'ru'
+        ? 'Как получить турецкое гражданство при покупке недвижимости. Двойное гражданство с Турцией. Турецкие граждане не только обладают правом проживать в стране без каких-либо препятствий и ограничений, но также имеют другие преимущества'
+        : 'How to get Turkish citizenship when buying real estate. Dual citizenship with Turkey. Turkish citizens not only have the right to reside in the country without any obstacles and restrictions, but also have other advantages'
+
+    return {
+      title,
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+        prefix: 'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#',
+      },
+      meta: metaGenerator({
+        title,
+        description,
+        robots: 'noindex, nofollow',
+      }),
+      link: [
+        {
+          rel: 'canonical',
+          href: `${process.env.PROTOCOL}://${process.env.DOMAIN}${this.$route.path}`,
+        },
+      ],
+    }
   },
 }
 </script>

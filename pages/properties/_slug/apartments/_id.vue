@@ -84,7 +84,7 @@
 </template>
 
 <script lang="ts">
-import {Component, Vue, Watch} from 'nuxt-property-decorator'
+import { Component, Vue, Watch } from 'nuxt-property-decorator'
 import { Context } from '@nuxt/types'
 import CatalogApartmentCard from '~/components/Catalog/CatalogApartmentCard.vue'
 import BaseProjectNavigation from '~/components/Base/BaseProjectNavigation.vue'
@@ -101,6 +101,7 @@ import BaseAccordions from '~/components/Base/BaseAccordions.vue'
 import CommonConsultantSlider from '~/components/Common/CommonConsultantSlider.vue'
 import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+import metaGenerator from '~/config/meta.js'
 
 @Component({
   components: {
@@ -114,7 +115,7 @@ import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
     BaseProjectNavigation,
     CatalogApartmentCard,
     Swiper,
-    SwiperSlide
+    SwiperSlide,
   },
   async asyncData(ctx: Context): Promise<void | object> {
     return new Promise(async (resolve) => {
@@ -129,21 +130,6 @@ import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
         resolve(ctx.error({}))
       }
 
-      // Redirect to new apartment slug if project.slug and params.slug not equal
-      if (apartment.project.slug !== ctx.params.slug) {
-        resolve(
-          ctx.redirect(
-            ctx.localePath({
-              name: 'properties-slug-apartments-id',
-              params: {
-                slug: apartment.project.slug,
-                id: apartment.id,
-              },
-            }),
-          ),
-        )
-      }
-
       let svgPlanning = ''
 
       // If apartment has a planning
@@ -151,12 +137,76 @@ import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
         // Fetch svg code of apartment planning
         svgPlanning = await ctx.$axios.$get(apartment.plans[0])
       }
-
+      ctx.store.commit('setBreadcrumbs', [
+        {
+          name: ctx.app.i18n.t('breadcrumbs.projects'),
+          route: {
+            name: 'projects',
+          },
+        },
+        {
+          name: apartment.project.name,
+          route: {
+            name: 'properties-slug-about',
+            params: {
+              slug: apartment.project.slug,
+            },
+          },
+        },
+        {
+          name: ctx.app.i18n.t('breadcrumbs.apartments'),
+          route: {
+            name: 'properties-slug-apartments',
+            params: {
+              slug: apartment.project.slug,
+            },
+          },
+        },
+        {
+          name: apartment.name,
+          route: {
+            name: 'properties-slug-apartments',
+            params: {
+              slug: apartment.project.slug,
+            },
+          },
+        },
+      ])
       resolve({
         svgPlanning,
         similarApartments,
       })
     })
+  },
+  head(): any {
+    const title =
+      this.$i18n.locale === 'ru'
+        ? `${this.apartment.project.name} Аланья, купить недвижимость в Турции по цене застройщика`
+        : `${this.apartment.project.name} Alanya, buy property in Turkey at the developer's price`
+
+    const description =
+      this.$i18n.locale === 'ru'
+        ? `Продажа недвижимости по цене от застройщика в Алании ${this.apartment.project.name}. Официальный сайт турецкой строительной компании BEST HOME. Купить недвижимость в +город без переплат, в рассрочку и ипотеку`
+        : `Sale of real estate at a price from the developer in Alanya ${this.apartment.project.name}. The official website of the Turkish construction company BEST HOME. Buy real estate in + city without overpayments, in installments and a mortgage`
+
+    return {
+      title,
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+        prefix: 'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#',
+      },
+      meta: metaGenerator({
+        title,
+        description,
+        robots: 'noindex, nofollow',
+      }),
+      link: [
+        {
+          rel: 'canonical',
+          href: `${process.env.PROTOCOL}://${process.env.DOMAIN}${this.$route.path}`,
+        },
+      ],
+    }
   },
   scrollToTop: true,
 })
@@ -171,8 +221,8 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
     spaceBetween: 128,
     pagination: {
       el: '.swiper-pagination-progressbar',
-      type: 'progressbar'
-    }
+      type: 'progressbar',
+    },
   }
 
   get apartment(): IProjectApartment {

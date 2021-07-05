@@ -34,11 +34,36 @@ import TypoText from '~/components/Base/TypoText.vue'
 import PageCompanyOurTeamSlider from '~/components/Page/Company/PageCompanyOurTeamSlider.vue'
 import { Context } from '@nuxt/types'
 import { Component, Vue } from 'nuxt-property-decorator'
+import metaGenerator from '~/config/meta.js'
 
 @Component({
   components: { TypoText, PageCompanyOurTeamSlider },
   asyncData(ctx: Context): void {
     ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.company'))
+  },
+  head(): any {
+    const title = this.person.name
+
+    const description = ''
+
+    return {
+      title,
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+        prefix: 'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#',
+      },
+      meta: metaGenerator({
+        title,
+        description,
+        robots: 'noindex, nofollow',
+      }),
+      link: [
+        {
+          rel: 'canonical',
+          href: `${process.env.PROTOCOL}://${process.env.DOMAIN}${this.$route.path}`,
+        },
+      ],
+    }
   },
 })
 export default class PersonalPage extends Vue {

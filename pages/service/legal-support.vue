@@ -45,17 +45,18 @@
     )
 </template>
 
-<script lang="ts">
+<script>
 import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import BaseImageTitle from '~/components/Base/BaseImageTitle.vue'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
 import { Context } from '@nuxt/types'
+import metaGenerator from '~/config/meta.js'
 
 export default {
   name: 'legal-support',
   components: { BasePost, TypoText, BaseImageTitle, BaseTextContainer },
-  async asyncData(ctx: Context): Promise<object | void> {
+  async asyncData(ctx) {
     ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.service'))
     ctx.store.commit('setBreadcrumbs', [
       {
@@ -65,6 +66,36 @@ export default {
         },
       },
     ])
+  },
+  head() {
+    const title =
+      this.$i18n.locale === 'ru'
+        ? 'Покупка квартиры в Турции (Алания). Все тонкости юридической сделки'
+        : 'Buying an apartment in Turkey (Alanya). All the intricacies of a legal transaction'
+
+    const description =
+      this.$i18n.locale === 'ru'
+        ? 'Специалисты нашей компании не только подготавливают все необходимые документы для передачи права собственности на ваше имя, но также проверяют юридическую чистоту всех документов для приобретения вторичной недвижимости'
+        : 'The specialists of our company not only prepare all the necessary documents for the transfer of ownership to your name, but also check the legal purity of all documents for the acquisition of secondary real estate'
+
+    return {
+      title,
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+        prefix: 'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#',
+      },
+      meta: metaGenerator({
+        title,
+        description,
+        robots: 'noindex, nofollow',
+      }),
+      link: [
+        {
+          rel: 'canonical',
+          href: `${process.env.PROTOCOL}://${process.env.DOMAIN}${this.$route.path}`,
+        },
+      ],
+    }
   },
 }
 </script>

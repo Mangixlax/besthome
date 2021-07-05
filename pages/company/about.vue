@@ -20,7 +20,7 @@
     )
 </template>
 
-<script lang="ts">
+<script>
 import PageCompanyAboutTitle from '~/components/Page/Company/PageCompanyAboutTitle.vue'
 import PageCompanyAdvantagesSlider from '~/components/Page/Company/PageCompanyAdvantagesSlider.vue'
 import BaseScrollLine from '~/components/Base/BaseScrollLine.vue'
@@ -28,6 +28,7 @@ import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
 import { Context } from '@nuxt/types'
+import metaGenerator from '~/config/meta.js'
 
 export default {
   name: 'introductory-tour',
@@ -39,7 +40,7 @@ export default {
     BasePost,
     TypoText,
   },
-  asyncData(ctx: Context): void {
+  asyncData(ctx) {
     ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.company'))
     ctx.store.commit('setBreadcrumbs', [
       {
@@ -49,6 +50,36 @@ export default {
         },
       },
     ])
+  },
+  head() {
+    const title =
+      this.$i18n.locale === 'ru'
+        ? 'BEST HOME Construction – лидирующая строительная компания в Алании'
+        : 'BEST HOME Construction is the leading construction company in Alanya'
+
+    const description =
+      this.$i18n.locale === 'ru'
+        ? 'Компания имеет собственных представителей в Германии, Америке, России, Украине, Иране, Казахстане, а также в Дании, Швеции, Норвегии и Финляндии. Компания заключила уже более 1000 успешных сделок с иностранными гражданами, проживающими в СНГ, США, Европе и на Ближнем востоке'
+        : 'The company has its own representatives in Germany, America, Russia, Ukraine, Iran, Kazakhstan, as well as in Denmark, Sweden, Norway and Finland. The company has already concluded more than 1000 successful transactions with foreign citizens living in the CIS, USA, Europe and the Middle East.'
+
+    return {
+      title,
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+        prefix: 'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#',
+      },
+      meta: metaGenerator({
+        title,
+        description,
+        robots: 'noindex, nofollow',
+      }),
+      link: [
+        {
+          rel: 'canonical',
+          href: `${process.env.PROTOCOL}://${process.env.DOMAIN}${this.$route.path}`,
+        },
+      ],
+    }
   },
 }
 </script>

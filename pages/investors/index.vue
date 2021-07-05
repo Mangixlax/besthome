@@ -68,6 +68,7 @@ import TypoText from '~/components/Base/TypoText.vue'
 import { Context } from '@nuxt/types'
 import { Route } from 'vue-router'
 import { NavigationGuardNext } from 'vue-router/types/router'
+import metaGenerator from '~/config/meta.js'
 
 @Component({
   components: {
@@ -88,6 +89,36 @@ import { NavigationGuardNext } from 'vue-router/types/router'
         },
       },
     ])
+  },
+  head(): any {
+    const title =
+      this.$i18n.locale === 'ru'
+        ? 'Инвестиции в недвижимость Алании вместе с BEST HOME'
+        : 'Alanya real estate investment with BEST HOME'
+
+    const description =
+      this.$i18n.locale === 'ru'
+        ? 'BestHome с 2004 года успешно сотрудничает с инвесторами России, Украины, Казахстана, Америки, Дании, Норвегии, Германии и других стран, помогая им приумножать капитал и выгодно вкладывать деньги, покупая дома и квартиры в Турции'
+        : 'BestHome has been successfully cooperating with investors from Russia, Ukraine, Kazakhstan, America, Denmark, Norway, Germany and other countries since 2004, helping them to increase capital and invest profitably by buying houses and apartments in Turkey'
+
+    return {
+      title,
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+        prefix: 'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#',
+      },
+      meta: metaGenerator({
+        title,
+        description,
+        robots: 'noindex, nofollow',
+      }),
+      link: [
+        {
+          rel: 'canonical',
+          href: `${process.env.PROTOCOL}://${process.env.DOMAIN}${this.$route.path}`,
+        },
+      ],
+    }
   },
   beforeRouteEnter(to: Route, from: Route, next: NavigationGuardNext) {
     next((vm: Vue) => {
