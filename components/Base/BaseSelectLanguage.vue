@@ -128,7 +128,7 @@ export default class BaseSelectLanguage extends Vue {
   width: 60px;
   height: 100%;
   transition: box-shadow 0.3s ease;
-  
+
   &--disable-animation ul {
     transition: none !important;
   }
