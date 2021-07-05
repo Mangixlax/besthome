@@ -84,7 +84,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Watch } from 'nuxt-property-decorator'
+import {Component, Vue, Watch} from 'nuxt-property-decorator'
 import { Context } from '@nuxt/types'
 import CatalogApartmentCard from '~/components/Catalog/CatalogApartmentCard.vue'
 import BaseProjectNavigation from '~/components/Base/BaseProjectNavigation.vue'
@@ -115,9 +115,11 @@ import metaGenerator from '~/config/meta.js'
     BaseProjectNavigation,
     CatalogApartmentCard,
     Swiper,
-    SwiperSlide,
+    SwiperSlide
   },
   async asyncData(ctx: Context): Promise<void | object> {
+    
+
     return new Promise(async (resolve) => {
       // Fetch apartment data
       const { apartment, similarApartments, error } = await ctx.store.dispatch(
@@ -128,6 +130,21 @@ import metaGenerator from '~/config/meta.js'
       // Show error page if has error in response
       if (error || Object.keys(apartment || { error: '' }).indexOf('error') !== -1) {
         resolve(ctx.error({}))
+      }
+
+      // Redirect to new apartment slug if project.slug and params.slug not equal
+      if (apartment.project.slug !== ctx.params.slug) {
+        resolve(
+          ctx.redirect(
+            ctx.localePath({
+              name: 'properties-slug-apartments-id',
+              params: {
+                slug: apartment.project.slug,
+                id: apartment.id,
+              },
+            }),
+          ),
+        )
       }
 
       let svgPlanning = ''
@@ -148,8 +165,8 @@ import metaGenerator from '~/config/meta.js'
           name: apartment.project.name,
           route: {
             name: 'properties-slug-about',
-            params: {
-              slug: apartment.project.slug,
+             params: {
+              slug: apartment.project.slug
             },
           },
         },
@@ -158,7 +175,7 @@ import metaGenerator from '~/config/meta.js'
           route: {
             name: 'properties-slug-apartments',
             params: {
-              slug: apartment.project.slug,
+              slug: apartment.project.slug
             },
           },
         },
@@ -166,8 +183,8 @@ import metaGenerator from '~/config/meta.js'
           name: apartment.name,
           route: {
             name: 'properties-slug-apartments',
-            params: {
-              slug: apartment.project.slug,
+             params: {
+              slug: apartment.project.slug
             },
           },
         },
@@ -183,12 +200,12 @@ import metaGenerator from '~/config/meta.js'
       this.$i18n.locale === 'ru'
         ? `${this.apartment.project.name} Аланья, купить недвижимость в Турции по цене застройщика`
         : `${this.apartment.project.name} Alanya, buy property in Turkey at the developer's price`
-
+    
     const description =
       this.$i18n.locale === 'ru'
         ? `Продажа недвижимости по цене от застройщика в Алании ${this.apartment.project.name}. Официальный сайт турецкой строительной компании BEST HOME. Купить недвижимость в +город без переплат, в рассрочку и ипотеку`
         : `Sale of real estate at a price from the developer in Alanya ${this.apartment.project.name}. The official website of the Turkish construction company BEST HOME. Buy real estate in + city without overpayments, in installments and a mortgage`
-
+        
     return {
       title,
       htmlAttrs: {
@@ -221,8 +238,8 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
     spaceBetween: 128,
     pagination: {
       el: '.swiper-pagination-progressbar',
-      type: 'progressbar',
-    },
+      type: 'progressbar'
+    }
   }
 
   get apartment(): IProjectApartment {
