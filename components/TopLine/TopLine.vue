@@ -7,14 +7,14 @@
             :is="injections.components.TypoText"
             v-for="(item, key) in Array(props.repeat)"
             :key="key"
-            tag="span"
+            tag="p"
             version="style-7"
             :class="$style['ticker__content-text']"
             :style="{\
               animationDuration: `${props.duration}s`,\
               animationDirection: props.reverse ? 'reverse' : undefined\
             }"
-          ) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut mauris tortor ultrices adipiscing turpis massa. Cras tincidunt donec consequat tincidunt odio quis volutpat porttitor phasellus. Eget gravida fermentum commodo turpis pretium in. Sodales fermentum gravida proin posuere penatibus sem viverra nam.
+          ) {{ props.content }}
       div(:class="$style['top-line__close']" @click="listeners['close']()")
         svg-icon(name="close")
 </template>
@@ -30,6 +30,9 @@ import TypoText from '~/components/Base/TypoText.vue'
       default: { TypoText },
     },
   },
+  components: {
+    TypoText
+  }
 })
 export default class TopLine extends Vue {
   /**
@@ -51,6 +54,8 @@ export default class TopLine extends Vue {
    * The animation plays backwards each cycle
    */
   @Prop({ default: false, type: Boolean }) reverse!: boolean
+
+  @Prop({ default: "", type: String}) content!: string
 }
 </script>
 

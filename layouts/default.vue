@@ -1,7 +1,7 @@
 <template lang="pug">
   div
     top-line-select-country(v-if="!topLineLocaleIsHidden")
-    //- top-line(v-if="!topLineIsHidden" @close="onToggleHiddenMode")
+    top-line(v-if="!topLineIsHidden" @close="onToggleHiddenMode" :content="$t('top_line')")
     base-header
     nuxt(:class="$style['transition-effect']")
     Footer(:class="$style['transition-effect']")
