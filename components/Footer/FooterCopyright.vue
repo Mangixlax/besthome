@@ -62,7 +62,7 @@ export default class FooterCopyright extends Vue {
   &__container
     display: flex
     justify-content: space-between
-    margin: 32px
+    margin: 32px 24px
     flex-wrap: wrap
 
     &-text
@@ -82,8 +82,12 @@ export default class FooterCopyright extends Vue {
   &__information
     display: flex
     justify-content: center
-    padding: 0 32px 129px
+    padding: 0 24px 129px
 
+    @media (max-width: 800px)
+      justify-content: start
+      padding: 0 24px 32px
+      
   &__list
     display: flex
     flex-wrap: wrap
