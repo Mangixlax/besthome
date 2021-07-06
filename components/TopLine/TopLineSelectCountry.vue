@@ -84,19 +84,37 @@ export default class TopLineSelectCountry extends Vue {
 
       &-select
         +style-8
+        display: block
+        color: #444
+        padding: .4em 1.4em .5em .8em 
+        width: 100%
+        max-width: 100%
+        box-sizing: border-box
+        margin: 0
+        -moz-appearance: none
+        -webkit-appearance: none
+        appearance: none
+        background-image: url(@/assets/sprite/svg/selector-dropdown.svg), linear-gradient(to bottom, $color-blue-100 0%, $color-blue-100 100%)
+        background-repeat: no-repeat, repeat
+        background-position: right .7em top 50%, 0 0
+        background-size: 1.5em auto, 100%
         color: $color-white-100
         height: 34px
         width: 250px
         border: none
-        background: $color-blue-100
         border-bottom: solid 1px $color-white-16
 
         @media (max-width: 800px)
           width: 115px
 
+        &::-ms-expand
+          display: none
         &:focus
           outline: none
 
+        & > option 
+          background: $color-blue-100
+          
       &-button
         +style-7
         border: none

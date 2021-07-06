@@ -180,11 +180,30 @@ export default class CatalogWrapper extends Vue {
 
       &-select
         +style-8
+        display: block
         color: $color-blue-100
+        padding: .5em 1.4em .5em .8em 
+        width: 100%
+        max-width: 100%
+        box-sizing: border-box
+        margin: 0
+        -moz-appearance: none
+        -webkit-appearance: none
+        appearance: none
+        background-image: url(@/assets/sprite/svg/selector-dropdown-blue.svg), linear-gradient(to bottom, $color-white-100 0%, $color-white-100 100%)
+        background-repeat: no-repeat, repeat
+        background-position: right .7em top 50%, 0 0
+        background-size: 1.5em auto, 100%
         height: 34px
         width: 224px
         border: none
         border-bottom: solid 1px $color-blue-16
+
+        &::-ms-expand
+          display: none
+          
+        &:focus
+          outline: none
 
     &-display
       display: flex

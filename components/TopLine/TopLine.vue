@@ -92,7 +92,7 @@ export default class TopLine extends Vue {
     animation-play-state: inherit
 
     @media (max-width: 1248px + 32px)
-      margin: 0 16px
+      margin: 0 24px
 
   &__close
     display: flex
