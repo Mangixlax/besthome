@@ -52,7 +52,7 @@ export default class BaseImageTitle extends Vue {
     @media (max-width: 900px)
       margin: 0 24px
       min-height: initial
-
+      height: auto
     .large &
       max-width: 1440px
       min-height: 880px
