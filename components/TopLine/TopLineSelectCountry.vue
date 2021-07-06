@@ -55,14 +55,14 @@ export default class TopLineSelectCountry extends Vue {
   &__container
     max-width: 1296px
     width: 100%
-    padding: 14px 24px
+    padding: 34px 16px 0 16px
     display: flex
-    grid-gap: 32px
     justify-content: space-between
+    align-items: center
 
     @media (max-width: 800px)
-      grid-gap: 24px
       flex-direction: column-reverse
+      align-items: start
 
   &__text
     color: $color-white-100
@@ -73,14 +73,18 @@ export default class TopLineSelectCountry extends Vue {
     align-items: center
     justify-content: space-between
     grid-gap: 32px
-
+     
     @media (max-width: 800px)
+      width:  100%
+      margin-bottom: 32px
       grid-gap: 16px
 
     &-form
       display: flex
       align-items: center
-      grid-gap: 16px
+      
+      @media (max-width: 800px)
+        width:  100%
 
       &-select
         +style-8
@@ -105,7 +109,7 @@ export default class TopLineSelectCountry extends Vue {
         border-bottom: solid 1px $color-white-16
 
         @media (max-width: 800px)
-          width: 115px
+          width: 100%
 
         &::-ms-expand
           display: none
@@ -122,6 +126,7 @@ export default class TopLineSelectCountry extends Vue {
         background: $color-white-16
         width: fit-content
         padding: 8px 24px
+        margin-left: 16px
 
   &__close
     display: flex

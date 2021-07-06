@@ -22,12 +22,6 @@
         :class="$style['cookies__accept']"
         @click="onClickAccept"
       ) {{ $t('footer.cookies.accept')}}
-      typo-text(
-        tag="button"
-        version="style-7"
-        :class="$style['cookies__decline']"
-        @click="onClickDecline"
-      ) {{ $t('footer.cookies.decline')}}
 </template>
 
 <script lang="ts">
@@ -87,14 +81,19 @@ export default class BaseCookiesCard extends Vue {
   padding: 24px 32px
   display: flex
   flex-direction: column
-  grid-gap: 24px
-  max-width: 325px
+  max-width: 384px
   background: $color-white-100
   box-shadow: 0 24px 32px -8px rgba(0, 0, 0, 0.12)
   z-index: 30
 
+  @media (max-width: 700px)
+    max-width: 272px
+    left: 50%
+    transform: translate(-50%, 0)
+    
   & > p
     margin: 0
+    margin-bottom: 24px
 
   &__text--underline
     margin: 0 0.25em
@@ -111,7 +110,4 @@ export default class BaseCookiesCard extends Vue {
   &__accept
     background: $color-black-100
     color: $color-white-100
-
-  &__decline
-    background: transparent
 </style>
