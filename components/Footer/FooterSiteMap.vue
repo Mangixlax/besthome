@@ -154,9 +154,6 @@ export default class FooterSiteMap extends Vue {
     +style-8($with-media: false)
     column-gap: 0.25em
 
-    @media (max-width: 450px)
-      max-width: 190px
-
     &-link
       +style-8($with-media: false)
       text-decoration: none
