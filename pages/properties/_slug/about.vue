@@ -35,7 +35,7 @@ import PageProjectsTimeline from '~/components/Page/Projects/PageProjectsTimelin
 import VueRouter, { Route } from 'vue-router'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
 import { NavigationGuardNext } from 'vue-router/types/router'
-import HeromapSlider from '~/components/HeromapSlider/HeroMapSliderNoPhoto.vue'
+import HeromapSlider from '~/components/HeromapSlider/HeromapSlider.vue'
 import { IProject } from '~/store/Catalog'
 import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.vue'
 import metaGenerator from '~/config/meta.js'

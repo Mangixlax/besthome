@@ -46,7 +46,7 @@ import { CatalogState, IProject, IProjectApartment } from '~/store/Catalog'
 import CatalogCards from '~/components/Catalog/CatalogCards.vue'
 import CatalogList from '~/components/Catalog/CatalogList.vue'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
-import HeromapSlider from '~/components/HeromapSlider/HeroMapSliderNoPhoto.vue'
+import HeromapSlider from '~/components/HeromapSlider/HeromapSlider.vue'
 import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.vue'
 import metaGenerator from '~/config/meta.js'
 

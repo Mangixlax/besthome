@@ -258,7 +258,7 @@ export default {
     max-width: 720px
     justify-self: center
     height: 100%
-    
+    width: 100%
     
     @media (max-width: 1023px)
       max-width: 100%
