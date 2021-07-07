@@ -83,6 +83,7 @@ export default <NuxtConfig>{
     '@/plugins/axios.js',
     '@/plugins/vuelidate.js',
     '@/plugins/i18n.ts',
+    '@/plugins/jsonld.js',
     { src: '~plugins/vue-scrollmagic.js', ssr: false },
     {
       src: '~plugins/vue-slider-component.js',

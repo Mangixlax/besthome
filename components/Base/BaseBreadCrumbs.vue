@@ -28,7 +28,9 @@
 import TypoText from '~/components/Base/TypoText.vue'
 import { Component, Vue } from 'nuxt-property-decorator'
 import { mapGetters } from 'vuex'
+import { Jsonld } from 'nuxt-jsonld'
 
+@Jsonld
 @Component({
   components: {
     TypoText,
@@ -39,7 +41,26 @@ import { mapGetters } from 'vuex'
     }),
   },
 })
-export default class BaseBreadCrumbs extends Vue {}
+export default class BaseBreadCrumbs extends Vue {
+  jsonld() {
+    const items = (this.breadcrumbs || []).map((item: any, index: number) => {
+      return {
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+          '@id': this.localePath(item.route),
+          name: item.name,
+        },
+      }
+    })
+
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: items,
+    }
+  }
+}
 </script>
 
 <style lang="sass" module>

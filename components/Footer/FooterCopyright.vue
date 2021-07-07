@@ -31,12 +31,13 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import BaseFastLinks from '~/components/Base/BaseFastLinks.vue'
 import BaseSelectLanguage from '~/components/Base/BaseSelectLanguage.vue'
 import TypoText from '~/components/Base/TypoText.vue'
+import { Jsonld } from 'nuxt-jsonld'
 
 interface ICopyrightItems {
   name: string
   to: any
 }
-
+@Jsonld
 @Component({
   components: { BaseFastLinks, BaseSelectLanguage, TypoText },
 })
@@ -51,6 +52,83 @@ export default class FooterCopyright extends Vue {
       to: { name: 'term-of-use' },
     },
   ]
+
+  jsonld() {
+    const json = {
+      '@context': 'https://schema.org',
+      '@type': 'RealEstateAgent',
+      image: [require('@/assets/sprite/svg/logo.svg')],
+      logo: require('@/assets/sprite/svg/logo.svg'),
+      '@id': 'https://besthome.com.tr/',
+      url: 'https://besthome.com.tr/',
+      name: 'BestHome Real Estate',
+      address: [
+        {
+          '@type': 'PostalAddress',
+          streetAddress: 'Tugayoğlu sokak No 18/1',
+          addressLocality: 'Alanya',
+          addressRegion: 'Antalya',
+          postalCode: '07400',
+          addressCountry: 'Turkey',
+        },
+      ],
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 36.54621832413793,
+        longitude: 32.03344315049577,
+      },
+      hasMap: 'https://goo.gl/maps/GQ9d8WPAsrPe974L9',
+      priceRange: '$$$',
+      telephone: '+90 530 547-44-15',
+      contactPoint: ['+905305474415'].map((phone) => ({
+        '@type': 'ContactPoint',
+        telephone: phone,
+        contactType: 'Customer service',
+        email: 'info@besthome.com.tr',
+        areaServed: ['RU', 'TR'],
+        contactOption: ['HearingImpairedSupported', 'TollFree'],
+        availableLanguage: [
+          {
+            '@type': 'Language',
+            name: 'Russian',
+          },
+          {
+            '@type': 'Language',
+            name: 'English',
+          },
+          {
+            '@type': 'Language',
+            name: 'Turkish',
+          },
+        ],
+      })),
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+          opens: '09:00',
+          closes: '18:00',
+        },
+      ],
+    }
+
+    if (this.$i18n.locale === 'ru') {
+      json.address = [
+        {
+          '@type': 'PostalAddress',
+          streetAddress: 'Tugayoğlu sokak No 18/1',
+          addressLocality: 'Аланья',
+          addressRegion: 'Анталия',
+          postalCode: '07400',
+          addressCountry: 'Турция',
+        },
+      ]
+      json.url = 'https://gold-ahiskali.com/ru/'
+      json['@id'] = 'https://gold-ahiskali.com/ru/'
+    }
+
+    return json
+  }
 }
 </script>
 
@@ -87,7 +165,7 @@ export default class FooterCopyright extends Vue {
     @media (max-width: 800px)
       justify-content: start
       padding: 0 24px 32px
-      
+
   &__list
     display: flex
     flex-wrap: wrap

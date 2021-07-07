@@ -79,6 +79,41 @@ export default class DefaultLayout extends Vue {
     // window.removeEventListener('resize', this.fontResizer)
   }
 
+  jsonld() {
+    return [
+      {
+        '@context': 'https://schema.org/',
+        '@type': 'WebSite',
+        name: 'BESTHOME',
+        url: 'https://besthome.com.tr/',
+      },
+      {
+        '@context': 'https://schema.org/',
+        '@type': 'Organization',
+        name: 'BESTHOME',
+        url: 'https://besthome.com.tr/',
+        logo: '',
+        description:
+          'Недвижимость в Турции - Алания, Махмутлар: покупка и продажа квартиры, вилла, дома, коттеджи. Без переплат, в рассрочку и ипотеку. Турецкие сайты застройщика недвижимости ☎ +90 530 547-44-15',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'Tugayoğlu sokak No 18/1',
+          postOfficeBoxNumber: '07400',
+          addressLocality: 'Alanya',
+          addressRegion: 'Antalya',
+          postalCode: '07400',
+          addressCountry: 'TR',
+        },
+        contactPoint: {
+          '@type': 'ContactPoint',
+          contactType: 'customer support',
+          telephone: '+90 530 547-44-15',
+          email: 'info@besthome.com.tr',
+        },
+      },
+    ]
+  }
+
   mounted(): void {
     this.registerHandlers()
   }
