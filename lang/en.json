@@ -22,7 +22,13 @@
   "catalog": {
     "filter": "Filter",
     "recommended": "Recommended",
-    "sort": "Sort"
+    "sort": "Sort",
+    "block": "BLOCK",
+    "rooms": "NUMBER OF ROOMS",
+    "floor": "FLOOR",
+    "price": "PRICE",
+    "area": "AREA",
+    "dimension": "m²"
   },
   "hero_building": {
     "ground": "Ground",

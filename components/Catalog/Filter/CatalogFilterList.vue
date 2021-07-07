@@ -3,13 +3,13 @@
     catalog-filter-block(
       v-if="hasBlocksFilter"
       :dark-mode="filterDarkMode"
-      title="BLOCK"
+      :title="$t('catalog.block')"
       :filter-items="filterBlocksData"
     )
     catalog-filter-block(
       v-if="hasRoomsFilter"
       :dark-mode="filterDarkMode"
-      title="NUMBER OF ROOMS"
+      :title="$t('catalog.rooms')"
       :filter-items="filterRoomsData"
       @change="onChangeRooms"
     )
@@ -22,7 +22,7 @@
       :startMaxValue="filterFloorsData.max"
       :interval="1"
       :move-adjacent-point="1"
-      title="FLOOR"
+      :title="$t('catalog.floor')"
       @change="onChangeFloors"
     )
     catalog-filter-range(
@@ -35,20 +35,20 @@
       :startMaxValue="filterPriceData.max"
       :interval="100"
       :move-adjacent-point="1000"
-      title="PRICE"
+      :title="$t('catalog.price')"
       @change="onChangePrice"
     )
     catalog-filter-range(
       v-if="hasAreaFilter"
       :dark-mode="filterDarkMode"
-      dimension="m²"
+      :dimension="$t('catalog.dimension')"
       :minRangeValue="filterAreaData.min"
       :maxRangeValue="filterAreaData.max"
       :startMinValue="filterAreaData.min"
       :startMaxValue="filterAreaData.max"
       :interval="1"
       :move-adjacent-point="50"
-      title="AREA"
+      :title="$t('catalog.area')"
       @change="onChangeArea"
     )
     //catalog-filter-checkbox(

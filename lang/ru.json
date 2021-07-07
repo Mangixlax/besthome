@@ -22,7 +22,13 @@
   "catalog": {
     "filter": "Фильтр",
     "recommended": "Рекомендуемое",
-    "sort": "Сортировка"
+    "sort": "Сортировка",
+    "block": "БЛОК",
+    "rooms": "КОЛИЧЕСТВО КОМНАТ",
+    "floor": "ЭТАЖ",
+    "price": "ЦЕНА",
+    "area": "ПЛОЩАДЬ",
+    "dimension": "м²"
   },
   "hero_building": {
     "ground": "Ground",
