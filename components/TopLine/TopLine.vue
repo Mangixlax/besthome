@@ -83,16 +83,15 @@ export default class TopLine extends Vue {
     height: 48px
 
   &__inner
-    max-width: 1248px
+    max-width: 1296px
+    width: 100%
     height: 100%
+    padding: 0 16px
     display: grid
     align-items: center
     justify-content: center
     grid-template-columns: 1fr 36px
     animation-play-state: inherit
-
-    @media (max-width: 1248px + 32px)
-      margin: 0 16px
 
   &__close
     display: flex
