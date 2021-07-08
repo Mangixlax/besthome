@@ -163,6 +163,7 @@ export default <NuxtConfig>{
   proxy: {
     '/api/': process.env.API_URL,
     '/storage/': process.env.API_URL,
+    '/robots.txt': process.env.API_URL,
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
