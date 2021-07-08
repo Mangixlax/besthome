@@ -1,11 +1,7 @@
-import {
-  NuxtOptionsBuild,
-  NuxtOptionsLoaders,
-  NuxtWebpackEnv,
-  PostcssConfiguration,
-} from '@nuxt/types/config/build'
+import { NuxtOptionsBuild, PostcssConfiguration } from '@nuxt/types/config/build'
 import { Configuration, NuxtConfig } from '@nuxt/types'
 import { NuxtOptionsRender } from '@nuxt/types/config/render'
+import SitemapConfig from './config/sitemap'
 
 const isDev = process.env.NODE_ENV === 'development'
 const time = new Date().valueOf()
@@ -129,7 +125,10 @@ export default <NuxtConfig>{
     'cookie-universal-nuxt',
     'nuxt-i18n',
     '~/modules/recaptcha/module.js',
+    '@nuxtjs/sitemap',
   ],
+
+  sitemap: SitemapConfig,
 
   i18n: {
     locales: ['ru', 'en'],
