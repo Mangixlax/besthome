@@ -70,6 +70,9 @@ export default class BaseHeaderMobile extends Vue {
       this.offsetBurger = false
     }
   }
+  mounted() {
+    this.onChangeRoute()
+  }
 }
 </script>
 

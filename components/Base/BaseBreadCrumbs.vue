@@ -57,7 +57,19 @@ export default class BaseBreadCrumbs extends Vue {
     return {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
-      itemListElement: items,
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          item: {
+            '@id': this.localePath({
+              name: 'index'
+            }),
+            name: this.$i18n.locale === "ru" ? 'Главная' : 'Home',
+          },
+        },
+        ...items
+      ],
     }
   }
 }

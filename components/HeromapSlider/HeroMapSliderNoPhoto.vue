@@ -75,6 +75,7 @@ export default {
           // when window width is >= 900px
           900: {},
         },
+        autoHeight: true,
         centeredSlides: true,
         spaceBetween: 64,
         pagination: {
@@ -128,6 +129,9 @@ export default {
   width: 100%
   padding: 80px 24px
   position: relative
+
+  @media (max-width: 900px)
+    padding: 32px 24px
 
   &__body
     padding-top: 48px
@@ -186,7 +190,7 @@ export default {
       max-width: 520px
 
       @media (max-width: 1400px)
-        top: 25%
+        top: 17%
         transform: translate(-25%, -25%)
         grid-gap: 12px
 
