@@ -46,7 +46,7 @@ export default class BaseBreadCrumbs extends Vue {
     const items = (this.breadcrumbs || []).map((item: any, index: number) => {
       return {
         '@type': 'ListItem',
-        position: index + 1,
+        position: index + 2,
         item: {
           '@id': this.localePath(item.route),
           name: item.name,

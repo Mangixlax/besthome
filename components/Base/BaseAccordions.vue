@@ -14,7 +14,9 @@
 import CommonAccordionItem from '~/components/Common/CommonAccordionItem.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
+import { Jsonld } from 'nuxt-jsonld'
 
+@Jsonld
 @Component({
   components: { CommonAccordionItem, TypoText },
 })
@@ -26,6 +28,25 @@ export default class BaseAccordions extends Vue {
       ...item,
       is_active: index === 0 ? true : item.is_active,
     }))
+  }
+
+  jsonld() {
+    const items = (this.list || []).map((item: any) => {
+      return {
+          '@type': "Question",
+          name: item.title,
+          acceptedAnswer: {
+            '@type': "Answer",
+            text: item.content
+        },
+      }
+    })
+
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: items,
+    }
   }
 }
 </script>
