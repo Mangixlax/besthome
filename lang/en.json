@@ -1301,6 +1301,7 @@
     }
   },
   "modals": {
+    "mobile_filter": "Apply",
     "get_feedback": {
       "feedback": {
         "title": "Feedback",

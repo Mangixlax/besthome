@@ -1234,6 +1234,7 @@
     }
   },
   "modals": {
+    "mobile_filter": "Применить",
     "get_feedback": {
       "feedback": {
         "title": "Обратная связь",

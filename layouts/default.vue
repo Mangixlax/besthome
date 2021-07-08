@@ -8,6 +8,8 @@
     base-header-mobile
     cursor-mover(v-if="!isTouchDevice")
     base-cookies-card
+    div(class="overlay-top")
+    div(class="overlay-bottom")
 </template>
 
 <script lang="ts">
@@ -37,6 +39,9 @@ const SettingsTopLineStore = namespace('SettingsTopLine')
     CursorMover,
     Footer,
   },
+  transition: {
+    name: 'overlay-down-full',
+  }
 })
 export default class DefaultLayout extends Vue {
   @SettingsTopLineStore.Getter('isHidden') topLineIsHidden!: SettingsTopLineState['hidden']
@@ -46,7 +51,7 @@ export default class DefaultLayout extends Vue {
     SettingsTopLineState,
     RootState
   >
-
+  
   @Mutation('detectTouchDevice') detectTouchDevice!: MutationTree<RootState> | any
 
   get isTouchDevice() {
@@ -144,4 +149,6 @@ export default class DefaultLayout extends Vue {
 //
 //body[loading] .transition-effect
 //  animation: opacity-out 0.5s linear forwards
+
+
 </style>

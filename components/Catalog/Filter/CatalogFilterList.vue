@@ -55,6 +55,8 @@
     //  title="ADVANTAGES"
     //  :filter-items="checkboxFilterItems"
     //)
+    div(:class="$style['filter-button']")
+      | {{ $t('modals.mobile_filter') }}
 </template>
 
 <script lang="ts">
@@ -188,4 +190,16 @@ export default class CatalogFilterList extends Vue {
   min-height: 100%
   padding: 32px
   grid-gap: 40px
+  
+  &-button
+    +style-5
+    padding: 5px 24px
+    border: none
+    cursor: pointer
+    background: $color-white-100
+    width: fit-content
+    align-self: flex-end
+    
+    @media (min-width: 1000px)
+      display: none
 </style>
