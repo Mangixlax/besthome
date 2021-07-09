@@ -7,7 +7,7 @@ const cache_time = 1000 * 60 * 60 // Cache sitemap for 1 hour
 const default_sitemap_options = {
   hostname: process.env.PROTOCOL + '://' + process.env.DOMAIN,
   exclude: exclude_routes,
-  trailingSlash: false,
+  trailingSlash: true,
   gzip: true,
   cacheTime: cache_time,
   i18n: {
@@ -40,14 +40,14 @@ const addSitemap = ({ sitemap_name = '', extra_exclude_routes = [], start_url = 
           data.forEach((record) => {
             Object.keys(record.slug).forEach((url_key) => {
               locations.push({
-                url: `/${url_key === 'ru' ? '' : 'en/'}/${record.slug[url_key]}`,
+                url: `/${url_key === 'ru' ? '' : 'en/'}/${record.slug[url_key]}/`,
                 links: [
                   {
-                    url: `/${record.slug.ru}`,
+                    url: `/${record.slug.ru}/`,
                     lang: 'ru',
                   },
                   {
-                    url: `/en/${record.slug.en}`,
+                    url: `/en/${record.slug.en}/`,
                     lang: 'en',
                   },
                 ],
