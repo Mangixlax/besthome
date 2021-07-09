@@ -55,7 +55,7 @@ export default class TopLineSelectCountry extends Vue {
   &__container
     max-width: 1296px
     width: 100%
-    padding: 34px 16px 0 16px
+    padding: 17px 24px
     display: flex
     justify-content: space-between
     align-items: center
@@ -65,7 +65,7 @@ export default class TopLineSelectCountry extends Vue {
       align-items: start
 
   &__text
-    color: $color-white-100
+    color: $color-white-88
     margin: 0
 
   &__select
@@ -102,7 +102,7 @@ export default class TopLineSelectCountry extends Vue {
         background-repeat: no-repeat, repeat
         background-position: right .7em top 50%, 0 0
         background-size: 1.5em auto, 100%
-        color: $color-white-100
+        color: $color-white-56
         height: 34px
         width: 250px
         border: none
@@ -122,7 +122,7 @@ export default class TopLineSelectCountry extends Vue {
       &-button
         +style-7
         border: none
-        color: $color-white-100
+        color: $color-white-88
         background: $color-white-16
         width: fit-content
         padding: 8px 24px
@@ -131,7 +131,7 @@ export default class TopLineSelectCountry extends Vue {
   &__close
     display: flex
     align-items: center
-    justify-content: center
+    justify-content: flex-end
     cursor: pointer
     width: 36px
     height: 100%
