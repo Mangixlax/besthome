@@ -41,6 +41,7 @@ const SettingsTopLineStore = namespace('SettingsTopLine')
   },
   transition: {
     name: 'overlay-down-full',
+    mode: 'out-in'
   }
 })
 export default class DefaultLayout extends Vue {

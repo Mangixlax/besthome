@@ -64,6 +64,20 @@
     }
   },
   "pages": {
+    "error_page": {
+      "404": {
+        "text_1": "The page you came to does not exist. You can try this:",
+        "text_2": "Go back to where you came from (press the \"Back\" button in your browser);",
+        "text_3": "Check if the entered address is correct;",
+        "text_4": "Go to",
+        "text_5": "home page site"
+      },
+      "500": {
+        "text_1": "Dear users! This bug is known and will be fixed soon.",
+        "text_2": "Please be patient. Try to go back to",
+        "text_3": "home page"
+      }
+    },
     "home": {
       "header": {
         "title": "Your reliable partner in the real estate market of Turkey",
