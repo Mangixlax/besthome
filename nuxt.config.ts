@@ -68,7 +68,7 @@ export default <NuxtConfig>{
   css: ['normalize.css/normalize.css', '~/sass/theme.sass'],
 
   pageTransition: {
-    name: 'page',
+    name: 'overlay-down-full',
     mode: 'out-in',
   },
 

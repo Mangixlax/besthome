@@ -497,7 +497,7 @@ export default class FeedbackPage extends Vue {
     background-color: $color-black-4
 
     @media (max-width: 800px)
-      padding: 48px 40px
+      padding: 48px 24px
 
     &-avatar
       height: 88px
