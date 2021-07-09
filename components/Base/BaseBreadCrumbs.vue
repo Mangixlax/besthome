@@ -29,6 +29,7 @@ import TypoText from '~/components/Base/TypoText.vue'
 import { Component, Vue } from 'nuxt-property-decorator'
 import { mapGetters } from 'vuex'
 import { Jsonld } from 'nuxt-jsonld'
+import { getSiteUrl } from '@/lib/utils'
 
 @Jsonld
 @Component({
@@ -48,7 +49,7 @@ export default class BaseBreadCrumbs extends Vue {
         '@type': 'ListItem',
         position: index + 2,
         item: {
-          '@id': this.localePath(item.route),
+          '@id': getSiteUrl(this.localePath(item.route), false),
           name: item.name,
         },
       }
@@ -62,9 +63,7 @@ export default class BaseBreadCrumbs extends Vue {
           '@type': 'ListItem',
           position: 1,
           item: {
-            '@id': this.localePath({
-              name: 'index'
-            }),
+            '@id': getSiteUrl(this.localePath('index'), false),
             name: this.$i18n.locale === "ru" ? 'Главная' : 'Home',
           },
         },
