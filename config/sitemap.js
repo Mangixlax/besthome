@@ -1,6 +1,13 @@
 import axios from 'axios'
 
-const exclude_routes = ['/_icons*', '/media', '/search', '/en/_icons*', '/en/media', '/en/search']
+const exclude_routes = [
+  '/_icons*',
+  '/media/',
+  '/search/',
+  '/ru/_icons*',
+  '/ru/media/',
+  '/ru/search/',
+]
 
 const cache_time = 1000 * 60 * 60 // Cache sitemap for 1 hour
 
