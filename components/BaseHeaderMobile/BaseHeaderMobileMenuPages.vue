@@ -101,7 +101,7 @@ export default class BaseHeaderMobileMenuPages extends Vue {
   @Watch('$route')
   async onChangeRoute() {
     await delay(300)
-      this.activeMenuPageIndex = -1
+    this.activeMenuPageIndex = -1
   }
 }
 </script>
