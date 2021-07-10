@@ -39,7 +39,7 @@ import HeromapSlider from '~/components/HeromapSlider/HeromapSlider.vue'
 import { IProject } from '~/store/Catalog'
 import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.vue'
 import metaGenerator from '~/config/meta.js'
-import {delay} from "~/lib/utils"
+import { delay } from '~/lib/utils'
 
 @Component({
   components: {
@@ -62,9 +62,12 @@ import {delay} from "~/lib/utils"
     HeroImageTooltips,
   },
   async asyncData(ctx: Context): Promise<object> {
-    ctx.store.commit('PageTransition/animate', true)
-
-    !process.server && await delay(200)
+    if (!process.server) {
+      await delay(200)
+      ctx.store.commit('PageTransition/animate', true)
+    } else {
+      ctx.store.commit('PageTransition/animate', false)
+    }
 
     if (!ctx.route.params.slug) {
       ctx.redirect(
@@ -185,6 +188,11 @@ export default class PropertiesAboutPage extends Vue {
 
   get getProject(): IProject {
     return this.$store.getters['Catalog/getProject']
+  }
+
+  async mounted() {
+    await delay(200)
+    this.$store.commit('PageTransition/animate', false)
   }
 }
 </script>
