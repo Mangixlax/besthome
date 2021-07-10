@@ -27,7 +27,7 @@ import { delay } from '~/lib/utils'
 
 @Component({
   components: { PageCompanyHistoryTitle, BasePost, TypoText, PageCompanyYearsSlider },
-  head() {
+  head(): any {
     const title = this.$i18n.t('pages.company_history.header.title')
 
     return {

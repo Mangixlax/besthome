@@ -16,7 +16,7 @@ import { delay } from '~/lib/utils'
 
 @Component({
   components: { PageServiceRent, BaseImageTitle },
-  head() {
+  head(): any {
     const title =
       this.$i18n.locale === 'ru'
         ? 'Аренда недвижимости в центре Алании. Как снять жилье в Турции?'

@@ -84,14 +84,12 @@ import {delay} from "~/lib/utils"
         project = await ctx.store.dispatch('Catalog/fetchProject', projectId)
 
         if (project.slug !== ctx.route.params.slug) {
-          resolve(
-            ctx.redirect(
-              301,
-              (ctx.app.router as VueRouter).resolve({
-                name: ctx.route.name as string,
-                params: { slug: project.slug },
-              }).href,
-            ),
+          ctx.redirect(
+            301,
+            (ctx.app.router as VueRouter).resolve({
+              name: ctx.route.name as string,
+              params: { slug: project.slug },
+            }).href,
           )
         }
 
