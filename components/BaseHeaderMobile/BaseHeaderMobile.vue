@@ -65,7 +65,7 @@ export default class BaseHeaderMobile extends Vue {
   @Watch('$route')
   async onChangeRoute() {
     await delay(300)
-      this.menuIsOpen = false
+    this.menuIsOpen = false
     const regex = /properties/
     if ((regex as any).test(this.$route.path)) {
       this.offsetBurger = true
