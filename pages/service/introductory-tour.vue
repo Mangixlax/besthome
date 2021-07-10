@@ -107,34 +107,23 @@
     )
 </template>
 
-<script>
+<script lang="ts">
 import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import BaseImageTitle from '~/components/Base/BaseImageTitle.vue'
 import BasePostTwoImage from '~/components/Base/BasePostTwoImage.vue'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
-import { Context } from '@nuxt/types'
 import metaGenerator from '~/config/meta.js'
+import { Component, Vue } from 'nuxt-property-decorator'
+import { delay } from '~/lib/utils'
 
-export default {
-  name: 'introductory-tour',
+@Component({
   components: {
     BasePost,
     TypoText,
     BaseImageTitle,
     BasePostTwoImage,
     BaseTextContainer,
-  },
-  async asyncData(ctx) {
-    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.service'))
-    ctx.store.commit('setBreadcrumbs', [
-      {
-        name: ctx.app.i18n.t('breadcrumbs.inspection_trip'),
-        route: {
-          name: 'service-introductory-tour',
-        },
-      },
-    ])
   },
   head() {
     const title =
@@ -166,7 +155,27 @@ export default {
       ],
     }
   },
+})
+export default class ServiceIntroductoryTourPage extends Vue {
+  created() {
+    if (process.server) {
+      this.$store.commit('PageTransition/animate', false)
+    }
+
+    this.$store.commit('setLogoSubTitle', this.$t('header.logo.service'))
+    this.$store.commit('setBreadcrumbs', [
+      {
+        name: this.$t('breadcrumbs.inspection_trip'),
+        route: {
+          name: 'service-introductory-tour',
+        },
+      },
+    ])
+  }
+
+  async mounted() {
+    await delay(200)
+    this.$store.commit('PageTransition/animate', false)
+  }
 }
 </script>
-
-<style lang="sass" module></style>

@@ -9,31 +9,18 @@
   )
 </template>
 
-<script>
+<script lang="ts">
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
 import metaGenerator from '~/config/meta.js'
+import { Component, Vue } from 'nuxt-property-decorator'
+import { delay } from '~/lib/utils'
 
-export default {
-  name: 'term-of-use',
+@Component({
   components: {
     BaseTextContainer,
   },
-  asyncData(ctx) {
-    ctx.store.commit('setBreadcrumbs', [
-      {
-        name: ctx.app.i18n.t('breadcrumbs.term_of_use'),
-        route: {
-          name: 'term-of-use',
-        },
-      },
-    ])
-
-    return {}
-  },
   head() {
     const title = this.$i18n.t('pages.term-of-use.title')
-
-    const description = ''
 
     return {
       title,
@@ -43,7 +30,6 @@ export default {
       },
       meta: metaGenerator({
         title,
-        description,
         robots: 'noindex, nofollow',
       }),
       link: [
@@ -54,5 +40,27 @@ export default {
       ],
     }
   },
+})
+export default class TermOfUsePage extends Vue {
+  created() {
+    if (process.server) {
+      this.$store.commit('PageTransition/animate', false)
+    }
+
+    this.$store.commit('setLogoSubTitle', 'Construction')
+    this.$store.commit('setBreadcrumbs', [
+      {
+        name: this.$t('breadcrumbs.term_of_use'),
+        route: {
+          name: 'term-of-use',
+        },
+      },
+    ])
+  }
+
+  async mounted() {
+    await delay(200)
+    this.$store.commit('PageTransition/animate', false)
+  }
 }
 </script>

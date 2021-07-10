@@ -44,10 +44,10 @@ import BaseAccordions from '~/components/Base/BaseAccordions.vue'
 import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import { Component, Vue } from 'nuxt-property-decorator'
-import { Context } from '@nuxt/types'
 import CatalogCards from '~/components/Catalog/CatalogCards.vue'
 import CatalogList from '~/components/Catalog/CatalogList.vue'
 import { CatalogState, IProjectApartment } from '~/store/Catalog'
+import { delay } from '~/lib/utils'
 
 @Component({
   components: {
@@ -65,19 +65,6 @@ import { CatalogState, IProjectApartment } from '~/store/Catalog'
     CatalogList,
   },
   mixins: [modalsTriggerMixin],
-  async asyncData(ctx: Context): Promise<object | void> {
-    // Set subtitle
-    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.secondary_housing'))
-
-    return new Promise(async (resolve) => {
-      ctx.store.commit('Catalog/setFilters', {})
-      ctx.store.commit('Catalog/setProject', {})
-      ctx.store.commit('Catalog/setProjects', [])
-      // Fetch apartments to catalog list with filters
-      // await ctx.store.dispatch('Catalog/fetchApartments')
-      resolve({})
-    })
-  },
 })
 export default class SecondaryHousingPage extends Vue {
   public onClickBtn() {
@@ -92,6 +79,31 @@ export default class SecondaryHousingPage extends Vue {
       // @TODO Add type apartments data
       (((this.$store.state.Catalog as CatalogState).apartments || {}) as any).data || []
     )
+  }
+
+  created() {
+    if (process.server) {
+      this.$store.commit('PageTransition/animate', false)
+    }
+
+    this.$store.commit('setLogoSubTitle', this.$t('header.logo.secondary_housing'))
+    this.$store.commit('setBreadcrumbs', [
+      {
+        name: this.$t('breadcrumbs.privacy_policy'),
+        route: {
+          name: 'privacy-policy',
+        },
+      },
+    ])
+
+    this.$store.commit('Catalog/setFilters', {})
+    this.$store.commit('Catalog/setProject', {})
+    this.$store.commit('Catalog/setProjects', [])
+  }
+
+  async mounted() {
+    await delay(200)
+    this.$store.commit('PageTransition/animate', false)
   }
 }
 </script>

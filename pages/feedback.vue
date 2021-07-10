@@ -219,6 +219,7 @@ import TypoText from '~/components/Base/TypoText.vue'
 import { email, minLength, required } from 'vuelidate/lib/validators'
 import VFormTextarea from '~/components/form/VFormTextarea.vue'
 import metaGenerator from '~/config/meta.js'
+import {delay} from "~/lib/utils"
 
 @Component({
   layout: 'modal',

@@ -9,29 +9,18 @@
   )
 </template>
 
-<script>
+<script lang="ts">
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
+import { Component, Vue } from 'nuxt-property-decorator'
+import { delay } from '~/lib/utils'
+import metaGenerator from '~/config/meta'
 
-export default {
-  name: 'privacy-policy',
+@Component({
   components: {
     BaseTextContainer,
   },
-  asyncData(ctx) {
-    ctx.store.commit('setBreadcrumbs', [
-      {
-        name: ctx.app.i18n.t('breadcrumbs.privacy_policy'),
-        route: {
-          name: 'privacy-policy',
-        },
-      },
-    ])
-    return {}
-  },
   head() {
     const title = this.$i18n.t('pages.privacy-policy.title')
-
-    const description = ''
 
     return {
       title,
@@ -41,7 +30,6 @@ export default {
       },
       meta: metaGenerator({
         title,
-        description,
         robots: 'noindex, nofollow',
       }),
       link: [
@@ -52,5 +40,27 @@ export default {
       ],
     }
   },
+})
+export default class PrivacyPolicyPage extends Vue {
+  created() {
+    if (process.server) {
+      this.$store.commit('PageTransition/animate', false)
+    }
+
+    this.$store.commit('setLogoSubTitle', 'Construction')
+    this.$store.commit('setBreadcrumbs', [
+      {
+        name: this.$t('breadcrumbs.privacy_policy'),
+        route: {
+          name: 'privacy-policy',
+        },
+      },
+    ])
+  }
+
+  async mounted() {
+    await delay(200)
+    this.$store.commit('PageTransition/animate', false)
+  }
 }
 </script>

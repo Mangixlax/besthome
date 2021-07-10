@@ -177,7 +177,7 @@ export const mutations: MutationTree<CatalogState> = {
  */
 export const actions: ActionTree<CatalogState, RootState> = {
   async fetchProject({ commit }: CatalogActionContext, id: string) {
-    return new Promise(async (resolve, reject) => {
+    return new Promise((resolve, reject) => {
       this.$axios
         .$get(`v1/projects/${id}`)
         .then((project: IProject) => {
@@ -189,7 +189,7 @@ export const actions: ActionTree<CatalogState, RootState> = {
     })
   },
   async fetchProjects({ commit }: CatalogActionContext) {
-    return new Promise(async (resolve, reject) => {
+    return new Promise((resolve, reject) => {
       this.$axios
         .$get(`v1/projects`)
         .then((projects: IProject[]) => {

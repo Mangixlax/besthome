@@ -31,6 +31,7 @@ import PageWelcome from '~/components/Page/PageWelcome.vue'
 import { Context } from '@nuxt/types'
 import CommonLinkIcon from '~/components/Common/CommonLinkIcon.vue'
 import metaGenerator from '~/config/meta.js'
+import {delay} from "~/lib/utils"
 
 @Component({
   components: {
@@ -45,6 +46,15 @@ import metaGenerator from '~/config/meta.js'
     FooterFastLinks,
   },
   async asyncData(ctx: Context): Promise<void | object> {
+    ctx.store.commit('PageTransition/animate', false)
+
+    try {
+      // Fetch projects list
+      await ctx.store.dispatch('Catalog/fetchProjects')
+    } catch ({ error }) {
+      ctx.error({ statusCode: error.http_code })
+    }
+
     ctx.store.commit('setBreadcrumbs', [
       {
         name: ctx.app.i18n.t('breadcrumbs.projects'),
@@ -53,15 +63,11 @@ import metaGenerator from '~/config/meta.js'
         },
       },
     ])
-    return new Promise(async (resolve) => {
-      // Set subtitle in logo
-      ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.projects'))
 
-      // Fetch projects list
-      await ctx.store.dispatch('Catalog/fetchProjects')
+    // Set subtitle in logo
+    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.projects'))
 
-      resolve({})
-    })
+    return {}
   },
   head(): any {
     const title =
@@ -94,5 +100,10 @@ import metaGenerator from '~/config/meta.js'
     }
   },
 })
-export default class ProjectsPage extends Vue {}
+export default class ProjectsPage extends Vue {
+  async mounted() {
+    await delay(200)
+    this.$store.commit('PageTransition/animate', false)
+  }
+}
 </script>

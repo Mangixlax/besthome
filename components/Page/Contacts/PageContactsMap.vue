@@ -60,14 +60,16 @@
             href="https://goo.gl/maps/GQ9d8WPAsrPe974L9"
             :title="contactMap.linkToMap.link"
             :class="$style['content__link-text--underline']"
+            target="_blank"
           ) {{  contactMap.linkToMap.link }}
           | .
           typo-text(
             tag="a"
             version="none"
-            href="https://goo.gl/maps/wAAvmLgbH4eCEyEm7"
+            href="https://goo.gl/maps/GQ9d8WPAsrPe974L9"
             :title="contactMap.linkToMap.link"
             :class="$style['content__link-arrow']"
+            target="_blank"
           )
             svg-icon(name="link-arrow-white")
 </template>

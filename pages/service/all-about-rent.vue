@@ -7,26 +7,15 @@
     page-service-rent(:allAboutRent="$t('pages.all_about_rent')")
 </template>
 
-<script>
+<script lang="ts">
 import BaseImageTitle from '~/components/Base/BaseImageTitle.vue'
 import PageServiceRent from '~/components/Page/Service/PageServiceRent.vue'
-import { Context } from '@nuxt/types'
 import metaGenerator from '~/config/meta.js'
+import { Component, Vue } from 'nuxt-property-decorator'
+import { delay } from '~/lib/utils'
 
-export default {
-  name: 'all-about-rent',
+@Component({
   components: { PageServiceRent, BaseImageTitle },
-  async asyncData(ctx) {
-    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.service'))
-    ctx.store.commit('setBreadcrumbs', [
-      {
-        name: ctx.app.i18n.t('breadcrumbs.apartment_leasing'),
-        route: {
-          name: 'service-all-about-rent',
-        },
-      },
-    ])
-  },
   head() {
     const title =
       this.$i18n.locale === 'ru'
@@ -57,6 +46,28 @@ export default {
       ],
     }
   },
+})
+export default class ServiceAllAboutRentPage extends Vue {
+  created() {
+    if (process.server) {
+      this.$store.commit('PageTransition/animate', false)
+    }
+
+    this.$store.commit('setLogoSubTitle', this.$t('header.logo.service'))
+    this.$store.commit('setBreadcrumbs', [
+      {
+        name: this.$t('breadcrumbs.apartment_leasing'),
+        route: {
+          name: 'service-all-about-rent',
+        },
+      },
+    ])
+  }
+
+  async mounted() {
+    await delay(200)
+    this.$store.commit('PageTransition/animate', false)
+  }
 }
 </script>
 

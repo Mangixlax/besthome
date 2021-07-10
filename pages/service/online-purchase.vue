@@ -7,26 +7,16 @@
     page-service-purchase
 </template>
 
-<script>
+<script lang="ts">
 import BaseImageTitle from '~/components/Base/BaseImageTitle.vue'
 import PageServicePurchase from '~/components/Page/Service/PageServicePurchase.vue'
 import { Context } from '@nuxt/types'
 import metaGenerator from '~/config/meta.js'
+import { Component, Vue } from 'nuxt-property-decorator'
+import { delay } from '~/lib/utils'
 
-export default {
-  name: 'online-purchase',
+@Component({
   components: { BaseImageTitle, PageServicePurchase },
-  async asyncData(ctx) {
-    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.service'))
-    ctx.store.commit('setBreadcrumbs', [
-      {
-        name: ctx.app.i18n.t('breadcrumbs.online_purchase'),
-        route: {
-          name: 'service-online-purchase',
-        },
-      },
-    ])
-  },
   head() {
     const title =
       this.$i18n.locale === 'ru'
@@ -57,6 +47,28 @@ export default {
       ],
     }
   },
+})
+export default class ServiceOnlinePurchasePage extends Vue {
+  created() {
+    if (process.server) {
+      this.$store.commit('PageTransition/animate', false)
+    }
+
+    this.$store.commit('setLogoSubTitle', this.$t('header.logo.service'))
+    this.$store.commit('setBreadcrumbs', [
+      {
+        name: this.$t('breadcrumbs.online_purchase'),
+        route: {
+          name: 'service-online-purchase',
+        },
+      },
+    ])
+  }
+
+  async mounted() {
+    await delay(200)
+    this.$store.commit('PageTransition/animate', false)
+  }
 }
 </script>
 

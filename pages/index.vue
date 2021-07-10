@@ -63,15 +63,15 @@ import CommonConsultantSlider from '~/components/Common/CommonConsultantSlider.v
 import BaseAccordions from '~/components/Base/BaseAccordions.vue'
 import BaseSubscribe from '~/components/Base/BaseSubscribe.vue'
 import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
-import { IHeroSlide } from '~/types/HeroSlider'
 import LinkBannerWrapper from '~/components/LinkBanner/LinkBannerWrapper.vue'
 import LinkBanner from '~/components/LinkBanner/LinkBanner.vue'
 import TreeColumns from '~/components/TreeColumns/TreeColumns.vue'
 import Magnetic from '~/directives/magnetic'
 import CommonLinkIcon from '~/components/Common/CommonLinkIcon.vue'
 import { modalsTriggerMixin } from '~/mixins/modals'
-import { Context } from '@nuxt/types'
 import metaGenerator from '~/config/meta.js'
+import { Context } from '@nuxt/types'
+import { delay } from '~/lib/utils'
 
 @Component({
   components: {
@@ -122,8 +122,17 @@ import metaGenerator from '~/config/meta.js'
 })
 export default class IndexPage extends Vue {
   created() {
+    if (process.server) {
+      this.$store.commit('PageTransition/animate', false)
+    }
+
     this.$store.commit('setLogoSubTitle', 'Construction')
     this.$store.commit('setBreadcrumbs', [])
+  }
+
+  async mounted() {
+    await delay(200)
+    this.$store.commit('PageTransition/animate', false)
   }
 
   public showVideo() {
@@ -133,8 +142,6 @@ export default class IndexPage extends Vue {
       options: {
         height: 'auto',
         width: '100%',
-        // scrollable: false,
-        // classes: [".v--modal-fullscreen"]
       },
       events: {
         'before-open': () => {

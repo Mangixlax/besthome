@@ -68,7 +68,7 @@ export default <NuxtConfig>{
   css: ['normalize.css/normalize.css', '~/sass/theme.sass'],
 
   pageTransition: {
-    name: 'overlay-down-full',
+    name: 'page',
     mode: 'out-in',
   },
 
@@ -110,7 +110,7 @@ export default <NuxtConfig>{
    * Loading config
    */
   loading: {
-    color: '#59cc93',
+    color: '#0066CC',
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules

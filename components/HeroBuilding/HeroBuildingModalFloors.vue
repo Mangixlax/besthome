@@ -82,6 +82,7 @@ import { Component, Prop, Vue, Watch } from 'nuxt-property-decorator'
 import ModalContainer from '~/components/Modal/base/ModalContainer.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import { IProject, IProjectApartment, IProjectFloor } from '~/store/Catalog'
+import { delay } from '~/lib/utils'
 
 interface ITooltip {
   name: string
@@ -91,7 +92,7 @@ interface ITooltip {
   styles: {
     top: string
     left: string
-  },
+  }
   show: boolean
 }
 
@@ -183,11 +184,14 @@ export default class HeroBuildingModalFloors extends Vue {
     if (event.target) {
       const target: Element = event.target as Element
       this.getApartmentDataById(target.id)
-        .then((apartment: IProjectApartment) => {
+        .then(async (apartment: IProjectApartment) => {
           // Can go to apartment page if apartment have a status 4 (SOLD)
           if (apartment.status !== 4) {
             this.$modal.hide(this.name)
-            this.$router.push(
+            await delay(100)
+            this.$store.commit('PageTransition/animate', true)
+            await delay(500)
+            await this.$router.push(
               this.localePath({
                 name: 'properties-slug-apartments-id',
                 params: {

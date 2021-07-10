@@ -3,29 +3,17 @@
     page-company-our-team
 </template>
 
-<script>
+<script lang="ts">
 import PageCompanyOurTeam from '~/components/Page/Company/PageCompanyOurTeam.vue'
 import { Context } from '@nuxt/types'
 import metaGenerator from '~/config/meta.js'
+import { Component, Vue } from 'nuxt-property-decorator'
+import { delay } from '~/lib/utils'
 
-export default {
-  name: 'our-team',
+@Component({
   components: { PageCompanyOurTeam },
-  asyncData(ctx) {
-    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.company'))
-    ctx.store.commit('setBreadcrumbs', [
-      {
-        name: ctx.app.i18n.t('breadcrumbs.our_team'),
-        route: {
-          name: 'company-our-team',
-        },
-      },
-    ])
-  },
   head() {
     const title = this.$i18n.t('pages.our_team.title')
-
-    const description = ''
 
     return {
       title,
@@ -35,7 +23,6 @@ export default {
       },
       meta: metaGenerator({
         title,
-        description,
         robots: 'noindex, nofollow',
       }),
       link: [
@@ -46,6 +33,28 @@ export default {
       ],
     }
   },
+})
+export default class CompanyOurTeamPage extends Vue {
+  created() {
+    if (process.server) {
+      this.$store.commit('PageTransition/animate', false)
+    }
+
+    this.$store.commit('setLogoSubTitle', this.$t('header.logo.company'))
+    this.$store.commit('setBreadcrumbs', [
+      {
+        name: this.$t('breadcrumbs.our_team'),
+        route: {
+          name: 'company-our-team',
+        },
+      },
+    ])
+  }
+
+  async mounted() {
+    await delay(200)
+    this.$store.commit('PageTransition/animate', false)
+  }
 }
 </script>
 

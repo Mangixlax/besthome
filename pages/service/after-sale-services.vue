@@ -15,28 +15,17 @@
     page-service-list-card(:listCardData="$t('pages.service_after_sale_services.list_card')")
 </template>
 
-<script>
+<script lang="ts">
 import TypoText from '~/components/Base/TypoText.vue'
 import BaseImageTitle from '~/components/Base/BaseImageTitle.vue'
 import PageServiceListCard from '~/components/Page/Service/PageServiceListCard.vue'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
-import { Context } from '@nuxt/types'
 import metaGenerator from '~/config/meta.js'
+import { Component, Vue } from 'nuxt-property-decorator'
+import { delay } from '~/lib/utils'
 
-export default {
-  name: 'after-sale-services',
+@Component({
   components: { TypoText, BaseImageTitle, PageServiceListCard, BaseTextContainer },
-  async asyncData(ctx) {
-    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.service'))
-    ctx.store.commit('setBreadcrumbs', [
-      {
-        name: ctx.app.i18n.t('breadcrumbs.after_sales_services'),
-        route: {
-          name: 'service-after-sale-services',
-        },
-      },
-    ])
-  },
   head() {
     const title =
       this.$i18n.locale === 'ru'
@@ -67,6 +56,28 @@ export default {
       ],
     }
   },
+})
+export default class ServiceAfterSaleServicesPage extends Vue {
+  created() {
+    if (process.server) {
+      this.$store.commit('PageTransition/animate', false)
+    }
+
+    this.$store.commit('setLogoSubTitle', this.$t('header.logo.service'))
+    this.$store.commit('setBreadcrumbs', [
+      {
+        name: this.$t('breadcrumbs.after_sales_services'),
+        route: {
+          name: 'service-after-sale-services',
+        },
+      },
+    ])
+  }
+
+  async mounted() {
+    await delay(200)
+    this.$store.commit('PageTransition/animate', false)
+  }
 }
 </script>
 

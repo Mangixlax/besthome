@@ -62,6 +62,7 @@ import metaGenerator from '~/config/meta.js'
   },
   async asyncData(ctx: Context): Promise<object | void> {
     ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.projects'))
+    ctx.store.commit('PageTransition/animate')
 
     return new Promise(async (resolve) => {
       if (!ctx.params.slug) {
@@ -116,6 +117,10 @@ import metaGenerator from '~/config/meta.js'
           },
         },
       ])
+
+      setTimeout(() => {
+        ctx.store.commit('PageTransition/animate')
+      }, 500)
 
       resolve({
         project: project,

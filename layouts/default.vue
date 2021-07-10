@@ -3,13 +3,12 @@
     top-line-select-country(v-if="!topLineLocaleIsHidden")
     top-line(v-if="!topLineIsHidden" @close="onToggleHiddenMode" :content="$t('top_line')")
     base-header
-    nuxt(:class="$style['transition-effect']")
-    Footer(:class="$style['transition-effect']")
+    nuxt
+    Footer
     base-header-mobile
     cursor-mover(v-if="!isTouchDevice")
     base-cookies-card
-    div(class="overlay-top")
-    div(class="overlay-bottom")
+    common-page-transition
 </template>
 
 <script lang="ts">
@@ -26,11 +25,13 @@ import BaseHeader from '~/components/BaseHeader/BaseHeader.vue'
 import BaseHeaderMobile from '~/components/BaseHeaderMobile/BaseHeaderMobile.vue'
 import CursorMover from '~/components/CursorMover.vue'
 import Footer from '~/components/Footer/Footer.vue'
+import CommonPageTransition from "~/components/Common/CommonPageTransition.vue"
 
 const SettingsTopLineStore = namespace('SettingsTopLine')
 
 @Component({
   components: {
+    CommonPageTransition,
     BaseCookiesCard,
     TopLineSelectCountry,
     TopLine,
@@ -39,10 +40,6 @@ const SettingsTopLineStore = namespace('SettingsTopLine')
     CursorMover,
     Footer,
   },
-  transition: {
-    name: 'overlay-down-full',
-    mode: 'out-in'
-  }
 })
 export default class DefaultLayout extends Vue {
   @SettingsTopLineStore.Getter('isHidden') topLineIsHidden!: SettingsTopLineState['hidden']
@@ -52,7 +49,12 @@ export default class DefaultLayout extends Vue {
     SettingsTopLineState,
     RootState
   >
-  
+
+  @Watch('$route.path')
+  onRouteChanged() {
+    this.$store.commit('PageTransition/animate', true)
+  }
+
   @Mutation('detectTouchDevice') detectTouchDevice!: MutationTree<RootState> | any
 
   get isTouchDevice() {
@@ -129,27 +131,3 @@ export default class DefaultLayout extends Vue {
   }
 }
 </script>
-
-<style lang="sass" module>
-@keyframes opacity
-  0%
-    opacity: 0
-  100%
-    opacity: 1
-
-@keyframes opacity-out
-  0%
-    opacity: 1
-  100%
-    opacity: 0
-
-//.transition-effect
-//  transition: opacity 0.5s ease
-//  animation: opacity 0.5s linear forwards
-//  will-change: opacity
-//
-//body[loading] .transition-effect
-//  animation: opacity-out 0.5s linear forwards
-
-
-</style>

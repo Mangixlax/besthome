@@ -8,30 +8,16 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import PageContactsMap from '~/components/Page/Contacts/PageContactsMap.vue'
 import CommonConsultantSlider from '~/components/Common/CommonConsultantSlider.vue'
-import { Context } from '@nuxt/types'
-import { Route } from 'vue-router'
-import { NavigationGuardNext } from 'vue-router/types/router'
 import metaGenerator from '~/config/meta.js'
+import { delay } from '~/lib/utils'
 
 @Component({
   components: {
     PageContactsMap,
     CommonConsultantSlider,
   },
-  asyncData(ctx: Context): void {
-    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.contacts'))
-    ctx.store.commit('setBreadcrumbs', [
-      {
-        name: ctx.app.i18n.t('breadcrumbs.contacts'),
-        route: {
-          name: 'contacts',
-        },
-      },
-    ])
-  },
   head(): any {
     const title = this.$i18n.t('pages.contacts.contact_map.title')
-    const description = ''
     return {
       title,
       htmlAttrs: {
@@ -40,7 +26,6 @@ import metaGenerator from '~/config/meta.js'
       },
       meta: metaGenerator({
         title,
-        description,
         robots: 'noindex, nofollow',
       }),
       link: [
@@ -52,7 +37,28 @@ import metaGenerator from '~/config/meta.js'
     }
   },
 })
-export default class IndexPage extends Vue {}
+export default class IndexPage extends Vue {
+  created() {
+    if (process.server) {
+      this.$store.commit('PageTransition/animate', false)
+    }
+
+    this.$store.commit('setLogoSubTitle', this.$t('header.logo.contacts'))
+    this.$store.commit('setBreadcrumbs', [
+      {
+        name: this.$t('breadcrumbs.contacts'),
+        route: {
+          name: 'contacts',
+        },
+      },
+    ])
+  }
+
+  async mounted() {
+    await delay(200)
+    this.$store.commit('PageTransition/animate', false)
+  }
+}
 </script>
 
 <style lang="sass" module>

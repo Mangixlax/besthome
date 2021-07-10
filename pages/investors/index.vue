@@ -69,6 +69,7 @@ import { Context } from '@nuxt/types'
 import { Route } from 'vue-router'
 import { NavigationGuardNext } from 'vue-router/types/router'
 import metaGenerator from '~/config/meta.js'
+import {delay} from "~/lib/utils"
 
 @Component({
   components: {
@@ -78,17 +79,6 @@ import metaGenerator from '~/config/meta.js'
     BasePostTwoImage,
     BaseScrollLine,
     TypoText,
-  },
-  asyncData(ctx: Context): void {
-    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.investors'))
-    ctx.store.commit('setBreadcrumbs', [
-      {
-        name: ctx.app.i18n.t('breadcrumbs.investments'),
-        route: {
-          name: 'investors',
-        },
-      },
-    ])
   },
   head(): any {
     const title =
@@ -120,11 +110,27 @@ import metaGenerator from '~/config/meta.js'
       ],
     }
   },
-  beforeRouteEnter(to: Route, from: Route, next: NavigationGuardNext) {
-    next((vm: Vue) => {
-      vm.$store.commit('setPageLoadingStatus', false)
-    })
-  },
 })
-export default class InvestorsPage extends Vue {}
+export default class InvestorsPage extends Vue {
+  created() {
+    if (process.server) {
+      this.$store.commit('PageTransition/animate', false)
+    }
+
+    this.$store.commit('setLogoSubTitle', this.$t('header.logo.investors'))
+    this.$store.commit('setBreadcrumbs', [
+      {
+        name: this.$t('breadcrumbs.investments'),
+        route: {
+          name: 'investors',
+        },
+      },
+    ])
+  }
+
+  async mounted() {
+    await delay(200)
+    this.$store.commit('PageTransition/animate', false)
+  }
+}
 </script>

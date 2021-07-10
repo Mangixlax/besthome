@@ -20,18 +20,18 @@
     )
 </template>
 
-<script>
+<script lang="ts">
 import PageCompanyAboutTitle from '~/components/Page/Company/PageCompanyAboutTitle.vue'
 import PageCompanyAdvantagesSlider from '~/components/Page/Company/PageCompanyAdvantagesSlider.vue'
 import BaseScrollLine from '~/components/Base/BaseScrollLine.vue'
 import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
-import { Context } from '@nuxt/types'
 import metaGenerator from '~/config/meta.js'
+import { Component, Vue } from 'nuxt-property-decorator'
+import { delay } from '~/lib/utils'
 
-export default {
-  name: 'introductory-tour',
+@Component({
   components: {
     PageCompanyAboutTitle,
     PageCompanyAdvantagesSlider,
@@ -39,17 +39,6 @@ export default {
     BaseScrollLine,
     BasePost,
     TypoText,
-  },
-  asyncData(ctx) {
-    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.company'))
-    ctx.store.commit('setBreadcrumbs', [
-      {
-        name: ctx.app.i18n.t('breadcrumbs.about'),
-        route: {
-          name: 'company-about',
-        },
-      },
-    ])
   },
   head() {
     const title =
@@ -81,6 +70,28 @@ export default {
       ],
     }
   },
+})
+export default class CompanyAboutPage extends Vue {
+  created() {
+    if (process.server) {
+      this.$store.commit('PageTransition/animate', false)
+    }
+
+    this.$store.commit('setLogoSubTitle', this.$t('header.logo.company'))
+    this.$store.commit('setBreadcrumbs', [
+      {
+        name: this.$t('breadcrumbs.about'),
+        route: {
+          name: 'company-about',
+        },
+      },
+    ])
+  }
+
+  async mounted() {
+    await delay(200)
+    this.$store.commit('PageTransition/animate', false)
+  }
 }
 </script>
 

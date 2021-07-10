@@ -35,12 +35,10 @@ import PageCompanyOurTeamSlider from '~/components/Page/Company/PageCompanyOurTe
 import { Context } from '@nuxt/types'
 import { Component, Vue } from 'nuxt-property-decorator'
 import metaGenerator from '~/config/meta.js'
+import { delay } from '~/lib/utils'
 
 @Component({
   components: { TypoText, PageCompanyOurTeamSlider },
-  asyncData(ctx: Context): void {
-    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.company'))
-  },
   head(): any {
     const title = this.person.name
 
@@ -69,6 +67,27 @@ import metaGenerator from '~/config/meta.js'
 export default class PersonalPage extends Vue {
   get person(): any {
     return this.$store.getters.getPersonById(this.$route.params.id)
+  }
+
+  created() {
+    if (process.server) {
+      this.$store.commit('PageTransition/animate', false)
+    }
+
+    this.$store.commit('setLogoSubTitle', this.$t('header.logo.company'))
+    this.$store.commit('setBreadcrumbs', [
+      {
+        name: this.$t('breadcrumbs.our_team'),
+        route: {
+          name: 'company-our-team',
+        },
+      },
+    ])
+  }
+
+  async mounted() {
+    await delay(200)
+    this.$store.commit('PageTransition/animate', false)
   }
 }
 </script>
