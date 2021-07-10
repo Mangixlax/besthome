@@ -226,7 +226,7 @@ export const actions: ActionTree<CatalogState, RootState> = {
   },
   async fetchApartments({ commit, state }: CatalogActionContext) {
     commit('setLoading', true)
-    return new Promise(async (resolve, reject) => {
+    return new Promise((resolve, reject) => {
       this.$axios
         .$get(`v1/apartments`, {
           params: {

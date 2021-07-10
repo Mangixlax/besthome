@@ -75,7 +75,7 @@ import { delay } from '~/lib/utils'
     HeromapSlider,
     HeroImageTooltips,
   },
-  async asyncData(ctx: Context): Promise<object | void> {
+  async asyncData(ctx: Context): Promise<object> {
     if (!process.server) {
       await delay(200)
       ctx.store.commit('PageTransition/animate', true)
@@ -111,28 +111,28 @@ import { delay } from '~/lib/utils'
             }).href,
           )
         }
-
-        await ctx.store.dispatch('Catalog/fetchApartments')
-
-        ctx.store.commit('setBreadcrumbs', [
-          {
-            name: ctx.app.i18n.t('breadcrumbs.projects'),
-            route: {
-              name: 'projects',
-            },
-          },
-          {
-            name: project.short_name,
-            route: {
-              name: 'properties-slug-about',
-              params: ctx.route.params.slug,
-            },
-          },
-        ])
       } catch ({ error }) {
         ctx.error({ statusCode: error.http_code })
       }
     }
+
+    await ctx.store.dispatch('Catalog/fetchApartments')
+
+    ctx.store.commit('setBreadcrumbs', [
+      {
+        name: ctx.app.i18n.t('breadcrumbs.projects'),
+        route: {
+          name: 'projects',
+        },
+      },
+      {
+        name: project.short_name,
+        route: {
+          name: 'properties-slug-about',
+          params: ctx.route.params.slug,
+        },
+      },
+    ])
 
     ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.projects'))
 
