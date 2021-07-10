@@ -596,6 +596,7 @@
         },
         "list": [
           "Social benefits and assistance from the state;",
+          "Free education",
           "Health insurance;",
           "Pension payments;",
           "Obtaining loans with a low interest rate;",
@@ -1353,7 +1354,7 @@
       "sec": "sec."
     },
     "error": {
-      "title": "An error occured. Please try again..."
+      "title": "Please enter correct e-mail"
     }
   },
   "forms": {

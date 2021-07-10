@@ -19,7 +19,7 @@ import { delay } from '~/lib/utils'
   components: {
     BaseTextContainer,
   },
-  head() {
+  head(): any  {
     const title = this.$i18n.t('pages.term-of-use.title')
 
     return {
