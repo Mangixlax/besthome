@@ -23,6 +23,7 @@ import BaseHeaderInfo from '~/components/BaseHeader/BaseHeaderInfo.vue'
 import Logo from '~/components/Logo.vue'
 import { SettingsTopLineState } from '~/store/SettingsTopLine'
 import BaseHeaderMobileMenuPages from '~/components/BaseHeaderMobile/BaseHeaderMobileMenuPages.vue'
+import { delay } from '~/lib/utils'
 
 const SettingsTopLineStore = namespace('SettingsTopLine')
 
@@ -59,10 +60,12 @@ export default class BaseHeaderMobile extends Vue {
 
   /**
    * Close menu when $route is changed
+   * Delay for correct page transition on mobile device
    */
   @Watch('$route')
-  onChangeRoute() {
-    this.menuIsOpen = false
+  async onChangeRoute() {
+    await delay(300)
+      this.menuIsOpen = false
     const regex = /properties/
     if ((regex as any).test(this.$route.path)) {
       this.offsetBurger = true

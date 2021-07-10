@@ -52,6 +52,7 @@ import { Component, Watch } from 'nuxt-property-decorator'
 import TypoText from '~/components/Base/TypoText.vue'
 import { NavigationListItem } from '~/store/Navigation'
 import BaseHeaderMobileMenuListItem from '~/components/BaseHeaderMobile/BaseHeaderMobileMenuListItem.vue'
+import { delay } from '~/lib/utils'
 
 interface secondNavigationListItem {
   pageIndex?: number
@@ -95,10 +96,12 @@ export default class BaseHeaderMobileMenuPages extends Vue {
 
   /**
    * Reset menu page index when $route is changed
+   * Delay for correct page transition on mobile device
    */
   @Watch('$route')
-  onChangeRoute() {
-    this.activeMenuPageIndex = -1
+  async onChangeRoute() {
+    await delay(300)
+      this.activeMenuPageIndex = -1
   }
 }
 </script>
