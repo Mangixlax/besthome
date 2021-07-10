@@ -11,9 +11,28 @@
             :class="$style['subscribe__textbox-text']"
           ) {{ subscribeData.title }}
         form(:class="$style['subscribe__formbox']" @submit.prevent="onSubmit")
+          div(:class="$style['error-container']")
+            typo-text(
+              v-if="(!$v.form.email.required || !$v.form.email.minLength) && $v.form.email.$error"
+              tag="p"
+              version="style-8"
+              :class="$style['error']"
+            ) {{ $t('forms.rules.required') }}
+            typo-text(
+              v-else-if="!$v.form.agree.isChecked && $v.form.agree.$error"
+              tag="p"
+              version="style-8"
+              :class="$style['error']"
+            ) {{ $t('forms.rules.agree') }}
+            typo-text(
+              v-else-if="isError || $v.form.email.$error"
+              tag="p"
+              version="style-8"
+              :class="$style['error']"
+            ) {{ $t('modals.error.title') }}
           div(:class="$style['subscribe__mailing']")
             input(
-              v-model="$v.form.phone_or_email.$model"
+              v-model="$v.form.email.$model"
               type="text"
               name="email"
               :placeholder="getPlaceholderValue()"
@@ -24,24 +43,6 @@
               type="submit"
               :class="$style['subscribe__mailing-submit']"
             ) {{ subscribeData.submit }}
-          typo-text(
-            v-if="(!$v.form.phone_or_email.required || !$v.form.phone_or_email.minLength) && $v.form.phone_or_email.$error"
-            tag="p"
-            version="style-8"
-            :class="$style['error']"
-          ) {{ $t('forms.rules.required') }}
-          typo-text(
-            v-else-if="!$v.form.agree.isChecked && $v.form.agree.$error"
-            tag="p"
-            version="style-8"
-            :class="$style['error']"
-          ) {{ $t('forms.rules.agree') }}
-          typo-text(
-            v-else-if="isError"
-            tag="p"
-            version="style-8"
-            :class="$style['error']"
-          ) {{ $t('modals.error.title') }}
           div(:class="$style['subscribe__agreement']")
             label(:class="$style['subscribe__agreement-label']")
               input(
@@ -56,12 +57,12 @@
               ) {{ subscribeData.agreement }}
               span
                 nuxt-link(
-                :to="localePath({ name: 'projects' })"
+                :to="localePath({ name: 'privacy-policy' })"
                 :class="$style['subscribe__agreement-text--underline']"
               ) {{ subscribeData.link }}
                 | .
               nuxt-link(
-                :to="localePath({ name: 'projects' })"
+                :to="localePath({ name: 'privacy-policy' })"
                 :class="$style['subscribe__agreement-link']"
               )
                 svg-icon(name="link-arrow-white" v-if="!isWhiteTheme")
@@ -80,7 +81,8 @@ import { modalsTriggerMixin } from '~/mixins/modals'
   mixins: [formDescriptionTimerMixin, formMixin, formPhoneMixin, modalsTriggerMixin],
   validations: {
     form: {
-      phone_or_email: {
+      email: {
+        email,
         required,
         minLength: minLength(5),
       },
@@ -101,8 +103,8 @@ export default class BaseBreadCrumbs extends Vue {
 
   public isError: boolean = false
 
-  public form: { phone_or_email: string; agree: boolean } = {
-    phone_or_email: '',
+  public form: { email: string; agree: boolean } = {
+    email: '',
     agree: true,
   }
 
@@ -127,7 +129,7 @@ export default class BaseBreadCrumbs extends Vue {
           if (result.status === 200) {
             // Reset form data
             this.form.agree = false
-            this.form.phone_or_email = ''
+            this.form.email = ''
 
             // Reset vuelidate
             this.$v.$reset()
@@ -427,4 +429,10 @@ export default class BaseBreadCrumbs extends Vue {
 
 .error
   color: red
+  padding: 9px
+  padding-left: 10px
+  margin: 0
+
+  &-container
+    height: 44px
 </style>

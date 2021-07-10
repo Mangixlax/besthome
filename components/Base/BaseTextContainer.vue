@@ -53,6 +53,9 @@ export default class BaseTextContainer extends Vue {
   &:is(h1, h2, h3, h4, h5, h6)
     margin-bottom: 40px
 
+  h1
+    +style-2
+    
   h2
     +style-4
 

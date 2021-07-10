@@ -93,16 +93,15 @@ export default class BaseHeader extends Vue {
   &__inner
     display: flex
     align-items: center
-    max-width: 1248px
+    max-width: 1296px
+    padding: 0 24px
     width: 100%
     height: 100%
 
-    @media (max-width: 1248px + 32px)
-      margin: 0 24px
-
   &__logo
     margin-right: 30px
-
+    margin-left: -1px
+    
     @media (max-width: 1248px + 32px)
       margin-right: 12px
 

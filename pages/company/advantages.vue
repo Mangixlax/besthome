@@ -101,7 +101,7 @@ import { delay } from '~/lib/utils'
     BasePost,
     TypoText,
   },
-  head(): any {
+  head(): any  {
     const title = this.$i18n.t('pages.company_advantages.header.title')
 
     return {

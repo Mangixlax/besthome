@@ -19,7 +19,7 @@ import metaGenerator from '~/config/meta'
   components: {
     BaseTextContainer,
   },
-  head(): any {
+  head(): any  {
     const title = this.$i18n.t('pages.privacy-policy.title')
 
     return {
