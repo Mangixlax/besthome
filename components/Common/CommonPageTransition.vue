@@ -69,7 +69,7 @@ export default class CommonPageTransition extends Vue {
   width: 100%
   height: 100%
   background: $color-black-100
-  z-index: 2000
+  z-index: 10000
 
 .logo__wrapper
   position: fixed
@@ -80,5 +80,5 @@ export default class CommonPageTransition extends Vue {
   display: flex
   align-items: center
   justify-content: center
-  z-index: 2001
+  z-index: 10001
 </style>

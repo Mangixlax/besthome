@@ -187,18 +187,18 @@ export default class HeroBuildingModalFloors extends Vue {
         .then(async (apartment: IProjectApartment) => {
           // Can go to apartment page if apartment have a status 4 (SOLD)
           if (apartment.status !== 4) {
-            this.$modal.hide(this.name)
-            await delay(100)
             this.$store.commit('PageTransition/animate', true)
-            await delay(500)
             await this.$router.push(
               this.localePath({
                 name: 'properties-slug-apartments-id',
                 params: {
+                  slug: this.selectedProject.slug,
                   id: apartment.id.toString(),
                 },
               }),
             )
+            await delay(500)
+            this.$modal.hide(this.name)
           }
         })
         .catch(() => {})
