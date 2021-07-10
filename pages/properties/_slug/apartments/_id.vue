@@ -84,7 +84,7 @@
 </template>
 
 <script lang="ts">
-import {Component, Vue, Watch} from 'nuxt-property-decorator'
+import { Component, Vue, Watch } from 'nuxt-property-decorator'
 import { Context } from '@nuxt/types'
 import CatalogApartmentCard from '~/components/Catalog/CatalogApartmentCard.vue'
 import BaseProjectNavigation from '~/components/Base/BaseProjectNavigation.vue'
@@ -102,6 +102,7 @@ import CommonConsultantSlider from '~/components/Common/CommonConsultantSlider.v
 import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import metaGenerator from '~/config/meta.js'
+import { delay } from '~/lib/utils'
 
 @Component({
   components: {
@@ -115,91 +116,90 @@ import metaGenerator from '~/config/meta.js'
     BaseProjectNavigation,
     CatalogApartmentCard,
     Swiper,
-    SwiperSlide
+    SwiperSlide,
   },
   async asyncData(ctx: Context): Promise<void | object> {
     ctx.store.commit('PageTransition/animate', true)
 
-    return new Promise(async (resolve) => {
-      // Fetch apartment data
-      const { apartment, similarApartments, error } = await ctx.store.dispatch(
-        'Catalog/fetchApartment',
-        ctx.params.id,
+    !process.server && (await delay(200))
+
+    // Fetch apartment data
+    const { apartment, similarApartments, error } = await ctx.store.dispatch(
+      'Catalog/fetchApartment',
+      ctx.params.id,
+    )
+
+    // Show error page if has error in response
+    if (error || Object.keys(apartment || { error: '' }).indexOf('error') !== -1) {
+      ctx.error({})
+    }
+
+    // Redirect to new apartment slug if project.slug and params.slug not equal
+    if (apartment.project.slug !== ctx.params.slug) {
+      ctx.redirect(
+        ctx.localePath({
+          name: 'properties-slug-apartments-id',
+          params: {
+            slug: apartment.project.slug,
+            id: apartment.id,
+          },
+        }),
       )
+    }
 
-      // Show error page if has error in response
-      if (error || Object.keys(apartment || { error: '' }).indexOf('error') !== -1) {
-        resolve(ctx.error({}))
-      }
+    let svgPlanning = ''
 
-      // Redirect to new apartment slug if project.slug and params.slug not equal
-      if (apartment.project.slug !== ctx.params.slug) {
-        resolve(
-          ctx.redirect(
-            ctx.localePath({
-              name: 'properties-slug-apartments-id',
-              params: {
-                slug: apartment.project.slug,
-                id: apartment.id,
-              },
-            }),
-          ),
-        )
-      }
+    // If apartment has a planning
+    if (apartment.plans && (apartment.plans || []).length) {
+      // Fetch svg code of apartment planning
+      svgPlanning = await ctx.$axios.$get(apartment.plans[0])
+    }
 
-      let svgPlanning = ''
-
-      // If apartment has a planning
-      if (apartment.plans && (apartment.plans || []).length) {
-        // Fetch svg code of apartment planning
-        svgPlanning = await ctx.$axios.$get(apartment.plans[0])
-      }
-
-      ctx.store.commit('setBreadcrumbs', [
-        {
-          name: ctx.app.i18n.t('breadcrumbs.projects'),
-          route: {
-            name: 'projects',
+    ctx.store.commit('setBreadcrumbs', [
+      {
+        name: ctx.app.i18n.t('breadcrumbs.projects'),
+        route: {
+          name: 'projects',
+        },
+      },
+      {
+        name: apartment.project.name,
+        route: {
+          name: 'properties-slug-about',
+          params: {
+            slug: apartment.project.slug,
           },
         },
-        {
-          name: apartment.project.name,
-          route: {
-            name: 'properties-slug-about',
-             params: {
-              slug: apartment.project.slug
-            },
+      },
+      {
+        name: ctx.app.i18n.t('breadcrumbs.apartments'),
+        route: {
+          name: 'properties-slug-apartments',
+          params: {
+            slug: apartment.project.slug,
           },
         },
-        {
-          name: ctx.app.i18n.t('breadcrumbs.apartments'),
-          route: {
-            name: 'properties-slug-apartments',
-            params: {
-              slug: apartment.project.slug
-            },
+      },
+      {
+        name: apartment.name,
+        route: {
+          name: 'properties-slug-apartments-id',
+          params: {
+            slug: apartment.project.slug,
+            id: apartment.id,
           },
         },
-        {
-          name: apartment.name,
-          route: {
-            name: 'properties-slug-apartments',
-             params: {
-              slug: apartment.project.slug
-            },
-          },
-        },
-      ])
+      },
+    ])
 
-      setTimeout(() => {
-        ctx.store.commit('PageTransition/animate', false)
-      }, 500)
+    setTimeout(() => {
+      ctx.store.commit('PageTransition/animate', false)
+    }, 500)
 
-      resolve({
-        svgPlanning,
-        similarApartments,
-      })
-    })
+    return {
+      svgPlanning,
+      similarApartments,
+    }
   },
   head(): any {
     const title =
@@ -244,8 +244,8 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
     spaceBetween: 128,
     pagination: {
       el: '.swiper-pagination-progressbar',
-      type: 'progressbar'
-    }
+      type: 'progressbar',
+    },
   }
 
   get apartment(): IProjectApartment {
@@ -312,6 +312,8 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
     if (polygon) {
       polygon.classList.add(this.$style['selected'])
     }
+
+    this.$store.commit('PageTransition/animate', false)
   }
 
   public beforeDestroy() {

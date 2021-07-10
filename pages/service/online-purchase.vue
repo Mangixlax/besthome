@@ -17,7 +17,7 @@ import { delay } from '~/lib/utils'
 
 @Component({
   components: { BaseImageTitle, PageServicePurchase },
-  head() {
+  head(): any {
     const title =
       this.$i18n.locale === 'ru'
         ? 'Купить квартиру в Алании от застройщика онлайн - это Просто!'

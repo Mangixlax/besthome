@@ -57,7 +57,7 @@ import { delay } from '~/lib/utils'
 
 @Component({
   components: { BasePost, TypoText, BaseImageTitle, BaseTextContainer },
-  head() {
+  head(): any {
     const title =
       this.$i18n.locale === 'ru'
         ? 'Покупка квартиры в Турции (Алания). Все тонкости юридической сделки'

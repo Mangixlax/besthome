@@ -88,7 +88,7 @@ import { delay } from '~/lib/utils'
     BasePostTwoImage,
     BaseTextContainer,
   },
-  head() {
+  head(): any {
     const title =
       this.$i18n.locale === 'ru'
         ? 'Гражданство Турции. Все выгоды от турецкого гражданства'

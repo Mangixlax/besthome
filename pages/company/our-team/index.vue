@@ -12,7 +12,7 @@ import { delay } from '~/lib/utils'
 
 @Component({
   components: { PageCompanyOurTeam },
-  head() {
+  head(): any {
     const title = this.$i18n.t('pages.our_team.title')
 
     return {

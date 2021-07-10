@@ -40,7 +40,7 @@ import { delay } from '~/lib/utils'
     BasePost,
     TypoText,
   },
-  head() {
+  head(): any {
     const title =
       this.$i18n.locale === 'ru'
         ? 'BEST HOME Construction – лидирующая строительная компания в Алании'

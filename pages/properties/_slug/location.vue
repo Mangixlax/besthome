@@ -39,6 +39,7 @@ import HeromapSlider from '~/components/HeromapSlider/HeromapSlider.vue'
 import { IProject } from '~/store/Catalog'
 import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.vue'
 import metaGenerator from '~/config/meta.js'
+import { delay } from '~/lib/utils'
 
 @Component({
   components: {
@@ -60,72 +61,73 @@ import metaGenerator from '~/config/meta.js'
     HeromapSlider,
     HeroImageTooltips,
   },
-  async asyncData(ctx: Context): Promise<object | void> {
-    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.projects'))
-    ctx.store.commit('PageTransition/animate')
+  async asyncData(ctx: Context): Promise<object> {
+    if (!process.server) {
+      await delay(200)
+      ctx.store.commit('PageTransition/animate', true)
+    } else {
+      ctx.store.commit('PageTransition/animate', false)
+    }
 
-    return new Promise(async (resolve) => {
-      if (!ctx.params.slug) {
-        return resolve(
-          ctx.redirect(
-            ctx.localePath({
-              name: 'projects',
-            }),
-          ),
-        )
-      }
+    if (!ctx.params.slug) {
+      ctx.redirect(
+        ctx.localePath({
+          name: 'projects',
+        }),
+      )
+    }
 
-      let project: IProject = ctx.store.getters['Catalog/getProject']
+    let project: IProject = ctx.store.getters['Catalog/getProject']
 
-      // Dont load project from api if project already saved in store
-      if (ctx.route.params.slug !== ctx.store.getters['Catalog/getProject'].slug) {
-        const projectId = (ctx.route.params.slug || '').split('-').pop()
+    // Dont load project from api if project already saved in store
+    if (ctx.route.params.slug !== ctx.store.getters['Catalog/getProject'].slug) {
+      const projectId = (ctx.route.params.slug || '').split('-').pop()
+
+      try {
         project = await ctx.store.dispatch('Catalog/fetchProject', projectId)
 
-        if (Object.keys(project).indexOf('error') !== -1) {
-          return resolve(ctx.error({}))
-        }
-
         if (project.slug !== ctx.route.params.slug) {
-          return resolve(
-            ctx.redirect(
-              301,
-              (ctx.app.router as VueRouter).resolve({
-                name: ctx.route.name as string,
-                params: { slug: project.slug },
-              }).href,
-            ),
+          ctx.redirect(
+            301,
+            (ctx.app.router as VueRouter).resolve({
+              name: ctx.route.name as string,
+              params: { slug: project.slug },
+            }).href,
           )
         }
 
         ctx.store.commit('Catalog/setProject', project)
         ctx.store.commit('Catalog/setFilters', project.filters)
+
+        ctx.store.commit('setBreadcrumbs', [
+          {
+            name: ctx.app.i18n.t('breadcrumbs.projects'),
+            route: {
+              name: 'projects',
+            },
+          },
+          {
+            name: project.short_name,
+            route: {
+              name: 'properties-slug-about',
+              params: ctx.route.params.slug,
+            },
+          },
+        ])
+      } catch ({ error }) {
+        ctx.error({ statusCode: error.http_code })
       }
+    }
 
-      ctx.store.commit('setBreadcrumbs', [
-        {
-          name: ctx.app.i18n.t('breadcrumbs.projects'),
-          route: {
-            name: 'projects',
-          },
-        },
-        {
-          name: project.short_name,
-          route: {
-            name: 'properties-slug-about',
-            params: ctx.route.params.slug,
-          },
-        },
-      ])
+    ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.projects'))
 
-      setTimeout(() => {
-        ctx.store.commit('PageTransition/animate')
-      }, 500)
+    setTimeout(() => {
+      ctx.store.commit('PageTransition/animate', false)
+    }, 500)
 
-      resolve({
-        project: project,
-      })
-    })
+    return {
+      project,
+    }
   },
   head(): any {
     const title =

@@ -26,7 +26,7 @@ import { delay } from '~/lib/utils'
 
 @Component({
   components: { TypoText, BaseImageTitle, PageServiceListCard, BaseTextContainer },
-  head() {
+  head(): any {
     const title =
       this.$i18n.locale === 'ru'
         ? 'Сервис постобслуживания наших покупателей недвижимости в Алании от BEST HOME'
