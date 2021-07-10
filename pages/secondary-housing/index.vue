@@ -15,17 +15,17 @@
         text: `<p>${$t('pages.secondary_housing.article_1')}</p>`,\
       }"
     )
-    catalog-wrapper(filter-dark-mode)
-      typo-text(
-        tag="h1"
-        version="style-2"
-        :class="$style['develop-msg']"
-      ) {{ $t('page_in_develop') }}
-      //- template(v-slot="{ isCardDisplay }")
-      //-   component(
-      //-     :is="isCardDisplay ? 'CatalogCards' : 'CatalogList'"
-      //-     :list="apartmentsList"
-      //-   )
+    typo-text(
+      tag="h1"
+      version="style-2"
+      :class="$style['develop-msg']"
+    ) {{ $t('page_in_develop') }}
+    //catalog-wrapper(filter-dark-mode)
+    //- template(v-slot="{ isCardDisplay }")
+    //-   component(
+    //-     :is="isCardDisplay ? 'CatalogCards' : 'CatalogList'"
+    //-     :list="apartmentsList"
+    //-   )
     base-subscribe(:subscribe-data="$t('footer.subscribe')" white-theme)
     base-accordions(:accordions-data="$t('footer.accordions')")
     footer-fast-links
@@ -112,5 +112,5 @@ export default class SecondaryHousingPage extends Vue {
 .develop-msg
   margin: 0
   text-align: center
-  height: calc( 100vh - 97px )
+  height: 300px
 </style>
