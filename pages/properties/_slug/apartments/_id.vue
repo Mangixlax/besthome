@@ -84,7 +84,7 @@
 </template>
 
 <script lang="ts">
-import {Component, Vue, Watch} from 'nuxt-property-decorator'
+import { Component, Vue, Watch } from 'nuxt-property-decorator'
 import { Context } from '@nuxt/types'
 import CatalogApartmentCard from '~/components/Catalog/CatalogApartmentCard.vue'
 import BaseProjectNavigation from '~/components/Base/BaseProjectNavigation.vue'
@@ -102,7 +102,7 @@ import CommonConsultantSlider from '~/components/Common/CommonConsultantSlider.v
 import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import metaGenerator from '~/config/meta.js'
-import {delay} from "~/lib/utils"
+import { delay } from '~/lib/utils'
 
 @Component({
   components: {
@@ -116,12 +116,12 @@ import {delay} from "~/lib/utils"
     BaseProjectNavigation,
     CatalogApartmentCard,
     Swiper,
-    SwiperSlide
+    SwiperSlide,
   },
   async asyncData(ctx: Context): Promise<void | object> {
     ctx.store.commit('PageTransition/animate', true)
 
-    !process.server && await delay(200)
+    !process.server && (await delay(200))
 
     // Fetch apartment data
     const { apartment, similarApartments, error } = await ctx.store.dispatch(
@@ -166,8 +166,8 @@ import {delay} from "~/lib/utils"
         name: apartment.project.name,
         route: {
           name: 'properties-slug-about',
-           params: {
-            slug: apartment.project.slug
+          params: {
+            slug: apartment.project.slug,
           },
         },
       },
@@ -176,16 +176,17 @@ import {delay} from "~/lib/utils"
         route: {
           name: 'properties-slug-apartments',
           params: {
-            slug: apartment.project.slug
+            slug: apartment.project.slug,
           },
         },
       },
       {
         name: apartment.name,
         route: {
-          name: 'properties-slug-apartments',
-           params: {
-            slug: apartment.project.slug
+          name: 'properties-slug-apartments-id',
+          params: {
+            slug: apartment.project.slug,
+            id: apartment.id,
           },
         },
       },
@@ -243,8 +244,8 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
     spaceBetween: 128,
     pagination: {
       el: '.swiper-pagination-progressbar',
-      type: 'progressbar'
-    }
+      type: 'progressbar',
+    },
   }
 
   get apartment(): IProjectApartment {
