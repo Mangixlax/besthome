@@ -86,7 +86,7 @@ export default class TopLine extends Vue {
     max-width: 1296px
     width: 100%
     height: 100%
-    padding: 0 16px
+    padding: 0 24px
     display: grid
     align-items: center
     justify-content: center
@@ -96,7 +96,7 @@ export default class TopLine extends Vue {
   &__close
     display: flex
     align-items: center
-    justify-content: center
+    justify-content: flex-end
     cursor: pointer
     width: 36px
     height: 100%
