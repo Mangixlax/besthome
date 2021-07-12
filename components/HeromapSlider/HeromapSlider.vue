@@ -73,7 +73,7 @@ export default {
   data() {
     return {
       swiperOption: {
-        
+        autoHeight: true,
         breakpoints: {
           // when window width is >= 250
           320: {},
@@ -130,6 +130,9 @@ export default {
   width: 100%
   padding: 80px 0
   position: relative
+
+  @media (max-width: 800px)
+    padding: 32px 0
 
   &__body
     padding-top: 48px
@@ -207,9 +210,14 @@ export default {
     @media (max-width: 1024px)
       padding: 0 24px
 
+[class*='swiper-wrapper']
+  @media (max-width: 700px)
+    align-items: flex-start
+  
 .slide
   display: flex
   max-width: 992px   !important
+  height: 100%
   max-height: 450px !important
   position: relative
   opacity: 1
@@ -257,12 +265,15 @@ export default {
     object-fit: cover
     max-width: 720px
     justify-self: center
-    height: 100%
+    height: 450px
     width: 100%
     
     @media (max-width: 1023px)
       max-width: 100%
-      height: auto
+      height: 450px
+
+    @media (max-width: 700px)
+      height: 350px
 
 .swiper-pagination-progressbar
   position: relative !important
