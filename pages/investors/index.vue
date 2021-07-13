@@ -22,7 +22,7 @@
           `<h3>${$t('pages.investors.post_2.title')}</h3>`,\
           ...$t('pages.investors.post_2.paragraph_1').map((p) => `<p>${p}<p>`),\
           `<p>${$t('pages.investors.post_2.paragraph_with_link')}`,\
-          `<a href='${this.localePath({ name: 'properties-slug-about', params: { slug: 'besthome-20-cleopatra-select-7' } })}'>${$t('pages.investors.post_2.link')}</a>.</p>`\
+          `<a href='${this.localePath({ name: 'properties-slug', params: { slug: 'besthome-20-cleopatra-select-7' } })}'>${$t('pages.investors.post_2.link')}</a>.</p>`\
         ].join(''),\
         align: 'right',\
         block_flip: true,\
@@ -47,7 +47,7 @@
         text: [\
           ...$t('pages.investors.post_4.paragraph_1').map((p) => `<p>${p}<p>`),\
           `<p>${$t('pages.investors.post_4.paragraph_with_link')}`,\
-          ` <a href='${this.localePath({ name: 'properties-slug-about', params: { slug: 'best-home-36-37-the-legend-12' } })}'>${$t('pages.investors.post_4.link')}</a>.</p>`,\
+          ` <a href='${this.localePath({ name: 'properties-slug', params: { slug: 'best-home-36-37-the-legend-12' } })}'>${$t('pages.investors.post_4.link')}</a>.</p>`,\
         ].join(''),\
         images: [\
           require(`~/assets/images/pages/investors/portrait-1.jpg`),\

@@ -25,7 +25,7 @@
           [$style['link-banner__link--icon']]: !card.sold_out\
         }"
         :to="card.allow_transition ? localePath({\
-          name: `properties-slug-about`,\
+          name: `properties-slug`,\
           params: { slug: card.slug }\
         }) : null"
         :title="card.allow_transition ? card.name : null"

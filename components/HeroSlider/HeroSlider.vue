@@ -149,7 +149,7 @@ export default class HeroSlider extends Vue {
           this.sliderTurnBackward()
         } else {
           // If not changed slide
-          this.$router.push(this.localePath({ name: 'properties-slug-about', params: {slug: this.slideLinksParams[this.currentSlideIndex] }}))
+          this.$router.push(this.localePath({ name: 'properties-slug', params: {slug: this.slideLinksParams[this.currentSlideIndex] }}))
           this.isSliderPressed = false
 
           // Set to default position caption

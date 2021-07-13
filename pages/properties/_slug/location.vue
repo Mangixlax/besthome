@@ -109,7 +109,7 @@ import { delay } from '~/lib/utils'
           {
             name: project.short_name,
             route: {
-              name: 'properties-slug-about',
+              name: 'properties-slug',
               params: ctx.route.params.slug,
             },
           },

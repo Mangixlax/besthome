@@ -165,7 +165,7 @@ import { delay } from '~/lib/utils'
       {
         name: apartment.project.name,
         route: {
-          name: 'properties-slug-about',
+          name: 'properties-slug',
           params: {
             slug: apartment.project.slug,
           },
@@ -295,12 +295,6 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
 
     document.addEventListener('scroll', this.onScroll)
     this.onScroll()
-
-    // Remove old class and set new class for styling a text in svg
-    ;((this.$refs.svgPlanning as Element).querySelectorAll('text') || []).forEach((el: Element) => {
-      el.setAttribute('class', '')
-      el.classList.add(this.$style['svg-text'])
-    })
 
     await this.$nextTick()
 
@@ -555,10 +549,6 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
   margin: 0 0 0 auto
   max-width: calc(50% - 630px + 736px)
 
-.svg-text
-  +style-6
-  font-size: 6px
-  color: $color-black-100
 
 .slider
   display: flex
