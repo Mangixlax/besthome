@@ -71,6 +71,7 @@ export default class PageProjectsInfrastructureSlider extends Vue {
         spaceBetween: 48,
       },
     },
+    autoHeight: true,
     spaceBetween: 24,
     pagination: {
       el: '.swiper-pagination-progressbar',
@@ -109,7 +110,9 @@ export default class PageProjectsInfrastructureSlider extends Vue {
     &-content
       max-width: 256px
       width: 100%
-      
+      display: flex
+      flex-direction: column
+
       h3
         color: $color-black-100
         margin: 0 0 16px
@@ -124,6 +127,10 @@ export default class PageProjectsInfrastructureSlider extends Vue {
       svg
         width: 72px
         height: 72px
+        
+        
+        @media (max-width: 600px)
+          align-self: center
 
       svg + h3
         margin-top: 16px
