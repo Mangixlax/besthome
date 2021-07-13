@@ -13,7 +13,7 @@
             nuxt-link(
               :to="localePath({ name: 'properties-slug', params: { slug } })"
               :class="$style['project-navigation__navbar-link']"
-              :active-class="$style['project-navigation__navbar-link--active']"
+              :exact-active-class="$style['project-navigation__navbar-link--active']"
             ) {{ $t('projects.navigation.about') }}
           li(:class="$style['project-navigation__navbar-item']")
             nuxt-link(
