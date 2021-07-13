@@ -9,17 +9,21 @@
         div(:class="$style['apartment__image']")
           div(:class="$style['apartment__image-background']")
             swiper(ref="swiper" :class="$style['slider']" class="swiper" :options="swiperOption")
-              swiper-slide(:class="$style['slide']")
+              swiper-slide(
+                v-for="(slide, i) in apartment.plans"
+                :class="$style['slide']"
+                )
                 div(:class="$style['apartment__image-background-inner']")
                   div(
                     ref="svgPlanning"
                     :class="$style['apartment__image-background-item']"
-                    v-html="svgPlanning"
-                  )
+
+                  ) 
+                    img(:src="slide")
               div(slot="pagination" :class="$style['navigation']")
-                div(:class="['swiper-pagination-progressbar', $style['swiper-pagination-progressbar']]")
+                div( v-if="apartment.plans.length > 1" :class="['swiper-pagination-progressbar', $style['swiper-pagination-progressbar']]")
                   div(class="status-bar")
-                div(:class="$style['buttons']")
+                div(:class="$style['buttons']" v-if="apartment.plans.length > 1")
                   button(:class="[$style['swiper-button-prev']]" @click.prevent="$refs.swiper.swiperInstance.slidePrev()")
                     svg-icon(name="slider-prev-arrow-blue")
                   button(:class="[$style['swiper-button-next']]" @click.prevent="$refs.swiper.swiperInstance.slideNext()")
@@ -147,14 +151,15 @@ import { delay } from '~/lib/utils'
       )
     }
 
-    let svgPlanning = ''
+    let svgPlanning = apartment.plans
 
-    // If apartment has a planning
-    if (apartment.plans && (apartment.plans || []).length) {
-      // Fetch svg code of apartment planning
-      svgPlanning = await ctx.$axios.$get(apartment.plans[0])
-    }
+    // // If apartment has a planning
+    // if (apartment.plans && (apartment.plans || []).length) {
+    //   // Fetch svg code of apartment planning
+    //   svgPlanning = await ctx.$axios.$get(apartment.plans[0])
+    // }
 
+    console.log(apartment.plans[0])
     ctx.store.commit('setBreadcrumbs', [
       {
         name: ctx.app.i18n.t('breadcrumbs.projects'),
@@ -246,6 +251,7 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
       el: '.swiper-pagination-progressbar',
       type: 'progressbar',
     },
+    watchOverflow: true
   }
 
   get apartment(): IProjectApartment {
