@@ -49,9 +49,14 @@
         ref="content"
         :class="$style['floor__content']"
         @mousemove="onMouseMove"
-      )
-        img(:src="localSelectedFloor.floor_plan.data.files[0].plan" loading="lazy")
-        div(:class="$style['floor__content-svg']" v-html="localSelectedFloor.floor_plan.data.files[0].svg_mask")
+      ) 
+        div(v-if="slides.length > 1")
+          button(:class="[$style['slider-button-prev']]" @click.prevent="changeSlideIndexToPrev")
+            svg-icon(name="slider-prev-arrow-blue")
+          button(:class="[$style['slider-button-next']]" @click.prevent="changeSlideIndexToNext")
+            svg-icon(name="slider-next-arrow-blue")
+        img(:src="localSelectedFloor.floor_plan.data.files[currentSlideIndex].plan" loading="lazy")
+        div(:class="$style['floor__content-svg']" v-html="localSelectedFloor.floor_plan.data.files[currentSlideIndex].svg_mask")
       div(:class="$style['floor__footer']")
         div(
           ref="miniature"
@@ -108,9 +113,15 @@ export default class HeroBuildingModalFloors extends Vue {
   @Prop({ type: Array, default: '' }) floors!: IProjectFloor[]
   @Prop({ type: Object, default: '' }) selectedFloor!: IProjectFloor
 
-  public swiperOption: any = {
-    slidesPerView: '1',
-    spaceBetween: 48,
+  public swiperOption: Object = {
+    slidesPerView: 'auto',
+    centeredSlides: true,
+    spaceBetween: 128,
+    pagination: {
+      el: '.swiper-pagination-progressbar',
+      type: 'progressbar',
+    },
+    watchOverflow: true
   }
 
   public localSelectedFloor: IProjectFloor = { ...this.selectedFloor }
@@ -130,6 +141,10 @@ export default class HeroBuildingModalFloors extends Vue {
   }
 
   public $apartments: any = []
+
+  public slides: Array<any> = []
+  public currentSlideIndex: number = 0
+  public nextSlideIndex: number = 1
 
   mounted() {
     this.onChangeLocalSelectedFloor()
@@ -164,7 +179,7 @@ export default class HeroBuildingModalFloors extends Vue {
   public getApartmentDataById(elementId: string = ''): Promise<IProjectApartment> {
     return new Promise((resolve, reject) => {
       const apartmentMatch: IApartmentMatch = this.apartmentMatching(elementId || '')
-
+      
       if (apartmentMatch.apartmentId) {
         const apartments = this.localSelectedFloor.apartments || []
         const apartmentIndex = apartments.findIndex((apartment: IProjectApartment) => {
@@ -262,9 +277,10 @@ export default class HeroBuildingModalFloors extends Vue {
   @Watch('localSelectedFloor')
   async onChangeLocalSelectedFloor() {
     await this.$nextTick()
-
     this._beforeDestroy()
-
+    
+    this.slides = this.localSelectedFloor.floor_plan.data.files
+    
     this.$apartments = (this.$refs.content as Element).querySelectorAll('[id*=apartment-]')
     ;(this.$apartments || []).forEach((el: Element) => {
       el.addEventListener('click', this.onClickToApartment)
@@ -293,7 +309,7 @@ export default class HeroBuildingModalFloors extends Vue {
       }
     }
   }
-
+  
   get selectedProject(): IProject {
     return this.$store.getters['Catalog/getProject']
   }
@@ -313,6 +329,7 @@ export default class HeroBuildingModalFloors extends Vue {
   }
 
   public onChangeFloorUp() {
+    this.currentSlideIndex = 0
     const selectedFloorIndex = this.getSelectedFloorIndex()
 
     if (selectedFloorIndex + 1 <= this.getMaxFloorIndex()) {
@@ -321,11 +338,50 @@ export default class HeroBuildingModalFloors extends Vue {
   }
 
   public onChangeFloorDown() {
+    this.currentSlideIndex = 0
     const selectedFloorIndex = this.getSelectedFloorIndex()
 
     if (selectedFloorIndex - 1 >= 0) {
       this.setSelectedFloor(selectedFloorIndex - 1)
     }
+  }
+
+  public changeSlideIndexToNext() {
+    const currentSlideIndex = this.currentSlideIndex + 1
+    const nextSlideIndex = currentSlideIndex + 1
+
+    if (currentSlideIndex >= this.slides.length) {
+      this.currentSlideIndex = 0
+      this.nextSlideIndex = 1
+    } else {
+      this.currentSlideIndex = currentSlideIndex
+
+      if (nextSlideIndex >= this.slides.length) {
+        this.nextSlideIndex = 0
+      } else {
+        this.nextSlideIndex = nextSlideIndex
+      }
+    }
+    this.onChangeLocalSelectedFloor()
+  }
+
+  public changeSlideIndexToPrev() {
+    const currentSlideIndex = this.currentSlideIndex - 1
+    const nextSlideIndex = currentSlideIndex - 1
+
+    if (currentSlideIndex < 0) {
+      this.currentSlideIndex = this.slides.length - 1
+      this.nextSlideIndex = 0
+    } else {
+      this.currentSlideIndex = currentSlideIndex
+
+      if (nextSlideIndex < 0) {
+        this.nextSlideIndex = this.slides.length - 1
+      } else {
+        this.nextSlideIndex = nextSlideIndex
+      }
+    }
+    this.onChangeLocalSelectedFloor()
   }
 }
 </script>
@@ -417,6 +473,18 @@ export default class HeroBuildingModalFloors extends Vue {
         &.disabled
           fill: $color-black-32
           cursor: default
+      
+      path
+        fill: $color-blue-56
+        transition: fill 0.25s ease
+
+        &:hover
+          fill: $color-blue-80
+          cursor: pointer
+
+        &.disabled
+          fill: $color-black-32
+          cursor: default
 
 .floor__footer
   transition: all .3s ease 0s
@@ -491,4 +559,49 @@ export default class HeroBuildingModalFloors extends Vue {
       &-down.disabled
         opacity: .5
         cursor: default
+
+.slider-button-prev
+  position: absolute
+  top: 50%
+  left: 10%
+  transform: translate(-50%, -50%)
+  display: block
+  margin-right: auto
+  outline: none
+  padding: 0
+  background-color: transparent
+  border: none
+  cursor: pointer
+  z-index: 100
+
+  @media (max-width: 1023px)
+    top: 80%
+    left: 20%
+
+  svg
+    width: 96px
+    height: 96px
+
+.slider-button-next
+  position: absolute
+  top: 50%
+  left: 90%
+  transform: translate(-50%, -50%)
+  display: block
+  margin-right: auto
+  outline: none
+  padding: 0
+  background-color: transparent
+  border: none
+  cursor: pointer
+  z-index: 100
+
+  @media (max-width: 1023px)
+    top: 80%
+    left: 80%
+
+  svg
+    width: 96px
+    height: 96px
+
 </style>

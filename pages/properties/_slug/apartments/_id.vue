@@ -17,7 +17,6 @@
                   div(
                     ref="svgPlanning"
                     :class="$style['apartment__image-background-item']"
-
                   ) 
                     img(:src="slide")
               div(slot="pagination" :class="$style['navigation']")
