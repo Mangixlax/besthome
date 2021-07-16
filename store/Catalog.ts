@@ -41,12 +41,28 @@ export interface IProjectFloor {
   miniature_html?: string
   available_apartments_count: number
   apartments?: IProjectApartment[]
-  floor_plan?: any
+  floor_plan: IProjectFloorPlan
   block?: {
     id: number
     name: string
     project_id: number
   }
+}
+
+export interface IProjectFloorPlan {
+  data: {
+    id: number
+    code: string
+    files: IProjectFloorPlanFile[]
+  }
+}
+
+export interface IProjectFloorPlanFile {
+  id: number
+  code: string
+  sort_order: number
+  plan: string
+  svg_mask: string
 }
 
 export interface IProjectBlock {
