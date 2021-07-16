@@ -41,6 +41,7 @@ export interface IProjectFloor {
   miniature_html?: string
   available_apartments_count: number
   apartments?: IProjectApartment[]
+  floor_plan?: any
   block?: {
     id: number
     name: string
