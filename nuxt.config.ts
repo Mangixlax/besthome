@@ -52,6 +52,14 @@ export default <NuxtConfig>{
         name: 'robots',
         content: 'noindex,nofollow',
       },
+      {
+        name: "google-site-verification",
+        content: "iPVWPRFbRkEFesQhD_VhzcjDGpwWziozh_RWikibR3k"
+      },
+      {
+        name: "ahrefs-site-verification",
+        content: "3ebedf4478217df957d0e324cf9024f86a3160204b30dcf6aba1ea0ed74dcaf5"
+      }
     ],
     link: [
       { rel: 'dns-prefetch', href: '//fonts.gstatic.com' },
