@@ -54,11 +54,15 @@ export default <NuxtConfig>{
       },
       {
         name: "google-site-verification",
-        content: "iPVWPRFbRkEFesQhD_VhzcjDGpwWziozh_RWikibR3k"
+        content: "iPVWPRFbRkEFesQhD_VhzcjDGpwWziozh_RWikibR3k",
       },
       {
         name: "ahrefs-site-verification",
-        content: "3ebedf4478217df957d0e324cf9024f86a3160204b30dcf6aba1ea0ed74dcaf5"
+        content: "3ebedf4478217df957d0e324cf9024f86a3160204b30dcf6aba1ea0ed74dcaf5",
+      },
+      {
+        name: "yandex-verification",
+        content: "e34759ffa654fd57",
       }
     ],
     link: [
@@ -210,7 +214,7 @@ export default <NuxtConfig>{
 
   router: {
     prefetchLinks: false,
-    trailingSlash: true,
+    trailingSlash: true
   },
 
   redirect: [
