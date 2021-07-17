@@ -11,6 +11,7 @@
             swiper(ref="swiper" :class="$style['slider']" class="swiper" :options="swiperOption")
               swiper-slide(
                 v-for="(slide, i) in apartment.plans"
+                :key="i"
                 :class="$style['slide']"
                 )
                 div(:class="$style['apartment__image-background-inner']")
@@ -106,6 +107,9 @@ import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import metaGenerator from '~/config/meta.js'
 import { delay } from '~/lib/utils'
+import { offerJsonLd } from '@/lib/catalog-helpers'
+import { objectIsFilled } from '@/lib/utils'
+import { getSiteUrl } from '@/lib/utils'
 
 @Component({
   components: {
@@ -158,7 +162,6 @@ import { delay } from '~/lib/utils'
     //   svgPlanning = await ctx.$axios.$get(apartment.plans[0])
     // }
 
-    console.log(apartment.plans[0])
     ctx.store.commit('setBreadcrumbs', [
       {
         name: ctx.app.i18n.t('breadcrumbs.projects'),
@@ -230,12 +233,15 @@ import { delay } from '~/lib/utils'
       link: [
         {
           rel: 'canonical',
-          href: `${process.env.PROTOCOL}://${process.env.DOMAIN}${this.$route.path}`,
+          href: getSiteUrl(this.localePath(this.$route.path), true),
         },
       ],
     }
   },
   scrollToTop: true,
+  mounted() {
+    console.log()
+  }
 })
 export default class PropertiesSlugApartmentsApartmentPage extends Vue {
   public svgPlanning: string = ''
@@ -313,8 +319,14 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
     }
 
     this.$store.commit('PageTransition/animate', false)
+    console.log(this.apartment)
   }
 
+  jsonld() {
+    if (!objectIsFilled(this.apartment)) return {}
+    return offerJsonLd(this, this.apartment)
+  }
+  
   public beforeDestroy() {
     this.$root.$off('navigation:sticky', this.onCheckNavigationSticky)
     document.removeEventListener('scroll', this.onScroll)

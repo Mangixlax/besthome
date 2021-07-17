@@ -5,6 +5,7 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import metaGenerator from '~/config/meta.js'
+import { getSiteUrl } from '@/lib/utils'
 
 @Component({
   head(): any {
@@ -26,7 +27,7 @@ import metaGenerator from '~/config/meta.js'
       link: [
         {
           rel: 'canonical',
-          href: `${process.env.PROTOCOL}://${process.env.DOMAIN}${this.$route.path}`,
+          href: getSiteUrl(this.localePath(this.$route.path), true),
         },
       ],
     }

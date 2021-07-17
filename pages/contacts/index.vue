@@ -10,6 +10,7 @@ import PageContactsMap from '~/components/Page/Contacts/PageContactsMap.vue'
 import CommonConsultantSlider from '~/components/Common/CommonConsultantSlider.vue'
 import metaGenerator from '~/config/meta.js'
 import { delay } from '~/lib/utils'
+import { getSiteUrl } from '@/lib/utils'
 
 @Component({
   components: {
@@ -31,7 +32,7 @@ import { delay } from '~/lib/utils'
       link: [
         {
           rel: 'canonical',
-          href: `${process.env.PROTOCOL}://${process.env.DOMAIN}${this.$route.path}`,
+          href: getSiteUrl(this.localePath(this.$route.path), true),
         },
       ],
     }

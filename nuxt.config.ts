@@ -138,6 +138,7 @@ export default <NuxtConfig>{
     'nuxt-i18n',
     '~/modules/recaptcha/module.js',
     '@nuxtjs/sitemap',
+    '@nuxtjs/redirect-module',
   ],
 
   sitemap: SitemapConfig,
@@ -217,18 +218,7 @@ export default <NuxtConfig>{
     trailingSlash: true
   },
 
-  redirect: [
-    {
-      from: '^[\\w\\.\\/]*(?<!\\/)(\\?.*\\=.*)*$',
-      to: (from: any, req: any) => {
-        const matches = req.url.match(/^.*(\?.*)$/)
-        if (matches.length > 1) {
-          return matches[0].replace(matches[1], '') + '/' + matches[1]
-        }
-        return matches[0]
-      },
-    },
-  ],
+  redirect: [{ from: '^(\\/[^\\?]*[^\\/])(\\?.*)?$', to: '$1/$2' }],
 
   /*
    ** Build configuration
