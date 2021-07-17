@@ -23,6 +23,10 @@ export interface IProject {
   location_data?: Array<object>
   gallery_data?: Array<object>
   choose_ap_data?: Array<object>
+  seo_about?: IProjectSeo | null
+  seo_location?: IProjectSeo | null
+  seo_gallery?: IProjectSeo | null
+  seo_choose_ap?: IProjectSeo | null
   allow_transition?: boolean
   miniature_html?: string
   filters?: IProjectApartmentsFilter
@@ -32,6 +36,12 @@ export interface IProject {
   location?: string
   start_building?: string
   end_building?: string
+}
+
+export interface IProjectSeo {
+  title?: string
+  description?: string
+  content?: string
 }
 
 export interface IProjectFloor {
@@ -89,6 +99,7 @@ export interface IProjectApartment {
   area: string
   price: number
   name: string
+  number: string
   total_floors?: number
   room: IProjectRoom
   project: IProject
