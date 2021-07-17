@@ -14,6 +14,7 @@ import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
 import { Component, Vue } from 'nuxt-property-decorator'
 import { delay } from '~/lib/utils'
 import metaGenerator from '~/config/meta'
+import { getSiteUrl } from '@/lib/utils'
 
 @Component({
   components: {
@@ -35,7 +36,7 @@ import metaGenerator from '~/config/meta'
       link: [
         {
           rel: 'canonical',
-          href: `${process.env.PROTOCOL}://${process.env.DOMAIN}${this.$route.path}`,
+          href: getSiteUrl(this.localePath(this.$route.path), true),
         },
       ],
     }

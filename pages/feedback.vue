@@ -220,6 +220,7 @@ import { email, minLength, required } from 'vuelidate/lib/validators'
 import VFormTextarea from '~/components/form/VFormTextarea.vue'
 import metaGenerator from '~/config/meta.js'
 import {delay} from "~/lib/utils"
+import { getSiteUrl } from '@/lib/utils'
 
 @Component({
   layout: 'modal',
@@ -284,7 +285,7 @@ import {delay} from "~/lib/utils"
       link: [
         {
           rel: 'canonical',
-          href: `${process.env.PROTOCOL}://${process.env.DOMAIN}${this.$route.path}`,
+          href: getSiteUrl(this.localePath(this.$route.path), true),
         },
       ],
     }
