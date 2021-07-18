@@ -107,10 +107,12 @@ import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import metaGenerator from '~/config/meta.js'
 import { delay } from '~/lib/utils'
-// import { offerJsonLd } from '@/lib/catalog-helpers'
+import { offerJsonLd } from '@/lib/catalog-helpers'
 import { objectIsFilled } from '@/lib/utils'
 import { getSiteUrl } from '@/lib/utils'
+import { Jsonld } from 'nuxt-jsonld'
 
+@Jsonld
 @Component({
   components: {
     FooterFastLinks,
@@ -241,7 +243,7 @@ import { getSiteUrl } from '@/lib/utils'
   scrollToTop: true,
   mounted() {
     console.log()
-  }
+  },
 })
 export default class PropertiesSlugApartmentsApartmentPage extends Vue {
   public svgPlanning: string = ''
@@ -256,7 +258,7 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
       el: '.swiper-pagination-progressbar',
       type: 'progressbar',
     },
-    watchOverflow: true
+    watchOverflow: true,
   }
 
   get apartment(): IProjectApartment {
@@ -306,7 +308,7 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
 
     document.addEventListener('scroll', this.onScroll)
     this.onScroll()
-
+    console.log(this.apartment)
     await this.$nextTick()
 
     // Select miniature
@@ -322,11 +324,11 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
     console.log(this.apartment)
   }
 
-  // jsonld() {
-  //   if (!objectIsFilled(this.apartment)) return {}
-  //   return offerJsonLd(this, this.apartment)
-  // }
-  
+  jsonld() {
+    if (!objectIsFilled(this.apartment)) return {}
+    return offerJsonLd(this, this.apartment)
+  }
+
   public beforeDestroy() {
     this.$root.$off('navigation:sticky', this.onCheckNavigationSticky)
     document.removeEventListener('scroll', this.onScroll)
