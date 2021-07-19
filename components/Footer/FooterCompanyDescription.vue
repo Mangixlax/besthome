@@ -17,21 +17,19 @@
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from 'nuxt-property-decorator'
 import TypoText from '~/components/Base/TypoText.vue'
-
 @Component({ components: { TypoText } })
 export default class FooterCompanyDescription extends Vue {
   @Prop({ type: Array, default: () => [] }) paragraphs!: Array<string>
 
   public isSeoContentView: boolean = false
 
-  get seoContent(): any {
+  get seoContent(): string | null {
     return this.$store.getters['Catalog/getPageSeoContent']
   }
 
-  @Watch('$route')
-  async onChangeRoute() {
-    const regex = /properties/
-    if ((regex as any).test(this.$route.path)) {
+  @Watch('$route.path')
+  async onChangeRoute(path: string) {
+    if (path.indexOf('properties') !== -1) {
       this.isSeoContentView = true
     } else {
       this.isSeoContentView = false

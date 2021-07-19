@@ -21,11 +21,7 @@ import FooterCopyright from '~/components/Footer/FooterCopyright.vue'
     FooterCopyright,
   },
 })
-export default class Footer extends Vue {
-  get getProject(): any {
-    return this.$store.getters['Catalog/getProject']
-  }
-}
+export default class Footer extends Vue {}
 </script>
 
 <style lang="sass" module>
