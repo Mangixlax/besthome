@@ -17,6 +17,7 @@
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from 'nuxt-property-decorator'
 import TypoText from '~/components/Base/TypoText.vue'
+
 @Component({ components: { TypoText } })
 export default class FooterCompanyDescription extends Vue {
   @Prop({ type: Array, default: () => [] }) paragraphs!: Array<string>
