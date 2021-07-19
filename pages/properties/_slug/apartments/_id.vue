@@ -18,7 +18,7 @@
                   div(
                     ref="svgPlanning"
                     :class="$style['apartment__image-background-item']"
-                  ) 
+                  )
                     img(:src="slide")
               div(slot="pagination" :class="$style['navigation']")
                 div( v-if="apartment.plans.length > 1" :class="['swiper-pagination-progressbar', $style['swiper-pagination-progressbar']]")
@@ -126,87 +126,87 @@ import { getSiteUrl } from '@/lib/utils'
     SwiperSlide,
   },
   async asyncData(ctx: Context): Promise<void | object> {
-    ctx.store.commit('PageTransition/animate', true)
-
-    !process.server && (await delay(200))
-
-    // Fetch apartment data
-    const { apartment, similarApartments, error } = await ctx.store.dispatch(
-      'Catalog/fetchApartment',
-      ctx.params.id,
-    )
-
-    // Show error page if has error in response
-    if (error || Object.keys(apartment || { error: '' }).indexOf('error') !== -1) {
-      ctx.error({})
-    }
-
-    // Redirect to new apartment slug if project.slug and params.slug not equal
-    if (apartment.project.slug !== ctx.params.slug) {
-      ctx.redirect(
-        ctx.localePath({
-          name: 'properties-slug-apartments-id',
-          params: {
-            slug: apartment.project.slug,
-            id: apartment.id,
-          },
-        }),
-      )
-    }
-
-    let svgPlanning = apartment.plans
-
-    // // If apartment has a planning
-    // if (apartment.plans && (apartment.plans || []).length) {
-    //   // Fetch svg code of apartment planning
-    //   svgPlanning = await ctx.$axios.$get(apartment.plans[0])
-    // }
-
-    ctx.store.commit('setBreadcrumbs', [
-      {
-        name: ctx.app.i18n.t('breadcrumbs.projects'),
-        route: {
-          name: 'projects',
-        },
-      },
-      {
-        name: apartment.project.name,
-        route: {
-          name: 'properties-slug',
-          params: {
-            slug: apartment.project.slug,
-          },
-        },
-      },
-      {
-        name: ctx.app.i18n.t('breadcrumbs.apartments'),
-        route: {
-          name: 'properties-slug-apartments',
-          params: {
-            slug: apartment.project.slug,
-          },
-        },
-      },
-      {
-        name: apartment.name,
-        route: {
-          name: 'properties-slug-apartments-id',
-          params: {
-            slug: apartment.project.slug,
-            id: apartment.id,
-          },
-        },
-      },
-    ])
-
-    setTimeout(() => {
+    if (!process.server) {
+      await delay(200)
+      ctx.store.commit('PageTransition/animate', true)
+    } else {
       ctx.store.commit('PageTransition/animate', false)
-    }, 500)
-
-    return {
-      svgPlanning,
-      similarApartments,
     }
+
+    let svgPlanning = []
+
+    try {
+      // Fetch apartment data
+      const { apartment, similarApartments } = await ctx.store.dispatch(
+        'Catalog/fetchApartment',
+        ctx.params.id,
+      )
+
+      // Redirect to new apartment slug if project.slug and params.slug not equal
+      if (apartment.project.slug !== ctx.params.slug) {
+        ctx.redirect(
+          ctx.localePath({
+            name: 'properties-slug-apartments-id',
+            params: {
+              slug: apartment.project.slug,
+              id: apartment.id,
+            },
+          }),
+        )
+      }
+
+      svgPlanning = apartment.plans
+
+      ctx.store.commit('setBreadcrumbs', [
+        {
+          name: ctx.app.i18n.t('breadcrumbs.projects'),
+          route: {
+            name: 'projects',
+          },
+        },
+        {
+          name: apartment.project.name,
+          route: {
+            name: 'properties-slug',
+            params: {
+              slug: apartment.project.slug,
+            },
+          },
+        },
+        {
+          name: ctx.app.i18n.t('breadcrumbs.apartments'),
+          route: {
+            name: 'properties-slug-apartments',
+            params: {
+              slug: apartment.project.slug,
+            },
+          },
+        },
+        {
+          name: apartment.name,
+          route: {
+            name: 'properties-slug-apartments-id',
+            params: {
+              slug: apartment.project.slug,
+              id: apartment.id,
+            },
+          },
+        },
+      ])
+
+      setTimeout(() => {
+        ctx.store.commit('PageTransition/animate', false)
+      }, 500)
+
+      return {
+        svgPlanning,
+        similarApartments,
+      }
+    } catch ({ error }) {
+      ctx.error({ statusCode: error.http_code })
+    }
+
+    return {}
   },
   head(): any {
     const title =
@@ -326,7 +326,7 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
   //   if (!objectIsFilled(this.apartment)) return {}
   //   return offerJsonLd(this, this.apartment)
   // }
-  
+
   public beforeDestroy() {
     this.$root.$off('navigation:sticky', this.onCheckNavigationSticky)
     document.removeEventListener('scroll', this.onScroll)
