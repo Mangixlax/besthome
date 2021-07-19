@@ -241,9 +241,6 @@ import { Jsonld } from 'nuxt-jsonld'
     }
   },
   scrollToTop: true,
-  mounted() {
-    console.log()
-  },
 })
 export default class PropertiesSlugApartmentsApartmentPage extends Vue {
   public svgPlanning: string = ''
@@ -308,7 +305,6 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
 
     document.addEventListener('scroll', this.onScroll)
     this.onScroll()
-    console.log(this.apartment)
     await this.$nextTick()
 
     // Select miniature
@@ -321,7 +317,6 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
     }
 
     this.$store.commit('PageTransition/animate', false)
-    console.log(this.apartment)
   }
 
   jsonld() {
