@@ -6,11 +6,10 @@
         v-html="seoContent"
         :class="$style['company__container-text']"
       )
-      div(v-else)
-        typo-text(
+      div(v-else) 
+        p(
           v-for="(paragraph, i) in paragraphs"
           :key="i"
-          tag="p"
           :class="$style['company__container-text']"
         ) {{ paragraph }}
 </template>
@@ -56,6 +55,7 @@ export default class FooterCompanyDescription extends Vue {
       padding: 24px 24px
 
     &-text
+      display: inline-block
       margin: 0px
       +style-8($with-media: false)
 </style>
