@@ -53,17 +53,17 @@ export default <NuxtConfig>{
         content: 'noindex,nofollow',
       },
       {
-        name: "google-site-verification",
-        content: "iPVWPRFbRkEFesQhD_VhzcjDGpwWziozh_RWikibR3k",
+        name: 'google-site-verification',
+        content: 'iPVWPRFbRkEFesQhD_VhzcjDGpwWziozh_RWikibR3k',
       },
       {
-        name: "ahrefs-site-verification",
-        content: "3ebedf4478217df957d0e324cf9024f86a3160204b30dcf6aba1ea0ed74dcaf5",
+        name: 'ahrefs-site-verification',
+        content: '3ebedf4478217df957d0e324cf9024f86a3160204b30dcf6aba1ea0ed74dcaf5',
       },
       {
-        name: "yandex-verification",
-        content: "e34759ffa654fd57",
-      }
+        name: 'yandex-verification',
+        content: 'e34759ffa654fd57',
+      },
     ],
     link: [
       { rel: 'dns-prefetch', href: '//fonts.gstatic.com' },
@@ -112,11 +112,11 @@ export default <NuxtConfig>{
     '@nuxt/typescript-build',
     // https://github.com/nuxt-community/style-resources-module
     '@nuxtjs/style-resources',
-    ...(isDev ? ['@nuxtjs/google-analytics'] : [])
+    ...(!isDev ? ['@nuxtjs/google-analytics'] : []),
   ],
 
   googleAnalytics: {
-    id: 'UA-202582567-1'
+    id: 'UA-202582567-1',
   },
 
   yandexMetrika: {
@@ -153,9 +153,9 @@ export default <NuxtConfig>{
     '~/modules/recaptcha/module.js',
     '@nuxtjs/sitemap',
     '@nuxtjs/redirect-module',
-    ...(isDev ? ['@nuxtjs/yandex-metrika'] : [])
+    ...(!isDev ? ['@nuxtjs/yandex-metrika'] : []),
   ],
- 
+
   sitemap: SitemapConfig,
 
   i18n: {
@@ -230,7 +230,7 @@ export default <NuxtConfig>{
 
   router: {
     prefetchLinks: false,
-    trailingSlash: true
+    trailingSlash: true,
   },
 
   redirect: [{ from: '^(\\/[^\\?]*[^\\/])(\\?.*)?$', to: '$1/$2' }],

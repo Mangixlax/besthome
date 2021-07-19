@@ -121,7 +121,7 @@ export default class HeroBuildingModalFloors extends Vue {
       el: '.swiper-pagination-progressbar',
       type: 'progressbar',
     },
-    watchOverflow: true
+    watchOverflow: true,
   }
 
   public localSelectedFloor: IProjectFloor = { ...this.selectedFloor }
@@ -179,7 +179,7 @@ export default class HeroBuildingModalFloors extends Vue {
   public getApartmentDataById(elementId: string = ''): Promise<IProjectApartment> {
     return new Promise((resolve, reject) => {
       const apartmentMatch: IApartmentMatch = this.apartmentMatching(elementId || '')
-      
+
       if (apartmentMatch.apartmentId) {
         const apartments = this.localSelectedFloor.apartments || []
         const apartmentIndex = apartments.findIndex((apartment: IProjectApartment) => {
@@ -278,9 +278,9 @@ export default class HeroBuildingModalFloors extends Vue {
   async onChangeLocalSelectedFloor() {
     await this.$nextTick()
     this._beforeDestroy()
-    
+
     this.slides = this.localSelectedFloor.floor_plan.data.files
-    
+
     this.$apartments = (this.$refs.content as Element).querySelectorAll('[id*=apartment-]')
     ;(this.$apartments || []).forEach((el: Element) => {
       el.addEventListener('click', this.onClickToApartment)
@@ -309,7 +309,7 @@ export default class HeroBuildingModalFloors extends Vue {
       }
     }
   }
-  
+
   get selectedProject(): IProject {
     return this.$store.getters['Catalog/getProject']
   }
@@ -473,7 +473,7 @@ export default class HeroBuildingModalFloors extends Vue {
         &.disabled
           fill: $color-black-32
           cursor: default
-      
+
       path
         fill: $color-blue-56
         transition: fill 0.25s ease
@@ -582,6 +582,10 @@ export default class HeroBuildingModalFloors extends Vue {
     width: 96px
     height: 96px
 
+    @media (max-width: 1023px)
+      height: 76px
+      width: 76px
+
 .slider-button-next
   position: absolute
   top: 50%
@@ -604,4 +608,7 @@ export default class HeroBuildingModalFloors extends Vue {
     width: 96px
     height: 96px
 
+    @media (max-width: 1023px)
+      height: 76px
+      width: 76px
 </style>
