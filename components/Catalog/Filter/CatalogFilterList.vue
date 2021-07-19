@@ -55,7 +55,7 @@
     //  title="ADVANTAGES"
     //  :filter-items="checkboxFilterItems"
     //)
-    div(:class="$style['filter-button']")
+    div(:class="$style['filter-button']" @click="closeFilter")
       | {{ $t('modals.mobile_filter') }}
 </template>
 
@@ -180,6 +180,11 @@ export default class CatalogFilterList extends Vue {
 
     await this.$store.dispatch('Catalog/fetchApartments')
   }
+
+  public closeFilter() {
+    this.$modal.hide('modal-mobile-filter')
+  }
+  // @TODO Передать имя модальног окна
 }
 </script>
 
@@ -190,7 +195,7 @@ export default class CatalogFilterList extends Vue {
   min-height: 100%
   padding: 32px
   grid-gap: 40px
-  
+
   &-button
     +style-5
     padding: 5px 24px
@@ -199,7 +204,7 @@ export default class CatalogFilterList extends Vue {
     background: $color-white-100
     width: fit-content
     align-self: flex-end
-    
+
     @media (min-width: 1000px)
       display: none
 </style>

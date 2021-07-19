@@ -112,7 +112,21 @@ export default <NuxtConfig>{
     '@nuxt/typescript-build',
     // https://github.com/nuxt-community/style-resources-module
     '@nuxtjs/style-resources',
+    ...(isDev ? ['@nuxtjs/google-analytics'] : [])
   ],
+
+  googleAnalytics: {
+    id: 'UA-202582567-1'
+  },
+
+  yandexMetrika: {
+    id: '83054044',
+    webvisor: true,
+    clickmap: true,
+    useCDN: false,
+    trackLinks: true,
+    accurateTrackBounce: true,
+  },
 
   styleResources: {
     sass: ['~/sass/_mixins.sass', '~/sass/_colors.sass'],
@@ -139,8 +153,9 @@ export default <NuxtConfig>{
     '~/modules/recaptcha/module.js',
     '@nuxtjs/sitemap',
     '@nuxtjs/redirect-module',
+    ...(isDev ? ['@nuxtjs/yandex-metrika'] : [])
   ],
-
+ 
   sitemap: SitemapConfig,
 
   i18n: {
