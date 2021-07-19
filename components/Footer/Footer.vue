@@ -21,7 +21,11 @@ import FooterCopyright from '~/components/Footer/FooterCopyright.vue'
     FooterCopyright,
   },
 })
-export default class Footer extends Vue {}
+export default class Footer extends Vue {
+  get getProject(): any {
+    return this.$store.getters['Catalog/getProject']
+  }
+}
 </script>
 
 <style lang="sass" module>
@@ -33,5 +37,4 @@ export default class Footer extends Vue {}
 .cookies
   position: absolute
   top: -367px
-
 </style>

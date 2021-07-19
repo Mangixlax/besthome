@@ -136,25 +136,19 @@ import { getSiteUrl } from '@/lib/utils'
     ])
 
     ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.projects'))
+    ctx.store.commit('Catalog/setPageSeoContent', project.seo_choose_ap?.content)
 
     setTimeout(() => {
       ctx.store.commit('PageTransition/animate', false)
     }, 500)
-
     return {
       project,
     }
   },
   head(): any {
-    const title =
-      this.$i18n.locale === 'ru'
-        ? `${this.getProject.name} Аланья, купить недвижимость в Турции по цене застройщика`
-        : `${this.getProject.name} Alanya, buy property in Turkey at the developer's price`
+    const title = this.project.seo_choose_ap?.title
 
-    const description =
-      this.$i18n.locale === 'ru'
-        ? `Продажа недвижимости по цене от застройщика в Алании ${this.getProject.name}. Официальный сайт турецкой строительной компании BEST HOME. Купить недвижимость в +город без переплат, в рассрочку и ипотеку`
-        : `Sale of real estate at a price from the developer in Alanya ${this.getProject.name}. The official website of the Turkish construction company BEST HOME. Buy real estate in + city without overpayments, in installments and a mortgage`
+    const description = this.project.seo_choose_ap?.description
 
     return {
       title,

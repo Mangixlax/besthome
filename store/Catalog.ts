@@ -146,6 +146,7 @@ export const state = () => ({
   filters: {} as IProjectApartmentsFilter,
   selectedFilters: {} as any,
   loading: false as boolean,
+  pageSeoContent: "" as string
 })
 
 export type CatalogState = ReturnType<typeof state>
@@ -165,6 +166,7 @@ export const getters: GetterTree<CatalogState, RootState> = {
   getApartment: (state): IProjectApartment => state.apartment,
   getApartments: (state): IProjectApartment[] => state.apartments,
   getFilters: (state): IProjectApartmentsFilter => state.filters,
+  getPageSeoContent: (state): string => state.pageSeoContent
 }
 
 /**
@@ -198,6 +200,9 @@ export const mutations: MutationTree<CatalogState> = {
   setLoading: (state: CatalogState, value: boolean) => {
     state.loading = value
   },
+  setPageSeoContent: (state: CatalogState, value: string ) => {
+    state.pageSeoContent = value
+  }
 }
 
 /**
