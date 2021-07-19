@@ -123,8 +123,8 @@ export default class FooterCopyright extends Vue {
           addressCountry: 'Турция',
         },
       ]
-      json.url = 'https://gold-ahiskali.com/ru/'
-      json['@id'] = 'https://gold-ahiskali.com/ru/'
+      json.url = 'https://besthome.com.tr/'
+      json['@id'] = 'https://besthome.com.tr/'
     }
 
     return json
