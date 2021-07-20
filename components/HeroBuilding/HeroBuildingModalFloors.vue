@@ -102,7 +102,7 @@ interface ITooltip {
 }
 
 interface IApartmentMatch {
-  apartmentId: string | number
+  apartmentNumber: string | number
 }
 
 @Component({
@@ -112,17 +112,6 @@ export default class HeroBuildingModalFloors extends Vue {
   @Prop({ type: String, default: '' }) name!: string
   @Prop({ type: Array, default: '' }) floors!: IProjectFloor[]
   @Prop({ type: Object, default: '' }) selectedFloor!: IProjectFloor
-
-  public swiperOption: Object = {
-    slidesPerView: 'auto',
-    centeredSlides: true,
-    spaceBetween: 128,
-    pagination: {
-      el: '.swiper-pagination-progressbar',
-      type: 'progressbar',
-    },
-    watchOverflow: true,
-  }
 
   public localSelectedFloor: IProjectFloor = { ...this.selectedFloor }
 
@@ -164,15 +153,15 @@ export default class HeroBuildingModalFloors extends Vue {
     this.cleanTooltip()
   }
 
-  public apartmentMatching(apartmentId: string): IApartmentMatch {
-    const apartmentMatch = /^apartment-(\d+)$/m.exec(apartmentId)
+  public apartmentMatching(apartmentNumber: string): IApartmentMatch {
+    const apartmentMatch = /^apartment-(\d+)$/m.exec(apartmentNumber)
 
     if (apartmentMatch !== null && (apartmentMatch || []).length === 2) {
-      return { apartmentId: apartmentMatch[1] }
+      return { apartmentNumber: apartmentMatch[1] }
     }
 
     return {
-      apartmentId: '',
+      apartmentNumber: '',
     }
   }
 
@@ -180,10 +169,10 @@ export default class HeroBuildingModalFloors extends Vue {
     return new Promise((resolve, reject) => {
       const apartmentMatch: IApartmentMatch = this.apartmentMatching(elementId || '')
 
-      if (apartmentMatch.apartmentId) {
+      if (apartmentMatch.apartmentNumber) {
         const apartments = this.localSelectedFloor.apartments || []
         const apartmentIndex = apartments.findIndex((apartment: IProjectApartment) => {
-          return apartment.id.toString() === apartmentMatch.apartmentId.toString()
+          return apartment.number.toString() === apartmentMatch.apartmentNumber.toString()
         })
 
         if (apartmentIndex !== -1) {
