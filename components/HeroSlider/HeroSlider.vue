@@ -23,10 +23,9 @@
     )
       div(:class="$style['slide__counter']")
         | {{ $t('pages.home.hero_slider_data.label_1') }} {{ currentSlideIndex + 1 }} {{ $t('pages.home.hero_slider_data.label_2') }} {{ slides.length }}
-      a(
+      div(
         ref="caption"
         :class="$style['slide__caption']"
-        href="#"
       )
         typo-text(
           tag="h1"
