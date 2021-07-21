@@ -20,7 +20,7 @@
     </mask>
     <g mask="url(#a)">
       <path
-        fill="#FF7714"
+        fill="#0066CC"
         fill-rule="evenodd"
         d="M60.667 18c-.92 0-1.667.746-1.667 1.667v.666c0 .92.746 1.667 1.667 1.667h.666c.92 0 1.667-.746 1.667-1.667v-.666c0-.92-.746-1.667-1.667-1.667h-.666z"
         clip-rule="evenodd"
@@ -34,8 +34,8 @@
       <rect
         width="80"
         height="32"
-        fill="#191F2E"
-        fill-opacity=".02"
+        fill="#1111110a"
+        fill-opacity=".8"
         rx="6"
       />
     </g>
@@ -50,5 +50,5 @@ export default {
 
 <style lang="sass" module>
 .svg-container
-  width: 80px
+  width: 110px
 </style>

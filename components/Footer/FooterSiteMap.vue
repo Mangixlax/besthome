@@ -41,7 +41,7 @@
         :class="$style['footer__logos-item']"
       )
         img(
-          src="https://images.dmca.com/Badges/dmca_protected_sml_120m.png?ID=09d50f11-0f90-42ba-84a5-43513eabbc18" 
+          src="https://images.dmca.com/Badges/dmca_protected_26_120.png?ID=09d50f11-0f90-42ba-84a5-43513eabbc18%22" 
           alt="DMCA.com Protection Status" 
           width="121px" 
           height="24px"
@@ -207,14 +207,16 @@ export default class FooterSiteMap extends Vue {
     margin-top: 32px
     grid-gap: 16px
     align-items: center
+
     &-item
       display: flex
       align-items: center
       justify-content: center
-      background-color: #fbfbfb
-      padding: 0 12px
+      background-color: $color-black-4
+      padding: 6px 12px
       border-radius: 6px
 
       img
         height: 100%
+        width: 70px
 </style>
