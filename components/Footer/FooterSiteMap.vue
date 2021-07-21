@@ -30,16 +30,34 @@
           :class="$style['map__phone-link']"
         )
           svg-icon(name="link-arrow")
+    div(:class="$style['footer__logos']")
+      a(href='https://sabr.com.tr/' target='_blank' :class="$style['developer-logo']" title="Sabr. Digital Agency")
+        developer-logo
+      a(
+        href="//www.dmca.com/Protection/Status.aspx?ID=09d50f11-0f90-42ba-84a5-43513eabbc18"
+        title="DMCA.com Protection Status"
+        target="_blank"
+        class="dmca-badge"
+        :class="$style['footer__logos-item']"
+      )
+        img(
+          src="https://images.dmca.com/Badges/dmca_protected_sml_120m.png?ID=09d50f11-0f90-42ba-84a5-43513eabbc18" 
+          alt="DMCA.com Protection Status" 
+          width="121px" 
+          height="24px"
+        )
+      script(src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js")
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import BaseFastLinks from '~/components/Base/BaseFastLinks.vue'
 import TypoText from '~/components/Base/TypoText.vue'
+import DeveloperLogo from '@/components/svg/Developer.vue'
 import { IMenus, NavigationListItem } from '~/store/Navigation'
 
 @Component({
-  components: { BaseFastLinks, TypoText },
+  components: { BaseFastLinks, TypoText, DeveloperLogo },
 })
 export default class FooterSiteMap extends Vue {
   get chooseAndBuy(): IMenus<NavigationListItem[]> {
@@ -182,4 +200,21 @@ export default class FooterSiteMap extends Vue {
 
       @media (max-width: 600px)
         margin-left: 0px
+
+.footer
+  &__logos
+    display: flex
+    margin-top: 32px
+    grid-gap: 16px
+    align-items: center
+    &-item
+      display: flex
+      align-items: center
+      justify-content: center
+      background-color: #fbfbfb
+      padding: 0 12px
+      border-radius: 6px
+
+      img
+        height: 100%
 </style>
