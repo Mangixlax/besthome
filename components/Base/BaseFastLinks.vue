@@ -8,7 +8,10 @@
           :key="i"
           :class="$style['fastlinks__item']"
         )
-          a(:class="$style['fastlinks__item-link']" href="#")
+          nuxt-link(
+            :class="$style['fastlinks__item-link']" 
+            :to="localePath(link.route)"
+          )
             span(:class="$style['fastlinks__item-link--underline']")
               | {{ link.name }}
             svg-icon(name="link-arrow")
@@ -61,10 +64,12 @@ export default class BaseFastLinks extends Vue {
   }
 
   mounted() {
+    console.log(this.list)
     if (this.active) {
       this.showAccordion()
     }
   }
+  
 }
 </script>
 
