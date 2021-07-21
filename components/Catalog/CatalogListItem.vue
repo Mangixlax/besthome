@@ -1,5 +1,14 @@
 <template lang="pug">
-  div(:class="$style['catalog-list-item__list']")
+  nuxt-link(
+    :class="$style['catalog-list-item__list']"
+    :to="localePath({\
+      name: 'properties-slug-apartments-id',\
+      params: {\
+        slug: $route.params.slug,\
+        id: itemData.id\
+      }\
+    })"
+  )
     div(:class="$style['catalog-list-item__list-item']")
       typo-text(
         tag="div"
@@ -78,13 +87,15 @@ export default class CatalogListItem extends Vue {
 <style lang="sass" module>
 .catalog-list-item__list
   list-style: none
+  text-decoration: none
   display: grid
   padding: 8px
   margin: 0
   grid-template-columns: 125px 1fr 1fr 1fr 1fr 1fr
   border-top: solid 1px $color-black-4
   align-items: center
-
+  color: $color-black-100
+  
   &-item
     display: flex
     align-items: center
