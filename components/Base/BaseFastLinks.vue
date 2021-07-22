@@ -64,7 +64,6 @@ export default class BaseFastLinks extends Vue {
   }
 
   mounted() {
-    console.log(this.list)
     if (this.active) {
       this.showAccordion()
     }

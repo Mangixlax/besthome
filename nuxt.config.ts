@@ -64,6 +64,10 @@ export default <NuxtConfig>{
         name: 'yandex-verification',
         content: 'e34759ffa654fd57',
       },
+      {
+        name: 'dmca-site-verify',
+        content: 'enJjc1dGMmhQVUYwZEtNVGdtb012Zz090',
+      },
     ],
     link: [
       { rel: 'dns-prefetch', href: '//fonts.gstatic.com' },
