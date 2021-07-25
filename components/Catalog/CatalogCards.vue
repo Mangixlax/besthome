@@ -9,7 +9,12 @@
     div(
       v-if="!list.length"
       :class="$style['catalog-cards__empty']"
-    ) {{ $t('pages.apartments.empty_list') }}
+    ) {{ $t('pages.apartments.empty_list.text') }}
+      span(
+        @click="goToFeedback"
+        :class="$style['catalog-cards__empty-link']"
+      ) {{ $t('pages.apartments.empty_list.link') }}
+      | .
 </template>
 
 <script lang="ts">
@@ -22,6 +27,10 @@ import { Component, Prop, Vue } from 'nuxt-property-decorator'
 })
 export default class CatalogCards extends Vue {
   @Prop({ type: Array, default: () => [] }) list?: any
+
+  public goToFeedback() {
+    this.$router.push(this.localePath({ name: 'feedback' }))
+  }
 }
 </script>
 
@@ -53,9 +62,15 @@ export default class CatalogCards extends Vue {
          border-right: none
 
   &__empty
-    display: flex
     align-items: center
     justify-content: center
+    flex-direction: row
+    flex-wrap: wrap
     +style-4
     margin: 100px 0
+    
+    &-link
+      cursor: pointer
+      color: $color-blue-88
+      margin: 0 0.25em
 </style>

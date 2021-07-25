@@ -204,7 +204,10 @@
       "status_3": "Prereserved",
       "status_4": "Sold",
       "nth": "{0} type",
-      "empty_list": "Apartments is not found",
+      "empty_list": {
+        "text": "Apartments in the process of being added to the catalog, for more information",
+        "link": "click here"
+      },
       "additional_features": "Additional features",
       "to_sea": "To sea",
       "to_rest": "To restaurant",
