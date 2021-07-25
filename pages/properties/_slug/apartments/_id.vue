@@ -146,15 +146,8 @@ import { Jsonld } from 'nuxt-jsonld'
 
       // Redirect to new apartment slug if project.slug and params.slug not equal
       if (apartment.project.slug !== ctx.params.slug) {
-        ctx.redirect(
-          ctx.localePath({
-            name: 'properties-slug-apartments-id',
-            params: {
-              slug: apartment.project.slug,
-              id: apartment.id,
-            },
-          }),
-        )
+        ctx.res.statusCode = 404
+        throw new Error('404')
       }
 
       svgPlanning = apartment.plans
@@ -205,7 +198,7 @@ import { Jsonld } from 'nuxt-jsonld'
         similarApartments,
       }
     } catch ({ error }) {
-      ctx.error({ statusCode: error.http_code })
+      ctx.error({ statusCode:  ctx.res.statusCode })
     }
 
     return {}

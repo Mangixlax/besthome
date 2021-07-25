@@ -13,7 +13,7 @@
           :key="i"
           :class="$style['slide']"
         )
-          div(:class="$style['container__body-image']" cla)
+          div(:class="$style['container__body-image']")
             img(:data-src="slide" class="swiper-lazy")
             div(class="swiper-lazy-preloader-blue swiper-lazy-preloader")
         div(slot="pagination" :class="$style['navigation']")
@@ -52,8 +52,9 @@ export default class PageProjectsPhotosSlider extends Vue {
 
   public swiperOption: any = {
     lazy: {
-        loadPrevNext: true,
-      	loadPrevNextAmount: 3,
+      threshold: 50,
+      loadPrevNext: true,
+      loadPrevNextAmount: 6,
     },
     watchSlidesVisibility : true,
     preloadImages: false,
@@ -67,8 +68,11 @@ export default class PageProjectsPhotosSlider extends Vue {
       1200: {
         slidesPerView: 'auto',
         spaceBetween: 64,
+        centeredSlides: false,
+        watchSlidesVisibility: true
       },
     },
+    centeredSlides: false,
     spaceBetween: 64,
     pagination: {
       el: '.swiper-pagination-progressbar',
