@@ -47,14 +47,14 @@ const addSitemap = ({ sitemap_name = '', extra_exclude_routes = [], start_url = 
           data.forEach((record) => {
             Object.keys(record.slug).forEach((url_key) => {
               locations.push({
-                url: `/${url_key === 'ru' ? '' : 'en/'}/${record.slug[url_key]}/`,
+                url: `/${url_key === 'ru' ? 'ru' : ''}/${record.slug[url_key]}/`,
                 links: [
                   {
-                    url: `/${record.slug.ru}/`,
+                    url: `/ru/${record.slug.ru}/`,
                     lang: 'ru',
                   },
                   {
-                    url: `/en/${record.slug.en}/`,
+                    url: `/${record.slug.en}/`,
                     lang: 'en',
                   },
                 ],
