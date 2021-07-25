@@ -95,7 +95,7 @@ export default class PageProjectsPhotosSlider extends Vue {
       margin: 0
 
   &__body
-    padding: 80px 0
+    padding: 80px 0 0 0
 
     @media (max-width: 900px)
       padding: 40px 0
@@ -135,7 +135,6 @@ export default class PageProjectsPhotosSlider extends Vue {
   display: flex
   align-items: center
   justify-content: space-between
-  margin-bottom: 95px
 
 .swiper-pagination-progressbar
   position: relative !important
