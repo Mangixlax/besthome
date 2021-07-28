@@ -77,6 +77,19 @@ export default <NuxtConfig>{
         href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap',
       },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      // {
+      //   rel: 'stylesheet', href: '/jivosite/jivosite.css'
+      // }
+    ],
+    script: [
+      {
+        src: 'https://code-ya.jivosite.com/widget/0OWAaFHxID',
+        async: true,
+      },
+      // {
+      //   src: "/jivosite/jivosite.js",
+      //   type: "text/javascript"
+      // }
     ],
   },
 

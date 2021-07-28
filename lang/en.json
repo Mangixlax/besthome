@@ -1354,6 +1354,32 @@
         "text": "{0}, our agent is already studying the questionnaire and in the near future will contact you at the indicated phone number, as well as compose and send an e-mail."
       }
     },
+    "choose_messenger": {
+      "title": "Choose a messenger in which it is convenient to continue communication",
+      "methods": [
+        {
+          "title": "Viber",
+          "description": "After selecting this option you will be redirected to Viber. The details you have entered on this site will be automatically filled into the prepared message. You only have to send it.",
+          "button": "Choose",
+          "link": "viber://chat?number=905305474415",
+          "icon": "icon-viber"
+        },
+        {
+          "title": "WhatsApp",
+          "description": "After selecting this option you will be redirected to WhatsApp. The details you have entered on this site will be automatically filled into the prepared message. You only have to send it.",
+          "button": "Choose",
+          "link": "https://api.whatsapp.com/send?phone=905305474415",
+          "icon": "icon-whatsup"
+        },
+        {
+          "title": "Telegram",
+          "description": "After selecting this option you will be redirected to Telegram. The details you have entered on this site will be automatically filled into the prepared message. You only have to send it.",
+          "button": "Choose",
+          "link": "",
+          "icon": "icon-telegram"
+        }
+      ]
+    },
     "video": "Click<br>to close",
     "subscribe": {
       "title": "You signed up!",
