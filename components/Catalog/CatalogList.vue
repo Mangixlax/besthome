@@ -40,7 +40,12 @@
     div(
       v-if="!list.length"
       :class="$style['catalog-list__empty']"
-    ) {{ $t('pages.apartments.empty_list') }}
+    ) {{ $t('pages.apartments.empty_list.text') }}
+      span(
+        @click="goToFeedback"
+        :class="$style['catalog-list__empty-link']"
+      ) {{ $t('pages.apartments.empty_list.link') }}
+      | .
 </template>
 
 <script>
@@ -56,6 +61,11 @@ export default {
       default: () => [],
     },
   },
+  methods: {
+    goToFeedback() {
+      this.$router.push(this.localePath({ name: 'feedback' }))
+    }
+  }
 }
 </script>
 
@@ -75,9 +85,15 @@ export default {
       border-top: solid 1px $color-black-4
 
   &__empty
-    display: flex
     align-items: center
     justify-content: center
+    flex-direction: row
+    flex-wrap: wrap
     +style-4
     margin: 100px 0
+    
+    &-link
+      cursor: pointer
+      color: $color-blue-88
+      margin: 0 0.25em
 </style>

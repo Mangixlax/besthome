@@ -28,7 +28,10 @@
           :key="i"
           :class="$style['slide']"
         )
-          div(v-if="slide.image")
+          div(
+            :class="$style['slide__imagebox']"
+            v-if="slide.image"
+          )
             img(:src="slide.image")
           div(:class="$style['slide__textbox']")
             typo-text(
@@ -259,7 +262,10 @@ export default {
 
     &-text
       margin: 0
-      
+
+  &__imagebox
+    width: 100%
+    
   img
     object-fit: cover
     max-width: 720px

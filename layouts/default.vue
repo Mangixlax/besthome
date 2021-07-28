@@ -9,6 +9,7 @@
     cursor-mover(v-if="!isTouchDevice")
     base-cookies-card
     common-page-transition
+    common-messenger-button
 </template>
 
 <script lang="ts">
@@ -25,12 +26,14 @@ import BaseHeader from '~/components/BaseHeader/BaseHeader.vue'
 import BaseHeaderMobile from '~/components/BaseHeaderMobile/BaseHeaderMobile.vue'
 import CursorMover from '~/components/CursorMover.vue'
 import Footer from '~/components/Footer/Footer.vue'
-import CommonPageTransition from "~/components/Common/CommonPageTransition.vue"
+import CommonPageTransition from '~/components/Common/CommonPageTransition.vue'
+import CommonMessengerButton from '~/components/Common/CommonMessengerButton.vue'
 
 const SettingsTopLineStore = namespace('SettingsTopLine')
 
 @Component({
   components: {
+    CommonMessengerButton,
     CommonPageTransition,
     BaseCookiesCard,
     TopLineSelectCountry,
