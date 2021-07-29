@@ -49,15 +49,13 @@ export default class CommonMessengerButton extends Vue {
   height: 65px
   border-radius: 65px
   position: fixed
-  bottom: 20px
+  bottom: calc(env(safe-area-inset-bottom, 0) + 20px)
   left: 20px
   z-index: 999
   animation: color 18s infinite
   background: linear-gradient(95deg, rgb(250, 202, 23) 20%, rgb(255, 156, 72) 80%)
-
+  
   &__wrapper
-
-
     svg
       backface-visibility: hidden
       position: absolute
@@ -69,7 +67,7 @@ export default class CommonMessengerButton extends Vue {
       height: 32px
       width: 32px
 
-    &-icon-0
+    &-icon-0  
       animation: flipInY-0 18s infinite
 
     &-icon-1
@@ -77,6 +75,25 @@ export default class CommonMessengerButton extends Vue {
 
     &-icon-2
       animation: flipInY-2 18s infinite
+
+@keyframes color
+  0%, 16.6%
+    background: #6F58A1
+
+  20%, 36.6%
+    background: #54B153
+
+  40%, 56.6%
+    background: #29B6F6
+
+  60%, 76.6%
+    background: #54B153
+
+  80%, 96.6%
+    background: #6F58A1
+
+  100%
+    background: #6F58A1
 
 @keyframes flipInY-0
   0%, 16.6%
@@ -131,23 +148,4 @@ export default class CommonMessengerButton extends Vue {
 
   100%
     transform: rotateY(180deg)
-
-@keyframes color
-  0%, 16.6%
-    background: #6F58A1
-
-  20%, 36.6%
-    background: #54B153
-
-  40%, 56.6%
-    background: #29B6F6
-
-  60%, 76.6%
-    background: #54B153
-
-  80%, 96.6%
-    background: #6F58A1
-
-  100%
-    background: #6F58A1
 </style>
