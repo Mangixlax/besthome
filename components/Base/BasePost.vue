@@ -37,7 +37,7 @@ interface IPost {
 
 @Component
 export default class BasePost extends Vue {
-  @Prop({ type: Object, default: false }) data!: IPost
+  @Prop({ type: Object, default: () => {} }) data!: IPost
 }
 </script>
 

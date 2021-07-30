@@ -41,6 +41,7 @@ import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.
 import metaGenerator from '~/config/meta.js'
 import { delay } from '~/lib/utils'
 import { getSiteUrl } from '@/lib/utils'
+import CommonDivider from '~/components/Common/CommonDivider.vue'
 
 @Component({
   components: {
@@ -61,6 +62,7 @@ import { getSiteUrl } from '@/lib/utils'
     BaseTextContainer,
     HeromapSlider,
     HeroImageTooltips,
+    CommonDivider,
   },
   async asyncData(ctx: Context): Promise<object> {
     if (!process.server) {
@@ -172,6 +174,7 @@ export default class PropertiesAboutPage extends Vue {
       BlockTextContainer: 'base-text-container',
       BlockHeromapSlider: 'heromap-slider',
       BlockImageTooltip: 'hero-image-tooltips',
+      BlockDivider: 'common-divider',
     }
 
     return ((this.getProject as IProject).about_data || []).map((block: any) => ({
@@ -187,6 +190,7 @@ export default class PropertiesAboutPage extends Vue {
   }
 
   async mounted() {
+    console.log(this.getProject)
     await delay(200)
     this.$store.commit('PageTransition/animate', false)
   }
