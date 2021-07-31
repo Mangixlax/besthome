@@ -9,7 +9,7 @@
           :class="$style['modal__close']"
           @click.prevent="closeModal"
         )
-          modal-close(:white-mode="whiteMode")
+          modal-close(:white-mode="whiteMode" :dark-mode="darkMode")
     div(:class="$style['modal__body']")
       slot(name="body")
     div(:class="$style['modal__footer']")
@@ -38,6 +38,10 @@ export default {
       default: false,
     },
     whiteMode: {
+      type: Boolean,
+      default: false,
+    },
+    darkMode: {
       type: Boolean,
       default: false,
     },

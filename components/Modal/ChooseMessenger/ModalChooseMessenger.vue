@@ -1,10 +1,10 @@
 <template lang="pug">
-  modal-container(:name="name")
+  modal-container(:name="name" :dark-mode="darkMode")
     template(slot="header")
       div(:class="$style['contact']")
         typo-text(
           tag="p"
-          version="style-p"
+          version="style-5"
           :class="$style['contact__title']"
         )  {{ data.title }}
         div(:class="$style['contact__body']")
@@ -60,12 +60,29 @@ export default {
       default: () => {},
     },
   },
-
+  data() {
+    return {
+      darkMode: false
+    }
+  },
   methods: {
     closeModal() {
       this.$modal.hide('modal-choose-apartments')
     },
+
+    setModalCloseDarkMode() {
+      this.darkMode = window.innerWidth < 900
+    }
   },
+
+  mounted() {
+    this.setModalCloseDarkMode()
+    window.addEventListener('resize', this.setModalCloseDarkMode)
+  },
+
+  beforeDestroy() {
+    window.removeEventListener('resize', this.setModalCloseDarkMode)
+  }
 }
 </script>
 
@@ -73,13 +90,13 @@ export default {
 .contact
   display: flex
   flex-direction: column
-  justify-content: center
   align-items: center
-  grid-gap: 32px
+  grid-gap: 40px
   padding: 64px
   border-top: solid 1px $color-black-8
   border-bottom: solid 1px $color-black-8
-
+  padding-top: 162px !important
+  
   @media (max-width: 600px)
     padding: 0
     min-height: 100vh
@@ -127,12 +144,17 @@ export default {
           & + &::before
             content: ""
             position: absolute
-            top: -16px
+            top: -15px
             right: 0
-            width: 85%
+            width: calc(100% - 48px)
+            margin-left: 72px
             height: 1px
-            display: inline-block
+            display: block
             background-color: $color-black-8
+
+          h4
+            +style-5
+            color: $color-black-100 !important
 
         svg
           height: 32px
@@ -202,6 +224,9 @@ export default {
             display: none
 
           &--mobile
+            display: flex
+            align-items: center
+
             @media (min-width: 900px)
               display: none
 

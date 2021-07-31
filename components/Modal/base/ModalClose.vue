@@ -1,6 +1,10 @@
 <template lang="pug">
   div(
-    :class="[$style['modal-close'], whiteMode && $style['white']]"
+    :class="[\
+      $style['modal-close'],\
+      whiteMode && $style['white'],\
+      darkMode && $style['dark']\
+    ]"
     v-bind="$attrs"
     v-on="$listeners"
   )
@@ -15,14 +19,18 @@ export default {
       type: Boolean,
       default: false,
     },
+    darkMode: {
+      type: Boolean,
+      default: false,
+    },
   },
 }
 </script>
 
 <style lang="sass" module>
 .modal-close
-  height: 40px
-  width: 40px
+  height: 42px
+  width: 42px
   border-radius: 50%
   border: solid 1px $color-black-8
   display: flex
@@ -34,11 +42,18 @@ export default {
     border: solid 1px $color-white-100
 
   svg
-    height: 40px
-    width: 40px
+    height: 42px
+    width: 42px
     stroke: black
 
 .white
+  svg
+    stroke: white
+
+.dark
+  background: $color-black-100
+  border-radius: 42px
+
   svg
     stroke: white
 </style>

@@ -1369,7 +1369,7 @@
           "description": "After selecting this option you will be redirected to WhatsApp. The details you have entered on this site will be automatically filled into the prepared message. You only have to send it.",
           "button": "Choose",
           "link": "https://api.whatsapp.com/send?phone=905305474415",
-          "icon": "icon-whatsup"
+          "icon": "icon-whatsup-opposite"
         },
         {
           "title": "Telegram",
