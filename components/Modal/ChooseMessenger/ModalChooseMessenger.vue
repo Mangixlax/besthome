@@ -62,7 +62,7 @@ export default {
   },
   data() {
     return {
-      darkMode: false
+      darkMode: false,
     }
   },
   methods: {
@@ -72,7 +72,7 @@ export default {
 
     setModalCloseDarkMode() {
       this.darkMode = window.innerWidth < 900
-    }
+    },
   },
 
   mounted() {
@@ -82,7 +82,7 @@ export default {
 
   beforeDestroy() {
     window.removeEventListener('resize', this.setModalCloseDarkMode)
-  }
+  },
 }
 </script>
 
@@ -96,7 +96,7 @@ export default {
   border-top: solid 1px $color-black-8
   border-bottom: solid 1px $color-black-8
   padding-top: 162px !important
-  
+
   @media (max-width: 600px)
     padding: 0
     min-height: 100vh
