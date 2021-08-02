@@ -1,5 +1,5 @@
 <template lang="pug">
-  modal-container(:name="name" :dark-mode="darkMode")
+  modal-container(:name="name")
     template(slot="header")
       div(:class="$style['contact']")
         typo-text(
@@ -60,28 +60,10 @@ export default {
       default: () => {},
     },
   },
-  data() {
-    return {
-      darkMode: false,
-    }
-  },
   methods: {
     closeModal() {
       this.$modal.hide('modal-choose-apartments')
     },
-
-    setModalCloseDarkMode() {
-      this.darkMode = window.innerWidth < 900
-    },
-  },
-
-  mounted() {
-    this.setModalCloseDarkMode()
-    window.addEventListener('resize', this.setModalCloseDarkMode)
-  },
-
-  beforeDestroy() {
-    window.removeEventListener('resize', this.setModalCloseDarkMode)
   },
 }
 </script>

@@ -1,7 +1,10 @@
 <template lang="pug">
   div(
-    :class="$style['button']"
-    @click="onButtonCLick"
+    :class="{\
+      [$style['button']]: true,\
+      [$style['button--offset']]: !coociesCardIsHidden,\
+    }"
+    @click="onButtonClick"
   ) 
     div(:class="$style['button__wrapper']")
       svg-icon(
@@ -19,14 +22,20 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'nuxt-property-decorator'
+import { Component, Prop, Vue, namespace } from 'nuxt-property-decorator'
 import { modalsTriggerMixin } from '~/mixins/modals'
+import { SettingsTopLineState } from '~/store/SettingsTopLine'
+
+const SettingsTopLineStore = namespace('SettingsTopLine')
 
 @Component({
   mixins: [modalsTriggerMixin],
 })
 export default class CommonMessengerButton extends Vue {
-  public onButtonCLick() {
+  @SettingsTopLineStore.Getter('isCoociesCardHidden')
+  coociesCardIsHidden!: SettingsTopLineState['hidden']
+
+  public onButtonClick() {
     this.showModal({
       name: 'modal-choose-messenger',
       modal: () => import('~/components/Modal/ChooseMessenger/ModalChooseMessenger.vue'),
@@ -45,16 +54,26 @@ export default class CommonMessengerButton extends Vue {
 
 <style lang="sass" module>
 .button
-  width: 65px
-  height: 65px
+  width: 70px
+  height: 70px
   border-radius: 65px
   position: fixed
-  bottom: calc(env(safe-area-inset-bottom, 0) + 20px)
-  left: 20px
+  bottom: calc(env(safe-area-inset-bottom, 0) + 90px)
+  left: 90px
   z-index: 999
   animation: color 18s infinite
   background: linear-gradient(95deg, rgb(250, 202, 23) 20%, rgb(255, 156, 72) 80%)
-  
+  transition: all 0.5s ease
+
+  @media (max-width: 900px)
+    width: 65px
+    height: 65px
+    bottom: calc(env(safe-area-inset-bottom, 0) + 20px)
+    left: 20px
+
+  &--offset
+    bottom: 380px
+
   &__wrapper
     svg
       backface-visibility: hidden
@@ -67,7 +86,7 @@ export default class CommonMessengerButton extends Vue {
       height: 32px
       width: 32px
 
-    &-icon-0  
+    &-icon-0
       animation: flipInY-0 18s infinite
 
     &-icon-1

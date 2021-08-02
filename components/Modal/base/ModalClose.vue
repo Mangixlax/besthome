@@ -3,7 +3,6 @@
     :class="[\
       $style['modal-close'],\
       whiteMode && $style['white'],\
-      darkMode && $style['dark']\
     ]"
     v-bind="$attrs"
     v-on="$listeners"
@@ -16,10 +15,6 @@ export default {
   name: 'ModalClose',
   props: {
     whiteMode: {
-      type: Boolean,
-      default: false,
-    },
-    darkMode: {
       type: Boolean,
       default: false,
     },
@@ -38,6 +33,12 @@ export default {
   justify-content: center
   cursor: pointer
 
+  @media (max-width: 900px)
+    background: $color-black-100
+
+    svg
+      stroke: white !important
+
   &.white
     border: solid 1px $color-white-100
 
@@ -47,13 +48,6 @@ export default {
     stroke: black
 
 .white
-  svg
-    stroke: white
-
-.dark
-  background: $color-black-100
-  border-radius: 42px
-
   svg
     stroke: white
 </style>

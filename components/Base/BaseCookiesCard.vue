@@ -1,5 +1,5 @@
 <template lang="pug">
-  div(v-if="isCardShow" :class="$style['cookies']")
+  div(v-if="!coociesCardIsHidden" :class="$style['cookies']")
     typo-text(
       tag="p"
       version="style-2"
@@ -20,13 +20,16 @@
         tag="button"
         version="style-7"
         :class="$style['cookies__accept']"
-        @click="onClickAccept"
+        @click="onToggleCoociesCardHiddenMode"
       ) {{ $t('footer.cookies.accept')}}
 </template>
 
 <script lang="ts">
 import TypoText from '~/components/Base/TypoText.vue'
-import { Component, Vue } from 'nuxt-property-decorator'
+import { Component, Vue, namespace } from 'nuxt-property-decorator'
+import { SettingsTopLineState } from '~/store/SettingsTopLine'
+
+const SettingsTopLineStore = namespace('SettingsTopLine')
 
 @Component({
   components: {
@@ -34,41 +37,10 @@ import { Component, Vue } from 'nuxt-property-decorator'
   },
 })
 export default class BaseCookiesCard extends Vue {
-  public isCardShow: boolean = false
-
-  public cookieAlreadyShowedName: string = 'cookies_already_showed'
-
-  public cookieAcceptedName: string = 'cookies_accepted'
-
-  public defaultCookiesOptions: any = {
-    maxAge: 2419200, // one month
-    path: '/', // set cookie to all pages on this site
-  }
-
-  public hideBlock() {
-    this.isCardShow = false
-    this.$cookies.set(this.cookieAlreadyShowedName, 'true', this.defaultCookiesOptions)
-  }
-
-  public showBlock() {
-    this.isCardShow = true
-  }
-
-  public onClickAccept() {
-    this.hideBlock()
-    this.$cookies.set(this.cookieAcceptedName, 'true', this.defaultCookiesOptions)
-  }
-
-  public onClickDecline() {
-    this.hideBlock()
-    this.$cookies.set(this.cookieAcceptedName, 'false', this.defaultCookiesOptions)
-  }
-
-  public mounted() {
-    if (this.$cookies.get(this.cookieAlreadyShowedName) !== true) {
-      this.showBlock()
-    }
-  }
+  @SettingsTopLineStore.Action('toggleCoociesCardHiddenMode')
+  onToggleCoociesCardHiddenMode!: () => void
+  @SettingsTopLineStore.Getter('isCoociesCardHidden')
+  coociesCardIsHidden!: SettingsTopLineState['coociesCardHidden']
 }
 </script>
 
@@ -90,7 +62,7 @@ export default class BaseCookiesCard extends Vue {
     max-width: 272px
     left: 50%
     transform: translate(-50%, 0)
-    
+
   & > p
     margin: 0
     margin-bottom: 24px
