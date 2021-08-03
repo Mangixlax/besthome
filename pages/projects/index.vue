@@ -31,7 +31,7 @@ import PageWelcome from '~/components/Page/PageWelcome.vue'
 import { Context } from '@nuxt/types'
 import CommonLinkIcon from '~/components/Common/CommonLinkIcon.vue'
 import metaGenerator from '~/config/meta.js'
-import {delay} from "~/lib/utils"
+import { delay } from '~/lib/utils'
 import { getSiteUrl } from '@/lib/utils'
 
 @Component({
@@ -90,7 +90,6 @@ import { getSiteUrl } from '@/lib/utils'
       meta: metaGenerator({
         title,
         description,
-        robots: 'noindex, nofollow',
       }),
       link: [
         {

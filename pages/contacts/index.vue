@@ -27,7 +27,6 @@ import { getSiteUrl } from '@/lib/utils'
       },
       meta: metaGenerator({
         title,
-        robots: 'noindex, nofollow',
       }),
       link: [
         {

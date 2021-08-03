@@ -20,7 +20,7 @@ import { getSiteUrl } from '@/lib/utils'
   components: {
     BaseTextContainer,
   },
-  head(): any  {
+  head(): any {
     const title = this.$i18n.t('pages.privacy-policy.title')
 
     return {
@@ -31,7 +31,6 @@ import { getSiteUrl } from '@/lib/utils'
       },
       meta: metaGenerator({
         title,
-        robots: 'noindex, nofollow',
       }),
       link: [
         {

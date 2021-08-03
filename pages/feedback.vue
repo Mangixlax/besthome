@@ -219,7 +219,7 @@ import TypoText from '~/components/Base/TypoText.vue'
 import { email, minLength, required } from 'vuelidate/lib/validators'
 import VFormTextarea from '~/components/form/VFormTextarea.vue'
 import metaGenerator from '~/config/meta.js'
-import {delay} from "~/lib/utils"
+import { delay } from '~/lib/utils'
 import { getSiteUrl } from '@/lib/utils'
 
 @Component({
@@ -280,7 +280,6 @@ import { getSiteUrl } from '@/lib/utils'
       meta: metaGenerator({
         title,
         description,
-        robots: 'noindex, nofollow',
       }),
       link: [
         {

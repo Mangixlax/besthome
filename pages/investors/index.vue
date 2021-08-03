@@ -69,7 +69,7 @@ import { Context } from '@nuxt/types'
 import { Route } from 'vue-router'
 import { NavigationGuardNext } from 'vue-router/types/router'
 import metaGenerator from '~/config/meta.js'
-import {delay} from "~/lib/utils"
+import { delay } from '~/lib/utils'
 import { getSiteUrl } from '@/lib/utils'
 
 @Component({
@@ -101,7 +101,6 @@ import { getSiteUrl } from '@/lib/utils'
       meta: metaGenerator({
         title,
         description,
-        robots: 'noindex, nofollow',
       }),
       link: [
         {

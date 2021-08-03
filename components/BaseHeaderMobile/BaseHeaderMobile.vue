@@ -56,7 +56,7 @@ export default class BaseHeaderMobile extends Vue {
     } else {
       document.body.removeAttribute('menu-open')
     }
-  }  
+  }
 
   /**
    * Close menu when $route is changed
@@ -102,6 +102,7 @@ body[menu-open]
     transition: background-color 0.25s ease
     background-color: $color-white-100
     transition: all 0.3s ease
+
     svg
       width: 17px
       height: 13px
@@ -122,7 +123,7 @@ body[menu-open]
 
     &.fix-to-top
       position: absolute
-      top: 72px 
+      top: 72px
 
   &__content
     opacity: 0

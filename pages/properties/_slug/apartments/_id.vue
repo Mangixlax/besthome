@@ -198,7 +198,7 @@ import { Jsonld } from 'nuxt-jsonld'
         similarApartments,
       }
     } catch ({ error }) {
-      ctx.error({ statusCode:  ctx.res.statusCode })
+      ctx.error({ statusCode: ctx.res.statusCode })
     }
 
     return {}
@@ -217,7 +217,6 @@ import { Jsonld } from 'nuxt-jsonld'
       meta: metaGenerator({
         title,
         description,
-        robots: 'noindex, nofollow',
       }),
       link: [
         {

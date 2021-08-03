@@ -102,7 +102,7 @@ import { getSiteUrl } from '@/lib/utils'
     BasePost,
     TypoText,
   },
-  head(): any  {
+  head(): any {
     const title = this.$i18n.t('pages.company_advantages.header.title')
 
     return {
@@ -113,7 +113,6 @@ import { getSiteUrl } from '@/lib/utils'
       },
       meta: metaGenerator({
         title,
-        robots: 'noindex, nofollow',
       }),
       link: [
         {

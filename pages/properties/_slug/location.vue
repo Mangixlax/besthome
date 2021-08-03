@@ -146,7 +146,6 @@ import CommonDivider from '~/components/Common/CommonDivider.vue'
       meta: metaGenerator({
         title,
         description,
-        robots: 'noindex, nofollow',
       }),
       link: [
         {

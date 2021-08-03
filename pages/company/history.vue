@@ -28,7 +28,7 @@ import { getSiteUrl } from '@/lib/utils'
 
 @Component({
   components: { PageCompanyHistoryTitle, BasePost, TypoText, PageCompanyYearsSlider },
-  head(): any  {
+  head(): any {
     const title = this.$i18n.t('pages.company_history.header.title')
 
     return {
@@ -39,7 +39,6 @@ import { getSiteUrl } from '@/lib/utils'
       },
       meta: metaGenerator({
         title,
-        robots: 'noindex, nofollow',
       }),
       link: [
         {
