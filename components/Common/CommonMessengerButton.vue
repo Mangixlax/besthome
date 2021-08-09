@@ -64,7 +64,8 @@ export default class CommonMessengerButton extends Vue {
   animation: color 18s infinite
   background: linear-gradient(95deg, rgb(250, 202, 23) 20%, rgb(255, 156, 72) 80%)
   transition: all 0.5s ease
-
+  cursor: pointer
+  
   @media (max-width: 900px)
     width: 65px
     height: 65px
