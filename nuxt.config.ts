@@ -50,7 +50,7 @@ export default <NuxtConfig>{
       },
       {
         name: 'robots',
-        content: 'noindex,nofollow',
+        content: 'index,follow',
       },
       {
         name: 'google-site-verification',
