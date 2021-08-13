@@ -4,7 +4,7 @@
     :to="localePath({\
       name: 'properties-slug-apartments-id',\
       params: {\
-        slug: $route.params.slug,\
+        slug: itemData.project.slug,\
         id: itemData.id\
       }\
     })"
