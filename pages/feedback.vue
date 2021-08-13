@@ -286,6 +286,16 @@ import { getSiteUrl } from '@/lib/utils'
           rel: 'canonical',
           href: getSiteUrl(this.localePath(this.$route.path), true),
         },
+        {
+          rel: 'alternate',
+          hreflang: 'x-default',
+          href: getSiteUrl(this.localePath({ name: 'feedback' }, 'en'), true),
+        },
+        {
+          rel: 'alternate',
+          hreflang: 'ru',
+          href: getSiteUrl(this.localePath({ name: 'feedback' }, 'ru'), true),
+        },
       ],
     }
   },

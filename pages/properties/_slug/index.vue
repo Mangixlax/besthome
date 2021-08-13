@@ -155,6 +155,34 @@ import CommonDivider from '~/components/Common/CommonDivider.vue'
           rel: 'canonical',
           href: getSiteUrl(this.localePath(this.$route.path), true),
         },
+        {
+          rel: 'alternate',
+          hreflang: 'x-default',
+          href: getSiteUrl(
+            this.localePath(
+              {
+                name: 'properties-slug',
+                params: this.$route.params,
+              },
+              'en',
+            ),
+            true,
+          ),
+        },
+        {
+          rel: 'alternate',
+          hreflang: 'ru',
+          href: getSiteUrl(
+            this.localePath(
+              {
+                name: 'properties-slug',
+                params: this.$route.params,
+              },
+              'ru',
+            ),
+            true,
+          ),
+        },
       ],
     }
   },

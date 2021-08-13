@@ -223,6 +223,34 @@ import { Jsonld } from 'nuxt-jsonld'
           rel: 'canonical',
           href: getSiteUrl(this.localePath(this.$route.path), true),
         },
+        {
+          rel: 'alternate',
+          hreflang: 'x-default',
+          href: getSiteUrl(
+            this.localePath(
+              {
+                name: 'properties-slug-apartments-id',
+                params: this.$route.params,
+              },
+              'en',
+            ),
+            true,
+          ),
+        },
+        {
+          rel: 'alternate',
+          hreflang: 'ru',
+          href: getSiteUrl(
+            this.localePath(
+              {
+                name: 'properties-slug-apartments-id',
+                params: this.$route.params,
+              },
+              'ru',
+            ),
+            true,
+          ),
+        },
       ],
     }
   },
