@@ -28,7 +28,7 @@
         :class="$style['slide__caption']"
       )
         typo-text(
-          tag="h1"
+          tag="h2"
           version="style-1"
           :class="$style['slide__caption-title']"
         ) {{ slides[currentSlideIndex].title }}
