@@ -243,7 +243,10 @@ export default <NuxtConfig>{
     trailingSlash: true,
   },
 
-  redirect: [{ from: '^(\\/[^\\?]*[^\\/])(\\?.*)?$', to: '$1/$2' }],
+  redirect: [
+    { from: '^(\\/[^\\?]*[^\\/])(\\?.*)?$', to: '$1/$2' },
+    { from: '/ru/our_team/', to: '/ru/company/about/' },
+  ],
 
   /*
    ** Build configuration
