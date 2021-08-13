@@ -11,7 +11,7 @@
         tag="nuxt-link"
         version="style-7"
         :to="localePath(item.route)"
-        :title="item.title"
+        :title="item.name"
         :class="$style['nav__item-link']"
       ) {{ item.name }}
       typo-text(
@@ -41,7 +41,7 @@
             tag="nuxt-link"
             version="style-7"
             :to="localePath(childItem.route)"
-            :title="childItem.title"
+            :title="childItem.name"
             :class="$style['dropdown__item-link']"
           ) {{ childItem.name }}
           typo-text(
