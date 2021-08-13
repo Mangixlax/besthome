@@ -5,7 +5,7 @@
         tag="nuxt-link"
         version="style-8"
         :to="localePath('index')"
-        title="Home"
+        :title="$i18n.locale === 'ru' ? 'Главная' : 'Home'"
         :class="$style['breadcrumbs__item-link']"
       )
         svg-icon(name="home")
@@ -18,10 +18,9 @@
         tag="nuxt-link"
         version="style-8"
         :to="localePath(crumb.route)"
-        :title="crumb.route.name"
+        :title="crumb.name"
         :class="[$style['breadcrumbs__item-link'], i === breadcrumbs.length - 1 && $style['disabled']]"
-        :disabled="true"
-      ) {{crumb.name}}
+      ) {{ crumb.name }}
 </template>
 
 <script lang="ts">
@@ -64,10 +63,10 @@ export default class BaseBreadCrumbs extends Vue {
           position: 1,
           item: {
             '@id': getSiteUrl(this.localePath('index'), false),
-            name: this.$i18n.locale === "ru" ? 'Главная' : 'Home',
+            name: this.$i18n.locale === 'ru' ? 'Главная' : 'Home',
           },
         },
-        ...items
+        ...items,
       ],
     }
   }
@@ -81,8 +80,7 @@ export default class BaseBreadCrumbs extends Vue {
   list-style: none
   max-width: 1184px
   padding: 0 32px
-  margin: 0 auto
-  margin-top: 32px
+  margin: 32px auto 0
 
   @media (max-width: 800px)
     padding: 0 24px
