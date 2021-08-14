@@ -131,9 +131,21 @@
             "description": "Наш новый комплекс BestHome 38 Cleopatra Triumph идеально подойдёт тем, кто хочет быть на расстоянии пешей прогулки от пляжа Клеопатры, наслаждаться всем, что может предложить динамичный курортный город"
           },
           {
+            "title": "BestHome 39",
+            "sub_title": "Oba Select",
+            "image": "slide-4.jpg",
+            "location": {
+              "city": "Аланья",
+              "region": "Оба"
+            },
+            "price": "104 000",
+            "sea": 345,
+            "description": "BestHome 39 Oba Select будет расположен в одном из самых излюбленных туристами районов Алании – Обе. Оба известна своей благоустроенной набережной, широким песчаным пляжем, пешеходным променадом."
+          },
+          {
             "title": "BestHome 33",
             "sub_title": "Cleopatra Symphony",
-            "image": "slide-4.jpg",
+            "image": "slide-5.jpg",
             "location": {
               "city": "Аланья",
               "region": "Центр"

@@ -123,20 +123,32 @@
             "sub_title": "Cleopatra Triumph",
             "image": "slide-3.jpg",
             "location": {
-              "city": "Аланья",
-              "region": "Центр"
+              "city": "Alanya",
+              "region": "Center"
             },
             "price": "170 000",
             "sea": 300,
             "description": "Our new BestHome 38 Cleopatra Triumph is ideal for those who want to be within walking distance of Cleopatra Beach and enjoy all that this dynamic resort town has to offer."
           },
           {
-            "title": "Best Home 33",
-            "sub_title": "Cleopatra Symphony",
+            "title": "Best Home 39",
+            "sub_title": "Oba Select",
             "image": "slide-4.jpg",
             "location": {
-              "city": "Аланья",
-              "region": "Центр"
+              "city": "Alanya",
+              "region": "Oba"
+            },
+            "price": "104 000",
+            "sea": 345,
+            "description": "BestHome 39 Oba Select will be located in one of the most favorite tourist areas of Alanya - Oba. Both are known for their landscaped promenade, wide sandy beach, and pedestrian promenade."
+          },
+          {
+            "title": "Best Home 33",
+            "sub_title": "Cleopatra Symphony",
+            "image": "slide-5.jpg",
+            "location": {
+              "city": "Alanya",
+              "region": "Center"
             },
             "price": "170 000",
             "sea": 250,
