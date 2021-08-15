@@ -74,7 +74,7 @@ export default <NuxtConfig>{
       { rel: 'dns-prefetch', href: '//fonts.googleapis.com' },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap&family=DM+Sans&display=swap',
       },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ],

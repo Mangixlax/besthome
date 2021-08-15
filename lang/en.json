@@ -1204,6 +1204,31 @@
         ]
       }
     ],
+    "company_quality": {
+      "title": {
+        "title": "About the quality of construction",
+        "description": [
+          "We are confident that the quality of construction is one of the main criteria for choosing real estate in Alanya. When building new complexes, we understand that you want the house to be durable, strong and reliable, does not require constant repairs and does not lose its value over time.",
+          "We guarantee that all construction work in our houses was carried out at a high quality level in compliance with all regulatory requirements."
+        ]
+      },
+      "info": [
+        {
+          "title": "Construction innovation",
+          "description": "We constantly closely monitor the technologies used and the changing trends in the construction sector."
+        },
+        {
+          "title": "The materials used by the developer",
+          "description": "We build residential complexes using high quality innovative materials and modern engineering equipment."
+        }
+      ]
+    },
+    "our_office": {
+      "title": {
+        "title": "Welcome to the office of Best Home Construction!",
+        "sub_title": "The Best Home Construction company is one of the reputable construction companies in Alanya."
+      }
+    },
     "contacts": {
       "contact_map": {
         "title": "BestHome",
