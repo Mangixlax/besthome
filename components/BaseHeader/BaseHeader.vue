@@ -33,7 +33,10 @@ export default class BaseHeader extends Vue {
   public isTransparent: boolean = false
 
   public changeTheme() {
-    this.isDarkTheme = this.$route.path.indexOf('contacts') !== -1
+    this.isDarkTheme =
+      this.$route.path.indexOf('contacts') !== -1 ||
+      this.$route.path.indexOf('company/our-office') !== -1 ||
+      this.$route.path.indexOf('company/quality') !== -1
   }
 
   @Watch('$route.path')
@@ -101,7 +104,7 @@ export default class BaseHeader extends Vue {
   &__logo
     margin-right: 30px
     margin-left: -1px
-    
+
     @media (max-width: 1248px + 32px)
       margin-right: 12px
 
