@@ -6,12 +6,14 @@
           tag="h1"
           version="style-1"
           :class="$style['title__container-title']"
-        ) {{ data.title }}
+          v-html="data.title"
+        )
         typo-text(
-          tag="h1"
+          tag="p"
           version="style-5"
           :class="$style['title__container-subtitle']"
-        ) {{ data.sub_title }}
+          v-html="data.sub_title"
+        )
       div(:class="$style['title__container-slider']")
         swiper(ref="swiper" :class="$style['slider']" class="swiper" :options="swiperOption")
           swiper-slide(

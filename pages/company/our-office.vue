@@ -1,12 +1,9 @@
 <template lang="pug">
-  main
-    common-divider(
-      :data="{\
-        height: 'middle',\
-        color: 'dark',\
-      }"
+  main(:class="$style['main']")
+    page-our-office-title(
+      :data="$t('pages.our_office.title')"
+      :class="$style['hero-title']"
     )
-    page-our-office-title(:data="$t('pages.our_office.title')")
     common-divider(
       :data="{\
         height: 'x-large',\
@@ -84,3 +81,14 @@ export default class PrivacyPolicyPage extends Vue {
   }
 }
 </script>
+
+<style lang="sass" module>
+.main
+  margin-top: -92px
+
+  @media (max-width: 1054px)
+    margin-top: -97px
+
+.hero-title
+  padding-top: 156px
+</style>
