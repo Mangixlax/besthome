@@ -11,6 +11,19 @@
       }"
     )
     page-our-office-features
+    common-divider(
+      :data="{\
+        height: 'x-large',\
+        color: 'dark',\
+      }"
+    )
+    page-our-office-about
+    common-divider(
+      :data="{\
+        height: 'large',\
+        color: 'dark',\
+      }"
+    )
 </template>
 
 <script lang="ts">
@@ -21,10 +34,12 @@ import metaGenerator from '~/config/meta'
 import { getSiteUrl } from '@/lib/utils'
 import PageOurOfficeTitle from '~/components/Page/Company/OurOffice/PageOurOfficeTitle.vue'
 import PageOurOfficeFeatures from "~/components/Page/Company/OurOffice/PageOurOfficeFeatures.vue"
+import PageOurOfficeAbout from "~/components/Page/Company/OurOffice/PageOurOfficeAbout.vue"
 // import PageOurOfficeInfo from '~/components/Page/Company/OurOffice/PageOurOfficeInfo.vue'
 
 @Component({
   components: {
+    PageOurOfficeAbout,
     PageOurOfficeFeatures,
     CommonDivider,
     PageOurOfficeTitle,

@@ -1248,6 +1248,11 @@
             "link_text": "Our team"
           }
         }
+      },
+      "about": {
+        "title": "The business card of our company",
+        "sub_title": "We have a spacious, modern three-storey building with an adjacent parking lot and a garden.",
+        "hero_title": "The business card of our company - a 500-year-old olive tree grows in the garden!"
       }
     },
     "contacts": {
