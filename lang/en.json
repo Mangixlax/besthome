@@ -1227,6 +1227,27 @@
       "title": {
         "title": "Welcome to the<br>office of Best Home Construction!",
         "sub_title": "The Best Home Construction company is one of the reputable construction companies in Alanya."
+      },
+      "features": {
+        "title": "Our office is no exception",
+        "sub_title": "The habit of being the best in everything is reflected in every detail of our work.",
+        "items": {
+          "our_project": {
+            "title": "Our projects",
+            "text": "Employees of Best Home Construction spend a lot of time at the workplace. We are fans of our business! And it is important for us to create the most beautiful projects in Alanya in a comfortable environment.",
+            "link_text": "View projects"
+          },
+          "office": {
+            "title": "Office",
+            "text": "Come to our office! It is impossible not to notice it. We are located in a stylish modern mansion in the central part of the city.<br><br>In the area of Jikcilli, just behind the popular and oldest shopping center \"Alanium\".",
+            "link_text": "Contact us"
+          },
+          "teamwork": {
+            "title": "Teamwork",
+            "text": "The key to efficiency and dynamic growth is teamwork. Therefore, we have united all the departments of the construction company under one roof of our spacious and stylish building.",
+            "link_text": "Our team"
+          }
+        }
       }
     },
     "contacts": {

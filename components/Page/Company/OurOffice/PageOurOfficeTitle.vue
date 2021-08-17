@@ -39,7 +39,6 @@
 <script lang="ts">
 import TypoText from '~/components/Base/TypoText.vue'
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
-import CommonSubscribe from '~/components/Common/CommonSubscribe.vue'
 
 interface IOurOfficeTitle {
   title: string
@@ -49,7 +48,6 @@ interface IOurOfficeTitle {
 @Component({
   components: {
     TypoText,
-    CommonSubscribe,
   },
 })
 export default class PageOurOfficeTitle extends Vue {
@@ -96,9 +94,8 @@ export default class PageOurOfficeTitle extends Vue {
 
     &-subtitle
       align-self: flex-end
-      margin: 0
       max-width: 480px
-      margin-right: 80px
+      margin: 0 80px 0 0
 
     &-play_button
       position: absolute

@@ -10,6 +10,7 @@
         color: 'dark',\
       }"
     )
+    page-our-office-features
 </template>
 
 <script lang="ts">
@@ -19,10 +20,12 @@ import { delay } from '~/lib/utils'
 import metaGenerator from '~/config/meta'
 import { getSiteUrl } from '@/lib/utils'
 import PageOurOfficeTitle from '~/components/Page/Company/OurOffice/PageOurOfficeTitle.vue'
+import PageOurOfficeFeatures from "~/components/Page/Company/OurOffice/PageOurOfficeFeatures.vue"
 // import PageOurOfficeInfo from '~/components/Page/Company/OurOffice/PageOurOfficeInfo.vue'
 
 @Component({
   components: {
+    PageOurOfficeFeatures,
     CommonDivider,
     PageOurOfficeTitle,
   },
