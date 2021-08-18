@@ -94,8 +94,9 @@ export default class PageOurOfficeTitle extends Vue {
 
     &-subtitle
       align-self: flex-end
+      margin: 0
       max-width: 480px
-      margin: 0 80px 0 0
+      margin-right: 80px
 
     &-play_button
       position: absolute
