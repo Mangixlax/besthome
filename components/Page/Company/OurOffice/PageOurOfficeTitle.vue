@@ -201,31 +201,23 @@ export default class PageOurOfficeTitle extends Vue {
     background: $color-white-96 !important
 
 .swiper-button-prev
+  +style-7
   display: block
   margin-left: auto
   outline: none
   padding: 0
   background-color: transparent
   border: none
-  font-family: DM Sans
-  font-style: normal
-  font-weight: normal
-  font-size: 14px
-  line-height: 22px
   color: rgba(255, 255, 255, 0.48)
 
 .swiper-button-next
+  +style-7
   display: block
   margin-right: auto
   outline: none
   padding: 0
   background-color: transparent
   border: none
-  font-family: DM Sans
-  font-style: normal
-  font-weight: normal
-  font-size: 14px
-  line-height: 22px
   color: #FFFFFF
 
 .buttons
