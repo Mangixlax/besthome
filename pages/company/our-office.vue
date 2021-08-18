@@ -55,7 +55,7 @@ import PageOurOfficeGallery from "~/components/Page/Company/OurOffice/PageOurOff
   },
 
   head(): any {
-    const title = this.$i18n.t('pages.company_quality.our_office.title')
+    const title = this.$i18n.t('pages.our_office.title.title')
 
     return {
       title,

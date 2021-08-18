@@ -32,13 +32,18 @@
               div(:class="['swiper-pagination-progressbar', $style['swiper-pagination-progressbar']]")
               button(:class="[$style['swiper-button-next']]" @click.prevent="$refs.swiper.swiperInstance.slideNext()")
                 | Next
-      div(:class="$style['title__container-play_button']")
+      div(
+        :class="$style['title__container-play_button']"
+        @click="showVideo"
+      )
         svg-icon(name="play-icon")
 </template>
 
 <script lang="ts">
 import TypoText from '~/components/Base/TypoText.vue'
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
+import CommonSubscribe from '~/components/Common/CommonSubscribe.vue'
+import { modalsTriggerMixin } from '~/mixins/modals'
 
 interface IOurOfficeTitle {
   title: string
@@ -48,12 +53,21 @@ interface IOurOfficeTitle {
 @Component({
   components: {
     TypoText,
+    CommonSubscribe,
   },
+
+  mixins: [modalsTriggerMixin],
 })
 export default class PageOurOfficeTitle extends Vue {
   @Prop({ type: Object, default: () => {} }) data!: IOurOfficeTitle
 
-  public slides: Array<string> = ['slide-1.jpg', 'slide-1.jpg', 'slide-1.jpg']
+  public slides: Array<string> = [
+    'slide-1.jpg',
+    'slide-2.jpg',
+    'slide-3.jpg',
+    'slide-4.jpg',
+    'slide-5.jpg',
+  ]
 
   public swiperOption: Object = {
     slidesPerView: 1,
@@ -63,6 +77,30 @@ export default class PageOurOfficeTitle extends Vue {
       el: '.swiper-pagination-progressbar',
       type: 'progressbar',
     },
+  }
+
+  public showVideo() {
+    this.showModal({
+      name: 'modal-video',
+      modal: () => import('~/components/Modal/Video/ModalVideo.vue'),
+      options: {
+        height: 'auto',
+        width: '100%',
+      },
+      events: {
+        'before-open': () => {
+          document.documentElement.classList.add('modal-fullwidth-is-open', 'modal-video-is-open')
+        },
+        'before-close': () => {
+          if (document.body.getElementsByClassName('vm--container').length <= 1) {
+            document.documentElement.classList.remove(
+              'modal-fullwidth-is-open',
+              'modal-video-is-open',
+            )
+          }
+        },
+      },
+    })
   }
 }
 </script>
@@ -78,6 +116,10 @@ export default class PageOurOfficeTitle extends Vue {
     padding: 0 24px
     display: flex
     position: relative
+    grid-gap: 32px
+
+    @media (max-width: 1080px)
+      flex-direction: column
 
     &-textbox
       color: $color-white-96
@@ -88,6 +130,9 @@ export default class PageOurOfficeTitle extends Vue {
       flex-direction: column
       max-width: 808px
       z-index: 2
+
+      @media (max-width: 1080px)
+        position: initial
 
     &-title
       margin: 0
@@ -111,6 +156,9 @@ export default class PageOurOfficeTitle extends Vue {
       background-color: $color-blue-100
       cursor: pointer
 
+      @media (max-width: 1350px)
+        display: none
+
       svg
         height: 32px
         width: 32px
@@ -120,6 +168,9 @@ export default class PageOurOfficeTitle extends Vue {
   max-width: 608px
   margin-bottom: 87px
 
+  @media (max-width: 1080px)
+    margin-bottom: initial
+
 .slide
   display: flex
   position: relative
@@ -128,7 +179,11 @@ export default class PageOurOfficeTitle extends Vue {
   img
     width: 100%
     object-fit: cover
+    object-position: center
     height: 670px
+
+    @media (max-width: 1080px)
+      height: initial
 
 .pagination
   margin-top: 20px
@@ -146,35 +201,26 @@ export default class PageOurOfficeTitle extends Vue {
     background: $color-white-96 !important
 
 .swiper-button-prev
+  +style-7
   display: block
   margin-left: auto
   outline: none
   padding: 0
   background-color: transparent
   border: none
-  font-family: DM Sans
-  font-style: normal
-  font-weight: normal
-  font-size: 14px
-  line-height: 22px
   color: rgba(255, 255, 255, 0.48)
 
 .swiper-button-next
+  +style-7
   display: block
   margin-right: auto
   outline: none
   padding: 0
   background-color: transparent
   border: none
-  font-family: DM Sans
-  font-style: normal
-  font-weight: normal
-  font-size: 14px
-  line-height: 22px
   color: #FFFFFF
 
 .buttons
-  margin-left: 24px
   display: flex
   grid-gap: 24px
   align-items: center
