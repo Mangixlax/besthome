@@ -1,35 +1,30 @@
 <template lang="pug">
   section(:class="$style['container']")
     div(:class="$style['container__body']")
-      h2 Teamwork
+      h2 {{ $t('pages.our_office.teamwork.title') }}
       div(:class="$style['content']")
-        p Only here you can get acquainted with the employees of the sales department and take an interest in the work of the specialists of the after-sale service.
-        p Or stop by for a cup of fragrant Turkish coffee in our legal department and ask your question in a friendly atmosphere.<br>It is possible that you can make the wrong door and get into the accounting department, an architectural bureau or designers. Don't worry. We assure you that everyone will be glad to see you and will be happy to answer your questions about their work.
+        p(v-html="$t('pages.our_office.teamwork.text_1')")
+        p(v-html="$t('pages.our_office.teamwork.text_2')")
         div(:class="$style['links']")
           nuxt-link(
             :to="localePath({ name: 'service-introductory-tour' })"
-            title="Our services"
+            :title="$t('pages.our_office.teamwork.link_1')"
           )
-            span Our services
+            span {{ $t('pages.our_office.teamwork.link_1') }}
             svg-icon(name="text-link-arrow")
           nuxt-link(
             :to="localePath({ name: 'investors' })"
-            title="Investments"
+            :title="$t('pages.our_office.teamwork.link_2')"
           )
-            span Investments
+            span {{ $t('pages.our_office.teamwork.link_2') }}
             svg-icon(name="text-link-arrow")
 </template>
 
 <script lang="ts">
-import TypoText from '~/components/Base/TypoText.vue'
 import { Component, Vue } from 'nuxt-property-decorator'
 
-@Component({
-  components: {
-    TypoText,
-  },
-})
-export default class PageOurOfficeAbout extends Vue {}
+@Component
+export default class PageOurOfficeTeamwork extends Vue {}
 </script>
 
 <style lang="sass" module>

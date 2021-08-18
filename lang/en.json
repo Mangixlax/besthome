@@ -1253,6 +1253,13 @@
         "title": "The business card of our company",
         "sub_title": "We have a spacious, modern three-storey building with an adjacent parking lot and a garden.",
         "hero_title": "The business card of our company - a 500-year-old olive tree grows in the garden!"
+      },
+      "teamwork": {
+        "title": "Teamwork",
+        "text_1": "Only here you can get acquainted with the employees of the sales department and take an interest in the work of the specialists of the after-sale service.",
+        "text_2": "Or stop by for a cup of fragrant Turkish coffee in our legal department and ask your question in a friendly atmosphere.<br>It is possible that you can make the wrong door and get into the accounting department, an architectural bureau or designers. Don't worry. We assure you that everyone will be glad to see you and will be happy to answer your questions about their work.",
+        "link_1": "Our services",
+        "link_2": "Investments"
       }
     },
     "contacts": {
