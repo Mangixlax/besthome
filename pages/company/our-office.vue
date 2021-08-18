@@ -38,6 +38,19 @@
         color: 'dark',\
       }"
     )
+    common-divider(
+      :data="{\
+        height: 'x-large',\
+        color: 'dark',\
+      }"
+    )
+    page-our-office-graphs
+    common-divider(
+      :data="{\
+        height: 'x-large',\
+        color: 'dark',\
+      }"
+    )
 </template>
 
 <script lang="ts">
@@ -51,10 +64,12 @@ import PageOurOfficeFeatures from '~/components/Page/Company/OurOffice/PageOurOf
 import PageOurOfficeAbout from '~/components/Page/Company/OurOffice/PageOurOfficeAbout.vue'
 import PageOurOfficeGallery from '~/components/Page/Company/OurOffice/PageOurOfficeGallery.vue'
 import PageOurOfficeTeamwork from '~/components/Page/Company/OurOffice/PageOurOfficeTeamwork.vue'
+import PageOurOfficeGraphs from "~/components/Page/Company/OurOffice/PageOurOfficeGraphs.vue"
 // import PageOurOfficeInfo from '~/components/Page/Company/OurOffice/PageOurOfficeInfo.vue'
 
 @Component({
   components: {
+    PageOurOfficeGraphs,
     PageOurOfficeTeamwork,
     PageOurOfficeGallery,
     PageOurOfficeAbout,

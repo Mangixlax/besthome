@@ -1260,6 +1260,29 @@
         "text_2": "Or stop by for a cup of fragrant Turkish coffee in our legal department and ask your question in a friendly atmosphere.<br>It is possible that you can make the wrong door and get into the accounting department, an architectural bureau or designers. Don't worry. We assure you that everyone will be glad to see you and will be happy to answer your questions about their work.",
         "link_1": "Our services",
         "link_2": "Investments"
+      },
+      "graphs": {
+        "title": "A little about the main",
+        "text": "All departments are gathered under one roof: sales department, after-sales service, legal department, accounting, office of architects and designers.There are several meeting rooms in the office, where presentations of the company's objects are held. In order to do everything that is necessary, the client does not need to go to different places.",
+        "items": [
+          {
+            "title": "16 years",
+            "text": "Experience in the real estate market."
+          },
+          {
+            "title": "1825 days",
+            "text": "Or a 5-year warranty on any apartment."
+          },
+          {
+            "title": "1000+",
+            "text": "Satisfied customers after working with us."
+          },
+          {
+            "title": "39 objects",
+            "text": "Put into operation for the entire time of operation."
+          }
+        ],
+        "link": "About us"
       }
     },
     "contacts": {
