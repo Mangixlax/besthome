@@ -28,7 +28,7 @@ import PageOurOfficeTitle from '~/components/Page/Company/OurOffice/PageOurOffic
   },
 
   head(): any {
-    const title = this.$i18n.t('pages.company_quality.our_office.title')
+    const title = this.$i18n.t('pages.our_office.title.title')
 
     return {
       title,
