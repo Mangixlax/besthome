@@ -11,6 +11,7 @@ export const state = () => ({
   logoSubTitle: 'Construction' as string,
   ourCompanyCardInfo: [] as Array<object>,
   breadcrumbs: [] as Array<object>,
+  isDarkTheme: false as boolean,
 })
 
 export type RootState = ReturnType<typeof state>
@@ -27,11 +28,14 @@ export const getters: GetterTree<RootState, RootState> = {
   getLogoSubTitle(state: RootState) {
     return state.logoSubTitle
   },
-  getBreadcrumbs(state) {
+  getBreadcrumbs(state: RootState) {
     return state.breadcrumbs || []
   },
-  getPersonById: (state) => (id: any) => {
+  getPersonById: (state: RootState) => (id: any) => {
     return state.ourCompanyCardInfo.find((person: any) => person.id == id)
+  },
+  isDarkTheme(state: RootState) {
+    return state.isDarkTheme
   },
 }
 
@@ -57,6 +61,12 @@ export const mutations: MutationTree<RootState> = {
   },
   setStickyNavigation(state: RootState, value: boolean) {
     state.stickyNavigation = value
+  },
+  setDarkTheme(state: RootState) {
+    state.isDarkTheme = true
+  },
+  setLightTheme(state: RootState) {
+    state.isDarkTheme = false
   },
 }
 
