@@ -72,9 +72,9 @@ import PageOurOfficeFeatures from '~/components/Page/Company/OurOffice/PageOurOf
 import PageOurOfficeAbout from '~/components/Page/Company/OurOffice/PageOurOfficeAbout.vue'
 import PageOurOfficeGallery from '~/components/Page/Company/OurOffice/PageOurOfficeGallery.vue'
 import PageOurOfficeTeamwork from '~/components/Page/Company/OurOffice/PageOurOfficeTeamwork.vue'
-import PageOurOfficeGraphs from "~/components/Page/Company/OurOffice/PageOurOfficeGraphs.vue"
-import PageOurOfficeManager from "~/components/Page/Company/OurOffice/PageOurOfficeManager.vue"
-import PageOurOfficeAddress from "~/components/Page/Company/OurOffice/PageOurOfficeAddress.vue"
+import PageOurOfficeGraphs from '~/components/Page/Company/OurOffice/PageOurOfficeGraphs.vue'
+import PageOurOfficeManager from '~/components/Page/Company/OurOffice/PageOurOfficeManager.vue'
+import PageOurOfficeAddress from '~/components/Page/Company/OurOffice/PageOurOfficeAddress.vue'
 // import PageOurOfficeInfo from '~/components/Page/Company/OurOffice/PageOurOfficeInfo.vue'
 
 @Component({
@@ -89,7 +89,6 @@ import PageOurOfficeAddress from "~/components/Page/Company/OurOffice/PageOurOff
     CommonDivider,
     PageOurOfficeTitle,
   },
-
   head(): any {
     const title = this.$i18n.t('pages.our_office.title.title')
 
@@ -123,6 +122,8 @@ import PageOurOfficeAddress from "~/components/Page/Company/OurOffice/PageOurOff
 })
 export default class PrivacyPolicyPage extends Vue {
   created() {
+    this.$store.commit('setDarkTheme')
+
     if (process.server) {
       this.$store.commit('PageTransition/animate', false)
     }
