@@ -1,5 +1,5 @@
 <template lang="pug">
-  ol(:class="[$style['breadcrumbs'], isDarkTheme && $style['dark']]")
+  ol(v-if="breadcrumbs.length" :class="[$style['breadcrumbs'], isDarkTheme && $style['dark']]")
     li(:class="$style['breadcrumbs__item']")
       nuxt-link(
         :to="localePath('index')"
