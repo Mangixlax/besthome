@@ -38,6 +38,7 @@
         color: 'dark',\
       }"
     )
+    page-our-office-manager
     common-divider(
       :data="{\
         height: 'x-large',\
@@ -65,10 +66,12 @@ import PageOurOfficeAbout from '~/components/Page/Company/OurOffice/PageOurOffic
 import PageOurOfficeGallery from '~/components/Page/Company/OurOffice/PageOurOfficeGallery.vue'
 import PageOurOfficeTeamwork from '~/components/Page/Company/OurOffice/PageOurOfficeTeamwork.vue'
 import PageOurOfficeGraphs from "~/components/Page/Company/OurOffice/PageOurOfficeGraphs.vue"
+import PageOurOfficeManager from "~/components/Page/Company/OurOffice/PageOurOfficeManager.vue"
 // import PageOurOfficeInfo from '~/components/Page/Company/OurOffice/PageOurOfficeInfo.vue'
 
 @Component({
   components: {
+    PageOurOfficeManager,
     PageOurOfficeGraphs,
     PageOurOfficeTeamwork,
     PageOurOfficeGallery,

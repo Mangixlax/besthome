@@ -51,7 +51,7 @@
       div(:class="$style['footer__navigation']")
         div(:class="$style['buttons']")
           button(:class="[$style['swiper-button-prev']]" @click.prevent="$refs.swiper.swiperInstance.slidePrev()")
-            svg-icon(name="slider-prev-arrow-white-56")
+            svg-icon(name="slider-prev-arrow-white")
           button(:class="[$style['swiper-button-next']]" @click.prevent="$refs.swiper.swiperInstance.slideNext()")
             svg-icon(name="slider-next-arrow-white")
         typo-text(
@@ -182,7 +182,7 @@ export default {
       +style-5($with-media: false)
       color: $color-white-100
       text-decoration: none
-      margin: 0px
+      margin: 0
 
     svg
       height: 20px

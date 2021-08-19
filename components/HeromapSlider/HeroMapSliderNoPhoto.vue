@@ -28,7 +28,7 @@
                   version="style-4"
                   v-html="slide.title"
                   :class="$style['slide__textbox-text']"
-                ) 
+                )
                 typo-text(
                   tag="div"
                   version="style-7"
@@ -38,7 +38,7 @@
             div(slot="pagination" :class="$style['navigation']")
               div(:class="$style['buttons']")
                 button(:class="[$style['swiper-button-prev']]" @click.prevent="$refs.mySwiper.swiperInstance.slidePrev()")
-                  svg-icon(name="slider-prev-arrow-white-56")
+                  svg-icon(name="slider-prev-arrow-white")
                 button(:class="[$style['swiper-button-next']]" @click.prevent="$refs.mySwiper.swiperInstance.slideNext()")
                   svg-icon(name="slider-next-arrow-white")
               div(:class="['swiper-pagination-bullets', $style['swiper-pagination-bullets']]")
@@ -103,17 +103,17 @@ export default {
         const slideCode = this.data.slides[index].point_code
         const $activeSlide = this.$refs.container.querySelector(`[id="${slideCode}"]`)
 
-        ;(this.$refs.container.querySelectorAll('.' + this.$style['active']) || []).forEach((el) => { 
+        ;(this.$refs.container.querySelectorAll('.' + this.$style['active']) || []).forEach((el) => {
           el.classList.remove(this.$style['active'])
         })
-        
+
         if ($activeSlide) {
           $activeSlide.classList.add(this.$style['active'])
         }
-        
+
       }
     },
-    
+
     onSlideChange(swiper) {
       this.setActiveSlide(swiper.realIndex)
     }
@@ -176,8 +176,8 @@ export default {
           stroke-width: 5px
           stroke: white
           r: 5
-          fill: transparent 
-    
+          fill: transparent
+
     &-text
       display: flex
       flex-direction: column
@@ -236,7 +236,7 @@ export default {
 
   &__textbox
     max-width: 487px
-    background-color: transparent 
+    background-color: transparent
     color: $color-white-100
     right: 0
     bottom: 50%
@@ -253,7 +253,7 @@ export default {
 
     &-text
       margin: 0
-      
+
   img
     object-fit: cover
     max-width: 720px
@@ -301,7 +301,7 @@ export default {
 
   [class*="swiper-pagination-bullet-active"]
     background: $color-white-100 !important
-    
+
 .swiper-button-prev
   display: block
   margin-left: auto
