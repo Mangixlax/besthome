@@ -1,9 +1,7 @@
 <template lang="pug">
-  ol(:class="$style['breadcrumbs']")
+  ol(:class="[$style['breadcrumbs'], isDarkTheme && $style['dark']]")
     li(:class="$style['breadcrumbs__item']")
-      typo-text(
-        tag="nuxt-link"
-        version="style-8"
+      nuxt-link(
         :to="localePath('index')"
         :title="$i18n.locale === 'ru' ? 'Главная' : 'Home'"
         :class="$style['breadcrumbs__item-link']"
@@ -14,9 +12,7 @@
       :key="i"
       :class="$style['breadcrumbs__item']"
     )
-      typo-text(
-        tag="nuxt-link"
-        version="style-8"
+      nuxt-link(
         :to="localePath(crumb.route)"
         :title="crumb.name"
         :class="[$style['breadcrumbs__item-link'], i === breadcrumbs.length - 1 && $style['disabled']]"
@@ -24,7 +20,6 @@
 </template>
 
 <script lang="ts">
-import TypoText from '~/components/Base/TypoText.vue'
 import { Component, Vue } from 'nuxt-property-decorator'
 import { mapGetters } from 'vuex'
 import { Jsonld } from 'nuxt-jsonld'
@@ -32,9 +27,6 @@ import { getSiteUrl } from '@/lib/utils'
 
 @Jsonld
 @Component({
-  components: {
-    TypoText,
-  },
   computed: {
     ...mapGetters({
       breadcrumbs: 'getBreadcrumbs',
@@ -70,6 +62,10 @@ export default class BaseBreadCrumbs extends Vue {
       ],
     }
   }
+
+  get isDarkTheme(): boolean {
+    return this.$store.getters['isDarkTheme']
+  }
 }
 </script>
 
@@ -78,12 +74,16 @@ export default class BaseBreadCrumbs extends Vue {
   display: flex
   flex-wrap: wrap
   list-style: none
-  max-width: 1184px
-  padding: 0 32px
-  margin: 32px auto 0
+  margin: 0
+  background-color: $color-white-100
+  padding: 32px calc((100vw - 1152px) / 2)
 
-  @media (max-width: 800px)
-    padding: 0 24px
+  &.dark
+    background-color: $color-black-96
+
+  @media (max-width: 1176px)
+    padding-left: 24px
+    padding-right: 24px
 
   &__item
     display: flex
@@ -93,22 +93,38 @@ export default class BaseBreadCrumbs extends Vue {
       content: "/"
       display: inline-block
       margin-right: 12px
-      color: rgba(17, 17, 17, 0.16)
-      +style-5
+      color: $color-black-24
+      +desktop-text-style-5
+
+      .dark &
+        color: $color-white-24
 
     &-link
       display: flex
       align-items: center
       text-underline-offset: 7px
-      text-decoration-color: rgba(17, 17, 17, 0.16)
-      color: rgba(17, 17, 17, 0.88)
+      text-decoration-color: $color-black-8
+      color: $color-black-88
       margin-right: 12px
-      +style-8($with-media: false)
+      +desktop-text-style-8
+
+      .dark &
+        color: $color-white-88
+        text-decoration-color: $color-white-8
 
       svg
         width: 18px
         height: 18px
+        fill: $color-black-80
+
+        .dark &
+          fill: $color-white-88
 
       &.disabled
         pointer-events: none
+        color: $color-black-40
+        text-decoration: none
+
+        .dark &
+          color: $color-white-40
 </style>
