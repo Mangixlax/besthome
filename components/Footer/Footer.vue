@@ -1,6 +1,18 @@
 <template lang="pug">
   footer(:class="$style['footer']")
-    footer-company-description(:paragraphs="$t('footer.footer_company_description')")
+    common-divider(
+      :data="{\
+        height: 'large',\
+        color: isDarkTheme ? 'dark' : 'light',\
+      }"
+    )
+    footer-company-description
+    common-divider(
+      :data="{\
+        height: 'large',\
+        color: isDarkTheme ? 'dark' : 'light',\
+      }"
+    )
     base-bread-crumbs
     footer-site-map
     footer-copyright
@@ -12,16 +24,22 @@ import BaseBreadCrumbs from '~/components/Base/BaseBreadCrumbs.vue'
 import FooterCompanyDescription from '~/components/Footer/FooterCompanyDescription.vue'
 import FooterSiteMap from '~/components/Footer/FooterSiteMap.vue'
 import FooterCopyright from '~/components/Footer/FooterCopyright.vue'
+import CommonDivider from '~/components/Common/CommonDivider.vue'
 
 @Component({
   components: {
+    CommonDivider,
     BaseBreadCrumbs,
     FooterCompanyDescription,
     FooterSiteMap,
     FooterCopyright,
   },
 })
-export default class Footer extends Vue {}
+export default class Footer extends Vue {
+  get isDarkTheme(): boolean {
+    return this.$store.getters['isDarkTheme']
+  }
+}
 </script>
 
 <style lang="sass" module>

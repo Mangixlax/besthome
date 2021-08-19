@@ -1,14 +1,15 @@
 <template lang="pug">
-  section(:class="$style['company']")
+  section(:class="[$style['company'], isDarkTheme && $style['dark']]")
+    h2(v-html="$t('footer.footer_company_title')")
     div(:class="$style['company__container']")
       div(
         v-if="isSeoContentView"
         v-html="seoContent"
         :class="$style['company__container-text']"
       )
-      div(v-else) 
+      div(v-else)
         p(
-          v-for="(paragraph, i) in paragraphs"
+          v-for="(paragraph, i) in $t('footer.footer_company_description')"
           :key="i"
           :class="$style['company__container-text']"
         ) {{ paragraph }}
@@ -20,21 +21,19 @@ import TypoText from '~/components/Base/TypoText.vue'
 
 @Component({ components: { TypoText } })
 export default class FooterCompanyDescription extends Vue {
-  @Prop({ type: Array, default: () => [] }) paragraphs!: Array<string>
-
   public isSeoContentView: boolean = false
 
   get seoContent(): string | null {
     return this.$store.getters['Catalog/getPageSeoContent']
   }
 
+  get isDarkTheme(): boolean {
+    return this.$store.getters['isDarkTheme']
+  }
+
   @Watch('$route.path')
   async onChangeRoute(path: string) {
-    if (path.indexOf('properties') !== -1) {
-      this.isSeoContentView = true
-    } else {
-      this.isSeoContentView = false
-    }
+    this.isSeoContentView = path.indexOf('properties') !== -1;
   }
 }
 </script>
@@ -42,19 +41,57 @@ export default class FooterCompanyDescription extends Vue {
 <style lang="sass" module>
 .company
   width: 100%
+  display: flex
+  justify-content: space-between
+  background-color: $color-white-100
+
+  @media (max-width: 1176px)
+    padding: 0 24px
+
+  @media (max-width: 900px)
+    flex-direction: column
+
+  & > h2
+    +desktop-text-style-5
+    color: $color-black-96
+    margin-top: 0
+    margin-bottom: 0
+    margin-left: calc((100vw - 1152px) / 2)
+    width: 100%
+    max-width: 344px
+
+    @media (max-width: 1176px)
+      margin-left: 0
+
+    @media (max-width: 900px)
+      margin-bottom: 24px
+
+  &.dark
+    background-color: $color-black-96
+
+    h2
+      color: $color-white-96
 
   &__container
-    padding: 32px
-    margin: 0 auto
-    max-width: 1184px
-    border-bottom: solid 1px
-    border-color: $color-black-4
+    margin-right: calc((100vw - 1152px) / 2)
+    width: 100%
+    max-width: 592px
 
-    @media (max-width: 800px)
-      padding: 24px 24px
+    @media (max-width: 1176px)
+      margin-right: 0
+
+    .dark &
+      color: $color-white-4
 
     &-text
+      +desktop-text-style-7
       display: inline-block
-      margin: 0px
-      +style-8($with-media: false)
+      margin: 0
+      color: $color-black-48
+
+      & + &
+        margin-top: 18px
+
+      .dark &
+        color: $color-white-48
 </style>
