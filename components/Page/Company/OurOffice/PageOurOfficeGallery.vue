@@ -128,6 +128,10 @@ export default class PageOurOfficeGallery extends Vue {
   max-width: 100%
   padding: 40px 24px 41px !important
 
+  @media (min-width: 2000px)
+    max-width: 1935px
+    margin: 0 auto
+
   @media (min-width: 941px)
     padding: 80px 40px 82px !important
 
