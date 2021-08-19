@@ -53,12 +53,6 @@
       }"
     )
     page-our-office-address
-    common-divider(
-      :data="{\
-        height: 'x-large',\
-        color: 'dark',\
-      }"
-    )
 </template>
 
 <script lang="ts">
@@ -75,7 +69,6 @@ import PageOurOfficeTeamwork from '~/components/Page/Company/OurOffice/PageOurOf
 import PageOurOfficeGraphs from '~/components/Page/Company/OurOffice/PageOurOfficeGraphs.vue'
 import PageOurOfficeManager from '~/components/Page/Company/OurOffice/PageOurOfficeManager.vue'
 import PageOurOfficeAddress from '~/components/Page/Company/OurOffice/PageOurOfficeAddress.vue'
-// import PageOurOfficeInfo from '~/components/Page/Company/OurOffice/PageOurOfficeInfo.vue'
 
 @Component({
   components: {
@@ -90,7 +83,7 @@ import PageOurOfficeAddress from '~/components/Page/Company/OurOffice/PageOurOff
     PageOurOfficeTitle,
   },
   head(): any {
-    const title = this.$i18n.t('pages.our_office.title.title')
+    const title = this.$i18n.t('pages.our_office.title.title').replace('<br>', ' ')
 
     return {
       title,
