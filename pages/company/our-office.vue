@@ -83,7 +83,7 @@ import PageOurOfficeAddress from '~/components/Page/Company/OurOffice/PageOurOff
     PageOurOfficeTitle,
   },
   head(): any {
-    const title = this.$i18n.t('pages.our_office.title.title').replace('<br>', ' ')
+    const title = (this.$i18n.t('pages.our_office.title.title') as string).replace('<br>', ' ')
 
     return {
       title,

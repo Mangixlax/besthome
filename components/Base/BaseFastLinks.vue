@@ -1,6 +1,9 @@
 <template lang="pug">
-  section(:class="[$style['fastlinks'], show && $style['show']]")
-    h3(:class="$style['fastlinks-title']" @click="onClick") {{ title }}
+  section(:class="[$style['fastlinks'], show && $style['show'], isDarkTheme && $style['dark']]")
+    h3(:class="$style['fastlinks-title']" @click="onClick")
+      | {{ title }}
+      svg-icon(v-if="!show" name="fastlinks-accordion-plus")
+      svg-icon(v-else name="fastlinks-accordion-minus")
     div(:style="{ height: contentHeight }")
       ol(:class="$style['fastlinks__list']" ref="linkContainer")
         li(
@@ -9,12 +12,12 @@
           :class="$style['fastlinks__item']"
         )
           nuxt-link(
-            :class="$style['fastlinks__item-link']" 
+            :class="$style['fastlinks__item-link']"
             :to="localePath(link.route)"
+            :title="link.name"
           )
             span(:class="$style['fastlinks__item-link--underline']")
               | {{ link.name }}
-            svg-icon(name="link-arrow")
 </template>
 
 <script lang="ts">
@@ -30,6 +33,9 @@ export default class BaseFastLinks extends Vue {
 
   @Prop({ type: Boolean, default: false })
   private active!: boolean
+
+  @Prop({ type: Boolean, default: false })
+  private isDarkTheme!: boolean
 
   public show: boolean = this.active
   public contentHeight: string = '0px'
@@ -68,7 +74,6 @@ export default class BaseFastLinks extends Vue {
       this.showAccordion()
     }
   }
-  
 }
 </script>
 
@@ -78,10 +83,7 @@ export default class BaseFastLinks extends Vue {
   flex-direction: column
   position: relative
 
-
   @media (max-width: 600px)
-    padding: 0 24px
-
     & + &:before
       content: ""
       position: absolute
@@ -89,9 +91,11 @@ export default class BaseFastLinks extends Vue {
       left: 0
       width: 100%
       height: 1px
-      width: 100%
       display: inline-block
       background-color: $color-black-4
+
+    &.dark + &:before
+      background-color: $color-white-4
 
   @media (max-width: 600px)
     width: 100%
@@ -105,38 +109,41 @@ export default class BaseFastLinks extends Vue {
 
   &-title
     display: flex
-    color: rgba(17, 17, 17, 1)
+    color: $color-black-100
     white-space: nowrap
-    margin: 0px
-    margin-bottom: 10px
     position: relative
     justify-content: space-between
     align-items: center
+    +desktop-text-style-6
+    margin: 15px 0 10px
 
-    +style-6($with-media: false)
+    .dark &
+      color: $color-white-96
+
+    svg
+      display: none
 
     @media (max-width: 600px)
       cursor: pointer
       margin-top: 16px
       margin-bottom: 16px
 
-      &::after
-        content: ""
+      svg
+        display: inline-block
         width: 24px
         height: 24px
-        background-image: url(@/assets/sprite/svg/fastlinks-accordion-plus.svg)
+        stroke: $color-black-96
 
-        .show &
-          background-image: url(@/assets/sprite/svg/fastlinks-accordion-minus.svg)
+        .dark &
+          stroke: $color-white-96
 
   &__list
     display: flex
     flex-direction: column
     list-style: none
     padding: 0
-    margin: 0
     justify-content: center
-    margin-bottom: 17px
+    margin: 0 0 17px
 
     &:last-child
       padding-bottom: 17px
@@ -145,20 +152,28 @@ export default class BaseFastLinks extends Vue {
     display: flex
     align-items: center
 
+    & + &
+      margin-top: 8px
+
     &-link
       display: flex
       flex-wrap: nowrap
       align-items: center
       text-decoration: none
-      margin-bottom: 8px
-      color: rgba(17, 17, 17, 0.88)
-      +style-8($with-media: false)
+      color: $color-black-88
+      +desktop-text-style-8
+
+      .dark &
+        color: $color-white-88
 
       &--underline
         white-space: nowrap
         text-decoration: underline
         text-underline-offset: 7px
-        text-decoration-color: rgba(17, 17, 17, 0.16)
+        text-decoration-color: $color-black-16
+
+        .dark &
+          text-decoration-color: $color-white-16
 
       svg
         width: 18px

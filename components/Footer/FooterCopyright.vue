@@ -1,29 +1,35 @@
 <template lang="pug">
-  section(:class="$style['copyright']")
+  section(:class="[$style['copyright'], isDarkTheme && $style['dark']]")
     div(:class="$style['copyright__container']")
-      typo-text(
-        tag="p"
-        version="style-8(with-media: false)"
-        :class="$style['copyright__container-text']"
-      ) © BestHome Construction, 2021 {{ $t('footer.footer_copyright.rights') }}
-      div(:class="$style['copyright__changelang']")
-        typo-text(
-          tag="p"
-          version="style-8(with-media: false)"
-          :class="$style['copyright__changelang-text']"
-        ) {{ $t('footer.footer_copyright.language') }}
-        base-select-language(:list="['RU','EN']")
-    div(:class="$style['copyright__information']")
       ul(:class="$style['copyright__list']")
         li(
           v-for="(copyrightItem, i) in copyrightItems"
           :key="i"
           :class="$style['copyright__item']"
-          )
-            nuxt-link(
-              :to="localePath(copyrightItem.to)"
-              :class="$style['copyright__item-link']"
-            ) {{ copyrightItem.name }}
+        )
+          nuxt-link(
+            :to="localePath(copyrightItem.to)"
+            :class="$style['copyright__item-link']"
+          ) {{ copyrightItem.name }}
+      div(:class="$style['copyright__changelang']")
+        p(:class="$style['copyright__changelang-text']")
+          | {{ $t('footer.footer_copyright.language') }}
+        base-select-language(:list="['RU','EN']" :is-dark-theme="isDarkTheme")
+    div(:class="$style['copyright__information']")
+      div
+        | © BestHome Construction, 2021 {{ $t('footer.footer_copyright.rights') }}
+      div
+        div
+          | The site was made
+          a(href="#") SABR
+          | . Russian-Turkish digital company.
+        span
+          | Content under the law
+          div(id="DMCA-badge")
+            div(class="dm-1 dm-1-b" style="left: 0px; background-color: rgb(0, 102, 204);border: none;")
+              a(href="https://www.dmca.com/" title="DMCA") DMCA
+            div(class="dm-2 dm-2-b" style="background-color: rgb(255, 255, 255);border: none;")
+              a(href="http://www.dmca.com/Protection/Status.aspx?ID=dde516fc-1b7f-425d-93f0-fc5e98cffb34" title="DMCA" style="color: rgb(17, 17, 17);") PROTECTED
 </template>
 
 <script lang="ts">
@@ -37,6 +43,7 @@ interface ICopyrightItems {
   name: string
   to: any
 }
+
 @Jsonld
 @Component({
   components: { BaseFastLinks, BaseSelectLanguage, TypoText },
@@ -52,6 +59,10 @@ export default class FooterCopyright extends Vue {
       to: { name: 'term-of-use' },
     },
   ]
+
+  get isDarkTheme(): boolean {
+    return this.$store.getters['isDarkTheme']
+  }
 
   jsonld() {
     const json = {
@@ -134,56 +145,87 @@ export default class FooterCopyright extends Vue {
 
 <style lang="sass" module>
 .copyright
-  max-width: 1184px
-  margin: 0 auto
+  padding-left: calc((100vw - 1152px) / 2)
+  padding-right: calc((100vw - 1152px) / 2)
+  background-color: $color-white-100
+
+  &.dark
+    background-color: $color-black-96
+
+  @media (max-width: 1176px)
+    padding-left: 24px
+    padding-right: 24px
 
   &__container
     display: flex
     justify-content: space-between
-    margin: 32px 24px
+    padding: 40px 0 60px
     flex-wrap: wrap
-
-    &-text
-      margin: 0
-      color: $color-black-64
 
   &__changelang
     display: flex
 
+    @media (max-width: 440px)
+      margin-top: 24px
+
     &-text
       margin: 0
-      color: $color-black-64
       padding-right: 4px
       white-space: nowrap
       line-height: 36px
+      color: $color-black-64
+
+      .dark &
+        color: $color-white-64
 
   &__information
     display: flex
-    justify-content: center
-    padding: 0 24px 129px
+    justify-content: space-between
+    align-items: center
+    padding-bottom: 150px
+    color: $color-black-64
 
-    @media (max-width: 800px)
-      justify-content: start
-      padding: 0 24px 32px
+    @media (max-width: 1100px)
+      flex-direction: column
+      align-items: flex-start
+
+    .dark &
+      color: $color-white-64
+
+    & > div:last-child
+      display: flex
+      align-items: center
+
+      @media (max-width: 740px)
+        flex-direction: column
+        align-items: flex-start
+        margin-top: 12px
+
+      & > div:first-child a
+        color: $color-blue-100
+        text-decoration: underline
+        text-underline-offset: 7px
+        text-decoration-color: $color-blue-16
+        margin-left: 4px
+        margin-right: 4px
+
+      & > span:last-child
+        display: flex
+        align-items: center
+
+        &, div
+          margin-left: 14px
+
+        @media (max-width: 740px)
+          margin-left: 0
+          margin-top: 12px
 
   &__list
     display: flex
     flex-wrap: wrap
     list-style: none
-    justify-content: center
     margin: 0
     padding: 0
-
-    @media (max-width: 2000px) and (min-width: 800px)
-      width: 785px
-
-    @media (max-width: 800px) and (min-width: 411px)
-      width: 338px
-      justify-content: start
-
-    @media (max-width: 411px)
-      width: 310px
-      justify-content: start
 
   &__item
 
@@ -194,7 +236,11 @@ export default class FooterCopyright extends Vue {
       text-decoration-color: $color-black-16
       text-underline-offset: 7px
       margin-right: 12px
-      +style-8($with-media: false)
+      +desktop-text-style-8
+
+      .dark &
+        color: $color-white-88
+        text-decoration-color: $color-white-16
 
     @media (max-width: 2000px) and (min-width: 800px)
       & + &:before
@@ -207,6 +253,9 @@ export default class FooterCopyright extends Vue {
         display: inline-block
         background-color: $color-black-16
 
+        .dark &
+          background-color: $color-white-16
+
     @media (max-width: 800px) and (min-width: 412px)
       &:nth-child(3n):before
         content: ""
@@ -218,6 +267,9 @@ export default class FooterCopyright extends Vue {
         display: inline-block
         background-color: $color-black-16
 
+        .dark &
+          background-color: $color-white-16
+
       &:nth-child(3n+2):before
         content: ""
         width: 3px
@@ -227,6 +279,9 @@ export default class FooterCopyright extends Vue {
         border-radius: 3px
         display: inline-block
         background-color: $color-black-16
+
+        .dark &
+          background-color: $color-white-16
 
     @media (max-width: 411px) and (min-width: 1px)
       &:nth-child(2n):before
@@ -238,6 +293,9 @@ export default class FooterCopyright extends Vue {
         border-radius: 3px
         display: inline-block
         background-color: $color-black-16
+
+        .dark &
+          background-color: $color-white-16
 
       &:nth-child(2n+1)
         margin-left: 0

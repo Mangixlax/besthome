@@ -77,6 +77,10 @@ export default <NuxtConfig>{
         href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap&family=DM+Sans&display=swap',
       },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://images.dmca.com/badges/dmca.css?ID=dde516fc-1b7f-425d-93f0-fc5e98cffb34',
+      },
     ],
     script: [
       {

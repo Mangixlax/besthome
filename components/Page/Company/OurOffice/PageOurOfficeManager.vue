@@ -130,9 +130,9 @@ export default class PageOurOfficeManager extends Vue {
     this.activeSlideIndex = swiper.realIndex as number
   }
 
-  public onClickToManager(managerIndex) {
+  public onClickToManager(managerIndex: number) {
     this.activeSlideIndex = managerIndex
-    this.$refs.swiper && (this.$refs.swiper.swiperInstance as Swiper).slideTo(managerIndex)
+    this.$refs.swiper && ((this.$refs.swiper as Vue).swiperInstance as Swiper).slideTo(managerIndex)
   }
 }
 </script>

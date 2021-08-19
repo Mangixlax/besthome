@@ -1,5 +1,14 @@
 <template lang="pug">
-  section(:class="$style['site__map']")
+  section(:class="[$style['container'], isDarkTheme && $style['dark']]")
+    div(:class="$style['container__head']")
+      h2(:class="$style['container__head-title']") Is the answer to your question missing?
+      nuxt-link(
+        :to="localePath({ name: 'contacts' })"
+        :class="$style['container__head-link']"
+        title="Contact us"
+      )
+        span Contact us
+        svg-icon(name="text-link-arrow")
     div(:class="$style['map__grid']")
       base-fast-links(
         v-for="(siteMapColumn, i) in siteMapColumns"
@@ -8,45 +17,8 @@
         :list="siteMapColumn.items"
         :class="$style[`map__grid-column-${i}`]"
         :active="i === 0"
+        :is-dark-theme="isDarkTheme"
       )
-    div(:class="$style['map__phone']")
-      typo-text(
-        tag="p"
-        version="style-8"
-        :class="$style['map__phone-text']"
-      )
-        | {{ $t('footer.footer_site_map.text') }}
-        a(href="tel:+905305474415" title="Call +90 530 547-44-15" :class="$style['map__phone-text-link']")
-          span(v-html="'+90 530 547<span>-</span>44<span>-</span>15'")
-        | {{ $t('footer.footer_site_map.text_2') }}
-        span
-          nuxt-link(
-          :to="localePath({ name: 'contacts' })"
-          :class="$style['map__phone-link--underline']"
-        ) {{ $t('footer.footer_site_map.link') }}
-          | .
-        nuxt-link(
-          :to="localePath({ name: 'contacts' })"
-          :class="$style['map__phone-link']"
-        )
-          svg-icon(name="link-arrow")
-    div(:class="$style['footer__logos']")
-      a(href='https://sabr.com.tr/' target='_blank' :class="$style['developer-logo']" title="Sabr. Digital Agency")
-        developer-logo
-      a(
-        href="//www.dmca.com/Protection/Status.aspx?ID=09d50f11-0f90-42ba-84a5-43513eabbc18"
-        title="DMCA.com Protection Status"
-        target="_blank"
-        class="dmca-badge"
-        :class="$style['footer__logos-item']"
-      )
-        img(
-          src="https://images.dmca.com/Badges/dmca_protected_26_120.png?ID=09d50f11-0f90-42ba-84a5-43513eabbc18%22" 
-          alt="DMCA.com Protection Status" 
-          width="121px" 
-          height="24px"
-        )
-      script(src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js")
 </template>
 
 <script lang="ts">
@@ -80,10 +52,14 @@ export default class FooterSiteMap extends Vue {
     return this.$store.getters['Navigation/getMenuByKey']('additional-services')
   }
 
+  get isDarkTheme(): boolean {
+    return this.$store.getters['isDarkTheme']
+  }
+
   public siteMapColumns: IMenus<NavigationListItem[]>[] = [
     { ...this.chooseAndBuy },
     { ...this.basicServices },
-    { ...this.latestNews },
+    // { ...this.latestNews },
     { ...this.aboutCompany },
     { ...this.additionalServices },
   ]
@@ -91,18 +67,88 @@ export default class FooterSiteMap extends Vue {
 </script>
 
 <style lang="sass" module>
-
-.site__map
-  max-width: 1184px
-  padding: 32px 32px
+.container
+  padding: 32px calc((100vw - 1152px) / 2)
   margin: 0 auto
-  border-bottom: solid 1px $color-black-4
+  background-color: $color-white-100
+  display: flex
+  justify-content: space-between
+  position: relative
 
-  @media (max-width: 800px) and (min-width: 600px)
-    padding: 32px 24px
+  &.dark
+    background-color: $color-black-96
 
-  @media (max-width: 600px)
-    padding: 32px 0
+  &:before
+    content: ''
+    position: absolute
+    top: 0
+    left: calc((100vw - 1152px) / 2)
+    right: calc((100vw - 1152px) / 2)
+    height: 1px
+    background-color: $color-black-4
+
+    @media (max-width: 1176px)
+      left: 24px
+      right: 24px
+
+  &.dark:before
+    background-color: $color-white-4
+
+  @media (max-width: 1176px)
+    padding-left: 24px
+    padding-right: 24px
+
+  @media (max-width: 900px)
+    flex-direction: column
+
+  &__head
+    width: 100%
+    max-width: 374px
+    margin-right: 40px
+
+    &-title
+      +desktop-display-style-4
+      margin-top: 0
+      margin-bottom: 32px
+      color: $color-black-88
+
+      .dark &
+        color: $color-white-88
+
+    &-link
+      +desktop-text-style-6
+      color: $color-black-80
+      text-decoration: none
+      display: flex
+      align-items: center
+      outline: none
+
+      &, svg
+        transition: fill 0.25s ease, color 0.25s ease
+
+      svg
+        width: 22px
+        height: 22px
+        fill: $color-black-80
+        margin-left: 10px
+
+      &:hover
+        color: $color-black-100
+
+        svg
+          fill: $color-black-100
+
+      .dark &
+        color: $color-white-80
+
+        svg
+          fill: $color-white-80
+
+        &:hover
+          color: $color-white-100
+
+          svg
+            fill: $color-white-100
 
 .map__grid
   display: grid
@@ -126,6 +172,9 @@ export default class FooterSiteMap extends Vue {
     grid-row: 1 / 3
     align-self: end
     margin-top: 250px
+
+  @media (max-width: 900px)
+    margin-top: 24px
 
   @media (max-width: 900px) and (min-width: 600px)
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
@@ -159,64 +208,4 @@ export default class FooterSiteMap extends Vue {
       grid-column: auto
       grid-row: auto
       margin-top: 0
-
-.map__phone
-
-  @media (max-width: 600px)
-    padding: 0 24px
-
-  &-text
-    display: flex
-    align-items: center
-    flex-wrap: wrap
-    +style-8($with-media: false)
-    column-gap: 0.25em
-
-    &-link
-      +style-8($with-media: false)
-      text-decoration: none
-      color: rgba($color-black, 0.88)
-      
-  span
-    white-space: nowrap
-
-  svg
-    width: 18px
-    height: 18px
-
-  &-link
-    display: inline-flex
-    align-items: center
-    margin: 0 4px
-    text-decoration: none
-    color: $color-blue
-    cursor: pointer
-    margin: 0px
-
-    &--underline
-      @extend .map__phone-link
-      border-bottom: 1px solid rgba($color-blue, 0.16)
-      margin-left: 4px
-
-      @media (max-width: 600px)
-        margin-left: 0px
-
-.footer
-  &__logos
-    display: flex
-    margin-top: 32px
-    grid-gap: 16px
-    align-items: center
-
-    &-item
-      display: flex
-      align-items: center
-      justify-content: center
-      background-color: $color-black-4
-      padding: 6px 12px
-      border-radius: 6px
-
-      img
-        height: 100%
-        width: 70px
 </style>
