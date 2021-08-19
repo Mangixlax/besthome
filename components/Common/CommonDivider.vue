@@ -1,13 +1,13 @@
-<template lang="pug">
+<template lang="pug" functional>
   div(
     :class="{\
       [$style['space']]: true,\
-      [$style['space--small']]: data.height === 'small',\
-      [$style['space--middle']]: data.height === 'middle',\
-      [$style['space--large']]: data.height === 'large',\
-      [$style['space--extra-large']]: data.height === 'x-large',\
-      [$style['space--light']]: data.color === 'light',\
-      [$style['space--dark']]: data.color === 'dark',\
+      [$style['space--small']]: props.data.height === 'small',\
+      [$style['space--middle']]: props.data.height === 'middle',\
+      [$style['space--large']]: props.data.height === 'large',\
+      [$style['space--extra-large']]: props.data.height === 'x-large',\
+      [$style['space--light']]: props.data.color === 'light',\
+      [$style['space--dark']]: props.data.color === 'dark',\
     }"
   )
 </template>
