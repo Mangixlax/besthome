@@ -2,15 +2,11 @@
   div(:class="$style['title']")
     div(:class="$style['title__container']")
       div(:class="$style['title__container-textbox']")
-        typo-text(
-          tag="h1"
-          version="style-1"
+        h1(
           :class="$style['title__container-title']"
           v-html="data.title"
         )
-        typo-text(
-          tag="p"
-          version="style-5"
+        p(
           :class="$style['title__container-subtitle']"
           v-html="data.sub_title"
         )
@@ -136,19 +132,38 @@ export default class PageOurOfficeTitle extends Vue {
       right: 144px
       display: flex
       flex-direction: column
-      max-width: 808px
+      max-width: 608px
       z-index: 2
 
       @media (max-width: 1080px)
         position: initial
+        margin-left: auto
+        margin-right: auto
+        text-align: left
 
     &-title
+      +desktop-display-style-1
       margin: 0
 
+      @media (max-width: 1080px)
+        +desktop-display-style-2
+
+      @media (max-width: 640px)
+        +desktop-display-style-3
+
     &-subtitle
+      +desktop-text-style-5
       align-self: flex-end
       max-width: 480px
       margin: 0 80px 0 0
+
+      @media (max-width: 1080px)
+        align-self: flex-start
+        margin: 24px 0 0
+
+      @media (max-width: 640px)
+        +desktop-text-style-6
+        margin-right: 80px
 
     &-play_button
       position: absolute
@@ -163,14 +178,37 @@ export default class PageOurOfficeTitle extends Vue {
       background-color: $color-blue-100
       cursor: pointer
 
-      @media (max-width: 1350px)
-        display: none
+      @media (max-width: 1080px)
+        top: 190px
+        bottom: auto
+        right: calc((100vw - 608px) / 2)
+        width: 80px
+        height: 80px
+
+      @media (max-width: 640px)
+        top: 190px
+        bottom: auto
+        right: 24px
+        width: 80px
+        height: 80px
+
+      @media (max-width: 420px)
+        top: auto
+        bottom: -146px
+        right: 24px
+        width: 60px
+        height: 60px
 
       svg
         height: 84px
         width: 84px
         padding: 26px
         fill: $color-white-100
+
+        @media (max-width: 420px)
+          width: 42px
+          height: 42px
+          padding: 8px
 
 .slider
   max-width: 608px
@@ -197,6 +235,9 @@ export default class PageOurOfficeTitle extends Vue {
   margin-top: 20px
   max-width: 383px
   margin-left: auto
+
+  @media (max-width: 1080px)
+    max-width: 100%
 
 .swiper-pagination-progressbar
   position: relative !important

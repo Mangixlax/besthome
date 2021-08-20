@@ -96,6 +96,11 @@ export default class PageOurOfficeFeatures extends Vue {
     margin: 0 auto 80px
     display: flex
     justify-content: space-between
+    padding: 0 24px
+
+    @media (max-width: 1080px)
+      flex-direction: column
+      margin-bottom: 40px
 
     h2
       color: $color-white-48
