@@ -53,6 +53,8 @@ import { getSiteUrl } from '@/lib/utils'
 })
 export default class TermOfUsePage extends Vue {
   created() {
+    this.$store.commit('setLightTheme')
+
     if (process.server) {
       this.$store.commit('PageTransition/animate', false)
     }

@@ -49,6 +49,8 @@ import { getSiteUrl } from '@/lib/utils'
 })
 export default class IndexPage extends Vue {
   created() {
+    this.$store.commit('setDarkTheme')
+
     if (process.server) {
       this.$store.commit('PageTransition/animate', false)
     }

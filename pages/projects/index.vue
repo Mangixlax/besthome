@@ -112,6 +112,7 @@ import { getSiteUrl } from '@/lib/utils'
 })
 export default class ProjectsPage extends Vue {
   async mounted() {
+    this.$store.commit('setLightTheme')
     await delay(200)
     this.$store.commit('PageTransition/animate', false)
   }

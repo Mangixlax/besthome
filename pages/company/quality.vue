@@ -83,6 +83,8 @@ import PageQualityInfo from '~/components/Page/Company/Quality/PageQualityInfo.v
 })
 export default class PrivacyPolicyPage extends Vue {
   created() {
+    this.$store.commit('setLightTheme')
+
     if (process.server) {
       this.$store.commit('PageTransition/animate', false)
     }

@@ -121,6 +121,7 @@ import CommonDivider from '~/components/Common/CommonDivider.vue'
       }
     }
 
+    ctx.store.commit('setLightTheme')
     ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.projects'))
     ctx.store.commit('Catalog/setPageSeoContent', project.seo_location?.content)
 

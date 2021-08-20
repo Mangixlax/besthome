@@ -189,6 +189,8 @@ import { Jsonld } from 'nuxt-jsonld'
         },
       ])
 
+      ctx.store.commit('setLightTheme')
+
       setTimeout(() => {
         ctx.store.commit('PageTransition/animate', false)
       }, 500)

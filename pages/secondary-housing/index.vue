@@ -82,6 +82,8 @@ export default class SecondaryHousingPage extends Vue {
   }
 
   created() {
+    this.$store.commit('setLightTheme')
+
     if (process.server) {
       this.$store.commit('PageTransition/animate', false)
     }
