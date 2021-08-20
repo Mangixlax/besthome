@@ -35,8 +35,10 @@
       div(
         :class="$style['title__container-play_button']"
         @click="showVideo"
+        data-cursor-text
+        v-magnetic
       )
-        svg-icon(name="play-icon")
+        svg-icon(name="play-icon" v-magnetic)
 </template>
 
 <script lang="ts">
@@ -44,6 +46,7 @@ import TypoText from '~/components/Base/TypoText.vue'
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
 import CommonSubscribe from '~/components/Common/CommonSubscribe.vue'
 import { modalsTriggerMixin } from '~/mixins/modals'
+import Magnetic from '~/directives/magnetic'
 
 interface IOurOfficeTitle {
   title: string
@@ -55,8 +58,8 @@ interface IOurOfficeTitle {
     TypoText,
     CommonSubscribe,
   },
-
   mixins: [modalsTriggerMixin],
+  directives: { Magnetic },
 })
 export default class PageOurOfficeTitle extends Vue {
   @Prop({ type: Object, default: () => {} }) data!: IOurOfficeTitle
@@ -83,6 +86,9 @@ export default class PageOurOfficeTitle extends Vue {
     this.showModal({
       name: 'modal-video',
       modal: () => import('~/components/Modal/Video/ModalVideo.vue'),
+      props: {
+        src: 'https://storage.yandexcloud.net/besthome/video/office-720.mp4',
+      },
       options: {
         height: 'auto',
         width: '100%',
@@ -98,6 +104,8 @@ export default class PageOurOfficeTitle extends Vue {
               'modal-video-is-open',
             )
           }
+
+          this.$root.$emit('cursor-mover:reset')
         },
       },
     })
@@ -139,9 +147,8 @@ export default class PageOurOfficeTitle extends Vue {
 
     &-subtitle
       align-self: flex-end
-      margin: 0
       max-width: 480px
-      margin-right: 80px
+      margin: 0 80px 0 0
 
     &-play_button
       position: absolute
@@ -160,8 +167,9 @@ export default class PageOurOfficeTitle extends Vue {
         display: none
 
       svg
-        height: 32px
-        width: 32px
+        height: 84px
+        width: 84px
+        padding: 26px
         fill: $color-white-100
 
 .slider
@@ -187,12 +195,13 @@ export default class PageOurOfficeTitle extends Vue {
 
 .pagination
   margin-top: 20px
+  max-width: 383px
+  margin-left: auto
 
 .swiper-pagination-progressbar
   position: relative !important
   height: 2px
   flex: 1 1 auto
-  position: relative
   background: $color-white-4
   max-width: 860px
   width: 100%
@@ -200,25 +209,19 @@ export default class PageOurOfficeTitle extends Vue {
   span
     background: $color-white-96 !important
 
-.swiper-button-prev
-  +style-7
+.swiper-button-prev,
+.swiper-button-next
+  +desktop-text-style-7
   display: block
   margin-left: auto
   outline: none
   padding: 0
   background-color: transparent
   border: none
-  color: rgba(255, 255, 255, 0.48)
+  color: $color-white-48
 
 .swiper-button-next
-  +style-7
-  display: block
-  margin-right: auto
-  outline: none
-  padding: 0
-  background-color: transparent
-  border: none
-  color: #FFFFFF
+  color: $color-white-100
 
 .buttons
   display: flex

@@ -1,13 +1,13 @@
 <template lang="pug">
   div(
     :class="$style['video']"
-    data-cursor-text="Click<br>to close"
+    :data-cursor-text="cursorText"
   )
     div(
       :class="$style['video-container']"
     )
-      video(preload="auto" data-cursor-text="Click<br>to close" loop="" autoplay="" playsinline="")
-        source(src="https://storage.yandexcloud.net/besthome/video/BH_HQ.mp4" type="video/mp4")
+      video(preload="auto" :data-cursor-text="cursorText" loop autoplay playsinline)
+        source(:src="src" type="video/mp4")
     div(
       @click="closeModal"
       :class="$style['close-modal']"
@@ -19,11 +19,22 @@
 <script>
 export default {
   name: 'ModalVideo',
+  props: {
+    src: {
+      type: String,
+      required: true,
+    },
+  },
   methods: {
     closeModal() {
       this.$modal.hide('modal-video')
     },
-  }
+  },
+  computed: {
+    cursorText() {
+      return this.$i18n.locale === 'ru' ? 'Закрыть' : 'Click<br>to close'
+    }
+  },
 }
 </script>
 

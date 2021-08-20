@@ -151,6 +151,9 @@ export default class IndexPage extends Vue {
     this.showModal({
       name: 'modal-video',
       modal: () => import('~/components/Modal/Video/ModalVideo.vue'),
+      props: {
+        src: 'https://storage.yandexcloud.net/besthome/video/BH_HQ.mp4',
+      },
       options: {
         height: 'auto',
         width: '100%',
@@ -166,6 +169,8 @@ export default class IndexPage extends Vue {
               'modal-video-is-open',
             )
           }
+
+          this.$root.$emit('cursor-mover:reset')
         },
       },
     })

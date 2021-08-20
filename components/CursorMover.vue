@@ -140,6 +140,12 @@ export default class CursorMover extends Vue {
     this.enableExclusion()
   }
 
+  cursorMoverReset() {
+    this.textCursor = false
+    this.text = ''
+    this.pointerCursor = false
+  }
+
   bindEvents(): void {
     this.body &&
       this.body
@@ -152,6 +158,8 @@ export default class CursorMover extends Vue {
         .on('mouseleave', 'a,label,input,textarea,button,[data-cursor-pointer]', this.onMouseLeavePointer)
         .on('mouseenter', 'h1,[data-cursor-text]', this.onMouseEnterText)
         .on('mouseleave', 'h1,[data-cursor-text]', this.onMouseLeaveText)
+
+    this.$root.$on('cursor-mover:reset', this.cursorMoverReset)
   }
 
   unbindEvents(): void {
@@ -166,6 +174,8 @@ export default class CursorMover extends Vue {
         .off('mouseleave', 'a,input,textarea,button,[data-cursor-pointer]', this.onMouseLeavePointer)
         .off('mouseenter', 'h1,[data-cursor-text]', this.onMouseEnterText)
         .off('mouseleave', 'h1,[data-cursor-text]', this.onMouseLeaveText)
+
+    this.$root.$off('cursor-mover:reset', this.cursorMoverReset)
   }
 }
 </script>
