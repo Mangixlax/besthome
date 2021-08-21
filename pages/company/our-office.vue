@@ -102,12 +102,12 @@ import PageOurOfficeAddress from '~/components/Page/Company/OurOffice/PageOurOff
         {
           rel: 'alternate',
           hreflang: 'x-default',
-          href: getSiteUrl(this.localePath({ name: 'privacy-policy' }, 'en'), true),
+          href: getSiteUrl(this.localePath({ name: 'company-our-office' }, 'en'), true),
         },
         {
           rel: 'alternate',
           hreflang: 'ru',
-          href: getSiteUrl(this.localePath({ name: 'privacy-policy' }, 'ru'), true),
+          href: getSiteUrl(this.localePath({ name: 'company-our-office' }, 'ru'), true),
         },
       ],
     }
@@ -121,12 +121,12 @@ export default class PrivacyPolicyPage extends Vue {
       this.$store.commit('PageTransition/animate', false)
     }
 
-    this.$store.commit('setLogoSubTitle', 'Construction')
+    this.$store.commit('setLogoSubTitle', this.$i18n.locale === 'ru' ? 'Наш офис' : 'Our office')
     this.$store.commit('setBreadcrumbs', [
       {
-        name: this.$t('breadcrumbs.privacy_policy'),
+        name: this.$i18n.locale === 'ru' ? 'Наш офис' : 'Our office',
         route: {
-          name: 'privacy-policy',
+          name: 'company-our-office',
         },
       },
     ])
