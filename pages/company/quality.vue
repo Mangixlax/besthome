@@ -1,25 +1,23 @@
 <template lang="pug">
-  main
-    common-divider(
-      :data="{\
-        height: 'middle',\
-        color: 'light',\
-      }"
+  main(:class="$style['main']")
+    page-quality-title(
+      :data="$t('pages.company_quality.title')"
+      :class="$style['hero-title']"
     )
-    page-quality-title(:data="$t('pages.company_quality.title')")
     common-divider(
       :data="{\
         height: 'large',\
         color: 'light',\
       }"
     )
+    common-line
     common-divider(
       :data="{\
         height: 'x-large',\
         color: 'light',\
       }"
     )
-    //- page-quality-info(:data="$t('pages.company_quality.info')")
+    page-quality-info(:data="$t('pages.company_quality.info')")
     common-divider(
       :data="{\
         height: 'large',\
@@ -42,9 +40,11 @@ import metaGenerator from '~/config/meta'
 import { getSiteUrl } from '@/lib/utils'
 import PageQualityTitle from '~/components/Page/Company/Quality/PageQualityTitle.vue'
 import PageQualityInfo from '~/components/Page/Company/Quality/PageQualityInfo.vue'
+import CommonLine from '~/components/Common/CommonLine.vue'
 
 @Component({
   components: {
+    CommonLine,
     CommonDivider,
     PageQualityTitle,
     PageQualityInfo,
@@ -106,3 +106,14 @@ export default class PrivacyPolicyPage extends Vue {
   }
 }
 </script>
+
+<style lang="sass" module>
+.main
+  margin-top: -92px
+
+  @media (max-width: 1054px)
+    margin-top: -97px
+
+.hero-title
+  padding-top: 156px
+</style>
