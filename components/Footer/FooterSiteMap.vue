@@ -32,30 +32,6 @@ import { IMenus, NavigationListItem } from '~/store/Navigation'
   components: { BaseFastLinks, TypoText, DeveloperLogo },
 })
 export default class FooterSiteMap extends Vue {
-  get chooseAndBuy(): IMenus<NavigationListItem[]> {
-    return this.$store.getters['Navigation/getMenuByKey']('footer-choose-and-buy')
-  }
-
-  get basicServices(): IMenus<NavigationListItem[]> {
-    return this.$store.getters['Navigation/getMenuByKey']('footer-basic-services')
-  }
-
-  get latestNews(): IMenus<NavigationListItem[]> {
-    return this.$store.getters['Navigation/getMenuByKey']('latest-news')
-  }
-
-  get aboutCompany(): IMenus<NavigationListItem[]> {
-    return this.$store.getters['Navigation/getMenuByKey']('about-company')
-  }
-
-  get additionalServices(): IMenus<NavigationListItem[]> {
-    return this.$store.getters['Navigation/getMenuByKey']('additional-services')
-  }
-
-  get getSitemapColumns(): IMenus<NavigationListItem[]>[] {
-    return this.$store.getters['Navigation/getSitemapColumns']
-  }
-
   get isDarkTheme(): boolean {
     return this.$store.getters['isDarkTheme']
   }
