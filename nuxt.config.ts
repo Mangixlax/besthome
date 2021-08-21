@@ -255,6 +255,7 @@ export default <NuxtConfig>{
 
   image: {
     dir: 'assets/images',
+    domains: [...(isDev ? ['http://localhost:3203'] : []), 'https://besthome.com.tr'],
   },
 
   /*
