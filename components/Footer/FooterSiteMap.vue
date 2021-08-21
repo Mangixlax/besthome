@@ -1,13 +1,13 @@
 <template lang="pug">
   section(:class="[$style['container'], isDarkTheme && $style['dark']]")
     div(:class="$style['container__head']")
-      h2(:class="$style['container__head-title']") Is the answer to your question missing?
+      h2(:class="$style['container__head-title']") {{ $i18n.locale === 'ru' ? 'Отсутствует ответ на ваш вопрос?' : 'Is the answer to your question missing?' }}
       nuxt-link(
         :to="localePath({ name: 'contacts' })"
         :class="$style['container__head-link']"
-        title="Contact us"
+        :title="$t('pages.our_office.contacts.contact_us')"
       )
-        span Contact us
+        span {{ $t('pages.our_office.contacts.contact_us') }}
         svg-icon(name="text-link-arrow")
     div(:class="$style['map__grid']")
       base-fast-links(
