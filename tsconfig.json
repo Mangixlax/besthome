@@ -27,7 +27,8 @@
       "gsap/types",
       "nuxt-i18n",
       "@types/vuelidate",
-      "vuelidate"
+      "vuelidate",
+      "@nuxt/image"
     ]
   },
   "exclude": ["node_modules", ".nuxt", "dist"]

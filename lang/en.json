@@ -1228,6 +1228,10 @@
         "title": "Welcome to the<br>office of Best Home Construction!",
         "sub_title": "The Best Home Construction company is one of the reputable construction companies in Alanya."
       },
+      "gallery": {
+        "title": "Photo gallery from our office",
+        "sub_title": "We need to come up with a name here"
+      },
       "features": {
         "title": "Our office is no exception",
         "sub_title": "The habit of being the best in everything is reflected in every detail of our work.",
@@ -1283,6 +1287,18 @@
           }
         ],
         "link": "About us"
+      },
+      "contacts": {
+        "title": "Office address<br>of the construction <br>company BestHome",
+        "email": "Email",
+        "send_to_email": "Send email to {0}",
+        "phone": "Phone",
+        "call_to_phone": "Call to office by phone {0}",
+        "business": "Business hours & address",
+        "work_time": "Monday-Saturday, from 9:00 to 18:00",
+        "address": "Cikcilli mahallesi, Saraybeleni caddesi, Tugayoğlu sokak, №18/1, Alanya 07400, Antalya, Türkiye",
+        "additional": "It includes three floors, its own Parking.",
+        "contact_us": "Contact us"
       }
     },
     "contacts": {
@@ -1338,25 +1354,15 @@
       "navigation": "Next consultant",
       "slides": [
         {
-          "greeting": "Hello, I am Anna, I will answer any of your questions! We build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.",
-          "languages": "Russian, English, Turkish, Latvian, French",
+          "image": "person-2.jpg",
+          "name": "Anna Larina",
+          "text": "Hello, I am Anna, I will answer any of your questions! We build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.",
+          "languages": "English, Turkish, Latvian, French, Russian",
           "phone": "+90 530 547-44-15",
-          "email": "anna@besthome.com.tr",
-          "image": "person-2.png"
-        },
-        {
-          "greeting": "Hello, I am Anna, I will answer any of your questions! We build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.",
-          "languages": "Russian, English, Turkish, Latvian, French",
-          "phone": "+90 530 547-44-15",
-          "email": "anna@besthome.com.tr",
-          "image": "person-2.png"
-        },
-        {
-          "greeting": "Hello, I am Anna, I will answer any of your questions! We build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.",
-          "languages": "Russian, English, Turkish, Latvian, French",
-          "phone": "+90 530 547-44-15",
-          "email": "anna@besthome.com.tr",
-          "image": "person-2.png"
+          "whatsapp": "https://wa.me/905305474415",
+          "viber": "viber://chat?number=+905305474415",
+          "telegram": "tg://resolve?domain=905305474415",
+          "email": "anna@besthome.com.tr"
         }
       ]
     },

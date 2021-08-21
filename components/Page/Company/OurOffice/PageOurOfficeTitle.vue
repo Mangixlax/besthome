@@ -13,21 +13,24 @@
       div(:class="$style['title__container-slider']")
         swiper(ref="swiper" :class="$style['slider']" class="swiper" :options="swiperOption")
           swiper-slide(
-            v-for="(slide, i) in slides"
-            :key="i"
+            v-for="(slideImage, slideIndex) in slides"
+            :key="slideIndex"
             :class="$style['slide']"
           )
             img(
-              :class="$style['slide__image']"
-              :src="require(`~/assets/images/pages/company/our-office/${slide}`)"
+              loading="lazy"
+              decoding="async"
+              :class="['swiper-lazy', $style['slide__image']]"
+              :data-src="$img(`/pages/company/our-office/${slideImage}`, $store.state.supportWebP ? { format: 'webp' } : {})"
             )
+            div(class="swiper-lazy-preloader swiper-lazy-preloader-white")
           div(slot="pagination" :class="$style['pagination']")
             div(:class="$style['buttons']")
               button(:class="[$style['swiper-button-prev']]" @click.prevent="$refs.swiper.swiperInstance.slidePrev()")
-                | Prev
+                | {{ $i18n.locale === 'ru' ? 'Назад' : 'Prev' }}
               div(:class="['swiper-pagination-progressbar', $style['swiper-pagination-progressbar']]")
               button(:class="[$style['swiper-button-next']]" @click.prevent="$refs.swiper.swiperInstance.slideNext()")
-                | Next
+                | {{ $i18n.locale === 'ru' ? 'Вперед' : 'Next' }}
       div(
         :class="$style['title__container-play_button']"
         @click="showVideo"
@@ -43,6 +46,7 @@ import { Component, Vue, Prop } from 'nuxt-property-decorator'
 import CommonSubscribe from '~/components/Common/CommonSubscribe.vue'
 import { modalsTriggerMixin } from '~/mixins/modals'
 import Magnetic from '~/directives/magnetic'
+import { SwiperOptions } from 'swiper'
 
 interface IOurOfficeTitle {
   title: string
@@ -64,14 +68,18 @@ export default class PageOurOfficeTitle extends Vue {
     'slide-1.jpg',
     'slide-2.jpg',
     'slide-3.jpg',
-    'slide-4.jpg',
-    'slide-5.jpg',
   ]
 
-  public swiperOption: Object = {
+  public swiperOption: SwiperOptions = {
     slidesPerView: 1,
     spaceBetween: 32,
     centeredSlides: true,
+    lazy: true,
+    preloadImages: false,
+    grabCursor: true,
+    mousewheel: {
+      forceToAxis: true,
+    },
     pagination: {
       el: '.swiper-pagination-progressbar',
       type: 'progressbar',
@@ -132,10 +140,11 @@ export default class PageOurOfficeTitle extends Vue {
       right: 144px
       display: flex
       flex-direction: column
-      max-width: 608px
+      max-width: 808px
       z-index: 2
 
       @media (max-width: 1080px)
+        max-width: 608px
         position: initial
         margin-left: auto
         margin-right: auto
@@ -223,13 +232,22 @@ export default class PageOurOfficeTitle extends Vue {
   justify-content: center
 
   img
-    width: 100%
+    width: 608px
+    max-width: 100%
     object-fit: cover
     object-position: center
     height: 670px
 
     @media (max-width: 1080px)
       height: initial
+      min-height: 350px
+
+  &__image
+    transition: opacity 0.25s ease
+    opacity: 0
+
+  &__image[class*="swiper-lazy-loaded"]
+    opacity: 1
 
 .pagination
   margin-top: 20px

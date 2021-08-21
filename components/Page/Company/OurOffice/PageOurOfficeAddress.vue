@@ -2,33 +2,33 @@
   section(:class="$style['container']")
     div(:class="$style['container__body']")
       div(:class="$style['info']")
-        h2(:class="$style['info__title']" v-html="`Office address<br>of the construction <br>company BestHome`")
+        h2(:class="$style['info__title']" v-html="$t('pages.our_office.contacts.title')")
         ul(:class="$style['info__contacts']")
           li(:class="$style['info__contacts-item']")
-            h3 Email
+            h3 {{ $t('pages.our_office.contacts.email') }}
             a(
               href="mailto:office@besthome.com.tr"
-              title="Отправить письмо на почту office@besthome.com.tr"
+              :title="$t('pages.our_office.contacts.send_to_email', ['office@besthome.com.tr'])"
             ) office@besthome.com.tr
           li(:class="$style['info__contacts-item']")
-            h3 Phone
+            h3 {{ $t('pages.our_office.contacts.phone') }}
             a(
               href="tel:+905305474415"
-              title="Позвонить в офис по номеру +90 530 547-44-15"
+              :title="$t('pages.our_office.contacts.call_to_phone', ['+90 530 547-44-15'])"
             ) +90 530 547-44-15
           li(:class="$style['info__contacts-item']")
-            h3 Business hours & address
+            h3 {{ $t('pages.our_office.contacts.business') }}
             p
-              small Monday-Saturday, from 9:00 to 18:00
-            p Cikcilli mahallesi, Saraybeleni caddesi, Tugayoğlu sokak, №18/1, Alanya 07400, Antalya, Türkiye
+              small {{ $t('pages.our_office.contacts.work_time') }}
+            p {{ $t('pages.our_office.contacts.address') }}
             p
-              span It includes three floors, its own Parking.
+              span {{ $t('pages.our_office.contacts.additional') }}
         nuxt-link(
           :to="localePath({ name: 'contacts' })"
           :class="$style['info__link']"
-          title="Contact us"
+          :title="$t('pages.our_office.contacts.contact_us')"
         )
-          span Contact us
+          span {{ $t('pages.our_office.contacts.contact_us') }}
           svg-icon(name="text-link-arrow")
       div(:class="$style['map']")
         img(src="~/assets/images/our-office/map.jpg" loading="lazy")

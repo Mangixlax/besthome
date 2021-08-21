@@ -13,7 +13,12 @@
         tag="div"
         version="style-3"
       ) {{ $t('pages.our_office.about.hero_title') }}
-      img(src="~/assets/images/our-office/about.jpg" loading="lazy")
+      img(
+        loading="lazy"
+        decoding="async"
+        :class="['swiper-lazy', $style['slide__image']]"
+        :src="$img(`/our-office/about.jpg`, $store.state.supportWebP ? { format: 'webp' } : {})"
+      )
 </template>
 
 <script lang="ts">
@@ -60,6 +65,10 @@ export default class PageOurOfficeAbout extends Vue {}
       top: 50%
       transform: translateY(-50%)
       z-index: 2
+
+      @media (max-width: 940px)
+        left: 24px
+        right: 24px
 
     & > img
       max-height: 100%

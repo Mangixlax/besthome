@@ -56,7 +56,6 @@ export default class Footer extends Vue {
 .footer
   position: relative
   width: 100%
-  background: $color-black-8
 
 .cookies
   position: absolute

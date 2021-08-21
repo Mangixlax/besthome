@@ -1,6 +1,6 @@
 <template lang="pug">
   section(:class="$style['container']")
-    h2 Personal manager
+    h2 {{ $i18n.locale === 'ru' ? 'Персональный менеджер' : 'Personal manager' }}
     div(:class="$style['container__body']")
       div(:class="$style['managers__list']")
         div(
@@ -9,7 +9,7 @@
           :class="[$style['managers__list-item'], activeSlideIndex === index && $style['managers__list-item--active']]"
           @click="onClickToManager(index)"
         )
-          span 0{{ index + 1 }}
+          //span 0{{ index + 1 }}
           div {{ slide.name }}
       div(:class="$style['managers__slider']")
         swiper(
@@ -25,7 +25,7 @@
             :class="[$style['slide'], $style[`slide--${slide.variant}`]]"
           )
             div(:class="$style['slide__image']")
-              img(:src="slide.image" loading="lazy")
+              img(:src="require(`~/assets/images/our-team/${slide.image}`)" loading="lazy")
             div(:class="$style['slide__text']") {{ slide.text }}
             div(:class="$style['slide__languages']") {{ slide.languages }}
             div(:class="$style['slide__contacts']")
@@ -43,23 +43,23 @@
                 :class="$style['slide__link-email']"
               ) {{ slide.email }}
                 svg-icon(name="link-arrow-white")
-          div(slot="pagination" :class="$style['pagination']")
-            button(
-              :class="[$style['swiper-button-prev'], activeSlideIndex !== 0 && $style['swiper-button-prev--active']]"
-              @click.prevent="$refs.swiper.swiperInstance.slidePrev()"
-            )
-              svg-icon(name="slider-prev-arrow-white")
-            button(
-              :class="[$style['swiper-button-next'], activeSlideIndex !== slides.length - 1 && $style['swiper-button-next--active']]"
-              @click.prevent="$refs.swiper.swiperInstance.slideNext()"
-            )
-              svg-icon(name="slider-next-arrow-white")
+          //div(slot="pagination" :class="$style['pagination']")
+          //  button(
+          //    :class="[$style['swiper-button-prev'], activeSlideIndex !== 0 && $style['swiper-button-prev--active']]"
+          //    @click.prevent="$refs.swiper.swiperInstance.slidePrev()"
+          //  )
+          //    svg-icon(name="slider-prev-arrow-white")
+          //  button(
+          //    :class="[$style['swiper-button-next'], activeSlideIndex !== slides.length - 1 && $style['swiper-button-next--active']]"
+          //    @click.prevent="$refs.swiper.swiperInstance.slideNext()"
+          //  )
+          //    svg-icon(name="slider-next-arrow-white")
 </template>
 
 <script lang="ts">
 import TypoText from '~/components/Base/TypoText.vue'
 import { Component, Vue } from 'nuxt-property-decorator'
-import Swiper from 'swiper'
+import Swiper, {SwiperOptions} from 'swiper'
 
 @Component({
   components: {
@@ -67,56 +67,11 @@ import Swiper from 'swiper'
   },
 })
 export default class PageOurOfficeManager extends Vue {
-  public slides: any = [
-    {
-      image: require('~/assets/images/our-team/person-2.jpg'),
-      name: 'Anna Larina',
-      text: 'Hello, I am Emrah Yetgin, I will answer any of your questions! We try to build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.',
-      languages: 'English, Turkish, Latvian, French, Russian',
-      phone: '+90 530 547-44-15',
-      whatsapp: 'https://wa.me/905305474415',
-      viber: 'viber://chat?number=+905305474415',
-      telegram: 'tg://resolve?domain=905305474415',
-      email: 'anna@besthome.com.tr',
-    },
-    {
-      image: require('~/assets/images/our-team/person-2.jpg'),
-      name: 'Neval Onac',
-      text: 'Hello, I am Emrah Yetgin, I will answer any of your questions! We try to build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.',
-      languages: 'English, Turkish, Latvian, French, Russian',
-      phone: '+90 530 547-44-15',
-      whatsapp: 'https://wa.me/905305474415',
-      viber: 'viber://chat?number=+905305474415',
-      telegram: 'tg://resolve?domain=905305474415',
-      email: 'anna@besthome.com.tr',
-    },
-    {
-      image: require('~/assets/images/our-team/person-2.jpg'),
-      name: 'Roxie Cohen',
-      text: 'Hello, I am Emrah Yetgin, I will answer any of your questions! We try to build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.',
-      languages: 'English, Turkish, Latvian, French, Russian',
-      phone: '+90 530 547-44-15',
-      whatsapp: 'https://wa.me/905305474415',
-      viber: 'viber://chat?number=+905305474415',
-      telegram: 'tg://resolve?domain=905305474415',
-      email: 'anna@besthome.com.tr',
-    },
-    {
-      image: require('~/assets/images/our-team/person-2.jpg'),
-      name: 'Gulden Ay Gurer',
-      text: 'Hello, I am Emrah Yetgin, I will answer any of your questions! We try to build with taste, use modern technologies, think through planning and landscaping of courtyards as we would do it for our own home.',
-      languages: 'English, Turkish, Latvian, French, Russian',
-      phone: '+90 530 547-44-15',
-      whatsapp: 'https://wa.me/905305474415',
-      viber: 'viber://chat?number=+905305474415',
-      telegram: 'tg://resolve?domain=905305474415',
-      email: 'anna@besthome.com.tr',
-    },
-  ]
+  public slides: any = this.$t('footer.consultant_slider.slides')
 
   public activeSlideIndex: number = 0
 
-  public swiperOption: Object = {
+  public swiperOption: SwiperOptions = {
     spaceBetween: 40,
     slidesPerView: 1,
     centeredSlides: true,
@@ -124,6 +79,7 @@ export default class PageOurOfficeManager extends Vue {
       el: '.swiper-pagination-progressbar',
       type: 'progressbar',
     },
+    enabled: false,
   }
 
   public onSlideChange(swiper: Swiper) {
@@ -163,7 +119,7 @@ export default class PageOurOfficeManager extends Vue {
 .managers__list
   display: flex
   flex-direction: column
-  justify-content: center
+  //justify-content: center
   width: 100%
   max-width: 416px
 
@@ -173,6 +129,10 @@ export default class PageOurOfficeManager extends Vue {
   &-item
     display: flex
     cursor: pointer
+    position: sticky
+    top: 140px
+    margin-top: 170px
+    margin-bottom: 100px
 
     & + &
       margin-top: 40px

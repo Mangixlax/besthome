@@ -3,29 +3,26 @@
     typo-text(
       tag="h2"
       version="style-5"
-    ) {{ $t('pages.our_office.about.title') }}
+    ) {{ $t('pages.our_office.gallery.title') }}
     typo-text(
       tag="p"
       version="style-5"
-    ) {{ $t('pages.our_office.about.sub_title') }}
+    ) {{ $t('pages.our_office.gallery.sub_title') }}
     swiper(ref="swiper" :class="$style['slider']" class="swiper" :options="swiperOption")
       swiper-slide(
         v-for="(slide, i) in slides"
         :key="i"
         :class="[$style['slide'], $style[`slide--${slide.variant}`]]"
       )
-        typo-text(
-          tag="div"
-          version="style-8"
-          :class="$style['slide__sup-title']"
-        ) {{ slide.sup_title }}
-        typo-text(
-          tag="div"
-          version="style-2"
-          :class="$style['slide__title']"
-        ) {{ slide.title }}
+        div(:class="$style['slide__title']") {{ slide.title }}
         div(:class="$style['slide__image']")
-          img(:src="slide.image" loading="lazy")
+          img(
+            loading="lazy"
+            decoding="async"
+            class="swiper-lazy"
+            :data-src="$img(`/our-office/gallery/${slide.image}`, $store.state.supportWebP ? { format: 'webp', width: 700 } : { width: 700 })"
+          )
+          div(class="swiper-lazy-preloader swiper-lazy-preloader-white")
       div(slot="pagination" :class="$style['pagination']")
         div(:class="['swiper-pagination-progressbar', $style['swiper-pagination-progressbar']]")
 </template>
@@ -33,6 +30,7 @@
 <script lang="ts">
 import TypoText from '~/components/Base/TypoText.vue'
 import { Component, Vue } from 'nuxt-property-decorator'
+import { SwiperOptions } from 'swiper'
 
 @Component({
   components: {
@@ -42,44 +40,47 @@ import { Component, Vue } from 'nuxt-property-decorator'
 export default class PageOurOfficeGallery extends Vue {
   public slides: any = [
     {
-      title: 'Waiting room #1',
-      sup_title: 'Additional name',
-      image: require('~/assets/images/our-office/gallery/photo-1.jpg'),
+      title: 'Холл с залом ожидания',
+      image: 'photo-1.jpg',
       variant: 'middle',
     },
     {
-      title: 'Waiting room #2',
-      sup_title: 'Additional name',
-      image: require('~/assets/images/our-office/gallery/photo-1.jpg'),
+      title: 'Переговорная комната №1',
+      image: 'photo-6.jpg',
       variant: 'top',
     },
     {
-      title: 'Waiting room #3',
-      sup_title: 'Additional name',
-      image: require('~/assets/images/our-office/gallery/photo-1.jpg'),
+      title: 'Кабинет директора отдела продаж',
+      image: 'photo-8.jpg',
       variant: 'bottom',
     },
     {
-      title: 'Waiting room #4',
-      sup_title: 'Additional name',
-      image: require('~/assets/images/our-office/gallery/photo-1.jpg'),
-      variant: 'middle',
-    },
-    {
-      title: 'Waiting room #5',
-      sup_title: 'Additional name',
-      image: require('~/assets/images/our-office/gallery/photo-1.jpg'),
+      title: 'Переговорная комната №2',
+      image: 'photo-11.jpg',
       variant: 'top',
     },
     {
-      title: 'Waiting room #6',
-      sup_title: 'Additional name',
-      image: require('~/assets/images/our-office/gallery/photo-1.jpg'),
+      title: 'Кабинет ген. директора',
+      image: 'photo-13.jpg',
+      variant: 'middle',
+    },
+    {
+      title: 'Ключевой интерьер',
+      image: 'photo-19.jpg',
       variant: 'bottom',
     },
   ]
 
-  public swiperOption: Object = {
+  public swiperOption: SwiperOptions = {
+    lazy: {
+      loadPrevNext: true,
+      loadPrevNextAmount: 3,
+    },
+    preloadImages: true,
+    grabCursor: true,
+    mousewheel: {
+      forceToAxis: true,
+    },
     pagination: {
       el: '.swiper-pagination-progressbar',
       type: 'progressbar',
@@ -150,11 +151,33 @@ export default class PageOurOfficeGallery extends Vue {
     max-width: 100%
     object-fit: cover
 
-  &__title
-    color: $color-white-100
+  &__image
+    height: 344px
+    width: 457px
+    position: relative
+    max-width: 100%
 
-  &__sup-title
-    color: $color-white-48
+    &:after
+      content: ''
+      position: absolute
+      top: 0
+      bottom: 0
+      right: 0
+      left: 0
+      background-color: $color-black-24
+      z-index: 1
+
+  &__image img
+    transition: opacity 0.25s ease
+    opacity: 0
+
+  &__image img[class*="swiper-lazy-loaded"]
+    opacity: 1
+
+  &__title
+    +desktop-display-style-5
+    color: $color-white-100
+    margin-bottom: 24px
 
   @media (min-width: 1125px)
     height: 607px !important
@@ -165,19 +188,13 @@ export default class PageOurOfficeGallery extends Vue {
       z-index: 1
 
     &__title
+      +desktop-display-style-2
       position: absolute
       z-index: 2
-
-    &__sup-title
-      position: absolute
-      z-index: 2
+      margin-bottom: 0
 
     &--top &__title
       top: 103px
-      left: 0
-
-    &--top &__sup-title
-      top: 76px
       left: 0
 
     &--top &__image
@@ -188,20 +205,12 @@ export default class PageOurOfficeGallery extends Vue {
       top: 276px
       left: 0
 
-    &--middle &__sup-title
-      top: 249px
-      left: 0
-
     &--middle &__image
       top: 173px
       right: 0
 
     &--bottom &__title
       top: 366px
-      left: 0
-
-    &--bottom &__sup-title
-      top: 339px
       left: 0
 
     &--bottom &__image

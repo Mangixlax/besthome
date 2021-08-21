@@ -168,6 +168,7 @@ export default <NuxtConfig>{
     '@nuxtjs/sitemap',
     '@nuxtjs/redirect-module',
     ...(!isDev ? ['@nuxtjs/yandex-metrika'] : []),
+    '@nuxt/image',
   ],
 
   sitemap: SitemapConfig,
@@ -248,9 +249,13 @@ export default <NuxtConfig>{
   },
 
   redirect: [
-    { from: '^(\\/[^\\?]*[^\\/])(\\?.*)?$', to: '$1/$2' },
+    { from: '^(\\/(?!\\_(ipx|nuxt))[^\\?]*[^\\/])(\\?.*)?$', to: '$1/$2' },
     { from: '/ru/our_team/', to: '/ru/company/about/' },
   ],
+
+  image: {
+    dir: 'assets/images',
+  },
 
   /*
    ** Build configuration
