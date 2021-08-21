@@ -28,21 +28,10 @@ import Logo from '~/components/Logo.vue'
   components: { Logo, BaseHeaderInfo, TypoText, BaseHeaderNavigation },
 })
 export default class BaseHeader extends Vue {
-  public isDarkTheme: boolean = false
-
   public isTransparent: boolean = false
 
-  public changeTheme() {
-    this.isDarkTheme =
-      this.$route.path.indexOf('contacts') !== -1 ||
-      this.$route.path.indexOf('company/our-office') !== -1 ||
-      this.$route.path.indexOf('company/quality') !== -1
-  }
-
-  @Watch('$route.path')
-  onChangeRoutePath(path: string) {
-    this.$store.commit('setStickyHeader', path)
-    this.changeTheme()
+  get isDarkTheme(): boolean {
+    return this.$store.getters['isDarkTheme']
   }
 
   public onScroll() {
@@ -53,7 +42,6 @@ export default class BaseHeader extends Vue {
 
   created() {
     this.$store.commit('setStickyHeader', this.$route.path)
-    this.changeTheme()
   }
 
   mounted() {
