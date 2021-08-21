@@ -92,9 +92,9 @@ export const actions: ActionTree<RootState, RootState> = {
     commit('Catalog/setProjectsCount', projects_count)
     await dispatch('Navigation/parseMenus', menus)
   },
-  async nuxtServerInit({ state, dispatch, commit }: RootActionContext, { req }) {
+  nuxtServerInit({ state, dispatch, commit }: RootActionContext, { req }) {
     // Detect support webp images in browser
-    if (Object.keys(req.headers).includes('accept')) {
+    if (process.server && Object.keys(req.headers).includes('accept')) {
       commit('setSupportWebP', req.headers.accept.includes('image/webp'))
 
       if (!state.supportWebP) {
@@ -118,8 +118,8 @@ export const actions: ActionTree<RootState, RootState> = {
       }
     }
 
-    await dispatch('fetchMainData')
-    await dispatch('SettingsTopLine/init')
     commit('setOurCompanyCardInfo', this.$i18n.t('pages.company_our_team'))
+
+    return Promise.all([dispatch('fetchMainData'), dispatch('SettingsTopLine/init')])
   },
 }

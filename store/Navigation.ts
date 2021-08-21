@@ -79,6 +79,15 @@ export const getters: GetterTree<NavigationState, RootState> = {
       } as IMenus<NavigationListItem[]>
     }
   },
+  getSitemapColumns: (state: NavigationState, getters) => {
+    return [
+      { ...getters['getMenuByKey']('footer-choose-and-buy') },
+      { ...getters['getMenuByKey']('footer-basic-services') },
+      // { ...getters['getMenuByKey']('latest-news') },
+      { ...getters['getMenuByKey']('about-company') },
+      { ...getters['getMenuByKey']('additional-services') },
+    ]
+  },
 }
 
 /**

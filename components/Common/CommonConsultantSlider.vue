@@ -17,7 +17,7 @@
               tag="p"
               version="style-5"
               :class="$style['slide__textbox-title']"
-            ) {{ slide.greeting }}
+            ) {{ slide.text }}
             typo-text(
               tag="p"
               version="style-7"
@@ -47,20 +47,20 @@
               ) {{ slide.email }}
                 svg-icon(name="link-arrow-white")
           img(:src="require(`~/assets/images/our-team/${slide.image}`)" alt="alt" loading="lazy")
-    div(:class="$style['footer']")
-      div(:class="$style['footer__navigation']")
-        div(:class="$style['buttons']")
-          button(:class="[$style['swiper-button-prev']]" @click.prevent="$refs.swiper.swiperInstance.slidePrev()")
-            svg-icon(name="slider-prev-arrow-white")
-          button(:class="[$style['swiper-button-next']]" @click.prevent="$refs.swiper.swiperInstance.slideNext()")
-            svg-icon(name="slider-next-arrow-white")
-        typo-text(
-          tag="p"
-          version="style-7"
-          :class="$style['footer__navigation-text']"
-        ) {{ sliderData.navigation }}
-      div(:class="['swiper-pagination-progressbar', $style['swiper-pagination-progressbar']]")
-        div(class="status-bar")
+    //div(:class="$style['footer']")
+    //  div(:class="$style['footer__navigation']")
+    //    div(:class="$style['buttons']")
+    //      button(:class="[$style['swiper-button-prev']]" @click.prevent="$refs.swiper.swiperInstance.slidePrev()")
+    //        svg-icon(name="slider-prev-arrow-white")
+    //      button(:class="[$style['swiper-button-next']]" @click.prevent="$refs.swiper.swiperInstance.slideNext()")
+    //        svg-icon(name="slider-next-arrow-white")
+    //    typo-text(
+    //      tag="p"
+    //      version="style-7"
+    //      :class="$style['footer__navigation-text']"
+    //    ) {{ sliderData.navigation }}
+    //  div(:class="['swiper-pagination-progressbar', $style['swiper-pagination-progressbar']]")
+    //    div(class="status-bar")
 </template>
 
 <script>
@@ -119,9 +119,8 @@ export default {
   &__header
     display: flex
     max-width: 864px
-    margin: 0 auto
     justify-content: space-between
-    margin-bottom: 24px
+    margin: 0 auto 24px
 
     h2
       margin: 0
@@ -224,83 +223,83 @@ export default {
       margin: 0
       justify-self: start
 
-.footer
-  max-width: 1440px
-  margin: 0 auto
-  margin-top: 48px
-  display: grid
-  grid-template-columns: 1fr 1fr
-  align-items: center
-  padding: 16px 0
-
-  @media (max-width: 900px)
-    margin-top: 24px
-
-  @media (max-width: 700px)
-    margin-top: 0
-
-  &__navigation
-    width: 432px
-    display: flex
-    align-items: center
-    justify-self: end
-
-    @media (max-width: 900px)
-      width: auto
-      max-width: 432px
-      justify-self: start
-
-    &-text
-      margin: 0
-      margin-left: 16px
-      white-space: nowrap
-      color: $color-white-56
-
-      @media (max-width: 600px)
-        display: none
-
-.swiper-button-prev
-  display: block
-  margin-left: auto
-  outline: none
-  padding: 0
-  background-color: transparent
-  border: none
-
-  svg
-    width: 32px
-    height: 32px
-
-.swiper-button-next
-  display: block
-  margin-right: auto
-  outline: none
-  padding: 0
-  background-color: transparent
-  border: none
-
-  svg
-    width: 32px
-    height: 32px
-
-.buttons
-  display: flex
-  grid-gap: 21px
-  height: 32px
-
-.swiper-pagination-progressbar
-  position: relative !important
-  height: 2px
-  flex: 1 1 auto
-  position: relative
-  background: $color-white-16 !important
-  width: 40%
-  justify-self: center
-  margin: 0 32px
-
-  @media (max-width: 900px)
-    width: 80%
-
-  span
-    background: $color-white-100 !important
+//.footer
+//  max-width: 1440px
+//  margin: 0 auto
+//  margin-top: 48px
+//  display: grid
+//  grid-template-columns: 1fr 1fr
+//  align-items: center
+//  padding: 16px 0
+//
+//  @media (max-width: 900px)
+//    margin-top: 24px
+//
+//  @media (max-width: 700px)
+//    margin-top: 0
+//
+//  &__navigation
+//    width: 432px
+//    display: flex
+//    align-items: center
+//    justify-self: end
+//
+//    @media (max-width: 900px)
+//      width: auto
+//      max-width: 432px
+//      justify-self: start
+//
+//    &-text
+//      margin: 0
+//      margin-left: 16px
+//      white-space: nowrap
+//      color: $color-white-56
+//
+//      @media (max-width: 600px)
+//        display: none
+//
+//.swiper-button-prev
+//  display: block
+//  margin-left: auto
+//  outline: none
+//  padding: 0
+//  background-color: transparent
+//  border: none
+//
+//  svg
+//    width: 32px
+//    height: 32px
+//
+//.swiper-button-next
+//  display: block
+//  margin-right: auto
+//  outline: none
+//  padding: 0
+//  background-color: transparent
+//  border: none
+//
+//  svg
+//    width: 32px
+//    height: 32px
+//
+//.buttons
+//  display: flex
+//  grid-gap: 21px
+//  height: 32px
+//
+//.swiper-pagination-progressbar
+//  position: relative !important
+//  height: 2px
+//  flex: 1 1 auto
+//  position: relative
+//  background: $color-white-16 !important
+//  width: 40%
+//  justify-self: center
+//  margin: 0 32px
+//
+//  @media (max-width: 900px)
+//    width: 80%
+//
+//  span
+//    background: $color-white-100 !important
 </style>

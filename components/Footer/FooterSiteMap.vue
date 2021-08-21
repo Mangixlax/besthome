@@ -11,7 +11,7 @@
         svg-icon(name="text-link-arrow")
     div(:class="$style['map__grid']")
       base-fast-links(
-        v-for="(siteMapColumn, i) in siteMapColumns"
+        v-for="(siteMapColumn, i) in getSitemapColumns"
         :key="i"
         :title="siteMapColumn.title"
         :list="siteMapColumn.items"
@@ -52,17 +52,13 @@ export default class FooterSiteMap extends Vue {
     return this.$store.getters['Navigation/getMenuByKey']('additional-services')
   }
 
+  get getSitemapColumns(): IMenus<NavigationListItem[]>[] {
+    return this.$store.getters['Navigation/getSitemapColumns']
+  }
+
   get isDarkTheme(): boolean {
     return this.$store.getters['isDarkTheme']
   }
-
-  public siteMapColumns: IMenus<NavigationListItem[]>[] = [
-    { ...this.chooseAndBuy },
-    { ...this.basicServices },
-    // { ...this.latestNews },
-    { ...this.aboutCompany },
-    { ...this.additionalServices },
-  ]
 }
 </script>
 
