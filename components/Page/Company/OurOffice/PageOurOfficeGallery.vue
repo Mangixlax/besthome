@@ -40,32 +40,33 @@ import { SwiperOptions } from 'swiper'
 export default class PageOurOfficeGallery extends Vue {
   public slides: any = [
     {
-      title: 'Холл с залом ожидания',
+      title: this.$i18n.locale === 'ru' ? 'Холл с залом ожидания' : 'Hall with a waiting room',
       image: 'photo-1.jpg',
       variant: 'middle',
     },
     {
-      title: 'Переговорная комната №1',
+      title: this.$i18n.locale === 'ru' ? 'Переговорная комната №1' : 'Negotiation room #1',
       image: 'photo-6.jpg',
       variant: 'top',
     },
     {
-      title: 'Кабинет директора отдела продаж',
+      title:
+        this.$i18n.locale === 'ru' ? 'Кабинет директора отдела продаж' : "Sales director's office",
       image: 'photo-8.jpg',
       variant: 'bottom',
     },
     {
-      title: 'Переговорная комната №2',
+      title: this.$i18n.locale === 'ru' ? 'Переговорная комната №2' : 'Negotiation room №2',
       image: 'photo-11.jpg',
       variant: 'top',
     },
     {
-      title: 'Кабинет ген. директора',
+      title: this.$i18n.locale === 'ru' ? 'Кабинет ген. директора' : 'CEO office',
       image: 'photo-13.jpg',
       variant: 'middle',
     },
     {
-      title: 'Ключевой интерьер',
+      title: this.$i18n.locale === 'ru' ? 'Ключевой интерьер' : 'Key interior',
       image: 'photo-19.jpg',
       variant: 'bottom',
     },
