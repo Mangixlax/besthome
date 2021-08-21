@@ -1,30 +1,38 @@
 <template lang="pug">
-  div(:class="$style['title']")
+  div(:class="$style['title']" v-bind="$attrs")
     div(:class="$style['title__container']")
       div(:class="$style['title__container-textbox']")
-        typo-text(
-          tag="h1"
-          version="style-1"
-          :class="$style['title__container-title']"
-        ) {{ data.title }}
+        h1(:class="$style['title__container-title']") {{ data.title }}
         div(:class="$style['title__container-subscribe']")
-          typo-text(
-            tag="p"
-            version="style-5"
-            v-for="(text, i) in data.description" 
+          p(
+            v-for="(text, i) in data.description"
             :key="i"
             :class="$style['title__container-description']"
           ) {{ text }}
-          common-subscribe(:subscribe-data="$t('footer.subscribe')" whiteTheme)
+          common-subscribe(:subscribe-data="$t('footer.subscribe')" white-theme)
       div(:class="$style['title__container-imagebox']")
         div(:class="$style['title__container-imagebox-column-1']")
-          img(src="@/assets/images/pages/quality/title/image-1.jpg")
-          img(src="@/assets/images/pages/quality/title/image-2.jpg")
-        div(:class="$style['title__container-imagebox-column-2']")
-          img(src="@/assets/images/pages/quality/title/image-3.jpg")
           img(
-            src="@/assets/images/pages/quality/title/image-4.jpg"
+            :src="$img('/pages/quality/title/image-1.jpg', $store.state.supportWebP ? { format: 'webp' } : {})"
+            loading="lazy"
+            decoding="async"
+          )
+          img(
+            :src="$img('/pages/quality/title/image-2.jpg', $store.state.supportWebP ? { format: 'webp' } : {})"
+            loading="lazy"
+            decoding="async"
+          )
+        div(:class="$style['title__container-imagebox-column-2']")
+          img(
+            :src="$img('/pages/quality/title/image-3.jpg', $store.state.supportWebP ? { format: 'webp' } : {})"
+            loading="lazy"
+            decoding="async"
+          )
+          img(
+            :src="$img('/pages/quality/title/image-4.jpg', $store.state.supportWebP ? { format: 'webp' } : {})"
             :class="$style['title__container-imagebox-lastimage']"
+            loading="lazy"
+            decoding="async"
           )
 </template>
 
@@ -59,24 +67,54 @@ export default class PageQualityTitle extends Vue {
     padding: 0 24px
     display: flex
 
+    @media (max-width: 1224px)
+      flex-direction: column
+
     &-textbox
       display: flex
       flex-direction: column
+      color: $color-black-96
+      max-width: 738px
+      width: 100%
 
     &-title
-      margin: 0
-      margin-bottom: 40px
+      +desktop-display-style-1
+      margin: 44px 0 40px
+
+      @media (max-width: 1224px)
+        +desktop-display-style-2
+        margin-top: 0
+
+      @media (max-width: 700px)
+        +desktop-display-style-3
+
+      @media (max-width: 360px)
+        +desktop-display-style-4
+        margin-bottom: 24px
 
     &-subscribe
       max-width: 414px
 
+      @media (max-width: 1224px)
+        max-width: 738px
+
     &-description
-      margin: 0
-      margin-bottom: 1em
+      +desktop-text-style-5
+      margin: 0 0 1em
+
+      @media (max-width: 700px)
+        +desktop-text-style-6
 
     &-imagebox
       display: flex
       grid-gap: 32px
+
+      @media (max-width: 1224px)
+        align-self: center
+        margin-top: 60px
+
+      @media (max-width: 630px)
+        display: none
 
       &-column-1
         display: flex
