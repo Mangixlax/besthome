@@ -1253,6 +1253,46 @@
         ],
         "link": "Learn more about",
         "line_ramp": "linear gangway"
+      },
+      "foundation": {
+        "title": "Foundations of buildings",
+        "list": [
+          {
+            "title": "Concrete",
+            "text": []
+          },
+          {
+            "title": "Extruded polystyrene foam (XPS)",
+            "text": [
+              "Highly effective thermal insulation material of increased strength.",
+              "Features: environmental friendliness, safety, absolute bioproofness, consistently low thermal conductivity, almost zero water absorption, (homogeneous structure of closed independent cells), high compressive strength, proven durability."
+            ]
+          },
+          {
+            "title": "Smoothing waterproofing",
+            "text": [
+              "It protects the building, both inside and outside, against condensation, leaks in pipes and other troubles associated with excessive moisture.",
+              "Thanks to the protection against moisture, the durability of the entire structure is also increased."
+            ]
+          },
+          {
+            "title": "Bentonite mat",
+            "text": [
+              "Based on bentonite clay with waterproofing.",
+              "Advantages: self-repair, high waterproofing properties, high strength, resistance to tearing and damage, environmental friendliness, durability."
+            ]
+          },
+          {
+            "title": "Subconcrete",
+            "text": [
+              "Creates a layer of waterproofing.",
+              "Protects the foundation from groundwater.",
+              "Redistributes pressure.",
+              "Allows for better reinforcement.",
+              "Eliminates shrinkage of the building."
+            ]
+          }
+        ]
       }
     },
     "our_office": {

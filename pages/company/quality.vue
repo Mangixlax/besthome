@@ -32,6 +32,25 @@
       }"
     )
     page-quality-standard-sticky
+    common-divider(
+      :data="{\
+        height: 'large',\
+        color: 'light',\
+      }"
+    )
+    common-divider(
+      :data="{\
+        height: 'large',\
+        color: 'gray',\
+      }"
+    )
+    page-quality-foundation-sticky
+    common-divider(
+      :data="{\
+        height: 'large',\
+        color: 'gray',\
+      }"
+    )
 </template>
 
 <script lang="ts">
@@ -44,9 +63,11 @@ import PageQualityTitle from '~/components/Page/Company/Quality/PageQualityTitle
 import PageQualityInfo from '~/components/Page/Company/Quality/PageQualityInfo.vue'
 import CommonLine from '~/components/Common/CommonLine.vue'
 import PageQualityStandardSticky from '~/components/Page/Company/Quality/PageQualityStandardSticky.vue'
+import PageQualityFoundationSticky from '~/components/Page/Company/Quality/PageQualityFoundationSticky.vue'
 
 @Component({
   components: {
+    PageQualityFoundationSticky,
     PageQualityStandardSticky,
     CommonLine,
     CommonDivider,
