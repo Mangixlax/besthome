@@ -176,7 +176,8 @@ export default class PageQualityStandardSticky extends Vue {
     z-index: 1
 
     &-wrapper
-      width: 414px
+      max-width: 414px
+      width: 100%
 
     img
       width: 100%
