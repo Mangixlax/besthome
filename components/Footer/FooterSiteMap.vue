@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+import { Component, Getter, Vue } from 'nuxt-property-decorator'
 import BaseFastLinks from '~/components/Base/BaseFastLinks.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import DeveloperLogo from '@/components/svg/Developer.vue'
@@ -32,6 +32,8 @@ import { IMenus, NavigationListItem } from '~/store/Navigation'
   components: { BaseFastLinks, TypoText, DeveloperLogo },
 })
 export default class FooterSiteMap extends Vue {
+  @Getter('Navigation/getSitemapColumns') getSitemapColumns!: IMenus<NavigationListItem[]>
+
   get isDarkTheme(): boolean {
     return this.$store.getters['isDarkTheme']
   }
@@ -89,7 +91,7 @@ export default class FooterSiteMap extends Vue {
 
     &-link
       +desktop-text-style-6
-      color: $color-black-80
+      color: $color-blue-80
       text-decoration: none
       display: flex
       align-items: center
@@ -101,14 +103,14 @@ export default class FooterSiteMap extends Vue {
       svg
         width: 22px
         height: 22px
-        fill: $color-black-80
+        fill: $color-blue-80
         margin-left: 10px
 
       &:hover
-        color: $color-black-100
+        color: $color-blue-100
 
         svg
-          fill: $color-black-100
+          fill: $color-blue-100
 
       .dark &
         color: $color-white-80
