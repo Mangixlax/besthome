@@ -19,6 +19,7 @@ export default class CommonLine extends Vue {}
   border: none
 
   @media (max-width: 1176px)
+    width: calc(100% - 48px)
     margin-left: 24px
     margin-right: 24px
 </style>
