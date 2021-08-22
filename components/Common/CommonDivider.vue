@@ -7,6 +7,7 @@
       [$style['space--large']]: props.data.height === 'large',\
       [$style['space--extra-large']]: props.data.height === 'x-large',\
       [$style['space--light']]: props.data.color === 'light',\
+      [$style['space--gray']]: props.data.color === 'gray',\
       [$style['space--dark']]: props.data.color === 'dark',\
     }"
   )
@@ -21,7 +22,7 @@ interface IDevider {
 }
 
 @Component
-export default class CommonSpace extends Vue {
+export default class CommonDivider extends Vue {
   @Prop({ type: Object, default: () => {} }) data!: IDevider
 }
 </script>
@@ -60,4 +61,7 @@ export default class CommonSpace extends Vue {
 
   &--dark
     background: $color-black-96
+
+  &--gray
+    background: $color-black-4
 </style>
