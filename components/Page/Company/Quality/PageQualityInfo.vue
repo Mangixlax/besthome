@@ -1,5 +1,5 @@
 <template lang="pug">
-  div(:class="$style['info']")
+  section(:class="$style['info']")
     div(:class="$style['info__container']")
       div(
         v-for="(block, i) in data"
@@ -14,21 +14,14 @@
 </template>
 
 <script lang="ts">
-import TypoText from '~/components/Base/TypoText.vue'
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
-import CommonSubscribe from '~/components/Common/CommonSubscribe.vue'
 
 interface IQualityInfo {
   title: string
   description: string
 }
 
-@Component({
-  components: {
-    TypoText,
-    CommonSubscribe,
-  },
-})
+@Component
 export default class PageQualityInfo extends Vue {
   @Prop({ type: Array, default: () => {} }) data!: IQualityInfo[]
 }

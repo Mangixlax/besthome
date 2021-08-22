@@ -1,5 +1,5 @@
 <template lang="pug">
-  div(:class="$style['title']" v-bind="$attrs")
+  section(:class="$style['title']" v-bind="$attrs")
     div(:class="$style['title__container']")
       div(:class="$style['title__container-textbox']")
         h1(:class="$style['title__container-title']") {{ data.title }}

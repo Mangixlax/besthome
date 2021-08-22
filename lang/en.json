@@ -1221,7 +1221,39 @@
           "title": "The materials used by the developer",
           "description": "We build residential complexes using high quality innovative materials and modern engineering equipment."
         }
-      ]
+      ],
+      "standard": {
+        "title": "Our quality standard for the bathroom",
+        "list": [
+          {
+            "title": "Automatic ventilation",
+            "text": [
+              "Automation of ventilation system is a complex of automatic control of indoor climate. Automatic ventilation and air conditioning systems provide the right conditions for air movement in rooms. At the same time they save energy, keep cold and heat, and reduce the need for maintenance personnel."
+            ]
+          },
+          {
+            "title": "Smoothing waterproofing",
+            "text": [
+              "A popular material for protecting various surfaces from the action of water. Hot and cold bitumen is used for waterproofing pipes, foundations, sumps, piles."
+            ]
+          },
+          {
+            "title": "Thermal insulation",
+            "text": [
+              "Thanks to thermal insulation it is possible to significantly reduce the energy cost of maintaining the desired temperature inside. Heat pipes are surrounded by thermal insulation to reduce the cooling or heating of the heat transfer medium. Protect against corrosion. Thermal insulation has vapor-proof and noise-proof properties.",
+              "Completely isolates the room from the sewer, preventing the emergence of unpleasant odors."
+            ]
+          },
+          {
+            "title": "Linear gangway 60 cm",
+            "text": [
+              "The most powerful in terms of the volume of wastewater accepted compared to the point and corner."
+            ]
+          }
+        ],
+        "link": "Learn more about",
+        "line_ramp": "linear gangway"
+      }
     },
     "our_office": {
       "title": {

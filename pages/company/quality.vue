@@ -20,16 +20,18 @@
     page-quality-info(:data="$t('pages.company_quality.info')")
     common-divider(
       :data="{\
-        height: 'large',\
-        color: 'light',\
-      }"
-    )
-    common-divider(
-      :data="{\
         height: 'x-large',\
         color: 'light',\
       }"
     )
+    common-line
+    common-divider(
+      :data="{\
+        height: 'large',\
+        color: 'light',\
+      }"
+    )
+    page-quality-standard-sticky
 </template>
 
 <script lang="ts">
@@ -41,9 +43,11 @@ import { getSiteUrl } from '@/lib/utils'
 import PageQualityTitle from '~/components/Page/Company/Quality/PageQualityTitle.vue'
 import PageQualityInfo from '~/components/Page/Company/Quality/PageQualityInfo.vue'
 import CommonLine from '~/components/Common/CommonLine.vue'
+import PageQualityStandardSticky from '~/components/Page/Company/Quality/PageQualityStandardSticky.vue'
 
 @Component({
   components: {
+    PageQualityStandardSticky,
     CommonLine,
     CommonDivider,
     PageQualityTitle,
@@ -70,12 +74,12 @@ import CommonLine from '~/components/Common/CommonLine.vue'
         {
           rel: 'alternate',
           hreflang: 'x-default',
-          href: getSiteUrl(this.localePath({ name: 'privacy-policy' }, 'en'), true),
+          href: getSiteUrl(this.localePath({ name: 'company-quality' }, 'en'), true),
         },
         {
           rel: 'alternate',
           hreflang: 'ru',
-          href: getSiteUrl(this.localePath({ name: 'privacy-policy' }, 'ru'), true),
+          href: getSiteUrl(this.localePath({ name: 'company-quality' }, 'ru'), true),
         },
       ],
     }
@@ -89,12 +93,12 @@ export default class PrivacyPolicyPage extends Vue {
       this.$store.commit('PageTransition/animate', false)
     }
 
-    this.$store.commit('setLogoSubTitle', 'Construction')
+    this.$store.commit('setLogoSubTitle', 'Quality')
     this.$store.commit('setBreadcrumbs', [
       {
-        name: this.$t('breadcrumbs.privacy_policy'),
+        name: this.$i18n.locale === 'ru' ? 'Наше качество' : 'Our quality',
         route: {
-          name: 'privacy-policy',
+          name: 'company-quality',
         },
       },
     ])
