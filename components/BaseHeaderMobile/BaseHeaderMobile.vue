@@ -84,6 +84,9 @@ body[menu-open]
   overflow: hidden
 
 .menu
+  position: relative
+  z-index: 1000
+
   @media (min-width: 1024px)
     display: none
 
@@ -99,7 +102,6 @@ body[menu-open]
     justify-content: center
     border-radius: 50%
     box-shadow: inset 0 0 0 1px rgba($color-black-100, 0.04)
-    transition: background-color 0.25s ease
     background-color: $color-white-100
     transition: all 0.3s ease
 
