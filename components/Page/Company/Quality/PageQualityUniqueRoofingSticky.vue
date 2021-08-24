@@ -40,11 +40,14 @@ export default class PageQualityUniqueRoofingSticky extends Vue {
 
     if ($items.length) {
       $items.forEach(($el: Element) => {
+        // @ts-ignore
         $el.style.height = ''
       })
 
       if ($items[index]) {
+        // @ts-ignore
         const contentHeight = $items[index].querySelector('div').scrollHeight as number
+        // @ts-ignore
         $items[index].style.height = contentHeight + 'px'
       }
     }

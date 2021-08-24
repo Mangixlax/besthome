@@ -66,6 +66,7 @@ export default class ModalPhotoGallery extends Vue {
   public currentSlideNumber: string | number = '01'
   public maxSlides: string | number = '01'
 
+  // @ts-ignore
   public swiperInstance: Swiper | null
 
   // Recalculate offsets of slides
