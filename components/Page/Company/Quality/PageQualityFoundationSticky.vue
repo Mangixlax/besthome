@@ -65,7 +65,7 @@ export default class PageQualityFoundationSticky extends Vue {
   justify-content: space-between
 
   @media (max-width: 1080px)
-    flex-direction: column-reverse
+    flex-direction: column
 
 .point
   position: absolute
@@ -120,6 +120,7 @@ export default class PageQualityFoundationSticky extends Vue {
         margin-right: 0
         padding-right: 24px
         padding-left: 24px
+        margin-top: 24px
 
     img
       width: 100%
