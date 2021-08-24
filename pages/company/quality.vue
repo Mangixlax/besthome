@@ -51,6 +51,13 @@
         color: 'gray',\
       }"
     )
+    page-quality-knauf
+    common-divider(
+      :data="{\
+        height: 'large',\
+        color: 'gray',\
+      }"
+    )
     page-quality-foundation-sticky
     common-divider(
       :data="{\
@@ -71,9 +78,11 @@ import CommonLine from '~/components/Common/CommonLine.vue'
 import PageQualityStandardSticky from '~/components/Page/Company/Quality/PageQualityStandardSticky.vue'
 import PageQualityFoundationSticky from '~/components/Page/Company/Quality/PageQualityFoundationSticky.vue'
 import PageQualityLineGangway from '~/components/Page/Company/Quality/PageQualityLineGangway.vue'
+import PageQualityKnauf from '~/components/Page/Company/Quality/PageQualityKnauf.vue'
 
 @Component({
   components: {
+    PageQualityKnauf,
     PageQualityLineGangway,
     PageQualityFoundationSticky,
     PageQualityStandardSticky,
