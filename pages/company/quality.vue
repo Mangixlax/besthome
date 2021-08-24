@@ -72,13 +72,13 @@
         color: 'gray',\
       }"
     )
-    page-quality-materials
     common-divider(
       :data="{\
         height: 'large',\
-        color: 'gray',\
+        color: 'light',\
       }"
     )
+    page-quality-materials
 </template>
 
 <script lang="ts">

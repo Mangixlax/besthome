@@ -43,6 +43,9 @@ export default class PageQualityKnauf extends Vue {}
     padding-right: 24px
     margin-top: 40px
 
+  @media (max-width: 1080px)
+    max-width: 100%
+
   img
     width: 100%
 
@@ -55,6 +58,9 @@ export default class PageQualityKnauf extends Vue {}
     margin-right: 0
     padding-left: 24px
     padding-right: 24px
+
+  @media (max-width: 1080px)
+    max-width: 100%
 
   svg
     width: 132px

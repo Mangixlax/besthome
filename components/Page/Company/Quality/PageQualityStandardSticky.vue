@@ -179,12 +179,18 @@ export default class PageQualityStandardSticky extends Vue {
       max-width: 414px
       width: 100%
 
+      @media (max-width: 1080px)
+        max-width: 100%
+
     img
       width: 100%
 
   &__info
     max-width: 592px
     width: 100%
+
+    @media (max-width: 1080px)
+      max-width: 100%
 
     h2
       +desktop-text-style-4

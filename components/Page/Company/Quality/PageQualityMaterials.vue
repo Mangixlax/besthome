@@ -23,8 +23,6 @@ export default class PageQualityMaterials extends Vue {
 
 <style lang="sass" module>
 .container
-  background-color: $color-black-4
-
   @media (max-width: 1176px)
     padding-right: 24px
     padding-left: 24px
@@ -39,7 +37,7 @@ export default class PageQualityMaterials extends Vue {
 
   &__header
     h2, p
-      +desktop-text-style-5
+      +desktop-text-style-4
 
     h2
       color: $color-black-48
@@ -49,11 +47,21 @@ export default class PageQualityMaterials extends Vue {
       max-width: 592px
       width: 100%
 
+      @media (max-width: 1080px)
+        max-width: 100%
+
       p
         margin: 0
 
+      p:last-child
+        +desktop-text-style-6
+        margin-top: 32px
+
     @media (max-width: 1000px)
       flex-direction: column
+
+      div p
+        +desktop-text-style-6
 
   &__body
     margin-top: 64px
@@ -67,9 +75,9 @@ export default class PageQualityMaterials extends Vue {
       fill: $color-black-8
       transition: fill 0.25s ease
 
+      @media (max-width: 760px)
+        width: 50%
+
       &:hover
         fill: $color-black-100
-
-    @media (max-width: 760px)
-      flex-direction: column
 </style>

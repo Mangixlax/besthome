@@ -122,6 +122,9 @@ export default class PageQualityFoundationSticky extends Vue {
         padding-left: 24px
         margin-top: 24px
 
+      @media (max-width: 1080px)
+        max-width: 100%
+
     img
       width: 100%
 
@@ -134,6 +137,9 @@ export default class PageQualityFoundationSticky extends Vue {
       margin-right: 0
       padding-right: 24px
       padding-left: 24px
+
+    @media (max-width: 1080px)
+      width: 100%
 
     h2
       +desktop-text-style-5

@@ -103,6 +103,9 @@ export default class PageQualityLineGangway extends Vue {
       width: 100%
       margin: 0
 
+      @media (max-width: 1080px)
+        max-width: 100%
+
     @media (max-width: 1000px)
       flex-direction: column
 
@@ -165,6 +168,7 @@ export default class PageQualityLineGangway extends Vue {
 
     @media (max-width: 760px)
       margin-top: 40px
+      max-width: 100%
 
     img
       width: 100%
@@ -184,6 +188,9 @@ export default class PageQualityLineGangway extends Vue {
   padding: 0
   width: 414px
   margin: 0 40px 0 0
+
+  @media (max-width: 760px)
+    width: 100%
 
   li + li
     margin-top: 32px

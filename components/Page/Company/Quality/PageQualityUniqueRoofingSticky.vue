@@ -98,6 +98,9 @@ export default class PageQualityUniqueRoofingSticky extends Vue {
     padding-left: 24px
     padding-right: 24px
 
+  @media (max-width: 1080px)
+    max-width: 100%
+
   & > p
     +desktop-text-style-5
     color: $color-black-100
