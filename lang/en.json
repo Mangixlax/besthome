@@ -1293,6 +1293,17 @@
             ]
           }
         ]
+      },
+      "line_gangway": {
+        "title": "Line gangway",
+        "list": [
+          "Grid AISI 304 2 mm",
+          "Odorless mesh filter",
+          "Drainage drain",
+          "Adjustable Foot.",
+          "Watertight gasket",
+          "Siphon 360°"
+        ]
       }
     },
     "our_office": {

@@ -44,6 +44,13 @@
         color: 'gray',\
       }"
     )
+    page-quality-line-gangway
+    common-divider(
+      :data="{\
+        height: 'large',\
+        color: 'gray',\
+      }"
+    )
     page-quality-foundation-sticky
     common-divider(
       :data="{\
@@ -56,17 +63,18 @@
 <script lang="ts">
 import CommonDivider from '~/components/Common/CommonDivider.vue'
 import { Component, Vue } from 'nuxt-property-decorator'
-import { delay } from '~/lib/utils'
+import { getSiteUrl, delay } from '~/lib/utils'
 import metaGenerator from '~/config/meta'
-import { getSiteUrl } from '@/lib/utils'
 import PageQualityTitle from '~/components/Page/Company/Quality/PageQualityTitle.vue'
 import PageQualityInfo from '~/components/Page/Company/Quality/PageQualityInfo.vue'
 import CommonLine from '~/components/Common/CommonLine.vue'
 import PageQualityStandardSticky from '~/components/Page/Company/Quality/PageQualityStandardSticky.vue'
 import PageQualityFoundationSticky from '~/components/Page/Company/Quality/PageQualityFoundationSticky.vue'
+import PageQualityLineGangway from '~/components/Page/Company/Quality/PageQualityLineGangway.vue'
 
 @Component({
   components: {
+    PageQualityLineGangway,
     PageQualityFoundationSticky,
     PageQualityStandardSticky,
     CommonLine,
@@ -74,7 +82,6 @@ import PageQualityFoundationSticky from '~/components/Page/Company/Quality/PageQ
     PageQualityTitle,
     PageQualityInfo,
   },
-
   head(): any {
     const title = this.$i18n.t('pages.company_quality.title.title')
 
