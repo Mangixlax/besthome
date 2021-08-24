@@ -21,6 +21,7 @@
           :src="$img(`/quality/line-gangway-full.jpg`, $store.state.supportWebP ? { format: 'webp' } : {})"
           loading="lazy"
           decoding="async"
+          @load="onResize"
         )
         img(
           v-for="(item, index) in $t('pages.company_quality.line_gangway.list')"
