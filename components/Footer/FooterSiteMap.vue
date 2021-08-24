@@ -71,6 +71,7 @@ export default class FooterSiteMap extends Vue {
   @media (max-width: 1176px)
     padding-left: 24px
     padding-right: 24px
+    flex-wrap: wrap
 
   @media (max-width: 900px)
     flex-direction: column
@@ -147,12 +148,13 @@ export default class FooterSiteMap extends Vue {
     align-self: end
     margin-top: 250px
 
-  @media (max-width: 900px)
+  @media (max-width: 1176px)
     margin-top: 24px
 
   @media (max-width: 900px) and (min-width: 600px)
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
-    align-items: start
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
 
     &-column-0
       grid-column: auto
