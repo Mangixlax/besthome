@@ -1305,6 +1305,10 @@
           "Siphon 360°"
         ]
       },
+      "knauf": [
+        "Glass wool light mineral wool for heat - and sound insulation of frame walls, partitions, pitched roofs, floors on the floor and floors.",
+        "Safe - without the use of phenol-formaldehyde and acrylic resins. Advantages: water-repellent impregnation, aquastatik, resilient, non-combustible. Protection system «3-in-1», against cold, noise, water."
+      ],
       "unique_roofing": {
         "title": "Unique roofing",
         "text": "Come up with a description here, perhaps even SEO text on the subject of a unique roof on a couple of lines (you can more), but such that you can read it.",
@@ -1323,7 +1327,7 @@
           },
           {
             "title": "Z-profile",
-            "text": "Z-profile is made from prefabricated, high-quality, hot-dip galvanized or painted steel sheet. Z profile got its name because of its appearance resembling the English letter "Z"."
+            "text": "Z-profile is made from prefabricated, high-quality, hot-dip galvanized or painted steel sheet. Z profile got its name because of its appearance resembling the English letter «Z»."
           },
           {
             "title": "Basalt wool 10 cm long (thermal insulation)",
