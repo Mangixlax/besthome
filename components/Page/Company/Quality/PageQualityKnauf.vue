@@ -59,6 +59,7 @@ export default class PageQualityKnauf extends Vue {}
   svg
     width: 132px
     height: 65px
+    fill: $color-black-8
 
   p:nth-child(2)
     +desktop-text-style-5
