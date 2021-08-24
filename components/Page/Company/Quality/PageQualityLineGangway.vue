@@ -46,7 +46,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
 export default class PageQualityLineGangway extends Vue {
   public activePointIndex: number = -1
 
-  public onMouseEnter(index) {
+  public onMouseEnter(index: number) {
     if (window.innerWidth > 1156) {
       this.activePointIndex = index
     }
@@ -58,7 +58,9 @@ export default class PageQualityLineGangway extends Vue {
   public onResize() {
     const $imageWrapper = this.$refs.imageWrapper as Element
 
+    // @ts-ignore
     if ($imageWrapper) {
+      // @ts-ignore
       $imageWrapper.style.height = $imageWrapper.querySelector('img').height + 'px'
     }
   }

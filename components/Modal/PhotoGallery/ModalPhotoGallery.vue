@@ -70,8 +70,10 @@ export default class ModalPhotoGallery extends Vue {
 
   // Recalculate offsets of slides
   public updateSize() {
-    this.swiperInstance.updateSize()
-    this.swiperInstance.updateSlides()
+    if (this.swiperInstance) {
+      this.swiperInstance.updateSize()
+      this.swiperInstance.updateSlides()
+    }
   }
 
   public formatNumber(value: string | number) {
@@ -87,7 +89,9 @@ export default class ModalPhotoGallery extends Vue {
     this.maxSlides = this.formatNumber((this.gallery || []).length)
 
     this.swiperInstance.on('slideChange', () => {
-      this.currentSlideNumber = this.formatNumber(this.swiperInstance?.activeIndex + 1)
+      if (this.swiperInstance) {
+        this.currentSlideNumber = this.formatNumber(this.swiperInstance?.activeIndex + 1)
+      }
     })
   }
 }
