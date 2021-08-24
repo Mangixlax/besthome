@@ -65,6 +65,13 @@
         color: 'gray',\
       }"
     )
+    page-quality-unique-roofing-sticky
+    common-divider(
+      :data="{\
+        height: 'large',\
+        color: 'gray',\
+      }"
+    )
 </template>
 
 <script lang="ts">
@@ -79,9 +86,11 @@ import PageQualityStandardSticky from '~/components/Page/Company/Quality/PageQua
 import PageQualityFoundationSticky from '~/components/Page/Company/Quality/PageQualityFoundationSticky.vue'
 import PageQualityLineGangway from '~/components/Page/Company/Quality/PageQualityLineGangway.vue'
 import PageQualityKnauf from '~/components/Page/Company/Quality/PageQualityKnauf.vue'
+import PageQualityUniqueRoofingSticky from '~/components/Page/Company/Quality/PageQualityUniqueRoofingSticky.vue'
 
 @Component({
   components: {
+    PageQualityUniqueRoofingSticky,
     PageQualityKnauf,
     PageQualityLineGangway,
     PageQualityFoundationSticky,

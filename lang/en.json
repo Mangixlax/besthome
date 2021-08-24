@@ -1304,7 +1304,37 @@
           "Watertight gasket",
           "Siphon 360°"
         ]
-      }
+      },
+      "unique_roofing": {
+        "title": "Unique roofing",
+        "text": "Come up with a description here, perhaps even SEO text on the subject of a unique roof on a couple of lines (you can more), but such that you can read it.",
+        "list": [
+          {
+            "title": "6 mm thick galvanized sheet",
+            "text": "Galvanized steel roofs can withstand the strongest climatic loads. Galvanized profile perfectly withstands wind loads, hail, temperature fluctuations, the influence of ultraviolet radiation. The main advantages of galvanized roofs: durability, robustness, reliability, maximum strength."
+          },
+          {
+            "title": "Waterproofing layer weighing 175 grams",
+            "text": "Obligatory protection of elements under construction from the damaging effects of water and high humidity. Using waterproofing materials prevents material deterioration (rotting of wood, metal corrosion), the formation of harmful micro-organisms (fungus and mold), in addition, increases life and the successful operation of construction."
+          },
+          {
+            "title": "1st oriented chipboard at 11 mm",
+            "text": "Multilayer sheet made of long flat wood chips impregnated with phenol-formaldehyde resins and synthetic wax."
+          },
+          {
+            "title": "Z-profile",
+            "text": "Z-profile is made from prefabricated, high-quality, hot-dip galvanized or painted steel sheet. Z profile got its name because of its appearance resembling the English letter "Z"."
+          },
+          {
+            "title": "Basalt wool 10 cm long (thermal insulation)",
+            "text": "Insulating and soundproofing material, which is a compressed board consisting of interlaced fibers. A distinctive quality is fire safety, chemical neutrality to various substances, as well as durability, counted in decades."
+          },
+          {
+            "title": "2nd oriented chipboard 11 mm",
+            "text": "Multilayer sheet made of long flat wood chips impregnated with phenol-formaldehyde resins and synthetic wax. Located after the basalt wool."
+          }
+        ]
+      },
     },
     "our_office": {
       "title": {
