@@ -8,7 +8,13 @@
       tag="p"
       version="style-5"
     ) {{ $t('pages.our_office.gallery.sub_title') }}
-    swiper(ref="swiper" :class="$style['slider']" class="swiper" :options="swiperOption")
+    swiper(
+      ref="swiper"
+      :class="$style['slider']"
+      class="swiper"
+      :options="swiperOption"
+      @click-slide="onClickToSlide"
+    )
       swiper-slide(
         v-for="(slide, i) in slides"
         :key="i"
@@ -31,11 +37,13 @@
 import TypoText from '~/components/Base/TypoText.vue'
 import { Component, Vue } from 'nuxt-property-decorator'
 import { SwiperOptions } from 'swiper'
+import { modalsTriggerMixin } from '~/mixins/modals'
 
 @Component({
   components: {
     TypoText,
   },
+  mixins: [modalsTriggerMixin],
 })
 export default class PageOurOfficeGallery extends Vue {
   public slides: any = [
@@ -43,32 +51,38 @@ export default class PageOurOfficeGallery extends Vue {
       title: this.$i18n.locale === 'ru' ? 'Холл с залом ожидания' : 'Hall with a waiting room',
       image: 'photo-1.jpg',
       variant: 'middle',
+      gallery: [1, 5],
     },
     {
       title: this.$i18n.locale === 'ru' ? 'Переговорная комната №1' : 'Negotiation room #1',
       image: 'photo-6.jpg',
       variant: 'top',
+      gallery: [6, 7],
     },
     {
       title:
         this.$i18n.locale === 'ru' ? 'Кабинет директора отдела продаж' : "Sales director's office",
       image: 'photo-8.jpg',
       variant: 'bottom',
+      gallery: [8, 10],
     },
     {
       title: this.$i18n.locale === 'ru' ? 'Переговорная комната №2' : 'Negotiation room №2',
       image: 'photo-11.jpg',
       variant: 'top',
+      gallery: [11, 12],
     },
     {
       title: this.$i18n.locale === 'ru' ? 'Кабинет ген. директора' : 'CEO office',
       image: 'photo-13.jpg',
       variant: 'middle',
+      gallery: [13, 18],
     },
     {
       title: this.$i18n.locale === 'ru' ? 'Ключевой интерьер' : 'Key interior',
       image: 'photo-19.jpg',
       variant: 'bottom',
+      gallery: [19, 22],
     },
   ]
 
@@ -103,6 +117,44 @@ export default class PageOurOfficeGallery extends Vue {
         centeredSlides: false,
       },
     },
+  }
+
+  public onClickToSlide(index: number) {
+    const [min, max] = this.slides[index] ? this.slides[index].gallery : []
+
+    if (min >= 0 && max >= 0) {
+      const gallery = []
+
+      for (let i = min; i <= max; i++) {
+        gallery.push(`photo-${i}.jpg`)
+      }
+
+      this.showModal({
+        name: 'modal-photo-gallery',
+        modal: () => import('~/components/Modal/PhotoGallery/ModalPhotoGallery.vue'),
+        options: {
+          pivotY: 0,
+          pivotX: 0,
+          height: '100%',
+          width: '100%',
+          adaptive: false,
+        },
+        props: {
+          title: this.slides[index].title,
+          gallery,
+        },
+        events: {
+          'before-open': () => {
+            document.documentElement.classList.add('modal-fullwidth-is-open')
+          },
+          'before-close': () => {
+            if (document.body.getElementsByClassName('vm--container').length <= 1) {
+              document.documentElement.classList.remove('modal-fullwidth-is-open')
+            }
+          },
+        },
+      })
+    }
   }
 }
 </script>
@@ -145,6 +197,7 @@ export default class PageOurOfficeGallery extends Vue {
   position: relative
   justify-content: center
   flex-direction: column
+  cursor: pointer
 
   img
     height: 344px
@@ -167,6 +220,9 @@ export default class PageOurOfficeGallery extends Vue {
       left: 0
       background-color: $color-black-24
       z-index: 1
+
+      @media (max-width: 1125px)
+        display: none
 
   &__image img
     transition: opacity 0.25s ease

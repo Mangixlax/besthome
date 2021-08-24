@@ -112,11 +112,12 @@ import PageOurOfficeAddress from '~/components/Page/Company/OurOffice/PageOurOff
       ],
     }
   },
+  asyncData({ store }) {
+    store.commit('setDarkTheme')
+  }
 })
 export default class PrivacyPolicyPage extends Vue {
   created() {
-    this.$store.commit('setDarkTheme')
-
     if (process.server) {
       this.$store.commit('PageTransition/animate', false)
     }

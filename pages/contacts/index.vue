@@ -46,11 +46,12 @@ import { getSiteUrl } from '@/lib/utils'
       ],
     }
   },
+  asyncData({ store }) {
+    store.commit('setDarkTheme')
+  }
 })
 export default class IndexPage extends Vue {
   created() {
-    this.$store.commit('setDarkTheme')
-
     if (process.server) {
       this.$store.commit('PageTransition/animate', false)
     }
