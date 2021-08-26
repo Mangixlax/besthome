@@ -1,15 +1,18 @@
 <template lang="pug">
   section(:class="$style['container']")
     div(:class="$style['container__header']")
-      h2 Материалы
+      h2
+        | {{ $t('pages.company_quality.materials.title') }}
       div
-        p Придумать сюда описание, возможно даже SEO текст на тему линейного трапа на пару строк (можно больше), но такой чтобы прочитать можно было.
-        p Придумать сюда описание, возможно даже SEO текст на тему материалов на пару строк (можно больше), но такой чтобы прочитать можно было.
+        p
+          | {{ $t('pages.company_quality.materials.sub_title') }}
+        p
+          | {{ $t('pages.company_quality.materials.text') }}
     div(:class="$style['container__body']")
       svg-icon(
-        v-for="(item, index) in Array(15)"
+        v-for="(item, index) in logos"
         :key="index"
-        name="knauf"
+        :name="`quality-logo/${item}`"
       )
 </template>
 
@@ -18,6 +21,20 @@ import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component
 export default class PageQualityMaterials extends Vue {
+  public logos: Array<string> = [
+    'knauf',
+    'mitsubishi',
+    'grohe',
+    'franke',
+    'mapei',
+    'jotun',
+    'siemens',
+    'kutahya',
+    'blum',
+    'creavit',
+    'bocchi',
+    'betsan',
+  ]
 }
 </script>
 
@@ -65,6 +82,9 @@ export default class PageQualityMaterials extends Vue {
 
   &__body
     margin-top: 64px
+    padding: 38px
+    grid-column-gap: 100px
+    grid-row-gap: 32px
     display: flex
     flex-wrap: wrap
     justify-content: space-between
