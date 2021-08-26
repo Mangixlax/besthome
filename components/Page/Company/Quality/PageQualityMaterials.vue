@@ -53,14 +53,11 @@ export default class PageQualityMaterials extends Vue {
     margin: 0 auto
 
   &__header
-    p
-      +desktop-text-style-6
-
     h2
       +desktop-text-style-5
       color: $color-black-48
       margin: 0
-      
+
     div
       color: $color-black-100
       max-width: 592px
@@ -70,6 +67,7 @@ export default class PageQualityMaterials extends Vue {
         max-width: 100%
 
       p
+        +desktop-text-style-4
         margin: 0
 
       p:last-child
