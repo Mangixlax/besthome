@@ -4,10 +4,10 @@
       tag="h2"
       version="style-5"
     ) {{ $t('pages.our_office.gallery.title') }}
-    typo-text(
-      tag="p"
-      version="style-5"
-    ) {{ $t('pages.our_office.gallery.sub_title') }}
+    //typo-text(
+    //  tag="p"
+    //  version="style-5"
+    //) {{ $t('pages.our_office.gallery.sub_title') }}
     swiper(
       ref="swiper"
       :class="$style['slider']"
@@ -173,7 +173,7 @@ export default class PageOurOfficeGallery extends Vue {
 
   & > h2
     margin-bottom: 8px
-    color: $color-white-48
+    color: $color-white-100
 
   & > p
     color: $color-white-100

@@ -1063,16 +1063,6 @@
         ]
       },
       {
-        "id": 4,
-        "image": "person-4.png",
-        "name": "Murat Colak",
-        "position": "After sales services, rent",
-        "info": [
-          "Murat Cholak is a brokerage and after-sales service specialist. At BestHome Construction since 2019.",
-          "Murat got his education in Germany. He has a 19 years’ experience in management. Has been working in real estate since 2016. Fluent in several foreign languages - Russian, Turkish, English, and German."
-        ]
-      },
-      {
         "id": 5,
         "image": "person-5.png",
         "name": "Emrah Yetgin",
@@ -1081,6 +1071,16 @@
           "Emrah Yetgin is Assistant to the General Manager. At BestHome Construction since 2018.",
           "Emrah graduated from Eskişehir Anadolu Üniversitesi University with a degree in Management. He got master degree at Alaadin Keykubat Üniversitesi University.",
           "Emrah has a 13 years’ experience in the insurance industry. Fluent in Turkish and English."
+        ]
+      },
+      {
+        "id": 4,
+        "image": "person-4.png",
+        "name": "Murat Colak",
+        "position": "After sales services, rent",
+        "info": [
+          "Murat Cholak is a brokerage and after-sales service specialist. At BestHome Construction since 2019.",
+          "Murat got his education in Germany. He has a 19 years’ experience in management. Has been working in real estate since 2016. Fluent in several foreign languages - Russian, Turkish, English, and German."
         ]
       },
       {
