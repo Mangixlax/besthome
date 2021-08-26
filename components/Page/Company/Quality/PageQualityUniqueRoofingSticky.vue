@@ -155,7 +155,7 @@ export default class PageQualityUniqueRoofingSticky extends Vue {
       color: $color-black-64
       opacity: 0
       height: 0
-      transition: opacity 1s ease-out 0.5s, height 1s ease, padding-top 1s ease
+      transition: opacity 0.25s ease, height 0.25s ease, padding-top 0.25s ease
       overflow: hidden
 
       @media (max-width: 1080px)
