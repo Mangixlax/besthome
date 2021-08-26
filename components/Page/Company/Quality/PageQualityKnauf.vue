@@ -7,7 +7,7 @@
         decoding="async"
       )
     div(:class="$style['info']")
-      svg-icon(name="knauf")
+      svg-icon(name="quality-logo/knauf")
       p(
         v-for="(p, index) in $t('pages.company_quality.knauf')"
         :key="index"

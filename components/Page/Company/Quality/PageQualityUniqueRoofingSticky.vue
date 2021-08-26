@@ -2,7 +2,6 @@
   section(:class="$style['container']")
     h2 {{ $t('pages.company_quality.unique_roofing.title') }}
     div(:class="$style['info']")
-      p {{ $t('pages.company_quality.unique_roofing.text') }}
       ul(:class="$style['list']")
         li(
           v-for="(item, index) in $t('pages.company_quality.unique_roofing.list')"
@@ -113,7 +112,6 @@ export default class PageQualityUniqueRoofingSticky extends Vue {
 
 .list
   list-style: none
-  margin: 80px 0 0 0
   padding: 0
 
   @media (max-width: 1080px)

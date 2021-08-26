@@ -49,15 +49,15 @@ export default class PageQualityInfo extends Vue {
         & + &
           margin-top: 40px
 
-      &_0
-        max-width: 414px
+      // &_0
+      //   max-width: 414px
 
-      &_1
-        max-width: 592px
-        margin-left: 40px
+      // &_1
+      //   max-width: 592px
+      //   margin-left: 40px
 
-        @media (max-width: 680px)
-          margin-left: 0
+      //   @media (max-width: 680px)
+      //     margin-left: 0
 
       &-title
         +desktop-text-style-4

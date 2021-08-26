@@ -2,7 +2,6 @@
   section(:class="$style['container']")
     div(:class="$style['container__header']")
       h2 {{ $t('pages.company_quality.line_gangway.title') }}
-      p Придумать сюда описание, возможно даже SEO текст на тему линейного трапа на пару строк (можно больше), но такой чтобы прочитать можно было.
     div(:class="$style['container__body']")
       ul(ref="list" :class="$style['info']" @mouseleave="activePointIndex = -1")
         li(
@@ -78,8 +77,8 @@ export default class PageQualityLineGangway extends Vue {
 
 <style lang="sass" module>
 .container
-  background-color: $color-black-4
-
+  background: $color-black-4
+  
   @media (max-width: 1176px)
     padding-right: 24px
     padding-left: 24px

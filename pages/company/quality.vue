@@ -10,27 +10,6 @@
         color: 'light',\
       }"
     )
-    common-line
-    common-divider(
-      :data="{\
-        height: 'x-large',\
-        color: 'light',\
-      }"
-    )
-    page-quality-info(:data="$t('pages.company_quality.info')")
-    common-divider(
-      :data="{\
-        height: 'x-large',\
-        color: 'light',\
-      }"
-    )
-    common-line
-    common-divider(
-      :data="{\
-        height: 'large',\
-        color: 'light',\
-      }"
-    )
     page-quality-standard-sticky
     common-divider(
       :data="{\
@@ -72,13 +51,14 @@
         color: 'gray',\
       }"
     )
+    page-quality-materials
     common-divider(
       :data="{\
-        height: 'large',\
+        height: 'middle',\
         color: 'light',\
       }"
     )
-    page-quality-materials
+    page-quality-info(:data="$t('pages.company_quality.info')")
 </template>
 
 <script lang="ts">
