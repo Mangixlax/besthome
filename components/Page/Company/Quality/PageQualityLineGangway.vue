@@ -78,7 +78,7 @@ export default class PageQualityLineGangway extends Vue {
 <style lang="sass" module>
 .container
   background: $color-black-4
-  
+
   @media (max-width: 1176px)
     padding-right: 24px
     padding-left: 24px
@@ -196,11 +196,22 @@ export default class PageQualityLineGangway extends Vue {
   li + li
     margin-top: 32px
 
+    &::before
+      content: ""
+      position: absolute
+      top: -16px
+      left: 0
+      width: 100%
+      height: 1px
+      display: inline-block
+      background-color: $color-black-4
+
   li
     display: flex
     align-items: center
     color: $color-black-48
     cursor: pointer
+    position: relative
 
     div:first-child
       +desktop-text-style-9
