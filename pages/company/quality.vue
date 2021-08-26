@@ -51,6 +51,12 @@
         color: 'gray',\
       }"
     )
+    common-divider(
+      :data="{\
+        height: 'large',\
+        color: 'light',\
+      }"
+    )
     page-quality-materials
     common-divider(
       :data="{\
