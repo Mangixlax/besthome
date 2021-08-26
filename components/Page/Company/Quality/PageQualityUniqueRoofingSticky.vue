@@ -14,14 +14,14 @@
             | {{ item.title }}
             svg-icon(name="accordion-v2-button")
           div(
-            ref="itemsBody"
+            ref="itemsBody" 
             :class="$style['list__item-body']"
             :style="{ height: index === 0 ? '100%' : '' }"
           )
             div
               p {{ item.text }}
               img(
-                :src="$img(`/quality/unique-roofing-${index + 1}.jpg`, $store.state.supportWebP ? { format: 'webp' } : {})"
+                :src="$img($i18n.locale === 'ru' ? `/quality/unique-roofing/unique-roofing-${index + 1}.jpg` : `/quality/unique-roofing/unique-roofing-en-${index + 1}.jpg`, $store.state.supportWebP ? { format: 'webp' } : {})"
                 loading="lazy"
                 decoding="async"
               )
@@ -157,7 +157,7 @@ export default class PageQualityUniqueRoofingSticky extends Vue {
       color: $color-black-64
       opacity: 0
       height: 0
-      transition: opacity 0.25s ease, height 0.25s ease, padding-top 0.25s ease
+      transition: opacity 1s ease-out 0.5s, height 1s ease, padding-top 1s ease
       overflow: hidden
 
       @media (max-width: 1080px)

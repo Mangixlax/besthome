@@ -133,7 +133,8 @@ export default class FooterSiteMap extends Vue {
   align-items: start
   justify-items: start
   margin-bottom: 16px
-
+  width: 100%
+  
   &-column-0
     grid-column: 1
     grid-row: 1 / 3

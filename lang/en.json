@@ -1116,6 +1116,16 @@
         ]
       },
       {
+        "id": 18,
+        "image": "person-18.png",
+        "name": "Levent Bayar",
+        "position": "Civil Engineer",
+        "info": [
+          "Levent is a civil engineer. Joined the company in 2021.",
+          "Levent graduated from Çanakkale Onsekiz Mart Üniversitesi Univeristy. He has been working as civil engineer since 2002."
+        ]
+      },
+      {
         "id": 9,
         "image": "person-9.png",
         "name": "Emre Erdem",
@@ -1215,23 +1225,13 @@
         ]
       },
       {
-        "id": 18,
-        "image": "person-18.png",
-        "name": "Levent Bayar",
-        "position": "Civil Engineer",
-        "info": [
-          "Levent is a civil engineer. Joined the company in 2021.",
-          "Levent graduated from Çanakkale Onsekiz Mart Üniversitesi Univeristy. He has been working as civil engineer since 2002."
-        ]
-      },
-      {
         "id": 19,
         "image": "person-19.png",
         "name": "Huseyin Turker",
         "position": "Technician",
         "info": [
-          "Huseyin Turker - technician. Joined the company in 2021.",
-          "Since 1996 he has been working as a technician. Specializes in electrical and water networks, painting."
+          "Huseyin Turker is a technician. Joined the company in 2021.",
+          "He has been working as technician since 1996. He specializes in plumbing, electricty networks and painting."
         ]
       },
       {
