@@ -1202,6 +1202,47 @@
           "She is currently studying at Eskişehir Anadolu Üniversitesi University. She attanded courses of the assistant to the chief director, secretary, accountant. Has been working as an Office manager in the construction sector since 2014.",
           "Fluent in Turkish and English."
         ]
+      },
+      {
+        "id": 17,
+        "image": "person-17.png",
+        "name": "Beyza Yildirim",
+        "position": "Office manager",
+        "info": [
+          "Beyza Yildirim is Office manager of BestHome Construction. Joined the company in 2021.",
+          "Beyza graduated from Alaadin Keykubat Üniversitesi University with a degree in banking and accountance.",
+          "Speaks Turkish and English."
+        ]
+      },
+      {
+        "id": 18,
+        "image": "person-18.png",
+        "name": "Levent Bayar",
+        "position": "Civil Engineer",
+        "info": [
+          "Levent is a civil engineer. Joined the company in 2021.",
+          "Levent graduated from Çanakkale Onsekiz Mart Üniversitesi Univeristy. He has been working as civil engineer since 2002."
+        ]
+      },
+      {
+        "id": 19,
+        "image": "person-19.png",
+        "name": "Huseyin Turker",
+        "position": "Technician",
+        "info": [
+          "Huseyin Turker - technician. Joined the company in 2021.",
+          "Since 1996 he has been working as a technician. Specializes in electrical and water networks, painting."
+        ]
+      },
+      {
+        "id": 20,
+        "image": "person-20.png",
+        "name": "Bilal Koca",
+        "position": "Driver",
+        "info": [
+          "Bilal Koca is a driver. Joined the company in 2021.",
+          "Bilal graduated from Anadolu Üniversitesi University with a degree in HR."
+        ]
       }
     ],
     "company_quality": {
