@@ -21,7 +21,7 @@ import { getSiteUrl } from '@/lib/utils'
     BaseTextContainer,
   },
   head(): any {
-    const title = this.$i18n.t('pages.term-of-use.title')
+    const title = this.$i18n.t('pages.term-of-use.title') + ' ' + this.$i18n.t('seo_title')
 
     return {
       title,

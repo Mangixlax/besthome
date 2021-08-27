@@ -18,7 +18,7 @@ import { getSiteUrl } from '@/lib/utils'
     CommonConsultantSlider,
   },
   head(): any {
-    const title = this.$i18n.t('pages.contacts.contact_map.title')
+    const title = this.$i18n.t('pages.contacts.contact_map.title') + ' ' + this.$i18n.t('seo_title')
     return {
       title,
       htmlAttrs: {

@@ -29,7 +29,7 @@ import { getSiteUrl } from '@/lib/utils'
 @Component({
   components: { PageCompanyHistoryTitle, BasePost, TypoText, PageCompanyYearsSlider },
   head(): any {
-    const title = this.$i18n.t('pages.company_history.header.title')
+    const title = this.$i18n.t('pages.company_history.header.title') + ' ' + this.$i18n.t('seo_title')
 
     return {
       title,

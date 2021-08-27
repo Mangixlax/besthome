@@ -14,7 +14,7 @@ import { getSiteUrl } from '@/lib/utils'
 @Component({
   components: { PageCompanyOurTeam },
   head(): any {
-    const title = this.$i18n.t('pages.our_team.title')
+    const title = this.$i18n.t('pages.our_team.title') + ' ' + this.$i18n.t('seo_title')
 
     return {
       title,

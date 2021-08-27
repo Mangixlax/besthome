@@ -206,7 +206,7 @@ import { Jsonld } from 'nuxt-jsonld'
     return {}
   },
   head(): any {
-    const title = this.apartment.seo_title
+    const title = this.apartment.seo_title  + ' ' + this.$i18n.t('seo_title')
 
     const description = this.apartment.seo_description
 

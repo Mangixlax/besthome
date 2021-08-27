@@ -41,7 +41,7 @@ import { getSiteUrl } from '@/lib/utils'
 @Component({
   components: { TypoText, PageCompanyOurTeamSlider },
   head(): any {
-    const title = this.person.name
+    const title = this.person.name  + ' ' + this.$i18n.t('seo_title')
 
     const description = ''
 
