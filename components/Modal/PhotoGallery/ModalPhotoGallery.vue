@@ -23,7 +23,7 @@
                 loading="lazy"
                 decoding="async"
                 class="swiper-lazy"
-                :data-src="$img(`/our-office/gallery/${slide}`, $store.state.supportWebP ? { format: 'webp' } : {})"
+                :data-src="$img(`/our-office/gallery/${folder}/${slide}`, $store.state.supportWebP ? { format: 'webp' } : {})"
                 @load="updateSize"
               )
               div(class="swiper-lazy-preloader swiper-lazy-preloader-white")
@@ -46,6 +46,7 @@ import Swiper, { SwiperOptions } from 'swiper'
 export default class ModalPhotoGallery extends Vue {
   @Prop({ default: '', type: String }) name!: string
   @Prop({ default: '', type: String }) title!: string
+  @Prop({ default: '', type: String }) folder!: string
   @Prop({ default: [], type: Array }) gallery!: Array<any>
 
   public swiperOption: SwiperOptions = {

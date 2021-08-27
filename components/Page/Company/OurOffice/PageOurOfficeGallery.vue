@@ -26,7 +26,7 @@
             loading="lazy"
             decoding="async"
             class="swiper-lazy"
-            :data-src="$img(`/our-office/gallery/${slide.image}`, $store.state.supportWebP ? { format: 'webp', width: 700 } : { width: 700 })"
+            :data-src="$img(`/our-office/gallery/${slide.folder}/${slide.image}`, $store.state.supportWebP ? { format: 'webp', width: 700 } : { width: 700 })"
           )
           div(class="swiper-lazy-preloader swiper-lazy-preloader-white")
       div(slot="pagination" :class="$style['pagination']")
@@ -52,37 +52,43 @@ export default class PageOurOfficeGallery extends Vue {
       image: 'photo-1.jpg',
       variant: 'middle',
       gallery: [1, 5],
+      folder: 'hall',
     },
     {
       title: this.$i18n.locale === 'ru' ? 'Переговорная комната №1' : 'Negotiation room #1',
-      image: 'photo-6.jpg',
+      image: 'photo-1.jpg',
       variant: 'top',
-      gallery: [6, 7],
+      gallery: [1, 2],
+      folder: 'meeting-1',
     },
     {
       title:
         this.$i18n.locale === 'ru' ? 'Кабинет директора отдела продаж' : "Sales director's office",
-      image: 'photo-8.jpg',
+      image: 'photo-1.jpg',
       variant: 'bottom',
-      gallery: [8, 10],
+      gallery: [1, 8],
+      folder: 'sales-director',
     },
     {
       title: this.$i18n.locale === 'ru' ? 'Переговорная комната №2' : 'Negotiation room №2',
-      image: 'photo-11.jpg',
+      image: 'photo-1.jpg',
       variant: 'top',
-      gallery: [11, 12],
+      gallery: [1, 2],
+      folder: 'meeting-2',
     },
     {
       title: this.$i18n.locale === 'ru' ? 'Кабинет ген. директора' : 'CEO office',
-      image: 'photo-13.jpg',
+      image: 'photo-1.jpg',
       variant: 'middle',
-      gallery: [13, 18],
+      gallery: [1, 26],
+      folder: 'director',
     },
     {
       title: this.$i18n.locale === 'ru' ? 'Ключевой интерьер' : 'Key interior',
-      image: 'photo-19.jpg',
+      image: 'photo-1.jpg',
       variant: 'bottom',
-      gallery: [19, 22],
+      gallery: [1, 14],
+      folder: 'key-interiors',
     },
   ]
 
@@ -142,6 +148,7 @@ export default class PageOurOfficeGallery extends Vue {
         props: {
           title: this.slides[index].title,
           gallery,
+          folder: this.slides[index].folder,
         },
         events: {
           'before-open': () => {
