@@ -40,7 +40,7 @@ export default class BaseBreadCrumbs extends Vue {
         '@type': 'ListItem',
         position: index + 2,
         item: {
-          '@id': getSiteUrl(this.localePath(item.route), false),
+          '@id': getSiteUrl(this.localePath(item.route), true),
           name: item.name,
         },
       }
@@ -54,7 +54,7 @@ export default class BaseBreadCrumbs extends Vue {
           '@type': 'ListItem',
           position: 1,
           item: {
-            '@id': getSiteUrl(this.localePath('index'), false),
+            '@id': getSiteUrl(this.localePath('index'), true),
             name: this.$i18n.locale === 'ru' ? 'Главная' : 'Home',
           },
         },
