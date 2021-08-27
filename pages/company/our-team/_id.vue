@@ -7,7 +7,7 @@
       )
         div(:class="$style['personal-page__info']")
           typo-text(
-            tag="h2"
+            tag="h1"
             version="style-4"
             :class="$style['personal-page__photo-name']"
           ) {{ person.name }}
