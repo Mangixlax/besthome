@@ -113,9 +113,7 @@ import CommonDivider from '~/components/Common/CommonDivider.vue'
             name: project.short_name,
             route: {
               name: 'properties-slug',
-              params: {
-                slug: ctx.route.params.slug,
-              },
+              params: { slug: project.slug },
             },
           },
         ])

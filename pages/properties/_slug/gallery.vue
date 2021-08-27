@@ -80,7 +80,7 @@ import CommonDivider from '~/components/Common/CommonDivider.vue'
     }
 
     let project: IProject = ctx.store.getters['Catalog/getProject']
-
+    
     // Dont load project from api if project already saved in store
     if (ctx.route.params.slug !== ctx.store.getters['Catalog/getProject'].slug) {
       const projectId = (ctx.route.params.slug || '').split('-').pop()
@@ -111,7 +111,7 @@ import CommonDivider from '~/components/Common/CommonDivider.vue'
             name: project.short_name,
             route: {
               name: 'properties-slug',
-              params: ctx.route.params.slug,
+              params: { slug: project.slug },
             },
           },
         ])
