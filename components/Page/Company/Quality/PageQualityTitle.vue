@@ -9,7 +9,11 @@
             :key="i"
             :class="$style['title__container-description']"
           ) {{ text }}
-          common-subscribe(:subscribe-data="$t('footer.subscribe')" white-theme)
+          common-subscribe(
+            :subscribe-data="$t('footer.subscribe')" 
+            white-theme
+            form_code="quality_feedback"
+          )
       div(:class="$style['title__container-imagebox']")
         div(:class="$style['title__container-imagebox-column-1']")
           img(
