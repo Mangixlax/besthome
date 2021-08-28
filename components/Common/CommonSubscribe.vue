@@ -98,7 +98,7 @@ export default class PageQualityTitle extends Vue {
   private subscribeData!: Object
 
   @Prop({ type: String, default: '' })
-  private form_code!: string
+  private formСode!: string
 
   public isWhiteTheme: boolean = this.whiteTheme
 
@@ -124,7 +124,7 @@ export default class PageQualityTitle extends Vue {
       this.$axios
         .$post('v1/forms', {
           ...this.form,
-          form_code: this.form_code, // Form code given from backend
+          form_code: this.formСode, // Form code given from backend
         })
         .then((result) => {
           if (result.status === 200) {
