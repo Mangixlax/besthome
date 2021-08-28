@@ -89,6 +89,15 @@ export default class PageQualityMaterials extends Vue {
     flex-wrap: wrap
     justify-content: space-between
 
+    @media (max-width: 760px)
+      display: grid
+      grid-template-columns: 1fr 1fr
+      grid-column-gap: 10px
+      justify-items: center
+      grid-row-gap: 12px
+      padding: 16px
+      margin-top: 32px
+      
     svg
       width: 194px
       height: 97px
@@ -96,7 +105,7 @@ export default class PageQualityMaterials extends Vue {
       transition: fill 0.25s ease
 
       @media (max-width: 760px)
-        width: 50%
+        width: 80%
 
       &:hover
         fill: $color-black-100
