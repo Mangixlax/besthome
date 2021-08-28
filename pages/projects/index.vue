@@ -12,7 +12,7 @@
         common-link-icon(:variants="['stroke-blue']")
     smart-block-wrapper(:data="$store.getters['Catalog/getProjects']")
     common-consultant-slider(:slider-data="$t('footer.consultant_slider')")
-    base-accordions(:accordions-data="$t('footer.accordions')")
+    base-accordions(:accordions-data="$t('pages.projects.accordions')")
     base-subscribe(:subscribe-data="$t('footer.subscribe')")
     footer-fast-links
 </template>

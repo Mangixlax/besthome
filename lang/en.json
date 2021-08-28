@@ -82,7 +82,7 @@
       "header": {
         "title": "Your reliable partner in the real estate market of Turkey",
         "text1": [
-          "BestHome Construction is a leading construction company in Alanya. One of the leading companies in the Turkish market. Started as a real estate agency in 2004. To date, more than 30 projects have been implemented in the center of Alanya and in the Oba region."
+          "BestHome Construction is a leading construction company in Alanya. One of the leading companies in the Turkish market. Started as a real estate agency in 2004. To date, more than 33 projects have been implemented in the center of Alanya and in the Oba region."
         ],
         "text2": "To date, the company has {link}.",
         "text2_link": "33 completed projects"
@@ -208,12 +208,26 @@
     },
     "projects": {
       "header": {
-        "title": "Our projects",
+        "title": "Real estate in Alanya from the developer BestHome",
         "text1": "To date, more than 33 projects have been implemented, including high-rise buildings and private villas in Mahmutlar, Avsallar and other suburbs of Alanya.",
         "text2": "The company has its own representative offices in Germany, America, Ukraine, Iran, Kazakhstan, as well as in Denmark, Sweden, Norway and Finland. Realtors have already concluded more than 1,000 successful transactions with foreign citizens living in the CIS, the United States, Europe and the Middle East.",
         "text3": "Learn more about {link}.",
         "text3_link": "our company"
-      }
+      },
+      "accordions": [
+        {
+          "title": "What to look at when buying an apartment at the stage of the foundation or construction?",
+          "content": "<p>First of all, pay attention to the project. It should be completely finished in electronic form. Determine the size and layout of the apartment in Alanya. Specify the infrastructure. How far away from the sea and the equipped beaches. How much it costs to rent an apartment in Alanya if it is under construction.</p>"
+        },
+        {
+          "title": "In what condition are the apartments from the builder?",
+          "content": "<p>BestHome offers properties with quality finishing, and you can also buy apartments fully equipped with furniture and appliances.</p> "
+        },
+        {
+          "title": "Is it possible to get a discount on the price of an apartment when buying from a builder?",
+          "content": "<p>BestHome offers great discounts when buying property in Alanya during the construction phase. Discounts for customers are discussed individually and depend on the price and other features of the property.</p>"
+        }
+      ]
     },
     "apartments": {
       "apartment": "Apartment",
@@ -243,82 +257,6 @@
       "request_now": "Request now",
       "download_pdf": "Download PDF",
       "similar_apartments": "Similar apartments"
-    },
-    "projects_our_pojects": {
-      "smart_block": [
-        {
-          "to": {
-            "name": "greenday-park-best-home-48"
-          },
-          "imageSrc": "smart-block-1.jpg",
-          "title": "Secondary housing",
-          "header": "Greenday Park BestHome 48",
-          "text": "Sold out",
-          "textPosition": "bottom",
-          "textAlign": "right",
-          "col": "1"
-        },
-        {
-          "to": {
-            "name": "besthome-47"
-          },
-          "imageSrc": "smart-block-2.jpg",
-          "title": "Secondary housing",
-          "header": "BestHome 47",
-          "text": "Sold out",
-          "textPosition": "bottom",
-          "textAlign": "right",
-          "col": "1"
-        },
-        {
-          "to": {
-            "name": "besthome-46"
-          },
-          "imageSrc": "smart-block-3.jpg",
-          "title": "Secondary housing",
-          "header": "BestHome 46",
-          "text": "Sold out",
-          "textPosition": "bottom",
-          "textAlign": "right",
-          "col": "1"
-        },
-        {
-          "to": {
-            "name": "besthome-45"
-          },
-          "imageSrc": "smart-block-4.jpg",
-          "title": "Secondary housing",
-          "header": "BestHome 45",
-          "text": "Sold out",
-          "textPosition": "top",
-          "textAlign": "center",
-          "col": "2"
-        },
-        {
-          "to": {
-            "name": "besthome-45"
-          },
-          "imageSrc": "smart-block-4.jpg",
-          "title": "Secondary housing",
-          "header": "BestHome 45",
-          "text": "Sold out",
-          "textPosition": "center",
-          "textAlign": "right",
-          "col": "2"
-        },
-        {
-          "to": {
-            "name": "besthome-45"
-          },
-          "imageSrc": "smart-block-4.jpg",
-          "title": "Secondary housing",
-          "header": "BestHome 45",
-          "text": "Sold out",
-          "textPosition": "center",
-          "textAlign": "right",
-          "col": "3"
-        }
-      ]
     },
     "secondary_housing": {
       "header": {
@@ -659,7 +597,7 @@
         "title": "About company",
         "text": [
           "BestHome Construction is a full service real estate company and one of the top developers in the Alanya region After having been founded in 2004, primarily as an agency, it was in 2008 that we made the decision to develop our 'own-brand' projects.",
-          "Since that time we have, to date, delivered 30 residential projects across the Alanya region - are current projects can be found in those regions most in demand from overseas buyers, including  Mahmutlar, Avsallar and Oba.",
+          "Since that time we have, to date, delivered 33 residential projects across the Alanya region - are current projects can be found in those regions most in demand from overseas buyers, including  Mahmutlar, Avsallar and Oba.",
           "The firm has several overseas representative offices, including  Germany, USA, Ukraine, Iran, Kazakhstan, Denmark, Sweden, Norway and Finland.",
           "Today, with the advancement of technology, it is possible to purchase property in Turkey without having the need to visit! Indeed, more and more of our buyers are searching and sourcing their properties online - even the title deed transfer can be concluded remotely!"
         ]

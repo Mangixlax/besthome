@@ -4,7 +4,7 @@
       :class="$style['accordion__header']"
       @click="onClick"
     )
-      typo-text(tag="h3" version="style-4" :class="$style['accordion__header-title']" itemprop="name")
+      typo-text(tag="h2" version="style-4" :class="$style['accordion__header-title']" itemprop="name")
         | {{ title }}
       svg-icon(
         :name="show ? 'accordion-minus' : 'accordion-plus'"
