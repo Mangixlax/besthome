@@ -67,7 +67,9 @@ import { getSiteUrl } from '@/lib/utils'
 
     // Set subtitle in logo
     ctx.store.commit('setLogoSubTitle', ctx.app.i18n.t('header.logo.projects'))
-
+    // Set seo content in bottom of page
+    ctx.store.commit('Catalog/setPageSeoContent', ctx.app.i18n.t('pages.projects.seo'))
+    
     return {}
   },
   head(): any {

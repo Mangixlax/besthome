@@ -33,7 +33,11 @@ export default class FooterCompanyDescription extends Vue {
 
   @Watch('$route.path')
   async onChangeRoute(path: string) {
-    this.isSeoContentView = path.indexOf('properties') !== -1;
+    this.isSeoContentView = path.indexOf('properties') !== -1 || path.indexOf('projects') !== -1
+  }
+
+  mounted() {
+    this.onChangeRoute(this.$route.path)
   }
 }
 </script>
@@ -50,6 +54,7 @@ export default class FooterCompanyDescription extends Vue {
 
   @media (max-width: 900px)
     flex-direction: column
+    align-items: center
 
   & > h2
     +desktop-text-style-5
@@ -59,12 +64,16 @@ export default class FooterCompanyDescription extends Vue {
     margin-left: calc((100vw - 1152px) / 2)
     width: 100%
     max-width: 344px
+    position: sticky
+    top: 420px
+    height: fit-content
 
     @media (max-width: 1176px)
       margin-left: 0
 
     @media (max-width: 900px)
       margin-bottom: 24px
+      display: none
 
   &.dark
     background-color: $color-black-96

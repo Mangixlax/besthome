@@ -2,14 +2,14 @@
   footer(:class="[$style['footer'], isDarkTheme && $style['dark']]")
     common-divider(
       :data="{\
-        height: 'large',\
+        height: 'middle',\
         color: isDarkTheme ? 'dark' : 'light',\
       }"
     )
     footer-company-description
     common-divider(
       :data="{\
-        height: 'large',\
+        height: 'small',\
         color: isDarkTheme ? 'dark' : 'light',\
       }"
     )
