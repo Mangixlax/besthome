@@ -138,6 +138,7 @@ export default class IndexPage extends Vue {
       this.$store.commit('PageTransition/animate', false)
     }
 
+    this.$store.commit('Catalog/setPageSeoContent', '')
     this.$store.commit('setLogoSubTitle', 'Construction')
     this.$store.commit('setBreadcrumbs', [])
   }

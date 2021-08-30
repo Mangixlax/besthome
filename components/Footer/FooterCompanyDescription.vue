@@ -3,7 +3,7 @@
     h2(v-html="$t('footer.footer_company_title')")
     div(:class="$style['company__container']")
       div(
-        v-if="isSeoContentView"
+        v-if="seoContent.length"
         v-html="seoContent"
         :class="$style['company__container-text']"
       )
@@ -21,23 +21,12 @@ import TypoText from '~/components/Base/TypoText.vue'
 
 @Component({ components: { TypoText } })
 export default class FooterCompanyDescription extends Vue {
-  public isSeoContentView: boolean = false
-
   get seoContent(): string | null {
     return this.$store.getters['Catalog/getPageSeoContent']
   }
 
   get isDarkTheme(): boolean {
     return this.$store.getters['isDarkTheme']
-  }
-
-  @Watch('$route.path')
-  async onChangeRoute(path: string) {
-    this.isSeoContentView = path.indexOf('properties') !== -1 || path.indexOf('projects') !== -1
-  }
-
-  mounted() {
-    this.onChangeRoute(this.$route.path)
   }
 }
 </script>
