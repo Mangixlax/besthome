@@ -13,7 +13,7 @@
     img(
       v-if="card.card_image"
       :class="$style['link-banner__image']"
-      :src="$img(getSiteUrl(card.card_image), $store.state.supportWebP ? { format: 'webp' } : {})"
+      :src="$img(`/s1${card.card_image}`, $store.state.supportWebP ? { format: 'webp' } : {})"
       loading="lazy"
       decoding="async"
     )
@@ -39,7 +39,6 @@
 import TypoText from '~/components/Base/TypoText.vue'
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
 import { IProject } from '~/store/Catalog'
-import { getSiteUrl } from '~/lib/utils'
 
 @Component({
   components: { TypoText },
@@ -57,10 +56,6 @@ export default class LinkBanner extends Vue {
     }
 
     return this.$t('projects.for_sale')
-  }
-
-  public getSiteUrl() {
-    return getSiteUrl(...arguments)
   }
 }
 </script>
