@@ -146,8 +146,7 @@ import { Jsonld } from 'nuxt-jsonld'
 
       // Redirect to new apartment slug if project.slug and params.slug not equal
       if (apartment.project.slug !== ctx.params.slug) {
-        ctx.res.statusCode = 404
-        throw new Error('404')
+        ctx.error({ statusCode: 404 })
       }
 
       svgPlanning = apartment.plans
@@ -325,7 +324,7 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
 
     // Select miniature
     const polygon: Element = (this.$refs.miniature as Element).querySelector(
-      `#bfloor-${this.apartment.block?.name.toLowerCase()}-${this.apartment.floor.number}`,
+      `[data-id="bfloor-${this.apartment.block?.name.toLowerCase()}-${this.apartment.floor.number}"]`,
     ) as Element
 
     if (polygon) {

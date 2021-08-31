@@ -85,8 +85,8 @@ export default class HeroBuilding extends Vue {
 
   async mounted() {
     await this.$nextTick()
-    this.$floors = (this.$refs.container as Element).querySelectorAll('[id*=bfloor-]')
-    this.$blocks = (this.$refs.container as Element).querySelectorAll('[id*=block]')
+    this.$floors = (this.$refs.container as Element).querySelectorAll('[data-id*=bfloor-]')
+    this.$blocks = (this.$refs.container as Element).querySelectorAll('[data-id*=block]')
     ;(this.$floors || []).forEach((el: Element) => {
       el.addEventListener('click', this.onClickToFloor)
       el.addEventListener('mouseenter', this.onMouseEnterToFloor)

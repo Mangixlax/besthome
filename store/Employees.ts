@@ -2,16 +2,16 @@ import { RootState } from '~/store'
 import { ActionContext, ActionTree, GetterTree, MutationTree } from 'vuex'
 
 export interface IPerson {
-  slug: string,
-  name: string,
-  position: string,
-  content: string,
+  slug: string
+  name: string
+  position: string
+  content: string
   avatar: string
 }
 
 export const state = () => ({
   person: {} as IPerson,
-  persons: [] as IPerson[]
+  persons: [] as IPerson[],
 })
 
 export type EmployeeState = ReturnType<typeof state>
@@ -20,7 +20,7 @@ interface EmployeeActionContext extends ActionContext<EmployeeState, RootState> 
 
 export const getters: GetterTree<EmployeeState, RootState> = {
   getPerson: (state): IPerson => state.person,
-  getPersons: (state): IPerson[] => state.persons
+  getPersons: (state): IPerson[] => state.persons,
 }
 
 export const mutations: MutationTree<EmployeeState> = {
@@ -29,7 +29,7 @@ export const mutations: MutationTree<EmployeeState> = {
   },
   setPersons: (state: EmployeeState, value: IPerson[]) => {
     state.persons = value
-  }
+  },
 }
 
 export const actions: ActionTree<EmployeeState, RootState> = {
@@ -38,11 +38,9 @@ export const actions: ActionTree<EmployeeState, RootState> = {
       this.$axios
         .$get(`v1/teams/${id}`)
         .then((persons: any) => {
-          console.log('resolve')
           resolve(persons.data)
         })
         .catch(({ response: { data } }) => {
-          console.log('reject')
           reject(data)
         })
     })
@@ -51,7 +49,7 @@ export const actions: ActionTree<EmployeeState, RootState> = {
     return new Promise((resolve, reject) => {
       this.$axios
         .$get(`v1/teams`)
-        
+
         .then((persons: any) => {
           commit('setPersons', persons.data)
           resolve(persons.data)

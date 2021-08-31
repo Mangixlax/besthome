@@ -49,7 +49,7 @@
         ref="content"
         :class="$style['floor__content']"
         @mousemove="onMouseMove"
-      ) 
+      )
         div(v-if="slides.length > 1")
           button(:class="[$style['slider-button-prev']]" @click.prevent="changeSlideIndexToPrev")
             svg-icon(name="slider-prev-arrow-blue")
@@ -270,7 +270,7 @@ export default class HeroBuildingModalFloors extends Vue {
 
     this.slides = this.localSelectedFloor.floor_plan.data.files
 
-    this.$apartments = (this.$refs.content as Element).querySelectorAll('[id*=apartment-]')
+    this.$apartments = (this.$refs.content as Element).querySelectorAll('[data-id*=apartment-]')
     ;(this.$apartments || []).forEach((el: Element) => {
       el.addEventListener('click', this.onClickToApartment)
       el.addEventListener('mouseenter', this.onMouseEnterToApartment)
@@ -288,9 +288,7 @@ export default class HeroBuildingModalFloors extends Vue {
       })
 
       const polygon: Element = (this.$refs.miniature as Element).querySelector(
-        `#bfloor-${this.localSelectedFloor.block?.name.toLowerCase()}-${
-          this.localSelectedFloor.number
-        }`,
+        `[data-id="bfloor-${this.localSelectedFloor.block?.name.toLowerCase()}-${this.localSelectedFloor.number}"]`,
       ) as Element
 
       if (polygon) {

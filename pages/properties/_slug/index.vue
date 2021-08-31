@@ -218,7 +218,6 @@ export default class PropertiesAboutPage extends Vue {
   }
 
   async mounted() {
-    console.log(this.getProject)
     await delay(200)
     this.$store.commit('PageTransition/animate', false)
   }
