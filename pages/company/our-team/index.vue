@@ -31,6 +31,7 @@ import { IPerson } from '~/store/Employees'
 
     ctx.store.commit('setLightTheme')
     ctx.store.commit('setLogoSubTitle', ctx.i18n.t('header.logo.company'))
+    ctx.store.commit('Catalog/setPageSeoContent', '')
 
     setTimeout(() => {
       ctx.store.commit('PageTransition/animate', false)

@@ -80,7 +80,7 @@ import PageQualityFoundationSticky from '~/components/Page/Company/Quality/PageQ
 import PageQualityLineGangway from '~/components/Page/Company/Quality/PageQualityLineGangway.vue'
 import PageQualityKnauf from '~/components/Page/Company/Quality/PageQualityKnauf.vue'
 import PageQualityUniqueRoofingSticky from '~/components/Page/Company/Quality/PageQualityUniqueRoofingSticky.vue'
-import PageQualityMaterials from "~/components/Page/Company/Quality/PageQualityMaterials.vue"
+import PageQualityMaterials from '~/components/Page/Company/Quality/PageQualityMaterials.vue'
 
 @Component({
   components: {
@@ -134,6 +134,7 @@ export default class PrivacyPolicyPage extends Vue {
       this.$store.commit('PageTransition/animate', false)
     }
 
+    this.$store.commit('Catalog/setPageSeoContent', '')
     this.$store.commit('setLogoSubTitle', 'Quality')
     this.$store.commit('setBreadcrumbs', [
       {

@@ -29,7 +29,8 @@ import { getSiteUrl } from '@/lib/utils'
 @Component({
   components: { PageCompanyHistoryTitle, BasePost, TypoText, PageCompanyYearsSlider },
   head(): any {
-    const title = this.$i18n.t('pages.company_history.header.title') + ' ' + this.$i18n.t('seo_title')
+    const title =
+      this.$i18n.t('pages.company_history.header.title') + ' ' + this.$i18n.t('seo_title')
 
     return {
       title,
@@ -67,6 +68,7 @@ export default class CompanyHistoryPage extends Vue {
       this.$store.commit('PageTransition/animate', false)
     }
 
+    this.$store.commit('Catalog/setPageSeoContent', '')
     this.$store.commit('setLogoSubTitle', this.$t('header.logo.company'))
     this.$store.commit('setBreadcrumbs', [
       {

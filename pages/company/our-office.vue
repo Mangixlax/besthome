@@ -114,7 +114,7 @@ import PageOurOfficeAddress from '~/components/Page/Company/OurOffice/PageOurOff
   },
   asyncData({ store }) {
     store.commit('setDarkTheme')
-  }
+  },
 })
 export default class PrivacyPolicyPage extends Vue {
   created() {
@@ -122,6 +122,7 @@ export default class PrivacyPolicyPage extends Vue {
       this.$store.commit('PageTransition/animate', false)
     }
 
+    this.$store.commit('Catalog/setPageSeoContent', '')
     this.$store.commit('setLogoSubTitle', this.$i18n.locale === 'ru' ? 'Наш офис' : 'Our office')
     this.$store.commit('setBreadcrumbs', [
       {

@@ -75,6 +75,7 @@ export default class ServiceAfterSaleServicesPage extends Vue {
       this.$store.commit('PageTransition/animate', false)
     }
 
+    this.$store.commit('Catalog/setPageSeoContent', '')
     this.$store.commit('setLogoSubTitle', this.$t('header.logo.service'))
     this.$store.commit('setBreadcrumbs', [
       {

@@ -88,6 +88,7 @@ export default class SecondaryHousingPage extends Vue {
       this.$store.commit('PageTransition/animate', false)
     }
 
+    this.$store.commit('Catalog/setPageSeoContent', '')
     this.$store.commit('setLogoSubTitle', this.$t('header.logo.secondary_housing'))
     this.$store.commit('setBreadcrumbs', [
       {

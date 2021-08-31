@@ -32,5 +32,9 @@ import { getSiteUrl } from '@/lib/utils'
     }
   },
 })
-export default class MediaPage extends Vue {}
+export default class MediaPage extends Vue {
+  created() {
+    this.$store.commit('Catalog/setPageSeoContent', '')
+  }
+}
 </script>

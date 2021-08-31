@@ -73,6 +73,7 @@ export default class TermOfUsePage extends Vue {
   async mounted() {
     await delay(200)
     this.$store.commit('PageTransition/animate', false)
+    this.$store.commit('Catalog/setPageSeoContent', '')
   }
 }
 </script>

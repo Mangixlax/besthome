@@ -416,6 +416,9 @@ export default class FeedbackPage extends Vue {
       },
     })
   }
+  created() {
+    this.$store.commit('Catalog/setPageSeoContent', '')
+  }
 }
 </script>
 

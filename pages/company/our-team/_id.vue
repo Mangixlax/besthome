@@ -47,9 +47,9 @@ import { IPerson } from '~/store/Employees'
     }
 
     let person: IPerson = ctx.store.getters['Employees/getPerson']
-    
+
     const personId = (ctx.route.params.id || '').split('-').pop()
-    
+
     try {
       person = await ctx.store.dispatch('Employees/fetchPerson', personId)
 
@@ -84,6 +84,7 @@ import { IPerson } from '~/store/Employees'
 
     ctx.store.commit('setLightTheme')
     ctx.store.commit('setLogoSubTitle', ctx.i18n.t('header.logo.company'))
+    ctx.store.commit('Catalog/setPageSeoContent', '')
 
     setTimeout(() => {
       ctx.store.commit('PageTransition/animate', false)
@@ -94,7 +95,7 @@ import { IPerson } from '~/store/Employees'
     }
   },
   head(): any {
-    const title = this.person.name  + ' ' + this.$i18n.t('seo_title')
+    const title = this.person.name + ' ' + this.$i18n.t('seo_title')
 
     const description = ''
 
@@ -134,11 +135,9 @@ import { IPerson } from '~/store/Employees'
   },
 })
 export default class PersonalPage extends Vue {
-
   get getPerson(): IPerson {
     return this.$store.getters['Employees/getPerson']
   }
-  
 }
 </script>
 
@@ -189,7 +188,7 @@ export default class PersonalPage extends Vue {
     & > p
       +style-5
       margin: 0
-      
+
 .content__link
   display: flex
   align-items: center
