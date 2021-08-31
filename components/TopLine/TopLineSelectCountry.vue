@@ -34,7 +34,6 @@ export default class TopLineSelectCountry extends Vue {
 
   public onSubmit() {
     this.$i18n.setLocale(this.language.toLowerCase())
-    this.$store.commit('setOurCompanyCardInfo', this.$i18n.t('pages.company_our_team'))
     this.$store.dispatch('SettingsTopLine/toggleLocaleHiddenMode')
   }
 

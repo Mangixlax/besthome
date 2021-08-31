@@ -117,6 +117,7 @@ export default class ProjectsPage extends Vue {
     this.$store.commit('setLightTheme')
     await delay(200)
     this.$store.commit('PageTransition/animate', false)
+    console.log(this.$store.getters['Catalog/getProjects'])
   }
 }
 </script>

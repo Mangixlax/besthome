@@ -9,7 +9,7 @@
         | {{ $t('pages.our_team.title') }}
       div(:class="$style['our-team__display']")
         page-company-personal-card(
-          v-for="(card,i) in getOurCompanyCardInfo"
+          v-for="(card,i) in data"
           :key="i"
           :card="card"
         )
@@ -22,6 +22,12 @@ import PageCompanyPersonalCard from '~/components/Page/Company/PageCompanyPerson
 export default {
   name: 'PageCompanyOurTeam',
   components: { TypoText, PageCompanyPersonalCard },
+  props: {
+    data: {
+      type: Array,
+      default: () => []
+    }
+  },
   computed: {
     getOurCompanyCardInfo() {
       return this.$store.state.ourCompanyCardInfo

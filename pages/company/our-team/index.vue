@@ -1,6 +1,6 @@
 <template lang="pug">
   main
-    page-company-our-team
+    page-company-our-team(:data="$store.getters['Employees/getPersons']")
 </template>
 
 <script lang="ts">
@@ -10,9 +10,34 @@ import metaGenerator from '~/config/meta.js'
 import { Component, Vue } from 'nuxt-property-decorator'
 import { delay } from '~/lib/utils'
 import { getSiteUrl } from '@/lib/utils'
+import { IPerson } from '~/store/Employees'
 
 @Component({
   components: { PageCompanyOurTeam },
+  async asyncData(ctx: Context): Promise<object> {
+    if (!process.server) {
+      await delay(200)
+      ctx.store.commit('PageTransition/animate', true)
+    } else {
+      ctx.store.commit('PageTransition/animate', false)
+    }
+
+    try {
+      // Fetch person list
+      await ctx.store.dispatch('Employees/fetchPersons')
+    } catch ({ error }) {
+      ctx.error({ statusCode: error.http_code })
+    }
+
+    ctx.store.commit('setLightTheme')
+    ctx.store.commit('setLogoSubTitle', ctx.i18n.t('header.logo.company'))
+
+    setTimeout(() => {
+      ctx.store.commit('PageTransition/animate', false)
+    }, 500)
+
+    return {}
+  },
   head(): any {
     const title = this.$i18n.t('pages.our_team.title') + ' ' + this.$i18n.t('seo_title')
 
@@ -44,30 +69,5 @@ import { getSiteUrl } from '@/lib/utils'
     }
   },
 })
-export default class CompanyOurTeamPage extends Vue {
-  created() {
-    this.$store.commit('setLightTheme')
-
-    if (process.server) {
-      this.$store.commit('PageTransition/animate', false)
-    }
-
-    this.$store.commit('setLogoSubTitle', this.$t('header.logo.company'))
-    this.$store.commit('setBreadcrumbs', [
-      {
-        name: this.$t('breadcrumbs.our_team'),
-        route: {
-          name: 'company-our-team',
-        },
-      },
-    ])
-  }
-
-  async mounted() {
-    await delay(200)
-    this.$store.commit('PageTransition/animate', false)
-  }
-}
+export default class CompanyOurTeamPage extends Vue {}
 </script>
-
-<style lang="sass" module></style>

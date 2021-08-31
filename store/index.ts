@@ -13,7 +13,6 @@ export const state = () => ({
   pageIsLoading: false as boolean,
   isTouchDevice: false as boolean,
   logoSubTitle: 'Construction' as string,
-  ourCompanyCardInfo: [] as Array<object>,
   breadcrumbs: [] as Array<object>,
   isDarkTheme: false as boolean,
 })
@@ -35,9 +34,6 @@ export const getters: GetterTree<RootState, RootState> = {
   getBreadcrumbs(state: RootState) {
     return state.breadcrumbs || []
   },
-  getPersonById: (state: RootState) => (id: any) => {
-    return state.ourCompanyCardInfo.find((person: any) => person.id == id)
-  },
   isDarkTheme(state: RootState) {
     return state.isDarkTheme
   },
@@ -56,9 +52,6 @@ export const mutations: MutationTree<RootState> = {
   detectTouchDevice(state: RootState) {
     state.isTouchDevice =
       'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0
-  },
-  setOurCompanyCardInfo: (state, value: Array<Object>) => {
-    state.ourCompanyCardInfo = value
   },
   setStickyHeader(state: RootState, path: string) {
     state.stickyHeader = path.indexOf('/properties/') === -1
@@ -117,8 +110,6 @@ export const actions: ActionTree<RootState, RootState> = {
         }
       }
     }
-
-    commit('setOurCompanyCardInfo', this.$i18n.t('pages.company_our_team'))
 
     return Promise.all([dispatch('fetchMainData'), dispatch('SettingsTopLine/init')])
   },

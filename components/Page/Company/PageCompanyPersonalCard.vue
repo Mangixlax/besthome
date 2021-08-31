@@ -4,9 +4,11 @@
       :class="$style['personal-card__photo']"
     )
       img(
-        :src="require(`@/assets/images/our-team/${card.image || 'person-1.png'}`)"
-        :class="$style['personal-card__photo-image']"
+        v-if="card.avatar"
+        :src="$img(`/s1${card.avatar}`, $store.state.supportWebP ? { format: 'webp' } : {})"
         loading="lazy"
+        decoding="async"
+        :class="$style['personal-card__photo-image']"
       )
     div(:class="$style['personal-card__name']")
       typo-text(
@@ -15,7 +17,7 @@
          :to="localePath({\
           name: 'company-our-team-id',\
           params: {\
-            id: card.id\
+            id: card.slug\
           }\
         })"
         :class="$style['personal-card__name-link']"
@@ -34,7 +36,6 @@ import TypoText from '~/components/Base/TypoText.vue'
 export default {
   name: 'PageCompanyPersonalCard',
   components: { TypoText },
-
   props: {
     card: {
       type: Object,

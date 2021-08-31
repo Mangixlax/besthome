@@ -3,28 +3,24 @@
     section(:class="$style['personal-page']")
       div(
         :class="$style['personal-page__photo']"
-        :style="{ backgroundImage: `url(${require('~/assets/images/our-team/' + person.image)})` }"
+        :style="{ backgroundImage: `url(${$img(`/s1${getPerson.avatar}`, $store.state.supportWebP ? { format: 'webp' } : {})})` }"
       )
         div(:class="$style['personal-page__info']")
           typo-text(
             tag="h1"
             version="style-4"
             :class="$style['personal-page__photo-name']"
-          ) {{ person.name }}
+          ) {{ getPerson.name }}
           typo-text(
             tag="p"
             version="style-5"
             :class="$style['personal-page__photo-position']"
-          ) {{ person.position }}
+          ) {{ getPerson.position }}
     section(:class="$style['personal-page']")
-      div(:class="$style['personal-page__biography']")
-        typo-text(
-          v-for="(paragraph, i) in person.info"
-          :key="i"
-          tag="p"
-          version="style-5"
-          :class="$style['personal-page__photo-name']"
-        ) {{ paragraph }}
+      div(
+        :class="$style['personal-page__biography']"
+        v-html="getPerson.content"
+      )
     section(:class="$style['personal-page']")
       page-company-our-team-slider
 </template>
@@ -37,9 +33,66 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import metaGenerator from '~/config/meta.js'
 import { delay } from '~/lib/utils'
 import { getSiteUrl } from '@/lib/utils'
+import VueRouter, { Route } from 'vue-router'
+import { IPerson } from '~/store/Employees'
 
 @Component({
   components: { TypoText, PageCompanyOurTeamSlider },
+  async asyncData(ctx: Context): Promise<object> {
+    if (!process.server) {
+      await delay(200)
+      ctx.store.commit('PageTransition/animate', true)
+    } else {
+      ctx.store.commit('PageTransition/animate', false)
+    }
+
+    let person: IPerson = ctx.store.getters['Employees/getPerson']
+    
+    const personId = (ctx.route.params.id || '').split('-').pop()
+    
+    try {
+      person = await ctx.store.dispatch('Employees/fetchPerson', personId)
+
+      if (person.slug !== ctx.route.params.id) {
+        ctx.redirect(
+          301,
+          (ctx.app.router as VueRouter).resolve({
+            name: ctx.route.name as string,
+            params: { id: person.slug },
+          }).href,
+        )
+      }
+
+      if (ctx.store.getters['Employees/getPersons'].length === 0) {
+        // Fetch person list
+        await ctx.store.dispatch('Employees/fetchPersons')
+      }
+
+      ctx.store.commit('Employees/setPerson', person)
+
+      ctx.store.commit('setBreadcrumbs', [
+        {
+          name: ctx.i18n.t('breadcrumbs.our_team'),
+          route: {
+            name: 'company-our-team',
+          },
+        },
+      ])
+    } catch ({ error }) {
+      ctx.error({ statusCode: error.http_code })
+    }
+
+    ctx.store.commit('setLightTheme')
+    ctx.store.commit('setLogoSubTitle', ctx.i18n.t('header.logo.company'))
+
+    setTimeout(() => {
+      ctx.store.commit('PageTransition/animate', false)
+    }, 500)
+
+    return {
+      person,
+    }
+  },
   head(): any {
     const title = this.person.name  + ' ' + this.$i18n.t('seo_title')
 
@@ -81,32 +134,11 @@ import { getSiteUrl } from '@/lib/utils'
   },
 })
 export default class PersonalPage extends Vue {
-  get person(): any {
-    return this.$store.getters.getPersonById(this.$route.params.id)
+
+  get getPerson(): IPerson {
+    return this.$store.getters['Employees/getPerson']
   }
-
-  created() {
-    this.$store.commit('setLightTheme')
-
-    if (process.server) {
-      this.$store.commit('PageTransition/animate', false)
-    }
-
-    this.$store.commit('setLogoSubTitle', this.$t('header.logo.company'))
-    this.$store.commit('setBreadcrumbs', [
-      {
-        name: this.$t('breadcrumbs.our_team'),
-        route: {
-          name: 'company-our-team',
-        },
-      },
-    ])
-  }
-
-  async mounted() {
-    await delay(200)
-    this.$store.commit('PageTransition/animate', false)
-  }
+  
 }
 </script>
 
@@ -154,6 +186,10 @@ export default class PersonalPage extends Vue {
     @media (max-width: 900px)
       padding: 24px
 
+    & > p
+      +style-5
+      margin: 0
+      
 .content__link
   display: flex
   align-items: center
