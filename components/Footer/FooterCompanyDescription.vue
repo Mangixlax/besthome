@@ -1,6 +1,6 @@
 <template lang="pug">
   section(:class="[$style['company'], isDarkTheme && $style['dark']]")
-    h2(v-html="$t('footer.footer_company_title')")
+    span(v-html="$t('footer.footer_company_title')")
     div(:class="$style['company__container']")
       div(
         v-if="seoContent.length"
@@ -45,7 +45,7 @@ export default class FooterCompanyDescription extends Vue {
     flex-direction: column
     align-items: center
 
-  & > h2
+  & > span
     +desktop-text-style-5
     color: $color-black-96
     margin-top: 0
@@ -54,7 +54,7 @@ export default class FooterCompanyDescription extends Vue {
     width: 100%
     max-width: 344px
     position: sticky
-    top: 420px
+    top: 220px
     height: fit-content
 
     @media (max-width: 1176px)
@@ -85,7 +85,16 @@ export default class FooterCompanyDescription extends Vue {
       +desktop-text-style-7
       display: inline-block
       margin: 0
-      color: $color-black-48
+
+      h2
+        +style-2
+        margin: calc(64px - 1rem) 0
+
+        @media (max-width: 1025px)
+          margin: 32px 0
+      
+      p
+        margin: 1em 0
 
       & + &
         margin-top: 18px
