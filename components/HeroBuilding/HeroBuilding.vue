@@ -137,7 +137,7 @@ export default class HeroBuilding extends Vue {
   public onClickToFloor(event: Event) {
     if (event.target) {
       const target: Element = event.target as Element
-      this.getFloorDataById(target.id || '').then((floor: IProjectFloor) => {
+      this.getFloorDataById(target.getAttribute('data-id') || '').then((floor: IProjectFloor) => {
         // @ts-ignore
         const floors = [...this.$store.getters['Catalog/getProject'].floors]
         this.showModal({

@@ -187,7 +187,7 @@ export default class HeroBuildingModalFloors extends Vue {
   public onClickToApartment(event: Event) {
     if (event.target) {
       const target: Element = event.target as Element
-      this.getApartmentDataById(target.id)
+      this.getApartmentDataById(target.getAttribute('data-id') as string)
         .then(async (apartment: IProjectApartment) => {
           // Can go to apartment page if apartment have a status 4 (SOLD)
           if (apartment.status !== 4) {
@@ -212,7 +212,7 @@ export default class HeroBuildingModalFloors extends Vue {
   public onMouseEnterToApartment(event: Event) {
     if (event.target && window.innerWidth > 700) {
       const target: Element = event.target as Element
-      this.getApartmentDataById(target.id)
+      this.getApartmentDataById(target.getAttribute('data-id') as string)
         .then((apartment: IProjectApartment) => {
           this.tooltip.show = true
           this.tooltip.name = apartment.name.toString()
@@ -231,7 +231,7 @@ export default class HeroBuildingModalFloors extends Vue {
   }
 
   public checkAvailableApartments(el: Element) {
-    this.getApartmentDataById(el.id)
+    this.getApartmentDataById(el.getAttribute('data-id') as string)
       .then((apartment: IProjectApartment) => {
         if (apartment.status === 1) {
           el.classList.remove(this.$style['disabled'])
