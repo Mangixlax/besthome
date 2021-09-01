@@ -62,9 +62,9 @@
 import TypoText from '~/components/Base/TypoText.vue'
 import { modalsTriggerMixin } from '@/mixins/modals'
 import Magnetic from '~/directives/magnetic'
-import {Component, Prop, Vue, Watch} from 'nuxt-property-decorator'
-import {IResponseMeta} from "~/types/Response"
-import {CatalogState} from "~/store/Catalog"
+import { Component, Prop, Vue, Watch } from 'nuxt-property-decorator'
+import { IResponseMeta } from '~/types/Response'
+import { CatalogState } from '~/store/Catalog'
 
 /**
  * @TODO
@@ -89,14 +89,22 @@ export default class CatalogWrapper extends Vue {
   public isDesktopView: boolean = false
 
   public sortingList: any = [
-    { value: 'new', label: this.$t('catalog.recommended') },
+    { value: 'relevance', label: this.$t('catalog.by_relevance') },
+    { value: 'asc_price', label: this.$t('catalog.ascending_price') },
+    { value: 'desc_price', label: this.$t('catalog.descending_price') },
+    { value: 'asc_area', label: this.$t('catalog.ascending_area') },
+    { value: 'desc_area', label: this.$t('catalog.descending_area') },
+    { value: 'asc_floor', label: this.$t('catalog.ascending_floor') },
+    { value: 'desc_floor', label: this.$t('catalog.descending_floor') },
   ]
 
   public sortBy: any = this.sortingList[0].value
 
   @Watch('sortBy')
   onChangeSortBy(value: boolean) {
-    this.$emit('change-sorting', value)
+    this.$store.commit('Catalog/setSelectedFilter', { key: 'page', value: 1 })
+    this.$store.commit('Catalog/setSelectedFilter', { key: 'sort', value })
+    this.$store.dispatch('Catalog/fetchApartments')
   }
 
   /**

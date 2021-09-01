@@ -138,7 +138,7 @@ export interface IProjectApartmentsFilter {
 }
 
 const defaultFilters = {
-  sort: 'id,desc',
+  sort: 'relevance',
   page: 1,
 } as IProjectApartmentsFilter
 
