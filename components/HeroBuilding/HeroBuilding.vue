@@ -331,7 +331,7 @@ export default class HeroBuilding extends Vue {
       fill: rgba(215,78,58,.5)
       stroke: #d74e3a
 
-  [id*=block]
+  [data-id*=block]
     fill: transparent
     stroke: #1c6344
 
