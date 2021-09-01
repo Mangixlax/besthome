@@ -1,5 +1,6 @@
 import { RootState } from '~/store'
 import { ActionContext, ActionTree, GetterTree, MutationTree } from 'vuex'
+import { IResponseData, IResponseMeta, IResponseMetaPagination } from '~/types/Response'
 
 export interface IProject {
   id: string
@@ -132,7 +133,24 @@ export interface IProjectApartmentsFilter {
   area?: { min: string; max: string }
   price?: { min: number; max: number }
   rooms?: Array<{ id: number; number: number; ad_number: number }>
+  sort?: string
+  page?: number
 }
+
+const defaultFilters = {
+  sort: 'id,desc',
+  page: 1,
+} as IProjectApartmentsFilter
+
+const defaultPagination = {
+  total: 0,
+  count: 0,
+  per_page: 26,
+  current_page: 1,
+  total_pages: 0,
+  previous_page: null,
+  next_page: null,
+} as IResponseMetaPagination
 
 /**
  * States
@@ -142,9 +160,12 @@ export const state = () => ({
   projects: [] as IProject[],
   apartment: {} as IProjectApartment,
   apartments: [] as IProjectApartment[],
+  meta: {
+    pagination: defaultPagination as IResponseMetaPagination,
+  } as IResponseMeta['meta'],
   projectsCount: 0 as number,
-  filters: {} as IProjectApartmentsFilter,
-  selectedFilters: {} as any,
+  filters: defaultFilters as IProjectApartmentsFilter,
+  selectedFilters: defaultFilters as any,
   loading: false as boolean,
   pageSeoContent: '' as string,
 })
@@ -160,13 +181,15 @@ interface CatalogActionContext extends ActionContext<CatalogState, RootState> {}
  * Getters
  */
 export const getters: GetterTree<CatalogState, RootState> = {
-  getProject: (state): IProject => state.project,
-  getProjects: (state): IProject[] => state.projects,
-  getProjectsCount: (state): number => state.projectsCount,
-  getApartment: (state): IProjectApartment => state.apartment,
-  getApartments: (state): IProjectApartment[] => state.apartments,
-  getFilters: (state): IProjectApartmentsFilter => state.filters,
-  getPageSeoContent: (state): string => state.pageSeoContent,
+  getProject: (state: CatalogState): IProject => state.project,
+  getProjects: (state: CatalogState): IProject[] => state.projects,
+  getProjectsCount: (state: CatalogState): number => state.projectsCount,
+  getApartment: (state: CatalogState): IProjectApartment => state.apartment,
+  getApartments: (state: CatalogState): IProjectApartment[] => state.apartments,
+  getFilters: (state: CatalogState): IProjectApartmentsFilter => state.filters,
+  getPageSeoContent: (state: CatalogState): string => state.pageSeoContent,
+  getMeta: (state: CatalogState): IResponseMeta['meta'] => state.meta,
+  getLoading: (state: CatalogState): boolean => state.loading,
 }
 
 /**
@@ -183,17 +206,29 @@ export const mutations: MutationTree<CatalogState> = {
   setApartment: (state: CatalogState, value: IProjectApartment) => {
     state.apartment = value
   },
-  setApartments: (state: CatalogState, value: IProjectApartment[]) => {
-    state.apartments = value
+  setApartmentsList(state: CatalogState, response: IResponseData<IProjectApartment[]>) {
+    state.apartments = response.data
+
+    if (response.meta) {
+      state.meta = response.meta as IResponseMeta['meta']
+    }
   },
   setFilters: (state: CatalogState, value: IProjectApartmentsFilter) => {
     state.filters = {}
-    state.selectedFilters = {}
-    state.filters = value
+    state.selectedFilters = {
+      ...defaultFilters,
+    }
+    state.filters = {
+      ...defaultFilters,
+      ...value,
+    }
   },
   setSelectedFilter: (
     state: CatalogState,
-    { key, value }: { key: 'blocks' | 'floors' | 'area' | 'price' | 'rooms'; value: any },
+    {
+      key,
+      value,
+    }: { key: 'blocks' | 'floors' | 'area' | 'price' | 'rooms' | 'page' | 'sort'; value: any },
   ) => {
     state.selectedFilters[key] = value
   },
@@ -257,6 +292,23 @@ export const actions: ActionTree<CatalogState, RootState> = {
         })
     })
   },
+  async fetchFilters({ commit, state }: CatalogActionContext) {
+    return new Promise((resolve, reject) => {
+      this.$axios
+        .$get(`v1/apartments/filters`, {
+          params: {
+            project_id: state.project.id ? state.project.id : null,
+          },
+        })
+        .then((filters: IProjectApartmentsFilter) => {
+          commit('setFilters', filters)
+          resolve(filters)
+        })
+        .catch(({ response: { data } }) => {
+          reject(data)
+        })
+    })
+  },
   async fetchApartments({ commit, state }: CatalogActionContext) {
     commit('setLoading', true)
     return new Promise((resolve, reject) => {
@@ -267,14 +319,11 @@ export const actions: ActionTree<CatalogState, RootState> = {
             ...state.selectedFilters,
           },
         })
-        .then(
-          ({ filters, apartments }: { filters: any; apartments: { data?: IProjectApartment } }) => {
-            commit('setApartments', apartments)
-            commit('setFilters', filters)
-            commit('setLoading', false)
-            resolve({ filters, apartments })
-          },
-        )
+        .then((response: IResponseData<IProjectApartment>) => {
+          commit('setApartmentsList', response)
+          commit('setLoading', false)
+          resolve(response)
+        })
         .catch(({ response: { data } }) => {
           reject(data)
         })
