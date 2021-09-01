@@ -29,7 +29,7 @@
             div(class="dm-1 dm-1-b" style="left: 0px; background-color: rgb(0, 102, 204);border: none;")
               a(href="https://www.dmca.com/" title="DMCA") DMCA
             div(class="dm-2 dm-2-b" style="background-color: rgb(255, 255, 255);border: none;")
-              a(href="http://www.dmca.com/Protection/Status.aspx?ID=dde516fc-1b7f-425d-93f0-fc5e98cffb34" title="DMCA" style="color: rgb(17, 17, 17);") PROTECTED
+              a(href="http://www.dmca.com/Protection/Status.aspx?ID=09d50f11-0f90-42ba-84a5-43513eabbc18" title="DMCA" style="color: rgb(17, 17, 17);") PROTECTED
 </template>
 
 <script lang="ts">
