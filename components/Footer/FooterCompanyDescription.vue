@@ -92,7 +92,7 @@ export default class FooterCompanyDescription extends Vue {
 
         @media (max-width: 1025px)
           margin: 32px 0
-      
+
       p
         margin: 1em 0
 

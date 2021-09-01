@@ -201,7 +201,7 @@ export const mutations: MutationTree<CatalogState> = {
     state.loading = value
   },
   setPageSeoContent: (state: CatalogState, value: string) => {
-    state.pageSeoContent = value
+    state.pageSeoContent = !value ? '' : value
   },
 }
 
