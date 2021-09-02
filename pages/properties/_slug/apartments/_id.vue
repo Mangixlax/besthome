@@ -208,7 +208,7 @@ import { Jsonld } from 'nuxt-jsonld'
         similarApartments,
       }
     } catch ({ error }) {
-      ctx.error({ statusCode: ctx.res.statusCode })
+      ctx.error({ statusCode: error.http_code })
     }
 
     return {}
