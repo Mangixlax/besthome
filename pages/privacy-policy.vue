@@ -1,12 +1,14 @@
 <template lang="pug">
-  base-text-container(
-    :data="{\
-       text: [\
-          `<h1>${$t('pages.privacy-policy.title')}</h1>`,\
-          ...$t('pages.privacy-policy.text').map((p) => `<p>${p}<p>`)\
-        ].join('')\
-    }"
-  )
+  main
+    base-text-container(
+      :data="{\
+        text: [\
+            `<h1>${$t('pages.privacy-policy.title')}</h1>`,\
+            ...$t('pages.privacy-policy.text').map((p) => `<p>${p}<p>`)\
+          ].join('')\
+      }"
+    )
+    base-seo-content
 </template>
 
 <script lang="ts">
@@ -15,10 +17,12 @@ import { Component, Vue } from 'nuxt-property-decorator'
 import { delay } from '~/lib/utils'
 import metaGenerator from '~/config/meta'
 import { getSiteUrl } from '@/lib/utils'
+import BaseSeoContent from '~/components/Base/BaseSeoContent.vue'
 
 @Component({
   components: {
     BaseTextContainer,
+    BaseSeoContent,
   },
   head(): any {
     const title = this.$i18n.t('pages.privacy-policy.title') + ' ' + this.$i18n.t('seo_title')

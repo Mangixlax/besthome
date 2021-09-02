@@ -17,7 +17,8 @@ import { getSiteUrl } from '@/lib/utils'
       title,
       htmlAttrs: {
         lang: this.$i18n.locale,
-        prefix: 'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#',
+        prefix:
+          'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http:/s/ogp.me/ns/article#',
       },
       meta: metaGenerator({
         title,

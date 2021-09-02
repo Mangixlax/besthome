@@ -2,12 +2,14 @@
   main(:class="$style['main']")
     page-contacts-map(:contact-map="$t('pages.contacts.contact_map')")
     common-consultant-slider(:slider-data="$t('footer.consultant_slider')")
+    base-seo-content
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import PageContactsMap from '~/components/Page/Contacts/PageContactsMap.vue'
 import CommonConsultantSlider from '~/components/Common/CommonConsultantSlider.vue'
+import BaseSeoContent from '~/components/Base/BaseSeoContent.vue'
 import metaGenerator from '~/config/meta.js'
 import { delay } from '~/lib/utils'
 import { getSiteUrl } from '@/lib/utils'
@@ -16,6 +18,7 @@ import { getSiteUrl } from '@/lib/utils'
   components: {
     PageContactsMap,
     CommonConsultantSlider,
+    BaseSeoContent,
   },
   head(): any {
     const title = this.$i18n.t('pages.contacts.contact_map.title') + ' ' + this.$i18n.t('seo_title')

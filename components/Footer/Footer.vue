@@ -6,7 +6,6 @@
         color: isDarkTheme ? 'dark' : 'light',\
       }"
     )
-    footer-company-description
     common-divider(
       :data="{\
         height: 'small',\
@@ -31,7 +30,6 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import BaseBreadCrumbs from '~/components/Base/BaseBreadCrumbs.vue'
-import FooterCompanyDescription from '~/components/Footer/FooterCompanyDescription.vue'
 import FooterSiteMap from '~/components/Footer/FooterSiteMap.vue'
 import FooterCopyright from '~/components/Footer/FooterCopyright.vue'
 import CommonDivider from '~/components/Common/CommonDivider.vue'
@@ -40,7 +38,6 @@ import CommonDivider from '~/components/Common/CommonDivider.vue'
   components: {
     CommonDivider,
     BaseBreadCrumbs,
-    FooterCompanyDescription,
     FooterSiteMap,
     FooterCopyright,
   },

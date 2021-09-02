@@ -13,6 +13,7 @@
       }"
     )
     page-service-list-card(:listCardData="$t('pages.service_after_sale_services.list_card')")
+    base-seo-content
 </template>
 
 <script lang="ts">
@@ -20,13 +21,20 @@ import TypoText from '~/components/Base/TypoText.vue'
 import BaseImageTitle from '~/components/Base/BaseImageTitle.vue'
 import PageServiceListCard from '~/components/Page/Service/PageServiceListCard.vue'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
+import BaseSeoContent from '~/components/Base/BaseSeoContent.vue'
 import metaGenerator from '~/config/meta.js'
 import { Component, Vue } from 'nuxt-property-decorator'
 import { delay } from '~/lib/utils'
 import { getSiteUrl } from '@/lib/utils'
 
 @Component({
-  components: { TypoText, BaseImageTitle, PageServiceListCard, BaseTextContainer },
+  components: {
+    TypoText,
+    BaseImageTitle,
+    PageServiceListCard,
+    BaseTextContainer,
+    BaseSeoContent,
+  },
   head(): any {
     const title =
       this.$i18n.locale === 'ru'

@@ -23,11 +23,13 @@
       )
     section(:class="$style['personal-page']")
       page-company-our-team-slider
+    base-seo-content
 </template>
 
 <script lang="ts">
 import TypoText from '~/components/Base/TypoText.vue'
 import PageCompanyOurTeamSlider from '~/components/Page/Company/PageCompanyOurTeamSlider.vue'
+import BaseSeoContent from '~/components/Base/BaseSeoContent.vue'
 import { Context } from '@nuxt/types'
 import { Component, Vue } from 'nuxt-property-decorator'
 import metaGenerator from '~/config/meta.js'
@@ -37,7 +39,11 @@ import VueRouter, { Route } from 'vue-router'
 import { IPerson } from '~/store/Employees'
 
 @Component({
-  components: { TypoText, PageCompanyOurTeamSlider },
+  components: {
+    TypoText,
+    PageCompanyOurTeamSlider,
+    BaseSeoContent,
+  },
   async asyncData(ctx: Context): Promise<object> {
     if (!process.server) {
       await delay(200)

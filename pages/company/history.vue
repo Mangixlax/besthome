@@ -14,6 +14,7 @@
         block_flip: false,\
       }"
     )
+    base-seo-content
 </template>
 
 <script lang="ts">
@@ -21,13 +22,20 @@ import PageCompanyHistoryTitle from '~/components/Page/Company/PageCompanyHistor
 import PageCompanyYearsSlider from '~/components/Page/Company/PageCompanyYearsSlider.vue'
 import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
+import BaseSeoContent from '~/components/Base/BaseSeoContent.vue'
 import metaGenerator from '~/config/meta.js'
 import { Component, Vue } from 'nuxt-property-decorator'
 import { delay } from '~/lib/utils'
 import { getSiteUrl } from '@/lib/utils'
 
 @Component({
-  components: { PageCompanyHistoryTitle, BasePost, TypoText, PageCompanyYearsSlider },
+  components: {
+    PageCompanyHistoryTitle,
+    BasePost,
+    TypoText,
+    PageCompanyYearsSlider,
+    BaseSeoContent,
+  },
   head(): any {
     const title =
       this.$i18n.t('pages.company_history.header.title') + ' ' + this.$i18n.t('seo_title')

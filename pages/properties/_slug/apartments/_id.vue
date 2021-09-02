@@ -85,6 +85,13 @@
     base-accordions(:accordions-data="$t('footer.accordions')")
     common-consultant-slider(:slider-data="$t('footer.consultant_slider')")
     footer-fast-links
+    common-divider(
+      :data="{\
+        height: 'middle',\
+        color: 'light',\
+      }"
+    )
+    base-seo-content
 </template>
 
 <script lang="ts">
@@ -104,6 +111,7 @@ import BaseSubscribe from '~/components/Base/BaseSubscribe.vue'
 import BaseAccordions from '~/components/Base/BaseAccordions.vue'
 import CommonConsultantSlider from '~/components/Common/CommonConsultantSlider.vue'
 import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
+import BaseSeoContent from '~/components/Base/BaseSeoContent.vue'
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import metaGenerator from '~/config/meta.js'
 import { delay } from '~/lib/utils'
@@ -126,6 +134,7 @@ import { Jsonld } from 'nuxt-jsonld'
     CatalogApartmentCard,
     Swiper,
     SwiperSlide,
+    BaseSeoContent,
   },
   async asyncData(ctx: Context): Promise<void | object> {
     if (!process.server) {
@@ -205,7 +214,7 @@ import { Jsonld } from 'nuxt-jsonld'
     return {}
   },
   head(): any {
-    const title = this.apartment.seo_title  + ' ' + this.$i18n.t('seo_title')
+    const title = this.apartment.seo_title + ' ' + this.$i18n.t('seo_title')
 
     const description = this.apartment.seo_description
 
@@ -324,7 +333,9 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
 
     // Select miniature
     const polygon: Element = (this.$refs.miniature as Element).querySelector(
-      `[data-id="bfloor-${this.apartment.block?.name.toLowerCase()}-${this.apartment.floor.number}"]`,
+      `[data-id="bfloor-${this.apartment.block?.name.toLowerCase()}-${
+        this.apartment.floor.number
+      }"]`,
     ) as Element
 
     if (polygon) {

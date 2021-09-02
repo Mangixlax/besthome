@@ -11,6 +11,13 @@
               | {{ $t('pages.projects.header.text3_link') }}
         common-link-icon(:variants="['stroke-blue']")
     smart-block-wrapper(:data="$store.getters['Catalog/getProjects']")
+    common-divider(
+      :data="{\
+        height: 'middle',\
+        color: 'light',\
+      }"
+    )
+    base-seo-content
     common-consultant-slider(:slider-data="$t('footer.consultant_slider')")
     base-accordions(:accordions-data="$t('pages.projects.accordions')")
     base-subscribe(:subscribe-data="$t('footer.subscribe')")
@@ -28,6 +35,8 @@ import BaseSubscribe from '~/components/Base/BaseSubscribe.vue'
 import BaseAccordions from '~/components/Base/BaseAccordions.vue'
 import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
 import PageWelcome from '~/components/Page/PageWelcome.vue'
+import BaseSeoContent from '~/components/Base/BaseSeoContent.vue'
+import CommonDivider from '~/components/Common/CommonDivider.vue'
 import { Context } from '@nuxt/types'
 import CommonLinkIcon from '~/components/Common/CommonLinkIcon.vue'
 import metaGenerator from '~/config/meta.js'
@@ -45,6 +54,8 @@ import { getSiteUrl } from '@/lib/utils'
     BaseSubscribe,
     BaseAccordions,
     FooterFastLinks,
+    BaseSeoContent,
+    CommonDivider,
   },
   async asyncData(ctx: Context): Promise<void | object> {
     ctx.store.commit('PageTransition/animate', false)

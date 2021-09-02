@@ -1,5 +1,5 @@
 <template lang="pug">
-  section(:class="$style['container']")
+  section(ref="container" :class="$style['container']")
     h2 {{ $t('pages.company_quality.unique_roofing.title') }}
     div(:class="$style['info']")
       ul(:class="$style['list']")
@@ -20,9 +20,8 @@
             div
               p {{ item.text }}
               img(
-                :src="$img($i18n.locale === 'ru' ? `/quality/unique-roofing/unique-roofing-${index + 1}.jpg` : `/quality/unique-roofing/unique-roofing-en-${index + 1}.jpg`, $store.state.supportWebP ? { format: 'webp' } : {})"
-                loading="lazy"
-                decoding="async"
+                :data-src="$img(`/quality/unique-roofing/unique-roofing${$i18n.locale === 'ru' ? '' : '-en'}-${index + 1}.jpg`, $store.state.supportWebP ? { format: 'webp' } : {})"
+                @load="index === 0 ? onChangedAccordionIndex(0) : () => {}"
               )
 </template>
 
@@ -32,6 +31,7 @@ import { Component, Vue, Watch } from 'nuxt-property-decorator'
 @Component
 export default class PageQualityUniqueRoofingSticky extends Vue {
   public activeAccordionIndex: number = 0
+  public isScrolled: boolean = false
 
   @Watch('activeAccordionIndex')
   onChangedAccordionIndex(index: number) {
@@ -58,6 +58,30 @@ export default class PageQualityUniqueRoofingSticky extends Vue {
     } else {
       this.activeAccordionIndex = index
     }
+  }
+
+  public onScroll() {
+    if (!this.isScrolled) {
+      const $container = this.$refs.container as Element
+      if ($container.getBoundingClientRect().top - window.innerHeight <= window.innerHeight) {
+        this.isScrolled = true
+        const $listImages = $container.querySelectorAll('img')
+
+        $listImages.forEach(($img) => {
+          $img.setAttribute('src', $img.getAttribute('data-src') as string)
+          $img.removeAttribute('data-src')
+        })
+      }
+    }
+  }
+
+  mounted() {
+    document.addEventListener('scroll', this.onScroll)
+    this.onScroll()
+  }
+
+  beforeDestroy() {
+    document.removeEventListener('scroll', this.onScroll)
   }
 }
 </script>

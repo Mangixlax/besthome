@@ -64,6 +64,7 @@
         ],\
       }"
     )
+    base-seo-content
 </template>
 
 <script lang="ts">
@@ -73,6 +74,7 @@ import BaseImageTitle from '~/components/Base/BaseImageTitle.vue'
 import PageServiceListCard from '~/components/Page/Service/PageServiceListCard.vue'
 import BasePostTwoImage from '~/components/Base/BasePostTwoImage.vue'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
+import BaseSeoContent from '~/components/Base/BaseSeoContent.vue'
 import { Context } from '@nuxt/types'
 import metaGenerator from '~/config/meta.js'
 import { MetaInfo } from 'vue-meta'
@@ -88,6 +90,7 @@ import { getSiteUrl } from '@/lib/utils'
     PageServiceListCard,
     BasePostTwoImage,
     BaseTextContainer,
+    BaseSeoContent,
   },
   head(): any {
     const title =

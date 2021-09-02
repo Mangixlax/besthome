@@ -20,6 +20,13 @@
     base-subscribe(:subscribe-data="$t('footer.subscribe')" white-theme)
     base-accordions(:accordions-data="$t('footer.accordions')")
     footer-fast-links
+    common-divider(
+      :data="{\
+        height: 'middle',\
+        color: 'light',\
+      }"
+    )
+    base-seo-content
 </template>
 
 <script lang="ts">
@@ -36,6 +43,8 @@ import BaseSubscribe from '~/components/Base/BaseSubscribe.vue'
 import BaseAccordions from '~/components/Base/BaseAccordions.vue'
 import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
 import HeroBuilding from '~/components/HeroBuilding/HeroBuilding.vue'
+import BaseSeoContent from '~/components/Base/BaseSeoContent.vue'
+import CommonDivider from '~/components/Common/CommonDivider.vue'
 import { Context } from '@nuxt/types'
 import PageProjectsInfrastructureSlider from '~/components/Page/Projects/PageProjectsInfrastructureSlider.vue'
 import PageProjectsTimeline from '~/components/Page/Projects/PageProjectsTimeline.vue'
@@ -78,6 +87,7 @@ import { IResponseMeta } from '~/types/Response'
     HeromapSlider,
     HeroImageTooltips,
     CommonDivider,
+    BaseSeoContent,
   },
   async asyncData(ctx: Context): Promise<object> {
     if (!process.server) {

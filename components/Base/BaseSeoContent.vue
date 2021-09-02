@@ -20,7 +20,7 @@ import { Component, Prop, Vue, Watch } from 'nuxt-property-decorator'
 import TypoText from '~/components/Base/TypoText.vue'
 
 @Component({ components: { TypoText } })
-export default class FooterCompanyDescription extends Vue {
+export default class FooterSeoContent extends Vue {
   get seoContent(): string | null {
     return this.$store.getters['Catalog/getPageSeoContent']
   }
@@ -67,7 +67,7 @@ export default class FooterCompanyDescription extends Vue {
   &.dark
     background-color: $color-black-96
 
-    h2
+    span
       color: $color-white-96
 
   &__container
