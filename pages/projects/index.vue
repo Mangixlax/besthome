@@ -18,6 +18,12 @@
       }"
     )
     base-seo-content
+    common-divider(
+      :data="{\
+        height: 'middle',\
+        color: 'light',\
+      }"
+    )
     common-consultant-slider(:slider-data="$t('footer.consultant_slider')")
     base-accordions(:accordions-data="$t('pages.projects.accordions')")
     base-subscribe(:subscribe-data="$t('footer.subscribe')")
