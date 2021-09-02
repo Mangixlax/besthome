@@ -79,7 +79,7 @@ export default <NuxtConfig>{
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
         rel: 'stylesheet',
-        href: 'https://images.dmca.com/badges/dmca.css?ID=dde516fc-1b7f-425d-93f0-fc5e98cffb34',
+        href: 'https://images.dmca.com/badges/dmca.css?ID=09d50f11-0f90-42ba-84a5-43513eabbc18',
       },
     ],
     script: [

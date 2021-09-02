@@ -5,6 +5,7 @@
       :dark-mode="filterDarkMode"
       :title="$t('catalog.block')"
       :filter-items="filterBlocksData"
+      @change="onChangeBlocks"
     )
     catalog-filter-block(
       v-if="hasRoomsFilter"
@@ -145,12 +146,33 @@ export default class CatalogFilterList extends Vue {
     return this.filterAreaData.min !== this.filterAreaData.max
   }
 
+  /**
+   * Reset current page after changing any filters
+   */
+  public resetCurrentPage() {
+    this.$store.commit('Catalog/setSelectedFilter', {
+      key: 'page',
+      value: 1,
+    })
+  }
+
   public async onChangeFloors(values: any) {
     this.$store.commit('Catalog/setSelectedFilter', {
       key: 'floors',
       value: [...values],
     })
 
+    this.resetCurrentPage()
+    await this.$store.dispatch('Catalog/fetchApartments')
+  }
+
+  public async onChangeBlocks(values: any) {
+    this.$store.commit('Catalog/setSelectedFilter', {
+      key: 'blocks',
+      value: [...values],
+    })
+
+    this.resetCurrentPage()
     await this.$store.dispatch('Catalog/fetchApartments')
   }
 
@@ -160,6 +182,7 @@ export default class CatalogFilterList extends Vue {
       value: [...values],
     })
 
+    this.resetCurrentPage()
     await this.$store.dispatch('Catalog/fetchApartments')
   }
 
@@ -169,6 +192,7 @@ export default class CatalogFilterList extends Vue {
       value: [...values],
     })
 
+    this.resetCurrentPage()
     await this.$store.dispatch('Catalog/fetchApartments')
   }
 
@@ -178,6 +202,7 @@ export default class CatalogFilterList extends Vue {
       value: [...values],
     })
 
+    this.resetCurrentPage()
     await this.$store.dispatch('Catalog/fetchApartments')
   }
 

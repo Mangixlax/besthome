@@ -10,11 +10,11 @@
       :key="index"
       :data="block"
     )
-    catalog-wrapper
+    catalog-wrapper(ref="container")
       template(v-slot="{ isCardDisplay }")
         component(
           :is="isCardDisplay ? 'CatalogCards' : 'CatalogList'"
-          :list="apartmentsList"
+          :list="getApartments"
         )
     page-projects-similar-slider(:slider-data="similarApartmentsList")
     base-subscribe(:subscribe-data="$t('footer.subscribe')" white-theme)
@@ -60,6 +60,8 @@ import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.
 import metaGenerator from '~/config/meta.js'
 import { delay } from '~/lib/utils'
 import { getSiteUrl } from '@/lib/utils'
+import CommonDivider from '~/components/Common/CommonDivider.vue'
+import { IResponseMeta } from '~/types/Response'
 
 @Component({
   components: {
@@ -128,6 +130,14 @@ import { getSiteUrl } from '@/lib/utils'
       }
     }
 
+    // Reset filters
+    ctx.store.commit('Catalog/setFilters', {})
+
+    // Fetch filters and save in store
+    const filtersList = await ctx.store.dispatch('Catalog/fetchFilters')
+    ctx.store.commit('Catalog/setFilters', filtersList)
+
+    // Fetch apartments and save in store with meta pagination
     await ctx.store.dispatch('Catalog/fetchApartments')
 
     ctx.store.commit('setBreadcrumbs', [
@@ -153,13 +163,13 @@ import { getSiteUrl } from '@/lib/utils'
     setTimeout(() => {
       ctx.store.commit('PageTransition/animate', false)
     }, 500)
+
     return {
       project,
     }
   },
   head(): any {
     const title = this.project.seo_choose_ap?.title
-
     const description = this.project.seo_choose_ap?.description
 
     return {
@@ -236,11 +246,8 @@ export default class PropertiesApartmentsPageIndex extends Vue {
     }))
   }
 
-  get apartmentsList(): IProjectApartment[] {
-    return (
-      // @TODO Add type apartments data
-      (((this.$store.state.Catalog as CatalogState).apartments || {}) as any).data || []
-    )
+  get getApartments(): IProjectApartment[] {
+    return this.$store.getters['Catalog/getApartments']
   }
 
   get similarApartmentsList(): IProjectApartment[] {

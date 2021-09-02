@@ -36,6 +36,11 @@
               v-magnetic
             )
         slot(:is-card-display="isCardDisplay")
+        div(
+          v-if="getMeta.pagination.next_page"
+          :class="$style['catalog__content-load_more']"
+          @click="onClickLoadMore"
+        ) {{ $i18n.locale === 'ru' ? 'Показать больше' : 'Load More' }}
         div(:class="{\
           [$style['catalog__content-overlay']]: true,\
           [$style['catalog__content-overlay--show']]: $store.state.Catalog.loading\
@@ -57,7 +62,9 @@
 import TypoText from '~/components/Base/TypoText.vue'
 import { modalsTriggerMixin } from '@/mixins/modals'
 import Magnetic from '~/directives/magnetic'
-import {Component, Prop, Vue, Watch} from 'nuxt-property-decorator'
+import { Component, Prop, Vue, Watch } from 'nuxt-property-decorator'
+import { IResponseMeta } from '~/types/Response'
+import { CatalogState } from '~/store/Catalog'
 
 /**
  * @TODO
@@ -82,14 +89,65 @@ export default class CatalogWrapper extends Vue {
   public isDesktopView: boolean = false
 
   public sortingList: any = [
-    { value: 'new', label: this.$t('catalog.recommended') },
+    { value: 'relevance', label: this.$t('catalog.by_relevance') },
+    { value: 'asc_price', label: this.$t('catalog.ascending_price') },
+    { value: 'desc_price', label: this.$t('catalog.descending_price') },
+    { value: 'asc_area', label: this.$t('catalog.ascending_area') },
+    { value: 'desc_area', label: this.$t('catalog.descending_area') },
+    { value: 'asc_floor', label: this.$t('catalog.ascending_floor') },
+    { value: 'desc_floor', label: this.$t('catalog.descending_floor') },
   ]
 
   public sortBy: any = this.sortingList[0].value
 
   @Watch('sortBy')
   onChangeSortBy(value: boolean) {
-    this.$emit('change-sorting', value)
+    this.$store.commit('Catalog/setSelectedFilter', { key: 'page', value: 1 })
+    this.$store.commit('Catalog/setSelectedFilter', { key: 'sort', value })
+    this.$store.dispatch('Catalog/fetchApartments')
+  }
+
+  /**
+   * Pagination data
+   */
+  get getMeta(): IResponseMeta['meta'] {
+    return this.$store.getters['Catalog/getMeta']
+  }
+
+  /**
+   * Check loading status
+   */
+  get isLoading(): CatalogState['loading'] {
+    return this.$store.getters['Catalog/getLoading']
+  }
+
+  /**
+   * Load more records after clicked to button
+   */
+  public async onClickLoadMore() {
+    await this.onLoadMore()
+  }
+
+  /**
+   * Send request for load more records
+   */
+  private async onLoadMore() {
+    // Protection against restarting the request
+    if (this.isLoading) return
+
+    this.$store.commit('Catalog/setSelectedFilter', {
+      key: 'page',
+      value: this.getMeta.pagination.next_page,
+    })
+
+    // Fetch new apartments
+    const apartments = await this.$store.dispatch('Catalog/fetchApartments')
+
+    // Merge old with new apartments and replace meta
+    this.$store.commit('Catalog/setApartmentsList', {
+      data: [...this.$store.getters['Catalog/getApartments'], ...apartments.data],
+      meta: apartments.meta,
+    })
   }
 
   public onResize() {
@@ -152,6 +210,22 @@ export default class CatalogWrapper extends Vue {
     width: 100%
     position: relative
 
+    &-load_more
+      display: flex
+      justify-content: center
+      align-items: center
+      margin: 40px auto 0
+      height: 125px
+      width: 125px
+      border-radius: 50%
+      +desktop-text-style-5
+      padding: 6px
+      line-height: 24px
+      color: $color-white-100
+      background-color: $color-blue-100
+      text-align: center
+      cursor: pointer
+
     &-overlay
       position: absolute
       left: 0
@@ -182,7 +256,7 @@ export default class CatalogWrapper extends Vue {
         +style-8
         display: block
         color: $color-blue-100
-        padding: .5em 1.4em .5em .8em 
+        padding: .5em 1.4em .5em .8em
         width: 100%
         max-width: 100%
         box-sizing: border-box
@@ -201,7 +275,7 @@ export default class CatalogWrapper extends Vue {
 
         &::-ms-expand
           display: none
-          
+
         &:focus
           outline: none
 
@@ -223,7 +297,7 @@ export default class CatalogWrapper extends Vue {
     background: $color-blue-100
     min-width: 320px
     z-index: 25
-    
+
     &--dark
       background: $color-black-96
 
