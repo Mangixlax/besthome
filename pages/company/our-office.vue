@@ -53,6 +53,13 @@
       }"
     )
     page-our-office-address
+    common-divider(
+      :data="{\
+        height: 'middle',\
+        color: 'dark',\
+      }"
+    )
+    base-seo-content
 </template>
 
 <script lang="ts">
@@ -69,6 +76,7 @@ import PageOurOfficeTeamwork from '~/components/Page/Company/OurOffice/PageOurOf
 import PageOurOfficeGraphs from '~/components/Page/Company/OurOffice/PageOurOfficeGraphs.vue'
 import PageOurOfficeManager from '~/components/Page/Company/OurOffice/PageOurOfficeManager.vue'
 import PageOurOfficeAddress from '~/components/Page/Company/OurOffice/PageOurOfficeAddress.vue'
+import BaseSeoContent from '~/components/Base/BaseSeoContent.vue'
 
 @Component({
   components: {
@@ -81,6 +89,7 @@ import PageOurOfficeAddress from '~/components/Page/Company/OurOffice/PageOurOff
     PageOurOfficeFeatures,
     CommonDivider,
     PageOurOfficeTitle,
+    BaseSeoContent,
   },
   head(): any {
     const title = (this.$i18n.t('pages.our_office.title.title') as string).replace('<br>', ' ')

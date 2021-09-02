@@ -1,10 +1,12 @@
 <template lang="pug">
   main
     page-company-our-team(:data="$store.getters['Employees/getPersons']")
+    base-seo-content
 </template>
 
 <script lang="ts">
 import PageCompanyOurTeam from '~/components/Page/Company/PageCompanyOurTeam.vue'
+import BaseSeoContent from '~/components/Base/BaseSeoContent.vue'
 import { Context } from '@nuxt/types'
 import metaGenerator from '~/config/meta.js'
 import { Component, Vue } from 'nuxt-property-decorator'
@@ -13,7 +15,10 @@ import { getSiteUrl } from '@/lib/utils'
 import { IPerson } from '~/store/Employees'
 
 @Component({
-  components: { PageCompanyOurTeam },
+  components: {
+    PageCompanyOurTeam,
+    BaseSeoContent,
+  },
   async asyncData(ctx: Context): Promise<object> {
     if (!process.server) {
       await delay(200)

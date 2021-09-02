@@ -55,6 +55,7 @@
         ],\
       }"
     )
+    base-seo-content
 </template>
 
 <script lang="ts">
@@ -65,6 +66,7 @@ import BasePost from '~/components/Base/BasePost.vue'
 import BaseScrollLine from '~/components/Base/BaseScrollLine.vue'
 import BasePostTwoImage from '~/components/Base/BasePostTwoImage.vue'
 import TypoText from '~/components/Base/TypoText.vue'
+import BaseSeoContent from '~/components/Base/BaseSeoContent.vue'
 import { Context } from '@nuxt/types'
 import { Route } from 'vue-router'
 import { NavigationGuardNext } from 'vue-router/types/router'
@@ -80,6 +82,7 @@ import { getSiteUrl } from '@/lib/utils'
     BasePostTwoImage,
     BaseScrollLine,
     TypoText,
+    BaseSeoContent,
   },
   head(): any {
     const title =

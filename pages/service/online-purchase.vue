@@ -5,11 +5,13 @@
       :filename="require(`~/assets/images/pages/service/online-purchace/title.jpg`)"
     )
     page-service-purchase
+    base-seo-content
 </template>
 
 <script lang="ts">
 import BaseImageTitle from '~/components/Base/BaseImageTitle.vue'
 import PageServicePurchase from '~/components/Page/Service/PageServicePurchase.vue'
+import BaseSeoContent from '~/components/Base/BaseSeoContent.vue'
 import { Context } from '@nuxt/types'
 import metaGenerator from '~/config/meta.js'
 import { Component, Vue } from 'nuxt-property-decorator'
@@ -17,7 +19,11 @@ import { delay } from '~/lib/utils'
 import { getSiteUrl } from '@/lib/utils'
 
 @Component({
-  components: { BaseImageTitle, PageServicePurchase },
+  components: {
+    BaseImageTitle,
+    PageServicePurchase,
+    BaseSeoContent,
+  },
   head(): any {
     const title =
       this.$i18n.locale === 'ru'

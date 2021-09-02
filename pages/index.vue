@@ -52,6 +52,13 @@
     base-accordions(:accordions-data="$t('footer.accordions')")
     base-subscribe(:subscribe-data="$t('footer.subscribe')")
     footer-fast-links
+    common-divider(
+      :data="{\
+        height: 'middle',\
+        color: 'light',\
+      }"
+    )
+    base-seo-content
 </template>
 
 <script lang="ts">
@@ -68,6 +75,8 @@ import LinkBanner from '~/components/LinkBanner/LinkBanner.vue'
 import TreeColumns from '~/components/TreeColumns/TreeColumns.vue'
 import Magnetic from '~/directives/magnetic'
 import CommonLinkIcon from '~/components/Common/CommonLinkIcon.vue'
+import BaseSeoContent from '~/components/Base/BaseSeoContent.vue'
+import CommonDivider from '~/components/Common/CommonDivider.vue'
 import { modalsTriggerMixin } from '~/mixins/modals'
 import metaGenerator from '~/config/meta.js'
 import { Context } from '@nuxt/types'
@@ -87,6 +96,8 @@ import { getSiteUrl } from '@/lib/utils'
     BaseAccordions,
     BaseSubscribe,
     FooterFastLinks,
+    BaseSeoContent,
+    CommonDivider,
   },
   directives: { Magnetic },
   mixins: [modalsTriggerMixin],

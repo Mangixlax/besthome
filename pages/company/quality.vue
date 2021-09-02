@@ -65,6 +65,13 @@
       }"
     )
     page-quality-info(:data="$t('pages.company_quality.info')")
+    common-divider(
+      :data="{\
+        height: 'middle',\
+        color: 'light',\
+      }"
+    )
+    base-seo-content
 </template>
 
 <script lang="ts">
@@ -81,6 +88,7 @@ import PageQualityLineGangway from '~/components/Page/Company/Quality/PageQualit
 import PageQualityKnauf from '~/components/Page/Company/Quality/PageQualityKnauf.vue'
 import PageQualityUniqueRoofingSticky from '~/components/Page/Company/Quality/PageQualityUniqueRoofingSticky.vue'
 import PageQualityMaterials from '~/components/Page/Company/Quality/PageQualityMaterials.vue'
+import BaseSeoContent from '~/components/Base/BaseSeoContent.vue'
 
 @Component({
   components: {
@@ -94,6 +102,7 @@ import PageQualityMaterials from '~/components/Page/Company/Quality/PageQualityM
     CommonDivider,
     PageQualityTitle,
     PageQualityInfo,
+    BaseSeoContent,
   },
   head(): any {
     const title = this.$i18n.t('pages.company_quality.title.title')

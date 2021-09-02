@@ -88,6 +88,7 @@ import BaseScrollLine from '~/components/Base/BaseScrollLine.vue'
 import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
+import BaseSeoContent from '~/components/Base/BaseSeoContent.vue'
 import metaGenerator from '~/config/meta.js'
 import { Component, Vue } from 'nuxt-property-decorator'
 import { delay } from '~/lib/utils'
@@ -101,6 +102,7 @@ import { getSiteUrl } from '@/lib/utils'
     BaseScrollLine,
     BasePost,
     TypoText,
+    BaseSeoContent,
   },
   head(): any {
     const title = this.$i18n.t('pages.company_advantages.header.title')

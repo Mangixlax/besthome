@@ -1,17 +1,20 @@
 <template lang="pug">
-  base-text-container(
-    :data="{\
-       text: [\
-          `<h1>${$t('pages.term-of-use.title')}</h3>`,\
-          ...$t('pages.term-of-use.text').map((p) => `<p>${p}<p>`)\
-        ].join('')\
-    }"
-  )
+  main
+    base-text-container(
+      :data="{\
+        text: [\
+            `<h1>${$t('pages.term-of-use.title')}</h3>`,\
+            ...$t('pages.term-of-use.text').map((p) => `<p>${p}<p>`)\
+          ].join('')\
+      }"
+    )
+    base-seo-content
 </template>
 
 <script lang="ts">
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
 import metaGenerator from '~/config/meta.js'
+import BaseSeoContent from '~/components/Base/BaseSeoContent.vue'
 import { Component, Vue } from 'nuxt-property-decorator'
 import { delay } from '~/lib/utils'
 import { getSiteUrl } from '@/lib/utils'
@@ -19,6 +22,7 @@ import { getSiteUrl } from '@/lib/utils'
 @Component({
   components: {
     BaseTextContainer,
+    BaseSeoContent,
   },
   head(): any {
     const title = this.$i18n.t('pages.term-of-use.title') + ' ' + this.$i18n.t('seo_title')

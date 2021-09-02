@@ -29,6 +29,7 @@
     base-subscribe(:subscribe-data="$t('footer.subscribe')" white-theme)
     base-accordions(:accordions-data="$t('footer.accordions')")
     footer-fast-links
+    base-seo-content
 </template>
 
 <script lang="ts">
@@ -43,6 +44,7 @@ import BaseSubscribe from '~/components/Base/BaseSubscribe.vue'
 import BaseAccordions from '~/components/Base/BaseAccordions.vue'
 import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
 import TypoText from '~/components/Base/TypoText.vue'
+import BaseSeoContent from '~/components/Base/BaseSeoContent.vue'
 import { Component, Vue } from 'nuxt-property-decorator'
 import CatalogCards from '~/components/Catalog/CatalogCards.vue'
 import CatalogList from '~/components/Catalog/CatalogList.vue'
@@ -63,6 +65,7 @@ import { delay } from '~/lib/utils'
     TypoText,
     CatalogCards,
     CatalogList,
+    BaseSeoContent,
   },
   mixins: [modalsTriggerMixin],
 })

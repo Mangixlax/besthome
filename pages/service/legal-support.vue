@@ -43,6 +43,7 @@
         block_flip: false,\
       }"
     )
+    base-seo-content
 </template>
 
 <script lang="ts">
@@ -50,6 +51,7 @@ import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import BaseImageTitle from '~/components/Base/BaseImageTitle.vue'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
+import BaseSeoContent from '~/components/Base/BaseSeoContent.vue'
 import { Context } from '@nuxt/types'
 import metaGenerator from '~/config/meta.js'
 import { Component, Vue } from 'nuxt-property-decorator'
@@ -57,7 +59,13 @@ import { delay } from '~/lib/utils'
 import { getSiteUrl } from '@/lib/utils'
 
 @Component({
-  components: { BasePost, TypoText, BaseImageTitle, BaseTextContainer },
+  components: {
+    BasePost,
+    TypoText,
+    BaseImageTitle,
+    BaseTextContainer,
+    BaseSeoContent,
+  },
   head(): any {
     const title =
       this.$i18n.locale === 'ru'
