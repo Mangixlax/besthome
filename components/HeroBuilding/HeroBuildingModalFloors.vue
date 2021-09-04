@@ -45,7 +45,7 @@
           )
     template(slot="body")
       div(
-        v-if="localSelectedFloor.floor_plan && localSelectedFloor.floor_plan.data && localSelectedFloor.floor_plan.data.files.length"
+        v-if="localSelectedFloor.floor_plan && localSelectedFloor.floor_plan && localSelectedFloor.floor_plan.files.length"
         ref="content"
         :class="$style['floor__content']"
         @mousemove="onMouseMove"
@@ -55,8 +55,8 @@
             svg-icon(name="slider-prev-arrow-blue")
           button(:class="[$style['slider-button-next']]" @click.prevent="changeSlideIndexToNext")
             svg-icon(name="slider-next-arrow-blue")
-        img(:src="localSelectedFloor.floor_plan.data.files[currentSlideIndex].plan" loading="lazy")
-        div(:class="$style['floor__content-svg']" v-html="localSelectedFloor.floor_plan.data.files[currentSlideIndex].svg_mask")
+        img(:src="localSelectedFloor.floor_plan.files[currentSlideIndex].plan" loading="lazy")
+        div(:class="$style['floor__content-svg']" v-html="localSelectedFloor.floor_plan.files[currentSlideIndex].svg_mask")
       div(:class="$style['floor__footer']")
         div(
           ref="miniature"
@@ -268,7 +268,7 @@ export default class HeroBuildingModalFloors extends Vue {
     await this.$nextTick()
     this._beforeDestroy()
 
-    this.slides = this.localSelectedFloor.floor_plan.data.files
+    this.slides = this.localSelectedFloor.floor_plan.files
 
     this.$apartments = (this.$refs.content as Element).querySelectorAll('[data-id*=apartment-]')
     ;(this.$apartments || []).forEach((el: Element) => {

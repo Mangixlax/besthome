@@ -119,10 +119,12 @@ import { offerJsonLd } from '@/lib/catalog-helpers'
 import { objectIsFilled } from '@/lib/utils'
 import { getSiteUrl } from '@/lib/utils'
 import { Jsonld } from 'nuxt-jsonld'
+import CommonDivider from '~/components/Common/CommonDivider.vue'
 
 @Jsonld
 @Component({
   components: {
+    CommonDivider,
     FooterFastLinks,
     CommonConsultantSlider,
     BaseAccordions,
@@ -144,21 +146,17 @@ import { Jsonld } from 'nuxt-jsonld'
       ctx.store.commit('PageTransition/animate', false)
     }
 
-    let svgPlanning = []
-
     try {
       // Fetch apartment data
-      const { apartment, similarApartments } = await ctx.store.dispatch(
+      const { id, project, plans, name, similar_apartments } = await ctx.store.dispatch(
         'Catalog/fetchApartment',
         ctx.params.id,
       )
 
       // Redirect to new apartment slug if project.slug and params.slug not equal
-      if (apartment.project.slug !== ctx.params.slug) {
+      if (project.slug !== ctx.params.slug) {
         ctx.error({ statusCode: 404 })
       }
-
-      svgPlanning = apartment.plans
 
       ctx.store.commit('setBreadcrumbs', [
         {
@@ -168,11 +166,11 @@ import { Jsonld } from 'nuxt-jsonld'
           },
         },
         {
-          name: apartment.project.name,
+          name: project.name,
           route: {
             name: 'properties-slug',
             params: {
-              slug: apartment.project.slug,
+              slug: project.slug,
             },
           },
         },
@@ -181,17 +179,17 @@ import { Jsonld } from 'nuxt-jsonld'
           route: {
             name: 'properties-slug-apartments',
             params: {
-              slug: apartment.project.slug,
+              slug: project.slug,
             },
           },
         },
         {
-          name: apartment.name,
+          name,
           route: {
             name: 'properties-slug-apartments-id',
             params: {
-              slug: apartment.project.slug,
-              id: apartment.id,
+              slug: project.slug,
+              id,
             },
           },
         },
@@ -204,8 +202,8 @@ import { Jsonld } from 'nuxt-jsonld'
       }, 500)
 
       return {
-        svgPlanning,
-        similarApartments,
+        svgPlanning: plans,
+        similarApartments: similar_apartments,
       }
     } catch ({ error }) {
       ctx.error({ statusCode: error.http_code })

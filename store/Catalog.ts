@@ -61,11 +61,9 @@ export interface IProjectFloor {
 }
 
 export interface IProjectFloorPlan {
-  data: {
-    id: number
-    code: string
-    files: IProjectFloorPlanFile[]
-  }
+  id: number
+  code: string
+  files: IProjectFloorPlanFile[]
 }
 
 export interface IProjectFloorPlanFile {
@@ -275,16 +273,14 @@ export const actions: ActionTree<CatalogState, RootState> = {
       this.$axios
         .$get(`v1/apartments${apartment_id ? '/' + apartment_id : ''}`)
         .then(
-          ({
-            data,
-            similar_apartments,
-          }: {
-            data?: IProjectApartment
-            similar_apartments?: IProjectApartment[]
-          }) => {
-            commit('setApartment', data)
+          (
+            response: IProjectApartment & {
+              similar_apartments?: IProjectApartment[]
+            },
+          ) => {
+            commit('setApartment', response)
             commit('setLoading', false)
-            resolve({ apartment: data, similarApartments: similar_apartments })
+            resolve(response)
           },
         )
         .catch(({ response: { data } }) => {
