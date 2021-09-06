@@ -8,6 +8,7 @@
 
 <script>
 import paragraph from '@/components/article/content/ContentParagraph'
+import paragraphWithAside from '@/components/article/content/ContentParagraphWithAside'
 import header from '@/components/article/content/ContentHeader'
 import delimiter from '@/components/article/content/ContentDivider'
 import quote from '@/components/article/content/ContentBlockquote'
@@ -16,6 +17,7 @@ import embed from '@/components/article/content/ContentEmbed'
 import code from '@/components/article/content/ContentCode'
 import list from '@/components/article/content/ContentList'
 import linkTool from '@/components/article/content/ContentLinkTool'
+
 export default {
   name: 'ArticleRender',
   props: {
