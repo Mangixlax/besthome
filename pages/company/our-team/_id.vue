@@ -96,9 +96,7 @@ import { IPerson } from '~/store/Employees'
       ctx.store.commit('PageTransition/animate', false)
     }, 500)
 
-    return {
-      person,
-    }
+    return {}
   },
   head(): any {
     const title = this.person.name + ' ' + this.$i18n.t('seo_title')

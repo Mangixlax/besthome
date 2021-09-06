@@ -163,6 +163,7 @@ export default <NuxtConfig>{
     '@nuxtjs/svg-sprite',
     '@nuxtjs/component-cache',
     'cookie-universal-nuxt',
+    ['vue-scrollto/nuxt', { duration: 1800, offset: -200 }],
     'nuxt-i18n',
     '~/modules/recaptcha/module.js',
     '@nuxtjs/sitemap',

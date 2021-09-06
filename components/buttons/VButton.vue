@@ -36,7 +36,7 @@ import TypoText from '~/components/Base/TypoText.vue'
 export default {
   name: 'VButton',
   components: {
-    TypoText
+    TypoText,
   },
   props: {
     isComponent: {
@@ -143,7 +143,7 @@ export default {
   box-shadow: 0 0 24px rgba(gold, 0)
 
   // svg
-  //   fill: $gold-1
+  //   fill: gold-1
 
 .blue
   background-color: $color-blue-100

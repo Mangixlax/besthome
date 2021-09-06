@@ -17,7 +17,7 @@ import TypoText from '~/components/Base/TypoText.vue'
 export default {
   name: 'VFormContainer',
   components: {
-    TypoText
+    TypoText,
   },
   props: {
     tag: {
@@ -39,5 +39,5 @@ export default {
 <style lang="sass" module>
 .form-container
   +mobile
-    +horizontal-padding
+    //+horizontal-padding
 </style>

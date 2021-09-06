@@ -60,7 +60,6 @@ import HeroImageTooltips from '~/components/HeroImageTooltips/HeroImageTooltips.
 import metaGenerator from '~/config/meta.js'
 import { delay } from '~/lib/utils'
 import { getSiteUrl } from '@/lib/utils'
-import CommonDivider from '~/components/Common/CommonDivider.vue'
 import { IResponseMeta } from '~/types/Response'
 
 @Component({
