@@ -21,7 +21,7 @@
       div
         div
           | The site was made
-          a(href="https://sabr.com.tr/") SABR
+          a(href="https://sabr.com.tr/" target="_blank") SABR
           | . Russian-Turkish digital company.
         span
           | Content under the law

@@ -37,12 +37,8 @@ export const actions: ActionTree<EmployeeState, RootState> = {
     return new Promise((resolve, reject) => {
       this.$axios
         .$get(`v1/teams/${id}`)
-        .then((persons: any) => {
-          resolve(persons.data)
-        })
-        .catch(({ response: { data } }) => {
-          reject(data)
-        })
+        .then((persons: any) => resolve(persons))
+        .catch(({ response: { data } }) => reject(data))
     })
   },
   async fetchPersons({ commit }: EmployeeActionContext) {
@@ -51,12 +47,10 @@ export const actions: ActionTree<EmployeeState, RootState> = {
         .$get(`v1/teams`)
 
         .then((persons: any) => {
-          commit('setPersons', persons.data)
-          resolve(persons.data)
+          commit('setPersons', persons)
+          resolve(persons)
         })
-        .catch(({ response: { data } }) => {
-          reject(data)
-        })
+        .catch(({ response: { data } }) => reject(data))
     })
   },
 }
