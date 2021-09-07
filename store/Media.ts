@@ -143,7 +143,7 @@ export const actions: ActionTree<MediaState, RootState> = {
    
     return new Promise((resolve, reject) => {
       this.$axios
-        .$get(`https://gold-ahiskali.com/api/ru/v1/posts/${article_id}`)
+        .$get(`v1/media/${article_id}`)
         .then((article: any) => {
           commit('setMediaArticleData', article)
           resolve(article)

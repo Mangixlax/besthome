@@ -37,9 +37,17 @@ export default {
   position: sticky
   top: 150px
   list-style: none
-
+  padding: 24px 0
+  padding-left: 144px
+  margin: 0
+  background: $color-white-100
+  z-index: 2
+  
+  @media (max-width: 1440px)
+    padding-left: 0
+    
   li:not(:last-child)
-    margin-bottom: 9px
+    margin-bottom: 20px
 
   h3
     margin: 0

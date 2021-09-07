@@ -1,16 +1,12 @@
 <template lang="pug">
   div(:class="$style['author']")
     img(
-      :src="$img('/pages/quality/title/image-1.jpg', $store.state.supportWebP ? { format: 'webp' } : {})"
+      :src="$img(`/s1${data.avatar.path}`, $store.state.supportWebP ? { format: 'webp' } : {})"
       :class="$style['author-avatar']"
     )
     div(:class="$style['author-name']")
       p(:class="$style['author-firstname']")
-        | {{ data.lastname }} 
-      p(:class="$style['author-lastname']")
-        | {{ data.firstname }} 
-    p(:class="$style['author-date']")
-      | {{ data.date }}
+        | {{ data.name }} 
 </template>
 
 <script lang="ts">
@@ -38,7 +34,6 @@ export default class ArticleAuthor extends Vue {
 
 
   &-avatar
-    width: 81px
     height: 81px
     border-radius: 50%
     margin-bottom: 14px
@@ -54,7 +49,5 @@ export default class ArticleAuthor extends Vue {
       +style-6
       color: $color-black-96
 
-  &-date
-    +style-8
-    color: $color-black-32
+ 
 </style>

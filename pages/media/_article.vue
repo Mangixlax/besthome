@@ -3,6 +3,7 @@
     Article(
       :data="article"
     )
+    
 </template>
 
 <script lang="ts">
@@ -64,8 +65,8 @@ import { delay } from '~/lib/utils'
     }, 500)
 
     return {
-      article: article.data,
-      slugs: article.data.slugs,
+      article: article,
+      // slugs: article.data.slugs,
     }
   },
 })

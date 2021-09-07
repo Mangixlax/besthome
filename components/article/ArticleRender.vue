@@ -1,6 +1,6 @@
 <template lang="pug" functional>
   component(
-    :is="$options.getComponentName(props.block.type)"
+    :is="$options.getComponentName(props.block.type, props.block.data)"
     :block="props.block"
     v-bind="{ ...data.attrs, ...(props.block.type === 'header' && props.index.toString().length > 0 ? { id: `ahead_${props.index}` } : {}) }"
   )
@@ -23,9 +23,7 @@ export default {
   props: {
     block: {
       type: Object,
-      default: () => ({
-        type: 'fragment',
-      }),
+      default: () => ({}),
     },
     index: {
       type: [String, Number],
@@ -48,18 +46,20 @@ export default {
       },
     },
   },
-  getComponentName(block_type = '') {
+  getComponentName(block_type = '', data = '') {
     if (block_type) {
       const componentName = Object.keys(this.inject.components.default).includes(block_type)
         ? this.inject.components.default[block_type]
         : 'fragment'
 
-      if (componentName === 'paragraph' && this.block.asideText?.length > 0) {
-        return 'paragraphWithAside'
+      if (componentName === this.inject.components.default['paragraph'] && data.asideText.length > 0) {
+        return this.inject.components.default['paragraphWithAside']
       }
+
+      return componentName
     }
 
-    return componentName
+    return 'fragment'
   },
 }
 </script>

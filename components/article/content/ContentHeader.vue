@@ -28,13 +28,17 @@ export default {
 .h1, .h2, .h3, .h4, .h5, .h6
   color: rgba(25, 31, 46, 0.96)
   padding-left: 70px
+  padding-right: 144px
+
+  @media (max-width: 1440px)
+    padding-right: 0
 
   @media (max-width: 1054px)
     padding-left: 35px
 
   @media (max-width: 760px)
     padding-left: 0
-
+  
 .h1
   display: none
 

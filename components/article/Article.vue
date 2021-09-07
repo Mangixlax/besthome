@@ -3,10 +3,12 @@
     :class="$style['article']"
   )
     header(:class="$style['article__header']")
-      article-author(:data="author")
+      article-author(:data="data.author")
+      p(:class="$style['article__header-date']")
+        | {{ data.published_at }}
       h1(:class="$style['article__header-title']") 
-        | {{ data.title }}
-
+        | {{ data.header }}
+   
     div(
       :class="$style['article__container']"
     )
@@ -22,8 +24,6 @@
           :index="index"
           :block="block"
         )
-
-    
 </template>
 
 <script lang="ts">
@@ -41,14 +41,7 @@ import { IBlock } from '~/store/Media'
   },
 })
 export default class ArticleBlock extends Vue {
-  @Prop({ type: Object, default: false }) data!: object
-
-  public author: Object = {
-    avatar: '',
-    firstname: 'Aslan',
-    lastname: 'Dzhangetov',
-    date: 'As of august 7, 2021',
-  }
+  @Prop({ type: Object, default: () => {}}) data!: Object
 
   get getHeadings() {
     return (this as any).data.content
@@ -59,6 +52,10 @@ export default class ArticleBlock extends Vue {
       .map((block: any) => {
         return { text: block.data.text, index: block.index }
       })
+  }
+
+  mounted() {
+    console.log((this as any).data)
   }
 }
 </script>
@@ -72,13 +69,18 @@ export default class ArticleBlock extends Vue {
   &__header
     text-align: center
 
+    &-date
+      margin: 0
+      +style-8
+      color: $color-black-32
+
     &-title
       +style-1
       max-width: 992px
       padding: 0 24px
       margin: 0 auto
       margin-top: 64px
-      margin-bottom: 172px
+      margin-bottom: 148px
 
       @media (max-width: 1054px)
         margin-bottom: 64px
@@ -88,14 +90,15 @@ export default class ArticleBlock extends Vue {
 
   &__container
     display: grid
-    grid-template-columns: minmax(150px, 334px) minmax(150px, 952px)
-    grid-gap: 70px
+    grid-template-columns: minmax(150px, 487px) minmax(150px, 952px)
     flex-direction: column-reverse
     max-width: 1488px
     margin: 0 auto
     padding: 0 24px
+    grid-gap: 24px
 
     @media (max-width: 1056px)
+      grid-template-columns: minmax(150px, 314px) minmax(150px, 952px)
       grid-gap: 30px
 
     @media (max-width: 1000px)
@@ -104,8 +107,12 @@ export default class ArticleBlock extends Vue {
 
     &-nav
       height: 100%
+      
+      @media (max-width: 1000px)
+        display: none
 
     &-content
+      padding: 24px 0
       width: 100%
   /*&__left*/
   /*  flex-shrink: 0*/
