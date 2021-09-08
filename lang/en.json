@@ -1198,6 +1198,16 @@
         "contact_us": "Contact us"
       }
     },
+    "media": {
+      "title": {
+        "title": "Only current news and promotions",
+        "description":  "New projects and discounts in 2021<br>Be the first to find out about the start of sales!"
+      },
+      "list": {
+        "title": "The most relevant",
+        "description": "Come up with a few words about this section. You can put this text in a couple of lines, but no more!"
+      }
+    },
     "contacts": {
       "contact_map": {
         "title": "BestHome",

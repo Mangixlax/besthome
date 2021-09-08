@@ -15,10 +15,6 @@ export default {
       default: () => {},
     },
   },
-
-  created() {
-    console.log(this.name)
-  }
 }
 </script>
 
@@ -56,7 +52,7 @@ export default {
 
   @media (max-width: 760px)
     padding-left: 0
-    
+
 .P3
   +desktop-text-style-5
   color: rgba(25, 31, 46, 0.8)

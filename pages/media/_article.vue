@@ -39,8 +39,7 @@ import { delay } from '~/lib/utils'
 
     const article = await ctx.store.dispatch(
       'Media/fetchMediaArticleItem',
-      '1',
-      // params.article.split('-').pop(),
+      ctx.params.article.split('-').pop(),
     )
 
     // if (Object.keys(article || {}).includes('error')) return error({ statusCode: 404, error: article })

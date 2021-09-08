@@ -1169,6 +1169,30 @@
         "additional": "Он включает в себя три этажа, собственную парковку.",
         "contact_us": "Свяжитесь с нами"
       }
+    },
+    "media": {
+      "title": {
+        "title": "Только актуальные новости и акции",
+        "description":  "Новые проекты и скидки в 2021 году <br> Узнай первым о старте продаж!"
+      },
+      "list": {
+        "title": "Самый актуальный",
+        "description": "Придумайте несколько слов об этом разделе. Вы можете поместить этот текст в пару строк, но не более того!"
+      }
+    },
+    "contacts": {
+      "contact_map": {
+        "title": "BestHome",
+        "phone": "+90 530 547-44-15",
+        "email": "info@besthome.com.tr",
+        "address": "Cikcilli mahallesi, Tugayoğlu sokak, No. 18/1, Alanya 07400, Antalya, Türkiye",
+        "workTime": "Понедельник-суббота, с 9:00 до 18:00",
+        "linkToMap": {
+          "text": "Более",
+          "link": "посмотреть карту",
+          "route": "/"
+        }
+      }
     }
   },
   "footer": {

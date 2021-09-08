@@ -3,14 +3,12 @@ import { ActionContext, ActionTree, GetterTree, MutationTree } from 'vuex'
 
 // const isObject = (value) => value && !Array.isArray(value) && typeof value === 'object'
 
-
 export interface IArticle {
   is_fill: boolean
   id: number
   slugs: Object
   title: string
   excerpt: string
-
 }
 
 export interface IBlock {
@@ -24,6 +22,8 @@ export interface IBlockData {
 
 export const state = () => ({
   media_article: {} as Object,
+  media_article_list: {} as Object,
+  media_article_favorite_list: {} as Object,
   // sort: 'date,desc',
   // media_rubric_collection: [],
   // meta: {
@@ -43,7 +43,9 @@ export type MediaState = ReturnType<typeof state>
 interface MediaActionContext extends ActionContext<MediaState, RootState> {}
 
 export const getters: GetterTree<MediaState, RootState> = {
-  getMediaArticleItem: (state): Object => state.media_article
+  getMediaArticleItem: (state): Object => state.media_article,
+  getMediaArticlesList: (state): Object => state.media_article_list,
+  getMediaFavoriteArticlesList: (state): Object => state.media_article_favorite_list,
   // getMediaRubricCollection(state) {
   //   return state.media_rubric_collection
   // },
@@ -56,8 +58,14 @@ export const getters: GetterTree<MediaState, RootState> = {
 }
 
 export const mutations = {
-  setMediaArticleData(state : MediaState, article: any) {
+  setMediaArticleData(state: MediaState, article: any) {
     state.media_article = article.data || []
+  },
+  setMediaArticleListData(state: MediaState, response: any) {
+    state.media_article_list = response.data || []
+  },
+  setMediaArticleFavoriteData(state: MediaState, response: any) {
+    state.media_article_favorite_list = response || []
   },
   // setMediaRubricCollectionData(state, response) {
   //   state.media_rubric_collection = response.data || []
@@ -138,9 +146,8 @@ export const actions: ActionTree<MediaState, RootState> = {
   //  * @param {Number} article_id
   //  * @returns {Promise<any>}
   //  */
-  
+
   async fetchMediaArticleItem({ commit }: MediaActionContext, article_id: string) {
-   
     return new Promise((resolve, reject) => {
       this.$axios
         .$get(`v1/media/${article_id}`)
@@ -148,11 +155,41 @@ export const actions: ActionTree<MediaState, RootState> = {
           commit('setMediaArticleData', article)
           resolve(article)
         })
-        .catch(({ response: {data} }) => {
+        .catch(({ response: { data } }) => {
           reject(data)
         })
     })
   },
+
+  async fetchMediaArticleList({ commit }: MediaActionContext, category_id: string | number | null = null) {
+    return new Promise((resolve, reject) => {
+      this.$axios
+        .$get(`v1/media`, { params: { category_id } })
+        .then((response: any) => {
+          commit('setMediaArticleListData', response)
+          resolve(response)
+        })
+        .catch(({ response: { data } }) => {
+          reject(data)
+        })
+    })
+  },
+
+  async fetchMediaArticleFavoriteList({ commit }: MediaActionContext, article_id: string) {
+    return new Promise((resolve, reject) => {
+      this.$axios
+        .$get(`v1/media/favorites`)
+        .then((article_favorite_list: any) => {
+          commit('setMediaArticleFavoriteData', article_favorite_list)
+          resolve(article_favorite_list)
+        })
+        .catch(({ response: { data } }) => {
+          reject(data)
+        })
+    })
+  },
+
+  
   /**
    * Увеличить счетчик просмотров у статьи
    *
@@ -176,5 +213,3 @@ export const actions: ActionTree<MediaState, RootState> = {
   //   await commit('SET_SORTING_PARAMS', { field, direction })
   // },
 }
-
-

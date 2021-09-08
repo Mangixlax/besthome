@@ -28,9 +28,6 @@ export default {
       default: () => {},
     },
   },
-  mounted() {
-    console.log('asd')
-  }
 }
 </script>
 
@@ -55,7 +52,7 @@ export default {
 
   @media (max-width: 760px)
     padding-left: 0
-  
+
   +mobile
     padding-left: 32px
 
@@ -72,7 +69,7 @@ export default {
   &__author
     +desktop-text-style-6
     margin: 0
-    
+
     a
       cursor: pointer
       color: $color-blue-80

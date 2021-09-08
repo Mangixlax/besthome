@@ -41,7 +41,7 @@ import { IBlock } from '~/store/Media'
   },
 })
 export default class ArticleBlock extends Vue {
-  @Prop({ type: Object, default: () => {}}) data!: Object
+  @Prop({ type: Object, default: () => {} }) data!: Object
 
   get getHeadings() {
     return (this as any).data.content
@@ -54,9 +54,9 @@ export default class ArticleBlock extends Vue {
       })
   }
 
-  mounted() {
-    console.log((this as any).data)
-  }
+  // mounted() {
+  //   console.log((this as any).data)
+  // }
 }
 </script>
 
@@ -107,7 +107,7 @@ export default class ArticleBlock extends Vue {
 
     &-nav
       height: 100%
-      
+
       @media (max-width: 1000px)
         display: none
 

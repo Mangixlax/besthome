@@ -14,7 +14,7 @@
       typo-text(
         tag="nuxt-link"
         version="style-5"
-         :to="localePath({\
+        :to="localePath({\
           name: 'company-our-team-id',\
           params: {\
             id: card.slug\
