@@ -3,21 +3,16 @@
     Article(
       :data="article"
     )
-    
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import { Context } from '@nuxt/types'
-// import { routeTransitions } from '@/mixins/routes'
 import { metaGenerator } from '@/config/meta'
 import Article from '~/components/article/Article.vue'
 import ArticleAuthor from '~/components/article/ArticleAuthor.vue'
-// import ArticleAsideLikes from '@/components/article/ArticleAsideLikes'
 import ArticleAsideContent from '@/components/article/ArticleAsideContent.vue'
-import { delay } from '~/lib/utils'
-// import { getSiteUrl } from '@/lib/utils'
-// import { methodsWithImages } from '@/mixins/images'
+import { getSiteUrl, delay } from '~/lib/utils'
 
 @Component({
   components: {
@@ -26,9 +21,58 @@ import { delay } from '~/lib/utils'
     ArticleAuthor,
   },
   scrollToTop: true,
+  head(): any {
+    const title = this.article.seo_title + ' ' + this.$i18n.t('seo_title')
 
+    const description = this.article.seo_description
+
+    return {
+      title,
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+        prefix: 'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#',
+      },
+      meta: metaGenerator({
+        title,
+        description,
+      }),
+      link: [
+        {
+          rel: 'canonical',
+          href: getSiteUrl(this.localePath(this.$route.path), true),
+        },
+        {
+          rel: 'alternate',
+          hreflang: 'x-default',
+          href: getSiteUrl(
+            this.localePath(
+              {
+                name: 'media-article',
+                params: this.$route.params,
+              },
+              'en',
+            ),
+            true,
+          ),
+        },
+        {
+          rel: 'alternate',
+          hreflang: 'ru',
+          href: getSiteUrl(
+            this.localePath(
+              {
+                name: 'media-article',
+                params: this.$route.params,
+              },
+              'ru',
+            ),
+            true,
+          ),
+        },
+      ],
+    }
+  },
   async asyncData(ctx: Context) {
-    // if (!params.article) return error({ statusCode: 404 })
 
     if (!process.server) {
       await delay(200)
@@ -65,18 +109,11 @@ import { delay } from '~/lib/utils'
 
     return {
       article: article,
-      // slugs: article.data.slugs,
     }
   },
 })
 export default class ArticlePage extends Vue {
-  async mounted() {
-    await this.$root.$emit('SET_CUSTOM_SLUGS', [{ attr: 'article', slugs: this.slugs }])
-  }
-
-  async updated() {
-    await this.$root.$emit('SET_CUSTOM_SLUGS', [{ attr: 'article', slugs: this.slugs }])
-  }
+  
 }
 </script>
 

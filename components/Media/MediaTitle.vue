@@ -119,17 +119,19 @@ export default class PageQualityTitle extends Vue {
 
       img
         width: 100%
+        height: 1%
 
       &--2
         padding-top: 72px
-        padding-bottom: 39px
+        height: 82%
 
         @media (max-width: 1025px)
           padding: initial
 
       &--4
-        margin-top: -72px
-        padding-bottom: 72px
+        margin-top: -80px
+        padding-bottom: 60px
+        height: 120%
 
         @media (max-width: 1025px)
           padding: initial

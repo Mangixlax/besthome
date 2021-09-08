@@ -35,9 +35,9 @@ import { getSiteUrl, delay } from '@/lib/utils'
     MediaList,
   },
   head(): any {
-    const title = this.$i18n.locale === 'ru' ? '' : ''
+    const title = this.$i18n.locale === 'ru' ? 'Новости рынка недвижимости в Турции от BestHome' : 'Real estate market news in Turkey from BestHome'
 
-    const description = this.$i18n.locale === 'ru' ? '' : ''
+    const description = this.$i18n.locale === 'ru' ? 'Вся информация по рынку недвижимости в Алании, Турция. Цены на квартиры,  какую недвижимость покупать как инвестиции, динамика цен на недвижимость, коммерческая недвижимость, отзывы реальных покупателей. Последние новости от застройщиков Алании.' : 'All information on the real estate market in Alanya, Turkey. Prices for apartments, what kind of real estate to buy as an investment, the dynamics of real estate prices, commercial real estate, reviews of real buyers. The latest news from the developers of Alanya.'
 
     return {
       title,
