@@ -97,13 +97,15 @@ export default class PageQualityTitle extends Vue {
     display: flex
     flex-direction: column
     grid-gap: 32px
-
+    border-bottom: solid 1px $color-black-4
+    padding-bottom: 17px
+    
     &-list
       +desktop-text-style-6
       display: flex
       max-width: 270px
       justify-content: space-between
-
+      
       div
         cursor: pointer
 
