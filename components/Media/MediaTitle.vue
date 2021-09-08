@@ -11,7 +11,7 @@
           common-subscribe(
             :subscribe-data="$t('footer.subscribe')" 
             white-theme
-            form-code="quality_feedback"
+            form-code="media_feedback"
           )
       div(:class="$style['title__container-imagebox']")
         media-card(
