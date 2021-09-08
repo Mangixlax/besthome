@@ -27,7 +27,23 @@
           @click=""
         ) {{ $i18n.locale === 'ru' ? 'Вперед' : 'Next' }}
       nav(:class="$style['media-list__footer-pagination']")
-        
+        ul(:class="$style['media-list__footer-pagination-list']")
+          li(:class="$style['media-list__footer-pagination-item']")
+            svg-icon(name="dropdown-left")
+          li(:class="$style['media-list__footer-pagination-item']")
+            | 1
+          li(:class="$style['media-list__footer-pagination-item']")
+            | ...
+          li(:class="$style['media-list__footer-pagination-item']")
+            | 5
+          li(:class="$style['media-list__footer-pagination-item']")
+            | 6
+          li(:class="$style['media-list__footer-pagination-item']")
+            | 7
+          li(:class="$style['media-list__footer-pagination-item']")
+            | ...
+          li(:class="$style['media-list__footer-pagination-item']")
+            svg-icon(name="dropdown-right")
 </template>
 
 <script lang="ts">
@@ -99,30 +115,38 @@ export default class PageQualityTitle extends Vue {
     grid-gap: 32px
     border-bottom: solid 1px $color-black-4
     padding-bottom: 17px
-    
+
     &-list
       +desktop-text-style-6
       display: flex
       max-width: 270px
       justify-content: space-between
-      
+
       div
         cursor: pointer
 
   &__footer
     display: flex
     margin-top: 64px
-    justify-content: center
+    justify-content: flex-end
+
+    @media (max-width: 760px)
+      flex-direction: column
+      align-items: center
 
     &-buttons
       display: flex
       grid-gap: 32px
+      margin-right: 177px
+
+      @media (max-width: 760px)
+        margin-right: 0
+        grid-gap: 16px
 
     &-prev
       display: flex
       justify-content: center
       align-items: center
-      margin: 40px auto 0
       height: 125px
       width: 125px
       border-radius: 50%
@@ -138,7 +162,6 @@ export default class PageQualityTitle extends Vue {
       display: flex
       justify-content: center
       align-items: center
-      margin: 40px auto 0
       height: 125px
       width: 125px
       border-radius: 50%
@@ -149,4 +172,28 @@ export default class PageQualityTitle extends Vue {
       background-color: $color-blue-100
       text-align: center
       cursor: pointer
+
+    &-pagination
+      display: flex
+      align-items: center
+      max-width: 248px
+      width: 100%
+
+      &-list
+        display: flex
+        list-style: none
+        padding: 0
+        height: fit-content
+        justify-content: space-between
+        width: 100%
+
+      &-item
+        +desktop-text-style-5
+        color: $color-black-88
+        display: flex
+        align-items: center
+
+        svg
+          height: 18px
+          width: 18px
 </style>
