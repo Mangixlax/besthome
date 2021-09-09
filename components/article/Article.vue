@@ -51,6 +51,9 @@ export default class ArticleBlock extends Vue {
         return { text: block.data.text, index: block.index }
       })
   }
+  mounted() {
+    console.log(this.data)
+  }
 }
 </script>
 
@@ -130,4 +133,7 @@ a
   cursor: pointer
   color: $color-blue-80
   text-decoration: none
+
+p:first-child
+  margin-top: 0
 </style>

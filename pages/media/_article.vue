@@ -73,7 +73,6 @@ import { getSiteUrl, delay } from '~/lib/utils'
     }
   },
   async asyncData(ctx: Context) {
-
     if (!process.server) {
       await delay(200)
       ctx.store.commit('PageTransition/animate', true)
@@ -113,9 +112,7 @@ import { getSiteUrl, delay } from '~/lib/utils'
     }
   },
 })
-export default class ArticlePage extends Vue {
-  
-}
+export default class ArticlePage extends Vue {}
 </script>
 
 <style lang="sass" module>

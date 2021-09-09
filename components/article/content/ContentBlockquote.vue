@@ -53,10 +53,6 @@ export default {
   @media (max-width: 760px)
     padding-left: 0
 
-  +mobile
-    padding-left: 32px
-
-
   &__icon
     width: 30px
     height: 30px

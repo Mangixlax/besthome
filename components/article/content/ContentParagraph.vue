@@ -120,6 +120,9 @@ export default {
   @media (max-width: 760px)
     margin: 24px 0
 
+.p + .figure
+  margin-top: 64px
+
 .p + h2
   margin-top: 64px
 

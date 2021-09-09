@@ -125,12 +125,6 @@ export default {
   @media (max-width: 760px)
     padding-left: 0
 
-.with-aside + p
-  margin: 32px 0
-
-  @media (max-width: 760px)
-    margin: 24px 0
-
 .with-aside + h2
   margin-top: 64px
 
