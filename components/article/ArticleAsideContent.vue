@@ -37,7 +37,7 @@ export default {
   position: sticky
   top: 150px
   list-style: none
-  padding: 24px 0
+  padding: 26px 0
   padding-left: 144px
   margin: 0
   background: $color-white-100

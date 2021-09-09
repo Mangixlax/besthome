@@ -125,13 +125,13 @@ export default {
   @media (max-width: 760px)
     padding-left: 0
 
-.p + p
+.with-aside + p
   margin: 32px 0
 
   @media (max-width: 760px)
     margin: 24px 0
 
-.p + h2
+.with-aside + h2
   margin-top: 64px
 
   @media (max-width: 1054px)
@@ -140,7 +140,7 @@ export default {
   @media (max-width: 760px)
     margin-top: 24px
 
-.p + h3
+.with-aside + h3
   margin-top: 64px
 
   @media (max-width: 1054px)
@@ -149,7 +149,7 @@ export default {
   @media (max-width: 760px)
     margin-top: 24px
 
-.p + h4
+.with-aside + h4
   margin-top: 64px
 
   @media (max-width: 1054px)
@@ -158,7 +158,7 @@ export default {
   @media (max-width: 760px)
     margin-top: 24px
 
-.p + h5
+.with-aside + h5
   margin-top: 64px
 
   @media (max-width: 1054px)
@@ -167,7 +167,7 @@ export default {
   @media (max-width: 760px)
     margin-top: 24px
 
-.p + h6
+.with-aside + h6
   margin-top: 64px
 
   @media (max-width: 1054px)
