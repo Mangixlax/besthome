@@ -70,11 +70,6 @@ export default {
   @media (max-width: 760px)
     padding-left: 0
 
-  a
-    cursor: pointer
-    color: $color-blue-80
-    text-decoration: none
-
 .P4
   +desktop-text-style-7
   color: rgba(25, 31, 46, 0.8)
@@ -124,6 +119,9 @@ export default {
 
   @media (max-width: 760px)
     margin: 24px 0
+
+.p + .figure
+  margin-top: 64px
 
 .p + h2
   margin-top: 64px

@@ -1,27 +1,16 @@
 <template lang="pug">
   p(
-    v-if="block.data.file.paths"
+    v-if="block.data.file"
     v-bind="$attrs"
-    :class="[$style['figure'], block.data.stretched ? $style['full-width'] : '']"
+    :class="[$style['figure'], block.data.stretched && $style['full-width']]"
   ) 
     img(
-      :src="$img('/pages/quality/title/image-1.jpg', $store.state.supportWebP ? { format: 'webp' } : {})"
+      :src="$img(`/s1/storage/app/uploads/public/${block.data.file.url}`, $store.state.supportWebP ? { format: 'webp' } : {})"
+      :alt="block.data.alt"
       loading="lazy"
       decoding="async"
-      :class="$style['personal-card__photo-image']"
+      :class="[$style['img'], block.data.caption && $style['with-caption']]"
     )
-    //- image-object(
-    //-   :name="block.data.caption"
-    //-   :content-url="getOriginalImage(block.data.file.paths).path"
-    //- )
-    //- lazy-image(
-    //-   :class="$style.img"
-    //-   :alt="block.data.caption"
-    //-   :image="block.data.file.paths"
-    //-   fix-src-sizes="1000px"
-    //-   big-loader
-    //-   zoom
-    //- )
     span(
       v-if="block.data.caption"
     ) {{ block.data.caption }}
@@ -42,33 +31,53 @@ export default {
 
 <style lang="sass" module>
 .figure
-  margin: 24px 0
+  margin: 64px 0
+  padding-left: 70px
+  padding-right: 144px
+
+  @media (max-width: 1440px)
+    padding-right: 0
+
+  @media (max-width: 1054px)
+    margin: 32px 0
+    padding-left: 35px
+
+  @media (max-width: 760px)
+    margin: 24px 0
+    padding-left: 0
 
   & > p
     margin: 0
 
   &.full-width
-    margin-left: -64px
-    margin-right: -64px
+    padding-left: 0
+    padding-right: 0
 
-    +mobileWithTablet
-      margin-left: -16px
-      margin-right: -16px
-
-  span:last-child
-    display: block
-    margin-top: 24px
-    color: rgba(25, 31, 46, 0.8)
+  span
+    +desktop-text-style-9
+    color: $color-black-32
     padding-left: 70px
+    padding-right: 144px
+
+    @media (max-width: 1440px)
+      padding-right: 0
 
     @media (max-width: 1054px)
+      margin: 32px 0
       padding-left: 35px
 
     @media (max-width: 760px)
+      margin: 24px 0
       padding-left: 0
 
 .img
-  border-radius: 10px
+  width: 100%
+
+  &.with-caption
+    margin-bottom: 32px
+
+    @media (max-width: 760px)
+      margin-bottom: 16px
 
 .figure + h2, h3, h4, h5, h6
   margin-top: 64px

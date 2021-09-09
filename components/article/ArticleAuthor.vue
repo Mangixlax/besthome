@@ -19,6 +19,10 @@ import { Jsonld } from 'nuxt-jsonld'
 })
 export default class ArticleAuthor extends Vue {
   @Prop({ type: Object, default: () => {} }) data!: Object
+
+  mounted() {
+    console.log(this.data)
+  }
 }
 </script>
 
@@ -48,6 +52,4 @@ export default class ArticleAuthor extends Vue {
     p
       +style-6
       color: $color-black-96
-
- 
 </style>

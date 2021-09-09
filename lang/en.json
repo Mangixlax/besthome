@@ -16,7 +16,8 @@
     "inspection_trip": "Inspection trip",
     "investments": "Invesments",
     "our_projects": "Our Projects",
-    "apartments": "Apartments"
+    "apartments": "Apartments",
+    "media": "Media"
   },
   "top_line": "BestHome Construction is happy to announce that sales of the most luxurious complex of Alanya has started. BestHome 36-37 The Legend. Don’t miss it!",
   "catalog": {
@@ -1205,7 +1206,10 @@
       },
       "list": {
         "title": "The most relevant",
-        "description": "Come up with a few words about this section. You can put this text in a couple of lines, but no more!"
+        "description": "Come up with a few words about this section. You can put this text in a couple of lines, but no more!",
+        "all": "All",
+        "news": "News",
+        "promotions": "Promotions"
       }
     },
     "contacts": {

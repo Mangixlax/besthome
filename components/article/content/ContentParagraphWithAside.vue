@@ -40,27 +40,6 @@ export default {
   @media (max-width: 1000px)
     display: none
 
-  a
-    cursor: pointer
-    color: $color-blue-80
-    text-decoration: none
-
-
-.p + h2, h3, h4, h5, h6
-  margin-top: 64px
-
-  @media (max-width: 1054px)
-    margin-top: 32px
-
-  @media (max-width: 760px)
-    margin-top: 24px
-
-.p + p
-  margin: 32px 0
-
-  @media (max-width: 760px)
-    margin: 24px 0
-
 .P1
   +desktop-text-style-3
   color: rgba(25, 31, 46, 0.8)
@@ -94,7 +73,7 @@ export default {
 
   @media (max-width: 760px)
     padding-left: 0
-    
+
 .P3
   +desktop-text-style-5
   color: rgba(25, 31, 46, 0.8)
@@ -111,11 +90,6 @@ export default {
 
   @media (max-width: 760px)
     padding-left: 0
-
-  a
-    cursor: pointer
-    color: $color-blue-80
-    text-decoration: none
 
 .P4
   +desktop-text-style-7
@@ -134,11 +108,6 @@ export default {
   @media (max-width: 760px)
     padding-left: 0
 
-  a
-    cursor: pointer
-    color: $color-blue-80
-    text-decoration: none
-
 .P5
   +desktop-text-style-8
   color: rgba(25, 31, 46, 0.8)
@@ -156,9 +125,48 @@ export default {
   @media (max-width: 760px)
     padding-left: 0
 
-  a
-    cursor: pointer
-    color: $color-blue-80
-    text-decoration: none
+.with-aside + h2
+  margin-top: 64px
 
+  @media (max-width: 1054px)
+    margin-top: 32px
+
+  @media (max-width: 760px)
+    margin-top: 24px
+
+.with-aside + h3
+  margin-top: 64px
+
+  @media (max-width: 1054px)
+    margin-top: 32px
+
+  @media (max-width: 760px)
+    margin-top: 24px
+
+.with-aside + h4
+  margin-top: 64px
+
+  @media (max-width: 1054px)
+    margin-top: 32px
+
+  @media (max-width: 760px)
+    margin-top: 24px
+
+.with-aside + h5
+  margin-top: 64px
+
+  @media (max-width: 1054px)
+    margin-top: 32px
+
+  @media (max-width: 760px)
+    margin-top: 24px
+
+.with-aside + h6
+  margin-top: 64px
+
+  @media (max-width: 1054px)
+    margin-top: 32px
+
+  @media (max-width: 760px)
+    margin-top: 24px
 </style>

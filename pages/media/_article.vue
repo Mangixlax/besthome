@@ -73,7 +73,6 @@ import { getSiteUrl, delay } from '~/lib/utils'
     }
   },
   async asyncData(ctx: Context) {
-
     if (!process.server) {
       await delay(200)
       ctx.store.commit('PageTransition/animate', true)
@@ -86,22 +85,23 @@ import { getSiteUrl, delay } from '~/lib/utils'
       ctx.params.article.split('-').pop(),
     )
 
-    // if (Object.keys(article || {}).includes('error')) return error({ statusCode: 404, error: article })
-
-    // Редирект со стороны сервера, если ссылка имеет другой вид
-    // например, был изменен slug у записи и чтобы поисковик не потерял страницу,
-    // делаем редирект на новую ссылку
-    // if (article.data.slugs[app.i18n.locale] !== params.article) {
-    //   return redirect(
-    //     301,
-    //     app.router.resolve({
-    //       name: route.name,
-    //       params: { article: article.data.slugs[app.i18n.locale] },
-    //     }).href,
-    //   )
-    // }
-
-    // await store.dispatch('media/incrementArticleViews', article.data.id)
+    ctx.store.commit('setBreadcrumbs', [
+      {
+        name: ctx.app.i18n.t('breadcrumbs.media'),
+        route: {
+          name: 'projects',
+        },
+      },
+      {
+        name: article.header,
+        route: {
+          name: 'properties-slug',
+          params: {
+            slug: article.slugs[ctx.i18n.locale],
+          },
+        },
+      },
+    ])
 
     setTimeout(() => {
       ctx.store.commit('PageTransition/animate', false)
@@ -112,9 +112,7 @@ import { getSiteUrl, delay } from '~/lib/utils'
     }
   },
 })
-export default class ArticlePage extends Vue {
-  
-}
+export default class ArticlePage extends Vue {}
 </script>
 
 <style lang="sass" module>

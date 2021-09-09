@@ -8,7 +8,6 @@
         | {{ data.published_at }}
       h1(:class="$style['article__header-title']") 
         | {{ data.header }}
-   
     div(
       :class="$style['article__container']"
     )
@@ -16,7 +15,6 @@
         :class="$style['article__container-nav']"
       )
         article-aside-content(:list="getHeadings")
-
       div(:class="$style['article__container-content']")
         article-render(
           v-for="(block, index) in data.content"
@@ -53,10 +51,9 @@ export default class ArticleBlock extends Vue {
         return { text: block.data.text, index: block.index }
       })
   }
-
-  // mounted() {
-  //   console.log((this as any).data)
-  // }
+  mounted() {
+    console.log(this.data)
+  }
 }
 </script>
 
@@ -104,7 +101,6 @@ export default class ArticleBlock extends Vue {
     @media (max-width: 1000px)
       grid-template-columns: minmax(280px, 744px)
 
-
     &-nav
       height: 100%
 
@@ -114,20 +110,6 @@ export default class ArticleBlock extends Vue {
     &-content
       padding: 24px 0
       width: 100%
-  /*&__left*/
-  /*  flex-shrink: 0*/
-
-  /*  &-block*/
-  /*    display: block*/
-  /*    min-height: 560px*/
-  /*    height: calc(100%)*/
-
-  /*    &__sticky*/
-  /*      position: -webkit-sticky*/
-  /*      position: sticky*/
-  /*      background-color: transparent*/
-  /*      z-index: 1*/
-  /*      top: 100px*/
 
   &__nav
     display: -webkit-box
@@ -147,12 +129,11 @@ export default class ArticleBlock extends Vue {
     @media (max-width: 1000px)
       display: none
 
-  // &__content
-  //   word-wrap: break-word
+a
+  cursor: pointer
+  color: $color-blue-80
+  text-decoration: none
 
-  //&--grid &__content
-  //  padding: 0 64px
-  //
-  //  +mobileWithTablet
-  //    padding: 0
+p:first-child
+  margin-top: 0
 </style>

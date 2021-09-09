@@ -84,13 +84,7 @@ export default class PageQualityTitle extends Vue {
       @media (max-width: 360px)
         +desktop-display-style-4
         margin-bottom: 24px
-
-      @media (min-width: 1440px)
-        position: absolute
-        top: 148px
-        margin: 0
-        width: 800px
-
+     
     &-subscribe
       max-width: 414px
 

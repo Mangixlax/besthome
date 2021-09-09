@@ -9,16 +9,16 @@
       template(slot="categories")
         div(
           @click.prevent="onClickToCategory(null)"
-          :class="categoryId === null && $style['zxc']"
-        ) All
+          :class="[categoryId === null && $style['active'], $style['category']]"
+        ) {{ $t('pages.media.list.all') }}
         div(
           @click.prevent="onClickToCategory(1)"
-          :class="categoryId === 1 && $style['zxc']"
-        ) Only News
+          :class="[categoryId === 1 && $style['active'], $style['category']]"
+        ) {{ $t('pages.media.list.news') }}
         div(
           @click.prevent="onClickToCategory(2)"
-          :class="categoryId === 2 && $style['zxc']"
-        ) Promotions
+          :class="[categoryId === 2 && $style['active'], $style['category']]"
+        ) {{ $t('pages.media.list.promotions') }}
 </template>
 
 <script lang="ts">
@@ -59,8 +59,6 @@ import { getSiteUrl, delay } from '@/lib/utils'
     }
   },
   async asyncData(ctx: Context) {
-    // if (!params.article) return error({ statusCode: 404 })
-
     if (!process.server) {
       await delay(200)
       ctx.store.commit('PageTransition/animate', true)
@@ -74,20 +72,14 @@ import { getSiteUrl, delay } from '@/lib/utils'
     // Fetch default posts
     await ctx.store.dispatch('Media/fetchMediaArticleList')
 
-    // if (Object.keys(article || {}).includes('error')) return error({ statusCode: 404, error: article })
-
-    // Редирект со стороны сервера, если ссылка имеет другой вид
-    // например, был изменен slug у записи и чтобы поисковик не потерял страницу,
-    // делаем редирект на новую ссылку
-    // if (article.data.slugs[app.i18n.locale] !== params.article) {
-    //   return redirect(
-    //     301,
-    //     app.router.resolve({
-    //       name: route.name,
-    //       params: { article: article.data.slugs[app.i18n.locale] },
-    //     }).href,
-    //   )
-    // }
+    ctx.store.commit('setBreadcrumbs', [
+      {
+        name: ctx.app.i18n.t('breadcrumbs.media'),
+        route: {
+          name: 'projects',
+        },
+      },
+    ])
 
     setTimeout(() => {
       ctx.store.commit('PageTransition/animate', false)
@@ -115,37 +107,13 @@ export default class MediaPage extends Vue {
   get getMediaFavoriteArticlesList(): any {
     return this.$store.getters['Media/getMediaFavoriteArticlesList']
   }
-
-  mounted() {
-    console.log(this.getMediaArticlesList)
-  }
-  //  created() {
-  //   this.$store.commit('setLightTheme')
-
-  //   if (process.server) {
-  //     this.$store.commit('PageTransition/animate', false)
-  //   }
-
-  //   this.$store.commit('Catalog/setPageSeoContent', '')
-  //   this.$store.commit('setLogoSubTitle', 'Quality')
-  //   this.$store.commit('setBreadcrumbs', [
-  //     {
-  //       name: this.$i18n.locale === 'ru' ? 'Наше качество' : 'Our quality',
-  //       route: {
-  //         name: 'company-quality',
-  //       },
-  //     },
-  //   ])
-  // }
-
-  // async mounted() {
-  //   await delay(200)
-  //   this.$store.commit('PageTransition/animate', false)
-  // }
 }
 </script>
 
 <style lang="sass" module>
-.zxc
+.category
   opacity: 0.5
+
+.active
+  opacity: 1
 </style>
