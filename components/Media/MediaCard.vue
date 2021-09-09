@@ -24,7 +24,6 @@
       v-html="data.title"
       :class="$style['media-card__title']"
     )
-    
 </template>
 
 <script lang="ts">

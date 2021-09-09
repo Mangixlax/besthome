@@ -86,23 +86,6 @@ import { getSiteUrl, delay } from '~/lib/utils'
       ctx.params.article.split('-').pop(),
     )
 
-    // if (Object.keys(article || {}).includes('error')) return error({ statusCode: 404, error: article })
-
-    // Редирект со стороны сервера, если ссылка имеет другой вид
-    // например, был изменен slug у записи и чтобы поисковик не потерял страницу,
-    // делаем редирект на новую ссылку
-    // if (article.data.slugs[app.i18n.locale] !== params.article) {
-    //   return redirect(
-    //     301,
-    //     app.router.resolve({
-    //       name: route.name,
-    //       params: { article: article.data.slugs[app.i18n.locale] },
-    //     }).href,
-    //   )
-    // }
-
-    // await store.dispatch('media/incrementArticleViews', article.data.id)
-
     setTimeout(() => {
       ctx.store.commit('PageTransition/animate', false)
     }, 500)
