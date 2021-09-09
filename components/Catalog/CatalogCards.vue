@@ -7,7 +7,7 @@
         :item-data="itemData"
       )
     div(
-      v-if="!list.length"
+      v-if="!(list || []).length"
       :class="$style['catalog-cards__empty']"
     ) {{ $t('pages.apartments.empty_list.text') }}
       span(
@@ -26,7 +26,7 @@ import { Component, Prop, Vue } from 'nuxt-property-decorator'
   components: { TypoText, CatalogCardItem },
 })
 export default class CatalogCards extends Vue {
-  @Prop({ type: Array, default: () => [] }) list?: any
+  @Prop({ type: Array, default: () => [] }) list?: Array<any>
 
   public goToFeedback() {
     this.$router.push(this.localePath({ name: 'feedback' }))
@@ -68,7 +68,7 @@ export default class CatalogCards extends Vue {
     flex-wrap: wrap
     +style-4
     margin: 100px 0
-    
+
     &-link
       cursor: pointer
       color: $color-blue-88
