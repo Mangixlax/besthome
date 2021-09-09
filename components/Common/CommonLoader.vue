@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'Loader',
+  name: 'CommonLoader',
   props: {
     color: {
       type: String,

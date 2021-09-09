@@ -18,14 +18,14 @@
       v-else
       :class="$style.container__loader"
     )
-      loader
+      common-loader
 </template>
 
 <script>
-import Loader from '@/components/Common/Loader'
+import CommonLoader from '@/components/Common/CommonLoader'
 
 export default {
-  components: { Loader },
+  components: { CommonLoader },
   data() {
     return {
       ready: false,

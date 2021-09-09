@@ -1,7 +1,7 @@
 <template lang="pug">
   div(:class="$style['embed']")
     div(:class="wrapperClasses")
-      loader(
+      common-loader(
         v-if="!show"
       )
       div(
@@ -43,10 +43,11 @@
 </template>
 
 <script>
-import Loader from '@/components/common/Loader'
+import CommonLoader from '@/components/Common/CommonLoader'
+
 export default {
   name: 'ContentEmbed',
-  components: { Loader },
+  components: { CommonLoader },
   props: {
     block: {
       type: Object,
