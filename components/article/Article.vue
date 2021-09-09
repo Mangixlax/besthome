@@ -125,4 +125,9 @@ export default class ArticleBlock extends Vue {
 
     @media (max-width: 1000px)
       display: none
+
+a
+  cursor: pointer
+  color: $color-blue-80
+  text-decoration: none
 </style>

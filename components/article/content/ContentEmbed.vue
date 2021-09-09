@@ -122,7 +122,7 @@ export default {
 
 <style lang="sass" module>
 .embed
-  margin: 24px 0
+  margin: 64px 0
   position: relative
   padding-left: 70px
   padding-right: 144px
@@ -131,9 +131,11 @@ export default {
     padding-right: 0
 
   @media (max-width: 1054px)
+    margin: 32px 0
     padding-left: 35px
 
   @media (max-width: 760px)
+    margin: 24px 0
     padding-left: 0
 
   &__wrapper

@@ -1,5 +1,9 @@
 <template lang="pug" functional>
   div(:class="$style['blockquote']")
+    svg-icon(
+      name="media/quotes"
+      :class="$style['blockquote__icon']"
+    )
     blockquote(
       v-if="props.block.data.text"
       :class="$style['blockquote__text']"
@@ -12,10 +16,6 @@
     p(
       :class="$style['blockquote__caption']"
       v-html="props.block.data.caption"
-    )
-    svg-icon(
-      name="media/quotes"
-      :class="$style['blockquote__icon']"
     )
 </template>
 
@@ -56,10 +56,17 @@ export default {
   +mobile
     padding-left: 32px
 
+
+  &__icon
+    width: 30px
+    height: 30px
+    margin-bottom: 35px
+    fill: $color-black-40
+
   &__text
     +desktop-text-style-4
     margin: 0
-    margin-bottom: 40px
+    margin-bottom: 35px
 
     a
       cursor: pointer
@@ -70,13 +77,8 @@ export default {
     +desktop-text-style-6
     margin: 0
 
-    a
-      cursor: pointer
-      color: $color-blue-80
-      text-decoration: none
-
   &__caption
-    +desktop-text-style-9
+    +desktop-text-style-8
     margin: 0
     color: $color-black-32
 
@@ -85,10 +87,54 @@ export default {
       color: $color-blue-80
       text-decoration: none
 
-  &__icon
-    position: absolute
-    top: 0
-    left: -240px
-    height: 80px
-    width: 108px
+.blockquote + .blockquote
+  margin: 32px 0
+
+  @media (max-width: 760px)
+    margin: 24px 0
+
+.blockquote + h2
+  margin-top: 64px
+
+  @media (max-width: 1054px)
+    margin-top: 32px
+
+  @media (max-width: 760px)
+    margin-top: 24px
+
+.blockquote + h3
+  margin-top: 64px
+
+  @media (max-width: 1054px)
+    margin-top: 32px
+
+  @media (max-width: 760px)
+    margin-top: 24px
+
+.blockquote + h4
+  margin-top: 64px
+
+  @media (max-width: 1054px)
+    margin-top: 32px
+
+  @media (max-width: 760px)
+    margin-top: 24px
+
+.blockquote + h5
+  margin-top: 64px
+
+  @media (max-width: 1054px)
+    margin-top: 32px
+
+  @media (max-width: 760px)
+    margin-top: 24px
+
+.blockquote + h6
+  margin-top: 64px
+
+  @media (max-width: 1054px)
+    margin-top: 32px
+
+  @media (max-width: 760px)
+    margin-top: 24px
 </style>
