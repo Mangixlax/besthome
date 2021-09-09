@@ -2,7 +2,7 @@
   div(
     v-if="data"
     :class="$style['media-card']" v-bind="$attrs"
-  ) 
+  )
     nuxt-link(
       :to="localePath({\
         name: 'media-article',\
@@ -16,7 +16,7 @@
       :class="$style['media-card__image']"
       :src="$img(`/s1${data.poster.path}`, $store.state.supportWebP ? { format: 'webp' } : {})"
     )
-    p( 
+    p(
       v-html="data.published_at"
       :class="$style['media-card__date']"
     )
@@ -30,12 +30,7 @@
 import TypoText from '~/components/Base/TypoText.vue'
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
 import CommonSubscribe from '~/components/Common/CommonSubscribe.vue'
-
-interface IQualityTitle {
-  image: string
-  date: string
-  title: string
-}
+import { IArticle } from '~/store/Media'
 
 @Component({
   components: {
@@ -44,9 +39,7 @@ interface IQualityTitle {
   },
 })
 export default class MediaCard extends Vue {
-  @Prop({ type: Object, default: () => {} }) data!: IQualityTitle
-
-  mounted() {}
+  @Prop({ type: Object, default: () => {} }) data!: IArticle
 }
 </script>
 
@@ -58,18 +51,19 @@ export default class MediaCard extends Vue {
   flex-direction: column
   position: relative
   grid-gap: 16px
+  z-index: 0
 
   &__image
     object-fit: cover
     flex-grow: 1
 
   &__date
-    margin:0
+    margin: 0
     +desktop-text-style-7
     color: $color-black-56
 
   &__title
-    margin:0
+    margin: 0
     +desktop-text-style-4
 
   &__link

@@ -5,8 +5,7 @@
       :class="$style['author-avatar']"
     )
     div(:class="$style['author-name']")
-      p(:class="$style['author-firstname']")
-        | {{ data.name }} 
+      | {{ data.name }}
 </template>
 
 <script lang="ts">
@@ -19,10 +18,6 @@ import { Jsonld } from 'nuxt-jsonld'
 })
 export default class ArticleAuthor extends Vue {
   @Prop({ type: Object, default: () => {} }) data!: Object
-
-  mounted() {
-    console.log(this.data)
-  }
 }
 </script>
 
@@ -36,20 +31,14 @@ export default class ArticleAuthor extends Vue {
   text-align: center
   align-items: center
 
-
   &-avatar
     height: 81px
     border-radius: 50%
     margin-bottom: 14px
 
-  p
-    margin: 0
-
   &-name
     display: flex
     grid-gap: 0.25em
-
-    p
-      +style-6
-      color: $color-black-96
+    +style-6
+    color: $color-black-96
 </style>

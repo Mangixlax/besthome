@@ -1,19 +1,13 @@
 <template lang="pug">
-  article(
-    :class="$style['article']"
-  )
+  article(:class="$style['article']")
     header(:class="$style['article__header']")
       article-author(:data="data.author")
       p(:class="$style['article__header-date']")
         | {{ data.published_at }}
-      h1(:class="$style['article__header-title']") 
-        | {{ data.header }}
-    div(
-      :class="$style['article__container']"
-    )
-      nav(
-        :class="$style['article__container-nav']"
-      )
+    h1(:class="$style['article__title']")
+      | {{ data.header }}
+    div(:class="$style['article__container']")
+      nav(:class="$style['article__container-nav']")
         article-aside-content(:list="getHeadings")
       div(:class="$style['article__container-content']")
         article-render(
@@ -41,18 +35,15 @@ import { IBlock } from '~/store/Media'
 export default class ArticleBlock extends Vue {
   @Prop({ type: Object, default: () => {} }) data!: Object
 
-  get getHeadings() {
+  get getHeadings(): { text: string; index: string } {
     return (this as any).data.content
-      .map((block: IBlock, index: any) => {
+      .map((block: IBlock, index: number): IBlock & { index: number } => {
         return { ...block, index }
       })
       .filter((block: IBlock) => block.type === 'header')
       .map((block: any) => {
         return { text: block.data.text, index: block.index }
       })
-  }
-  mounted() {
-    console.log(this.data)
   }
 }
 </script>
@@ -71,19 +62,17 @@ export default class ArticleBlock extends Vue {
       +style-8
       color: $color-black-32
 
-    &-title
-      +style-1
-      max-width: 992px
-      padding: 0 24px
-      margin: 0 auto
-      margin-top: 64px
-      margin-bottom: 148px
+  &__title
+    +style-1
+    max-width: 992px
+    padding: 0 24px
+    margin: 64px auto 148px
 
-      @media (max-width: 1054px)
-        margin-bottom: 64px
+    @media (max-width: 1054px)
+      margin-bottom: 64px
 
-      @media (max-width: 760px)
-        margin-bottom: 32px
+    @media (max-width: 760px)
+      margin-bottom: 32px
 
   &__container
     display: grid
@@ -111,6 +100,14 @@ export default class ArticleBlock extends Vue {
       padding: 24px 0
       width: 100%
 
+      a
+        cursor: pointer
+        color: $color-blue-80
+        text-decoration: none
+
+      p:first-child
+        margin-top: 0
+
   &__nav
     display: -webkit-box
     display: flex
@@ -128,12 +125,4 @@ export default class ArticleBlock extends Vue {
 
     @media (max-width: 1000px)
       display: none
-
-a
-  cursor: pointer
-  color: $color-blue-80
-  text-decoration: none
-
-p:first-child
-  margin-top: 0
 </style>

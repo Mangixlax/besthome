@@ -43,7 +43,7 @@
         ) {{ $i18n.locale === 'ru' ? 'Показать больше' : 'Load More' }}
         div(:class="{\
           [$style['catalog__content-overlay']]: true,\
-          [$style['catalog__content-overlay--show']]: $store.state.Catalog.loading\
+          [$style['catalog__content-overlay--show']]: isLoading\
         }")
       div(
         :class="[$style['catalog__filter'], filterDarkMode && $style['catalog__filter--dark']]"

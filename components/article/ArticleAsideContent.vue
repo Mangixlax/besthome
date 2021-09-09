@@ -6,7 +6,6 @@
       :key="index"
     )
       a(
-        tag="a"
         :class="$style['headings__item-link']"
         :href="`#ahead_${item.index}`"
         :title="item.text"
@@ -37,15 +36,14 @@ export default {
   position: sticky
   top: 150px
   list-style: none
-  padding: 26px 0
-  padding-left: 144px
+  padding: 26px 0 26px 144px
   margin: 0
   background: $color-white-100
   z-index: 2
-  
+
   @media (max-width: 1440px)
     padding-left: 0
-    
+
   li:not(:last-child)
     margin-bottom: 20px
 
@@ -65,7 +63,6 @@ export default {
 
   a
     +style-6
-    display: inline-block
     cursor: pointer
     color: rgba(25, 31, 46, 0.8)
     border: none
@@ -80,13 +77,4 @@ export default {
       height: 1px
       width: 24px
       background-color: $color-black-16
-
-    // span
-    //   border-bottom: 1px solid rgba(25, 31, 46, 0.16)
-    //   padding-bottom: 2px
-    //   transition: border-bottom-color 0.25s ease, color 0.25s ease
-
-    // &:hover span
-    //   border-bottom-color: gold-1
-    //   color: gold-1
 </style>
