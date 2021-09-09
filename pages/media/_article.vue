@@ -1,8 +1,6 @@
 <template lang="pug">
   main(itemscope itemtype="http://schema.org/Article" :class="$style['main']")
-    Article(
-      :data="article"
-    )
+    Article(:data="getArticle")
 </template>
 
 <script lang="ts">
@@ -13,6 +11,7 @@ import Article from '~/components/article/Article.vue'
 import ArticleAuthor from '~/components/article/ArticleAuthor.vue'
 import ArticleAsideContent from '@/components/article/ArticleAsideContent.vue'
 import { getSiteUrl, delay } from '~/lib/utils'
+import {IArticle} from "~/store/Media"
 
 @Component({
   components: {
@@ -22,9 +21,8 @@ import { getSiteUrl, delay } from '~/lib/utils'
   },
   scrollToTop: true,
   head(): any {
-    const title = this.article.seo_title + ' ' + this.$i18n.t('seo_title')
-
-    const description = this.article.seo_description
+    const title = this.getArticle.seo_title + ' ' + this.$i18n.t('seo_title')
+    const description = this.getArticle.seo_description
 
     return {
       title,
@@ -80,8 +78,8 @@ import { getSiteUrl, delay } from '~/lib/utils'
       ctx.store.commit('PageTransition/animate', false)
     }
 
-    const article = await ctx.store.dispatch(
-      'Media/fetchMediaArticleItem',
+    const articleResponse = await ctx.store.dispatch(
+      'Media/fetchArticle',
       ctx.params.article.split('-').pop(),
     )
 
@@ -93,11 +91,11 @@ import { getSiteUrl, delay } from '~/lib/utils'
         },
       },
       {
-        name: article.header,
+        name: articleResponse.header,
         route: {
           name: 'properties-slug',
           params: {
-            slug: article.slugs[ctx.i18n.locale],
+            slug: articleResponse.slugs[ctx.i18n.locale],
           },
         },
       },
@@ -107,12 +105,14 @@ import { getSiteUrl, delay } from '~/lib/utils'
       ctx.store.commit('PageTransition/animate', false)
     }, 500)
 
-    return {
-      article: article,
-    }
+    return {}
   },
 })
-export default class ArticlePage extends Vue {}
+export default class ArticlePage extends Vue {
+  get getArticle(): IArticle {
+    return this.$store.getters['Media/getArticle']
+  }
+}
 </script>
 
 <style lang="sass" module>
@@ -123,7 +123,6 @@ export default class ArticlePage extends Vue {}
   display: flex
   position: relative
   flex-flow: row nowrap
-  margin-bottom: 48px
   max-width: 1488px
   margin: 0 auto
   padding: 0 24px

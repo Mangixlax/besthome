@@ -1,24 +1,15 @@
 <template lang="pug">
   main
-    media-title(
-      :data="getMediaFavoriteArticlesList"
-    )
-    media-list(
-      :data="getMediaArticlesList"
-    ) 
+    media-title(:data="getFavoriteArticlesList")
+    media-list(:data="getArticlesList")
       template(slot="categories")
         div(
-          @click.prevent="onClickToCategory(null)"
-          :class="[categoryId === null && $style['active'], $style['category']]"
-        ) {{ $t('pages.media.list.all') }}
-        div(
-          @click.prevent="onClickToCategory(1)"
-          :class="[categoryId === 1 && $style['active'], $style['category']]"
-        ) {{ $t('pages.media.list.news') }}
-        div(
-          @click.prevent="onClickToCategory(2)"
-          :class="[categoryId === 2 && $style['active'], $style['category']]"
-        ) {{ $t('pages.media.list.promotions') }}
+          v-for="(category, index) in categories"
+          :key="index"
+          @click.prevent="selectCategory(category.value)"
+          :class="[$style['category'], getSelectedCategory === category.value && $style['active']]"
+          v-html="category.label"
+        )
 </template>
 
 <script lang="ts">
@@ -28,6 +19,12 @@ import { Context } from '@nuxt/types'
 import { Component, Vue, Watch } from 'nuxt-property-decorator'
 import metaGenerator from '~/config/meta.js'
 import { getSiteUrl, delay } from '@/lib/utils'
+import { IArticle, IMediaFilter, MediaState } from '~/store/Media'
+
+export interface ICategoryOption {
+  label: string
+  value: number | null
+}
 
 @Component({
   components: {
@@ -35,9 +32,15 @@ import { getSiteUrl, delay } from '@/lib/utils'
     MediaList,
   },
   head(): any {
-    const title = this.$i18n.locale === 'ru' ? 'Новости рынка недвижимости в Турции от BestHome' : 'Real estate market news in Turkey from BestHome'
+    const title =
+      this.$i18n.locale === 'ru'
+        ? 'Новости рынка недвижимости в Турции от BestHome'
+        : 'Real estate market news in Turkey from BestHome'
 
-    const description = this.$i18n.locale === 'ru' ? 'Вся информация по рынку недвижимости в Алании, Турция. Цены на квартиры,  какую недвижимость покупать как инвестиции, динамика цен на недвижимость, коммерческая недвижимость, отзывы реальных покупателей. Последние новости от застройщиков Алании.' : 'All information on the real estate market in Alanya, Turkey. Prices for apartments, what kind of real estate to buy as an investment, the dynamics of real estate prices, commercial real estate, reviews of real buyers. The latest news from the developers of Alanya.'
+    const description =
+      this.$i18n.locale === 'ru'
+        ? 'Вся информация по рынку недвижимости в Алании, Турция. Цены на квартиры,  какую недвижимость покупать как инвестиции, динамика цен на недвижимость, коммерческая недвижимость, отзывы реальных покупателей. Последние новости от застройщиков Алании.'
+        : 'All information on the real estate market in Alanya, Turkey. Prices for apartments, what kind of real estate to buy as an investment, the dynamics of real estate prices, commercial real estate, reviews of real buyers. The latest news from the developers of Alanya.'
 
     return {
       title,
@@ -67,11 +70,15 @@ import { getSiteUrl, delay } from '@/lib/utils'
     }
 
     // Fetch favorites posts
-    await ctx.store.dispatch('Media/fetchMediaArticleFavoriteList')
+    await ctx.store.dispatch('Media/fetchFavoriteArticlesList')
+
+    // Reset selected filters on first visit to page
+    ctx.store.commit('Media/setFilters', {})
 
     // Fetch default posts
-    await ctx.store.dispatch('Media/fetchMediaArticleList')
+    await ctx.store.dispatch('Media/fetchArticlesList')
 
+    // Set breadcrumbs
     ctx.store.commit('setBreadcrumbs', [
       {
         name: ctx.app.i18n.t('breadcrumbs.media'),
@@ -81,6 +88,7 @@ import { getSiteUrl, delay } from '@/lib/utils'
       },
     ])
 
+    // Hide overlay
     setTimeout(() => {
       ctx.store.commit('PageTransition/animate', false)
     }, 500)
@@ -89,23 +97,49 @@ import { getSiteUrl, delay } from '@/lib/utils'
   },
 })
 export default class MediaPage extends Vue {
-  public categoryId: string | number | null = null
+  public categories: ICategoryOption[] = [
+    {
+      label: this.$t('pages.media.list.all') as string,
+      value: null,
+    },
+    {
+      label: this.$t('pages.media.list.news') as string,
+      value: 1,
+    },
+    {
+      label: this.$t('pages.media.list.promotions') as string,
+      value: 2,
+    },
+  ]
 
-  public onClickToCategory(categoryId: string | number | null = null) {
-    this.categoryId = categoryId
+  get getSelectedCategory(): IMediaFilter['category_id'] {
+    return (this.$store.getters['Media/getSelectedFilters'] as IMediaFilter).category_id
   }
 
-  @Watch('categoryId')
-  onChangeCategoryId() {
-    this.$store.dispatch('Media/fetchMediaArticleList', this.categoryId)
+  get getArticlesList(): IArticle[] {
+    return this.$store.getters['Media/getArticlesList']
   }
 
-  get getMediaArticlesList(): any {
-    return this.$store.getters['Media/getMediaArticlesList']
+  get getFavoriteArticlesList(): IArticle[] {
+    return this.$store.getters['Media/getFavoriteArticlesList']
   }
 
-  get getMediaFavoriteArticlesList(): any {
-    return this.$store.getters['Media/getMediaFavoriteArticlesList']
+  get isLoading(): MediaState['loading'] {
+    return this.$store.getters['Media/getLoading']
+  }
+
+  public async selectCategory(categoryId: IMediaFilter['category_id']) {
+    if (this.isLoading) return
+
+    // Set category id
+    this.$store.commit('Media/setSelectedFilter', { key: 'category_id', value: categoryId })
+    // Reset current page
+    this.$store.commit('Media/setSelectedFilter', { key: 'page', value: 1 })
+
+    // Fetch articles with new selected category
+    this.$store.commit('Media/setLoading', true)
+    await this.$store.dispatch('Media/fetchArticlesList')
+    this.$store.commit('Media/setLoading', false)
   }
 }
 </script>
