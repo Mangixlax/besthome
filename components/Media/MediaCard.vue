@@ -13,8 +13,14 @@
       :class="$style['media-card__link']"
     )
     img(
-      :class="$style['media-card__image']"
+      :class="{\
+        [$style['media-card__image']]: true,\
+        [$style['media-card__image--loaded']]: isLoaded,\
+      }"
       :src="$img(`/s1${data.poster.path}`, $store.state.supportWebP ? { format: 'webp' } : {})"
+      loading="lazy"
+      decoding="async"
+      @load="isLoaded = true"
     )
     p(
       v-html="data.published_at"
@@ -40,6 +46,8 @@ import { IArticle } from '~/store/Media'
 })
 export default class MediaCard extends Vue {
   @Prop({ type: Object, default: () => {} }) data!: IArticle
+
+  public isLoaded: boolean = false
 }
 </script>
 
@@ -56,6 +64,10 @@ export default class MediaCard extends Vue {
   &__image
     object-fit: cover
     flex-grow: 1
+    background-color: $color-black-8
+
+    &--loaded
+      background-color: transparent
 
   &__date
     margin: 0
