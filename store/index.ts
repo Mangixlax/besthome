@@ -87,7 +87,7 @@ export const actions: ActionTree<RootState, RootState> = {
   },
   nuxtServerInit({ state, dispatch, commit }: RootActionContext, { req }) {
     // Detect support webp images in browser
-    if (process.server && Object.keys(req.headers).includes('accept')) {
+    if (process.server && req && Object.keys(req.headers || {}).includes('accept')) {
       commit('setSupportWebP', req.headers.accept.includes('image/webp'))
 
       if (!state.supportWebP) {
