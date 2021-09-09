@@ -19,6 +19,7 @@ export interface IArticle {
   header?: string
   content?: Array<IBlock[]>
   published_at?: string
+  published_at_full?: string | null
   poster?: IImage
   seo_title?: string
   seo_description?: string
