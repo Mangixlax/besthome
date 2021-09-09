@@ -17,6 +17,7 @@ import $ from 'jquery'
 import Vue from 'vue'
 import BaseCookiesCard from '~/components/Base/BaseCookiesCard.vue'
 import { Component, Mutation, namespace, Watch } from 'nuxt-property-decorator'
+import { Jsonld } from 'nuxt-jsonld'
 import { SettingsTopLineState } from '~/store/SettingsTopLine'
 import { ActionTree, MutationTree } from 'vuex'
 import { RootState } from '~/store'
@@ -28,9 +29,10 @@ import CursorMover from '~/components/CursorMover.vue'
 import Footer from '~/components/Footer/Footer.vue'
 import CommonPageTransition from '~/components/Common/CommonPageTransition.vue'
 import CommonMessengerButton from '~/components/Common/CommonMessengerButton.vue'
+import { getSiteUrl } from '~/lib/utils'
 
 const SettingsTopLineStore = namespace('SettingsTopLine')
-
+@Jsonld
 @Component({
   components: {
     CommonMessengerButton,
@@ -95,15 +97,28 @@ export default class DefaultLayout extends Vue {
       {
         '@context': 'https://schema.org/',
         '@type': 'WebSite',
-        name: 'BESTHOME',
+        name: 'BestHome',
         url: 'https://besthome.com.tr/',
       },
       {
         '@context': 'https://schema.org/',
         '@type': 'Organization',
-        name: 'BESTHOME',
+        name: 'BestHome',
         url: 'https://besthome.com.tr/',
-        logo: '',
+        sameAs: 'https://www.youtube.com/channel/UCGLPaIjXb03Q6skVc3VHyGw',
+        logo: getSiteUrl(require('~/assets/sprite/svg/logo.svg')),
+        contactPoint: {
+          '@type': 'ContactPoint',
+          contactType: 'sales',
+          telephone: '+90 530 547-44-15',
+          email: 'info@besthome.com.tr',
+          availableLanguage: [
+            'English',
+            'Russian',
+            'Arabic',
+            'Turkish'
+          ],
+        },
         description:
           'Недвижимость в Турции - Алания, Махмутлар: покупка и продажа квартиры, вилла, дома, коттеджи. Без переплат, в рассрочку и ипотеку. Турецкие сайты застройщика недвижимости ☎ +90 530 547-44-15',
         address: {
@@ -114,12 +129,6 @@ export default class DefaultLayout extends Vue {
           addressRegion: 'Antalya',
           postalCode: '07400',
           addressCountry: 'TR',
-        },
-        contactPoint: {
-          '@type': 'ContactPoint',
-          contactType: 'customer support',
-          telephone: '+90 530 547-44-15',
-          email: 'info@besthome.com.tr',
         },
       },
     ]
