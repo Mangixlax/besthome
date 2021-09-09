@@ -6,7 +6,7 @@
     li(
       v-for="(item, index) in $options.getList(props.block)"
       :key="index"
-      v-html="item"
+      v-html="item.content"
       :class="$style['li']"
     )
 </template>
@@ -22,7 +22,7 @@ export default {
   },
   getList(block = {}) {
     try {
-      return block.data.items.filter((item) => item.length)
+      return block.data.items.filter((item) => item.content.length)
     } catch (e) {
       return []
     }
@@ -73,16 +73,6 @@ export default {
   p
     padding: 0
     margin: 0
-
-  a
-    cursor: pointer
-    color: rgba(25, 31, 46, 0.8)
-    border: none
-    text-decoration: none
-    position: relative
-    border-bottom: 1px solid rgba(25, 31, 46, 0.16)
-    padding-bottom: 2px
-    transition: border-bottom-color 0.25s ease, color 0.25s ease
 
     &:hover
       border-bottom-color: gold-1

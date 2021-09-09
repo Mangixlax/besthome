@@ -147,13 +147,11 @@ export default {
   &__wrapper, iframe
     width: 100%
     position: relative
-    border-radius: 10px
     overflow: hidden
     height: 320px
 
   &__wrapper--instagram
     border: 1px solid #ccd6dd
-    border-radius: 10px
     overflow: hidden
 
     &, iframe
