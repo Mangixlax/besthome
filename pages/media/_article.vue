@@ -86,6 +86,24 @@ import { getSiteUrl, delay } from '~/lib/utils'
       ctx.params.article.split('-').pop(),
     )
 
+    ctx.store.commit('setBreadcrumbs', [
+      {
+        name: ctx.app.i18n.t('breadcrumbs.media'),
+        route: {
+          name: 'projects',
+        },
+      },
+      {
+        name: article.header,
+        route: {
+          name: 'properties-slug',
+          params: {
+            slug: article.slugs[ctx.i18n.locale],
+          },
+        },
+      },
+    ])
+
     setTimeout(() => {
       ctx.store.commit('PageTransition/animate', false)
     }, 500)
