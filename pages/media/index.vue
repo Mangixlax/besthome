@@ -74,7 +74,7 @@ import { getSiteUrl, delay } from '@/lib/utils'
 
     ctx.store.commit('setBreadcrumbs', [
       {
-        name: ctx.app.i18n.t('breadcrumbs.projects'),
+        name: ctx.app.i18n.t('breadcrumbs.media'),
         route: {
           name: 'projects',
         },
