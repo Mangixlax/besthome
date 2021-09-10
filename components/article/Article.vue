@@ -8,8 +8,14 @@
       | {{ data.header }}
     div(:class="$style['article__container']")
       nav(:class="$style['article__container-nav']")
-        article-aside-content(:list="getHeadings")
-      div(:class="$style['article__container-content']")
+        article-aside-content(
+          :active-header="activeHeader"
+          :list="getHeadings"
+        )
+      div(
+         ref="blocks"
+         :class="$style['article__container-content']"
+      )
         article-render(
           v-for="(block, index) in data.content"
           :key="index"
@@ -35,6 +41,8 @@ import { IBlock } from '~/store/Media'
 export default class ArticleBlock extends Vue {
   @Prop({ type: Object, default: () => {} }) data!: Object
 
+  public activeHeader: Number = 0
+
   get getHeadings(): { text: string; index: string } {
     return (this as any).data.content
       .map((block: IBlock, index: number): IBlock & { index: number } => {
@@ -45,6 +53,29 @@ export default class ArticleBlock extends Vue {
         return { text: block.data.text, index: block.index }
       })
   }
+
+  public onScroll() {
+    const $blocks = (this.$refs.blocks as Element).querySelectorAll('h1,h2,h3,h4,h5,h6')
+    $blocks.forEach(($header, index) => {
+      const pos: number = $header.getBoundingClientRect().top - 100
+      if(pos <= 0 && pos >= -$header.clientHeight) {
+        this.activeHeader = index
+        console.log( "active index" + '=' + index)
+      }
+      console.log('Element' + index +  "=" + (pos) + "height" + $header.clientHeight)
+    }) 
+    // console.log($top, $bottom, $blocks)
+
+  }
+
+  mounted() {
+    document.addEventListener('scroll', this.onScroll)
+  }
+
+  beforeDestroy() {
+    document.removeEventListener('scroll', this.onScroll)
+  }
+  
 }
 </script>
 

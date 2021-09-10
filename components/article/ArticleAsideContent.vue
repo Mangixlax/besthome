@@ -1,12 +1,12 @@
 <template lang="pug">
   ul(:class="$style['headings']")
     li(
-      :class="$style['headings__item']"
+      :class="[$style['headings__item']]"
       v-for="(item, index) in list"
       :key="index"
     )
       a(
-        :class="$style['headings__item-link']"
+        :class="[$style['headings__item-link'], activeHeader === index && $style['active']]"
         :href="`#ahead_${item.index}`"
         :title="item.text"
         @click.prevent="scrollToHead(`ahead_${item.index}`)"
@@ -22,6 +22,10 @@ export default {
       type: Array,
       default: () => [],
     },
+    activeHeader: {
+      type: Number,
+      default: 0
+    }
   },
   methods: {
     scrollToHead(header_id) {
@@ -64,17 +68,22 @@ export default {
   a
     +style-6
     cursor: pointer
-    color: rgba(25, 31, 46, 0.8)
+    color: $color-black-48
     border: none
     text-decoration: none
     position: relative
     display: flex
     align-items: center
     grid-gap: 16px
+    margin-left: 40px
 
-    &::before
-      content: ""
-      height: 1px
-      width: 24px
-      background-color: $color-black-16
+    &.active
+      color: $color-black-96
+      margin-left: 0
+
+      &::before
+        content: ""
+        height: 1px
+        min-width: 24px
+        background-color: $color-black-16
 </style>
