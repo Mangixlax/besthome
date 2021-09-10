@@ -83,7 +83,7 @@ export interface ICategoryOption {
       {
         name: ctx.app.i18n.t('breadcrumbs.media'),
         route: {
-          name: 'projects',
+          name: 'media',
         },
       },
     ])
