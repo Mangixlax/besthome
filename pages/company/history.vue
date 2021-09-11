@@ -4,7 +4,7 @@
     page-company-years-slider(:sliderHistory="$t('pages.company_history.history_slider')")
     base-post(
       :data="{\
-        image: require(`~/assets/images/pages/company/history/image-1.jpg`),\
+        image: $img(`/pages/company/history/image-1.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
         text: [\
           `<h3>${$t('pages.company_history.post_1.title')}</h3>`,\
           `<p>${$t('pages.company_history.post_1.paragraph_with_link')}`,\

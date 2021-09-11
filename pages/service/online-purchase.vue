@@ -2,7 +2,7 @@
   main
     base-image-title(
       :image-title-data="$t('pages.service_online_purchase.image_title')"
-      :filename="require(`~/assets/images/pages/service/online-purchace/title.jpg`)"
+      :filename="$img(`/pages/service/online-purchace/title.jpg`, $store.state.supportWebP ? { format: 'webp' } : {})"
     )
     page-service-purchase
     base-seo-content

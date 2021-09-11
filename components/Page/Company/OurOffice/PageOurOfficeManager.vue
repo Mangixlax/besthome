@@ -25,7 +25,11 @@
             :class="[$style['slide'], $style[`slide--${slide.variant}`]]"
           )
             div(:class="$style['slide__image']")
-              img(:src="require(`~/assets/images/our-team/${slide.image}`)" loading="lazy")
+              img(
+                :src="$img(`/our-team/${slide.image}`, $store.state.supportWebP ? { format: 'webp' } : {})"
+                loading="lazy"
+                decoding="async"
+              )
             div(:class="$style['slide__text']") {{ slide.text }}
             div(:class="$style['slide__languages']") {{ slide.languages }}
             div(:class="$style['slide__contacts']")
@@ -59,7 +63,7 @@
 <script lang="ts">
 import TypoText from '~/components/Base/TypoText.vue'
 import { Component, Vue } from 'nuxt-property-decorator'
-import Swiper, {SwiperOptions} from 'swiper'
+import Swiper, { SwiperOptions } from 'swiper'
 
 @Component({
   components: {

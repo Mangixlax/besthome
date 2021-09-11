@@ -11,6 +11,7 @@
           v-if="data.image"
           :src="data.image"
           loading="lazy"
+          decoding="async"
           :class="{\
             [$style['shadow-right']]: data.block_flip,\
             [$style['shadow-left']]: !data.block_flip\

@@ -13,7 +13,9 @@
       )
         div(
           :class="$style['tree__columns-image']"
-          :style="{ backgroundImage: `url(${require('~/assets/images/three-columns/' + column.filename)})` }"
+          :style="{\
+            backgroundImage: `url(${$img(`/three-columns/` + column.filename, $store.state.supportWebP ? { format: 'webp' } : {})})`,\
+          }"
         )
           div(:class="$style['tree__columns-image-overlay']")
         div(:class="$style['tree__columns-content']")

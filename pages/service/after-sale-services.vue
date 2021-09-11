@@ -2,7 +2,7 @@
   main
     base-image-title(
       :imageTitleData="$t('pages.service_after_sale_services.image_title')"
-      :filename="require(`~/assets/images/pages/service/after-sale-services/title.jpg`)"
+      :filename="$img(`/pages/service/after-sale-services/title.jpg`, $store.state.supportWebP ? { format: 'webp' } : {})"
     )
     base-text-container(
       :data="{\

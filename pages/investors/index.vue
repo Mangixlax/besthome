@@ -3,7 +3,7 @@
     page-investors-title(:investors-page="$t('pages.investors.header')")
     base-post(
       :data="{\
-        image: require(`~/assets/images/pages/investors/image-1.jpg`),\
+        image: $img(`/pages/investors/image-1.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
         text: [\
           `<h3>${$t('pages.investors.post_1.title')}</h3>`,\
           `<p>${$t('pages.investors.post_1.paragraph_1')}</p>`,\
@@ -17,7 +17,7 @@
     page-investors-advice(:investors-page-advice="$t('pages.investors.advice_data')")
     base-post(
       :data="{\
-        image: require(`~/assets/images/pages/investors/image-2.jpg`),\
+        image: $img(`/pages/investors/image-2.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
         text: [\
           `<h3>${$t('pages.investors.post_2.title')}</h3>`,\
           ...$t('pages.investors.post_2.paragraph_1').map((p) => `<p>${p}<p>`),\
@@ -30,7 +30,7 @@
     )
     base-post(
       :data="{\
-        image: require(`~/assets/images/pages/investors/image-3.jpg`),\
+        image: $img(`/pages/investors/image-3.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
         text: [\
           `<h3>${$t('pages.investors.post_3.title')}</h3>`,\
           `<p>${$t('pages.investors.post_3.paragraph_1')}</p>`,\
@@ -50,8 +50,8 @@
           ` <a href='${this.localePath({ name: 'properties-slug', params: { slug: 'best-home-36-37-the-legend-12' } })}'>${$t('pages.investors.post_4.link')}</a>.</p>`,\
         ].join(''),\
         images: [\
-          require(`~/assets/images/pages/investors/portrait-1.jpg`),\
-          require(`~/assets/images/pages/investors/landscape-1.jpg`)\
+          $img(`/pages/investors/portrait-1.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
+          $img(`/pages/investors/landscape-1.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
         ],\
       }"
     )

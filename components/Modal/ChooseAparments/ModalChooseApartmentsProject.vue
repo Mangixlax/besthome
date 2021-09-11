@@ -13,7 +13,10 @@
           :class="$style['slide']"
         )
           div(:class="$style['project__body-image']")
-            img(:src="require(`@/assets/images/modals/modals-choose-apartments-project/${slide.image}`)" loading="lazy")
+            img(
+              :src="$img(`/modals/modals-choose-apartments-project/${slide.image}`, $store.state.supportWebP ? { format: 'webp' } : {})"
+              loading="lazy"
+            )
           div(:class="$style['project__body-description']")
             typo-text(
               tag="h3"

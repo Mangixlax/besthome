@@ -2,7 +2,7 @@
   main
     base-image-title(
       :image-title-data="$t('pages.service_legal_support.image_title')"
-      :filename="require(`~/assets/images/pages/service/legal-support/title.jpg`)"
+      :filename="$img(`/pages/service/legal-support/title.jpg`, $store.state.supportWebP ? { format: 'webp' } : {})"
     )
     base-text-container(
       :data="{\
@@ -11,7 +11,7 @@
     )
     base-post(
       :data="{\
-        image: require(`~/assets/images/pages/service/legal-support/image-1.jpg`),\
+        image: $img(`/pages/service/legal-support/image-1.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
         text: [\
           `<p>${$t('pages.service_legal_support.post_1.paragraph_1')}</p>`,\
           `<p>${$t('pages.service_legal_support.post_1.paragraph_with_link')}`,\
@@ -23,7 +23,7 @@
     )
     base-post(
       :data="{\
-        image: require(`~/assets/images/pages/service/legal-support/image-2.jpg`),\
+        image: $img(`/pages/service/legal-support/image-2.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
         text: [\
           `<p>${$t('pages.service_legal_support.post_2.paragraph_1')}</p>`,\
         ].join(''),\
@@ -33,7 +33,7 @@
     )
     base-post(
       :data="{\
-        image: require(`~/assets/images/pages/service/legal-support/image-3.jpg`),\
+        image: $img(`/pages/service/legal-support/image-3.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
         text: [\
           `<p>${$t('pages.service_legal_support.post_3.paragraph_1')}</p>`,\
           `<p>${$t('pages.service_legal_support.post_3.paragraph_with_link')}`,\

@@ -17,7 +17,9 @@
       )
         div(
           :class="$style['tree__columns-image']"
-          :style="{ backgroundImage: `url(${require('~/assets/images/three-columns/' + column.filename)})` }"
+          :style="{\
+            backgroundImage: `url(${$img(`/three-columns/` + column.filename, $store.state.supportWebP ? { format: 'webp' } : {})})`,\
+          }"
         )
           div(:class="$style['tree__columns-image-overlay']")
         div(:class="$style['tree__columns-content']")
@@ -25,7 +27,7 @@
             svg-icon(:name="`${column.icon}-hover`")
             svg-icon(:name="column.icon")
           h3
-            nuxt-link(
+            nuxt-link(  
               :to="localePath(column.to)"
               v-html="column.title"
               :data-cursor-text="dataCursor"
@@ -181,7 +183,7 @@ export default class TreeColumns extends Vue {
         height: 1px
         width: 100%
         background: $color-black-4
-  
+
       &:not(:first-child):not(:last-child)
         padding-left: 32px
         padding-right: 32px

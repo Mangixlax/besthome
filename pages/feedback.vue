@@ -130,7 +130,12 @@
         ) {{ isBusy ? $t('modals.sending') : $t('modals.subscribe.submit') }}
     div(:class="$style['feedback__info']")
       div(:class="$style['feedback__info-avatar']")
-        img(:src="require(`~/assets/images/our-team/person-2.png`)" alt="alt" loading="lazy")
+        img(
+          :src="$img(`/our-team/person-2.png`, $store.state.supportWebP ? { format: 'webp' } : {})"
+          alt="alt"
+          loading="lazy"
+          decoding="async"
+        )
       typo-text(
         tag="div"
         version="style-6"

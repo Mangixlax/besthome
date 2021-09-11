@@ -2,7 +2,7 @@
   main
     base-image-title(
       :image-title-data="$t('pages.service_introductory_tour.image_title')"
-      :filename="require(`~/assets/images/pages/service/introductory-tour/title.jpg`)"
+      :filename="$img(`/pages/service/introductory-tour/title.jpg`, $store.state.supportWebP ? { format: 'webp' } : {})"
     )
     base-text-container(
       :data="{\
@@ -11,7 +11,7 @@
     )
     base-post(
       :data="{\
-        image: require(`~/assets/images/pages/service/introductory-tour/image-1.jpg`),\
+        image: $img(`/pages/service/introductory-tour/image-1.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
         text: [\
           `<h3>${$t('pages.service_introductory_tour.post_1.title')}</h3>`,\
           `<p>${$t('pages.service_introductory_tour.post_1.paragraph_1')}</p>`,\
@@ -32,7 +32,7 @@
     )
     base-post(
       :data="{\
-        image: require(`~/assets/images/pages/service/introductory-tour/image-2.jpg`),\
+        image: $img(`/pages/service/introductory-tour/image-2.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
         text: [\
           `<h3>${$t('pages.service_introductory_tour.post_2.title')}</h3>`,\
           `<p>${$t('pages.service_introductory_tour.post_2.paragraph_1')}</p>`,\
@@ -44,7 +44,7 @@
     )
     base-post(
       :data="{\
-        image: require(`~/assets/images/pages/service/introductory-tour/image-3.jpg`),\
+        image: $img(`/pages/service/introductory-tour/image-3.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
         text: [\
           `<h3>${$t('pages.service_introductory_tour.post_3.title')}</h3>`,\
           `<p>${$t('pages.service_introductory_tour.post_3.paragraph_1')}</p>`,\
@@ -57,7 +57,7 @@
     )
     base-post(
       :data="{\
-        image: require(`~/assets/images/pages/service/introductory-tour/image-4.jpg`),\
+        image: $img(`/pages/service/introductory-tour/image-4.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
         text: [\
           `<h3>${$t('pages.service_introductory_tour.post_4.title')}</h3>`,\
           `<p>${$t('pages.service_introductory_tour.post_4.paragraph_1')}</p>`,\
@@ -68,7 +68,7 @@
     )
     base-post(
       :data="{\
-        image: require(`~/assets/images/pages/service/introductory-tour/image-5.jpg`),\
+        image: $img(`/pages/service/introductory-tour/image-5.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
         text: [\
           `<h3>${$t('pages.service_introductory_tour.post_5.title')}</h3>`,\
           `<p>${$t('pages.service_introductory_tour.post_5.paragraph_1')}</p>`,\
@@ -81,7 +81,7 @@
     )
     base-post(
       :data="{\
-        image: require(`~/assets/images/pages/service/introductory-tour/image-6.jpg`),\
+        image: $img(`/pages/service/introductory-tour/image-6.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
         text: [\
           `<h3>${$t('pages.service_introductory_tour.post_6.title')}</h3>`,\
           `<p>${$t('pages.service_introductory_tour.post_6.paragraph_1')}</p>`,\
@@ -100,8 +100,8 @@
           `<p>${$t('pages.service_introductory_tour.post_7.paragraph_2')}</p>`,\
         ].join(''),\
         images: [\
-          require(`~/assets/images/pages/service/introductory-tour/portrait-1.jpg`),\
-          require(`~/assets/images/pages/service/introductory-tour/landscape-1.jpg`),\
+          $img(`/pages/service/introductory-tour/portrait-1.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
+          $img(`/pages/service/introductory-tour/landscape-1.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
         ],\
       }"
     )

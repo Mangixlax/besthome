@@ -31,7 +31,11 @@
           span {{ $t('pages.our_office.contacts.contact_us') }}
           svg-icon(name="text-link-arrow")
       div(:class="$style['map']")
-        img(src="~/assets/images/our-office/map.jpg" loading="lazy")
+        img(
+          :src="$img(`/our-office/map.jpg`, $store.state.supportWebP ? { format: 'webp' } : {})"
+          loading="lazy"
+          decoding="async"
+        )
 </template>
 
 <script lang="ts">

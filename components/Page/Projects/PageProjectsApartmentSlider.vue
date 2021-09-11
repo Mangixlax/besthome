@@ -8,7 +8,11 @@
           :class="$style['slide']"
         )
           div(:class="$style['container__body-image']")
-            img(:src="require(`@/assets/images/projects-photos-slider/${slide}`)" loading="lazy")
+            img(
+              :src="$img(`/projects-photos-slider/${slide}`, $store.state.supportWebP ? { format: 'webp' } : {})"
+              loading="lazy"
+              decoding="async"
+            )
         div(slot="pagination" :class="$style['navigation']")
           div(:class="['swiper-pagination-progressbar', $style['swiper-pagination-progressbar']]")
             div(class="status-bar")

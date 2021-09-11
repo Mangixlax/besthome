@@ -4,7 +4,7 @@
       :data="{\
         header: $t('pages.secondary_housing.header.title'),\
         text: `<p>${$t('pages.secondary_housing.header.sub_title')}</p>`,\
-        image: require('@/assets/images/projects/projects-title-secondary-housing.jpg')\
+        image: $img(`/projects/projects-title-secondary-housing.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
       }"
     )
       //- button(

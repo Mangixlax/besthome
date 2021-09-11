@@ -4,7 +4,7 @@
     base-scroll-line(:data="$t('pages.company_advantages.scroll_line_data')")
     base-post(
       :data="{\
-        image: require(`~/assets/images/pages/advantages/image-1.jpg`),\
+        image: $img(`/pages/advantages/image-1.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
         text: [\
           `<h3>${$t('pages.company_advantages.post_1.title')}</h3>`,\
           ...$t('pages.company_advantages.post_1.paragraph_1').map((p) => `<p>${p}<p>`),\
@@ -15,7 +15,7 @@
     )
     base-post(
       :data="{\
-        image: require(`~/assets/images/pages/advantages/image-2.jpg`),\
+        image: $img(`/pages/advantages/image-2.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
         text: [\
           `<h3>${$t('pages.company_advantages.post_2.title')}</h3>`,\
           `<p>${$t('pages.company_advantages.post_2.paragraph_1')}</p>`,\
@@ -36,7 +36,7 @@
     )
     base-post(
       :data="{\
-        image: require(`~/assets/images/pages/advantages/image-3.jpg`),\
+        image: $img(`/pages/advantages/image-3.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
         text: [\
           `<h3>${$t('pages.company_advantages.post_3.title')}</h3>`,\
           `<p>${$t('pages.company_advantages.post_3.paragraph_1')}</p>`,\
@@ -47,7 +47,7 @@
     )
     base-post(
       :data="{\
-        image: require(`~/assets/images/pages/advantages/image-4.jpg`),\
+        image: $img(`/pages/advantages/image-4.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
         text: [\
           `<h3>${$t('pages.company_advantages.post_4.title')}</h3>`,\
           `<p>${$t('pages.company_advantages.post_4.paragraph_1')}</p>`,\
@@ -60,7 +60,7 @@
     )
     base-post(
       :data="{\
-        image: require(`~/assets/images/pages/advantages/image-5.jpg`),\
+        image: $img(`/pages/advantages/image-5.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
         text: [\
           `<h3>${$t('pages.company_advantages.post_5.title')}</h3>`,\
           `<p>${$t('pages.company_advantages.post_5.paragraph_1')}</p>`,\

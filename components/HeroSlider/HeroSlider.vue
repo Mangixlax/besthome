@@ -7,7 +7,12 @@
     ]"
   )
     div(:class="$style['slider__image-wrapper']")
-      img(:class="$style['slider__image']" :src="require(`~/assets/images/pages/home/hero-slider/${ slides[currentSlideIndex].image }`)" loading="lazy")
+      img(
+        :class="$style['slider__image']"
+        :src="$img(`/pages/home/hero-slider/${ slides[currentSlideIndex].image }`, $store.state.supportWebP ? { format: 'webp' } : {})"
+        loading="lazy"
+        decoding="async"
+      )
     div(:class="$style['slider__nav']")
       div(:class="$style['slider__nav-prev']" @click="sliderTurnBackward")
         svg-icon(name="hero-slider-arrow")
@@ -149,7 +154,12 @@ export default class HeroSlider extends Vue {
           this.sliderTurnBackward()
         } else {
           // If not changed slide
-          this.$router.push(this.localePath({ name: 'properties-slug', params: {slug: this.slideLinksParams[this.currentSlideIndex] }}))
+          this.$router.push(
+            this.localePath({
+              name: 'properties-slug',
+              params: { slug: this.slideLinksParams[this.currentSlideIndex] },
+            }),
+          )
           this.isSliderPressed = false
 
           // Set to default position caption

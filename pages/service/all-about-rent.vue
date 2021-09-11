@@ -2,7 +2,7 @@
   main
     base-image-title(
       :image-title-data="$t('pages.all_about_rent.image_title')"
-      :filename="require(`~/assets/images/pages/service/rent/title.jpg`)"
+      :filename="$img(`/pages/service/rent/title.jpg`, $store.state.supportWebP ? { format: 'webp' } : {})"
     )
     page-service-rent(:allAboutRent="$t('pages.all_about_rent')")
     base-seo-content

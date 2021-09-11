@@ -2,8 +2,8 @@
   main
     base-image-title(
       :imageTitleData="$t('pages.service_turkish_citizenship.image_title')"
-      :filename="require(`~/assets/images/pages/service/turkish-citizenship/title.jpg`)"
-      )
+      :filename="$img(`/pages/service/turkish-citizenship/title.jpg`, $store.state.supportWebP ? { format: 'webp' } : {})"
+    )
     base-text-container(
       :data="{\
         text: `<p>${$t('pages.service_turkish_citizenship.slot_text_1')}</p>`\
@@ -18,7 +18,7 @@
     )
     base-post(
       :data="{\
-        image: require(`~/assets/images/pages/service/turkish-citizenship/image-1.jpg`),\
+        image: $img(`/pages/service/turkish-citizenship/image-1.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
         text: [\
           `<p>${$t('pages.service_turkish_citizenship.post_1.paragraph_1')}</p>`,\
           `<p>${$t('pages.service_turkish_citizenship.post_1.paragraph_2')}</p>`,\
@@ -29,7 +29,7 @@
     )
     base-post(
       :data="{\
-        image: require(`~/assets/images/pages/service/turkish-citizenship/image-2.jpg`),\
+        image: $img(`/pages/service/turkish-citizenship/image-2.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
         text: [\
           `<p>${$t('pages.service_turkish_citizenship.post_2.paragraph_1')}</p>`,\
         ].join(''),\
@@ -39,7 +39,7 @@
     )
     base-post(
       :data="{\
-        image: require(`~/assets/images/pages/service/turkish-citizenship/image-3.jpg`),\
+        image: $img(`/pages/service/turkish-citizenship/image-3.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
         text: [\
           `<p>${$t('pages.service_turkish_citizenship.post_3.paragraph_1')}</p>`,\
           `<p>${$t('pages.service_turkish_citizenship.post_3.paragraph_2')}</p>`,\
@@ -59,8 +59,8 @@
           ` <a href=\"${localePath({ name: 'projects' })}\">${$t('pages.service_turkish_citizenship.post_4.link')}</a>.</p>`,\
         ].join(''),\
         images: [\
-          require(`~/assets/images/pages/service/turkish-citizenship/portrait-1.jpg`),\
-          require(`~/assets/images/pages/service/turkish-citizenship/landscape-1.jpg`),\
+          $img(`/pages/service/turkish-citizenship/portrait-1.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
+          $img(`/pages/service/turkish-citizenship/landscape-1.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
         ],\
       }"
     )

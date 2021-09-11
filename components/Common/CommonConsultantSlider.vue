@@ -46,7 +46,12 @@
                 :class="$style['slide__link-email']"
               ) {{ slide.email }}
                 svg-icon(name="link-arrow-white")
-          img(:src="require(`~/assets/images/our-team/${slide.image}`)" alt="alt" loading="lazy")
+          img(
+            :src="$img(`/our-team/${slide.image}`, $store.state.supportWebP ? { format: 'webp' } : {})" 
+            alt="alt" 
+            loading="lazy"
+            decoding="async"
+          )
     //div(:class="$style['footer']")
     //  div(:class="$style['footer__navigation']")
     //    div(:class="$style['buttons']")

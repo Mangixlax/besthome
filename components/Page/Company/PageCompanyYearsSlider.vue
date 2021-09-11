@@ -51,7 +51,11 @@
             :class="$style['history__description-year']"
           ) {{ slide.year }}
         div(:class="$style['history__image']")
-          img(:src="require(`@/assets/images/pages/company/history/years-image/${slide.image}`)" loading="lazy")
+          img(
+            :src="$img(`/pages/company/history/years-image/${slide.image}`, $store.state.supportWebP ? { format: 'webp' } : {})"
+            loading="lazy"
+            decoding="async"
+          )
       div(slot="pagination" :class="$style['navigation']")
         div(:class="$style['buttons']")
           button(:class="[$style['swiper-button-prev']]" @click.prevent="$refs.swiper_2.swiperInstance.slidePrev()")
@@ -70,8 +74,8 @@ export default {
   props: {
     sliderHistory: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   components: {
     Swiper,
@@ -91,7 +95,7 @@ export default {
           renderBullet(index, className) {
             return `<span class="${className} swiper-pagination-bullet-custom"></span>`
           },
-          clickable: true
+          clickable: true,
         },
       },
     }
@@ -130,7 +134,7 @@ export default {
       justify-self: end
       margin: 0
       color: $color-black-8
-      
+
       @media (max-width: 700px)
         margin-top: initial
 
