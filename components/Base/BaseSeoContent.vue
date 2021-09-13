@@ -102,6 +102,9 @@ export default class FooterSeoContent extends Vue {
         +desktop-text-style-5
         margin: 1em 0
 
+      > p:first-child
+        margin-top: 0
+        
       & + &
         margin-top: 18px
 
