@@ -88,12 +88,18 @@ export default class FooterSeoContent extends Vue {
 
       h2
         +style-2
-        margin: calc(64px - 1rem) 0
+        margin: 64px 0
 
         @media (max-width: 1025px)
           margin: 32px 0
+      
+      a
+        cursor: pointer
+        color: $color-blue-80
+        text-decoration: none
 
       p
+        +desktop-text-style-5
         margin: 1em 0
 
       & + &
