@@ -91,7 +91,7 @@ export default class PageOurOfficeTitle extends Vue {
       name: 'modal-video',
       modal: () => import('~/components/Modal/Video/ModalVideo.vue'),
       props: {
-        src: 'https://storage.yandexcloud.net/besthome/video/office-720.mp4',
+        src: 'https://storage.yandexcloud.net/besthome/video/office-v2-720.mp4',
       },
       options: {
         height: 'auto',
