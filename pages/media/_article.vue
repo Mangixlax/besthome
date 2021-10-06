@@ -87,13 +87,13 @@ import {IArticle} from "~/store/Media"
       {
         name: ctx.app.i18n.t('breadcrumbs.media'),
         route: {
-          name: 'projects',
+          name: 'media',
         },
       },
       {
         name: articleResponse.header,
         route: {
-          name: 'properties-slug',
+          name: 'media-slug',
           params: {
             slug: articleResponse.slugs[ctx.i18n.locale],
           },
