@@ -117,7 +117,7 @@ export default class PageQualityTitle extends Vue {
 
       &--2
         padding-top: 72px
-        height: 82%
+        height: 82% !important
 
         @media (max-width: 1025px)
           padding: initial
