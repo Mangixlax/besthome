@@ -19,7 +19,10 @@
                     ref="svgPlanning"
                     :class="$style['apartment__image-background-item']"
                   )
-                    img(:src="slide")
+                    img(
+                      :src="slide"
+                      :class="$style['apartment__image-background-image']"
+                    )
               div(slot="pagination" :class="$style['navigation']")
                 div( v-if="apartment.plans.length > 1" :class="['swiper-pagination-progressbar', $style['swiper-pagination-progressbar']]")
                   div(class="status-bar")
@@ -461,6 +464,9 @@ export default class PropertiesSlugApartmentsApartmentPage extends Vue {
           max-width: 100%
           max-height: 600px
 
+      &-image
+        width: 100%
+        
 .info
   margin: 0 auto
   max-width: 1248px
