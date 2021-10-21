@@ -5,9 +5,9 @@
   )
     nuxt-link(
       :to="localePath({\
-        name: 'media-article',\
+        name: 'media-slug',\
         params: {\
-          article: data.slugs[$i18n.locale]\
+          slug: data.slugs[$i18n.locale]\
         }\
       })"
       :class="$style['media-card__link']"

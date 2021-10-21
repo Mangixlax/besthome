@@ -80,7 +80,7 @@ import {IArticle} from "~/store/Media"
 
     const articleResponse = await ctx.store.dispatch(
       'Media/fetchArticle',
-      ctx.params.article.split('-').pop(),
+      ctx.params.slug.split('-').pop(),
     )
 
     ctx.store.commit('setBreadcrumbs', [
