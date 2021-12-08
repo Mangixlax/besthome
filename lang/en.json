@@ -121,7 +121,7 @@
               "city": "Alanya",
               "region": "Saray Mahalle"
             },
-            "price": "110 000",
+            "price": "125 000",
             "sea": 350,
             "description": "Our new BestHome 40 Cleopatra Epic is ideal for those who want to be within walking distance of Cleopatra Beach and enjoy all that this dynamic resort town has to offer"
           },
@@ -135,7 +135,7 @@
             },
             "price": "120 000",
             "sea": 370,
-            "description": "BestHome 41 Saga Select will be located in one of the most favorite tourist areas of Alanya - Oba. Both are known for their landscaped promenade, wide sandy beach, and pedestrian promenade."
+            "description": "BestHome 41 Saga will be located in one of the most beautiful areas of Alanya. The quiet center of Alanya is known for its landscaped promenade, wide sandy beach, pedestrian promenade."
           }
         ]
       },
@@ -1178,7 +1178,7 @@
     "media": {
       "title": {
         "title": "Only current news and promotions",
-        "description":  "New projects and discounts in 2021<br>Be the first to find out about the start of sales!"
+        "description": "New projects and discounts in 2021<br>Be the first to find out about the start of sales!"
       },
       "list": {
         "title": "Most Relevant",
