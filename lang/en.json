@@ -109,57 +109,33 @@
               "city": "Alanya",
               "region": "Center"
             },
-            "price": "120 000",
+            "price": "140 000",
             "sea": 120,
             "description": "BestHome 36-37 The Legend is a new premium class complex in the very center of Alanya, 120 meters from the sandy beach. The complex is unique due to its advantageous location, infrastructure of a 5-star hotel and unique design."
           },
           {
-            "title": "Best Home 35",
-            "sub_title": "Aria",
+            "title": "BestHome 40",
+            "sub_title": "Cleopatra Epic",
             "image": "slide-2.jpg",
             "location": {
               "city": "Alanya",
               "region": "Saray Mahalle"
             },
             "price": "110 000",
-            "sea": 600,
-            "description": "\"Besthome 35 Aria\" is a new investment project in the central part of Alanya, Turkey. Despite the fact that this is the central part, here is quiet and green. Apartment on the shores of the Mediterranean Sea is an exclusive product that can be bought for life!"
+            "sea": 350,
+            "description": "Our new BestHome 40 Cleopatra Epic is ideal for those who want to be within walking distance of Cleopatra Beach and enjoy all that this dynamic resort town has to offer"
           },
           {
-            "title": "Best Home 38",
-            "sub_title": "Cleopatra Triumph",
+            "title": "BestHome 41",
+            "sub_title": "Saga",
             "image": "slide-3.jpg",
             "location": {
               "city": "Alanya",
               "region": "Center"
             },
-            "price": "110 000",
-            "sea": 300,
-            "description": "Our new BestHome 38 Cleopatra Triumph is ideal for those who want to be within walking distance of Cleopatra Beach and enjoy all that this dynamic resort town has to offer."
-          },
-          {
-            "title": "Best Home 39",
-            "sub_title": "Oba Select",
-            "image": "slide-4.jpg",
-            "location": {
-              "city": "Alanya",
-              "region": "Oba"
-            },
-            "price": "89 000",
-            "sea": 345,
-            "description": "BestHome 39 Oba Select will be located in one of the most favorite tourist areas of Alanya - Oba. Both are known for their landscaped promenade, wide sandy beach, and pedestrian promenade."
-          },
-          {
-            "title": "Best Home 33",
-            "sub_title": "Cleopatra Symphony",
-            "image": "slide-5.jpg",
-            "location": {
-              "city": "Alanya",
-              "region": "Center"
-            },
-            "price": "170 000",
-            "sea": 250,
-            "description": "The complex BestHome 33 Cleopatra Symphony is located a 5-minute walk from the Cleopatra beach, from its most beautiful part with a magnificent park area, sports and playgrounds, restaurants and cafes."
+            "price": "120 000",
+            "sea": 370,
+            "description": "BestHome 41 Saga Select will be located in one of the most favorite tourist areas of Alanya - Oba. Both are known for their landscaped promenade, wide sandy beach, and pedestrian promenade."
           }
         ]
       },

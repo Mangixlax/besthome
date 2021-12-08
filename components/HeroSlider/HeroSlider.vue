@@ -86,9 +86,8 @@ export default class HeroSlider extends Vue {
   public isSliderDisabled: boolean = false
   public slideLinksParams: Array<string> = [
     'best-home-36-37-the-legend-12',
-    'best-home-35-aria-10',
-    'best-home-38-creopatra-triumph-34',
-    'best-home-33-creopatra-symphony-11',
+    'best-home-40-creopatra-epic-36',
+    'best-home-41-saga-37',
   ]
 
   createDraggableTween(): void {
