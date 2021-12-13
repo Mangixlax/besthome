@@ -51,9 +51,9 @@ export default class LinkBanner extends Vue {
       return this.$t('projects.sold_out')
     }
 
-    if (this.card.apartments_count) {
-      return this.$t('projects.free_available_units', [this.card.apartments_count])
-    }
+    // if (this.card.apartments_count) {
+    //   return this.$t('projects.free_available_units', [this.card.apartments_count])
+    // }
 
     return this.$t('projects.for_sale')
   }
