@@ -104,7 +104,7 @@
           {
             "title": "Best Home 36-37",
             "sub_title": "The Legend",
-            "image": "photo-1.jpg",
+            "image": "slide-1.jpg",
             "location": {
               "city": "Alanya",
               "region": "Center"
@@ -116,7 +116,7 @@
           {
             "title": "BestHome 40",
             "sub_title": "Cleopatra Epic",
-            "image": "photo-2.jpg",
+            "image": "slide-2.jpg",
             "location": {
               "city": "Alanya",
               "region": "Saray Mahalle"
@@ -128,7 +128,7 @@
           {
             "title": "BestHome 41",
             "sub_title": "Saga",
-            "image": "photo-3.jpg",
+            "image": "slide-3.jpg",
             "location": {
               "city": "Alanya",
               "region": "Center"
