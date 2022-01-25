@@ -1,0 +1,1380 @@
+{
+  "breadcrumbs": {
+    "privacy_policy": "Gizlilik Politikası",
+    "term_of_use": "Kullanım Şartları",
+    "our_team": "bizim takım",
+    "about": "BestHome Hakkında",
+    "our_difference": "Avantajlar",
+    "history": "Öykü",
+    "contacts": "Kişiler",
+    "projects": "Projeler",
+    "online_purchase": "Çevrimiçi satın alma",
+    "apartment_leasing": "Kira",
+    "legal_suppurt": "Yasal destek",
+    "turkish_citizenship": "türk vatandaşlığı",
+    "after_sales_services": "Satış sonrası servis",
+    "inspection_trip": "Çalışma turu",
+    "investments": "Yatırımlar",
+    "our_projects": "Projelerimiz",
+    "apartments": "Daireler",
+    "media": "Medya"
+  },
+  "top_line": "BestHome Construction, yeni bir premium kompleks The Legend'i sunmaktan mutluluk duyar. Alanya merkezde, denize 120 metre, eşsiz tasarım.",
+  "catalog": {
+    "filter": "filtre",
+    "by_relevance": "alaka düzeyine göre",
+    "ascending_price": "artan fiyat",
+    "descending_price": "azalan fiyat",
+    "ascending_area": "artan alan",
+    "descending_area": "azalan alan",
+    "ascending_floor": "kat yükselen",
+    "descending_floor": "kat inen",
+    "sort": "sıralama",
+    "block": "ENGELLEMEK",
+    "rooms": "ODA SAYISI",
+    "floor": "ZEMİN",
+    "price": "FİYAT",
+    "area": "MEYDAN",
+    "dimension": "m²"
+  },
+  "hero_building": {
+    "ground": "Ground",
+    "tooltip": "-kat"
+  },
+  "header": {
+    "top_line": "",
+    "call_back": "Geri arama talebi",
+    "select_locale": {
+      "text": "İçerik, konumunuza uygun olacak şekilde bölge veya ülke seçiniz.",
+      "next": "Uygulamak"
+    },
+    "logo": {
+      "projects": "PROJELER",
+      "investors": "YATIRIMCILAR İÇİN",
+      "service": "HİZMETLER",
+      "company": "ŞİRKET",
+      "contacts": "İLETİŞİM",
+      "secondary_housing": "İKİNCİL KONUT"
+    }
+  },
+  "projects": {
+    "sold_out": "Hepsi satıldı",
+    "for_sale": "Satılık",
+    "free_available_units": "{0} <span>apartmanlar</span>.",
+    "navigation": {
+      "about": "Proje hakkında",
+      "location": "Konum",
+      "gallery": "Galeri",
+      "choose_apartment": "Bir daire seçin",
+      "get_a_consultation": "Danışmanlık almak için",
+      "consultation": "Danışma"
+    }
+  },
+  "pages": {
+    "error_page": {
+      "404": {
+        "text_1": "Geldiğiniz sayfa mevcut değil. Aşağıdakileri deneyebilirsiniz:",
+        "text_2": "Geldiğiniz yere dönün (tarayıcınızda \"Geri\" düğmesine basın);",
+        "text_3": "Girilen adresin doğruluğunu kontrol edin;",
+        "text_4": "git",
+        "text_5": "site ana sayfasıа"
+      },
+      "500": {
+        "text_1": "Sevgili kullanıcılar! Bu hata biliniyor ve yakında düzeltilecek.",
+        "text_2": "Lütfen sabırlı olun. geri dönmeyi dene",
+        "text_3": "web sitesi ana sayfası"
+      }
+    },
+    "home": {
+      "header": {
+        "title": "Kaliteli inşaatta lideriz",
+        "text1": [
+          "Best Home Construction, Türkiye pazarının önde gelen ve Alanya’da alanında lider bir inşaat şirketidir. Faaliyetine 2004 yılında gayrimenkul satış ofisi olarak başlamıştır. Bugün Alanya merkezde ve Oba İlçesinde 33’ün üzerinde projeyi hayata geçirmiştir."
+        ],
+        "text2": "Bugün Şirketimizin tamamlanmş {link}.",
+        "text2_link": "33 projesi bulunmaktadir."
+      },
+      "hero_slider_data": {
+        "coursor_data": "Sürükleyin<br>veya tıklayın",
+        "label_1": "Proje",
+        "label_2": "ila",
+        "label_from": "Ila",
+        "label_meter": "m",
+        "hero_slider": [
+          {
+            "title": "BestHome 36-37",
+            "sub_title": "The Legend",
+            "image": "slide-1.jpg",
+            "location": {
+              "city": "Alanya",
+              "region": "Merkez"
+            },
+            "price": "180 000",
+            "sea": 120,
+            "description": "Best Home 36-37 The Legend, Kumsala 120 metre mesafede, Alanya’nın tam merkezinde yeni Premium sınıf kompleks."
+          },
+          {
+            "title": " BestHome 40",
+            "sub_title": "Cleopatra Epic",
+            "image": "slide-2.jpg",
+            "location": {
+              "city": "Alanya",
+              "region": "Merkez"
+            },
+            "price": "220 000",
+            "sea": 350,
+            "description": "Yeni BestHome 40 Cleopatra Epic, Kleopatra Plajı'na yürüme mesafesinde olmak ve bu dinamik tatil beldesinin sunduğu her şeyin tadını çıkarmak isteyenler için idealdir."
+          },
+          {
+            "title": "BestHome 41",
+            "sub_title": "Saga",
+            "image": "slide-3.jpg",
+            "location": {
+              "city": "Alanya",
+              "region": "Merkez"
+            },
+            "price": "120 000",
+            "sea": 370,
+            "description": "BestHome 41 Saga, Alanya'nın en güzel bölgelerinden birinde yer alacak. Alanya'nın sakin merkezi, bakımlı gezinti yolu, geniş kumlu plajı ve yaya gezinti yeri ile tanınır."
+          }
+        ]
+      },
+      "link_baner": {
+        "baner_1": {
+          "title": "İkinci konut",
+          "text": "İkinci konut",
+          "data-cursor-text": "Tıkla<br>ve izle"
+        },
+        "baner_2": {
+          "title": "Yatırımcılar için",
+          "text": "Yatırımcılar için",
+          "data-cursor-text": "Tıkla<br>ve izle"
+        }
+      },
+      "tree_columns": {
+        "title": "Çalışma şeklimiz",
+        "description": "Şirketimizin uzmanları esneklik ve profesyonellik göstermek suretiyle tüm işlemlere eşlik ederken, oluşabilecek tüm sorunları çözmektedir. Daha da önemlisi işlem tamamlandıktan sonra dahi profesyonel yardım ve satış sonrası hizmet imkanına sahip olacaklardır.",
+        "columns": [
+          {
+            "icon": "Online-alışveriş",
+            "title": "Online<br>alışveriş",
+            "text": "Türkiye’ye gelmeden Alanya’da gayrimenkul satın almak ve kaydını yaptırmak basit. Best Home Construction tarafından sağlanan uzaktan gayrimenkul satın alma ve kaydettirme hizmeti gittikçe daha popüler hale gelmektedir.",
+            "filename": "three-columns-1.jpg",
+            "to": {
+              "name": "service-online-purchase"
+            },
+            "hovered": false
+          },
+          {
+            "icon": "introductory-tour",
+            "title": "Tanışma<br>turu",
+            "text": "Bugün Şirketimizin tamamlanmış 33 projesi mevcut. Alanya’da gayrimenkul satın alma kararı aldıysanız ancak online alışverişe hazır değilseniz bireysel tanışma turu hizmet vermekten mutlu olacağız",
+            "filename": "three-columns-2.jpg",
+            "to": {
+              "name": "service-introductory-tour"
+            },
+            "hovered": false
+          },
+          {
+            "icon": "obtaining-citizenship",
+            "title": "Получение<br>гражданства",
+            "text": "2019'dan bu yana yabancı yatırımcıların hayallerini gerçekleştirmek için gerçek bir fırsatı var. Şimdi, değeri 250.000$'ın altında olan gayrimenkul satın alırken, basitleştirilmiş bir program kapsamında Türk vatandaşlığı alabilirsiniz. Ayrıca, bir ev veya dairenin sahipleri, eşleri ve 18 yaşından küçük çocukları tam teşekküllü vatandaş olabilirler.",
+            "filename": "three-columns-3.jpg",
+            "to": {
+              "name": "service-turkish-citizenship"
+            },
+            "hovered": false
+          }
+        ],
+        "data_cursor": "Tıklayın<br>ve izleyin"
+      }
+    },
+    "projects": {
+      "header": {
+        "title": "BestHome'dan Alanya'da emlak",
+        "text1": "Bugüne kadar Alanya ve Oba'da çok katlı binalar da dahil olmak üzere 33'ten fazla proje hayata geçirildi.",
+        "text2": "Şirketin Almanya, Amerika, Ukrayna, İran, Kazakistan'ın yanı sıra Danimarka, İsveç, Norveç ve Finlandiya'da kendi temsilcilikleri bulunmaktadır. BDT ülkeleri, ABD, Avrupa ve Orta Doğu'da yaşayan yabancı vatandaşlarla şimdiden 1000'den fazla başarılı işlem gerçekleştirdik.",
+        "text3": "Hakkında daha ayrıntılı %{link}.",
+        "text3_link": "Şirketimiz"
+      },
+      "accordions": [
+        {
+          "title": "Hafriyat veya inşaat aşamasında bir daire satın alırken nelere dikkat edilmelidir?",
+          "content": "<p>Her şeyden önce, projeye dikkat edin. Elektronik ortamda eksiksiz olarak doldurulmalıdır. Alanya'daki dairenin alanı ve yerleşim planına karar verin. Altyapı özelliklerini belirtin. Nesnenin denizden ve donanımlı plajlardan ne kadar uzakta olduğunu öğrenin. İnşaat aşamasında Alanya merkezde ne kadar konut maliyeti olduğunu öğrenin</p>"
+        },
+        {
+          "title": "Müteahhitten kiralık daireler ne durumda?",
+          "content": "<p>BestHome, yüksek kaliteli bir gayrimenkul satın almayı teklif eder ve ayrıca mobilya ve ev aletleri ile tam donanımlı daireler satın alabilirsiniz.</p>"
+        },
+        {
+          "title": "Bir geliştiriciden satın alırken bir daire fiyatında indirim alabilir miyim?",
+          "content": "<p>BestHome, Alanya'da inşaat aşamasında gayrimenkul satın almak için uygun taksit koşulları sağlar. Müşteriler için indirimler bireysel olarak tartışılır ve nesnelerin fiyatına ve diğer özelliklerine bağlıdır.</p>"
+        }
+      ],
+      "seo": "<p>Geniş odalar, zarif  sıhhi tesisat,üst kalite mobilyalar, beyaz eşya ve elektrikli ev aletleri dâhil  tatil ve konforlu bir yaşam için gerekli olan her şey mevcut.</p>"
+    },
+    "apartments": {
+      "apartment": "Daireler",
+      "block": "Çerçeve",
+      "status": "Durum",
+      "floor": "Zemin",
+      "rooms": "Odalar",
+      "area": "Meydan",
+      "price": "Fiyat",
+      "status_1": "Stokta var",
+      "status_2": "Rezerv",
+      "status_3": "Rezerv",
+      "status_4": "Satış",
+      "nth": "{0} daire",
+      "empty_list": {
+        "text": "Daha fazla bilgi için kataloğa eklenme sürecindeki daireler",
+        "link": "buraya tıklayın"
+      },
+      "additional_features": "Ek özellikler",
+      "to_sea": "Denize",
+      "to_rest": "restorana",
+      "start_building": "İnşaatın başlangıcı",
+      "end_building": "Devreye alma",
+      "equipments": "Komple daire seti",
+      "photo_tour": "Daire turu",
+      "m": "m",
+      "request_now": "Başvurunuzu gönderin",
+      "download_pdf": "PDF İndir",
+      "similar_apartments": "Benzer daireler"
+    },
+    "secondary_housing": {
+      "header": {
+        "title": "Bayiler",
+        "sub_title": "Yeni evinizden sadece 3 adım uzaktasınız. Her şeyi evinizin rahatlığında çevrimiçi yapın. Güvenilir, basit, hızlı.",
+        "button": "Bir daire seçmek istiyorum"
+      },
+      "article_1": "BestHome sitelerindeki daireler Alanya'da sadece konforlu bir konaklama ve kaliteli bir dinlenme değil, aynı zamanda karlı yatırımlar için bir fırsattır. İnşaat şirketimiz tarafından inşa edilen komplekslerin inşaat aşamasında neredeyse tamamen satılması ve bunlara olan talebin giderek artması nedeniyle, müşterilerimize dairelerini yeniden satma hizmetini ve yeni alıcıları - fırsat fırsatını sunmaktan mutluluk duyuyoruz. BestHome Construction'dan hazır konut satın almak için. İkinci el gayrimenkul portföyümüzde Alanya'da mobilyalı daire tekliflerinin yanı sıra kimsenin yaşamadığı daire tekliflerini bulabilirsiniz."
+    },
+    "projects_experiences": {
+      "header": "Doğanın dokunuşuyla yaşayan şehir",
+      "post_1": {
+        "title": "Fitness merkezi",
+        "paragraph_1": "Cleopatra Select, evinin duvarların ötesine geçmesini isteyenler için tasarlandı. Şehir hayatının özü, doğaya yakınlık ile tamamlanmaktadır. Daireler enerji tasarrufludur ve binalar yeşilliklerle çevrilidir ve yeşil çatılarla kaplıdır.",
+        "paragraph_2": "Ülkenin en büyük spor salonu. Kapalı alan sporları meraklıları için (yağmurlu günler için de).",
+        "paragraph_with_link": "Hakkında daha ayrıntılı",
+        "link": "Cleopatra Select"
+      },
+      "post_2": {
+        "title": "Kütüphane",
+        "paragraph_1": "Tüm kitapseverler için modern, ferah ve aydınlık bir halk kütüphanesi.",
+        "paragraph_with_link": "Hakkında daha ayrıntılı",
+        "link": "Cleopatra Select"
+      },
+      "scroll_line_data": [
+        {
+          "title": "239",
+          "subtitle": "Daireler"
+        },
+        {
+          "title": "470",
+          "subtitle": "Bisiklet park yerleri"
+        },
+        {
+          "title": "3800м²",
+          "subtitle": "Genel yeşil alanlar"
+        },
+        {
+          "title": "От 1 до 4 комнат",
+          "subtitle": "Özel odalar"
+        }
+      ],
+      "panorama": {
+        "text_1": "Держать",
+        "text_2": "и используйте мышь для навигации по панораме"
+      }
+    },
+    "investors": {
+      "header": {
+        "title": "Türkiye- Alanya’da gayrimenkule yatırımlar.",
+        "text": "Türkiye Cumhuriyeti son 10 yıldır hazinesini 100 milyar Dolarlık yabancı yatırımla doldurmuştur. Rusya Federasyonu, ABD ve Avrupa’dan yatırımcılara cazip gelen nedir? Ekonomik istikrar, yabancı yatırımcılara siyasi özgürlük, yüksek kalite inşaat, daire ve ev alımında nispeten düşük vergiler. Son yıllarda ise basitleştirilmiş bir program kapsamında Türk vatandaşlığı alma imkanı da var.",
+        "linkToProjects": {
+          "text": "Bugün Şirketimizin tamamlanmış",
+          "link": "33 projesi mevcut",
+          "route": "/projects"
+        }
+      },
+      "post_1": {
+        "title": "Uzun vadeli işbirliği",
+        "paragraph_1": "Bizimle başarılı bir işbirliğinin öncelikle müşterilerimizin gelirinin istikrarlı olmasına bağlı olduğunu biliyoruz. Uzun vadeli karşılıklı yarar sağlayan işbirliğine odaklıyız. Yatırımcılarımız ne kadar fazla kazanırsa işimizin geleceği de o kadar iyi olur.",
+        "paragraph_with_link": "Bugün Şirketimizin tamamlanmış",
+        "link": "33 projesi mevcut"
+      },
+      "advice_data": {
+        "intoduction": [
+          "Alanya-Karlı bir finansal yatırım için en gelecek vadeden bölgelerden biridir. Mahmutlar, Kargıcak, Kestel, Oba, Cikcilli- Alanya ve banliyöleri son yıllarda aktif olarak gelişmektedir.",
+          "Best Home Construction Şirketi 2004 den beri Rus, Ukraynalı, Kazak, Amerikalı, Danimarkalı, Norveç, Alman ve diğer ülkelerden yatırımcılarla başarılı şekilde işbirliği yapmakta olup, Türkiye’de daire ve ev satın alarak sermayelerini arttırmalarına ve karlı bir yatırım yapmalarına yardımcı olmaktadır."
+        ],
+        "title": "Best Home Construction Şirketinin yatırım tavsiyeleri:",
+        "cards": [
+          {
+            "title": "1.",
+            "text": "Her müşteriye bireysel yaklaşım-Satın almak için gayrimenkul, tarım veya turizm hizmetleri alanında hazır bir iş için 5 seçenek arasından seçim yapacağız."
+          },
+          {
+            "title": "2.",
+            "text": "Türk vatandaşlığı almada yadım-Tüm sorularınızı ayrıntılı olarak cevaplıyoruz."
+          },
+          {
+            "title": "3.",
+            "text": "Vergilendirme ve yatırımın yasal yönü hakkında danışmanlık"
+          },
+          {
+            "title": "4.",
+            "text": "Alanya’da tüzel kişilerin tescili-Yetkili bir uzman tavsiye ediyoruz."
+          }
+        ]
+      },
+      "post_2": {
+        "title": "İşimizi sorumluluk duygusuyla yaklaşım.",
+        "paragraph_1": [
+          "Çalışanlarımızın her birine yönelik sıkı şartlar belirliyoruz.Gayrimenkul piyasasında yeni trendleri sürekli takip ediyoruz.Çalışanlarımız müşterilerin iş projelerinde başarılı şekilde uygulamak için bilgi stoklarını sürekli olarak yenilemektedir."
+        ],
+        "paragraph_with_link": "Dahs",
+        "link": "о BestHome 36-37 The Legend"
+      },
+      "post_3": {
+        "title": "Şeffaflık ve dürüstlük",
+        "paragraph_1": "Yükümlülüklerimizi daima yerine getiriyoruz. Müşterilerimizin yatırımcıları için maksimum avantajlı çözümler bulmaya çabalıyoruz. Şeffaf çalışmamız ve karşılıklı gelişim imkanı sayesinde yatırımcılar bize güveniyorlar.",
+        "paragraph_with_link": "Bugün Şirketimizin tamamlanmış",
+        "link": "33 projesi mevcut"
+      },
+      "scroll_line_data": [
+        {
+          "title": "17",
+          "subtitle": "лет опыта"
+        },
+        {
+          "title": "1000",
+          "subtitle": "довольных клиентов"
+        }
+      ],
+      "post_4": {
+        "paragraph_1": [
+          "Мы считаем, что ответственность и профессионализм – главные критерии нашей работы. Наша цель – предоставить клиентам максимально высокий уровень обслуживания и возможность купить недвижимость в Аланье на самых выгодных условиях."
+        ],
+        "paragraph_with_link": "Больше",
+        "link": "о Cleopatra Select"
+      }
+    },
+    "service_online_purchase": {
+      "image_title": {
+        "header": "Online alışveriş",
+        "text": [
+          "Türkiye’ye gelmeden Alanya’da gayrimenkul satın almak ve kaydını yaptırmak basit. Best Home Construction tarafından sağlanan uzaktan gayrimenkul satın alma ve kaydettirme hizmeti gittikçe daha popüler hale gelmektedir."
+        ]
+      },
+      "cards": [
+        {
+          "title": "1.Konut kompleksinin seçimi",
+          "text": "WhatsApp, Telegram, Skype veya e-mail yöntemlerinden sizin için uygun olanı seçerek yöneticilerimizle irtibata geçebilir, ayrıca geri arama talebinde bulunabilirsiniz. Tercihinizi belirttikten sonra Şirketimizin Yöneticileri isteklerinize uygun kişisel bir portföy hazırlayacak, dairelerle ilgili kapsamlı bilgi verecek ve tüm sorularınızı cevaplayacaklardır."
+        },
+        {
+          "title": "2.Görüntülü konuşma ile gayrimenkul inceleme",
+          "text": "Şirketimizin Yöneticisi kompleksin bulunduğu bölgeyi, yakınındaki yerleri, denize giden yolu gösteren çevrimiçi yayın yapacaktır. Kompleksin hazır olması halinde ilgilendiğiniz kompleksin alt yapısı ve ilgilendiğiniz daire, ayrıca balkon ve pencereden manzarayı da görebileceksiniz."
+        },
+        {
+          "title": "3. Alım-Satım Sözleşmesinin düzenlenmesi",
+          "text": "Satın alınacak daire için ödeme onaylandıktan sonra yöneticimize irtibat bilgilerinizi bildirmeniz, ayrıca yurtdışı pasaportunuzun kopyasını göndermeniz gerekecek. Bu bilgilere istinaden çift dilde (Rusça ve Türkçe) alım-satım sözleşmesi düzenlenecektir. Söz konusu sözleşme onaylanmak üzere e-mail veya WhatsApp üzerinden size gönderilecektir. Sizden teyit geldikten sonra Sözleşme inşaat şirketimiz tarafından imzalanacak, tarayıcıda taranarak size gönderilecektir. İmzayı attıktan sonra Sözleşmeyi Şirketimizin Yöneticisine göndermeniz gerekmektedir."
+        },
+        {
+          "title": "4. Vekaletname düzenlemesi",
+          "text": "Mülk almak için Türkiye’ye gelememeniz halinde adınıza mülkiyet hakkı belgesi düzenlenmesi için Türkiye Büyükelçiliğinde vekâletname vereceksiniz (Şirketimizin Yöneticisinin size göndereceği şablona göre)Yeni sisteme göre size verilen vekâletnameyi posta ile göndermenize gerek yok. Kopyasını gönderdikten sonra Şirketimizin çalışanı şehrin herhangi bir noterliğinden aslını alabilir."
+        },
+        {
+          "title": "5. Mobilya siparişi ",
+          "text": "Hali hazırda mobilyalı bir daireye gelmek istiyorsanız Şirketimizin Yöneticisi bütçenize ve tercihinize uygun mobilya paketleri seçeneklerini size gönderecektir. Şirketimizin çalışanları mobilyaların zamanında teslim edilmesini, montajını ve dairede tam olarak planladığınız şekilde yerleştirilmesini sağlayacaktır. Ayrıca bizim iç mimarımızın hizmetlerimizden yararlanma imkânınızın olduğunu söyleyelim, yeni evinizi süsleyecek aksesuarları sizin için seçecek."
+        }
+      ],
+      "conclusion": [
+        "Böylece Türkiye’ye geldiğinizde sizi oturmaya hazır, beklentilerinizin üzerinde rahat dairenizin beklediğinizden emin olabileceksiniz.",
+        "Alanya’da gayrimenkul almaya karar verdiyseniz ancak çevrimiçi alışverişe hazır değilseniz, size bireysel tanışma turu hizmeti vermeye hazırız."
+      ]
+    },
+    "service_after_sale_services": {
+      "image_title": {
+        "header": "Satış sonrası hizmetler",
+        "text": [
+          "Türkiye Alanya’da gayrimenkul satın almak-Konforlu bir tatile ve karlı yatırımlara giden yolda sadece ilk adımdır."
+        ],
+        "filename": "service-after-sale-services-bg.jpg"
+      },
+      "slot_text_1": "Müşterilerimizin birçoğunun yabancı dil bilmediğinin ve Alanya’yı tanımadığının farkındayız. Aynı zamanda hayatlarını düzene sokarken birçok sorularının olduğunu ve Türkiye’de en konforlu şekilde kalmaları için bir dizi hizmete ihtiyaçları olduğunu biliyoruz.",
+      "slot_text_2": "Tam bu yüzden ekibimizde satış sonrası hizmete bakan ve Rusça dâhil birçok yabancı dil bilen bir yöneticimiz bulunmaktadır.",
+      "list_card": {
+        "header": {
+          "title": "Şirketimizin verdiği bazı hizmetler:"
+        },
+        "list": [
+          "Antalya ve Gazipaşa havalanından/havaalanlarına transfer;",
+          "Аraç kiralama;",
+          "Mobilya satın almada yardım ve tasarım;",
+          "Dairelerinizi kiraya verme;",
+          "Dairelerinizin temizliği;",
+          "İkamet belgesi ve vatandaşlık alırken yardım"
+        ]
+      }
+    },
+    "all_about_rent": {
+      "image_title": {
+        "header": "Yatırımcılara",
+        "text": [
+          "Alanya’da daireleri kiraya verme yoluyla döviz olarak sabit bir gelir elde edebilirsiniz.",
+          "Best Home Construction Şirketinin Kompleksleri sadece Alanya’nın merkez bölgelerinde, denize yakın olup, gelişmiş bir altyapısı ve yenilikçi bir tasarımı vardır. Tam olarak bu özellikleri sayesinde Best Home Construction Şirketinin gayrimenkulleri hem kısa, hem de uzun süreyle kiraya vermek için idealdir."
+        ]
+      },
+      "text": [
+        "İster kiraya verme, isterse tatil amacıyla kendiniz için kullanma, daireyi satın alma amacınız ne olursa olsun,  daireyi sadece boş olduğu dönemde kiraya vermek istiyorsanız, yönetim ekibimiz tüm organizasyonel konuları üstlenerek size hizmet vermekten memnun olacaktır:"
+      ],
+      "cards": [
+        "Profesyonel fotoğraf ve video",
+        "Dairelerinizin çekimi",
+        "Kiracıların çıkışı halinde diarenin kabulü",
+        "Daire temizliği talebi"
+      ]
+    },
+    "service_introductory_tour": {
+      "image_title": {
+        "header": "Tanışma turu",
+        "text": [
+          "Şirketimizin Yöneticisiyle Türkiye’ye gelebileceğiniz en uygun tarihi kararlaştırdıktan sonra sizi memnuniyetle hava alanında karşılayacağız. Şirket çalışanlarının profesyonelliği ve mükemmel organizasyonu sayesinde tanışma turu genellikle en fazla 3-4 gün sürmektedir. Bu süre Alanya ilçeleriyle tanışmak, tüm merak ettiklerinize cevap almak ve ilgilendiğiniz gayrimenkullerin görmek için yeterli bir süredir."
+        ],
+        "filename": "service-introductory-tour-bg.jpg"
+      },
+      "slot_text_1": "Alanya’da gayrimenkul satın alma kararı aldıysanız ancak online alışverişe hazır değilseniz bireysel tanışma turu hizmet vermekten mutlu olacağız.",
+      "post_1": {
+        "title": "Hava alanında karşılama",
+        "paragraph_1": "Uçak biletinizi satın aldıktan sonra, hava alanında karşılamayı organize etmesi için Şirketimizin Yöneticisine göndermeniz gerekmektedir. Şirketin Şoförü elinde sizin adınızın yazdığı bir tabela tutarak Antalya veya Gazipaşa Havaalanından çıkışta sizi karşılayacak. Antalya Havaalanından Alanya’ya gidiş yaklaşık 1 saat 45 dakika, Gazipaşa Havaalanından Alanya merkeze yaklaşık 40 dakika.",
+        "paragraph_with_link": "Bugün Şirketimizin tamamlanmış",
+        "link": "33 projesi mevcut."
+      },
+      "article_1": {
+        "title": "Komplekslerimizden birinde dairelerde konaklama",
+        "text": [
+          "Komplekslerimizde kendinizi daire sahibi olarak hissetmeniz için Şirketimizi tarafından inşa edilen dairelerden birine sizi yerleştiriyoruz. Böylece Şirketimizin gurur duyduğu eşsiz altyapı tasarımını değerlendirmekle kalmayacak, aynı zamanda kullandığımız malzemelerin kalitesinden emin olacaksınız.",
+          "Şirketimizin Yöneticisi sizi komplekste karşılayacak, dairenize yerleştirecek ve telefonunuzun WI-FI bağlantısını yapacak. Uçuş sonrasında rahatlamak, mevsime bağlı olarak denizde veya kapalı havuzda yüzmek için zamanı bulacaksınız."
+        ]
+      },
+      "post_2": {
+        "title": "Alanya ilçeleriyle tanışm",
+        "paragraph_1": "Ertesi gün sabah sadece organik ürün çeşitliliği ile değil, dağ ve deniz manzarasıyla da ünlü Türk kahvaltısıyla güne başlamanızı öneriyoruz.",
+        "paragraph_2": "Şirketimizin Yöneticisi 300 metre yükseklikte bulunan seyir terasından size Alanya’yı gösterecek ve bu güzel yerine nasıl kurulduğunu anlatacak. Ayrıca çok sayıda kafesi, restoranı, yatları ile Alanya sahilini görecek ve ünlü Kleopatra plajı boyuna yürüyüş yapabileceksiniz.",
+        "paragraph_3": "BestHome İnşaat'ın komplekslerini inşa ettiği tüm alanları görme imkanına sahip olacaksınız."
+      },
+      "post_3": {
+        "title": "Şirketimizin ofisinde tanıtım",
+        "paragraph_1": "Sizi Şirketimizin ofisinde selamlamaktan mutluluk duyacağız. Şirketimizin çalışanı size yapıların tanıtımını yapacak, tüm sorularınızı yanıtlayacak ve Türkiye’de gayrimenkul satın alma prosedürünü, ayrıca tüm hukuki konuları anlatacak.",
+        "paragraph_with_link": "Bugün Şirketimizin tamamlanmış",
+        "link": "33 projesi mevcut."
+      },
+      "post_4": {
+        "title": "Alım-Satım Sözleşmesi akdi",
+        "paragraph_1": "Satın almak istediğiniz gayrimenkulü belirledikten sonra Şirketimizin ofisinde Rusça ve Türkçe alım-satım sözleşmesi düzenlenecek ve imzalanacaktır. Şirketimizin çalışanları orada ayrıca sizin için Türkiye’de mülkiyet hakları devri sırasında gerekecek vergi mükellefi kimlik numarası oluşturacaklar. İsteğiniz doğrultusunda Şirketimizin çalışanları Türkiye bankasında size hesap açmanız için yardımcı olacaklar."
+      },
+      "post_5": {
+        "title": "Vekaletname düzenlemesi",
+        "paragraph_1": "Mülkiyet hakkı belgesi düzenlemek, ayrıca adınıza su ve elektrik sayacı oluşturulması için Türkiye’ye gelmenizin mümkün olmaması halinde, gelmenize gerek kalmadan adınıza tüm belgeleri düzenleyebilmesi için Şirket çalışanımıza vekâletname vermeniz mümkün.",
+        "paragraph_with_link": "Bugün Şirketimizin tamamlanmış",
+        "link": "33 projesi mevcut"
+      },
+      "post_6": {
+        "title": "Mobilya mağazalarının ziyareti",
+        "paragraph_1": "Yeni daireleriniz için mobilya almak ya da mobilya mağazalarının fiyat politikasını öğrenmek isterseniz Şirketimizin Yöneticisi size şehrin en iyi mobilya mağazalarını gezdirecek."
+      },
+      "post_7": {
+        "title": "Alanya’dan havaalanına transfer",
+        "paragraph_1": "Belirlenen zamanda şoför sizi alacak ve Antalya veya Gazipaşa Havaalanına götürecek.",
+        "paragraph_2": "Alanya da gayrimenkul satın almanız halinde Şirketimiz tüm konaklama ve transfer masraflarınızı karşılayacak."
+      }
+    },
+    "service_legal_support": {
+      "image_title": {
+        "header": "Yasal destek",
+        "text": [
+          "Şirketimizin uzmanları sadece adınıza mülkiyet hakkı devri için gerekli belgeleri hazırlamakla kalmayıp, ikinci bir gayrimenkul almak için tüm belgelerin yasal açıdan uygunluğunu kontrol etmektedir."
+        ],
+        "filename": "service-legal-support-bg.jpg"
+      },
+      "slot_text_1": "Alım-Satım Sözleşmesi yapıldıktan sonra mülkiyet hakkın belgesi düzenlenirken gerekli olacak vergi mükellefi kimlik numarasını sizin için alıyor, ayrıca isterseniz Türk bankasında adınıza hesap açıyoruz.",
+      "post_1": {
+        "paragraph_1": "Uzmanlarımız kadastro müdürlüğüne dilekçe veriyotlar, tercümanlar anlaşıyorlar ve size kadasto müdürlüğünde eşlik ediyorlar. Mülkiyet hakkı belgesi alındıktan sonra Şirketimizin çalışanları adınıza elektrik ve su sayacı oluşturuyorlar.",
+        "paragraph_with_link": "Bugün Şirketimizin tamamlanmış",
+        "link": "33 projesi mevcut."
+      },
+      "post_2": {
+        "paragraph_1": "Mülkiyet hakkı belgesi düzenlemek, ayrıca adınıza su ve elektrik sayacı oluşturulması için Türkiye’ye gelmenizin mümkün olmaması halinde, gelmenize gerek kalmadan adınıza tüm belgeleri düzenleyebilmesi için Şirket çalışanımıza vekâletname vermeniz mümkün."
+      },
+      "post_3": {
+        "paragraph_1": "Şirketimizin uzmanları siz ve aile bireyleriniz için Türkiye’de ikamet belgesi düzenlenmesi, ayrıca 250.000USD tutarında (Kadastro bedeli) gayrimenkul satın almanız halinde  için yardımcı Türk vatandaşlığı almanızda size yardımcı olacaklardır.",
+        "paragraph_with_link": "Bugün Şirketimizin tamamlanmış",
+        "link": "33 projesi mevcut"
+      }
+    },
+    "service_turkish_citizenship": {
+      "image_title": {
+        "header": "Yabancı yatırımcılar için Türk vatandaşlığı",
+        "text": [
+          "2019’dan bu yana yabancı yatırımcıların hayallerini gerçekleştirmek için gerçek bir fırsat doğmuştur. Artık 250 000 Dolar ve üzerinde gayrimenkul satın alırken basitleştirilmiş program kapsamında Türk vatandaşlığı alabilirsiniz. Ayrıca bir ev veya daire sahiplerinin, eşlerinin veya 18 yaşın altındaki çocuklarının tam vatandaş olma imkanı bulunmaktadır."
+        ],
+        "filename": "turkish-citizenship-bg.jpg"
+      },
+      "slot_text_1": "Türkiye-Sezonluk tatil ve yaşamak için mükemmel bir yerdir.Birçok yabancı daimi olarak kalmak için Türkiye Cumhuriyeti’ne taşınmanın hayalini kurmaktadır. Ticaretle uğraşmak. Kendi konutunuzu almak ve ailenizle birlikte parlak güneşin ülkesine taşınmak.",
+      "list_card": {
+        "header": {
+          "title": "Yabancılar için gerçek avantajlar",
+          "text": [
+            "Türk vatandaşları sadece ülkede herhangi bir engel ve kısıtlama olmadan yaşama hakkına sahip olmayıp, aynı zamanda şu avantajlara sahip olmaktadır:"
+          ]
+        },
+        "list": [
+          "Devletin sağlamış olduğu sosyal yardım ve faydalar;",
+          "Ücretsiz eğitim;",
+          "Devlet sağlık sigortası;",
+          "Emeklilik ödemeleri;",
+          "Düşük faizli kredi alma;",
+          "İş için ve kişisel amaçlarla arsa satın alma;",
+          "Vizesiz çalışma;",
+          "Tüzel kişilerin tescil imkanı;",
+          "110 ülkeye vizesiz ziyaret;",
+          "Düşük vergi;"
+        ]
+      },
+      "article_1": {
+        "title": "Bilmeniz gerekenler"
+      },
+      "post_1": {
+        "paragraph_1": "Türk vatandaşlığı almak amacıyla gayrimenkul satın alan yabancı, 3 yıl boyunca gayrimenkulü satma hakkına sahip değildir. Ancak ev veya daireleri uzun veya kısa süreli kiraya verebilir ki, bu da sadece parayı karlı bir yere yatırmayı değil, yatırılan paranın bir kısmını geri almayı da mümkün kılmaktadır.",
+        "paragraph_2": "Best Home Construction Şirketi Alanya’nın en iyi bölgelerinde Türk gayrimenkullerinin satışında uzmanlaşmıştır."
+      },
+      "post_2": {
+        "paragraph_1": "Alanya’da ev veya daire almak için bulunduğunuz ülkeden ayrılmanıza gerek yok. Türkiye Büyükelçiliği’nde bir avukata vekâlet vermeniz, gerekli tüm belgeleri posta ile göndermeniz yeterlidir. Prosedürler hakkında detaylı bilgiyi danışmanlarımız size verecektir."
+      },
+      "post_3": {
+        "paragraph_1": "Gayrimenkul satın alırken ve Türk vatandaşlığı alırken birçok nüans olduğundan belgelerin düzgün şekilde düzenlenmesi gerekmektedir. Best Home Construction uzmanlarımız yasal açıdan konuda tam yetki ve deneyime sahiptir.",
+        "paragraph_2": "Yabancı yatırımcılar için Türk vatandaşlığı alma konusunda uzmanlaşmış güvenilir hukuk firmaları ile işbirliği içerisindeyiz.Yardımlarımızla bir düzinenin üzerinde müşteri şimdiden üst kalite konut sahibi ve Türkiye Cumhuriyeti’nin yasal vatandaşı oldu."
+      },
+      "post_4": {
+        "title": "İyi bir haberimiz daha var!",
+        "paragraph_1": "Türkiye Mevzuatı gereğince inşaat döneminde dahi gayrimenkul için mülkiyet hakkını tescil ettirmek mümkündür. Best Home Şirketi işlerinin yasal yönlerine ciddiyet ve sorumluluk duygusuyla yaklaşmaktadır, bu yüzden inşaat başlamadan dahi tüm belgeleri hazır etmektedir. Böylece inşaat bitmeden önce dairelerin tam bedelini ödeyip gayrimenkulü üstünüze alıp ev kullanıma verilmeden önce vatandaş olmak mümkün olmaktadır. Gördüğünüz gibi müşterilerimiz için çok şey yapıyoruz.",
+        "paragraph_with_link": "Bugün Şirketimizin tamamlanmış",
+        "link": "33 projesi mevcut."
+      }
+    },
+    "company_about_company": {
+      "header": {
+        "title": "Şirket hakkında",
+        "text": [
+          "BestHome Construction İnşaat Alanya'nın lider inşaat firmasıdır. Gayrimenkul satış ofisi olarak faaliyetine 2004 yılında başlamıştır. 2008 yılından itibaren kendi projelerini hayata geçirmeye başlayan Şirket Alanya’da konforlu yeni konutlar sunmaktadır. Şirketin bugün Alanya’nın merkezinde ve Oba Bölgesinde tamamlanmış 33 projesi bulunmaktadır.",
+          "Şirketin bugün Alanya’nın merkezinde ve Oba Bölgesinde tamamlanmış 33 projesi bulunmaktadır.",
+          "Firmanın Almanya, Amerika, Rusya, Ukrayna, İran, Kazakistan, Danimarka, İsveç, Norveç ve Finlandiya’da temsilcilikleri bulunmaktadır. Şirket BDT, ABD, Avrupa ve  Orta Doğu’da yaşayan yabancı vatandaşlarla 1000 in üzerinde başarılı işlem yapmıştır.",
+          "Bugün Alanya’daki inşaat şirketimizin yardımıyla her yabancı ülkesinden ayrılmadan avantajlı ve hızlı bir şekilde daire ve özel ev satın alabilmektedir. Tüm sorunlar uzaktan çözülmektedir. Sözleşme yapabilir ve uzaktan TAPU işlemlerinizi yaptırabilirsiniz."
+        ]
+      },
+      "advantages_slider": {
+        "title": "Avantajlar",
+        "slider": [
+          {
+            "image": "company-advantages-slider-1.jpg",
+            "text": "Türk Standartları Enstitüsü tarafından belgelendirilen modern teknoloji ve malzemeler kullanılarak yüksek inşaat kalitesi"
+          },
+          {
+            "image": "company-advantages-slider-2.jpg",
+            "text": "Çok seviyeli kalite kontrol sistemi"
+          },
+          {
+            "image": "company-advantages-slider-3.jpg",
+            "text": "Yapıların teslimat sürelerine uyma"
+          },
+          {
+            "image": "company-advantages-slider-4.jpg",
+            "text": "İşlemlerin yasallığının garantisi"
+          },
+          {
+            "image": "company-advantages-slider-5.jpg",
+            "text": "Gayrimenkulün mülkiyet hakkını almak için Sözleşmenin yapıldığı zamandan mülkiyet hakkı alınana kadar her bir müşteriye eşlik etme"
+          },
+          {
+            "image": "company-advantages-slider-6.jpg",
+            "text": "Mülkiyetin kaydından sonra tam hizmet yelpazesi"
+          }
+        ]
+      },
+      "article_1": {
+        "title": "Alanya’da gayrimenkul",
+        "text": [
+          "Peki, neden Alanya? Çünkü burada daire ve villa fiyatlarını abartmadan herhangi bir zorlukta projeyi hayata geçirmek mümkün.",
+          "Yapıların alt yapısı şıklığı ve çeşitliliği işe şımartmaktadır. Ve hepsi, tasarımcılar ve mimarların yetkin planlaması ve cesut fikirlerin ustaca uygulanması sayesindedir.",
+          "Alanya ve Oba-Yaşamak ve sezonluk tatil, ayrıca karlı yatırımlar için en tanınmış üst düzey bölgelerdir. Şirketimiz gelecekte inşaat sınırlarını genişletmeyi planlamaktadır.",
+          "Müteahhit Akdeniz kıyısında kalite daireleri satışa sunmaktadır. Binalar en iyi Avrupa geleneklerinde inşa edilmiş ve dekorasyonu yapılmıştır. Konut yüksek dünya standartlarına uymaktadır. Yüksek tavanlı geniş odalar, EKO malzemeler kullanılarak yapılan bitirme işleri. Kısmen veya tamamen mobilya döşemesi ve gömme beyaz eşya ve elektrikli ev aletleri. Dekorasyon çözümlerinin çeşitliliği çok talepkar müşteriler tarafından bile takdir edilmektedir.",
+          "Kendi istek, talep ve maddi imkânlarınızı dikkate alarak konut seçmek için tanışma turuna çıkabilir veya müşteri için tüm önemli organizasyonel konularda müşteriyle hemfikir olan şirket çalışanlarına güvenebilirsiniz.",
+          "Düzgün planlama sayesinde yeni binalarda farklı fiyat segmentlerinden daire satın alabilirsiniz."
+        ]
+      },
+      "scroll_line_data": [
+        {
+          "title": "33",
+          "subtitle": "Proje"
+        },
+        {
+          "title": "17 yaş üstü",
+          "subtitle": "Yılların Deneyimi"
+        },
+        {
+          "title": "binlerce",
+          "subtitle": "Memnun müşteriler"
+        },
+        {
+          "title": "1 ila 4 oda",
+          "subtitle": "Özel odalar"
+        }
+      ],
+      "article_2": {
+        "text": [
+          "Böylece Best Home Construction Şirketi ile irtibata geçerek, faizsiz taksit planı dâhil, Müteahitten Alanya’da en uygun fiyata daire satın alma fırsatı elde edeceksiniz.",
+          "Ülkenizden ayrılmaya gerek kalmadan bizzat kullanmak ya da kiraya vermek için konut satın alabilirsiniz.",
+          "Dairenizin, villanızın veya ofisinizin satış sonrası hizmetini, tüm idari, yasal ve mali yükümlülüklerinizin yerine getirildiğinden emin olarak bağlı Şirketimiz Lider Management Şirketine emanet edebilirsiniz.",
+          "Ayrıca ikamet ve vatandaşlık almada yardım,  her işlem için yasal ve finansal destek, danışmanlık hizmetleri veriyoruz.",
+          "Türkiye piyasasında 16 yılı aşkın deneyime sahip profesyonellere güvenin- bize gelin."
+        ]
+      }
+    },
+    "company_advantages": {
+      "header": {
+        "title": "Şirketin avantajları",
+        "sub_title": "Müteahhidin güvenilirliği",
+        "text": [
+          "İnşaat etabında gayrimenkul, nispeten düşük maliyeti dolayısıyla çok caziptir. Ancak yine de inşaat halindeki bir binadan gayrimenkul satın almanın bazı riskleri olabilmektedir. Türkiye’de, özellikle Alanya’da potansiyel gayrimenkul alıcısı müşterilerin ilk sorusu inşaat tamamlanmazsa ne olacak?",
+          "Türkiye Alanya’da müteahhitler, yatırımcıların bu konudaki kaygılarının çok iyi farkındadırlar ve kaygılarını gidermeye çalışmaktadırlar. Best Home Construction Şirketi yeni ve benszersiz bir hizmet olan banka teminatı sunmaktadır.",
+          "Best Home Construction Şirketi Alanya’da Türkiye’nin önde gelen Devlet Bankası Ziraat Bankasıyla özel bir sözleşme yapmıştır. Sözleşmenin özü bankanın mülkiyet hakkı vereceğimizi garanti etmesidir. Böylece müşteriyi tüm risklerden kurtarmakta ve yatırımının boşa gitmeyeceğini garanti etmektedir.",
+          "Türkiye inşaat piyasasında böyle bir hizmetin çok görülmediğini ve diğer birçok ülkede henüz sadece hayal olduğunu belirtmekte fayda vardır. Şu bir gerçek ki, Devlet bankasıyla böyle bir sözleşme yapmak çok da kolay değildir.",
+          "Belgeler imzalanmadan önce banka Müteahhidin geçmişini ve finansal yapısını araştırmaktadır. Sonrasında Şirketin ödeme gücü hakkında bir sonuca vardıktan sonra tüm ödemeler için garanti vermektedir. Bu fırsattan hiç kimsenin yararlanmak zorunda kalmayacağından emin olabilirsiniz, çünkü Şirketi gerçek mali durumuyla orantılı olmayan krediler çekmeden kendi parasıyla inşaatı yapmaktadır. Maalesef birçok rakibimiz burada hata yapmaktadır. İnşaatta gecikmeler ve kontrat imzalanırken verilerin eksik doldurulması bu nedenle olmaktadır. Ancak banka teminatı müşterilerin yatırımlarından % 100 emin olmalarını sağlayacaktır. Şirketimizin en büyük itibarı müşterilerimizin haklı güvenidir."
+        ],
+        "linkToProjects": {
+          "text": "Bugün Şirketimizin tamamlanmış",
+          "link": "33 projesi mevcut.",
+          "route": "/projects"
+        }
+      },
+      "scroll_line_data": [
+        {
+          "title": "33",
+          "subtitle": "Tamamlanmış projeler"
+        },
+        {
+          "title": "17",
+          "subtitle": "Yılların Deneyimi"
+        },
+        {
+          "title": "Binlerce",
+          "subtitle": "Memnun müşteriler"
+        },
+        {
+          "title": "С 2004",
+          "subtitle": "Piyasadaki yıllar"
+        }
+      ],
+      "post_1": {
+        "title": "Gayrimenkulün kalitesi",
+        "paragraph_1": [
+          "Alanya’da gayrimenkul seçimi için ana kriterlerden birinin inşaat kalitesi olduğuna eminiz. Yeni kompleksler inşa ederken, evinizin sağlam, güçlü ve güvenilir olmasını, sürekli onarım gerektirmemesi ve zamanla değerini kaybetmemesini istediğinizi anlıyoruz. Binalarımızda tüm inşaat işlerinin yasal gerekliliklere uygun olarak üst kalitede yapıldığını garanti ediyoruz."
+        ]
+      },
+      "post_2": {
+        "title": "İnşaatta yenilikler",
+        "paragraph_1": "İnşaat sektöründe kullanılan teknolojileri ve değişen trendleri sürekli olarak yakından takip ediyoruz.",
+        "paragraph_with_link": "İrtibat bilgilerine",
+        "link": "geç"
+      },
+      "article_1": {
+        "title": "Eşsiz konum",
+        "text": [
+          "Çok şey dairenizin konumuna bağlıdır Avantajlı konumu size sadece konforlu bir yaşamı değil, aynı zamanda gerekirse mülkünüzü çok karlı bir şekilde satma fırsatını da garanti etmektedir.",
+          "Best Home Construction Şirketi projeleri için Alanya’nın altyapısı gelişmiş en iyi bölgelerini seçmektedir. Projelerin hayata geçirildiği araziler çok değerlidir. Etraflarında kural olarak her şey çok önceden inşa edilmiştir. Dolayısıyla bu bölgelerde altyapı çok aktiftir. Burada konforlu bir aile tatili için birçok park, meydan ve yeşil alan bulacaksınız.",
+          "irketimiz yeni projeleri hayata geçirirken Alanya’nın merkezi (Damlataş Bölgesi dâhil ) ve Oba gibi bölgeleri sürekli olarak tercih etmektedir. Oba Bölgesinde kentsel planlamalara göre binalar için yükseklik sınırlaması olması nedeniyle şirketin marjinalliği daha düşüktür, ancak bu nedenle tüm projeler oldukça likittir. Bu bölge yaklaşık 15 yıldır Avrupa bölgesi sayılmaktadır. 5 katlı blokları ve havuzlarıyla konforlu kompleksler tarzı ve konforu ile Avrupalı sakinleri fethetmiştir.",
+          "Ve son olarak, müşterilerimizi arasında en popüler bölge Damlataş bölgesidir. Alanya’nın tam merkezinde ve şehrin başlıca turistik mekânlarına yakın bir konumdadır. Burada sakin ve konforlu bir uaşam için gerekli olan her şey mevcuttur: Peyzajlı mavi bayraklı plajlar, okul, hastane, kafe, restoran, tenis kortları ve bakımlı yürüyüş alanları. Damlataş’ın cazibesi, bina yüksekliğinin 5 kat ile sınırlanması ve sahil boyunca uzanan yolun tek yönkü olmasından kaynaklanmaktadır. Burada çok fazla turist olmasına rağmen her zaman konforlu ve sakindir.Bu bölgede konut fiyatları oldukça yüksek olup, bu da size gayrimenkule karlı bir yatırım ve gelecekte daha cazip bir fiyata dairenizi kiralama ve satma garantisi vermektedir."
+        ]
+      },
+      "post_3": {
+        "title": "Mimari tasarım",
+        "paragraph_1": "Detaylara gösterilen yakın ilgi ve modern mimari çözümlerin kullanılması, Akdeniz’in popüler tatil beldesinin görünümüne uygun şık ve sağlam binalar inşa etmemize yardımcı olmaktadır."
+      },
+      "post_4": {
+        "title": "Ekibimiz",
+        "paragraph_1": "İş deneyimi fazla olan yüksek nitelikli uzmanlardan oluşan bir pesonelin: Mimarların, mühendislerin, inşaatçı ve inşaat ustalarının mevcudiyeti işimizde gösterdiğimiz başarının teminatıdır.",
+        "paragraph_with_link": "Çalışanları",
+        "link": "Görüntüle"
+      },
+      "post_5": {
+        "title": "Müteahhit tarafından kullanılan malzemeler",
+        "paragraph_1": "Üst kalite yenilikçi malzemeler ve modern mühendislik donanım kullanarak konut komplekslerini inşa ediyoruz."
+      },
+      "article_2": {
+        "title": "Tasarım",
+        "text": [
+          "Potansiyel alıcıların daire seçerken dikkat ettikleri ilk şey-Ne dâhil i bağlantıların kalitesi, ne de pencereden görünen manzaradır, sadece dairenin tasarımıdır. Ve bu tamamen normaldir, çünkü bu alanda zamanınızın büyük bir bölümünü geçirmeye hazırlanıyorsunuz. Bu yüzden konforlu ve rahat olması gerekmektedir. Ve yeni konutunuza ne getirirseniz getirin, temel tasarımı tüm parametreleriyle size uygun olmalıdır.",
+          "Diğer tüm yaratıcı alanlar gibi iç tasarımın da kendi trendleri vardır. Işıltı, şık ve parlak renkler yavaş yavaş tarihe karışmaktadır. Yerini pastel tonlar ve iddialı olmayan yüzeyler almaktadır. Önümüzdeki 2017 yılında doğal malzemeler (Ahşap, taş, pamuk v.s.), beyaz, aydınlık ve ferah odalar, hafif mobilyaların kullanımı popülerliğin zirvesinde olacak. Yani tek kelimeyle her detayda genişlik, hafiflik ve konfordur. Best Home Construction Şirketinin konut kompleksleri tüm bu trendlere uygundur.",
+          "Best Home Construction Şirketinin tüm projeleri minimalizm, zerafet ve en modern tasarımların bir birleşimidir. Bu konutlar genellikle gelişmiş zevki olan, kendine güvenen, amaçları olan, yaratıcı ve başarılı insanlar tarafından tercih edilmektedir. Minimalist iç dekor dairde sahiplerinin yaşam tarzına uyum sağlamaktadır, gereksiz detaylar ve gösterişli renkler ile dikkat dağıtmamaktadır. Burada en ince ayrıntısına kadar her şey düşünülmüş ve uyumludur. İnşaat etabında daire satın alırken Şirketimizin müşterileri dekorasyon malzemelerinin tasarımını, dokusunu ve rengini seçme şansına sahip olacaklardır. Tasarımcılarımız ise hayallerinizin kompleksin tazına uydurmanıza yardımcı olacak.",
+          "Kompleksin dış görünümü de çok uyumludur. Proje oluşturulurken kentsel ve doğal peyzaja büyük önem verilmektedir. Bina organik olarak çevredeki alana sığmaktadır içinde konforlu bir nişi bulunmaktadır. Best Home Construction Konut Kompleksleri ergonomik ve şık tasarımları ile kolayca tanınır hale gelmektedir. Ortak alanların dekorasyonu da kusursuz tarzı ve özgün ama göze batmayan vurguarıyla göze hitap etmekedir. Burada sadece misafirleri karşılamak değil, Akdeniz’in harika gün batımlarını ailenizle birlikte izlemek de keyifli olacak."
+        ],
+        "paragraph_with_link": "Bugün Şirketimizin tamamlanmış",
+        "link": "33 projesi mevcut"
+      }
+    },
+    "our_team": {
+      "title": "Bizim takım",
+      "slider_title": "Diğer çalışanlar"
+    },
+    "company_history": {
+      "header": {
+        "title": "İlk adımlar",
+        "text": [
+          "«BestHome Construction»Şirketinin tarihi 2004 yılında Alanya’da iki genç insanın uzun vadeli ortaklık, Avrupai hizmet anlayışı ve müşteriye saygı temelinde Türkiye’de kendiişlerini kurmaya karar vermeleri ile başlamıştır. Avrupalı bir yüze, ancak Türk geleneklerine sahip bir Şirket oluşturmak istemişlerdir. O zamanlar yeni büyüyen gayrimenkul piyasası bunun için çok uygun olsa da, rekabet yine vardır. Ancak Şirketin kurucuları kendi kuşaklarının lider bir pozisyona gelebileceğine inandılar ve tahminlerinde yanılmadılar.",
+          "Alanya’nın önde gelen gayrimenkul ofisinde iş tecrübelerine dayanarak, piyasada talepkar Avrupalı müşterilere sunmak istedikleri böyle bir ürünün, ayrıca satış sonrası kaliteli hizmetin olmadığını anladılar.Ardından Şirketin daha da gelişmesine yol açacak kararlar alındı.İlk olarak-Müşterilerin istek ve beklentilerine uygun Avrupa kalitesi düzeyinde binalar inşa etmek. İkinci olarak-Verilen sözleri tutarak, müşteriler üzerinde güven oluşturmak. Üçüncü olarak-Alanya gayrimenkul piyasasında yenilikçi ve kural koyucu olmak. Dördüncü olarak-Dünya çapında mümkün olduğu kadar çok müşteriye güzel Alanya ve rakipsiz Türk kültürünü tanıtarak bölgeye değer katmak."
+        ],
+        "linkToProjects": {
+          "text": "Bugün Şirketimizin tamamlanmış",
+          "link": "33 projesi mevcut.",
+          "route": "/projects"
+        }
+      },
+      "history_slider": [
+        {
+          "year": "2004",
+          "image": "2004.jpg",
+          "title": "İlk adımlar",
+          "subtitle": "«BestHome Construction»Şirketinin tarihi 2004 yılında Alanya’da iki genç insanın uzun vadeli ortaklık, Avrupai hizmet anlayışı ve müşteriye saygı temelinde Türkiye’de kendiişlerini kurmaya karar vermeleri ile başlamıştır. Avrupalı bir yüze, ancak Türk geleneklerine sahip bir Şirket oluşturmak istemişlerdir. O zamanlar yeni büyüyen gayrimenkul piyasası bunun için çok uygun olsa da, rekabet yine vardır. Ancak Şirketin kurucuları kendi kuşaklarının lider bir pozisyona gelebileceğine inandılar ve tahminlerinde yanılmadılar."
+        },
+        {
+          "year": "2005",
+          "image": "2005.jpg",
+          "title": "İlk Projemiz",
+          "subtitle": "Şirket Ortakları Ali Yetgin ve Per Holm, Danimarkalı yatırımcıları ile birlikte Alanya’nın Cikcikli Bölgesinde tüm projeyi alarak Best Home Resort adını vermişlerdir. Şirketin başlıca müşterileri Danimarkalılardır.",
+          "linkToProject": {
+            "text": "Bu yıl",
+            "link": "ilginç",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2006",
+          "image": "2006.jpg",
+          "title": "Gelişen piyasa",
+          "subtitle": "Şirket aktif olarak Norveç pazarına çıkmaktadır. BestHome Residence 1, BestHome Residence 2, Tofko Villas Projeleri kullanıma verilmiştir. Ayrıca bu yıl yabancılara tapu verilmesini yasaklayan bir emir çıktığından yabancılara satış durdurulmuştur.",
+          "linkToProject": {
+            "text": "Bu yıl",
+            "link": "ilginç",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2007",
+          "image": "2007.jpg",
+          "title": "Gayrimenkul Mevzuatı",
+          "subtitle": "Hükümet yabancıların Türkiye’de gayrimenkul almasına izin veren kanunu onaylamıştır. Şirketin çalışanları 2006 yılında kanun çıkmadan önceki müşteriler için Tapu (Mülkiyet belgesi) işlemleriyle uğraşmaktadır.",
+          "linkToProject": {
+            "text": "Bu yıl",
+            "link": "ilginç",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2008",
+          "image": "2008.jpg",
+          "title": "Yeni istikamet",
+          "subtitle": "Şirketin Ortkaları piyasada BDT Ülkelerinden Rusça konuşan müşteriler gibi yeni bir istikametin oluştuğunu anlamaktadır. Bu müşterilerimizin istekleri-Şehrin merkezi bölgelerinde uygun fiyatlı küçük olmayan daireler satın almaktır. Ortaklar apart otel satın alarak daireleri dönüştürmeye karar vermişlerdir.",
+          "linkToProject": {
+            "text": "Bu yıl",
+            "link": "ilginç",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2009",
+          "image": "2009.jpg",
+          "title": "BestHome City 1 & 2",
+          "subtitle": "BestHome City 1 и BestHome City 2 Kompleksleri kullanıma verilmiştir. Ali Yetgin’in Ortağı Per Holm Kuruculuktan çıkmaya ve Danimarka’ya dönmeye karar vermiştir.",
+          "linkToProject": {
+            "text": "Bu yıl",
+            "link": "ilginç",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2010",
+          "image": "2010.jpg",
+          "title": "Kalite",
+          "subtitle": "Alanya’da gayrimenkul seçimi için ana kriterlerden birinin inşaat kalitesi olduğuna eminiz. Yeni kompleksler inşa ederken, evinizin sağlam,güçlü ve güvenilir olmasını, sürekli onarım gerektirmemesi ve zamanla değerini kaybetmemesini istediğinizi anlıyoruz. Binalarımızda tüm inşaat işlerinin yasal gerekliliklere uygun olarak üst kalitede yapıldığını garanti ediyoruz."
+        },
+        {
+          "year": "2011",
+          "image": "2011.jpg",
+          "title": "Yeni teknolojiler",
+          "subtitle": "2011 yılı- BestHome City 3, BestHome City 4, BestHome City 5 и BestHome City 6 Kompleksleri kullanıma verilmiştr."
+        },
+        {
+          "year": "2012",
+          "image": "2012.jpg",
+          "title": "4 proje daha",
+          "subtitle": "BestHome 8 Yuksek, BestHome City 9 ve BestHome City 10, BestHome City 11 Kompleksleri kullanıma verilmiştir. Best Home 7 Comfort Kompleksinde Alanya’da ilk kez mutfak fayansları siyah camdan yapılmıştır.",
+          "linkToProject": {
+            "text": "Bu yıl",
+            "link": "ilginç",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2013",
+          "image": "2013.jpg",
+          "title": "Best Home 12 Comfort",
+          "subtitle": "Best Home 12 Comfort Kompleksi kullanıma verilmiştir. Şirket İran Pazarına çıkmaktadır.",
+          "linkToProject": {
+            "text": "Bu yıl",
+            "link": "ilginç",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2014",
+          "image": "2014.jpg",
+          "title": "Yeni altyapı",
+          "subtitle": "Best Home City 14 ve Best Home 15 VIP Kompleksleri kullanıma verilmiştir. Best Home 15 VIP-Şirketin genişletilmiş altyapılı ilk kompleksidir. Alanya’da ilk kez burada havuzda güneşlenmek için bir platform oluşturulmuş, ayrıca 500 yıllık zeytin ağaçları dikilmiştir.",
+          "linkToProject": {
+            "text": "Bu yıl",
+            "link": "ilginç",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2015",
+          "image": "2015.jpg",
+          "title": "4 yeni proje",
+          "subtitle": "BestHome 16 VIP, BestHome 17 Cleopatra, BestHome City 18 и BestHome City 19 Kompleksleri işletime verilmiştir.",
+          "linkToProject": {
+            "text": "Bu yıl",
+            "link": "ilginç",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2016",
+          "image": "2016.jpg",
+          "title": "Büyük ölçekli projeler",
+          "subtitle": "Best Home City 21 ve Kleopatra Bölgesindeki ikonik komplekslerden biri Best Home 20 Cleopatra Select kullanıma verilmiştir. 9 inşaat şirketinin önüne geçerek Best Home 20 Cleopatra Select arsa sahibiyle sözleşme yaptık.",
+          "linkToProject": {
+            "text": "Bu yıl",
+            "link": "ilginç",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2017",
+          "image": "2017.jpg",
+          "title": "Lüks segment",
+          "subtitle": "Şirket Yönetimi Rusça konuşan müşterilerin talebine rağmen, Alanya gayrimenkul piyasasında elit bir segmentte nezih bir daire olmadığını bilmektedir ve Best Home Construction, Şirketi tarafından daha once inşa edilen en büyük Alanya Towers Kompleksinin inşaatına başlamıştır.",
+          "linkToProject": {
+            "text": "Bu yıl",
+            "link": "ilginç",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2018",
+          "image": "2018.jpg",
+          "title": "Alanya Towers",
+          "subtitle": "Alanya Towers Kompleksi kullanıma verilmiş ve Şirketin kartviziti olmuştur.Kompleks Alanya’nın gayrimenkul ofisleri, rakiplari ve müşterileri tarafından çok beğenilmiştir. Antalya bölgesinin en lüks ve en seçkin kompleksi olarak bilinmektedir. Ayrıca bu yıl Şirketin varlıklarına 4 yıldızlı Enki Otel dâhil m olmuştur.",
+          "linkToProject": {
+            "text": "Bu yıl",
+            "link": "ilginç",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2019",
+          "image": "2019.jpg",
+          "title": "Kleopatra Bölgesi",
+          "subtitle": "Alanya’da başlıca gayrimenkul müşterileri hala BDT ülkelerindendir. Ancak ülkelerindeki ekonomik istikrarsızlık nedeniyle müşteriler kiraya vererek sabit gelir alabilecekleri ve sattıklarında da sermayelerini arttırabilecekleri daireler satın almak istemektedir.",
+          "linkToProject": {
+            "text": "Bu yıl",
+            "link": "ilginç",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2020",
+          "image": "2020.jpg",
+          "title": "Önemli yıl",
+          "subtitle": "Şubat ayında Şirket inşaat, satış, tarım, otomobil satışı gibi tüm departmanların aynı çatı altında toplandığı yeni ofisine ev sahipliği yapacak üç katlı müstakil bir bina satın almıştır. Mart ayında Cleopatra Legacy Kompleksinin inşaatına başlamıştır.",
+          "linkToProject": {
+            "text": "Bu yıl",
+            "link": "ilginç",
+            "route": "company-about"
+          }
+        },
+        {
+          "year": "2021",
+          "image": "2021.jpg",
+          "title": "Gelecek",
+          "subtitle": "Projelerimizle gurur duyuyoruz. Ancak bu yıl sizlerle tarihi fetheden yeni premium projemiz BestHome 36-37 The Legend’i anlatmak istiyoruz. BestHome 36-37 The Legend, Alanya’nın tam merkezinde, kumsala 120 metre mesafede 5 yıldızlı otel altyapısına sahip benzersiz bir komplekstir.",
+          "linkToProject": {
+            "text": "Bu yıl",
+            "link": "ilginç",
+            "route": "company-about"
+          }
+        }
+      ],
+      "post_1": {
+        "title": "“Şirketimizin geçmişiyle gurur duyuyoruz ve gayrimenkulde yeni zirvelere ulaşmak için çalışıyoruz”",
+        "paragraph_with_link": "satış Müdürü",
+        "link": "Anna Larina"
+      }
+    },
+    "company_quality": {
+      "title": {
+        "title": "İnşaatın kalitesi hakkında",
+        "description": [
+          "Alanya’da gayrimenkul seçimi için ana kriterlerden birinin inşaat kalitesi olduğuna eminiz. Yeni kompleksler inşa ederken, evinizin sağlam, güçlü ve güvenilir olmasını, sürekli onarım gerektirmemesi ve zamanla değerini kaybetmemesini istediğinizi anlıyoruz.",
+          "Binalarımızda tüm inşaat işlerinin yasal gerekliliklere uygun olarak üst kalitede yapıldığını garanti ediyoruz."
+        ]
+      },
+      "info": [
+        {
+          "title": "nşaatta yenilikler:",
+          "description": "İnşaat sektöründe kullanılan teknolojileri ve değişen trendleri sürekli takip ediyoruz."
+        }
+      ],
+      "standard": {
+        "title": "Banyo için kalite standardımız",
+        "list": [
+          {
+            "title": "Otomatik havalandırma",
+            "text": [
+              "Havalandırma sisteminin otomasyonu Mekânın mikro ikliminin otomatik olarak yönetimidir. Otomatik havalandırma ve iklimlendirme sistemleri mekânlara havanın hareketi için uygun koşulları sağlamaktadır. Aynı zamanda enerji tasarrufu sağlamakta, soğuk ve sıcak tutmakta ve hizmetli personele olan ihtiyacı azaltmaktadır."
+              
+            ]
+          },
+          {
+            "title": "Kaplama su yalıtımı",
+            "text": [
+              "Çeşitli yüzeyleri sudan korumak için popüler malzeme. Sıcak ve soğuk bitüm boruların, temellerin, çökeltme tanklarının, kazıkların su yalıtımında kullanılmaktadır."
+            ]
+          },
+          {
+            "title": "Isı yalıtımı",
+            "text": [
+              "Isı yalıtımı sayesinde içeride gerekli sıcaklığı korumak için enerji tüketimini önemli ölçüde azaltmak mümkündür. Isı boru hatları, ısı taşıyıcının soğumasını veya ısınmasını azaltmak için ısı yalıtımı ile çevrelenmiştir. Korozyona karşı korurlar. Isı yalıtımı, buhar ve ses yalıtımı özelliklerine sahiptir.",
+              "Kötü kokuların ortaya çıkmasına engel olarak mekânı kanalizasyondan tamamıyla izole etmektedir."
+            ]
+          },
+          {
+            "title": "Lineer ızgara 60 cm",
+            "text": [
+              "Diğerleri ile karşılaştırıldığında alınan atık su hacmi açısından en güçlü olanıdır."
+            ]
+          }
+        ],
+        "link": "Hakkında daha fazla öğren",
+        "line_ramp": "doğrusal merdiven"
+      },
+      "foundation": {
+        "title": "Binaların temeli",
+        "list": [
+          {
+            "title": "Beton",
+            "text": []
+          },
+          {
+            "title": "Ekstrüde polistren köpük (XPS)",
+            "text": [
+              "Mukavemeti arttırılmış yüksek verimli ısı yalıtım malzemesi.",
+              "Özellikleri: Çevre dostu, güvenli, mutlak biyostabilite her zaman düşük termal iletkenlik, (Homojen kapalı bağımsız hücre yapısı), Yüksek basınç dayanımı, kanıtlanmış dayanıklılık"
+            ]
+          },
+          {
+            "title": "Kaplama su yalıtımı",
+            "text": [
+              "Binanın hem içeriden, hem de dışarıdan yoğuşmadan, borularıdaki sızıntılardan ve aşırı nem dolayısıyla oluşacak diğer sorunlardan korunmasını sağlamaktadır.",
+              "Nemden koruduğu için tüm yapının dayanıklılığı da artmaktadır."
+            ]
+          },
+          {
+            "title": "Bentonit paspas",
+            "text": [
+              "Su yalıtımlı bentonik kil bazlıdır.",
+              "Avantajları: Kendi kendini iyileştirme, yüsek su geçirmezlik, yüksek mukavemet, kopma ve hasara karşı direnç, çevre dostu, uzun ömürlü"
+            ]
+          },
+          {
+            "title": "Temel altı",
+            "text": [
+              "Bir su yalıtım tabakası oluşturmaktadır.",
+              "Temeli yer altı sularından korumaktadır.",
+              "Basıncı eşit olarak yayar.",
+              "Daha kaliteli donatı üretimini sağlar.",
+              "Binanın çökmesini önler."
+            ]
+          }
+        ]
+      },
+      "line_gangway": {
+        "title": "Lineer ızgara",
+        "list": [
+          "Izgara AISI 304 2 mm",
+          "Kokusuz gözenekli filtre",
+          "Kanalizasyon drenaj",
+          "Ayarlanabilir ayak",
+          "Su geçirmez conta",
+          "Sifon 360°"
+        ]
+      },
+      "knauf": [
+        "Çerçeve ve bölme duvarların, eğimli çatıların, kütükler halindeki zeminlerin ve tavanların ısı ve ses yalıtımı için hafif mineral cam yünü.",
+        "Güvenlidir–  Fenol-formaldehit ve akrilik reçineler kullanılmamaktadır. Avantajları: Su geçirmez emprenye, aqustatik, elastik, yanmaz. Soğuğa, gürültü ve suya karşı koruma sistemi «3-в-1»"
+      ],
+      "unique_roofing": {
+        "title": "Benzersiz çatı",
+        "text": "Придумать сюда описание, возможно даже SEO текст на тему уникальной кровли на пару строк (можно больше), но такой чтобы прочитать можно было.",
+        "list": [
+          {
+            "title": "6 mm kalınlığında galvaniz sac Galvanizli çelik çatılar en zorlu iklim yüklerine dayanıklıdır.",
+            "text": "Galvaniz profil rüzgar yüklerine, sıcaklık düşüşlerine, ultraviyole radyasyonun etkisine mükemmel dayanıklıdır. Galvaniz çatıların başlıca avantajları: Dayanıklılık, kalite faktörü, güvenilirlik, maksimum güç."
+          },
+          {
+            "title": "Su yalıtım tabakası 175 gr",
+            "text": "Yapı yapı elemanlarının su ve yüksek nemin zararlı etkilerinden zorunlu olarak korunması. Su yalıtım malzemelerinin kullanılması yoğunluğun malzemeye verdiği zararlar (ahşap çürümesi, metal korozyonu) insan sağlığına zararlarının oluşması (mantar ve küf) dışında yapının hizmet ömrü ve çalışma hızı eklenir."
+          },
+          {
+            "title": "yönlendirilmiş şerit levha, 11 mm",
+            "text": "Fenol-formaldehit reçineleri ve sentetik mum ile emprenye edilmiş uzun yassı ahşap talaşlarından yapılmış çok katmanlı levha."
+          },
+          {
+            "title": "Z-biçimli profil",
+            "text": "Profil Z, prefabrike yüksek kaliteli çelik sacdan, sıcak daldırma galvanizli veya boyalı olarak üretilir. Z profili, adını İngilizce \"Z\" harfine benzer şekilde görünüşünden almıştır."
+          },
+          {
+            "title": "10 cm uzulukta bazalt yün",
+            "text": "Geçmeli liflerden oluşan preslenmiş bir levha olan yalıtım ve ses geçirmez malzeme. Ayırt edici bir kalite, yangın güvenliği, çeşitli maddelere karşı kimyasal nötrlük ve onlarca yıl boyunca hesaplanan dayanıklılıktır."
+          },
+          {
+            "title": "yönlendirilmiş şerit levha, 11 mm",
+            "text": "Fenol-formaldehit reçineleri ve sentetik mum ile emprenye edilmiş uzun yassı ahşap talaşlarından yapılmış çok katmanlı levha. Bazalt yününden sonra bulunur."
+          }
+        ]
+      },
+      "materials": {
+        "title": "Müteahhit tarafından kullanılan malzemeler",
+        "sub_title": "Üst kalite yenilikçi malzemeler ve modern mühendislik ekipmanları kullanarak konut kompleksleri inşa ediyoruz.",
+        "text": "İşbirliği yaptığımız şirketler:"
+      }
+    },
+    "our_office": {
+      "title": {
+        "title": "Best Home Construction Ofisine<br>hoş geldiniz!",
+        "sub_title": "Best Home Construction Şirketi-Alanya’nın en saygın inşaat Şirketlerinden biridir."
+      },
+      "gallery": {
+        "title": "Ofisimizin fotoğrafları",
+        "sub_title": "fotoğrafları"
+      },
+      "features": {
+        "title": "Ofisimiz bir istisna değildir.",
+        "sub_title": "Her şeyde en iyisi olma alışkanlığımız, çalışmalarımızın her detayına yansımaktadır.",
+        "items": {
+          "our_project": {
+            "title": "Projelerimiz",
+            "text": "Best Home Construction çalışanları zamanlarının çoğunu işyerinde geçirmektedir. İşimizi çok severek yapıyoruz! Alanya’nın en güzel projelerinin konforlu bir ortamda oluşturmaya önem veriyoruz.",
+            "link_text": "Projeleri görün"
+          },
+          "office": {
+            "title": "Ofis",
+            "text": "Ofisimize uğrayın! Şehrin merkezinde şık ve modern bir konakta bulunuyoruz.Cikcilli Bölgesinde en eski ve popüler alışveriş merkezi Alanyum AVM arkasındayız.",
+            "link_text": "Bizimle irtibata geçin."
+          },
+          "teamwork": {
+            "title": "Ekip çalışması",
+            "text": "Dinamik büyüme ve verimliliğin anahtarı ekip çalışmasıdır. Bu yüzden inşaat şirketimizin tüm departmanlarını geniş ve tarz bir binanın tek bir çatısı altında topladık.",
+            "link_text": "Ekibimiz"
+          }
+        }
+      },
+      "about": {
+        "title": "Şirketimizin kartviziti",
+        "sub_title": "Bitişik otopark ve bahçeye sahip geniş ve modern üç katlı bir binamız bulunmaktadır.",
+        "hero_title": "Şirketimizin kartviziti - Bahçede 500 yıllık bir zeytin ağacı bulunmaktadır!"
+      },
+      "teamwork": {
+        "title": "Ekip olarak çalışma",
+        "text_1": "Burada satış departmanının personelleriyle tanışabilir ve satış sonrası hizmet uzmanlarının çalışmalarını inceleyebilir ya da bir fincan aromalı Türk kahvesi eşliğinde hukuk departmanımızda samimi bir ortamda sorularınızı sorabilirsiniz.",
+        "text_2": "Yanlış bir kapıdan muhasebe departmanına, mimarlık ofisine veya tasarımcıların olduğu yere girmeniz mümkün.",
+        "link_1": "Hizmetlerimiz",
+        "link_2": "Yatırımlar"
+      },
+      "graphs": {
+        "title": "Ana ofisimiz hakkında",
+        "text": "Tüm departmanlarımız tek bir çatı altında toplanmıştır: Satış departmanı, satış sonrası hizmet, hukuk departmanı, muhasebe departmanı, mimar ve tasarımcılar ofisi. Ofiste Şirket tarafından inşa edilen binalarının tanıtımlarının yapıldığı birkaç görüşme odası bulunmaktadır. Gereken işleri yapmak için müşterinin farklı yerleri gitmesine gerek yoktur.",
+        "items": [
+          {
+            "title": "16 yıl",
+            "text": "Gayrimenkul piyasasında iş deneyimi"
+          },
+          {
+            "title": "1825 gün",
+            "text": "Veya her daire için 5 yıl garanti"
+          },
+          {
+            "title": "1000+",
+            "text": "Bizimle çalışmaktan memnun kalan müşterilerimiz"
+          },
+          {
+            "title": "39 yapı",
+            "text": "Tüm kullanım süresi için kullanıma verilmiştir."
+          }
+        ],
+        "link": "Hakkımızda"
+      },
+      "contacts": {
+        "title": "Best Home<br>İnşaat Şirketi<br>ofisinin adresi",
+        "email": "Posta",
+        "send_to_email": "Bir e-posta göndermek{0}",
+        "phone": "Telefon",
+        "call_to_phone": "Ofisi {0} numaralı telefondan arayın",
+        "business": "Чiş ve adres asları",
+        "work_time": "Pazartesi-Cumartesi, 9:00 - 18:00",
+        "address": "Cikcilli mahallesi, Saraybeleni caddesi, Tugayoğlu sokak, №18/1, Alanya 07400, Antalya, Türkiye",
+        "additional": "Üç katlı, özel otoparklı.",
+        "contact_us": "Bizimle irtibata geçin"
+      }
+    },
+    "media": {
+      "title": {
+        "title": "Sadece güncel haberler ve kampanyalar",
+        "description": "2021 yılında yeni projeler ve indirimler<br>Başlayan satışlardan ilk sz haberdar olun!"
+      },
+      "list": {
+        "title": "En uygun",
+        "description": "Alanya'da sadece gayrimenkul satmakla kalmıyoruz, sizi her zaman haberler ve faydalı malzemelerle güncel tutuyoruz.",
+        "all": "Tüm",
+        "news": "Haberler",
+        "promotions": "Promosyonlar"
+      }
+    },
+    "contacts": {
+      "contact_map": {
+        "title": "BestHome",
+        "phone": "+90 530 547-44-15",
+        "email": "info@besthome.com.tr",
+        "address": "Cikcilli mahallesi, Tugayoğlu sokak, No. 18/1, Alanya 07400, Antalya, Türkiye",
+        "workTime": "Pazartesi-Cumartesi, 9:00 - 18:00",
+        "linkToMap": {
+          "text": "Daha",
+          "link": "haritaya bakın",
+          "route": "/"
+        }
+      }
+    }
+  },
+  "footer": {
+    "consultant_slider": {
+      "title": "Kişisel danışmanınız.",
+      "navigation": "Sonraki Danışman",
+      "slides": [
+        {
+          "image": "person-2.jpg",
+          "name": "Anna Larina",
+          "text": "Merhaba, adım Anna, tüm sorularınızı yanıtlayacağım! Kendi evimiz gibi zevkle inşa ediyor, modern teknolojileri kullanıyor, avlu ve çevre düzenlemesi yapıyoruz.",
+          "languages": "İngilizce, Türkçe, Letonca, Fransızca, Rusça",
+          "phone": "+90 530 547-44-15",
+          "whatsapp": "https://wa.me/905305474415",
+          "viber": "viber://chat?number=+905305474415",
+          "telegram": "tg://resolve?domain=905305474415",
+          "email": "anna@besthome.com.tr"
+        }
+      ]
+    },
+    "accordions": [
+      {
+        "title": "Şirketimizin tecrübesi",
+        "content": "<p><a href='#'>Şirketimizin</a> ABD, Rusya, Norveç, Finlandiya, Almanya, Ukrayna, İran, Danimarka ve İsveç’te temsilcilikleri bulunmaktadır.</p>"
+      },
+      {
+        "title": "Yatırım olarak gayrimenkul satın alımı",
+        "content": "<p>Konut komplekslerinin eşsiz konumu ve üst kalite inşaat sayesinde, Alanya’da kısa ve uzun süreli kiraya vermek için ev ve daire satın alan yatırımcılar için sabit gelir garantisi veriyoruz.</p> "
+      },
+      {
+        "title": "Güven yönetimi",
+        "content": "<p>Alanya’da Best Home Construction konut komplekslerinin yönetimi bağlı şirketimizi Leader Management tarafından müşterilere eksiksiz hizmet ve garanti verilerek gerçekleştirilmektedir.</p>"
+      },
+      {
+        "title": "Kalite ve güvenilirlik",
+        "content": "<p>«En iyi reklam –birinci sınıf kalitedir» bizim sloganımızdır. Müşterilerimize bireysel yaklaşım bulabiliyoruz. Konut komplekslerinin inşaatını kendimiz finanse ediyoruz, müşterilerimize banka teminatları sunuyoruz. İşlemlerin yasal açıdan güvenilir olması da yatırımların güvenliğini garanti etmektedir.</p>"
+      },
+      {
+        "title": "Süreler ve garantiler",
+        "content": "<p>Yapıların teslim sürelerine sıkı sıkıya uyuyor, her aşamasında inşaat denetimi sağlıyoruz. Su şebekesi ve kaynaklarının dış kaplaması dâhil 5 yıla kadar garanti veriyoruz.</p>"
+      },
+      {
+        "title": "Kişiye özel tasarım",
+        "content": "<p>Kişiye özel tasarım-İnşaat aşamasında müşterilerimiz mekanların yeniden planlanmasını ayrıca talep ve arzularına göre eşsiz bir tasarımın geliştirilmesini isteyebilir. Best Home Construction Şirketinde birinci sınıf tasarımcılar ve mimarlar çalışmaktadır. Azami şeffaf işbirliği sağlamak için, alım-satım sözleşmesi dâhil olmak üzere, yatırımcının ana dilinde müşteriye refakat (Eşlik) edilmektedir.</p>"
+      },
+      {
+        "title": "Hizmetlerimiz",
+        "content": "<p>Azami şeffaflığı sağlamak için, alım-satım sözleşmesinin düzenlenmesi dâhil olmak üzere, yatırımcının ana dilinde müşteriye refakat (Eşlik) edilmektedir.</p>"
+      },
+      {
+        "title": "Ofisimiz",
+        "content": "<p>Ofisimiz Alanya’nın tam merkezinde bulunmaktadır. Üç kat- satış, gayrimenkul yönetimi, satış sonrası hizmetler ve tasarım hizmetleri vermektedir.</p>"
+      }
+    ],
+    "subscribe": {
+      "title": "Yaptıklarımızdan memnun musunuz? Haber bültenimize kaydolun",
+      "place_holder": "e-posta adresiniz",
+      "mobile_place_holder": "e-posta adresiniz",
+      "submit": "Gönder",
+      "agreement": "Best Home tarafından kişisel verilerimin",
+      "link": "işlenmesine izin veriyorum."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "text": "Müşteri deneyimini iyileştirmek için çerezleri kullanıyoruz. Gizlilik politikamız da dahil olmak üzere çerezler hakkında daha fazla bilgi edinmek için,",
+      "link": "Buraya Tıkla.",
+      "accept": "Kabul etmek"
+    },
+    "footer_company_title": "Best Home Construction, Türkiye pazarının önde gelen ve Alanya’da alanında lider bir inşaat şirketidir.",
+    "footer_company_description": [
+      "Best Home Construction, Türkiye pazarının önde gelen ve Alanya’da alanında lider bir inşaat şirketidir. Faaliyetine 2004 yılında gayrimenkul satış ofisi olarak başlamıştır. Bugün Alanya merkezde ve Oba İlçesinde 33 üzerinde projeyi hayata geçirmiştir. Firmanın Almanya, Amerika, Rusya, Ukrayna, İran, Kazakistan’da, ayrıca Danimarka, İsveç, Norveç ve Finlandiya’da temsilcilikleri mevcuttur.",
+      "Dairenizin, villanızın veya ofisinizin satış sonrası hizmeti konusunda bağlı şirketimiz olan Leader Management Şirketi’ne güvenebilir, tüm idari, hukuki ve finansal yükümlülüklerinizin yerine getirileceğinden emin olabilirsiniz. Ayrıca isteğiniz doğrultusunda danışmanlık, ikamet izni ve vatandaşlık düzenlemelerinde destek hizmeti ve yapılacak her işlem için hukuki ve finansal refakat hizmeti alabilirsiniz. Türkiye piyasasında 17 yılın üzerinde deneyimi olan profesyonellere güveniniz ve bize geliniz."
+    ],
+    "footer_site_map": {
+      "text": "Telefonla destek arayın",
+      "text_2": "veya iletişim",
+      "link": "satış ofisi"
+    },
+    "footer_copyright": {
+      "rights": "Her hakkı saklıdır.",
+      "language": "Dil değişikliği:"
+    }
+  },
+  "modals": {
+    "mobile_filter": "Uygulamak",
+    "get_feedback": {
+      "feedback": {
+        "title": "Geri bildirim",
+        "text": "Merhaba, ben Anna Larina, sorularınızı cevaplayacağım! Zevkle inşa etmeye, modern teknolojileri uygulamaya, bahçelerin düzenini ve çevre düzenlemesini kendi evimiz için yapıyormuş gibi düşünmeye çalışıyoruz.",
+        "label_name": "Adınız",
+        "label_email_number": {
+          "number": "Telefon numarası",
+          "or": "veya",
+          "email": "email"
+        },
+        "label_project": {
+          "main": "İlgilenen proje",
+          "support": "(isteğe bağlı)"
+        },
+        "label_building": {
+          "main": "Engellemek",
+          "support": "(isteğe bağlı)"
+        },
+        "label_rooms": {
+          "main": "oda sayısı",
+          "support": "(isteğe bağlı)"
+        },
+        "label_message": {
+          "title": "Mesajın",
+          "label": "Sorunuzu burada sorun"
+        },
+        "label_checkbox_1": {
+          "text": "BestHome'u toplaması ve",
+          "link": "kişisel verilerinizi işlemek"
+        },
+        "label_checkbox_2": "Bülteni almakla ilgileniyorum."
+      },
+      "info": {
+        "name": "Anna Larina",
+        "position": "satış Müdürü",
+        "languages": "Rusça, İngilizce, Türkçe, Letonca, Fransızca",
+        "office": "Cikcilli mahallesi, Tugayolu sokak, no. 18/1, Аланья 07400, Анталья, Турция",
+        "work_time": "Pazartesi-Cumartesi, 9:00 - 18:00",
+        "link": {
+          "text": "Daha",
+          "link": "haritada",
+          "route": "contacts"
+        }
+      },
+      "finish_modal": {
+        "title": "Teşekkürler, cevap bekliyorum",
+        "text": "{0},Temsilcimiz anketi zaten inceliyor ve yakında belirtilen telefon numarasından sizinle iletişime geçecek, ayrıca bir e-posta oluşturup gönderecek."
+      }
+    },
+    "choose_messenger": {
+      "title": "İletişime devam etmenin uygun olduğu bir haberci seçin.",
+      "methods": [
+        {
+          "title": "Viber",
+          "description": "Bu seçeneği seçtikten sonra Viber'e yönlendirileceksiniz. Bu siteye girdiğiniz veriler, hazırlanan mesaja otomatik olarak girilecektir. Sadece göndermeniz yeterli.",
+          "button": "Seçme",
+          "link": "viber://chat?number=905305474415",
+          "icon": "icon-viber"
+        },
+        {
+          "title": "WhatsApp",
+          "description": "Bu seçeneği seçtikten sonra WhatsApp'a yönlendirileceksiniz. Bu siteye girdiğiniz veriler, hazırlanan mesaja otomatik olarak girilecektir. Sadece göndermeniz yeterli.",
+          "button": "Seçme",
+          "link": "https://api.whatsapp.com/send?phone=905305474415",
+          "icon": "icon-whatsup-opposite"
+        },
+        {
+          "title": "Telegram",
+          "description": "Bu seçeneği seçtikten sonra Telegram'a yönlendirileceksiniz. Bu siteye girdiğiniz veriler, hazırlanan mesaja otomatik olarak girilecektir. Sadece göndermeniz yeterli.",
+          "button": "Seçme",
+          "link": "",
+          "icon": "icon-telegram"
+        }
+      ]
+    },
+    "video": "Tıklayın<br>ve kapatın",
+    "subscribe": {
+      "title": "Abone oldunuz!",
+      "text": "Haber bültenleri alacaksınız ve sıcak tekliflerden ilk siz haberdar olacaksınız!",
+      "title_success": "Abone oldunuz!",
+      "submit": "göndermek",
+      "description_1": "Bültenimize abone olun ve sıcak tekliflerden ilk siz haberdar olun!",
+      "description_2": "Bültenimizi alacaksınız ve sıcak tekliflerden ilk siz haberdar olacaksınız!"
+    },
+    "sending": "gönderiliyor...",
+    "finish_modal": {
+      "timer": "Bu pencere kapanacak",
+      "sec": "saniye."
+    },
+    "error": {
+      "title": "Lütfen geçerli eposta adresini giriniz"
+    }
+  },
+  "forms": {
+    "inputs": {
+      "name": "Adınız",
+      "phone": "Telefon numarası",
+      "email": "E",
+      "project_of_interest": "İlgilenen proje",
+      "block": "Çerçeve",
+      "number_of_rooms": "oda sayısı",
+      "message": "Mesajın",
+      "message_placeholder": "Mesajını buraya yaz",
+      "optional": "(isteğe bağlı)",
+      "agree_collect_data": "BestHome'a {link} toplama ve işleme yetkisi veriyorum.",
+      "agree_collect_data_link": "kişisel verilerim",
+      "agree_to_newsletter": "Bülten almakla ilgileniyorum."
+    },
+    "buttons": {
+      "accept": "Kabul"
+    },
+    "rules": {
+      "required": "Alan zorunludur",
+      "agree": "Veri işleme politikasını kabul etmelisiniz"
+    }
+  },
+  "page_in_develop": "Bu sayfa yapım aşamasındadır...",
+  "seo_title": "Türkiye'de Emlak Geliştiricisi BestHome"
+}

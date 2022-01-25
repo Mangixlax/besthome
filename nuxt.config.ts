@@ -175,7 +175,7 @@ export default <NuxtConfig>{
   sitemap: SitemapConfig,
 
   i18n: {
-    locales: ['ru', 'en'],
+    locales: ['ru', 'en', 'tr'],
     defaultLocale: 'en',
     vueI18n: '~/config/i18n.js',
   },

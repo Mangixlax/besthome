@@ -1,5 +1,6 @@
 import ruLangConfig from '../lang/ru'
 import enLangConfig from '../lang/en'
+import trLangConfig from '../lang/tr'
 import { plural } from '~/lib/utils'
 
 export default (context) => {
@@ -8,6 +9,7 @@ export default (context) => {
     messages: {
       ru: ruLangConfig,
       en: enLangConfig,
+      tr: trLangConfig,
     },
     pluralizationRules: {
       /**
