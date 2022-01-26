@@ -60,12 +60,8 @@ export default class ArticleBlock extends Vue {
       const pos: number = $header.getBoundingClientRect().top - 100
       if(pos <= 0 && pos >= -$header.clientHeight) {
         this.activeHeader = index
-        console.log( "active index" + '=' + index)
       }
-      console.log('Element' + index +  "=" + (pos) + "height" + $header.clientHeight)
     }) 
-    // console.log($top, $bottom, $blocks)
-
   }
 
   mounted() {

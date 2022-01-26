@@ -99,7 +99,7 @@ import { IPerson } from '~/store/Employees'
     return {}
   },
   head(): any {
-    const title = this.person.name + ' ' + this.$i18n.t('seo_title')
+    const title = this.getPerson.name + ' ' + this.$i18n.t('seo_title')
 
     const description = ''
 
