@@ -1,7 +1,7 @@
 <template lang="pug">
   section(:class="[$style['container'], isDarkTheme && $style['dark']]")
     div(:class="$style['container__head']")
-      h2(:class="$style['container__head-title']") {{ $i18n.locale === 'ru' ? 'Отсутствует ответ на ваш вопрос?' : 'Is the answer to your question missing?' }}
+      h2(:class="$style['container__head-title']") {{ $t('have_question') }}
       nuxt-link(
         :to="localePath({ name: 'contacts' })"
         :class="$style['container__head-link']"

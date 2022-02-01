@@ -1356,7 +1356,7 @@
     "inputs": {
       "name": "Adınız",
       "phone": "Telefon numarası",
-      "email": "E",
+      "email": "Email",
       "project_of_interest": "İlgilenen proje",
       "block": "Çerçeve",
       "number_of_rooms": "oda sayısı",
@@ -1376,5 +1376,6 @@
     }
   },
   "page_in_develop": "Bu sayfa yapım aşamasındadır...",
-  "seo_title": "Türkiye'de Emlak Geliştiricisi BestHome"
+  "seo_title": "Türkiye'de Emlak Geliştiricisi BestHome",
+  "have_question": "Sorunuzun cevabı yok mu?"
 }
