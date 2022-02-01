@@ -5,7 +5,6 @@
     base-header
     nuxt
     Footer
-    base-header-mobile
     cursor-mover(v-if="!isTouchDevice")
     base-cookies-card
     common-page-transition
@@ -24,7 +23,6 @@ import { RootState } from '~/store'
 import TopLineSelectCountry from '~/components/TopLine/TopLineSelectCountry.vue'
 import TopLine from '~/components/TopLine/TopLine.vue'
 import BaseHeader from '~/components/BaseHeader/BaseHeader.vue'
-import BaseHeaderMobile from '~/components/BaseHeaderMobile/BaseHeaderMobile.vue'
 import CursorMover from '~/components/CursorMover.vue'
 import Footer from '~/components/Footer/Footer.vue'
 import CommonPageTransition from '~/components/Common/CommonPageTransition.vue'
@@ -41,7 +39,6 @@ const SettingsTopLineStore = namespace('SettingsTopLine')
     TopLineSelectCountry,
     TopLine,
     BaseHeader,
-    BaseHeaderMobile,
     CursorMover,
     Footer,
   },
