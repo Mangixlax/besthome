@@ -141,11 +141,8 @@ export default {
     pointer-events: none
     display: flex
     color: $color-black-100
-    transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+    transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 5, 1, 0, 0, 0, 0, 1)
     transition: font-size 0.25s ease, transform 0.25s ease, color 0.25s ease
-
-    span
-      margin: 0 0.25em
 
     & > span:first-child
       color: $color-black-96
