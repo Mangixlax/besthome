@@ -272,9 +272,8 @@ import { getSiteUrl } from '@/lib/utils'
     },
   },
   head(): any {
-    const title = this.$i18n.locale === 'ru' ? '' : ''
-
-    const description = this.$i18n.locale === 'ru' ? '' : ''
+    const title = ''
+    const description = ''
 
     return {
       title,
