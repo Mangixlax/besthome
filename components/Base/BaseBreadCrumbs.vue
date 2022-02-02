@@ -3,7 +3,7 @@
     li(:class="$style['breadcrumbs__item']")
       nuxt-link(
         :to="localePath('index')"
-        :title="$i18n.locale === 'ru' ? 'Главная' : 'Home'"
+        :title="$t('breadcrumbs.home')"
         :class="$style['breadcrumbs__item-link']"
       )
         svg-icon(name="home")
@@ -55,7 +55,7 @@ export default class BaseBreadCrumbs extends Vue {
           position: 1,
           item: {
             '@id': getSiteUrl(this.localePath('index'), true),
-            name: this.$i18n.locale === 'ru' ? 'Главная' : 'Home',
+            name: this.$i18n.t('breadcrumbs.home'),
           },
         },
         ...items,
