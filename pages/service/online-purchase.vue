@@ -25,15 +25,8 @@ import { getSiteUrl } from '@/lib/utils'
     BaseSeoContent,
   },
   head(): any {
-    const title =
-      this.$i18n.locale === 'ru'
-        ? 'Купить квартиру в Алании от застройщика онлайн - это Просто!'
-        : 'Buying an apartment in Alanya from a developer online is Easy!'
-
-    const description =
-      this.$i18n.locale === 'ru'
-        ? 'Купить и оформить недвижимость в Алании, не приезжая в Турцию. Этапы: 1. Выбор жилого комплекса 2. Осмотр недвижимости по видео звонку 3. Составление договора купли-продажи 4. Оформление доверенности 5. Заказ мебели'
-        : 'Buy and register real estate in Alanya without coming to Turkey. Stages: 1. Choosing a residential complex 2. Inspection of real estate by video call 3. Drawing up a sales contract 4. Drawing up a power of attorney 5. Ordering furniture'
+    const title = this.$i18n.t('pages.service_online_purchase.seo_title')
+    const description =this.$i18n.t('pages.service_online_purchase.seo_description')
 
     return {
       title,
