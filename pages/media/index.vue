@@ -33,8 +33,7 @@ export interface ICategoryOption {
   },
   head(): any {
     const title = this.$i18n.t('pages.media.seo_title')
-
-    const description = this.$i18n.t('pages.media.seo_title')
+    const description = this.$i18n.t('pages.media.seo_description')
 
     return {
       title,
