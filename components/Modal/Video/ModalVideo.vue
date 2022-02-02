@@ -32,7 +32,7 @@ export default {
   },
   computed: {
     cursorText() {
-      return this.$i18n.locale === 'ru' ? 'Закрыть' : 'Click<br>to close'
+      return this.$i18n.t('modals.video')
     }
   },
 }
