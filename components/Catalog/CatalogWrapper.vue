@@ -40,7 +40,7 @@
           v-if="getMeta.pagination.next_page"
           :class="$style['catalog__content-load_more']"
           @click="onClickLoadMore"
-        ) {{ $i18n.locale === 'ru' ? 'Показать больше' : 'Load More' }}
+        ) {{ $t('catalog.load_more') }}
         div(:class="{\
           [$style['catalog__content-overlay']]: true,\
           [$style['catalog__content-overlay--show']]: isLoading\

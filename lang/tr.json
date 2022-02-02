@@ -22,6 +22,7 @@
   },
   "top_line": "BestHome Construction, yeni bir premium kompleks The Legend'i sunmaktan mutluluk duyar. Alanya merkezde, denize 120 metre, eşsiz tasarım.",
   "catalog": {
+    "load_more": "Daha fazla yükle",
     "filter": "filtre",
     "by_relevance": "alaka düzeyine göre",
     "ascending_price": "artan fiyat",
