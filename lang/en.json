@@ -1106,7 +1106,13 @@
       },
       "gallery": {
         "title": "Photo gallery from our office",
-        "sub_title": "We need to come up with a name here"
+        "sub_title": "We need to come up with a name here",
+        "hall": "Hall with a waiting room",
+        "room_1": "Negotiation room #1",
+        "sales_director": "Sales director's office",
+        "room_2": "Negotiation room #2",
+        "ceo": "CEO office",
+        "key": "Key interior"
       },
       "features": {
         "title": "Our office is no exception",

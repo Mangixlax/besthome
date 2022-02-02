@@ -1079,7 +1079,13 @@
       },
       "gallery": {
         "title": "Ofisimizin fotoğrafları",
-        "sub_title": "fotoğrafları"
+        "sub_title": "fotoğrafları",
+        "hall": "Bekleme odası olan salon",
+        "room_1": "Toplantı odası №1",
+        "sales_director": "Satış müdürünün ofisi",
+        "room_2": "Toplantı odası №2",
+        "ceo": "Gen. yönetmenler",
+        "key": "Anahtar iç"
       },
       "features": {
         "title": "Ofisimiz bir istisna değildir.",

@@ -48,43 +48,42 @@ import { modalsTriggerMixin } from '~/mixins/modals'
 export default class PageOurOfficeGallery extends Vue {
   public slides: any = [
     {
-      title: this.$i18n.locale === 'ru' ? 'Холл с залом ожидания' : 'Hall with a waiting room',
+      title: this.$i18n.t('pages.our_office.gallery.hall'),
       image: 'photo-1.jpg',
       variant: 'middle',
       gallery: [1, 5],
       folder: 'hall',
     },
     {
-      title: this.$i18n.locale === 'ru' ? 'Переговорная комната №1' : 'Negotiation room #1',
+      title: this.$i18n.t('pages.our_office.gallery.room_1'),
       image: 'photo-1.jpg',
       variant: 'top',
       gallery: [1, 2],
       folder: 'meeting-1',
     },
     {
-      title:
-        this.$i18n.locale === 'ru' ? 'Кабинет директора отдела продаж' : "Sales director's office",
+      title: this.$i18n.t('pages.our_office.gallery.sales_director'),
       image: 'photo-1.jpg',
       variant: 'bottom',
       gallery: [1, 8],
       folder: 'sales-director',
     },
     {
-      title: this.$i18n.locale === 'ru' ? 'Переговорная комната №2' : 'Negotiation room №2',
+      title: this.$i18n.t('pages.our_office.gallery.room_2'),
       image: 'photo-1.jpg',
       variant: 'top',
       gallery: [1, 2],
       folder: 'meeting-2',
     },
     {
-      title: this.$i18n.locale === 'ru' ? 'Кабинет ген. директора' : 'CEO office',
+      title: this.$i18n.t('pages.our_office.gallery.ceo'),
       image: 'photo-1.jpg',
       variant: 'middle',
       gallery: [1, 26],
       folder: 'director',
     },
     {
-      title: this.$i18n.locale === 'ru' ? 'Ключевой интерьер' : 'Key interior',
+      title: this.$i18n.t('pages.our_office.gallery.key'),
       image: 'photo-1.jpg',
       variant: 'bottom',
       gallery: [1, 14],
