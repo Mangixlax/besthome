@@ -26,7 +26,7 @@ import { getSiteUrl } from '@/lib/utils'
   },
   head(): any {
     const title = this.$i18n.t('pages.service_online_purchase.seo_title')
-    const description =this.$i18n.t('pages.service_online_purchase.seo_description')
+    const description = this.$i18n.t('pages.service_online_purchase.seo_description')
 
     return {
       title,
