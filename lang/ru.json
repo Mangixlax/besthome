@@ -1160,7 +1160,9 @@
         "all": "Все",
         "news": "Новости",
         "promotions": "Промоакции"
-      }
+      },
+      "next": "Вперед",
+      "prev": "Назад"
     },
     "contacts": {
       "contact_map": {

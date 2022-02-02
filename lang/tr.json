@@ -1161,7 +1161,9 @@
         "all": "Tüm",
         "news": "Haberler",
         "promotions": "Promosyonlar"
-      }
+      },
+      "next": "Sonraki",
+      "prev": "Öncesi"
     },
     "contacts": {
       "contact_map": {
