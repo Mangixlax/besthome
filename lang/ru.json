@@ -19,7 +19,8 @@
     "our_projects": "Наши проекты",
     "apartments": "Апартаменты",
     "media": "Медиа",
-    "our_quality": "Наше качество"
+    "our_quality": "Наше качество",
+    "our_office": "Наш офис"
   },
   "top_line": "BestHome Construction рада представить новый комплекс премиум-класса The Legend. Центр Алании, 120 метров до моря, уникальный дизайн.",
   "catalog": {
@@ -57,7 +58,8 @@
       "service": "УСЛУГИ",
       "company": "КОМПАНИЯ",
       "contacts": "КОНТАКТЫ",
-      "secondary_housing": "ВТОРИЧНОЕ ЖИЛЬЁ"
+      "secondary_housing": "ВТОРИЧНОЕ ЖИЛЬЁ",
+      "our_office": "Наш офис"
     }
   },
   "projects": {

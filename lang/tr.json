@@ -19,7 +19,8 @@
     "our_projects": "Projelerimiz",
     "apartments": "Daireler",
     "media": "Medya",
-    "our_quality": "Kalitemiz"
+    "our_quality": "Kalitemiz",
+    "our_office": "Bizim ofisimiz"
   },
   "top_line": "BestHome Construction, yeni bir premium kompleks The Legend'i sunmaktan mutluluk duyar. Alanya merkezde, denize 120 metre, eşsiz tasarım.",
   "catalog": {
@@ -57,7 +58,8 @@
       "service": "HİZMETLER",
       "company": "ŞİRKET",
       "contacts": "İLETİŞİM",
-      "secondary_housing": "İKİNCİL KONUT"
+      "secondary_housing": "İKİNCİL KONUT",
+      "our_office": "Bizim ofisimiz"
     }
   },
   "projects": {
