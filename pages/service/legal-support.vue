@@ -67,15 +67,8 @@ import { getSiteUrl } from '@/lib/utils'
     BaseSeoContent,
   },
   head(): any {
-    const title =
-      this.$i18n.locale === 'ru'
-        ? 'Покупка квартиры в Турции (Алания). Все тонкости юридической сделки'
-        : 'Buying an apartment in Turkey (Alanya). All the intricacies of a legal transaction'
-
-    const description =
-      this.$i18n.locale === 'ru'
-        ? 'Специалисты нашей компании не только подготавливают все необходимые документы для передачи права собственности на ваше имя, но также проверяют юридическую чистоту всех документов для приобретения вторичной недвижимости'
-        : 'The specialists of our company not only prepare all the necessary documents for the transfer of ownership to your name, but also check the legal purity of all documents for the acquisition of secondary real estate'
+    const title = this.$i18n.t('pages.service_legal_support.seo_title')
+    const description = this.$i18n.t('pages.service_legal_support.seo_description')
 
     return {
       title,

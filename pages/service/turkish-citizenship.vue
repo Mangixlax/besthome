@@ -93,15 +93,8 @@ import { getSiteUrl } from '@/lib/utils'
     BaseSeoContent,
   },
   head(): any {
-    const title =
-      this.$i18n.locale === 'ru'
-        ? 'Гражданство Турции. Все выгоды от турецкого гражданства'
-        : 'Turkish citizenship. All the benefits of Turkish citizenship'
-
-    const description =
-      this.$i18n.locale === 'ru'
-        ? 'Как получить турецкое гражданство при покупке недвижимости. Двойное гражданство с Турцией. Турецкие граждане не только обладают правом проживать в стране без каких-либо препятствий и ограничений, но также имеют другие преимущества'
-        : 'How to get Turkish citizenship when buying real estate. Dual citizenship with Turkey. Turkish citizens not only have the right to reside in the country without any obstacles and restrictions, but also have other advantages'
+    const title = this.$i18n.t('pages.service_turkish_citizenship.seo_title')
+    const description = this.$i18n.t('pages.service_turkish_citizenship.seo_description')
 
     return {
       title,

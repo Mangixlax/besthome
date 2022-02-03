@@ -1,6 +1,6 @@
 <template lang="pug">
   section(:class="$style['container']")
-    h2 {{ $i18n.locale === 'ru' ? 'Персональный менеджер' : 'Personal manager' }}
+    h2 {{ $t('pages.our_office.manager') }}
     div(:class="$style['container__body']")
       div(:class="$style['managers__list']")
         div(

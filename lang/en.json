@@ -1,5 +1,6 @@
 {
   "breadcrumbs": {
+    "home": "Home",
     "privacy_policy": "Privacy Policy",
     "term_of_use": "Term of Use",
     "our_team": "Our team",
@@ -17,10 +18,13 @@
     "investments": "Invesments",
     "our_projects": "Our Projects",
     "apartments": "Apartments",
-    "media": "Media"
+    "media": "Media",
+    "our_quality": "Our quality",
+    "our_office": "Our office"
   },
   "top_line": "BestHome Construction is happy to announce that sales of the most luxurious complex of Alanya has started. BestHome 36-37 The Legend. Don’t miss it!",
   "catalog": {
+    "load_more": "Load More",
     "filter": "Filter",
     "by_relevance": "by relevance",
     "ascending_price": "ascending price",
@@ -54,7 +58,8 @@
       "service": "SERVICES",
       "company": "COMPANY",
       "contacts": "CONTACTS",
-      "secondary_housing": "SECONDARY HOUSING"
+      "secondary_housing": "SECONDARY HOUSING",
+      "our_office": "Our office"
     }
   },
   "projects": {
@@ -86,6 +91,8 @@
       }
     },
     "home": {
+      "seo_title": "Real estate developer in Turkey, sale, purchase - BEST HOME",
+      "seo_description": "Real estate in Turkey - Alanya, Mahmutlar: buying and selling apartments, villas, houses, cottages. No overpayments, installments and mortgages. Turkish Real Estate Developer Sites ☎ +90 530 547-44-15",
       "header": {
         "title": "Your reliable partner in the real estate market of Turkey",
         "text1": [
@@ -190,6 +197,8 @@
       }
     },
     "projects": {
+      "seo_title": "New buildings in Turkey: buy real estate from the developer - 37 complexes",
+      "seo_description": "Buy an apartment in a newly built or finished complex in Turkey on the coast at a price from the developer BEST HOME. Sale of elite inexpensive real estate in Alanya. ☎ +90 530 547-44-15",
       "header": {
         "title": "Real estate in Alanya from the developer BestHome",
         "text1": "To date, more than 33 projects have been implemented, including multi-storey buildings in Alanya and Oba",
@@ -295,6 +304,8 @@
       }
     },
     "investors": {
+      "seo_title": "Alanya real estate investment with BEST HOME",
+      "seo_description": "BestHome has been successfully cooperating with investors from Russia, Ukraine, Kazakhstan, America, Denmark, Norway, Germany and other countries since 2004, helping them to increase capital and invest profitably by buying houses and apartments in Turkey",
       "header": {
         "title": "Turkey - Real estate investment in Alanya",
         "text": "Over the past 10 years, the Republic of Turkey has replenished its treasury with foreign investment of $ 100 billion. What attracts investors from Russia, the United States and Europe? Economic stability, political liberality to foreign investors, high quality of construction, relatively low taxes on the purchase of apartments and houses. And in recent years, the possibility of obtaining Turkish citizenship under a simplified scheme has also been added.",
@@ -371,6 +382,8 @@
       }
     },
     "service_online_purchase": {
+      "seo_title": "Buying an apartment in Alanya from a developer online is Easy!",
+      "seo_description": "Buy and register real estate in Alanya without coming to Turkey. Stages: 1. Choosing a residential complex 2. Inspection of real estate by video call 3. Drawing up a sales contract 4. Drawing up a power of attorney 5. Ordering furniture",
       "image_title": {
         "header": "Online purchase",
         "text": [
@@ -405,6 +418,8 @@
       ]
     },
     "service_after_sale_services": {
+      "seo_title": "Post service for our property buyers in Alanya from BEST HOME",
+      "seo_description": "After-sales service for our buyers and owners of real estate in Alanya, Turkey - will help with any question in an unfamiliar country for you. Aydat, ordering water or gas, connecting the Internet and buying furniture",
       "image_title": {
         "header": "After-sale services",
         "text": [
@@ -429,6 +444,8 @@
       }
     },
     "all_about_rent": {
+      "seo_title": "Real estate for rent in the center of Alanya. How to rent a house in Turkey?",
+      "seo_description": "BEST HOME will help you to rent real estate in Alanya and Mahmutlar or rent an apartment in residential complexes for long-term or daily rent on the shores of the Mediterranean Sea.",
       "image_title": {
         "header": "All about apartment leasing",
         "text": [
@@ -449,6 +466,8 @@
       ]
     },
     "service_introductory_tour": {
+      "seo_title": "How to go on a sightseeing tour to Turkey, Free! Inspection of apartments",
+      "seo_description": "If you have decided to purchase real estate in Alanya, but are not ready for an online purchase, we will be happy to offer you the service of an individual study tour",
       "image_title": {
         "header": "Inspection trip",
         "text": [
@@ -502,6 +521,8 @@
       }
     },
     "service_legal_support": {
+      "seo_title": "Buying an apartment in Turkey (Alanya). All the intricacies of a legal transaction",
+      "seo_description": "The specialists of our company not only prepare all the necessary documents for the transfer of ownership to your name, but also check the legal purity of all documents for the acquisition of secondary real estate",
       "image_title": {
         "header": "Legal support",
         "text": [
@@ -525,6 +546,8 @@
       }
     },
     "service_turkish_citizenship": {
+      "seo_title": "Turkish citizenship. All the benefits of Turkish citizenship",
+      "seo_description": "How to get Turkish citizenship when buying real estate. Dual citizenship with Turkey. Turkish citizens not only have the right to reside in the country without any obstacles and restrictions, but also have other advantages",
       "image_title": {
         "header": "Turkish Citizenship for Foreign Investors",
         "text": [
@@ -577,6 +600,8 @@
       }
     },
     "company_about_company": {
+      "seo_title": "BEST HOME Construction is the leading construction company in Alanya",
+      "seo_description": "The company has its own representatives in Germany, America, Russia, Ukraine, Iran, Kazakhstan, as well as in Denmark, Sweden, Norway and Finland. The company has already concluded more than 1000 successful transactions with foreign citizens living in the CIS, USA, Europe and the Middle East.",
       "header": {
         "title": "About company",
         "text": [
@@ -1104,8 +1129,15 @@
       },
       "gallery": {
         "title": "Photo gallery from our office",
-        "sub_title": "We need to come up with a name here"
+        "sub_title": "We need to come up with a name here",
+        "hall": "Hall with a waiting room",
+        "room_1": "Negotiation room #1",
+        "sales_director": "Sales director's office",
+        "room_2": "Negotiation room #2",
+        "ceo": "CEO office",
+        "key": "Key interior"
       },
+      "manager": "Personal manager",
       "features": {
         "title": "Our office is no exception",
         "sub_title": "The habit of being the best in everything is reflected in every detail of our work.",
@@ -1176,6 +1208,8 @@
       }
     },
     "media": {
+      "seo_title": "Real estate market news in Turkey from BestHome",
+      "seo_description": "All information on the real estate market in Alanya, Turkey. Prices for apartments, what kind of real estate to buy as an investment, the dynamics of real estate prices, commercial real estate, reviews of real buyers. The latest news from the developers of Alanya.",
       "title": {
         "title": "Only current news and promotions",
         "description": "New projects and discounts in 2021<br>Be the first to find out about the start of sales!"
@@ -1186,7 +1220,9 @@
         "all": "All",
         "news": "News",
         "promotions": "Promotions"
-      }
+      },
+      "next": "Next",
+      "prev": "Prev"
     },
     "contacts": {
       "contact_map": {

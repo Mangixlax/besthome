@@ -132,10 +132,10 @@ export default class PrivacyPolicyPage extends Vue {
     }
 
     this.$store.commit('Catalog/setPageSeoContent', '')
-    this.$store.commit('setLogoSubTitle', this.$i18n.locale === 'ru' ? 'Наш офис' : 'Our office')
+    this.$store.commit('setLogoSubTitle', this.$i18n.t('header.logo.our_office'))
     this.$store.commit('setBreadcrumbs', [
       {
-        name: this.$i18n.locale === 'ru' ? 'Наш офис' : 'Our office',
+        name: this.$i18n.t('breadcrumbs.our_office'),
         route: {
           name: 'company-our-office',
         },

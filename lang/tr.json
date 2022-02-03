@@ -1,5 +1,6 @@
 {
   "breadcrumbs": {
+    "home": "Ana",
     "privacy_policy": "Gizlilik Politikası",
     "term_of_use": "Kullanım Şartları",
     "our_team": "bizim takım",
@@ -17,10 +18,13 @@
     "investments": "Yatırımlar",
     "our_projects": "Projelerimiz",
     "apartments": "Daireler",
-    "media": "Medya"
+    "media": "Medya",
+    "our_quality": "Kalitemiz",
+    "our_office": "Bizim ofisimiz"
   },
   "top_line": "BestHome Construction, yeni bir premium kompleks The Legend'i sunmaktan mutluluk duyar. Alanya merkezde, denize 120 metre, eşsiz tasarım.",
   "catalog": {
+    "load_more": "Daha fazla yükle",
     "filter": "filtre",
     "by_relevance": "alaka düzeyine göre",
     "ascending_price": "artan fiyat",
@@ -54,7 +58,8 @@
       "service": "HİZMETLER",
       "company": "ŞİRKET",
       "contacts": "İLETİŞİM",
-      "secondary_housing": "İKİNCİL KONUT"
+      "secondary_housing": "İKİNCİL KONUT",
+      "our_office": "Bizim ofisimiz"
     }
   },
   "projects": {
@@ -86,6 +91,8 @@
       }
     },
     "home": {
+      "seo_title": "Türkiye'de emlak geliştiricisi, satış, satın alma - BEST HOME",
+      "seo_description": "Türkiye'de Emlak - Alanya, Mahmutlar: daire, villa, ev, yazlık alım ve satımı. Fazla ödemesiz, taksitli ve ipotekli. Türk emlak geliştiricisi web siteleri ☎ +90 530 547-44-15",
       "header": {
         "title": "Kaliteli inşaatta lideriz",
         "text1": [
@@ -177,7 +184,7 @@
           },
           {
             "icon": "obtaining-citizenship",
-            "title": "Получение<br>гражданства",
+            "title": "Vatandaşlık<br>almak",
             "text": "2019'dan bu yana yabancı yatırımcıların hayallerini gerçekleştirmek için gerçek bir fırsatı var. Şimdi, değeri 250.000$'ın altında olan gayrimenkul satın alırken, basitleştirilmiş bir program kapsamında Türk vatandaşlığı alabilirsiniz. Ayrıca, bir ev veya dairenin sahipleri, eşleri ve 18 yaşından küçük çocukları tam teşekküllü vatandaş olabilirler.",
             "filename": "three-columns-3.jpg",
             "to": {
@@ -190,6 +197,8 @@
       }
     },
     "projects": {
+      "seo_title": "Türkiye'de yeni binalar: geliştiriciden mülk satın alın - 37 kompleks",
+      "seo_description": "Türkiye'de sahilde inşaat halindeki bir komplekste veya bitmiş bir komplekste geliştirici BEST HOME'dan bir fiyata bir daire satın alın. Alanya'da lüks düşük maliyetli gayrimenkul satışı. ☎ +90 530 547-44-15",
       "header": {
         "title": "BestHome'dan Alanya'da emlak",
         "text1": "Bugüne kadar Alanya ve Oba'da çok katlı binalar da dahil olmak üzere 33'ten fazla proje hayata geçirildi.",
@@ -289,6 +298,8 @@
       }
     },
     "investors": {
+      "seo_title": "BEST HOME ile Alanya'da gayrimenkul yatırımı",
+      "seo_description": "BestHome, 2004 yılından bu yana Rusya, Ukrayna, Kazakistan, Amerika, Danimarka, Norveç, Almanya ve diğer ülkelerden yatırımcılarla başarılı bir şekilde işbirliği yapmakta ve Türkiye'de ev ve daire satın alarak sermayelerini artırmalarına ve karlı yatırım yapmalarına yardımcı olmaktadır.",
       "header": {
         "title": "Türkiye- Alanya’da gayrimenkule yatırımlar.",
         "text": "Türkiye Cumhuriyeti son 10 yıldır hazinesini 100 milyar Dolarlık yabancı yatırımla doldurmuştur. Rusya Federasyonu, ABD ve Avrupa’dan yatırımcılara cazip gelen nedir? Ekonomik istikrar, yabancı yatırımcılara siyasi özgürlük, yüksek kalite inşaat, daire ve ev alımında nispeten düşük vergiler. Son yıllarda ise basitleştirilmiş bir program kapsamında Türk vatandaşlığı alma imkanı da var.",
@@ -362,6 +373,8 @@
       }
     },
     "service_online_purchase": {
+      "seo_title": "Bir müteahhitten Alanya'da bir daire satın almak çok kolay!",
+      "seo_description": "Türkiye'ye gelmeden Alanya'da gayrimenkul satın alın ve kaydedin. Aşamalar: 1. Konut kompleksi seçimi 2. Görüntülü görüşme ile gayrimenkul denetimi 3. Satış sözleşmesinin düzenlenmesi 4. Vekaletname verilmesi 5. Mobilya siparişi",
       "image_title": {
         "header": "Online alışveriş",
         "text": [
@@ -396,6 +409,8 @@
       ]
     },
     "service_after_sale_services": {
+      "seo_title": "BEST HOME'dan Alanya'da mülk alıcılarımız için bakım sonrası hizmet",
+      "seo_description": "Alanya, Türkiye'deki alıcılarımız ve gayrimenkul sahiplerimiz için satış sonrası servis - size yabancı bir ülkede herhangi bir soru ile yardımcı olacaktır. Aydat, su veya gaz siparişi vermek, internete bağlanmak ve mobilya satın almak",
       "image_title": {
         "header": "Satış sonrası hizmetler",
         "text": [
@@ -420,6 +435,8 @@
       }
     },
     "all_about_rent": {
+      "seo_title": "Alanya merkezde kiralık emlak. Türkiye'de nasıl ev kiralanır?",
+      "seo_description": "BEST HOME şirketi, Alanya ve Mahmutlar'da mülk kiralamanıza veya Akdeniz kıyısında uzun süreli veya günlük kiralık konut sitelerinde daire kiralamanıza yardımcı olacaktır.",
       "image_title": {
         "header": "Yatırımcılara",
         "text": [
@@ -438,6 +455,8 @@
       ]
     },
     "service_introductory_tour": {
+      "seo_title": "Türkiye tanıtım turuna nasıl çıkılır, Bedava! Dairelerin muayenesi",
+      "seo_description": "Alanya'da gayrimenkul satın almaya karar verdiyseniz ancak çevrimiçi satın almaya hazır değilseniz, size bireysel çalışma turu hizmetini sunmaktan mutluluk duyarız.",
       "image_title": {
         "header": "Tanışma turu",
         "text": [
@@ -492,6 +511,8 @@
       }
     },
     "service_legal_support": {
+      "seo_title": "Türkiye'de (Alanya) bir daire satın almak. Yasal bir işlemin tüm detayları",
+      "seo_description": "Şirketimizin uzmanları, adınıza mülkiyet devri için gerekli tüm belgeleri hazırlamakla kalmaz, aynı zamanda ikincil gayrimenkul edinimi için tüm belgelerin yasal saflığını kontrol eder.",
       "image_title": {
         "header": "Yasal destek",
         "text": [
@@ -515,6 +536,8 @@
       }
     },
     "service_turkish_citizenship": {
+      "seo_title": "Türk vatandaşlığı. Türk vatandaşlığının tüm faydaları",
+      "seo_description": "Gayrimenkul alırken Türk vatandaşlığı nasıl alınır. Türkiye ile çifte vatandaşlık. Türk vatandaşları, ülkede herhangi bir engel ve kısıtlama olmaksızın ikamet etme hakkına sahip olmanın yanı sıra başka avantajlara da sahiptir.",
       "image_title": {
         "header": "Yabancı yatırımcılar için Türk vatandaşlığı",
         "text": [
@@ -565,6 +588,8 @@
       }
     },
     "company_about_company": {
+      "seo_title": "BEST HOME İnşaat Alanya'nın lider inşaat firmasıdır.",
+      "seo_description": "Şirketin Almanya, Amerika, Rusya, Ukrayna, İran, Kazakistan'ın yanı sıra Danimarka, İsveç, Norveç ve Finlandiya'da kendi temsilcileri bulunmaktadır. Şirket halihazırda BDT, ABD, Avrupa ve Orta Doğu'da yaşayan yabancı vatandaşlarla 1000'den fazla başarılı işlem gerçekleştirmiştir.",
       "header": {
         "title": "Şirket hakkında",
         "text": [
@@ -1077,8 +1102,15 @@
       },
       "gallery": {
         "title": "Ofisimizin fotoğrafları",
-        "sub_title": "fotoğrafları"
+        "sub_title": "fotoğrafları",
+        "hall": "Bekleme odası olan salon",
+        "room_1": "Toplantı odası №1",
+        "sales_director": "Satış müdürünün ofisi",
+        "room_2": "Toplantı odası №2",
+        "ceo": "Gen. yönetmenler",
+        "key": "Anahtar iç"
       },
+      "manager": "Personel Müdürü",
       "features": {
         "title": "Ofisimiz bir istisna değildir.",
         "sub_title": "Her şeyde en iyisi olma alışkanlığımız, çalışmalarımızın her detayına yansımaktadır.",
@@ -1149,6 +1181,8 @@
       }
     },
     "media": {
+      "seo_title": "BestHome'dan Türkiye emlak piyasası haberleri",
+      "seo_description": "Alanya, Türkiye'deki emlak piyasası ile ilgili tüm bilgiler. Daire fiyatları, yatırım olarak ne tür bir gayrimenkul satın alınır, gayrimenkul fiyat dinamikleri, ticari gayrimenkul, gerçek alıcıların yorumları. Alanya geliştiricilerinden son haberler.",
       "title": {
         "title": "Sadece güncel haberler ve kampanyalar",
         "description": "2021 yılında yeni projeler ve indirimler<br>Başlayan satışlardan ilk sz haberdar olun!"
@@ -1159,7 +1193,9 @@
         "all": "Tüm",
         "news": "Haberler",
         "promotions": "Promosyonlar"
-      }
+      },
+      "next": "Sonraki",
+      "prev": "Öncesi"
     },
     "contacts": {
       "contact_map": {

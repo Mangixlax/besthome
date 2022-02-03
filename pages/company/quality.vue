@@ -147,7 +147,7 @@ export default class PrivacyPolicyPage extends Vue {
     this.$store.commit('setLogoSubTitle', 'Quality')
     this.$store.commit('setBreadcrumbs', [
       {
-        name: this.$i18n.locale === 'ru' ? 'Наше качество' : 'Our quality',
+        name: this.$i18n.t('breadcrumbs.our_quality'),
         route: {
           name: 'company-quality',
         },

@@ -24,15 +24,8 @@ import { getSiteUrl } from '@/lib/utils'
     BaseSeoContent,
   },
   head(): any {
-    const title =
-      this.$i18n.locale === 'ru'
-        ? 'Аренда недвижимости в центре Алании. Как снять жилье в Турции?'
-        : 'Real estate for rent in the center of Alanya. How to rent a house in Turkey?'
-
-    const description =
-      this.$i18n.locale === 'ru'
-        ? 'Арендовать недвижимость в Алании и Махмутлар или снять квартиру в жилых комплексах на долгосрочно или посуточно на берегу Средиземного моря от собственников поможет компания BEST HOME'
-        : 'BEST HOME will help you to rent real estate in Alanya and Mahmutlar or rent an apartment in residential complexes for long-term or daily rent on the shores of the Mediterranean Sea.'
+    const title = this.$i18n.t('pages.all_about_rent.seo_title')
+    const description = this.$i18n.t('pages.all_about_rent.seo_description')
 
     return {
       title,

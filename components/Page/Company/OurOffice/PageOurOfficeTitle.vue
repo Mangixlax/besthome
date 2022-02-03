@@ -27,10 +27,10 @@
           div(slot="pagination" :class="$style['pagination']")
             div(:class="$style['buttons']")
               button(:class="[$style['swiper-button-prev']]" @click.prevent="$refs.swiper.swiperInstance.slidePrev()")
-                | {{ $i18n.locale === 'ru' ? 'Назад' : 'Prev' }}
+                | {{ $t('pages.media.prev') }}
               div(:class="['swiper-pagination-progressbar', $style['swiper-pagination-progressbar']]")
               button(:class="[$style['swiper-button-next']]" @click.prevent="$refs.swiper.swiperInstance.slideNext()")
-                | {{ $i18n.locale === 'ru' ? 'Вперед' : 'Next' }}
+                | {{ $t('pages.media.next') }}
       div(
         :class="$style['title__container-play_button']"
         @click="showVideo"
