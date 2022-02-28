@@ -86,6 +86,7 @@ export default class HeroSlider extends Vue {
   public isSliderDisabled: boolean = false
   public slideLinksParams: Array<string> = [
     'best-home-36-37-the-legend-12',
+    'best-home-42-creopatra-diva-38',
     'best-home-41-saga-37',
   ]
 
