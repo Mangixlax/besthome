@@ -88,6 +88,7 @@ export default class HeroSlider extends Vue {
     'best-home-36-37-the-legend-12',
     'best-home-42-creopatra-diva-38',
     'best-home-41-saga-37',
+    'best-home-40-creopatra-epic-36'
   ]
 
   createDraggableTween(): void {
