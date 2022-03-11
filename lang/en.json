@@ -143,6 +143,18 @@
             "price": "120 000",
             "sea": 370,
             "description": "BestHome 41 Saga will be located in one of the most beautiful areas of Alanya. The quiet center of Alanya is known for its landscaped promenade, wide sandy beach, pedestrian promenade."
+          },
+          {
+            "title": "BestHome 40",
+            "sub_title": "Cleopatra Epic",
+            "image": "slide-2.jpg",
+            "location": {
+              "city": "Alanya",
+              "region": "Saray Mahalle"
+            },
+            "price": "150 000",
+            "sea": 350,
+            "description": "Our new BestHome 40 Cleopatra Epic is ideal for those who want to be within walking distance of Cleopatra Beach and enjoy all that this dynamic resort town has to offer"
           }
         ]
       },
