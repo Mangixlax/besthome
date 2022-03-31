@@ -116,7 +116,7 @@
               "city": "Аланья",
               "region": "Центр"
             },
-            "price": "270 000",
+            "price": "340 000",
             "sea": 120,
             "description": "BestHome 36-37 The Legend – новый комплекс премиум класса в самом центре Алании в 120 метрах от песчяного пляжа. Комплекс уникален благодаря выигрошному месторасположению, инфраструктуре 5-и звёздочного отеля и неповторимому дизайну."
           },
@@ -128,7 +128,7 @@
               "city": "Аланья",
               "region": "Центр"
             },
-            "price": "125 000",
+            "price": "250 000",
             "sea": 315,
             "description": "Our new BestHome 42 Cleopatra Diva is ideal for those who want to be within walking distance of Cleopatra Beach and enjoy all that this dynamic resort town has to offer"
           },
@@ -147,14 +147,26 @@
           {
             "title": " BestHome 40",
             "sub_title": "Cleopatra Epic",
-            "image": "slide-2.jpg",
+            "image": "slide-4.jpg",
             "location": {
               "city": "Аланья",
               "region": "Центр"
             },
-            "price": "150 000",
+            "price": "220 000",
             "sea": 350,
             "description": "Наш новый комплекс BestHome 40 Cleopatra Epic идеально подойдёт тем, кто хочет быть на расстоянии пешей прогулки от пляжа Клеопатры, наслаждаться всем, что может предложить динамичный курортный город"
+          },
+          {
+            "title": "BestHome 39",
+            "sub_title": "Oba Select",
+            "image": "slide-5.jpg",
+            "location": {
+              "city": "Аланья",
+              "region": "Оба"
+            },
+            "price": "190 000",
+            "sea": 345,
+            "description": "BestHome 39 Oba Select будет расположен в одном из самых излюбленных туристами районов Алании – Обе. Оба известна своей благоустроенной набережной, широким песчаным пляжем, пешеходным променадом."
           }
         ]
       },
