@@ -116,7 +116,7 @@
               "city": "Alanya",
               "region": "Merkez"
             },
-            "price": "270 000",
+            "price": "340 000",
             "sea": 120,
             "description": "Best Home 36-37 The Legend, Kumsala 120 metre mesafede, Alanya’nın tam merkezinde yeni Premium sınıf kompleks."
           },
@@ -128,7 +128,7 @@
               "city": "Alanya",
               "region": "Merkez"
             },
-            "price": "125 000",
+            "price": "250 000",
             "sea": 315,
             "description": "Yeni BestHome 42 Cleopatra Diva, Kleopatra Plajı'na yürüme mesafesinde olmak ve bu dinamik tatil beldesinin sunduğu her şeyin tadını çıkarmak isteyenler için idealdir."
           },
@@ -147,14 +147,26 @@
           {
             "title": " BestHome 40",
             "sub_title": "Cleopatra Epic",
-            "image": "slide-2.jpg",
+            "image": "slide-4.jpg",
             "location": {
               "city": "Alanya",
               "region": "Merkez"
             },
-            "price": "150 000",
+            "price": "220 000",
             "sea": 350,
             "description": "Yeni BestHome 40 Cleopatra Epic, Kleopatra Plajı'na yürüme mesafesinde olmak ve bu dinamik tatil beldesinin sunduğu her şeyin tadını çıkarmak isteyenler için idealdir."
+          },
+          {
+            "title": "BestHome 39",
+            "sub_title": "Oba Select",
+            "image": "slide-5.jpg",
+            "location": {
+              "city": "Alanya",
+              "region": "Oba"
+            },
+            "price": "190 000",
+            "sea": 345,
+            "description": "BestHome 39 Oba Select, Alanya'nın en popüler turistik bölgelerinden biri olan Oba'da yer alacak. Her ikisi de bakımlı gezinti yerleri, geniş kumlu plajları ve yaya gezinti yerleri ile tanınır."
           }
         ]
       },
