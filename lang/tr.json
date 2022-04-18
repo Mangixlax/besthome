@@ -155,18 +155,6 @@
             "price": "220 000",
             "sea": 350,
             "description": "Yeni BestHome 40 Cleopatra Epic, Kleopatra Plajı'na yürüme mesafesinde olmak ve bu dinamik tatil beldesinin sunduğu her şeyin tadını çıkarmak isteyenler için idealdir."
-          },
-          {
-            "title": "BestHome 39",
-            "sub_title": "Oba Select",
-            "image": "slide-5.jpg",
-            "location": {
-              "city": "Alanya",
-              "region": "Oba"
-            },
-            "price": "150 000",
-            "sea": 345,
-            "description": "BestHome 39 Oba Select, Alanya'nın en popüler turistik bölgelerinden biri olan Oba'da yer alacak. Her ikisi de bakımlı gezinti yerleri, geniş kumlu plajları ve yaya gezinti yerleri ile tanınır."
           }
         ]
       },
