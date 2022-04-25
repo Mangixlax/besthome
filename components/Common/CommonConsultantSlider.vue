@@ -161,6 +161,7 @@ export default {
 
   &__textbox
     max-width: 432px
+    width: 100%
     justify-self: end
     color: $color-white-100
     padding: 64px 0px
