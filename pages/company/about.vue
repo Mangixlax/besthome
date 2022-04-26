@@ -10,6 +10,15 @@
         ].join('')\
       }"
     )
+    base-text-container(
+      v-if="$i18n.locale === 'tr'"
+      :data="{\
+        text: [\
+          `<h3>${$t('pages.company_about_company.article_1.title_2')}</h3>`,\
+          ...$t('pages.company_about_company.article_1.text_2').map((p) => `<p>${p}<p>`)\
+        ].join('')\
+      }"
+    )
     base-scroll-line(:data="$t('pages.company_about_company.scroll_line_data')")
     base-text-container(
       :data="{\
