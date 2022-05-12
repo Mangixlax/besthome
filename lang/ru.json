@@ -133,21 +133,9 @@
             "description": "Our new BestHome 42 Cleopatra Diva is ideal for those who want to be within walking distance of Cleopatra Beach and enjoy all that this dynamic resort town has to offer"
           },
           {
-            "title": "BestHome 41",
-            "sub_title": "Saga",
-            "image": "slide-3.jpg",
-            "location": {
-              "city": "Аланья",
-              "region": "Центр"
-            },
-            "price": "260 000",
-            "sea": 370,
-            "description": "BestHome 41 Saga будет расположен в одном из самых красивых районов Алании. Тихий центр Алании известен своей благоустроенной набережной, широким песчаным пляжем, пешеходным променадом."
-          },
-          {
             "title": " BestHome 40",
             "sub_title": "Cleopatra Epic",
-            "image": "slide-4.jpg",
+            "image": "slide-3.jpg",
             "location": {
               "city": "Аланья",
               "region": "Центр"

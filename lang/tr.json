@@ -133,21 +133,9 @@
             "description": "Yeni BestHome 42 Cleopatra Diva, Kleopatra Plajı'na yürüme mesafesinde olmak ve bu dinamik tatil beldesinin sunduğu her şeyin tadını çıkarmak isteyenler için idealdir."
           },
           {
-            "title": "BestHome 41",
-            "sub_title": "Saga",
-            "image": "slide-3.jpg",
-            "location": {
-              "city": "Alanya",
-              "region": "Merkez"
-            },
-            "price": "260 000",
-            "sea": 370,
-            "description": "BestHome 41 Saga, Alanya'nın en güzel bölgelerinden birinde yer alacak. Alanya'nın sakin merkezi, bakımlı gezinti yolu, geniş kumlu plajı ve yaya gezinti yeri ile tanınır."
-          },
-          {
             "title": " BestHome 40",
             "sub_title": "Cleopatra Epic",
-            "image": "slide-4.jpg",
+            "image": "slide-3.jpg",
             "location": {
               "city": "Alanya",
               "region": "Merkez"
