@@ -116,7 +116,7 @@
               "city": "Аланья",
               "region": "Центр"
             },
-            "price": "340 000",
+            "price": "400 000",
             "sea": 120,
             "description": "BestHome 36-37 The Legend – новый комплекс премиум класса в самом центре Алании в 120 метрах от песчяного пляжа. Комплекс уникален благодаря выигрошному месторасположению, инфраструктуре 5-и звёздочного отеля и неповторимому дизайну."
           },
@@ -133,21 +133,9 @@
             "description": "Our new BestHome 42 Cleopatra Diva is ideal for those who want to be within walking distance of Cleopatra Beach and enjoy all that this dynamic resort town has to offer"
           },
           {
-            "title": "BestHome 41",
-            "sub_title": "Saga",
-            "image": "slide-3.jpg",
-            "location": {
-              "city": "Аланья",
-              "region": "Центр"
-            },
-            "price": "125 000",
-            "sea": 370,
-            "description": "BestHome 41 Saga будет расположен в одном из самых красивых районов Алании. Тихий центр Алании известен своей благоустроенной набережной, широким песчаным пляжем, пешеходным променадом."
-          },
-          {
             "title": " BestHome 40",
             "sub_title": "Cleopatra Epic",
-            "image": "slide-4.jpg",
+            "image": "slide-3.jpg",
             "location": {
               "city": "Аланья",
               "region": "Центр"
