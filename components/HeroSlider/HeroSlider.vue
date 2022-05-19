@@ -45,6 +45,7 @@
       div(
         ref="captionNext"
         :class="[$style['slide__caption'], $style['slide__caption--next']]"
+        v-if="slides[nextSlideIndex]"
       ) {{ slides[nextSlideIndex].title }}
       div(:class="$style['slide__info']")
         div(:class="$style['slide__info-line']")
@@ -86,8 +87,6 @@ export default class HeroSlider extends Vue {
   public isSliderDisabled: boolean = false
   public slideLinksParams: Array<string> = [
     'best-home-36-37-the-legend-12',
-    'best-home-42-creopatra-diva-38',
-    'best-home-40-creopatra-epic-36',
   ]
 
   createDraggableTween(): void {
