@@ -119,30 +119,6 @@
             "price": "400 000",
             "sea": 120,
             "description": "BestHome 36-37 The Legend is a new premium class complex in the very center of Alanya, 120 meters from the sandy beach. The complex is unique due to its advantageous location, infrastructure of a 5-star hotel and unique design."
-          },
-          {
-            "title": "BestHome 42",
-            "sub_title": "Cleopatra Diva",
-            "image": "slide-2.jpg",
-            "location": {
-              "city": "Alanya",
-              "region": "Center"
-            },
-            "price": "250 000",
-            "sea": 315,
-            "description": "Our new BestHome 42 Cleopatra Diva is ideal for those who want to be within walking distance of Cleopatra Beach and enjoy all that this dynamic resort town has to offer"
-          },
-          {
-            "title": "BestHome 40",
-            "sub_title": "Cleopatra Epic",
-            "image": "slide-3.jpg",
-            "location": {
-              "city": "Alanya",
-              "region": "Saray Mahalle"
-            },
-            "price": "250 000",
-            "sea": 350,
-            "description": "Our new BestHome 40 Cleopatra Epic is ideal for those who want to be within walking distance of Cleopatra Beach and enjoy all that this dynamic resort town has to offer"
           }
         ]
       },
