@@ -109,9 +109,21 @@
         "label_meter": "m",
         "hero_slider": [
           {
+            "title": "Best Home 44",
+            "sub_title": "Gardenia",
+            "image": "slide-1.jpg",
+            "location": {
+              "city": "Alanya",
+              "region": "Demirtas"
+            },
+            "price": "85 500",
+            "sea": 1200,
+            "description": "The new BestHome complex is a great opportunity for investment in a new developing area. The famous quality and design of our construction company at competitive prices."
+          },
+          {
             "title": "Best Home 36-37",
             "sub_title": "The Legend",
-            "image": "slide-1.jpg",
+            "image": "slide-2.jpg",
             "location": {
               "city": "Alanya",
               "region": "Center"
