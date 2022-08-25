@@ -109,26 +109,38 @@
         "label_meter": "m",
         "hero_slider": [
           {
+            "title": "Best Home 45",
+            "sub_title": "Excellence",
+            "image": "slide-1.jpg",
+            "location": {
+              "city": "Alanya",
+              "region": "Tosmur"
+            },
+            "price": "390 000",
+            "sea": 100,
+            "description": "The new BestHome complex is a great opportunity for investment in a new developing area. The famous quality and design of our construction company at competitive prices."
+          },
+          {
             "title": "Best Home 44",
             "sub_title": "Gardenia",
-            "image": "slide-1.jpg",
+            "image": "slide-2.jpg",
             "location": {
               "city": "Alanya",
               "region": "Demirtas"
             },
-            "price": "90 500",
+            "price": "97 000",
             "sea": 1200,
             "description": "The new BestHome complex is a great opportunity for investment in a new developing area. The famous quality and design of our construction company at competitive prices."
           },
           {
             "title": "Best Home 36-37",
             "sub_title": "The Legend",
-            "image": "slide-2.jpg",
+            "image": "slide-3.jpg",
             "location": {
               "city": "Alanya",
               "region": "Center"
             },
-            "price": "400 000",
+            "price": "530 000",
             "sea": 120,
             "description": "BestHome 36-37 The Legend is a new premium class complex in the very center of Alanya, 120 meters from the sandy beach. The complex is unique due to its advantageous location, infrastructure of a 5-star hotel and unique design."
           }

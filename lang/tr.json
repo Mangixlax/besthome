@@ -109,14 +109,26 @@
         "label_meter": "m",
         "hero_slider": [
           {
+            "title": "Best Home 45",
+            "sub_title": "Excellence",
+            "image": "slide-1.jpg",
+            "location": {
+              "city": "Alanya",
+              "region": "Tosmur"
+            },
+            "price": "390 000",
+            "sea": 100,
+            "description": "Yeni BestHome kompleksi, gelişmekte olan yeni bir alana yatırım yapmak için harika bir fırsattır. İnşaat şirketimizin ünlü kalitesi ve tasarımı rekabetçi fiyatlarla."
+          },
+          {
             "title": "Best Home 44",
             "sub_title": "Gardenia",
-            "image": "slide-1.jpg",
+            "image": "slide-2.jpg",
             "location": {
               "city": "Alanya",
               "region": "Demirtaş"
             },
-            "price": "90 500",
+            "price": "97 000",
             "sea": 1200,
             "description": "Yeni BestHome kompleksi, gelişmekte olan yeni bir alana yatırım yapmak için harika bir fırsattır. İnşaat şirketimizin ünlü kalitesi ve tasarımı rekabetçi fiyatlarla."
           },
@@ -128,7 +140,7 @@
               "city": "Alanya",
               "region": "Merkez"
             },
-            "price": "400 000",
+            "price": "530 000",
             "sea": 120,
             "description": "Best Home 36-37 The Legend, Kumsala 120 metre mesafede, Alanya’nın tam merkezinde yeni Premium sınıf kompleks."
           }
