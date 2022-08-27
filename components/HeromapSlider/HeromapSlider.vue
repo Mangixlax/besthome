@@ -207,7 +207,7 @@ export default {
 
   &__slider
     @media (min-width: 1023px)
-      margin-top: -250px
+      margin-top: -180px
 
     @media (max-width: 1024px)
       padding: 0 24px
