@@ -87,6 +87,11 @@ export default <NuxtConfig>{
         src: 'https://code-ya.jivosite.com/widget/0OWAaFHxID',
         async: true,
       },
+      {
+        type: 'text/javascript',
+        async: true,
+        src: 'https://app.avodata.ru/px/pixel.js?token=858257c9f7dde60e2f7bb032c12b833f',
+      },
     ],
   },
 
