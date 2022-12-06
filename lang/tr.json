@@ -109,9 +109,21 @@
         "label_meter": "m",
         "hero_slider": [
           {
+            "title": "BestHome 46",
+            "sub_title": "Oba Privilege Apartments",
+            "image": "slide-1.jpg",
+            "location": {
+              "city": "Alanya",
+              "region": "Oba"
+            },
+            "price": "97 000",
+            "sea": 3000,
+            "description": "Yeni BestHome kompleksi, gelişmekte olan yeni bir alana yatırım yapmak için harika bir fırsattır. İnşaat şirketimizin ünlü kalitesi ve tasarımı rekabetçi fiyatlarla."
+          },
+          {
             "title": "Best Home 45",
             "sub_title": "Excellence",
-            "image": "slide-1.jpg",
+            "image": "slide-2.jpg",
             "location": {
               "city": "Alanya",
               "region": "Tosmur"
@@ -128,7 +140,7 @@
               "city": "Alanya",
               "region": "Demirtaş"
             },
-            "price": "97 000",
+            "price": "127 000",
             "sea": 1200,
             "description": "Yeni BestHome kompleksi, gelişmekte olan yeni bir alana yatırım yapmak için harika bir fırsattır. İnşaat şirketimizin ünlü kalitesi ve tasarımı rekabetçi fiyatlarla."
           },

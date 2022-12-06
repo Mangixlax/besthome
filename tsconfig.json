@@ -31,5 +31,14 @@
       "@nuxt/image"
     ]
   },
+  "vueCompilerOptions": {
+    "target": 2.7,
+    "extensions": [
+      ".vue"
+    ],
+    "plugins": [
+      "@volar/vue-language-plugin-pug"
+    ]
+  },
   "exclude": ["node_modules", ".nuxt", "dist"]
 }

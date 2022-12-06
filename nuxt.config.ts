@@ -117,7 +117,7 @@ export default <NuxtConfig>{
       ssr: false,
     },
     {
-      src: '~plugins/vue-fragment.js',
+      src: '~plugins/vue-fragment.js', mode: 'client',
     },
     { src: '~plugins/modal.js', mode: 'client' },
   ],
