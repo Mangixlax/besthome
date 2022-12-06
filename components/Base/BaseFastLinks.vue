@@ -47,7 +47,7 @@ export default class BaseFastLinks extends Vue {
       this.showAccordion()
     }
 
-    if (this.$parent.$children.length) {
+    if (this.$parent?.$children.length) {
       for (const $child of this.$parent.$children) {
         if (
           ($child as any)._name.includes('BaseFastLinks') &&

@@ -45,7 +45,7 @@ export default {
         this.showAccordion()
       }
 
-      if (this.$parent.$children.length) {
+      if (this.$parent?.$children.length) {
         for (const $child of this.$parent.$children) {
           if ($child._name.includes('AccordionItem') && this._uid !== $child._uid) {
             $child.hideAccordion()
