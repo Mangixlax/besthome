@@ -77,8 +77,6 @@ export default class BaseSelectLanguage extends Vue {
   }
 
   chooseSelector(selectorItem: string) {
-    console.log(selectorItem, '@@@')
-
     this.$nextTick(() => {
       if (this.$i18n.locale !== selectorItem) {
         this.$i18n.setLocale(selectorItem)
