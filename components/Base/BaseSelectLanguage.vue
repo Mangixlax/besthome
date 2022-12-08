@@ -18,19 +18,19 @@
           transform: `translateY(-${selectorPosition}px)`,
         }"
       >
-        <li v-for="item in selectorList" :key="item" v-html="item"></li>
+        <li v-for="(item, index) in selectorList" :key="index" v-html="item.label"></li>
       </ul>
     </div>
     <ul
       :style="{
-        transform: `translateY(-${selectorPosition}px)`,
+        transform: `translateY(${40}px)`,
       }"
     >
       <li
-        v-for="selectorItem in selectorList"
-        :key="selectorItem"
-        @click="chooseSelector(selectorItem)"
-        v-html="selectorItem"
+        v-for="(selectorItem, index) in selectorList"
+        :key="index"
+        @click="chooseSelector(selectorItem.value)"
+        v-html="selectorItem.label"
       ></li>
     </ul>
   </div>
@@ -56,7 +56,7 @@ export default class BaseSelectLanguage extends Vue {
 
   beforeMount() {
     this.selectorList = Object.assign([], this.list)
-    this.chooseSelector(this.$i18n.locale.toUpperCase())
+    this.chooseSelector(this.$i18n.locale)
   }
 
   /**
@@ -77,15 +77,17 @@ export default class BaseSelectLanguage extends Vue {
   }
 
   chooseSelector(selectorItem: string) {
+    console.log(selectorItem, '@@@')
+
     this.$nextTick(() => {
-      if (this.$i18n.locale.toLowerCase() !== selectorItem.toLowerCase()) {
-        this.$i18n.setLocale(selectorItem.toLowerCase())
+      if (this.$i18n.locale !== selectorItem) {
+        this.$i18n.setLocale(selectorItem)
       }
 
       if (!this.inProcess) {
         this.inProcess = true
 
-        const newIndex: number = this.selectorList.indexOf(selectorItem)
+        const newIndex: number = this.selectorList.map((e: any) => e.value).indexOf(selectorItem)
 
         this.selectorIsOpened = false
 
@@ -128,7 +130,7 @@ export default class BaseSelectLanguage extends Vue {
   position: relative
   z-index: 1
   width: 60px
-  height: 100%
+  height: 36px
   transition: box-shadow 0.3s ease
 
   &--disable-animation ul
@@ -136,8 +138,8 @@ export default class BaseSelectLanguage extends Vue {
 
   svg
     position: absolute
-    top: 9px
-    right: 9px
+    top: 8px
+    right: 0
     height: 18px
     width: 18px
     z-index: 10
@@ -212,10 +214,10 @@ export default class BaseSelectLanguage extends Vue {
     z-index: 1
     display: block
     overflow: hidden
-    border-radius: 26px
+    border-radius: 6px
     color: $color-black-88
     width: 60px
-    height: 38px
+    height: 36px
 
     .dark &
       color: $color-white-88

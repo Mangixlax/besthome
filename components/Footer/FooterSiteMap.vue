@@ -19,6 +19,8 @@
         :active="i === 0"
         :is-dark-theme="isDarkTheme"
       )
+        template(v-slot:link-3="{ item }")
+          base-socials
 </template>
 
 <script lang="ts">
@@ -27,9 +29,10 @@ import BaseFastLinks from '~/components/Base/BaseFastLinks.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import DeveloperLogo from '@/components/svg/Developer.vue'
 import { IMenus, NavigationListItem } from '~/store/Navigation'
+import BaseSocials from '~/components/Base/BaseSocials.vue'
 
 @Component({
-  components: { BaseFastLinks, TypoText, DeveloperLogo },
+  components: { BaseFastLinks, TypoText, DeveloperLogo, BaseSocials },
 })
 export default class FooterSiteMap extends Vue {
   @Getter('Navigation/getSitemapColumns') getSitemapColumns!: IMenus<NavigationListItem[]>
@@ -134,7 +137,7 @@ export default class FooterSiteMap extends Vue {
   justify-items: start
   margin-bottom: 16px
   width: 100%
-  
+
   &-column-0
     grid-column: 1
     grid-row: 1 / 3
