@@ -14,6 +14,7 @@
           )
             option(value="en") English
             option(value="ru") Russian
+            option(value="tr") Turkey
           button(
             type="button"
             :class="$style['selsect-language__select-form-button']"

@@ -36,15 +36,8 @@ import { getSiteUrl } from '@/lib/utils'
     BaseSeoContent,
   },
   head(): any {
-    const title =
-      this.$i18n.locale === 'ru'
-        ? 'Сервис постобслуживания наших покупателей недвижимости в Алании от BEST HOME'
-        : 'Post service for our property buyers in Alanya from BEST HOME'
-
-    const description =
-      this.$i18n.locale === 'ru'
-        ? 'Послепродажный сервис обслуживания наших покупателей и обладателей недвижимости в Алании, Турции - поможет с любым вопросом в незнакомой для вас стране. Айдат, заказ воды или газа, подключение интернета и покупка мебели'
-        : 'After-sales service for our buyers and owners of real estate in Alanya, Turkey - will help with any question in an unfamiliar country for you. Aydat, ordering water or gas, connecting the Internet and buying furniture'
+    const title = this.$i18n.t('pages.service_after_sale_services.seo_title')
+    const description = this.$i18n.t('pages.service_after_sale_services.seo_description')
 
     return {
       title,

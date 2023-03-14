@@ -1,12 +1,11 @@
 <template lang="pug">
-  div(:class="{ [$style['menu']]: true, [$style['open']]: menuIsOpen, [$style['has-top-line']]: !topLineIsHidden }")
+  div(ref="header" :class="{ [$style['menu']]: true, [$style['open']]: menuIsOpen, [$style['sticky']]: stickyBurger }")
     div(
       :class="[$style['menu__burger'], offsetBurger && $style['fix-to-top']]"
       @click="menuIsOpen = !menuIsOpen"
     )
       svg-icon(:name="menuIsOpen ? 'close' : 'burger-menu'")
     div(:class="$style['menu__content']")
-      top-line(v-if="!topLineIsHidden" @close="onToggleHiddenMode")
       logo(:class="$style['logo']")
       div(:class="$style['menu__content-scrollable']")
         base-header-info(:class="$style['menu__content-info']")
@@ -38,14 +37,13 @@ const SettingsTopLineStore = namespace('SettingsTopLine')
   },
 })
 export default class BaseHeaderMobile extends Vue {
-  @SettingsTopLineStore.Getter('isHidden') topLineIsHidden!: SettingsTopLineState['hidden']
-  @SettingsTopLineStore.Action('toggleHiddenMode') onToggleHiddenMode!: () => void
 
   /**
    * This variable determines menu is opened or closed
    */
   public menuIsOpen: boolean = false
   public offsetBurger: boolean = false
+   public stickyBurger: boolean = false
   /**
    * Toggle 'menu-open' attribute on body when menu is opened or closed
    */
@@ -73,8 +71,24 @@ export default class BaseHeaderMobile extends Vue {
       this.offsetBurger = false
     }
   }
+
+  public onScroll() {
+    const $header = (this.$refs.header as Element)
+    const pos: number = $header.getBoundingClientRect().top
+    if( pos < 0 ) {
+      this.stickyBurger = true
+    } else {
+      this.stickyBurger = false
+    }
+  }
+
   mounted() {
     this.onChangeRoute()
+    document.addEventListener('scroll', this.onScroll)
+  }
+
+  beforeDestroy() {
+    document.removeEventListener('scroll', this.onScroll)
   }
 }
 </script>
@@ -86,13 +100,15 @@ body[menu-open]
 .menu
   position: relative
   z-index: 1000
+  height: 100%
+  transition: all 0.3s ease
 
   @media (min-width: 1024px)
     display: none
 
   &__burger
     display: flex
-    position: fixed
+    position: absolute
     top: 24px
     right: 24px
     z-index: 1000
@@ -114,18 +130,21 @@ body[menu-open]
     .open &
       background-color: $color-black-100
       box-shadow: none
+      top: 24px !important
+      position: fixed !important
 
       svg
         width: 24px
         height: 24px
         fill: $color-white-100
 
-    .has-top-line &
-      top: 72px
+    .sticky &
+      position: fixed
+      top: 24px
 
     &.fix-to-top
       position: absolute
-      top: 72px
+      top: 24px
 
   &__content
     opacity: 0

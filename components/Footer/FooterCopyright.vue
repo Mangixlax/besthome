@@ -14,7 +14,7 @@
       div(:class="$style['copyright__changelang']")
         p(:class="$style['copyright__changelang-text']")
           | {{ $t('footer.footer_copyright.language') }}
-        base-select-language(:list="['RU','EN']" :is-dark-theme="isDarkTheme")
+        base-select-language(:list="languageList" :is-dark-theme="isDarkTheme")
     div(:class="$style['copyright__information']")
       div
         | © BestHome Construction, 2021 {{ $t('footer.footer_copyright.rights') }}
@@ -49,6 +49,21 @@ interface ICopyrightItems {
   components: { BaseFastLinks, BaseSelectLanguage, TypoText },
 })
 export default class FooterCopyright extends Vue {
+  public languageList = [
+    {
+      label: 'RUS',
+      value: 'ru',
+    },
+    {
+      label: 'ENG',
+      value: 'en',
+    },
+    {
+      label: 'TUR',
+      value: 'tr',
+    },
+  ]
+
   public copyrightItems: Array<ICopyrightItems> = [
     {
       name: 'Privacy Policy',

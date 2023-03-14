@@ -107,15 +107,8 @@ import { getSiteUrl } from '@/lib/utils'
   directives: { Magnetic },
   mixins: [modalsTriggerMixin],
   head(): any {
-    const title =
-      this.$i18n.locale === 'ru'
-        ? 'Застройщик недвижимости в Турции, продажа, покупка - BEST HOME'
-        : 'Real estate developer in Turkey, sale, purchase - BEST HOME'
-
-    const description =
-      this.$i18n.locale === 'ru'
-        ? 'Недвижимость в Турции - Алания, Махмутлар: покупка и продажа квартиры, вилла, дома, коттеджи. Без переплат, в рассрочку и ипотеку. Турецкие сайты застройщика недвижимости ☎ +90 530 547-44-15'
-        : 'Real estate in Turkey - Alanya, Mahmutlar: buying and selling apartments, villas, houses, cottages. No overpayments, installments and mortgages. Turkish Real Estate Developer Sites ☎ +90 530 547-44-15'
+    const title = this.$i18n.t('pages.home.seo_title')
+    const description = this.$i18n.t('pages.home.seo_description')
 
     return {
       title,

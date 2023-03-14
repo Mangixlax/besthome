@@ -10,6 +10,15 @@
         ].join('')\
       }"
     )
+    base-text-container(
+      v-if="$i18n.locale === 'tr'"
+      :data="{\
+        text: [\
+          `<h3>${$t('pages.company_about_company.article_1.title_2')}</h3>`,\
+          ...$t('pages.company_about_company.article_1.text_2').map((p) => `<p>${p}<p>`)\
+        ].join('')\
+      }"
+    )
     base-scroll-line(:data="$t('pages.company_about_company.scroll_line_data')")
     base-text-container(
       :data="{\
@@ -44,15 +53,8 @@ import { getSiteUrl } from '@/lib/utils'
     BaseSeoContent,
   },
   head(): any {
-    const title =
-      this.$i18n.locale === 'ru'
-        ? 'BEST HOME Construction – лидирующая строительная компания в Алании'
-        : 'BEST HOME Construction is the leading construction company in Alanya'
-
-    const description =
-      this.$i18n.locale === 'ru'
-        ? 'Компания имеет собственных представителей в Германии, Америке, России, Украине, Иране, Казахстане, а также в Дании, Швеции, Норвегии и Финляндии. Компания заключила уже более 1000 успешных сделок с иностранными гражданами, проживающими в СНГ, США, Европе и на Ближнем востоке'
-        : 'The company has its own representatives in Germany, America, Russia, Ukraine, Iran, Kazakhstan, as well as in Denmark, Sweden, Norway and Finland. The company has already concluded more than 1000 successful transactions with foreign citizens living in the CIS, USA, Europe and the Middle East.'
+    const title = this.$i18n.t('pages.company_about_company.seo_title')
+    const description = this.$i18n.t('pages.company_about_company.seo_description')
 
     return {
       title,

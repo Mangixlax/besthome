@@ -22,14 +22,14 @@
             [$style['media-list__footer-prev--disabled']]: !hasPrev,\
           }"
           @click.prevent="onChangePage(prevPage)"
-        ) {{ $i18n.locale === 'ru' ? 'Назад' : 'Prev' }}
+        ) {{ $t('pages.media.prev') }}
         div(
           :class="{\
             [$style['media-list__footer-next']]: true,\
             [$style['media-list__footer-next--disabled']]: !hasNext,\
           }"
           @click.prevent="onChangePage(nextPage)"
-        ) {{ $i18n.locale === 'ru' ? 'Вперед' : 'Next' }}
+        ) {{ $t('pages.media.next') }}
       nav(:class="$style['media-list__footer-pagination']")
         ul(:class="$style['media-list__footer-pagination-list']")
           li(

@@ -18,6 +18,7 @@
           )
             span(:class="$style['fastlinks__item-link--underline']")
               | {{ link.name }}
+    slot(:name="`link-${$vnode.key}`")
 </template>
 
 <script lang="ts">
@@ -47,7 +48,7 @@ export default class BaseFastLinks extends Vue {
       this.showAccordion()
     }
 
-    if (this.$parent.$children.length) {
+    if (this.$parent?.$children.length) {
       for (const $child of this.$parent.$children) {
         if (
           ($child as any)._name.includes('BaseFastLinks') &&
@@ -144,9 +145,6 @@ export default class BaseFastLinks extends Vue {
     padding: 0
     justify-content: center
     margin: 0 0 17px
-
-    &:last-child
-      padding-bottom: 17px
 
   &__item
     display: flex

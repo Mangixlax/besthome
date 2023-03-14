@@ -87,6 +87,11 @@ export default <NuxtConfig>{
         src: 'https://code-ya.jivosite.com/widget/0OWAaFHxID',
         async: true,
       },
+      {
+        type: 'text/javascript',
+        async: true,
+        src: 'https://app.avodata.ru/px/pixel.js?token=858257c9f7dde60e2f7bb032c12b833f',
+      },
     ],
   },
 
@@ -112,7 +117,7 @@ export default <NuxtConfig>{
       ssr: false,
     },
     {
-      src: '~plugins/vue-fragment.js',
+      src: '~plugins/vue-fragment.js', mode: 'client',
     },
     { src: '~plugins/modal.js', mode: 'client' },
   ],
@@ -175,7 +180,7 @@ export default <NuxtConfig>{
   sitemap: SitemapConfig,
 
   i18n: {
-    locales: ['ru', 'en'],
+    locales: ['ru', 'en', 'tr'],
     defaultLocale: 'en',
     vueI18n: '~/config/i18n.js',
   },

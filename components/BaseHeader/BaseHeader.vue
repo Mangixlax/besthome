@@ -14,6 +14,7 @@
       nav(:class="$style['header__nav']")
         base-header-navigation(:dark="isDarkTheme")
       base-header-info(align-right hide-on-mobile :dark="isDarkTheme")
+    base-header-mobile
 </template>
 
 <script lang="ts">
@@ -23,9 +24,10 @@ import BaseHeaderNavigation from '~/components/BaseHeader/BaseHeaderNavigation.v
 import TypoText from '~/components/Base/TypoText.vue'
 import BaseHeaderInfo from '~/components/BaseHeader/BaseHeaderInfo.vue'
 import Logo from '~/components/Logo.vue'
+import BaseHeaderMobile from '~/components/BaseHeaderMobile/BaseHeaderMobile.vue'
 
 @Component({
-  components: { Logo, BaseHeaderInfo, TypoText, BaseHeaderNavigation },
+  components: { Logo, BaseHeaderInfo, TypoText, BaseHeaderNavigation, BaseHeaderMobile },
 })
 export default class BaseHeader extends Vue {
   public isTransparent: boolean = false

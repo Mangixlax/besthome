@@ -130,15 +130,8 @@ import { getSiteUrl } from '@/lib/utils'
     BaseSeoContent,
   },
   head(): any {
-    const title =
-      this.$i18n.locale === 'ru'
-        ? 'Как поехать в ознакомительный тур в Турцию, Бесплатно! Осмотр квартир'
-        : 'How to go on a sightseeing tour to Turkey, Free! Inspection of apartments'
-
-    const description =
-      this.$i18n.locale === 'ru'
-        ? 'Если Вы приняли решение о приобретении недвижимости в Алании, но не готовы на онлайн-покупку, мы будем рады предложить Вам услугу индивидуального ознакомительного тура'
-        : 'If you have decided to purchase real estate in Alanya, but are not ready for an online purchase, we will be happy to offer you the service of an individual study tour'
+    const title = this.$i18n.t('pages.service_introductory_tour.seo_title')
+    const description = this.$i18n.t('pages.service_introductory_tour.seo_description')
 
     return {
       title,

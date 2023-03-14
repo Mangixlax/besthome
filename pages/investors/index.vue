@@ -85,15 +85,8 @@ import { getSiteUrl } from '@/lib/utils'
     BaseSeoContent,
   },
   head(): any {
-    const title =
-      this.$i18n.locale === 'ru'
-        ? 'Инвестиции в недвижимость Алании вместе с BEST HOME'
-        : 'Alanya real estate investment with BEST HOME'
-
-    const description =
-      this.$i18n.locale === 'ru'
-        ? 'BestHome с 2004 года успешно сотрудничает с инвесторами России, Украины, Казахстана, Америки, Дании, Норвегии, Германии и других стран, помогая им приумножать капитал и выгодно вкладывать деньги, покупая дома и квартиры в Турции'
-        : 'BestHome has been successfully cooperating with investors from Russia, Ukraine, Kazakhstan, America, Denmark, Norway, Germany and other countries since 2004, helping them to increase capital and invest profitably by buying houses and apartments in Turkey'
+    const title = this.$i18n.t('pages.investors.seo_title')
+    const description = this.$i18n.t('pages.investors.description')
 
     return {
       title,

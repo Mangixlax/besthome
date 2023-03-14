@@ -1,7 +1,7 @@
 <template lang="pug">
   section(:class="[$style['container'], isDarkTheme && $style['dark']]")
     div(:class="$style['container__head']")
-      h2(:class="$style['container__head-title']") {{ $i18n.locale === 'ru' ? 'Отсутствует ответ на ваш вопрос?' : 'Is the answer to your question missing?' }}
+      h2(:class="$style['container__head-title']") {{ $t('have_question') }}
       nuxt-link(
         :to="localePath({ name: 'contacts' })"
         :class="$style['container__head-link']"
@@ -19,6 +19,8 @@
         :active="i === 0"
         :is-dark-theme="isDarkTheme"
       )
+        template(v-slot:link-3="{ item }")
+          base-socials
 </template>
 
 <script lang="ts">
@@ -27,9 +29,10 @@ import BaseFastLinks from '~/components/Base/BaseFastLinks.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import DeveloperLogo from '@/components/svg/Developer.vue'
 import { IMenus, NavigationListItem } from '~/store/Navigation'
+import BaseSocials from '~/components/Base/BaseSocials.vue'
 
 @Component({
-  components: { BaseFastLinks, TypoText, DeveloperLogo },
+  components: { BaseFastLinks, TypoText, DeveloperLogo, BaseSocials },
 })
 export default class FooterSiteMap extends Vue {
   @Getter('Navigation/getSitemapColumns') getSitemapColumns!: IMenus<NavigationListItem[]>
@@ -134,7 +137,7 @@ export default class FooterSiteMap extends Vue {
   justify-items: start
   margin-bottom: 16px
   width: 100%
-  
+
   &-column-0
     grid-column: 1
     grid-row: 1 / 3
