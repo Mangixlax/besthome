@@ -2,35 +2,43 @@
   section(
     :class="{\
       [$style['post']]: true,\
-      [$style['flip']]: flip\
+      [$style['flip']]: data.block_flip\
     }"
   )
     div(:class="$style['post__container']")
       div(:class="$style['post__imagebox']")
         img(
-          :src="filename"
+          v-if="data.image"
+          :src="data.image"
+          loading="lazy"
+          decoding="async"
           :class="{\
-            [$style['shadow-right']]: flip,\
-            [$style['shadow-left']]: !flip\
+            [$style['shadow-right']]: data.block_flip,\
+            [$style['shadow-left']]: !data.block_flip\
           }"
         )
       div(
         :class="{\
           [$style['post__text']]: true,\
-          [$style['post__text--flipped']]: textFlip,\
+          [$style['post__text--flipped']]: data.align === 'right',\
         }"
+        v-html="data.text"
       )
-        slot
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
 
+interface IPost {
+  text: string
+  align: string
+  block_flip: boolean
+  image?: string
+}
+
 @Component
 export default class BasePost extends Vue {
-  @Prop({ type: Boolean, default: false }) flip!: boolean
-  @Prop({ type: Boolean, default: false }) textFlip!: boolean
-  @Prop({ type: String, default: '' }) filename!: string
+  @Prop({ type: Object, default: () => {} }) data!: IPost
 }
 </script>
 
@@ -47,6 +55,12 @@ export default class BasePost extends Vue {
 
   h2, h3, h4, p
     margin: 0
+
+  h2, h3, h4
+    +style-3
+
+  p
+    +style-5
 
   &__container
     display: grid

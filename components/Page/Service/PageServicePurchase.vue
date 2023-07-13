@@ -1,16 +1,6 @@
 <template lang="pug">
   section(:class="$style['purchase']")
     div(:class="$style['purchase__container']")
-      typo-text(
-        tag="h1"
-        version="style-2"
-        :class="$style['purchase__container-title']"
-      ) {{ $t('pages.service_online_purchase.title') }}
-      typo-text(
-        tag="p"
-        version="style-6"
-        :class="$style['purchase__container-text']"
-      ) {{ $t('pages.service_online_purchase.text') }}
       div(
         v-for="(card, i) in $t('pages.service_online_purchase.cards')"
         :key="i"

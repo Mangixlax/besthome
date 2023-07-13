@@ -1,6 +1,6 @@
 <template lang="pug">
-  div(:class="$style['container']")
-    div(:class="$style['container__header']")
+  div(:class="[$style['container'], padding && $style['container--padding']]")
+    div(v-if="data.name" :class="$style['container__header']")
       typo-text(tag="h2" version="style-4") {{ data.name }}
     div(:class="$style['container__body']")
       swiper(ref="swiper" :class="$style['slider']" class="swiper" :options="swiperOption")
@@ -10,7 +10,7 @@
           :class="$style['slide']"
         )
           div(:class="$style['container__body-content']")
-            svg-icon(:name="`infrastructures/${slide.icon}`")
+            svg-icon(v-if="slide.icon" :name="`infrastructures/${slide.icon}`")
             typo-text(tag="h3" version="style-5" v-html="slide.title")
             typo-text(tag="p" version="style-7" v-html="slide.text")
         div(slot="pagination" :class="$style['navigation']")
@@ -21,7 +21,7 @@
               svg-icon(name="slider-prev-arrow-blue")
             button(:class="[$style['swiper-button-next']]" @click.prevent="$refs.swiper.swiperInstance.slideNext()")
               svg-icon(name="slider-next-arrow-blue")
-      div(:class="$style['footer']" v-html="data.footer")
+      div(v-if="data.footer" :class="$style['footer']" v-html="data.footer")
 </template>
 
 <script lang="ts">
@@ -53,6 +53,7 @@ interface ISliderItem {
 })
 export default class PageProjectsInfrastructureSlider extends Vue {
   @Prop({ type: Object, default: () => {} }) data!: ISlider
+  @Prop({ type: Boolean, default: true }) padding!: ISlider
 
   public swiperOption: object = {
     breakpoints: {
@@ -70,6 +71,7 @@ export default class PageProjectsInfrastructureSlider extends Vue {
         spaceBetween: 48,
       },
     },
+    autoHeight: true,
     spaceBetween: 24,
     pagination: {
       el: '.swiper-pagination-progressbar',
@@ -82,11 +84,13 @@ export default class PageProjectsInfrastructureSlider extends Vue {
 <style lang="sass" module>
 .container
   max-width: 100%
-  padding: 80px 0
   margin: 0 auto
 
-  @media (max-width: 1000px)
-    padding: 40px 24px
+  &--padding
+    padding: 80px 0
+
+    @media (max-width: 1000px)
+      padding: 40px 24px
 
   &__header
     max-width: 864px
@@ -96,19 +100,22 @@ export default class PageProjectsInfrastructureSlider extends Vue {
       margin: 0
 
   &__body
-    padding: 48px 24px 0
+    padding: 48px 0 0
     max-width: 864px + 48px
     margin: 0 auto
 
     @media (max-width: 900px)
-      padding: 40px 0
+      padding: 40px 0 0
 
     &-content
       max-width: 256px
+      width: 100%
+      display: flex
+      flex-direction: column
 
       h3
         color: $color-black-100
-        margin: 16px 0
+        margin: 0 0 16px
 
       p
         letter-spacing: 0.003em
@@ -120,10 +127,23 @@ export default class PageProjectsInfrastructureSlider extends Vue {
       svg
         width: 72px
         height: 72px
+        
+        
+        @media (max-width: 600px)
+          align-self: center
+
+      svg + h3
+        margin-top: 16px
+
+  &--padding &__body
+    padding-top: 48px
 
 .slide
   display: flex
   justify-content: center
+  
+.slider [class*="swiper-wrapper"]
+  align-items: start
 
 .navigation
   max-width: 1296px

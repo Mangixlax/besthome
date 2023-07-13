@@ -3,123 +3,82 @@
     page-company-advantages-title(:advantages-page-title="$t('pages.company_advantages.header')")
     base-scroll-line(:data="$t('pages.company_advantages.scroll_line_data')")
     base-post(
-      :filename="require(`~/assets/images/pages/advantages/image-1.jpg`)"
-      flip
-      text-flip
+      :data="{\
+        image: $img(`/pages/advantages/image-1.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
+        text: [\
+          `<h3>${$t('pages.company_advantages.post_1.title')}</h3>`,\
+          ...$t('pages.company_advantages.post_1.paragraph_1').map((p) => `<p>${p}<p>`),\
+        ].join(''),\
+        align: 'right',\
+        block_flip: true,\
+      }"
     )
-      typo-text(
-        tag="h3"
-        version="style-3"
-      ) {{ $t('pages.company_advantages.post_1.title') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.company_advantages.post_1.paragraph_1') }}
     base-post(
-      :filename="require(`~/assets/images/pages/advantages/image-2.jpg`)"
-      text-flip
+      :data="{\
+        image: $img(`/pages/advantages/image-2.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
+        text: [\
+          `<h3>${$t('pages.company_advantages.post_2.title')}</h3>`,\
+          `<p>${$t('pages.company_advantages.post_2.paragraph_1')}</p>`,\
+          `<p>${$t('pages.company_advantages.post_2.paragraph_with_link')}`,\
+          `<a href='${this.localePath({ name: 'contacts' })}'>${$t('pages.company_advantages.post_2.link')}</a>.</p>`\
+        ].join(''),\
+        align: 'right',\
+        block_flip: false,\
+      }"
     )
-      typo-text(
-        tag="h3"
-        version="style-3"
-      ) {{ $t('pages.company_advantages.post_2.title') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.company_advantages.post_2.paragraph_1') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      )
-        | {{ $t('pages.company_advantages.post_2.paragraph_with_link') }}
-        typo-text(
-          tag="nuxt-link"
-          :to="localePath({ name: 'contacts' })"
-          version="style-5"
-        ) {{ $t('pages.company_advantages.post_2.link') }}
-        | .
-    base-text-container
-      typo-text(
-        tag="h3"
-        version="style-3"
-      )  {{ $t('pages.company_advantages.article_1.title') }}
-      typo-text(
-        v-for="(paragraph, i) in $t('pages.company_advantages.article_1.text')"
-        :key="i"
-        tag="p"
-        version="style-5"
-      )  {{ paragraph }}
+    base-text-container(
+      :data="{\
+        text: [\
+          `<h3>${$t('pages.company_advantages.article_1.title')}</h3>`,\
+          ...$t('pages.company_advantages.article_1.text').map((p) => `<p>${p}<p>`)\
+        ].join('')\
+      }"
+    )
     base-post(
-      :filename="require(`~/assets/images/pages/advantages/image-3.jpg`)"
-      flip
-      text-flip
+      :data="{\
+        image: $img(`/pages/advantages/image-3.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
+        text: [\
+          `<h3>${$t('pages.company_advantages.post_3.title')}</h3>`,\
+          `<p>${$t('pages.company_advantages.post_3.paragraph_1')}</p>`,\
+        ].join(''),\
+        align: 'right',\
+        block_flip: true,\
+      }"
     )
-      typo-text(
-        tag="h3"
-        version="style-3"
-      ) {{ $t('pages.company_advantages.post_3.title') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.company_advantages.post_3.paragraph_1') }}
     base-post(
-      :filename="require(`~/assets/images/pages/advantages/image-4.jpg`)"
-      text-flip
+      :data="{\
+        image: $img(`/pages/advantages/image-4.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
+        text: [\
+          `<h3>${$t('pages.company_advantages.post_4.title')}</h3>`,\
+          `<p>${$t('pages.company_advantages.post_4.paragraph_1')}</p>`,\
+          `<p>${$t('pages.company_advantages.post_4.paragraph_with_link')}`,\
+          `<a href='${this.localePath({ name: 'company-our-team' })}'>${$t('pages.company_advantages.post_4.link')}</a>.</p>`\
+        ].join(''),\
+        align: 'right',\
+        block_flip: false,\
+      }"
     )
-      typo-text(
-        tag="h3"
-        version="style-3"
-      ) {{ $t('pages.company_advantages.post_4.title') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.company_advantages.post_4.paragraph_1') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      )
-        | {{ $t('pages.company_advantages.post_4.paragraph_with_link') }}
-        typo-text(
-          tag="nuxt-link"
-          :to="localePath({ name: 'company-our-team' })"
-          version="style-5"
-        ) {{ $t('pages.company_advantages.post_4.link') }}
-        | .
     base-post(
-      :filename="require(`~/assets/images/pages/advantages/image-5.jpg`)"
-      flip
-      text-flip
+      :data="{\
+        image: $img(`/pages/advantages/image-5.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
+        text: [\
+          `<h3>${$t('pages.company_advantages.post_5.title')}</h3>`,\
+          `<p>${$t('pages.company_advantages.post_5.paragraph_1')}</p>`,\
+        ].join(''),\
+        align: 'right',\
+        block_flip: true,\
+      }"
     )
-      typo-text(
-        tag="h3"
-        version="style-3"
-      ) {{ $t('pages.company_advantages.post_5.title') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.company_advantages.post_5.paragraph_1') }}
-    base-text-container
-      typo-text(
-        tag="h3"
-        version="style-3"
-      )  {{ $t('pages.company_advantages.article_2.title') }}
-      typo-text(
-        v-for="(paragraph, i) in $t('pages.company_advantages.article_2.text')"
-        :key="i"
-        tag="p"
-        version="style-5"
-      )  {{ paragraph }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      )
-        | {{ $t('pages.company_advantages.article_2.paragraph_with_link') }}
-        typo-text(
-          tag="a"
-          href="#"
-          version="style-5"
-        ) {{ $t('pages.company_advantages.article_2.link') }}
-        | .
+    base-text-container(
+      :data="{\
+        text: [\
+          `<h3>${$t('pages.company_advantages.article_2.title')}</h3>`,\
+          ...$t('pages.company_advantages.article_2.text').map((p) => `<p>${p}<p>`),\
+          `<p>${$t('pages.company_advantages.article_2.paragraph_with_link')}`,\
+          `<a href='${this.localePath({ name: 'projects' })}'>${$t('pages.company_advantages.article_2.link')}</a>.</p>`,\
+        ].join('')\
+      }"
+    )
 </template>
 
 <script lang="ts">
@@ -129,9 +88,13 @@ import BaseScrollLine from '~/components/Base/BaseScrollLine.vue'
 import BasePost from '~/components/Base/BasePost.vue'
 import TypoText from '~/components/Base/TypoText.vue'
 import BaseTextContainer from '~/components/Base/BaseTextContainer.vue'
+import BaseSeoContent from '~/components/Base/BaseSeoContent.vue'
+import metaGenerator from '~/config/meta.js'
+import { Component, Vue } from 'nuxt-property-decorator'
+import { delay } from '~/lib/utils'
+import { getSiteUrl } from '@/lib/utils'
 
-export default {
-  name: 'introductory-tour',
+@Component({
   components: {
     PageCompanyAdvantagesTitle,
     PageCompanyAdvantagesSlider,
@@ -139,7 +102,63 @@ export default {
     BaseScrollLine,
     BasePost,
     TypoText,
+    BaseSeoContent,
   },
+  head(): any {
+    const title = this.$i18n.t('pages.company_advantages.header.title')
+
+    return {
+      title,
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+        prefix: 'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#',
+      },
+      meta: metaGenerator({
+        title,
+      }),
+      link: [
+        {
+          rel: 'canonical',
+          href: getSiteUrl(this.localePath(this.$route.path), true),
+        },
+        {
+          rel: 'alternate',
+          hreflang: 'x-default',
+          href: getSiteUrl(this.localePath({ name: 'company-advantages' }, 'en'), true),
+        },
+        {
+          rel: 'alternate',
+          hreflang: 'ru',
+          href: getSiteUrl(this.localePath({ name: 'company-advantages' }, 'ru'), true),
+        },
+      ],
+    }
+  },
+})
+export default class CompanyAdvantagesPage extends Vue {
+  created() {
+    this.$store.commit('setLightTheme')
+
+    if (process.server) {
+      this.$store.commit('PageTransition/animate', false)
+    }
+
+    this.$store.commit('Catalog/setPageSeoContent', '')
+    this.$store.commit('setLogoSubTitle', this.$t('header.logo.company'))
+    this.$store.commit('setBreadcrumbs', [
+      {
+        name: this.$t('breadcrumbs.our_difference'),
+        route: {
+          name: 'company-advantages',
+        },
+      },
+    ])
+  }
+
+  async mounted() {
+    await delay(200)
+    this.$store.commit('PageTransition/animate', false)
+  }
 }
 </script>
 

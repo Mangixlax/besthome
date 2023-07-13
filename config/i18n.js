@@ -1,15 +1,7 @@
 import ruLangConfig from '../lang/ru'
 import enLangConfig from '../lang/en'
-
-const plural = (a) => {
-  if (a % 10 === 1 && a % 100 !== 11) {
-    return 0
-  } else if (a % 10 >= 2 && a % 10 <= 4 && (a % 100 < 10 || a % 100 >= 20)) {
-    return 1
-  } else {
-    return 2
-  }
-}
+import trLangConfig from '../lang/tr'
+import { plural } from '~/lib/utils'
 
 export default (context) => {
   return {
@@ -17,6 +9,7 @@ export default (context) => {
     messages: {
       ru: ruLangConfig,
       en: enLangConfig,
+      tr: trLangConfig,
     },
     pluralizationRules: {
       /**

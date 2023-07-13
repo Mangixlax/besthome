@@ -1,87 +1,132 @@
 <template lang="pug">
-  section(:class="$style['site__map']")
+  section(:class="[$style['container'], isDarkTheme && $style['dark']]")
+    div(:class="$style['container__head']")
+      h2(:class="$style['container__head-title']") {{ $t('have_question') }}
+      nuxt-link(
+        :to="localePath({ name: 'contacts' })"
+        :class="$style['container__head-link']"
+        :title="$t('pages.our_office.contacts.contact_us')"
+      )
+        span {{ $t('pages.our_office.contacts.contact_us') }}
+        svg-icon(name="text-link-arrow")
     div(:class="$style['map__grid']")
       base-fast-links(
-        v-for="(siteMapColumn, i) in siteMapColumns"
+        v-for="(siteMapColumn, i) in getSitemapColumns"
         :key="i"
         :title="siteMapColumn.title"
         :list="siteMapColumn.items"
         :class="$style[`map__grid-column-${i}`]"
         :active="i === 0"
+        :is-dark-theme="isDarkTheme"
       )
-    div(:class="$style['map__phone']")
-      typo-text(
-        tag="p"
-        version="style-8"
-        :class="$style['map__phone-text']"
-      )
-        | Сall the support service via the phone +90 530 547-44-15 or locate
-        span
-          nuxt-link(
-          :to="localePath({ name: 'contacts' })"
-          :class="$style['map__phone-link--underline']"
-        ) sales office
-          | .
-        nuxt-link(
-          :to="localePath({ name: 'contacts' })"
-          :class="$style['map__phone-link']"
-        )
-          svg-icon(name="link-arrow")
+        template(v-slot:link-3="{ item }")
+          base-socials
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+import { Component, Getter, Vue } from 'nuxt-property-decorator'
 import BaseFastLinks from '~/components/Base/BaseFastLinks.vue'
 import TypoText from '~/components/Base/TypoText.vue'
+import DeveloperLogo from '@/components/svg/Developer.vue'
 import { IMenus, NavigationListItem } from '~/store/Navigation'
+import BaseSocials from '~/components/Base/BaseSocials.vue'
 
 @Component({
-  components: { BaseFastLinks, TypoText },
+  components: { BaseFastLinks, TypoText, DeveloperLogo, BaseSocials },
 })
 export default class FooterSiteMap extends Vue {
-  get chooseAndBuy(): IMenus<NavigationListItem[]> {
-    return this.$store.getters['Navigation/getMenuByKey']('footer-choose-and-buy')
-  }
+  @Getter('Navigation/getSitemapColumns') getSitemapColumns!: IMenus<NavigationListItem[]>
 
-  get basicServices(): IMenus<NavigationListItem[]> {
-    return this.$store.getters['Navigation/getMenuByKey']('footer-basic-services')
+  get isDarkTheme(): boolean {
+    return this.$store.getters['isDarkTheme']
   }
-
-  get latestNews(): IMenus<NavigationListItem[]> {
-    return this.$store.getters['Navigation/getMenuByKey']('latest-news')
-  }
-
-  get aboutCompany(): IMenus<NavigationListItem[]> {
-    return this.$store.getters['Navigation/getMenuByKey']('about-company')
-  }
-
-  get additionalServices(): IMenus<NavigationListItem[]> {
-    return this.$store.getters['Navigation/getMenuByKey']('additional-services')
-  }
-
-  public siteMapColumns: IMenus<NavigationListItem[]>[] = [
-    { ...this.chooseAndBuy },
-    { ...this.basicServices },
-    { ...this.latestNews },
-    { ...this.aboutCompany },
-    { ...this.additionalServices },
-  ]
 }
 </script>
 
 <style lang="sass" module>
-
-.site__map
-  max-width: 1184px
-  padding: 32px 32px
+.container
+  padding: 32px calc((100vw - 1152px) / 2)
   margin: 0 auto
-  border-bottom: solid 1px $color-black-4
+  background-color: $color-white-100
+  display: flex
+  justify-content: space-between
+  position: relative
 
-  @media (max-width: 900px) and (min-width: 411px)
-    padding: 32px 24px
+  &.dark
+    background-color: $color-black-96
 
-  @media (max-width: 410px)
-    padding: 32px 0
+  &:before
+    content: ''
+    position: absolute
+    top: 0
+    left: calc((100vw - 1152px) / 2)
+    right: calc((100vw - 1152px) / 2)
+    height: 1px
+    background-color: $color-black-4
+
+    @media (max-width: 1176px)
+      left: 24px
+      right: 24px
+
+  &.dark:before
+    background-color: $color-white-4
+
+  @media (max-width: 1176px)
+    padding-left: 24px
+    padding-right: 24px
+    flex-wrap: wrap
+
+  @media (max-width: 900px)
+    flex-direction: column
+
+  &__head
+    width: 100%
+    max-width: 374px
+    margin-right: 40px
+
+    &-title
+      +desktop-display-style-4
+      margin-top: 0
+      margin-bottom: 32px
+      color: $color-black-88
+
+      .dark &
+        color: $color-white-88
+
+    &-link
+      +desktop-text-style-6
+      color: $color-blue-80
+      text-decoration: none
+      display: flex
+      align-items: center
+      outline: none
+
+      &, svg
+        transition: fill 0.25s ease, color 0.25s ease
+
+      svg
+        width: 22px
+        height: 22px
+        fill: $color-blue-80
+        margin-left: 10px
+
+      &:hover
+        color: $color-blue-100
+
+        svg
+          fill: $color-blue-100
+
+      .dark &
+        color: $color-white-80
+
+        svg
+          fill: $color-white-80
+
+        &:hover
+          color: $color-white-100
+
+          svg
+            fill: $color-white-100
 
 .map__grid
   display: grid
@@ -91,6 +136,7 @@ export default class FooterSiteMap extends Vue {
   align-items: start
   justify-items: start
   margin-bottom: 16px
+  width: 100%
 
   &-column-0
     grid-column: 1
@@ -106,11 +152,13 @@ export default class FooterSiteMap extends Vue {
     align-self: end
     margin-top: 250px
 
-  @media (max-width: 800px) and (min-width: 410px)
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr))
-    row-gap: 20px
-    column-gap: 20px
-    align-items: start
+  @media (max-width: 1176px)
+    margin-top: 24px
+
+  @media (max-width: 900px) and (min-width: 600px)
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
 
     &-column-0
       grid-column: auto
@@ -125,7 +173,7 @@ export default class FooterSiteMap extends Vue {
       grid-row: auto
       margin-top: 0
 
-  @media (max-width: 409px)
+  @media (max-width: 600px)
     grid-template-columns: 1fr
 
     &-column-0
@@ -140,42 +188,4 @@ export default class FooterSiteMap extends Vue {
       grid-column: auto
       grid-row: auto
       margin-top: 0
-
-.map__phone
-
-  @media (max-width: 410px)
-    padding: 0 24px
-
-  &-text
-    display: flex
-    align-items: center
-    flex-wrap: wrap
-    +style-8($with-media: false)
-
-    @media (max-width: 450px)
-      max-width: 190px
-
-  span
-    white-space: nowrap
-
-  svg
-    width: 18px
-    height: 18px
-
-  &-link
-    display: inline-flex
-    align-items: center
-    margin: 0 4px
-    text-decoration: none
-    color: $color-blue
-    cursor: pointer
-    margin: 0px
-
-    &--underline
-      @extend .map__phone-link
-      border-bottom: 1px solid rgba($color-blue, 0.16)
-      margin-left: 4px
-
-      @media (max-width: 600px)
-        margin-left: 0px
 </style>

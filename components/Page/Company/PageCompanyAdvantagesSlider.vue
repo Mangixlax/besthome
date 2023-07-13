@@ -18,13 +18,18 @@
           :class="$style['slide']"
         )
           div
-            img(:src="require(`@/assets/images/company-advantages-slider/${slide.image || 'person-1.png'}`)")
+            img(
+              :src="$img(`/company-advantages-slider/${slide.image || 'person-1.png'}`, $store.state.supportWebP ? { format: 'webp' } : {})"
+              loading="lazy"
+              decoding="async"
+            )
           div(:class="$style['slide__textbox']")
             typo-text(
               tag="p"
               version="style-6"
               :class="$style['slide__textbox-text']"
-            ) {{ slide.text }}
+              v-html="slide.text"
+            )
 </template>
 
 <script>
@@ -106,6 +111,7 @@ export default {
   @media (max-width: 900px)
     display: grid
     grid-template-columns: 1fr 1fr
+    align-items: center
     max-width: 100%   !important
     max-height: 100%  !important
 
@@ -128,6 +134,8 @@ export default {
       position: static
       margin-bottom: 0
       padding: 24px
+      width: 100%
+      box-shadow: none
 
     &-text
       margin: 0

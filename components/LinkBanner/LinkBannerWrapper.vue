@@ -14,9 +14,9 @@ export default class LinkBannerWrapper extends Vue {}
 .link-banner-wrapper
   display: flex
   align-items: center
-  padding: 0 64px
-  margin-top: 80px
-  grid-gap: 80px
+  padding: 0 24px
+  margin-top: 24px
+  grid-gap: 24px
 
   @media (max-width: 1224px)
     padding: 0 24px

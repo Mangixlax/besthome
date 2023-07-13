@@ -31,16 +31,57 @@ body,
 body
   padding-right: var(--modal-padding, 0)
 
+input, textarea, button
+  outline: none
+
+/* Page transition
 .page-enter-active, .page-leave-active
   transition: opacity .5s
 
 .page-enter, .page-leave-active
   opacity: 0
 
+/* Custom modal styles
 @import 'modal'
 
+/* Custom swiper styles
 .swiper-wrapper
   align-items: center
 
-.vue-slider-rail
-  background: $color-white-32 !important
+.swiper-pagination-bullet-custom
+  background: $color-white-100 !important
+  border: solid 1px $color-blue-100 !important
+  margin-right: 49px
+  display: flex
+  position: relative
+  align-items: center
+  justify-content: space-between
+  flex-direction: row
+  opacity: 1 !important
+
+  & + &:before
+    content: ""
+    position: absolute
+    top: 50%
+    left: -42px
+    width: 30px
+    height: 1px
+    margin-right: 12px
+    border-radius: 3px
+    display: inline-block
+    background-color: $color-blue-100
+
+.swiper-pagination-bullet-active
+  background: $color-blue-100 !important
+/* Custom Vue slider component styles
+
+$themeColor: $color-white-100
+$bgColor: $color-white-32
+
+@import '~vue-slider-component/lib/theme/default.scss'
+
+.component-fade-enter-active, .component-fade-leave-active
+  transition: opacity .3s ease
+
+.component-fade-enter, .component-fade-leave-to
+  opacity: 0

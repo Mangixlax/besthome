@@ -11,11 +11,13 @@
           ref="image"
           :src="data.desktop_image"
           :class="$style['hero__image-desktop']"
+          loading="lazy"
         )
         img(
           v-if="data.mobile_image"
           :src="data.mobile_image"
           :class="$style['hero__image-mobile']"
+          loading="lazy"
         )
         div(
           v-if="data.svg_html"
@@ -83,13 +85,16 @@ export default class HeroBuilding extends Vue {
 
   async mounted() {
     await this.$nextTick()
-    this.$floors = (this.$refs.container as Element).querySelectorAll('[id*=bfloor-]')
-    this.$blocks = (this.$refs.container as Element).querySelectorAll('[id*=block]')
+    this.$floors = (this.$refs.container as Element).querySelectorAll('[data-id*=bfloor-]')
+    this.$blocks = (this.$refs.container as Element).querySelectorAll('[data-id*=block]')
     ;(this.$floors || []).forEach((el: Element) => {
       el.addEventListener('click', this.onClickToFloor)
       el.addEventListener('mouseenter', this.onMouseEnterToFloor)
       el.addEventListener('mouseleave', this.onMouseLeaveFromFloor)
       this.checkAvailableApartments(el)
+    })
+    ;(this.$blocks || []).forEach((el: Element) => {
+      el.addEventListener('click', this.onClickToBlock)
     })
   }
 
@@ -99,25 +104,56 @@ export default class HeroBuilding extends Vue {
       el.removeEventListener('mouseenter', this.onMouseEnterToFloor)
       el.removeEventListener('mouseleave', this.onMouseLeaveFromFloor)
     })
+    ;(this.$blocks || []).forEach((el: Element) => {
+      el.removeEventListener('click', this.onClickToBlock)
+    })
 
     this.cleanTooltip()
+  }
+
+  public onClickToBlock(event: Event) {
+    if (event.target) {
+      // @ts-ignore
+      const floors = [...this.$store.getters['Catalog/getProject'].floors]
+      this.showModal({
+        name: 'modal-hero-building-choose-floors',
+        modal: () => import('@/components/HeroBuilding/HeroBuildingModalFloors.vue'),
+        props: {
+          floors: floors.sort((a: any, b: any) => {
+            return a.number - b.number
+          }),
+          selectedFloor: floors.length ? floors[0] : {},
+        },
+        options: {
+          width: '100%',
+          height: '100%',
+          pivotY: 0,
+          pivotX: 0,
+        },
+      })
+    }
   }
 
   public onClickToFloor(event: Event) {
     if (event.target) {
       const target: Element = event.target as Element
-      this.getFloorDataById(target.id || '').then((floor: IProjectFloor) => {
+      this.getFloorDataById(target.getAttribute('data-id') || '').then((floor: IProjectFloor) => {
         // @ts-ignore
+        const floors = [...this.$store.getters['Catalog/getProject'].floors]
         this.showModal({
           name: 'modal-hero-building-choose-floors',
           modal: () => import('@/components/HeroBuilding/HeroBuildingModalFloors.vue'),
           props: {
-            floors: this.$store.getters['Catalog/getProject'].floors,
+            floors: floors.sort((a: any, b: any) => {
+              return a.number - b.number
+            }),
             selectedFloor: floor,
           },
           options: {
             width: '100%',
             height: '100%',
+            pivotY: 0,
+            pivotX: 0,
           },
         })
       })
@@ -186,9 +222,14 @@ export default class HeroBuilding extends Vue {
     if (event.target) {
       const target: Element = event.target as Element
       this.getFloorDataById(target.id).then((floor: IProjectFloor) => {
-        this.tooltip.title =
-          this.$i18n.locale === 'ru' ? `${floor.number}-й этаж` : `${floor.number}th Floor`
-        this.tooltip.text = this.$t('pages.apartments.nth', [floor.available_apartments_count]) as string
+        if (floor.number === 0) {
+          this.tooltip.title = this.$t('hero_building.ground').toString()
+        } else {
+          this.tooltip.title = `${floor.number} ${this.$t('hero_building.tooltip')}`
+        }
+        this.tooltip.text = this.$t('pages.apartments.nth', [
+          floor.available_apartments_count,
+        ]) as string
         this.tooltip.available = floor.available_apartments_count
       })
     }
@@ -234,27 +275,28 @@ export default class HeroBuilding extends Vue {
 .hero
   position: relative
   overflow: hidden
-  height: 100vh
-  min-height: 850px
   background-position: 50%
   background-size: cover
-  padding: 80px 64px
+  padding: 24px
 
   &__container
+    position: relative
+    padding-bottom: 53%
     height: auto
     min-height: 0
 
   &__image
-    display: grid
+    position: absolute
+    top: 0
+    left: 0
     width: 100%
-    height: auto
-    position: relative
+    height: 100%
 
     &-desktop,
     &-mobile
       width: 100%
 
-    &-mobile
+    &-desktop
       @media (max-width: 832px)
         display: none
 
@@ -289,7 +331,7 @@ export default class HeroBuilding extends Vue {
       fill: rgba(215,78,58,.5)
       stroke: #d74e3a
 
-  [id*=block]
+  [data-id*=block]
     fill: transparent
     stroke: #1c6344
 

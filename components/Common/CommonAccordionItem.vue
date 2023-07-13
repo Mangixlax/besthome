@@ -4,7 +4,7 @@
       :class="$style['accordion__header']"
       @click="onClick"
     )
-      typo-text(tag="h3" version="style-4" :class="$style['accordion__header-title']" itemprop="name")
+      typo-text(tag="h2" version="style-4" :class="$style['accordion__header-title']" itemprop="name")
         | {{ title }}
       svg-icon(
         :name="show ? 'accordion-minus' : 'accordion-plus'"
@@ -45,7 +45,7 @@ export default {
         this.showAccordion()
       }
 
-      if (this.$parent.$children.length) {
+      if (this.$parent?.$children.length) {
         for (const $child of this.$parent.$children) {
           if ($child._name.includes('AccordionItem') && this._uid !== $child._uid) {
             $child.hideAccordion()
@@ -102,9 +102,9 @@ export default {
 
       a
         text-decoration: underline
-        text-decoration-color: $color-blue-16
+        text-decoration-color: $color-white-16
         text-underline-offset: 7px
-        color: $color-blue-100
+        color: $color-white-100
 
       h2, h3, h4, p
         margin: 0

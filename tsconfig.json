@@ -10,6 +10,7 @@
     "strict": true,
     "noEmit": true,
     "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
     "baseUrl": ".",
     "paths": {
@@ -24,7 +25,19 @@
       "cookie-universal-nuxt",
       "@types/jquery",
       "gsap/types",
-      "nuxt-i18n"
+      "nuxt-i18n",
+      "@types/vuelidate",
+      "vuelidate",
+      "@nuxt/image"
+    ]
+  },
+  "vueCompilerOptions": {
+    "target": 2.7,
+    "extensions": [
+      ".vue"
+    ],
+    "plugins": [
+      "@volar/vue-language-plugin-pug"
     ]
   },
   "exclude": ["node_modules", ".nuxt", "dist"]

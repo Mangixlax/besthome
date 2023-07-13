@@ -1,8 +1,13 @@
 <template lang="pug">
   main
     page-welcome
-      typo-text(tag="h1" version="style-2") {{ $t('pages.home.header.title') }}
-      typo-text(tag="p" version="style-5") {{ $t('pages.home.header.text1') }}
+      typo-text(tag="h1" version="style-2" v-html="$t('pages.home.header.title')")
+      typo-text(
+        v-for="(text1,i) in  $t('pages.home.header.text1')"
+        :key="i"
+        tag="p"
+        version="style-5"
+        ) {{ text1 }}
       typo-text(tag="p" version="style-5")
         i18n(path="pages.home.header.text2" tag="span" version="style-5")
           template(v-slot:link)
@@ -13,15 +18,17 @@
         div(:class="$style['hero__double-circle']")
       template(slot="prepend")
         div(:class="$style['hero__container']")
-          div(:class="$style['hero__video-link']" data-cursor-text)
+          div(:class="$style['hero__video-link']" @click="showVideo" data-cursor-text)
             svg-icon(:class="$style['hero__video-icon-text']" name="hero-link-circle-text")
             div(:class="$style['hero__video-icon-circle-wrapper']" v-magnetic)
               svg-icon(:class="$style['hero__video-icon-circle']" name="hero-link-circle")
     hero-slider(:slides="$t('pages.home.hero_slider_data.hero_slider')")
     link-banner-wrapper
       link-banner(
-        :image-src="require('~/assets/images/pages/home/secondary-housing.jpg')"
-        :to="{ name: 'index' }"
+        :image-src="$img(`/pages/home/secondary-housing.jpg`, $store.state.supportWebP ? { format: 'webp' } : {})"
+        :to="{ name: 'secondary-housing' }"
+        loading="lazy"
+        decoding="async"
         :title="$t('pages.home.link_baner.baner_1.title')"
         :text="$t('pages.home.link_baner.baner_1.text')"
         text-align="right"
@@ -29,23 +36,34 @@
         data-cursor-off-exclusion
       )
       link-banner(
-        :image-src="require('~/assets/images/pages/home/for-investors.jpg')"
+        :image-src="$img(`/pages/home/for-investors.jpg`, $store.state.supportWebP ? { format: 'webp' } : {})"
+        loading="lazy"
+        decoding="async"
         :to="{ name: 'investors' }"
         :title="$t('pages.home.link_baner.baner_2.title')"
         :text="$t('pages.home.link_baner.baner_2.text')"
         text-align="center"
         :data-cursor-text="$t('pages.home.link_baner.baner_2.data-cursor-text')"
         data-cursor-off-exclusion
+        
       )
     tree-columns(
       :title="$t('pages.home.tree_columns.title')"
       :description="$t('pages.home.tree_columns.description')"
       :columns="$t('pages.home.tree_columns.columns')"
+      :data-cursor="$t('pages.home.tree_columns.data_cursor')"
     )
     common-consultant-slider(:slider-data="$t('footer.consultant_slider')")
     base-accordions(:accordions-data="$t('footer.accordions')")
     base-subscribe(:subscribe-data="$t('footer.subscribe')")
     footer-fast-links
+    common-divider(
+      :data="{\
+        height: 'middle',\
+        color: 'light',\
+      }"
+    )
+    base-seo-content
 </template>
 
 <script lang="ts">
@@ -57,12 +75,18 @@ import CommonConsultantSlider from '~/components/Common/CommonConsultantSlider.v
 import BaseAccordions from '~/components/Base/BaseAccordions.vue'
 import BaseSubscribe from '~/components/Base/BaseSubscribe.vue'
 import FooterFastLinks from '~/components/Footer/FooterFastLinks.vue'
-import { IHeroSlide } from '~/types/HeroSlider'
 import LinkBannerWrapper from '~/components/LinkBanner/LinkBannerWrapper.vue'
 import LinkBanner from '~/components/LinkBanner/LinkBanner.vue'
 import TreeColumns from '~/components/TreeColumns/TreeColumns.vue'
 import Magnetic from '~/directives/magnetic'
-import CommonLinkIcon from "~/components/Common/CommonLinkIcon.vue"
+import CommonLinkIcon from '~/components/Common/CommonLinkIcon.vue'
+import BaseSeoContent from '~/components/Base/BaseSeoContent.vue'
+import CommonDivider from '~/components/Common/CommonDivider.vue'
+import { modalsTriggerMixin } from '~/mixins/modals'
+import metaGenerator from '~/config/meta.js'
+import { Context } from '@nuxt/types'
+import { delay } from '~/lib/utils'
+import { getSiteUrl } from '@/lib/utils'
 
 @Component({
   components: {
@@ -77,12 +101,89 @@ import CommonLinkIcon from "~/components/Common/CommonLinkIcon.vue"
     BaseAccordions,
     BaseSubscribe,
     FooterFastLinks,
+    BaseSeoContent,
+    CommonDivider,
   },
   directives: { Magnetic },
+  mixins: [modalsTriggerMixin],
+  head(): any {
+    const title = this.$i18n.t('pages.home.seo_title')
+    const description = this.$i18n.t('pages.home.seo_description')
+
+    return {
+      title,
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+        prefix: 'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#',
+      },
+      meta: metaGenerator({
+        title,
+        description,
+      }),
+      link: [
+        {
+          rel: 'canonical',
+          href: getSiteUrl(this.localePath(this.$route.path), true),
+        },
+        {
+          rel: 'alternate',
+          hreflang: 'x-default',
+          href: getSiteUrl(this.localePath({ name: 'index' }, 'en'), true),
+        },
+        {
+          rel: 'alternate',
+          hreflang: 'ru',
+          href: getSiteUrl(this.localePath({ name: 'index' }, 'ru'), true),
+        },
+      ],
+    }
+  },
 })
 export default class IndexPage extends Vue {
   created() {
+    this.$store.commit('setLightTheme')
+
+    if (process.server) {
+      this.$store.commit('PageTransition/animate', false)
+    }
+
+    this.$store.commit('Catalog/setPageSeoContent', '')
     this.$store.commit('setLogoSubTitle', 'Construction')
+    this.$store.commit('setBreadcrumbs', [])
+  }
+
+  async mounted() {
+    await delay(200)
+    this.$store.commit('PageTransition/animate', false)
+  }
+
+  public showVideo() {
+    this.showModal({
+      name: 'modal-video',
+      modal: () => import('~/components/Modal/Video/ModalVideo.vue'),
+      props: {
+        src: 'https://storage.yandexcloud.net/besthome/video/BH_HQ.mp4',
+      },
+      options: {
+        height: 'auto',
+        width: '100%',
+      },
+      events: {
+        'before-open': () => {
+          document.documentElement.classList.add('modal-fullwidth-is-open', 'modal-video-is-open')
+        },
+        'before-close': () => {
+          if (document.body.getElementsByClassName('vm--container').length <= 1) {
+            document.documentElement.classList.remove(
+              'modal-fullwidth-is-open',
+              'modal-video-is-open',
+            )
+          }
+
+          this.$root.$emit('cursor-mover:reset')
+        },
+      },
+    })
   }
 }
 </script>
@@ -100,6 +201,7 @@ export default class IndexPage extends Vue {
     padding: 0 64px
 
   @media (max-width: 1060px)
+    display: none
     &:first-child
       order: 4
 

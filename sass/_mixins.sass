@@ -34,6 +34,11 @@ $desktop-lg-width: 1800px
   line-height: 240px
   letter-spacing: 0.04em
 
+  @if $with-media
+    @media (max-width: 1054px)
+      font-size: 130px
+      line-height: 180px
+
 @mixin style-1($with-media: true)
   font-family: Didot, serif
   font-style: normal
@@ -85,6 +90,14 @@ $desktop-lg-width: 1800px
     @media (max-width: 1054px)
       font-size: 24px
       line-height: 32px
+
+@mixin style-4-alt($with-media: true)
+  font-family: Didot, serif
+  font-style: normal
+  font-weight: bold
+  font-size: 18px
+  line-height: 32px
+  letter-spacing: 0.002em
 
 @mixin style-5($with-media: true)
   font-family: Inter, serif
@@ -148,3 +161,193 @@ $desktop-lg-width: 1800px
     @media (max-width: 1054px)
       font-size: 10px
       line-height: 12px
+
+@mixin desktop-display-style-0
+  font-family: Didot, serif
+  font-style: normal
+  font-weight: normal
+  font-size: 188px
+  line-height: 240px
+  letter-spacing: 0.04em
+
+@mixin desktop-display-style-1
+  font-family: Didot, serif
+  font-style: normal
+  font-weight: bold
+  font-size: 80px
+  line-height: 100px
+  letter-spacing: 0.002em
+
+@mixin desktop-display-style-2
+  font-family: Didot, serif
+  font-style: normal
+  font-weight: bold
+  font-size: 56px
+  line-height: 72px
+  letter-spacing: 0.002em
+
+@mixin desktop-display-style-3
+  font-family: Didot, serif
+  font-style: normal
+  font-weight: bold
+  font-size: 40px
+  line-height: 56px
+  letter-spacing: 0.002em
+
+@mixin desktop-display-style-4
+  font-family: Didot, serif
+  font-style: normal
+  font-weight: bold
+  font-size: 32px
+  line-height: 48px
+  letter-spacing: 0.002em
+
+@mixin desktop-display-style-5
+  font-family: Didot, serif
+  font-style: normal
+  font-weight: bold
+  font-size: 24px
+  line-height: 30px
+  letter-spacing: 0.002em
+
+@mixin desktop-text-style-3
+  font-family: Inter, serif
+  font-style: normal
+  font-weight: 300
+  font-size: 24px
+  line-height: 38px
+
+@mixin desktop-text-style-4
+  font-family: Inter, serif
+  font-style: normal
+  font-weight: 300
+  font-size: 19px
+  line-height: 32px
+
+@mixin desktop-text-style-5
+  font-family: Inter, serif
+  font-style: normal
+  font-weight: 300
+  font-size: 17px
+  line-height: 32px
+  letter-spacing: 0.003em
+
+@mixin desktop-text-style-6
+  font-family: Inter, serif
+  font-style: normal
+  font-weight: normal
+  font-size: 15px
+  line-height: 28px
+  letter-spacing: 0.003em
+
+@mixin desktop-text-style-7
+  font-family: Inter, serif
+  font-style: normal
+  font-weight: normal
+  font-size: 14px
+  line-height: 28px
+  letter-spacing: 0.003em
+
+@mixin desktop-text-style-8
+  font-family: Inter, serif
+  font-style: normal
+  font-weight: normal
+  font-size: 13px
+  line-height: 26px
+  letter-spacing: 0.003em
+
+@mixin desktop-text-style-9
+  font-family: Inter, serif
+  font-style: normal
+  font-weight: normal
+  font-size: 12px
+  line-height: 15px
+  letter-spacing: 0.003em
+
+@mixin desktop-text-style-10
+  font-family: Inter, serif
+  font-style: normal
+  font-weight: normal
+  font-size: 11px
+  line-height: 14px
+  letter-spacing: 0.24em
+
+@mixin mobile-display-style-2
+  font-family: Didot, serif
+  font-style: normal
+  font-weight: bold
+  font-size: 38px
+  line-height: 50px
+  letter-spacing: 0.002em
+
+@mixin mobile-display-style-3
+  font-family: Didot, serif
+  font-style: normal
+  font-weight: bold
+  font-size: 32px
+  line-height: 44px
+  letter-spacing: 0.002em
+
+@mixin mobile-display-style-4
+  font-family: Didot, serif
+  font-style: normal
+  font-weight: bold
+  font-size: 24px
+  line-height: 32px
+  letter-spacing: 0.002em
+
+@mixin mobile-display-style-4-alt
+  font-family: Didot, serif
+  font-style: normal
+  font-weight: bold
+  font-size: 18px
+  line-height: 32px
+  letter-spacing: 0.002em
+
+@mixin mobile-text-style-5
+  font-family: Inter, serif
+  font-style: normal
+  font-weight: normal
+  font-size: 16px
+  line-height: 32px
+  letter-spacing: 0.003em
+
+@mixin mobile-text-style-6
+  font-family: Inter, serif
+  font-style: normal
+  font-weight: normal
+  font-size: 14px
+  line-height: 24px
+  letter-spacing: 0.003em
+
+@mixin mobile-text-style-7
+  font-family: Inter, serif
+  font-style: normal
+  font-weight: normal
+  font-size: 13px
+  line-height: 24px
+  letter-spacing: 0.003em
+
+@mixin mobile-text-style-8
+  font-family: Inter, serif
+  font-style: normal
+  font-weight: normal
+  font-size: 12px
+  line-height: 20px
+  letter-spacing: 0.003em
+
+@mixin mobile-text-style-9
+  font-family: Inter, serif
+  font-style: normal
+  font-weight: normal
+  font-size: 11px
+  line-height: 13px
+  letter-spacing: 0.003em
+
+@mixin mobile-text-style-10
+  font-family: Inter, serif
+  font-style: normal
+  font-weight: normal
+  font-size: 10px
+  line-height: 12px
+  letter-spacing: 0.24em

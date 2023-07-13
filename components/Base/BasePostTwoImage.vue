@@ -7,10 +7,18 @@
   )
     div(:class="$style['post__container']")
       div(:class="$style['post__imagebox']")
-        img(:src="data.images[0]")
+        img(
+          :src="data.images[0]"
+          loading="lazy"
+          decoding="async"
+        )
       div(:class="$style['post__contentbox']")
         div(:class="$style['post__image']")
-          img(:src="data.images[1]")
+          img(
+            :src="data.images[1]"
+            loading="lazy"
+            decoding="async"
+          )
         div(
           :class="{\
             [$style['post__text']]: true,\
@@ -24,8 +32,8 @@
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
 
 interface IData {
-  text: string,
-  block_flip: boolean,
+  text: string
+  block_flip: boolean
   align: string
   images: Array<string>
 }
@@ -92,6 +100,10 @@ export default class BasePostTwoImage extends Vue {
     @media (max-width: 1200px)
       display: flex
       justify-content: center
+
+    @media (max-width: 900px)
+      padding-right: initial
+      padding-bottom: initial
 
     .flip &
       order: 2

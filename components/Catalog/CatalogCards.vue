@@ -2,25 +2,35 @@
   section(:class="$style['catalog-cards']")
     div(:class="$style['catalog-cards__container']")
       catalog-card-item(
-        v-for="(card,i) in projectCatalogInfo"
-        :key="i"
-        :card="card"
+        v-for="(itemData, key) in list"
+        :key="key"
+        :item-data="itemData"
       )
+    div(
+      v-if="!(list || []).length"
+      :class="$style['catalog-cards__empty']"
+    ) {{ $t('pages.apartments.empty_list.text') }}
+      span(
+        @click="goToFeedback"
+        :class="$style['catalog-cards__empty-link']"
+      ) {{ $t('pages.apartments.empty_list.link') }}
+      | .
 </template>
 
-<script>
+<script lang="ts">
 import TypoText from '~/components/Base/TypoText.vue'
 import CatalogCardItem from '~/components/Catalog/CatalogCardItem.vue'
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
 
-export default {
-  name: 'CatalogCards',
+@Component({
   components: { TypoText, CatalogCardItem },
-  props: {
-    projectCatalogInfo: {
-      type: Array,
-      default: () => [],
-    },
-  },
+})
+export default class CatalogCards extends Vue {
+  @Prop({ type: Array, default: () => [] }) list?: Array<any>
+
+  public goToFeedback() {
+    this.$router.push(this.localePath({ name: 'feedback' }))
+  }
 }
 </script>
 
@@ -50,4 +60,17 @@ export default {
 
       @media (max-width: 1124px)
          border-right: none
+
+  &__empty
+    align-items: center
+    justify-content: center
+    flex-direction: row
+    flex-wrap: wrap
+    +style-4
+    margin: 100px 0
+
+    &-link
+      cursor: pointer
+      color: $color-blue-88
+      margin: 0 0.25em
 </style>

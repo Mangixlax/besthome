@@ -140,6 +140,12 @@ export default class CursorMover extends Vue {
     this.enableExclusion()
   }
 
+  cursorMoverReset() {
+    this.textCursor = false
+    this.text = ''
+    this.pointerCursor = false
+  }
+
   bindEvents(): void {
     this.body &&
       this.body
@@ -148,10 +154,12 @@ export default class CursorMover extends Vue {
         .on('mousemove', this.onMouseMove)
         .on('mousedown', this.activateCursor)
         .on('mouseup', this.deactivateCursor)
-        .on('mouseenter', 'a,input,textarea,button', this.onMouseEnterPointer)
-        .on('mouseleave', 'a,input,textarea,button', this.onMouseLeavePointer)
+        .on('mouseenter', 'a,label,input,textarea,button,[data-cursor-pointer]', this.onMouseEnterPointer)
+        .on('mouseleave', 'a,label,input,textarea,button,[data-cursor-pointer]', this.onMouseLeavePointer)
         .on('mouseenter', 'h1,[data-cursor-text]', this.onMouseEnterText)
         .on('mouseleave', 'h1,[data-cursor-text]', this.onMouseLeaveText)
+
+    this.$root.$on('cursor-mover:reset', this.cursorMoverReset)
   }
 
   unbindEvents(): void {
@@ -162,10 +170,12 @@ export default class CursorMover extends Vue {
         .off('mousemove', this.onMouseMove)
         .off('mousedown', this.activateCursor)
         .off('mouseup', this.deactivateCursor)
-        .off('mouseenter', 'a,input,textarea,button', this.onMouseEnterPointer)
-        .off('mouseleave', 'a,input,textarea,button', this.onMouseLeavePointer)
+        .off('mouseenter', 'a,input,textarea,button,[data-cursor-pointer]', this.onMouseEnterPointer)
+        .off('mouseleave', 'a,input,textarea,button,[data-cursor-pointer]', this.onMouseLeavePointer)
         .off('mouseenter', 'h1,[data-cursor-text]', this.onMouseEnterText)
         .off('mouseleave', 'h1,[data-cursor-text]', this.onMouseLeaveText)
+
+    this.$root.$off('cursor-mover:reset', this.cursorMoverReset)
   }
 }
 </script>
@@ -175,7 +185,7 @@ export default class CursorMover extends Vue {
   position: fixed
   top: 0
   left: 0
-  z-index: 250
+  z-index: 999999999
   contain: layout style size
   pointer-events: none
   will-change: transform
@@ -223,6 +233,10 @@ export default class CursorMover extends Vue {
   &--text &__text
     opacity: 1
     transform: scale(1)
+
+  &--text#{&}--active &__text,
+  &--text#{&}--active#{&}--visible:before
+    transform: scale(0.8)
 
   &__revert
     display: block

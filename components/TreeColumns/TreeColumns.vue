@@ -17,7 +17,9 @@
       )
         div(
           :class="$style['tree__columns-image']"
-          :style="{ backgroundImage: `url(${require('~/assets/images/three-columns/' + column.filename)})` }"
+          :style="{\
+            backgroundImage: `url(${$img(`/three-columns/` + column.filename, $store.state.supportWebP ? { format: 'webp' } : {})})`,\
+          }"
         )
           div(:class="$style['tree__columns-image-overlay']")
         div(:class="$style['tree__columns-content']")
@@ -25,24 +27,32 @@
             svg-icon(:name="`${column.icon}-hover`")
             svg-icon(:name="column.icon")
           h3
-            nuxt-link(
+            nuxt-link(  
               :to="localePath(column.to)"
               v-html="column.title"
-              data-cursor-text="Click<br>to watch"
+              :data-cursor-text="dataCursor"
               data-cursor-off-exclusion
             )
           div(ref="text" :class="$style['tree__columns-content-text']")
-            p {{ column.text }}
+            typo-text(
+              tag="p"
+              version="style-6"
+              v-html="column.text"
+            )
 </template>
 
 <script lang="ts">
+import TypoText from '~/components/Base/TypoText.vue'
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
 
-@Component
+@Component({
+  components: { TypoText },
+})
 export default class TreeColumns extends Vue {
   @Prop({ type: String, default: '' }) title!: string
   @Prop({ type: String, default: '' }) description!: string
   @Prop({ type: Array, default: () => [] }) columns!: Array<Object>
+  @Prop({ type: String, default: '' }) dataCursor!: string
 
   public isHovered: boolean = false
 
@@ -90,6 +100,10 @@ export default class TreeColumns extends Vue {
         &:last-child
           opacity: 0
           transform: scale(0.8)
+
+  @media (max-width: 700px)
+    height: 48px
+    width: 48px
 
 .tree
   display: flex
@@ -147,27 +161,32 @@ export default class TreeColumns extends Vue {
     display: flex
     justify-content: space-between
     height: 100%
+    padding: 0 24px
 
     @media (max-width: 1224px)
       flex-direction: column
       margin-top: 24px
+      padding: 8px 0 24px 0
 
     &-item
       width: 33.33%
       height: 100%
-      padding: 64px
+      padding: 64px 0
       position: relative
       cursor: pointer
+
+      & + &::before
+        content: ""
+        position: absolute
+        top: 0
+        left: 0
+        height: 1px
+        width: 100%
+        background: $color-black-4
 
       &:not(:first-child):not(:last-child)
         padding-left: 32px
         padding-right: 32px
-
-      &:first-child
-        padding-right: 32px
-
-      &:last-child
-        padding-left: 32px
 
       @media (max-width: 1300px)
         padding-left: 32px
@@ -201,6 +220,7 @@ export default class TreeColumns extends Vue {
         right: 0
         left: 0
         background: rgba(17, 17, 17, 0.45)
+
       &-overlay
         position: absolute
         top: 0
@@ -240,13 +260,22 @@ export default class TreeColumns extends Vue {
         fill: #0066CC
         transition: fill 0.25s ease, stroke 0.25s ease, opacity 0.25s ease, transform 0.25s ease
 
+        @media (max-width: 700px)
+          height: 48px
+          width: 48px
+
+      h3
+        margin: 0
+
       a
         +style-4
-        margin-top: 24px
         display: block
         color: $color-black-100
         text-decoration: none
         transition: color 0.25s ease
+
+        @media (min-width: 1023px)
+          margin-top: 24px
 
         &:after
           content: ''

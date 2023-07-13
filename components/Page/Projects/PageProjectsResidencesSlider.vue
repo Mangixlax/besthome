@@ -26,7 +26,11 @@
               :class="$style['slide']"
             )
               div(:class="$style['container__body-image']")
-                img(:src="require(`@/assets/images/projects-residences-slider/1-rooms/${slide}`)")
+                img(
+                  :src="$img(`/projects-residences-slider/1-rooms/${slide}`, $store.state.supportWebP ? { format: 'webp' } : {})"
+                  loading="lazy"
+                  decoding="async"
+                )
               div(:class="$style['container__body-description']")
                 typo-text(
                   tag="p"
@@ -60,7 +64,11 @@
               :class="$style['slide']"
             )
               div(:class="$style['container__body-image']")
-                img(:src="require(`@/assets/images/projects-residences-slider/1-rooms/${slide}`)")
+                img(
+                  :src="$img(`/projects-residences-slider/1-rooms/${slide}`, $store.state.supportWebP ? { format: 'webp' } : {})"
+                  loading="lazy"
+                  decoding="async"
+                )
               div(:class="$style['container__body-description']")
                 typo-text(
                   tag="p"
@@ -94,7 +102,11 @@
               :class="$style['slide']"
             )
               div(:class="$style['container__body-image']")
-                img(:src="require(`@/assets/images/projects-residences-slider/1-rooms/${slide}`)")
+                img(
+                  :src="$img(`/projects-residences-slider/1-rooms/${slide}`, $store.state.supportWebP ? { format: 'webp' } : {})"
+                  loading="lazy"
+                  decoding="async"
+                )
               div(:class="$style['container__body-description']")
                 typo-text(
                   tag="p"
@@ -128,7 +140,11 @@
               :class="$style['slide']"
             )
               div(:class="$style['container__body-image']")
-                img(:src="require(`@/assets/images/projects-residences-slider/1-rooms/${slide}`)")
+                img(
+                  :src="$img(`/projects-residences-slider/1-rooms/${slide}`, $store.state.supportWebP ? { format: 'webp' } : {})"
+                  loading="lazy"
+                  decoding="async"
+                )
               div(:class="$style['container__body-description']")
                 typo-text(
                   tag="p"
@@ -162,7 +178,11 @@
               :class="$style['slide']"
             )
               div(:class="$style['container__body-image']")
-                img(:src="require(`@/assets/images/projects-residences-slider/1-rooms/${slide}`)")
+                img(
+                  :src="$img(`/projects-residences-slider/1-rooms/${slide}`, $store.state.supportWebP ? { format: 'webp' } : {})"
+                  loading="lazy"
+                  decoding="async"
+                )
               div(:class="$style['container__body-description']")
                 typo-text(
                   tag="p"
@@ -217,7 +237,7 @@ interface IResidenceSlider {
   },
 })
 export default class PageProjectsResidencesSlider extends Vue {
-  @Prop({ type: Object, default: () => {}}) data!: IResidenceSlider
+  @Prop({ type: Object, default: () => {} }) data!: IResidenceSlider
 
   public swiperOption: any = {
     slidesPerView: 1,

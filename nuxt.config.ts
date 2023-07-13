@@ -1,11 +1,7 @@
-import {
-  NuxtOptionsBuild,
-  NuxtOptionsLoaders,
-  NuxtWebpackEnv,
-  PostcssConfiguration,
-} from '@nuxt/types/config/build'
+import { NuxtOptionsBuild, PostcssConfiguration } from '@nuxt/types/config/build'
 import { Configuration, NuxtConfig } from '@nuxt/types'
 import { NuxtOptionsRender } from '@nuxt/types/config/render'
+import SitemapConfig from './config/sitemap'
 
 const isDev = process.env.NODE_ENV === 'development'
 const time = new Date().valueOf()
@@ -28,7 +24,7 @@ export default <NuxtConfig>{
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'dev.frontend.besthome.sabr.com.tr',
+    title: 'besthome.com.tr',
     meta: [
       { charset: 'utf-8', hid: 'charset' },
       {
@@ -52,15 +48,50 @@ export default <NuxtConfig>{
         content: 'yes',
         hid: 'apple-mobile-web-app-capable',
       },
+      {
+        name: 'robots',
+        content: 'index,follow',
+      },
+      {
+        name: 'google-site-verification',
+        content: 'iPVWPRFbRkEFesQhD_VhzcjDGpwWziozh_RWikibR3k',
+      },
+      {
+        name: 'ahrefs-site-verification',
+        content: '3ebedf4478217df957d0e324cf9024f86a3160204b30dcf6aba1ea0ed74dcaf5',
+      },
+      {
+        name: 'yandex-verification',
+        content: 'e34759ffa654fd57',
+      },
+      {
+        name: 'dmca-site-verify',
+        content: 'enJjc1dGMmhQVUYwZEtNVGdtb012Zz090',
+      },
     ],
     link: [
       { rel: 'dns-prefetch', href: '//fonts.gstatic.com' },
       { rel: 'dns-prefetch', href: '//fonts.googleapis.com' },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap&family=DM+Sans&display=swap',
       },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://images.dmca.com/badges/dmca.css?ID=09d50f11-0f90-42ba-84a5-43513eabbc18',
+      },
+    ],
+    script: [
+      {
+        src: 'https://code-ya.jivosite.com/widget/0OWAaFHxID',
+        async: true,
+      },
+      {
+        type: 'text/javascript',
+        async: true,
+        src: 'https://app.avodata.ru/px/pixel.js?token=858257c9f7dde60e2f7bb032c12b833f',
+      },
     ],
   },
 
@@ -77,14 +108,16 @@ export default <NuxtConfig>{
     '~plugins/slider-swiper.js',
     '~plugins/v-click-outside.js',
     '@/plugins/axios.js',
+    '@/plugins/vuelidate.js',
     '@/plugins/i18n.ts',
+    '@/plugins/jsonld.js',
     { src: '~plugins/vue-scrollmagic.js', ssr: false },
     {
       src: '~plugins/vue-slider-component.js',
       ssr: false,
     },
     {
-      src: '~plugins/vue-fragment.js',
+      src: '~plugins/vue-fragment.js', mode: 'client',
     },
     { src: '~plugins/modal.js', mode: 'client' },
   ],
@@ -98,7 +131,21 @@ export default <NuxtConfig>{
     '@nuxt/typescript-build',
     // https://github.com/nuxt-community/style-resources-module
     '@nuxtjs/style-resources',
+    ...(!isDev ? ['@nuxtjs/google-analytics'] : []),
   ],
+
+  googleAnalytics: {
+    id: 'UA-202582567-1',
+  },
+
+  yandexMetrika: {
+    id: '83054044',
+    webvisor: true,
+    clickmap: true,
+    useCDN: false,
+    trackLinks: true,
+    accurateTrackBounce: true,
+  },
 
   styleResources: {
     sass: ['~/sass/_mixins.sass', '~/sass/_colors.sass'],
@@ -108,7 +155,7 @@ export default <NuxtConfig>{
    * Loading config
    */
   loading: {
-    color: '#59cc93',
+    color: '#0066CC',
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -121,17 +168,30 @@ export default <NuxtConfig>{
     '@nuxtjs/svg-sprite',
     '@nuxtjs/component-cache',
     'cookie-universal-nuxt',
+    ['vue-scrollto/nuxt', { duration: 1800, offset: -200 }],
     'nuxt-i18n',
+    '~/modules/recaptcha/module.js',
+    '@nuxtjs/sitemap',
+    '@nuxtjs/redirect-module',
+    ...(!isDev ? ['@nuxtjs/yandex-metrika'] : []),
+    '@nuxt/image',
   ],
 
+  sitemap: SitemapConfig,
+
   i18n: {
-    locales: ['ru', 'en'],
+    locales: ['ru', 'en', 'tr'],
     defaultLocale: 'en',
     vueI18n: '~/config/i18n.js',
   },
 
   svgSprite: {
     publicPath: '/_nuxt/',
+  },
+
+  recaptcha: {
+    siteKey: process.env.RECAPTCHA_SITE_KEY,
+    version: 2,
   },
 
   /*
@@ -151,12 +211,24 @@ export default <NuxtConfig>{
   proxy: {
     '/api/': process.env.API_URL,
     '/storage/': process.env.API_URL,
+    '/robots.txt': process.env.API_URL,
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
       lang: 'en',
+      name: 'BestHome',
+      short_name: 'BestHome',
+      description: '',
+      theme_color: '#0066CC',
+      start_url: '/',
+      display: 'browser',
+      background_color: '#FFF',
+    },
+    workbox: false,
+    icon: {
+      sizes: [16, 32, 64, 120, 144, 152, 192, 384, 512],
     },
   },
 
@@ -183,17 +255,17 @@ export default <NuxtConfig>{
   },
 
   redirect: [
-    {
-      from: '^[\\w\\.\\/]*(?<!\\/)(\\?.*\\=.*)*$',
-      to: (from: any, req: any) => {
-        const matches = req.url.match(/^.*(\?.*)$/)
-        if (matches.length > 1) {
-          return matches[0].replace(matches[1], '') + '/' + matches[1]
-        }
-        return matches[0]
-      },
-    },
+    { from: '^(\\/(?!\\_(ipx|nuxt))[^\\?]*[^\\/])(\\?.*)?$', to: '$1/$2' },
+    { from: '/ru/our_team/', to: '/ru/company/about/' },
   ],
+
+  image: {
+    dir: 'assets/images',
+    domains: [...(isDev ? ['http://localhost:3203'] : []), 'https://besthome.com.tr'],
+    alias: {
+      s1: isDev ? 'http://localhost:3203' : 'https://besthome.com.tr',
+    },
+  },
 
   /*
    ** Build configuration
@@ -214,7 +286,7 @@ export default <NuxtConfig>{
     loaders: {
       cssModules: {
         modules: {
-          localIdentName: isDev ? '[local]_[hash:base64:4]' : '[hash:base64:4]',
+          localIdentName: isDev ? '[local]_[hash:base64:4]' : '[hash:base64:6]',
         },
       },
     },

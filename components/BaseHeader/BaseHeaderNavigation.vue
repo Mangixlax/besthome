@@ -1,5 +1,5 @@
 <template lang="pug">
-  ul(:class="$style['nav']")
+  ul(:class="[$style['nav'], dark && $style['dark']]")
     li(
       v-for="(item, index) in headerNavigationList"
       :key="index"
@@ -11,7 +11,7 @@
         tag="nuxt-link"
         version="style-7"
         :to="localePath(item.route)"
-        :title="item.title"
+        :title="item.name"
         :class="$style['nav__item-link']"
       ) {{ item.name }}
       typo-text(
@@ -41,7 +41,7 @@
             tag="nuxt-link"
             version="style-7"
             :to="localePath(childItem.route)"
-            :title="childItem.title"
+            :title="childItem.name"
             :class="$style['dropdown__item-link']"
           ) {{ childItem.name }}
           typo-text(
@@ -68,12 +68,14 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Component } from 'nuxt-property-decorator'
+import {Component, Prop} from 'nuxt-property-decorator'
 import TypoText from '~/components/Base/TypoText.vue'
 import { NavigationListItem } from '~/store/Navigation'
 
 @Component({ components: { TypoText } })
 export default class BaseHeaderNavigation extends Vue {
+  @Prop({ type: Boolean, default: false }) dark!: boolean
+
   /**
    * Data
    */
@@ -116,6 +118,7 @@ export default class BaseHeaderNavigation extends Vue {
     justify-content: center
     padding-left: 8px
     padding-right: 16px
+    z-index: 50
 
     @media (max-width: 1248px + 32px)
       padding-left: 4px
@@ -126,8 +129,12 @@ export default class BaseHeaderNavigation extends Vue {
       opacity: 1
 
     &-link
-      color: rgba($color-black, 0.88)
+      color: $color-black-88
       text-decoration: none
+      transition: color 0.5s ease
+
+      .dark &
+        color: $color-white-88
 
       &:after
         content: ''
@@ -140,9 +147,13 @@ export default class BaseHeaderNavigation extends Vue {
 
     &-indicator
       position: relative
-      color: $color-blue
+      color: $color-blue-100
+      transition: color 0.5s ease
       top: -5px
       margin-left: 3px
+
+      .dark &
+        color: $color-white-100
 
     &-dropdown
       margin-left: 3px
@@ -150,8 +161,12 @@ export default class BaseHeaderNavigation extends Vue {
     &-icon
       width: 18px
       height: 18px
-      fill: $color-black
-      transition: transform 0.3s ease
+      fill: $color-black-100
+      transition: transform 0.3s ease, fill 0.5s ease
+
+      .dark &
+        fill: $color-white-100
+
       &.flip
         transform: rotate(180deg)
 
@@ -159,18 +174,20 @@ export default class BaseHeaderNavigation extends Vue {
   display: flex
   flex-direction: column
   padding: 0 0 16px 0
-  margin: 0
   list-style: none
   position: absolute
   left: -22px
-  top: 92px
-  background-color: $color-white
+  top: 109px
+  background-color: $color-white-100
   box-shadow: 0 20px 40px -16px rgba(17, 17, 17, 0.16)
   pointer-events: none
   opacity: 0
-  transition: opacity 0.25s ease
+  transition: opacity 0.25s ease, background-color 0.5s ease
   width: max-content
-  margin-top: -17px
+  margin: -17px 0 0
+
+  .dark &
+    background-color: $color-black-72
 
   &__item
     position: relative
@@ -180,8 +197,12 @@ export default class BaseHeaderNavigation extends Vue {
     padding: 4px 30px 4px 30px
 
     &-link
-      color: $color-black
+      color: $color-black-100
       text-decoration: none
+      transition: color 0.5s ease
+
+      .dark &
+        color: $color-white-100
 
       &:after
         content: ''
@@ -194,7 +215,11 @@ export default class BaseHeaderNavigation extends Vue {
 
     &-indicator
       position: relative
-      color: $color-blue
+      color: $color-blue-100
       top: -5px
       margin-left: 8px
+      transition: color 0.5s ease
+
+      .dark &
+        color: $color-white-100
 </style>

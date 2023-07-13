@@ -7,11 +7,16 @@
     ]"
   )
     div(:class="$style['slider__image-wrapper']")
-      img(:class="$style['slider__image']" src="~assets/images/hero-slide-1.jpg")
+      img(
+        :class="$style['slider__image']"
+        :src="$img(`/pages/home/hero-slider/${ slides[currentSlideIndex].image }`, $store.state.supportWebP ? { format: 'webp' } : {})"
+        loading="lazy"
+        decoding="async"
+      )
     div(:class="$style['slider__nav']")
-      div(:class="$style['slider__nav-prev']" @click="sliderTurnForward")
+      div(:class="$style['slider__nav-prev']" @click="sliderTurnBackward")
         svg-icon(name="hero-slider-arrow")
-      div(:class="$style['slider__nav-next']" @click="sliderTurnBackward")
+      div(:class="$style['slider__nav-next']" @click="sliderTurnForward")
         svg-icon(name="hero-slider-arrow")
     div(
       ref="slider"
@@ -22,15 +27,25 @@
       data-cursor-off-exclusion
     )
       div(:class="$style['slide__counter']")
-        | Projects {{ currentSlideIndex + 1 }} of {{ slides.length }}
-      a(
+        | {{ $t('pages.home.hero_slider_data.label_1') }} {{ currentSlideIndex + 1 }} {{ $t('pages.home.hero_slider_data.label_2') }} {{ slides.length }}
+      div(
         ref="caption"
         :class="$style['slide__caption']"
-        href="#"
-      ) {{ slides[currentSlideIndex].title }}
+      )
+        typo-text(
+          tag="h2"
+          version="style-1"
+          :class="$style['slide__caption-title']"
+        ) {{ slides[currentSlideIndex].title }}
+        typo-text(
+          tag="h3"
+          version="style-2"
+          :class="$style['slide__caption-subtitle']"
+        ) {{ slides[currentSlideIndex].sub_title }}
       div(
         ref="captionNext"
         :class="[$style['slide__caption'], $style['slide__caption--next']]"
+        v-if="slides[nextSlideIndex]"
       ) {{ slides[nextSlideIndex].title }}
       div(:class="$style['slide__info']")
         div(:class="$style['slide__info-line']")
@@ -38,12 +53,12 @@
           span(:class="$style['slide__info-text']") /
           span(:class="$style['slide__info-text']") {{ slides[currentSlideIndex].location.region }}
         div(:class="$style['slide__info-line']")
-          span(:class="$style['slide__info-text']") From
+          span(:class="$style['slide__info-text']") {{ $t('pages.home.hero_slider_data.label_from') }}
           span(:class="$style['slide__info-text']") {{ slides[currentSlideIndex].price }}
           span(:class="$style['slide__info-text']") €
         div(:class="$style['slide__info-line']")
           svg-icon(name="swim")
-          span(:class="$style['slide__info-text']") {{ slides[currentSlideIndex].sea }} m
+          span(:class="$style['slide__info-text']") {{ slides[currentSlideIndex].sea }} {{ $t('pages.home.hero_slider_data.label_meter') }}
       div(:class="$style['slide__description']")
         | {{ slides[currentSlideIndex].description }}
 </template>
@@ -54,13 +69,14 @@ import { gsap, Power2, Power3 } from 'gsap'
 import Draggable from 'gsap/dist/Draggable'
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
 import HeroSliderSlide from '~/components/HeroSlider/HeroSliderSlide.vue'
+import TypoText from '~/components/Base/TypoText.vue'
 import { IHeroSlide } from '~/types/HeroSlider'
 
 if (process.client) {
   gsap.registerPlugin(Draggable)
 }
 
-@Component({ components: { HeroSliderSlide } })
+@Component({ components: { HeroSliderSlide, TypoText } })
 export default class HeroSlider extends Vue {
   @Prop({ type: Array, default: () => [], required: true }) slides!: IHeroSlide[]
 
@@ -69,6 +85,11 @@ export default class HeroSlider extends Vue {
 
   public isSliderPressed: boolean = false
   public isSliderDisabled: boolean = false
+  public slideLinksParams: Array<string> = [
+    'besthome-46-oba-privilege-apartments-41',
+    'best-home-45-excellence-40',
+    'best-home-36-37-the-legend-12',
+  ]
 
   createDraggableTween(): void {
     let lastPosCaption = { x: 0, y: 0 }
@@ -133,6 +154,12 @@ export default class HeroSlider extends Vue {
           this.sliderTurnBackward()
         } else {
           // If not changed slide
+          this.$router.push(
+            this.localePath({
+              name: 'properties-slug',
+              params: { slug: this.slideLinksParams[this.currentSlideIndex] },
+            }),
+          )
           this.isSliderPressed = false
 
           // Set to default position caption
@@ -335,8 +362,8 @@ export default class HeroSlider extends Vue {
 
 <style lang="sass" module>
 .slider
-  margin: 0 64px 80px
-  width: calc(100% - 128px)
+  margin: 0 24px 24px 24px
+  width: calc(100% - 48px)
   touch-action: pan-y
   user-select: none
   perspective: 100vw
@@ -408,7 +435,16 @@ export default class HeroSlider extends Vue {
         bottom: 0
         right: 0
         left: 0
-        background: rgba(17, 17, 17, 0.16)
+        background: rgba(17, 17, 17, 0.26)
+
+  &-link
+    &:after
+      content: ''
+      position: absolute
+      top: 0
+      bottom: 0
+      right: 0
+      left: 0
 
 .slide
   position: absolute
@@ -427,7 +463,7 @@ export default class HeroSlider extends Vue {
   &__info
     display: flex
     align-items: center
-    margin-top: 40px
+    margin-top: 90px
     color: $color-white-100
     opacity: 1
     transition: opacity 0.25s ease
@@ -481,7 +517,6 @@ export default class HeroSlider extends Vue {
   &__caption
     +style-1($with-media: false)
     margin-bottom: 2rem
-    width: 10%
     height: 108px
     display: block
     padding-top: 0!important
@@ -489,6 +524,12 @@ export default class HeroSlider extends Vue {
     white-space: nowrap
     text-decoration: none
     color: $color-white-100
+
+    &-title
+      margin: 0
+
+    &-subtitle
+      margin: 0
 
     @media (max-width: 1100px)
       font-size: 48px

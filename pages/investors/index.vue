@@ -1,89 +1,61 @@
 <template lang="pug">
   main
-    page-investors-title(:investorsPage="$t('pages.investors.header')")
+    page-investors-title(:investors-page="$t('pages.investors.header')")
     base-post(
-      :filename="require(`~/assets/images/pages/investors/image-1.jpg`)"
+      :data="{\
+        image: $img(`/pages/investors/image-1.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
+        text: [\
+          `<h3>${$t('pages.investors.post_1.title')}</h3>`,\
+          `<p>${$t('pages.investors.post_1.paragraph_1')}</p>`,\
+          `<p>${$t('pages.investors.post_1.paragraph_with_link')}`,\
+          `<a href='${this.localePath({ name: 'projects' })}'>${$t('pages.investors.post_1.link')}</a>.</p>`\
+        ].join(''),\
+        align: 'left',\
+        block_flip: false,\
+      }"
     )
-      typo-text(
-        tag="h3"
-        version="style-3"
-      ) {{ $t('pages.investors.post_1.title') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.investors.post_1.paragraph_1') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      )
-        | {{ $t('pages.investors.post_1.paragraph_with_link') }}
-        typo-text(
-          tag="a"
-          href="#"
-          version="style-5"
-        ) {{ $t('pages.investors.post_1.link') }}
-        | .
-    page-investors-advice(:investorsPageAdvice="$t('pages.investors.advice_data')")
+    page-investors-advice(:investors-page-advice="$t('pages.investors.advice_data')")
     base-post(
-      :filename="require(`~/assets/images/pages/investors/image-2.jpg`)"
-      flip
-      text-flip
+      :data="{\
+        image: $img(`/pages/investors/image-2.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
+        text: [\
+          `<h3>${$t('pages.investors.post_2.title')}</h3>`,\
+          ...$t('pages.investors.post_2.paragraph_1').map((p) => `<p>${p}<p>`),\
+          `<p>${$t('pages.investors.post_2.paragraph_with_link')}`,\
+          `<a href='${this.localePath({ name: 'properties-slug', params: { slug: 'besthome-20-cleopatra-select-7' } })}'>${$t('pages.investors.post_2.link')}</a>.</p>`\
+        ].join(''),\
+        align: 'right',\
+        block_flip: true,\
+      }"
     )
-      typo-text(
-        tag="h3"
-        version="style-3"
-      ) {{ $t('pages.investors.post_2.title') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.investors.post_2.paragraph_1') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      )
-        | {{ $t('pages.investors.post_2.paragraph_with_link') }}
-        typo-text(
-          tag="a"
-          href="#"
-          version="style-5"
-        ) {{ $t('pages.investors.post_2.link') }}
-        | .
     base-post(
-      :filename="require(`~/assets/images/pages/investors/image-3.jpg`)"
+      :data="{\
+        image: $img(`/pages/investors/image-3.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
+        text: [\
+          `<h3>${$t('pages.investors.post_3.title')}</h3>`,\
+          `<p>${$t('pages.investors.post_3.paragraph_1')}</p>`,\
+          `<p>${$t('pages.investors.post_3.paragraph_with_link')}`,\
+          `<a href='${this.localePath({ name: 'projects' })}'>${$t('pages.investors.post_3.link')}</a>.</p>`\
+        ].join(''),\
+        align: 'left',\
+        block_flip: false,\
+      }"
     )
-      typo-text(
-        tag="h3"
-        version="style-3"
-      ) {{ $t('pages.investors.post_3.title') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      ) {{ $t('pages.investors.post_3.paragraph_1') }}
-      typo-text(
-        tag="p"
-        version="style-5"
-      )
-        | {{ $t('pages.investors.post_3.paragraph_with_link') }}
-        typo-text(
-          tag="a"
-          href="#"
-          version="style-5"
-        ) {{ $t('pages.investors.post_3.link') }}
-        | .
     base-scroll-line(:data="$t('pages.investors.scroll_line_data')")
     base-post-two-image(
       :data="{\
         text: [\
-          `<p>${$t('pages.investors.post_4.paragraph_1')}</p>`,\
+          ...$t('pages.investors.post_4.paragraph_1').map((p) => `<p>${p}<p>`),\
           `<p>${$t('pages.investors.post_4.paragraph_with_link')}`,\
-          ` <a href='#'>${$t('pages.investors.post_4.link')}</a>.</p>`,\
+          ` <a href='${this.localePath({ name: 'properties-slug', params: { slug: 'best-home-36-37-the-legend-12' } })}'>${$t('pages.investors.post_4.link')}</a>.</p>`,\
         ].join(''),\
         images: [\
-          require(`~/assets/images/pages/investors/portrait-1.jpg`),\
-          require(`~/assets/images/pages/investors/landscape-1.jpg`)\
+          $img(`/pages/investors/portrait-1.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
+          $img(`/pages/investors/landscape-1.jpg`, $store.state.supportWebP ? { format: 'webp' } : {}),\
         ],\
       }"
     )
+    base-seo-content
 </template>
 
 <script lang="ts">
@@ -94,6 +66,13 @@ import BasePost from '~/components/Base/BasePost.vue'
 import BaseScrollLine from '~/components/Base/BaseScrollLine.vue'
 import BasePostTwoImage from '~/components/Base/BasePostTwoImage.vue'
 import TypoText from '~/components/Base/TypoText.vue'
+import BaseSeoContent from '~/components/Base/BaseSeoContent.vue'
+import { Context } from '@nuxt/types'
+import { Route } from 'vue-router'
+import { NavigationGuardNext } from 'vue-router/types/router'
+import metaGenerator from '~/config/meta.js'
+import { delay } from '~/lib/utils'
+import { getSiteUrl } from '@/lib/utils'
 
 @Component({
   components: {
@@ -103,7 +82,64 @@ import TypoText from '~/components/Base/TypoText.vue'
     BasePostTwoImage,
     BaseScrollLine,
     TypoText,
+    BaseSeoContent,
+  },
+  head(): any {
+    const title = this.$i18n.t('pages.investors.seo_title')
+    const description = this.$i18n.t('pages.investors.description')
+
+    return {
+      title,
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+        prefix: 'og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#',
+      },
+      meta: metaGenerator({
+        title,
+        description,
+      }),
+      link: [
+        {
+          rel: 'canonical',
+          href: getSiteUrl(this.localePath(this.$route.path), true),
+        },
+        {
+          rel: 'alternate',
+          hreflang: 'x-default',
+          href: getSiteUrl(this.localePath({ name: 'investors' }, 'en'), true),
+        },
+        {
+          rel: 'alternate',
+          hreflang: 'ru',
+          href: getSiteUrl(this.localePath({ name: 'investors' }, 'ru'), true),
+        },
+      ],
+    }
   },
 })
-export default class InvestorsPage extends Vue {}
+export default class InvestorsPage extends Vue {
+  created() {
+    this.$store.commit('setLightTheme')
+
+    if (process.server) {
+      this.$store.commit('PageTransition/animate', false)
+    }
+
+    this.$store.commit('Catalog/setPageSeoContent', '')
+    this.$store.commit('setLogoSubTitle', this.$t('header.logo.investors'))
+    this.$store.commit('setBreadcrumbs', [
+      {
+        name: this.$t('breadcrumbs.investments'),
+        route: {
+          name: 'investors',
+        },
+      },
+    ])
+  }
+
+  async mounted() {
+    await delay(200)
+    this.$store.commit('PageTransition/animate', false)
+  }
+}
 </script>

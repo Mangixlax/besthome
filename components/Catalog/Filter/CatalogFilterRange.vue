@@ -1,21 +1,14 @@
 <template lang="pug">
-  div(
-    :class="[ $style['range'], borderRadiusFull ? $style['border-radius-full'] : '', borderRadiusLeft ? $style['border-radius-left'] : '', borderRadiusRight ? $style['border-radius-right'] : '', darkMode && $style['dark-mode']]"
-    class="filter-range"
-    @click="console"
- 
-  )
-    div(:class="[$style['range-wrap'],isStartDrag || isFocusMaxInput || isFocusMinInput ? $style['focus-block'] : '',]"
+  div(:class="[ $style['range'], darkMode && $style['dark-mode']]")
+    div(
+      :class="{\
+        [$style['range-wrap']]: true,\
+        [$style['focus-block']]: isStartDrag || isFocusMaxInput || isFocusMinInput,\
+      }"
     )
-      div(
-        v-if="title"
-        :class="$style['range__title']"
-      )
+      div(v-if="title" :class="$style['range__title']")
         span {{ title }}
-      div(
-        v-if="rangeMode"
-        :class="$style['range__slider']"
-      )
+      div(:class="$style['range__slider']")
         client-only
           vue-slider(
             ref="slider"
@@ -33,86 +26,53 @@
           )
             template(v-slot:dot="{ focus }")
               div(:class="[$style['custom-dot'], focus && $style.focus]")
-            template(v-slot:process="{ start, end, style, index }")  
-              div(:class="$style['custom-process']")
       div(:class="$style['range__block-list']")
-        div(
-          v-if="rangeFrom"
-          :class="$style['range__block']"
-        )
+        div(:class="$style['range__block']")
           div(:class="$style['range__block-input']")
             input(
-              v-show="isFocusMinInput"
               v-model="localCurrencyInputValues[0]"
               ref="minValue"
               type="number"
               @blur="blurMinInput"
-              :style="{ width: 100 + '%' }"
+              @focus="focusMinInput"
             )
             div(
-              v-show="!isFocusMinInput"
-              :class="$style['range__block-input-fake']"
-              @click.prevent="focusMinInput"
-              :style="{ width: 100 + '%' }"
+              v-if="dimension"
+              :class="$style['range__block-dimension']"
+              v-html="dimension"
             )
-              fragment(v-if="formatNumberMode")
-                span(v-if="currencyValues[0] >= 0")
-                |  {{ formatNumber(currencyValues[0]) }}
-              fragment(v-else)
-                span {{ currencyValues[0] }}
-          div(:class="$style['range__block-caption']")
-            span {{ rangeFrom }}
-        div(
-          v-if="rangeTo"
-          :class="$style['range__block']"
-        )
+        div(:class="$style['range__block']")
           div(:class="$style['range__block-input']")
             input(
-              v-show="isFocusMaxInput"
               v-model="localCurrencyInputValues[1]"
               ref="maxValue"
               type="number"
               @blur="blurMaxInput"
-              :style="{ width: 100 + '%' }"
+              @focus="focusMaxInput"
             )
             div(
-              v-show="!isFocusMaxInput"
-              :class="$style['range__block-input-fake']"
-              @click.prevent="focusMaxInput"
-              :style="{ width: 100 + '%' }"
+              v-if="dimension"
+              :class="$style['range__block-dimension']"
+              v-html="dimension"
             )
-              fragment(v-if="formatNumberMode")
-                span(v-if="currencyValues[1] >= 0")
-                |  {{ formatNumber(currencyValues[1]) }}
-              fragment(v-else)
-                span {{ currencyValues[1] }}
-          div(:class="$style['range__block-caption']")
-            span {{ rangeTo }}
-        div(
-          v-if="dimension"
-          :class="$style['range__block-dimension']"
-        )
-          span(ref="dimension")
 </template>
 
 <script>
 export default {
   name: 'CatalogFilterRange',
+  model: {
+    prop: 'value',
+    event: 'input',
+  },
   props: {
+    value: {
+      type: Array,
+      default: () => [],
+    },
     // темная тема
     darkMode: {
       type: Boolean,
       default: false,
-    },
-    rangeFrom: {
-      // Подпись к минимальному значению слайдера
-      type: String,
-      default: '',
-    },
-    rangeTo: {
-      // Подпись к максимальному значению слайдера
-      type: String,
-      default: '',
     },
     minRangeValue: {
       // Минимальное значение слайдера
@@ -144,21 +104,6 @@ export default {
       type: String,
       default: '',
     },
-    rangeMode: {
-      // Определяет будет ли появляться слайдер при ховере на блок
-      type: Boolean,
-      default: false,
-    },
-    formatNumberMode: {
-      // Определяет, будет ли значение разбиваться на разряды (ХХХ ХХХ ХХХ)
-      type: Boolean,
-      default: false,
-    },
-    inputWidth: {
-      // Ширина полей, в основном от неё зависит размер всего блока. По умолчанию, ширина полей 64px
-      type: [String, Number],
-      default: 64,
-    },
     title: {
       // Заголовок над блоком
       type: String,
@@ -167,21 +112,6 @@ export default {
     updateKey: {
       type: String,
       default: '',
-    },
-    borderRadiusRight: {
-      // Закругление правых углов блока
-      type: Boolean,
-      default: false,
-    },
-    borderRadiusLeft: {
-      // Закругление левых углов блока
-      type: Boolean,
-      default: false,
-    },
-    borderRadiusFull: {
-      // Закругление всех углов блока
-      type: Boolean,
-      default: false,
     },
     moveAdjacentPoint: {
       type: [Number, String],
@@ -203,26 +133,6 @@ export default {
     }
   },
   methods: {
-    console() {
-      console.log(this.moveAdjacentPoint)
-    },
-    insertDimensionAsHTML() {
-      /**
-       * Функция принимает props с типом String, преобразует его в HTML разметку
-       * и вставляет в $refs.dimension после открывющегося тега
-       */
-      if (this.dimension) {
-        this.$refs.dimension.insertAdjacentHTML('afterbegin', this.dimension)
-      }
-    },
-    formatNumber(num) {
-      // Добавленине разрядности
-      if (typeof num === 'string') {
-        return num.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ')
-      } else {
-        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ')
-      }
-    },
     setRangeValues() {
       /**
        * Изменение массива с текущими выводимыми значениями
@@ -318,37 +228,24 @@ export default {
         this.isFocusMaxInput = false
       }, 100)
 
-      if (!this.rangeMode && this.rangeTo) {
-        this.currencyValues[1] = this.localCurrencyInputValues[1]
+      if (
+        this.localCurrencyInputValues[1] === '' ||
+        Number(this.localCurrencyInputValues[1]) < Number(this.localCurrencyInputValues[0]) ||
+        Number(this.localCurrencyInputValues[1]) > this.maxRangeValue
+      ) {
+        this.$set(this.currencyValues, 1, this.maxRangeValue)
+        this.$set(this.localCurrencyInputValues, 1, this.maxRangeValue)
       } else {
-        if (
-          this.localCurrencyInputValues[1] === '' ||
-          Number(this.localCurrencyInputValues[1]) < Number(this.localCurrencyInputValues[0]) ||
-          Number(this.localCurrencyInputValues[1]) > this.maxRangeValue
-        ) {
-          this.currencyValues[1] = this.maxRangeValue
-          this.localCurrencyInputValues[1] = this.maxRangeValue
-        } else {
-          this.currencyValues = [...this.localCurrencyInputValues]
-        }
+        this.$set(this, 'currencyValues', [...this.localCurrencyInputValues])
       }
 
       this.onUpdateValue()
     },
     onUpdateValue() {
-      if (!this.rangeMode && this.updateKey) {
-        this.$emit('change', { key: this.updateKey, values: this.currencyValues })
-      } else {
-        this.$emit('change', this.currencyValues)
-      }
-    },
-    updateCurrencyValues() {
-      this.currencyValues = this.localCurrencyInputValues
+      this.$emit('change', this.currencyValues)
     },
     onClickComponent() {
-      if (!this.rangeMode && this.rangeTo && !this.rangeFrom) {
-        this.focusMaxInput()
-      }
+      this.focusMaxInput()
     },
   },
   mounted() {
@@ -357,7 +254,6 @@ export default {
      * минимальное и максимальное начальное значение, в зависимости от props
      */
     this.setRangeValues()
-    this.insertDimensionAsHTML()
   },
   watch: {
     currentMinValue() {
@@ -460,21 +356,7 @@ export default {
 
     &-input
       color: $color-white-100
-
-      &-fake
-        width: 100% !important
-
-      &-fake
-        width: 100% !important
-
-      &-fake
-        +style-7
-        background: inherit
-        text-align: center
-        cursor: text
-
-        span
-          color: $color-white-100
+      display: flex
 
     input
       +style-7
@@ -483,6 +365,7 @@ export default {
       text-align: center
       color: $color-white-100
       outline: none
+      width: 100%
 
       &::-webkit-outer-spin-button,
       &::-webkit-inner-spin-button
@@ -498,25 +381,6 @@ export default {
 
   &__slider
     width: 100%
-
-  &.border-radius
-    &-full
-      border-radius: 12px
-
-      .range__block-list:before
-        border-radius: 12px
-
-    &-left
-      border-radius: 12px 0 0 12px
-
-      .range__block-list:before
-        border-radius: 12px 0 0 12px
-
-    &-right
-      border-radius: 0 12px 12px 0
-
-      .range__block-list:before
-        border-radius: 0 12px 12px 0
 
 .custom-dot
   width: 15px
@@ -540,7 +404,4 @@ export default {
   &.focus
     cursor: grab
     background: $color-white-100
-
-.custom-process
-  background: $color-white-100
 </style>

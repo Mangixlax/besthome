@@ -1,23 +1,24 @@
 <template lang="pug">
   section(:class="[$style['image-title'], large && $style['large']]")
-    div(
-      :style="{ backgroundImage: `url(${ filename })` }"
-      :class="$style['image-title__container']"
-    )
-      div(:class="$style['image-title__title']")
-        typo-text(
-          tag="h1"
-          version="style-1"
-          :class="$style['image-title__title-header']"
-        ) {{ imageTitleData.header }}
-        typo-text(
-          v-for="(paragraph, i) in imageTitleData.text"
-          :key="i"
-          tag="p"
-          version="style-5"
-          :class="$style['image-title__title-text']"
-        ) {{ paragraph }}
-    div(:class="$style['image-title__undertext']")
+    div(:class="$style['image-title__box']") 
+      div(
+        :style="{ backgroundImage: `url(${ filename })` }"
+        :class="$style['image-title__container']"
+      )
+        div(v-if="imageTitleData" :class="$style['image-title__title']")
+          typo-text(
+            tag="h1"
+            version="style-1"
+            :class="$style['image-title__title-header']"
+          ) {{ imageTitleData.header }}
+          typo-text(
+            v-for="(paragraph, i) in imageTitleData.text"
+            :key="i"
+            tag="p"
+            version="style-5"
+            :class="$style['image-title__title-text']"
+          ) {{ paragraph }}
+      div(:class="$style['image-title__undertext']")
 </template>
 
 <script lang="ts">
@@ -35,15 +36,14 @@ export default class BaseImageTitle extends Vue {
 <style lang="sass" module>
 .image-title
   width: 100%
-
+    
   &__container
     display: flex
     align-items: center
-    // max-width: 1360px
-    min-height: 760px
+    min-height: 800px
     height: 70vh
     padding: 80px 24px
-    margin: 0 64px
+    margin: 0 24px
     background-size: cover
     background-repeat: no-repeat
     background-position-x: center
@@ -51,8 +51,8 @@ export default class BaseImageTitle extends Vue {
 
     @media (max-width: 900px)
       margin: 0 24px
-      min-height: auto
-
+      min-height: initial
+      height: auto
     .large &
       max-width: 1440px
       min-height: 880px

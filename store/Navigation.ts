@@ -15,6 +15,7 @@ export interface NavigationListItem {
 export interface IMenusItem {
   title: string
   url: string
+  params?: any
   indicator: string
   title_in_children?: string
   items?: IMenusItem[]
@@ -58,6 +59,7 @@ export const getters: GetterTree<NavigationState, RootState> = {
           indicator: item.indicator,
           route: {
             name: item.url,
+            params: Object.keys(item.params || {}).length ? item.params : {},
           },
           children: processing(item.items?.length ? item.items : []),
           hasChildren: !!item.items?.length,
@@ -76,6 +78,15 @@ export const getters: GetterTree<NavigationState, RootState> = {
         items: processing(menu.items),
       } as IMenus<NavigationListItem[]>
     }
+  },
+  getSitemapColumns: (state: NavigationState, getters) => {
+    return [
+      { ...getters['getMenuByKey']('footer-choose-and-buy') },
+      { ...getters['getMenuByKey']('footer-basic-services') },
+      // { ...getters['getMenuByKey']('latest-news') },
+      { ...getters['getMenuByKey']('about-company') },
+      { ...getters['getMenuByKey']('additional-services') },
+    ]
   },
 }
 

@@ -10,26 +10,43 @@
             version="style-4"
             :class="$style['subscribe__textbox-text']"
           ) {{ subscribeData.title }}
-        form(:class="$style['subscribe__formbox']")
+        form(:class="$style['subscribe__formbox']" @submit.prevent="onSubmit")
+          div(:class="$style['error-container']")
+            typo-text(
+              v-if="(!$v.form.email.required || !$v.form.email.minLength) && $v.form.email.$error"
+              tag="p"
+              version="style-8"
+              :class="$style['error']"
+            ) {{ $t('forms.rules.required') }}
+            typo-text(
+              v-else-if="!$v.form.agree.isChecked && $v.form.agree.$error"
+              tag="p"
+              version="style-8"
+              :class="$style['error']"
+            ) {{ $t('forms.rules.agree') }}
+            typo-text(
+              v-else-if="isError || $v.form.email.$error"
+              tag="p"
+              version="style-8"
+              :class="$style['error']"
+            ) {{ $t('modals.error.title') }}
           div(:class="$style['subscribe__mailing']")
             input(
+              v-model="$v.form.email.$model"
               type="text"
               name="email"
-              id="email"
               :placeholder="getPlaceholderValue()"
               :class="$style['subscribe__mailing-email']"
               required
             )
             button(
               type="submit"
-              id="submit"
               :class="$style['subscribe__mailing-submit']"
             ) {{ subscribeData.submit }}
           div(:class="$style['subscribe__agreement']")
             label(:class="$style['subscribe__agreement-label']")
               input(
-                name="agreement"
-                value="agree"
+                v-model="$v.form.agree.$model"
                 type="checkbox"
                 :class="$style['subscribe__agreement-checkbox']"
               )
@@ -40,24 +57,40 @@
               ) {{ subscribeData.agreement }}
               span
                 nuxt-link(
-                :to="localePath({ name: 'projects' })"
+                :to="localePath({ name: 'privacy-policy' })"
                 :class="$style['subscribe__agreement-text--underline']"
               ) {{ subscribeData.link }}
                 | .
               nuxt-link(
-                :to="localePath({ name: 'projects' })"
+                :to="localePath({ name: 'privacy-policy' })"
                 :class="$style['subscribe__agreement-link']"
-              )  
-                svg-icon(name="link-arrow-white" v-if="!isWhiteTheme")   
-                svg-icon(name="link-arrow-blue" v-if="isWhiteTheme")   
+              )
+                svg-icon(name="link-arrow-white" v-if="!isWhiteTheme")
+                svg-icon(name="link-arrow-blue" v-if="isWhiteTheme")
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator'
 import TypoText from '~/components/Base/TypoText.vue'
+import { email, required, minLength } from 'vuelidate/lib/validators'
+import { formMixin, formPhoneMixin, formDescriptionTimerMixin } from '@/mixins/form.js'
+import { modalsTriggerMixin } from '~/mixins/modals'
 
 @Component({
   components: { TypoText },
+  mixins: [formDescriptionTimerMixin, formMixin, formPhoneMixin, modalsTriggerMixin],
+  validations: {
+    form: {
+      email: {
+        email,
+        required,
+        minLength: minLength(5),
+      },
+      agree: {
+        isChecked: (value: boolean) => value,
+      },
+    },
+  },
 })
 export default class BaseBreadCrumbs extends Vue {
   @Prop({ type: Boolean, default: false })
@@ -68,6 +101,78 @@ export default class BaseBreadCrumbs extends Vue {
 
   public isWhiteTheme: boolean = this.whiteTheme
 
+  public isError: boolean = false
+
+  public form: { email: string; agree: boolean } = {
+    email: '',
+    agree: true,
+  }
+
+  public windowWidth: any = ''
+
+  public onSubmit() {
+    // Initiate checking of valid data from form data
+    this.$v.form.$touch()
+
+    // Reset error after new submit
+    this.isError = false
+
+    // If vuelidate not have an error
+    if (!this.$v.$invalid) {
+      // Send request to server with form data
+      this.$axios
+        .$post('v1/forms', {
+          ...this.form,
+          form_code: 'subscribe_to_news', // Form code given from backend
+        })
+        .then((result) => {
+          if (result.status === 200) {
+            // Reset form data
+            this.form.agree = false
+            this.form.email = ''
+
+            // Reset vuelidate
+            this.$v.$reset()
+
+            // Show modal with finished message
+            this.showFinishModal()
+          } else {
+            // Show error message if has any error from server
+            this.isError = true
+          }
+        })
+        .catch(() => {
+          // Show error message if has any error from server
+          this.isError = true
+        })
+    }
+  }
+
+  public showFinishModal() {
+    this.showModal({
+      name: 'finish-modal',
+      modal: () => import('~/components/Modal/base/ModalFinishStep.vue'),
+      options: {
+        width: 864,
+        height: 'auto',
+      },
+      props: {
+        title: this.$t('modals.subscribe.title'),
+        text: this.$t('modals.subscribe.text'),
+      },
+      events: {
+        opened: () => {
+          document.documentElement.classList.add('modal-finish-is-open')
+        },
+        closed: () => {
+          if (document.body.getElementsByClassName('vm--container').length <= 1) {
+            document.documentElement.classList.remove('modal-finish-is-open')
+          }
+        },
+      },
+    })
+  }
+
   public getPlaceholderValue() {
     if (this.windowWidth < 900) {
       return (this as any).subscribeData.mobile_place_holder
@@ -75,10 +180,10 @@ export default class BaseBreadCrumbs extends Vue {
       return (this as any).subscribeData.place_holder
     }
   }
+
   public getWindowWidth() {
     this.windowWidth = window.innerWidth
   }
-  public windowWidth: any = ''
 
   mounted() {
     this.getWindowWidth()
@@ -110,7 +215,7 @@ export default class BaseBreadCrumbs extends Vue {
     margin: 0 auto
 
     @media (max-width: 900px)
-      padding: 32px 24px 64px 24px
+      padding: 32px 24px
 
   &__background-1
     position: absolute
@@ -151,26 +256,26 @@ export default class BaseBreadCrumbs extends Vue {
         background-repeat: no-repeat
 
     @media (max-width: 1200px)
-      bottom: 0px
-      left: 0px
+      bottom: 0
+      left: 0
 
   &__content
     max-width: 864px
     margin: 0 auto
-    padding: 48px 0px 32px
+    padding: 48px 0 32px
     display: flex
     align-items: center
 
     @media (max-width: 800px)
       flex-direction: column
-      align-items: center
+      align-items: start
 
     @media (max-width: 400px)
       align-items: start
       justify-content: start
 
   &__textbox
-    width: 336pxx
+    width: 336px
     z-index: 2
 
     @media (max-width: 900px)
@@ -195,7 +300,7 @@ export default class BaseBreadCrumbs extends Vue {
     justify-content: center
     z-index: 2
 
-    @media (max-width: 400px)
+    @media (max-width: 900px)
       padding: 0
 
   &__mailing
@@ -209,7 +314,8 @@ export default class BaseBreadCrumbs extends Vue {
     .white &
       border-bottom: 1px solid $color-blue-16
 
-    @media (max-width: 600px)
+    @media (max-width: 900px)
+      padding-left: initial
       width: 100%
 
     &-email
@@ -236,6 +342,7 @@ export default class BaseBreadCrumbs extends Vue {
       border-radius: 0
       border: none
       cursor: pointer
+      background: $color-white-96
 
       .white &
         background: $color-blue-96
@@ -253,6 +360,7 @@ export default class BaseBreadCrumbs extends Vue {
       display: flex
       align-items: center
       flex-wrap: wrap
+      column-gap: 0.25em
 
       span
         color: $color-white-88
@@ -274,7 +382,7 @@ export default class BaseBreadCrumbs extends Vue {
       display: inline-flex
       align-items: center
       user-select: none
-      margin: 0px
+      margin: 0
       color: $color-white-88
 
       .white &
@@ -304,7 +412,6 @@ export default class BaseBreadCrumbs extends Vue {
         +style-8
         display: inline-flex
         align-items: center
-        margin: 0 4px
         text-decoration: underline
         text-underline-offset: 6px
         text-decoration-color: $color-white-8
@@ -315,8 +422,17 @@ export default class BaseBreadCrumbs extends Vue {
           color: $color-blue-88
 
     &-link
-
+      margin-left: -0.25em
       svg
         height: 26px
         width: 26px
+
+.error
+  color: red
+  padding: 9px
+  padding-left: 10px
+  margin: 0
+
+  &-container
+    height: 44px
 </style>

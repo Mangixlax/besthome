@@ -8,7 +8,7 @@
     div(:class="$style['container__body']")
       swiper(ref="swiper" :class="$style['slider']" class="swiper" :options="swiperOption")
         swiper-slide(
-          v-for="(card,i) in getOurCompanyCardInfo"
+          v-for="(card,i) in $store.getters['Employees/getPersons']"
           :key="i"
           :class="$style['slide']"
         )
@@ -38,6 +38,7 @@ export default {
     TypoText,
     PageCompanyPersonalCard,
   },
+
   data() {
     return {
       swiperOption: {
@@ -66,11 +67,6 @@ export default {
         },
       },
     }
-  },
-  computed: {
-    getOurCompanyCardInfo() {
-      return this.$store.state.ourCompanyCardInfo
-    },
   },
 }
 </script>

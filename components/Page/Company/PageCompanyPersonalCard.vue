@@ -4,27 +4,30 @@
       :class="$style['personal-card__photo']"
     )
       img(
-        :src="require(`@/assets/images/our-team/${card.image || 'person-1.png'}`)"
+        v-if="card.avatar"
+        :src="$img(`/s1${card.avatar}`, $store.state.supportWebP ? { format: 'webp' } : {})"
+        loading="lazy"
+        decoding="async"
         :class="$style['personal-card__photo-image']"
       )
     div(:class="$style['personal-card__name']")
       typo-text(
         tag="nuxt-link"
         version="style-5"
-         :to="localePath({\
+        :to="localePath({\
           name: 'company-our-team-id',\
           params: {\
-            id: card.id\
+            id: card.slug\
           }\
         })"
         :class="$style['personal-card__name-link']"
       ) {{ card.name }}
-      svg-icon(name="link-arrow-blue") 
+      svg-icon(name="link-arrow-blue")
     typo-text(
       tag="p"
       version="style-7"
       :class="$style['personal-card-position']"
-    ) {{ card.position }}  
+    ) {{ card.position }}
 </template>
 
 <script lang="ts">
@@ -33,7 +36,6 @@ import TypoText from '~/components/Base/TypoText.vue'
 export default {
   name: 'PageCompanyPersonalCard',
   components: { TypoText },
-
   props: {
     card: {
       type: Object,

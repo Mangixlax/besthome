@@ -14,7 +14,8 @@
           :class="$style['slide']"
         )
           div(:class="$style['container__body-image']")
-            img(:src="slide")
+            img(:data-src="slide" class="swiper-lazy")
+            div(class="swiper-lazy-preloader-blue swiper-lazy-preloader")
         div(slot="pagination" :class="$style['navigation']")
           div(:class="['swiper-pagination-progressbar', $style['swiper-pagination-progressbar']]")
             div(class="status-bar")
@@ -47,9 +48,17 @@ interface IPhotoSlider {
   },
 })
 export default class PageProjectsPhotosSlider extends Vue {
-  @Prop({ type: Object, default: () => {}}) data!: IPhotoSlider
+  @Prop({ type: Object, default: () => {} }) data!: IPhotoSlider
 
   public swiperOption: any = {
+    lazy: {
+      threshold: 50,
+      loadPrevNext: true,
+      loadPrevNextAmount: 6,
+    },
+    watchSlidesVisibility : true,
+    preloadImages: false,
+    
     breakpoints: {
       // when window width is >= 900px
       900: {
@@ -59,8 +68,11 @@ export default class PageProjectsPhotosSlider extends Vue {
       1200: {
         slidesPerView: 'auto',
         spaceBetween: 64,
+        centeredSlides: false,
+        watchSlidesVisibility: true
       },
     },
+    centeredSlides: false,
     spaceBetween: 64,
     pagination: {
       el: '.swiper-pagination-progressbar',
@@ -87,21 +99,39 @@ export default class PageProjectsPhotosSlider extends Vue {
       margin: 0
 
   &__body
-    padding: 80px 0
+    padding: 80px 0 0 0
 
     @media (max-width: 900px)
       padding: 40px 0
 
-.slide
-  display: flex
-  justify-content: center
+    &-image
+      position: relative
+      padding-bottom: 66.6%
+      height: 0
+
+      img
+        position: absolute
+        border: none !important
+        background: transparent !important
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        object-fit: cover
+        
+      img:not([src]) 
+        visibility: hidden
 
   @media (min-width: 1200px)
     width: auto !important
 
-  img
-    object-fit: cover
-    height: 100%
+.slide
+  position: relative
+  width: 50% !important
+  height: auto
+  
+  @media (max-width: 900px)
+    width: 100% !important
 
 .navigation
   max-width: 1296px
@@ -110,7 +140,6 @@ export default class PageProjectsPhotosSlider extends Vue {
   display: flex
   align-items: center
   justify-content: space-between
-  margin-bottom: 95px
 
 .swiper-pagination-progressbar
   position: relative !important
@@ -154,7 +183,6 @@ export default class PageProjectsPhotosSlider extends Vue {
   display: flex
   align-items: center
   max-width: 911px
-  margin: 0 auto
   flex-wrap: wrap
   +style-5
 

@@ -1,152 +1,215 @@
 <template lang="pug">
-  div(:class="[$style['filter'], filterDarkMode && $style['dark-mode'] ]")
+  div(:class="$style['filter']")
     catalog-filter-block(
+      v-if="hasBlocksFilter"
       :dark-mode="filterDarkMode"
-      title="BLOCK"
-      :filter-items="blockFilterItems"
+      :title="$t('catalog.block')"
+      :filter-items="filterBlocksData"
+      @change="onChangeBlocks"
     )
     catalog-filter-block(
+      v-if="hasRoomsFilter"
       :dark-mode="filterDarkMode"
-      title="NUMBER OF ROOMS"
-      :filter-items="roomFilterItems"
+      :title="$t('catalog.rooms')"
+      :filter-items="filterRoomsData"
+      @change="onChangeRooms"
     )
     catalog-filter-range(
+      v-if="hasFloorsFilter"
       :dark-mode="filterDarkMode"
-      :rangeFrom="'Floor'"
-      :rangeTo="'Floor'"
-      :minRangeValue="1"
-      :maxRangeValue="10"
-      :startMinValue="2"
-      :startMaxValue="9"
+      :minRangeValue="filterFloorsData.min"
+      :maxRangeValue="filterFloorsData.max"
+      :startMinValue="filterFloorsData.min"
+      :startMaxValue="filterFloorsData.max"
       :interval="1"
-      :rangeMode="true"
-      :formatNumberMode="true"
-      inputWidth="88"
       :move-adjacent-point="1"
-      title="FLOOR"
+      :title="$t('catalog.floor')"
+      @change="onChangeFloors"
     )
     catalog-filter-range(
+      v-if="hasPriceFilter"
       :dark-mode="filterDarkMode"
-      :rangeFrom="'€'"
-      :rangeTo="'€'"
-      :minRangeValue="1000"
-      :maxRangeValue="1000000"
-      :startMinValue="15000"
-      :startMaxValue="950000"
+      dimension="€"
+      :minRangeValue="filterPriceData.min"
+      :maxRangeValue="filterPriceData.max"
+      :startMinValue="filterPriceData.min"
+      :startMaxValue="filterPriceData.max"
       :interval="100"
-      :rangeMode="true"
-      :formatNumberMode="true"
-      inputWidth="88"
       :move-adjacent-point="1000"
-      title="PRICE"
+      :title="$t('catalog.price')"
+      @change="onChangePrice"
     )
     catalog-filter-range(
+      v-if="hasAreaFilter"
       :dark-mode="filterDarkMode"
-      :rangeFrom="'m²'"
-      :rangeTo="' m²'"
-      :minRangeValue="20"
-      :maxRangeValue="500"
-      :startMinValue="40"
-      :startMaxValue="450"
-      :interval="0.5"
-      :rangeMode="true"
-      :formatNumberMode="true"
-      inputWidth="88"
+      :dimension="$t('catalog.dimension')"
+      :minRangeValue="filterAreaData.min"
+      :maxRangeValue="filterAreaData.max"
+      :startMinValue="filterAreaData.min"
+      :startMaxValue="filterAreaData.max"
+      :interval="1"
       :move-adjacent-point="50"
-      title="AREA"
+      :title="$t('catalog.area')"
+      @change="onChangeArea"
     )
-    catalog-filter-checkbox(
-      title="ADVANTAGES "
-      :filter-items="checkboxFilterItems"
-    )
+    //catalog-filter-checkbox(
+    //  title="ADVANTAGES"
+    //  :filter-items="checkboxFilterItems"
+    //)
+    div(:class="$style['filter-button']" @click="closeFilter")
+      | {{ $t('modals.mobile_filter') }}
 </template>
 
-<script>
+<script lang="ts">
 import TypoText from '~/components/Base/TypoText.vue'
-import CatalogFilterBlock from '~/components/catalog/Filter/CatalogFilterBlock'
-import CatalogFilterRange from '~/components/catalog/Filter/CatalogFilterRange'
-import CatalogFilterCheckbox from '~/components/catalog/Filter/CatalogFilterCheckbox'
+import CatalogFilterBlock from '~/components/Catalog/Filter/CatalogFilterBlock.vue'
+import CatalogFilterRange from '~/components/Catalog/Filter/CatalogFilterRange.vue'
+import CatalogFilterCheckbox from '~/components/Catalog/Filter/CatalogFilterCheckbox.vue'
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
+import { IProjectApartmentsFilter } from '~/store/Catalog'
 
-export default {
-  name: 'PageProjectsFilterList',
+@Component({
   components: {
     TypoText,
     CatalogFilterBlock,
     CatalogFilterRange,
     CatalogFilterCheckbox,
   },
-  props: {
-    filterDarkMode: {
-      type: Boolean,
-      default: false,
-    },
-    card: {
-      type: Object,
-      default: () => {},
-    },
-  },
-  data() {
-    return {
-      blockFilterItems: [
-        {
-          label: 'A',
-          value: 1,
-        },
-        {
-          label: 'B',
-          value: 2,
-        },
-        {
-          label: 'C',
-          value: 3,
-        },
-        {
-          label: 'D',
-          value: 4,
-        },
-      ],
-      roomFilterItems: [
-        {
-          label: '1',
-          value: 1,
-        },
-        {
-          label: '1,5',
-          value: 2,
-        },
-        {
-          label: '2',
-          value: 3,
-        },
-        {
-          label: '3',
-          value: 4,
-        },
-        {
-          label: '4',
-          value: 5,
-        },
-      ],
-      checkboxFilterItems: [
-        {
-          label: 'Separate toilet',
-          value: 1,
-        },
-        {
-          label: 'Closet',
-          value: 2,
-        },
-        {
-          label: 'Terrace',
-          value: 3,
-        },
-        {
-          label: 'Balcony/loggia',
-          value: 4,
-        },
-      ],
+})
+export default class CatalogFilterList extends Vue {
+  @Prop({ type: Boolean, default: false }) filterDarkMode?: boolean
+
+  get filters(): IProjectApartmentsFilter {
+    return this.$store.getters['Catalog/getFilters'] || {}
+  }
+
+  get filterRoomsData(): any {
+    const rooms = this.filters.rooms || []
+
+    if (rooms.length) {
+      return rooms.map((room: { id: number; number: number; ad_number?: number }) => ({
+        value: room.id,
+        label: room.number,
+        sublabel: room.ad_number ? `+${room.ad_number}` : null,
+      }))
     }
-  },
+
+    return []
+  }
+
+  get hasRoomsFilter(): boolean {
+    return this.filterRoomsData.length > 0
+  }
+
+  get filterBlocksData(): any {
+    return (this.filters.blocks || []).map((block: { id: number; name: string }) => ({
+      value: block.id,
+      label: block.name,
+    }))
+  }
+
+  get hasBlocksFilter(): boolean {
+    return this.filterBlocksData.length > 0
+  }
+
+  get filterFloorsData(): { min: number; max: number } {
+    return this.filters.floors || { min: 0, max: 0 }
+  }
+
+  get hasFloorsFilter(): boolean {
+    return this.filterFloorsData.min !== this.filterFloorsData.max
+  }
+
+  get filterPriceData(): { min: number; max: number } {
+    const price = this.filters.price || { min: 0, max: 0 }
+
+    return {
+      min: Math.floor(price.min / 100) * 100,
+      max: Math.ceil(price.max / 100) * 100,
+    }
+  }
+
+  get hasPriceFilter(): boolean {
+    return this.filterPriceData.min !== this.filterPriceData.max
+  }
+
+  get filterAreaData(): { min: number; max: number } {
+    const area = this.filters.area || { min: 0, max: 0 }
+
+    return {
+      min: Math.floor(parseFloat(area.min as string) / 100) * 100,
+      max: Math.ceil(parseFloat(area.max as string) / 100) * 100,
+    }
+  }
+
+  get hasAreaFilter(): boolean {
+    return this.filterAreaData.min !== this.filterAreaData.max
+  }
+
+  /**
+   * Reset current page after changing any filters
+   */
+  public resetCurrentPage() {
+    this.$store.commit('Catalog/setSelectedFilter', {
+      key: 'page',
+      value: 1,
+    })
+  }
+
+  public async onChangeFloors(values: any) {
+    this.$store.commit('Catalog/setSelectedFilter', {
+      key: 'floors',
+      value: [...values],
+    })
+
+    this.resetCurrentPage()
+    await this.$store.dispatch('Catalog/fetchApartments')
+  }
+
+  public async onChangeBlocks(values: any) {
+    this.$store.commit('Catalog/setSelectedFilter', {
+      key: 'blocks',
+      value: [...values],
+    })
+
+    this.resetCurrentPage()
+    await this.$store.dispatch('Catalog/fetchApartments')
+  }
+
+  public async onChangeRooms(values: any) {
+    this.$store.commit('Catalog/setSelectedFilter', {
+      key: 'rooms',
+      value: [...values],
+    })
+
+    this.resetCurrentPage()
+    await this.$store.dispatch('Catalog/fetchApartments')
+  }
+
+  public async onChangePrice(values: any) {
+    this.$store.commit('Catalog/setSelectedFilter', {
+      key: 'price',
+      value: [...values],
+    })
+
+    this.resetCurrentPage()
+    await this.$store.dispatch('Catalog/fetchApartments')
+  }
+
+  public async onChangeArea(values: any) {
+    this.$store.commit('Catalog/setSelectedFilter', {
+      key: 'area',
+      value: [...values],
+    })
+
+    this.resetCurrentPage()
+    await this.$store.dispatch('Catalog/fetchApartments')
+  }
+
+  public closeFilter() {
+    this.$modal.hide('modal-mobile-filter')
+  }
+  // @TODO Передать имя модальног окна
 }
 </script>
 
@@ -154,12 +217,19 @@ export default {
 .filter
   display: flex
   flex-direction: column
-  min-width: 320px
-  background: $color-blue-100
   min-height: 100%
   padding: 32px
   grid-gap: 40px
 
-  &.dark-mode
-    background: $color-black-96
+  &-button
+    +style-5
+    padding: 5px 24px
+    border: none
+    cursor: pointer
+    background: $color-white-100
+    width: fit-content
+    align-self: flex-end
+
+    @media (min-width: 1000px)
+      display: none
 </style>

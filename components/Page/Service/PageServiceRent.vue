@@ -3,11 +3,6 @@
     div(:class="$style['rent__container']")
       article(:class="$style['rent__article']")
         typo-text(
-          tag="h1"
-          version="style-2"
-          :class="$style['rent__article-title']"
-        ) {{ allAboutRent.title }}
-        typo-text(
           v-for="(paragraph, i) in allAboutRent.text"
           :key="i"
           tag="p"
@@ -51,6 +46,9 @@ export default {
     padding: 80px 24px
     margin: 0 auto
 
+    @media (max-width: 1023px)
+      padding: 32px 24px
+      
   &__article
     margin-bottom: 64px
 

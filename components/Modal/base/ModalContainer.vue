@@ -1,8 +1,6 @@
 <template lang="pug">
   div(:class="[$style['modal'], full && $style['full']]")
-
     div(:class="$style['modal__header']")
-
       div(:class="$style['modal__header-buttons']")
         slot(name="header")
         button(
@@ -11,7 +9,7 @@
           :class="$style['modal__close']"
           @click.prevent="closeModal"
         )
-          svg-icon(name="modals/modals-close-cycle")
+          modal-close(:white-mode="whiteMode" :dark-mode="darkMode")
     div(:class="$style['modal__body']")
       slot(name="body")
     div(:class="$style['modal__footer']")
@@ -19,8 +17,12 @@
 </template>
 
 <script>
+import ModalClose from '@/components/Modal/base/ModalClose.vue'
 export default {
   name: 'ModalContainer',
+  components: {
+    ModalClose,
+  },
   props: {
     name: {
       // Modal id
@@ -32,6 +34,14 @@ export default {
       default: '',
     },
     full: {
+      type: Boolean,
+      default: false,
+    },
+    whiteMode: {
+      type: Boolean,
+      default: false,
+    },
+    darkMode: {
       type: Boolean,
       default: false,
     },
@@ -59,14 +69,11 @@ export default {
   align-items: flex-start
   z-index: 100
   flex-direction: column
-
+  width: 100%
+  height: 100%
   h2
     margin-top: 0
     margin-bottom: 16px
-
-  // +mobile
-  //   align-items: flex-start
-  //   min-height: 100vh
 
   &.full
     min-width: 100%
@@ -76,24 +83,23 @@ export default {
     width: 100%
     display: flex
     margin: 0 auto
-    padding: 32px
-
-    +mobile
-      padding: 24px
 
     &-buttons
       width: 100%
       display: flex
       justify-content: space-between
       align-items: center
+      position: relative
       z-index: 1
 
   &__close
-    // background-color: $color-black-56
     height: 40px
     width: 40px
     padding: 0
     display: flex
+    position: absolute
+    top: 24px
+    right: 24px
     align-items: center
     justify-content: center
     border: none
@@ -103,8 +109,8 @@ export default {
   &__body
     position: relative
     width: 100%
+    height: 100%
     flex-direction: column
-
 
     +mobile
       margin: 0
@@ -126,4 +132,9 @@ export default {
     z-index: 11
     position: fixed
     width: calc(100% - 64px)
+
+    @media (max-width: 700px)
+      left: 12px
+      right: 12px
+      width: 100%
 </style>

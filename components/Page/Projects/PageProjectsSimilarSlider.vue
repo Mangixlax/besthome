@@ -4,15 +4,15 @@
       typo-text(
         tag="h2"
         version="style-4"
-      ) Similar apartments
+      ) {{ $t('pages.apartments.similar_apartments') }}
     div(:class="$style['container__body']")
       swiper(ref="swiper" :class="$style['slider']" class="swiper" :options="swiperOption")
         swiper-slide(
-          v-for="(slide,i) in sliderData"
+          v-for="(slide, i) in sliderData"
           :key="i"
           :class="$style['slide']"
         )
-          catalog-card-item(:card="slide")
+          catalog-card-item(:item-data="slide")
         div(slot="pagination" :class="$style['navigation']")
           div(:class="['swiper-pagination-progressbar', $style['swiper-pagination-progressbar']]")
             div(class="status-bar")
@@ -21,26 +21,6 @@
               svg-icon(name="slider-prev-arrow-blue")
             button(:class="[$style['swiper-button-next']]" @click.prevent="$refs.swiper.swiperInstance.slideNext()")
               svg-icon(name="slider-next-arrow-blue")
-      div(:class="$style['footer']")
-        typo-text(
-          tag="p"
-          version="style-5"
-          :class="$style['footer__link-text']"
-        ) Cleopatra Select
-        typo-text(
-          tag="nuxt-link"
-          version="style-5"
-          :to="localePath({ name: 'index' })"
-          :class="$style['footer__link-text--underline']"
-        ) сhoose an apartment
-        | .
-        typo-text(
-          tag="nuxt-link"
-          version="none"
-          :to="localePath({ name: 'index' })"
-          :class="$style['footer__link-arrow']"
-        )
-          svg-icon(name="link-arrow-blue")
 </template>
 
 <script>

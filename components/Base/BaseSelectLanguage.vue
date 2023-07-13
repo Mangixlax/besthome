@@ -1,34 +1,36 @@
 <template>
   <div
+    v-click-outside="closeOutside"
     ref="selectorWrapper"
-    class="select-menu"
     :class="{
-      open: selectorIsOpened,
-      'tilt-up': tiltUp,
-      'tilt-down': tiltDown,
-      'select-menu--disable-animation': disableAnimation,
+      [$style['select-menu']]: true,
+      [$style['open']]: selectorIsOpened,
+      [$style['dark']]: isDarkTheme,
+      [$style['tilt-up']]: tiltUp,
+      [$style['tilt-down']]: tiltDown,
+      [$style['select-menu--disable-animation']]: disableAnimation,
     }"
   >
-    <div v-click-outside="closeOutside" class="select-menu__button" @click="openSelector">
-      <svg-icon name="select-language-arrows"></svg-icon>
+    <div :class="$style['select-menu__button']" @click="openSelector">
+      <svg-icon name="select-language-arrows" />
       <ul
         :style="{
           transform: `translateY(-${selectorPosition}px)`,
         }"
       >
-        <li v-for="item in selectorList" :key="item" v-html="item"></li>
+        <li v-for="(item, index) in selectorList" :key="index" v-html="item.label"></li>
       </ul>
     </div>
     <ul
       :style="{
-        transform: `translateY(-${selectorPosition}px)`,
+        transform: `translateY(${40}px)`,
       }"
     >
       <li
-        v-for="selectorItem in selectorList"
-        :key="selectorItem"
-        @click="chooseSelector(selectorItem)"
-        v-html="selectorItem"
+        v-for="(selectorItem, index) in selectorList"
+        :key="index"
+        @click="chooseSelector(selectorItem.value)"
+        v-html="selectorItem.label"
       ></li>
     </ul>
   </div>
@@ -41,6 +43,7 @@ import { Vue, Prop, Component } from 'nuxt-property-decorator'
 @Component
 export default class BaseSelectLanguage extends Vue {
   @Prop({ type: Array, default: () => [] }) list!: Array<any>
+  @Prop({ type: Boolean, default: false }) isDarkTheme!: boolean
 
   public selectorList: Array<string> = []
   public selectModel: string = 'En'
@@ -53,7 +56,7 @@ export default class BaseSelectLanguage extends Vue {
 
   beforeMount() {
     this.selectorList = Object.assign([], this.list)
-    this.chooseSelector(this.$i18n.locale.toUpperCase())
+    this.chooseSelector(this.$i18n.locale)
   }
 
   /**
@@ -75,20 +78,20 @@ export default class BaseSelectLanguage extends Vue {
 
   chooseSelector(selectorItem: string) {
     this.$nextTick(() => {
-      if (this.$i18n.locale.toLowerCase() !== selectorItem.toLowerCase()) {
-        this.$i18n.setLocale(selectorItem.toLowerCase())
-        this.$store.commit('setOurCompanyCardInfo', this.$i18n.t('pages.company_our_team'))
+      if (this.$i18n.locale !== selectorItem) {
+        this.$i18n.setLocale(selectorItem)
       }
 
       if (!this.inProcess) {
         this.inProcess = true
 
-        const newIndex: number = this.selectorList.indexOf(selectorItem)
+        const newIndex: number = this.selectorList.map((e: any) => e.value).indexOf(selectorItem)
 
         this.selectorIsOpened = false
 
         this.toggleTiltUp()
-        this.selectorPosition = newIndex * ($(this.$refs.selectorWrapper as Element).height() as number)
+        this.selectorPosition =
+          newIndex * ($(this.$refs.selectorWrapper as Element).height() as number)
 
         setTimeout(() => {
           this.disableAnimation = true
@@ -120,136 +123,150 @@ export default class BaseSelectLanguage extends Vue {
 }
 </script>
 
-<style lang="scss">
-.select-menu {
-  position: relative;
-  z-index: 1;
-  width: 60px;
-  height: 100%;
-  transition: box-shadow 0.3s ease;
+<style lang="sass" module>
+.select-menu
+  position: relative
+  z-index: 1
+  width: 60px
+  height: 36px
+  transition: box-shadow 0.3s ease
 
-  &--disable-animation ul {
-    transition: none !important;
-  }
+  &--disable-animation ul
+    transition: none !important
 
-  svg {
-    position: absolute;
-    top: 9px;
-    right: 9px;
-    height: 18px;
-    width: 18px;
-    z-index: 10;
-  }
+  svg
+    position: absolute
+    top: 8px
+    right: 0
+    height: 18px
+    width: 18px
+    z-index: 10
 
   select,
-  &__button {
-    font-family: inherit;
-    margin: 0;
-    border: 0;
-    text-align: left;
-    text-transform: none;
-    -webkit-appearance: none;
-  }
+  &__button
+    font-family: inherit
+    margin: 0
+    border: 0
+    text-align: left
+    text-transform: none
+    -webkit-appearance: none
 
-  select {
-    pointer-events: none;
-    user-select: none;
-    opacity: 0;
-    padding: 10px 13px;
-    visibility: hidden;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 25px;
-  }
+  select
+    pointer-events: none
+    user-select: none
+    opacity: 0
+    padding: 10px 13px
+    visibility: hidden
+    font-weight: 500
+    font-size: 14px
+    line-height: 25px
 
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    transform: translateY(0);
-    transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-    width: 60px;
-    color: rgba(17, 17, 17, 0.88);
+  ul
+    margin: 0
+    padding: 0
+    list-style: none
+    position: absolute
+    left: 0
+    top: 0
+    right: 0
+    transform: translateY(0)
+    transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1)
+    width: 60px
+    color: $color-black-88
 
-    li {
-      padding: 10px 13px;
-      cursor: pointer;
-    }
-  }
+    li
+      padding: 10px 13px
+      cursor: pointer
 
-  & > ul {
-    background: var(--bg-color-red);
-    color: rgba(17, 17, 17, 0.88);
-    border-radius: 6px;
+  &.dark ul
+    color: $color-white-88
 
-    li {
-      transition: color 0.3s ease;
+  & > ul
+    background: var(--bg-color-red)
+    color: $color-black-88
+    border-radius: 6px
 
-      &:hover {
-        color: rgba(17, 17, 17, 0.88);
-      }
-    }
-  }
+    li
+      transition: color 0.3s ease
 
-  &__button {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    padding: 0;
-    z-index: 1;
-    display: block;
-    overflow: hidden;
-    border-radius: 26px;
-    color: rgba(17, 17, 17, 0.88);
-    width: 60px;
-    height: 38px;
-  }
+      &:hover
+        color: $color-black-88
 
-  &.open ul {
-    background: white;
-  }
+  &.dark
+    ul
+      color: $color-white-88
 
-  &.open &__arrows {
-    & path {
-      fill: #fff;
-    }
-  }
+      &:hover
+        color: $color-white-88
 
-  &:not(.open) {
-    & > ul {
-      opacity: 0;
-      pointer-events: none;
-    }
-  }
+    & > ul
+      color: $color-black-88
 
-  &.open {
-    &.tilt-up {
-      animation: tilt-up 0.4s linear forwards;
-    }
+  &__button
+    position: absolute
+    left: 0
+    top: 0
+    right: 0
+    bottom: 0
+    padding: 0
+    z-index: 1
+    display: block
+    overflow: hidden
+    border-radius: 6px
+    color: $color-black-88
+    width: 60px
+    height: 36px
 
-    &.tilt-down {
-      animation: tilt-down 0.4s linear forwards;
-    }
-  }
-}
+    .dark &
+      color: $color-white-88
 
-@keyframes tilt-up {
+  & ul
+    background: transparent
+    color: $color-black-88
+
+  &.dark ul
+    background: transparent
+    color: $color-white-88
+
+  &.open ul
+    background: $color-black-100
+    color: $color-white-88
+
+  &.open.dark ul
+    background: $color-white-100
+    color: $color-black-88
+
+  & svg
+    fill: $color-black-100
+
+  &.dark svg
+    fill: $color-white-96
+
+  &.open svg
+    fill: $color-white-100
+
+  &.dark.open svg
+    fill: $color-black-96
+
+  &:not(.open)
+    & > ul
+      opacity: 0
+      pointer-events: none
+
+  &.open
+    &.tilt-up
+      animation: tilt-up 0.4s linear forwards
+
+    &.tilt-down
+      animation: tilt-down 0.4s linear forwards
+
+@keyframes tilt-up
   40%,
-  60% {
-    transform: perspective(500px) rotateX(8deg);
-  }
-}
+  60%
+    transform: perspective(500px) rotateX(8deg)
 
-@keyframes tilt-down {
+@keyframes tilt-down
   40%,
-  60% {
-    transform: perspective(500px) rotateX(-8deg);
-  }
-}
+  60%
+    transform: perspective(500px) rotateX(-8deg)
 </style>

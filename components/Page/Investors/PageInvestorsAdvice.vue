@@ -91,7 +91,8 @@ export default {
 
   @media (max-width: 900px)
     max-width: 100%
-
+    height: 325px
+    
   &-title
     color: $color-blue-100
     margin: 0

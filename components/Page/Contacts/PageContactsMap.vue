@@ -8,13 +8,34 @@
           :class="$style['contact__content-title']"
         ) {{ contactMap.title }}
         typo-text(
-          tag="p"
+          tag="div"
           version="style-5"
-          :class="$style['contact__content-phone']"
-        ) {{ contactMap.phone }}
+          :class="$style['contact__content-contact']"
+        )
+          a(
+            href="tel:+90 530 547-44-15"
+            :class="$style['contact__content-contact-phone']"
+            @click="$emit('click-to-contact')"
+          ) +90 530 547-44-15
+          a(
+            target="_blank"
+            href="https://wa.me/905305474415"
+          )
+            svg-icon(name="icon-whatsup")
+          a(
+            target="_blank"
+            href="viber://chat?number=+905305474415"
+          )
+            svg-icon(name="icon-viber")
+          a(
+            target="_blank"
+            href="tg://resolve?domain=905305474415"
+          )
+            svg-icon(name="icon-telegram")
         typo-text(
-          tag="p"
+          tag="a"
           version="style-5"
+          href="mailto:info@besthome.com.tr"
           :class="$style['contact__content-email']"
         ) {{ contactMap.email }}
         typo-text(
@@ -34,19 +55,21 @@
             :class="$style['content__link-text']"
           ) {{ contactMap.linkToMap.text}}
           typo-text(
-            tag="nuxt-link"
+            tag="a"
             version="style-5"
-            :to="localePath(contactMap.linkToMap.route)"
+            href="https://goo.gl/maps/GQ9d8WPAsrPe974L9"
             :title="contactMap.linkToMap.link"
             :class="$style['content__link-text--underline']"
+            target="_blank"
           ) {{  contactMap.linkToMap.link }}
           | .
           typo-text(
-            tag="nuxt-link"
+            tag="a"
             version="none"
-            :to="localePath(contactMap.linkToMap.route)"
+            href="https://goo.gl/maps/GQ9d8WPAsrPe974L9"
             :title="contactMap.linkToMap.link"
             :class="$style['content__link-arrow']"
+            target="_blank"
           )
             svg-icon(name="link-arrow-white")
 </template>
@@ -78,17 +101,20 @@ export default {
     background-image: url(~/assets/images/contacts-map-bg.jpg)
     background-repeat: no-repeat
     background-position-x: center
-    -webkit-mask: linear-gradient(to left, transparent 1%, black 5%), linear-gradient(to right, transparent 1%, black 5%)
-    -webkit-mask-position: center
-    -webkit-mask-repeat: no-repeat
-    -webkit-mask-composite: add
-    mask: linear-gradient(to left, transparent 1%, black 5%), linear-gradient(to right, transparent 1%, black 5%)
-    mask-position: center
-    mask-repeat: no-repeat
-    mask-composite: intersect
 
     @media (max-width: 1054px)
       background-position-x: 86%
+      padding-top: 97px
+
+    @media (min-width: 1055px)
+      -webkit-mask: linear-gradient(to left, transparent 1%, black 5%), linear-gradient(to right, transparent 1%, black 5%)
+      -webkit-mask-position: center
+      -webkit-mask-repeat: no-repeat
+      -webkit-mask-composite: add
+      mask: linear-gradient(to left, transparent 1%, black 5%), linear-gradient(to right, transparent 1%, black 5%)
+      mask-position: center
+      mask-repeat: no-repeat
+      mask-composite: intersect
 
   &__content
     max-width: 912px
@@ -101,21 +127,34 @@ export default {
      padding: 60px 24px 60px 24px
 
     &-title
-      margin: 0
-      margin-bottom: 32px
+      margin: 0 0 32px
       color: $color-white-100
 
       @media (max-width: 1054px)
         margin-bottom: 0
 
-    &-phone
-      margin: 0
+    &-contact
+      text-decoration: none
       color: $color-white-100
+      display: flex
+      align-items: center
+
+      a
+        color: $color-white-100
+        display: block
+        align-items: center
+        text-decoration: none
+
+      svg
+        display: block
+        height: 20px
+        width: 20px
+        margin-left: 6px
 
     &-email
-      margin: 0
-      margin-bottom: 32px
+      margin: 0 0 32px
       color: $color-white-100
+      text-decoration: none
 
     &-address
       max-width: 450px
